@@ -1,0 +1,77 @@
+{
+  "manifest_version": 1,
+  "snapshot_date": "2026-08-12",
+  "scope": {
+    "included": [
+      "user-provided pasted reference bundle",
+      "linked Anthropic official article",
+      "linked user-selected blog article",
+      "user-endorsed Codex opinion",
+      "specified AX prior-work folder",
+      "specified cofathon prior-work repository"
+    ],
+    "excluded": [
+      "all other Desktop repositories and workspaces"
+    ]
+  },
+  "entries": [
+    {
+      "id": "user-scaffold-2026-08-12",
+      "kind": "user_direct_input",
+      "role": "top-level goal, source boundary, and desired operating structure",
+      "path": "00-intake/2026-08-12-user-scaffold.md",
+      "status": "preserved"
+    },
+    {
+      "id": "intake-2026-08-12-reference-bundle",
+      "kind": "raw_intake",
+      "role": "immutable intake boundary",
+      "path": "00-intake/2026-08-12-pasted-reference-bundle.txt",
+      "status": "preserved",
+      "sha256": "a46e6fcb3c5d601e370b0f7f3669fe7ca0736e6729c7b0ce03a1040bccf90e39"
+    },
+    {
+      "id": "ext-anthropic-context-engineering-2025-09-29",
+      "kind": "external_official_reference",
+      "role": "official design reference",
+      "path": "10-external/anthropic-effective-context-engineering/source-record.md",
+      "snapshot": "10-external/anthropic-effective-context-engineering/original.html",
+      "selection": "10-external/anthropic-effective-context-engineering/user-selected-excerpts.md",
+      "status": "preserved_not_synthesized"
+    },
+    {
+      "id": "ext-blog-agentic-patterns-2026-04-05",
+      "kind": "external_user_selected_reference",
+      "role": "context plus harness framing reference",
+      "path": "10-external/blog-agentic-patterns/source-record.md",
+      "snapshot": "10-external/blog-agentic-patterns/original.html",
+      "selection": "10-external/blog-agentic-patterns/user-selected-excerpts.md",
+      "status": "preserved_not_synthesized"
+    },
+    {
+      "id": "ai-codex-context-questions-intake-2026-08-12",
+      "kind": "user_endorsed_ai_opinion",
+      "role": "design question set",
+      "path": "20-ai-opinion/codex-context-questions.md",
+      "status": "preserved_not_adopted_as_decision"
+    },
+    {
+      "id": "prior-ax-myrealtrip-work",
+      "kind": "prior_work_observation",
+      "role": "observe the user's prior working method, not an answer source",
+      "path": "30-prior-work/ax-myrealtrip/source-map.md",
+      "snapshot": "30-prior-work/ax-myrealtrip/snapshot/",
+      "snapshot_manifest": "30-prior-work/ax-myrealtrip/snapshot-manifest.tsv",
+      "status": "representative_snapshot_preserved"
+    },
+    {
+      "id": "prior-cofathon-work",
+      "kind": "prior_work_observation",
+      "role": "observe the user's prior working method, not an answer source",
+      "path": "30-prior-work/cofathon/source-map.md",
+      "snapshot": "30-prior-work/cofathon/snapshot/",
+      "snapshot_manifest": "30-prior-work/cofathon/snapshot-manifest.tsv",
+      "status": "representative_snapshot_preserved"
+    }
+  ]
+}

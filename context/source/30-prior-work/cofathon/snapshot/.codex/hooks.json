@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ROOT=\"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; \"$ROOT/tools/codex-session-start.py\"",
+            "timeout": 30,
+            "statusMessage": "Loading current project context"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ROOT=\"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\"; for i in python3 python py; do if command -v \"$i\" >/dev/null 2>&1; then \"$i\" \"$ROOT/tools/save_log.py\" --tool codex; exit 0; fi; done",
+            "timeout": 30,
+            "statusMessage": "Saving local conversation history"
+          }
+        ]
+      }
+    ]
+  }
+}
