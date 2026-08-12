@@ -4,14 +4,14 @@
 
 context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
-- `context/current/`: 다음 세션이 바로 행동하기 위해 읽는 현재 상태. `project.md`와 `work.md`로 나눈다.
+- `context/current/`: 다음 세션이 바로 행동하기 위해 읽는 현재 상태. 작업이 바뀌어도 계속 유효한 `memory.md`와 빠르게 바뀌는 `state.md`로 나눈다.
 - `context/records/`: 작업 중 만든 지속 가능한 문서·분석·중간 산출물·검증 기록의 누적층. 여기에 있다는 이유만으로 현재 상태가 되지는 않는다.
 - `context/source/`: 원자료와 provenance. 현재 판단이나 새 해석을 쓰지 않는다.
 - `output/`: 목표에 따른 실제 산출물. 분석 문서와 context 기록을 대신 보관하지 않는다.
 
 ## Re-entry
 
-지속 작업을 시작할 때는 `context/current/index.md`에서 시작해 연결된 `project.md`와 `work.md`를 읽는다. records 전체나 source 전체를 기본으로 읽지 않고, 현재 질문에 필요한 자료만 current의 접근점에서 선택한다.
+지속 작업을 시작할 때는 `context/current/index.md`에서 시작해 연결된 `memory.md`와 `state.md`를 읽는다. records 전체나 source 전체를 기본으로 읽지 않고, 현재 질문에 필요한 자료만 current의 접근점에서 선택한다.
 
 ## Context maintenance routing
 

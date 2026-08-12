@@ -15,6 +15,6 @@
 
 records의 문서를 current로 통째로 복사하지 않는다. 다음 세션이 알아야 할 현재 상태와 정확한 접근점만 [`../current/`](../current/)의 해당 owner 문서에 반영한다.
 
-완료된 작업의 상세 과정은 records에 남는다. 그 결과가 이후에도 유지되는 효과·제약이면 `current/project.md`, 아직 이어갈 작업이면 `current/work.md`에 압축해 남긴다. 더 이상 현재 행동에 영향을 주지 않으면 current에서 제거한다.
+완료된 작업의 상세 과정은 records에 남는다. 그 결과가 이후에도 유지되는 효과·제약이면 `current/memory.md`, 아직 이어갈 작업이면 `current/state.md`에 압축해 남긴다. 더 이상 현재 행동에 영향을 주지 않으면 current에서 제거한다.
 
 재진입 시에는 records 전체를 읽지 않는다. [`../current/index.md`](../current/index.md)에서 현재 질문에 필요한 기록만 선택해 들어온다.

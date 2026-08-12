@@ -1,4 +1,4 @@
-# Project common context
+# Current memory
 
 마지막 갱신: `2026-08-13`
 
@@ -11,7 +11,7 @@
 - **Project common context**: 장기간 유지되는 목표, 기준, 결정, 제약
 - **Work context**: 특정 작업의 문제, 현재 상태, 근거, 불확실성, 다음 행동
 
-두 역할은 각각 이 파일과 [`work.md`](./work.md)가 현재 상태를 소유한다. `current`, `records`, `source`는 이 context를 운영하는 저장 층위이며, 별도의 세 번째 context 역할로 간주하지 않는다.
+Project common context처럼 작업이 바뀌어도 계속 유효한 내용은 이 파일이, 빠르게 바뀌는 Work context의 현재 상태는 [`state.md`](./state.md)가 소유한다. `current`, `records`, `source`는 이 context를 운영하는 저장 층위이며, 별도의 세 번째 context 역할로 간주하지 않는다.
 
 ## 만들려는 것
 
@@ -24,10 +24,20 @@
 
 ## 현재 채택한 운영 경계
 
-- `context/current/`: 다음 세션이 바로 행동하는 데 필요한 현재 상태. `project.md`와 `work.md`로 나눈다.
+- `context/current/`: 다음 세션이 바로 행동하는 데 필요한 현재 상태. 계속 유효한 `memory.md`와 빠르게 바뀌는 `state.md`로 나눈다.
 - `context/records/`: 작업 중 만든 지속 가능한 문서·분석·중간 산출물·검증 기록의 누적층.
 - `context/source/`: 원자료와 provenance의 읽기 전용 층.
 - 루트 `output/`: 목표에 따른 실제 산출물. 분석 문서와 context 기록을 두지 않는다.
+
+## output에 적용할 Project–Workspace 관계
+
+- 이미 존재하는 개발 Project의 PRD, architecture, 공통 결정·제약은 상위 canonical 맥락이다.
+- 실제 작업은 여러 Workspace 단위로 운영하며, 각 Workspace는 필요한 상위 Project 맥락만 선택해 접근점을 유지한다.
+- Workspace의 `current`는 계속 유효한 `memory.md`와 빠르게 바뀌는 `state.md`로 나누고, 지속 가능한 작업 산출물은 `records/`에 누적한다.
+- 상세 결과는 records, 현재 후속 행동은 state, 이후 작업에도 영향을 주는 효과는 memory에 반영한다.
+- 상위 Project 자체의 폴더 구조, Workspace 결과를 상위 Project에 반영하는 규칙, Workspace 수명주기·구현 방식은 아직 정하지 않았다.
+
+합의 과정과 미결정 범위는 [`Project–Workspace context 운영 구조 합의`](../records/2026-08-13-03-project-workspace-context-agreement.md)에 있다.
 
 ## 현재 context 유지 장치
 
