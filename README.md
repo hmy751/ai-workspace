@@ -2,12 +2,13 @@
 
 사람과 AI가 프로젝트 공통 맥락과 진행 중인 작업 상태를 복구하고, 필요한 정보만 선택해 행동하며, 검증 결과를 지속 상태에 다시 반영할 수 있게 하는 context+harness 운영 구조를 만드는 저장소다.
 
-현재는 source intake를 마치고 context의 현재 상태와 작업 이력을 분리한 단계다.
+현재는 source intake를 마치고, 누적 작업 기록과 현재 상태를 `records`와 `current`로 분리한 단계다. 목표 운영 구조의 실제 산출물은 아직 만들지 않았다.
 
 - context 작업대: [`context/`](./context/)
-- 현재 유지되는 맥락: [`context/active/`](./context/active/)
-- 작업·판단 이력: [`context/history/`](./context/history/)
+- 현재 상태의 진입점: [`context/current/`](./context/current/)
+- 작업 중 만든 지속 기록: [`context/records/`](./context/records/)
 - source 원본과 색인: [`context/source/`](./context/source/)
+- 실제 목표 산출물 자리: [`output/`](./output/)
 - context 유지 subagent: [`.codex/agents/context-maintainer.toml`](./.codex/agents/context-maintainer.toml)
 - agent 등록: [`.codex/config.toml`](./.codex/config.toml)
 - 호출 조건과 책임 경계: [`AGENTS.md`](./AGENTS.md)

@@ -1,6 +1,6 @@
 # Project common context
 
-마지막 갱신: `2026-08-12`
+마지막 갱신: `2026-08-13`
 
 ## 목표
 
@@ -11,6 +11,8 @@
 - **Project common context**: 장기간 유지되는 목표, 기준, 결정, 제약
 - **Work context**: 특정 작업의 문제, 현재 상태, 근거, 불확실성, 다음 행동
 
+두 역할은 각각 이 파일과 [`work.md`](./work.md)가 현재 상태를 소유한다. `current`, `records`, `source`는 이 context를 운영하는 저장 층위이며, 별도의 세 번째 context 역할로 간주하지 않는다.
+
 ## 만들려는 것
 
 - 이미 개발 프로젝트가 있다고 가정하고 그 안에서 실제로 돌아가는 운영 구조
@@ -20,11 +22,18 @@
 
 설치 패키지 자체가 목표는 아니다. 운영 흐름과 상태의 연결이 먼저 보여야 한다.
 
+## 현재 채택한 운영 경계
+
+- `context/current/`: 다음 세션이 바로 행동하는 데 필요한 현재 상태. `project.md`와 `work.md`로 나눈다.
+- `context/records/`: 작업 중 만든 지속 가능한 문서·분석·중간 산출물·검증 기록의 누적층.
+- `context/source/`: 원자료와 provenance의 읽기 전용 층.
+- 루트 `output/`: 목표에 따른 실제 산출물. 분석 문서와 context 기록을 두지 않는다.
+
 ## 현재 context 유지 장치
 
-- repo-local `context_maintainer` subagent가 의미 있는 작업 경계에서 active의 drift와 history 누락을 점검한다.
+- repo-local `context_maintainer` subagent가 자연스러운 작업 경계에서 records 누락과 current drift·비대화를 함께 점검한다.
 - `AGENTS.md`가 호출 조건을 소유하고, main이 subagent 결과의 채택과 사용자 판단 경계를 소유한다.
-- agent는 근거가 명확한 active/history만 갱신하며 source 원본이나 프로젝트 목표를 독자적으로 바꾸지 않는다.
+- agent는 근거가 명확한 current/records만 갱신하며 source 원본이나 프로젝트 목표를 독자적으로 바꾸지 않는다.
 - agent 정의·등록·routing은 이 저장소 안에서만 소유하며 전역 agent·skill·프로젝트 색인·runtime 설정으로 승격하지 않는다.
 
 ## source 경계
