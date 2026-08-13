@@ -114,13 +114,13 @@ output/
 
 - recover 11개, verify 8개, 제품 7개를 합친 26개 unittest 통과
 - 실제 active Workspace의 `recover → verify → recover` 통과
-- 최종 pass receipt: `output/workspaces/001-default-timeout/records/verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json`
+- 최종 pass receipt: `output/context/work/workspaces/001-default-timeout/records/verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json`
 - 후속 recovery가 packet schema `3`, 최신 receipt, `verified_waiting_acceptance`를 복구
 - 사람용 Workspace `state/index.md` SHA-256이 verify 전후 동일: `3360a031e6054e594d94ace6b4007dafad422e83883241017b94c1aacbe81ead`
 - receipt evidence hash가 실제 source와 product test에 일치
 - 독립 read-only 검토에서 P1·P2·P3 결함 없음
 
-Workspace 내부의 상세 증거는 [`output Harness 책임 경계 기록`](../../output/workspaces/001-default-timeout/records/2026-08-13-03-harness-responsibility-boundary-refactor.md)에 있다.
+Workspace 내부의 상세 증거는 [`output Harness 책임 경계 기록`](../../output/context/work/workspaces/001-default-timeout/records/2026-08-13-03-harness-responsibility-boundary-refactor.md)에 있다.
 
 ## 검증 상한
 

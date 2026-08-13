@@ -33,14 +33,18 @@ Project common context처럼 작업이 바뀌어도 계속 유효한 내용은 �
 
 - 이미 존재하는 개발 Project의 PRD, architecture, 공통 결정·제약은 상위 canonical 맥락이다.
 - 실제 작업은 여러 Workspace 단위로 운영하며, 각 Workspace는 필요한 상위 Project 맥락만 선택해 접근점을 유지한다.
+- `output/context/`는 Project context와 Work context의 관계를 묶는 상위 경계다. `context/project/`는 여러 작업이 공유하는 Project common context를, `context/work/`는 Harness와 Workspace collection이 함께 이루는 Work context 운영 경계를 소유한다.
+- Harness는 개별 Workspace의 내용이 아니라 여러 Workspace가 공유하는 교체 가능한 관리 장치다. `context/work/` 안에서 `workspaces/`와 형제로 두되, 제거해도 각 Workspace의 의미·current·records를 이해할 수 있어야 한다.
+- `workspaces/` 이름은 유지한다. 현재의 모호함은 이름보다 Project root에 독립 구성처럼 노출된 배치에서 생겼으며, `context/work/` 아래에서는 Workspace 인스턴스 collection이라는 역할이 분명하다.
 - Workspace의 `current`는 `memory/`와 `state/` 폴더로 나눈다. `memory/index.md`와 주제별 문서는 계속 유효한 현재 맥락을, `state/index.md`는 사람이 읽는 현재 문제와 해석을, `state/status.json`은 harness가 갱신하는 최근 결과와 다음 행동을 소유한다.
 - memory 폴더에 과거를 누적하지 않는다. 지금도 유효하고 기본 재진입에 필요한 주제만 두며, 상세 과정과 이전 상태·검증 receipt는 `records/`에 누적한다.
 - Workspace 루트 `README.md`를 사람의 첫 화면으로 두고, machine 계약과 raw receipt를 읽기 전에 현재 문서의 위치와 읽는 순서를 찾게 한다.
 - `workspace.json`은 Workspace identity, `recover.json`은 Project context 선택, `verify.json`은 고정 검증과 결과별 다음 행동을 소유한다.
 - Harness는 상위 경계 아래 `recover`와 `verify`의 정의·구현·테스트를 각각 묶고, 두 책임이 실제로 공유하는 Workspace 선택·안전한 접근·status/receipt 인계만 공통 계약으로 둔다.
-- 상위 Project 자체의 폴더 구조, Workspace 결과를 상위 Project에 반영하는 규칙, Workspace 생성·완료·보관 수명주기는 아직 정하지 않았다.
+- 이 reference의 Project common context는 `context/project/`에 두기로 했다. 다른 실제 Project의 기존 canonical을 어떤 위치에서 유지·연결·이동할지는 범용 규칙으로 정하지 않았다.
+- Workspace 결과를 Project canonical에 반영하는 규칙과 Workspace 생성·완료·보관 수명주기는 아직 정하지 않았다.
 
-최초 합의와 미결정 범위는 [`Project–Workspace context 운영 구조 합의`](../records/2026-08-13-03-project-workspace-context-agreement.md), 사람용·기계용 current 분리는 [`Workspace current 폴더화`](../records/2026-08-13-05-workspace-current-folder-migration.md), 수락된 Harness 책임 배치는 [`Harness 책임 경계 재구성`](../records/2026-08-13-06-harness-responsibility-boundary-refactor.md)에 있다.
+최초 합의와 미결정 범위는 [`Project–Workspace context 운영 구조 합의`](../records/2026-08-13-03-project-workspace-context-agreement.md), 사람용·기계용 current 분리는 [`Workspace current 폴더화`](../records/2026-08-13-05-workspace-current-folder-migration.md), 수락된 Harness 책임 배치는 [`Harness 책임 경계 재구성`](../records/2026-08-13-06-harness-responsibility-boundary-refactor.md), Project context와 Work context의 물리적 상위 경계 결정은 [`Project·Work context 상위 경계 재구성`](../records/2026-08-13-07-project-work-context-boundary.md)에 있다.
 
 ## 현재 context 유지 장치
 
