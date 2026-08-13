@@ -1,3 +1,3 @@
 [agents.context_maintainer]
-description = "작업 경계에서 current, records, source와 실제 저장소 상태를 대조하고 누적 기록과 현재 상태를 유지하는 프로젝트 전용 maintainer."
+description = "작업 경계에서 지정한 Workspace의 current·records와 shared source, 실제 저장소 상태를 대조해 context 정합성을 유지하는 프로젝트 전용 maintainer."
 config_file = "agents/context-maintainer.toml"

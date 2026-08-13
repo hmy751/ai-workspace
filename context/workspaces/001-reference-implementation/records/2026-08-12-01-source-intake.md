@@ -27,7 +27,7 @@
 - AX·cofathon 대표 snapshot의 SHA-256과 byte size 확인
 - manifest JSON과 모든 등록 경로 확인
 
-세부 결과와 검증 상한은 [`../source/VERIFICATION.md`](../source/VERIFICATION.md)에 있다.
+세부 결과와 검증 상한은 [`../../../source/VERIFICATION.md`](../../../source/VERIFICATION.md)에 있다.
 
 ## 이 시점의 한계
 

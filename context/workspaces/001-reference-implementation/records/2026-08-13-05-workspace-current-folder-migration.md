@@ -24,7 +24,7 @@
 - 사람용 `state/index.md`의 검증 전후 SHA-256이 같았다.
 - 독립 검증에서 사람용 Workspace README의 실행 위치가 모호한 문제를 발견해 명령을 `output/` root에서 실행하도록 명시했다.
 
-실제 Workspace 내부 상세와 새 receipt는 [`output migration record`](../../output/context/work/workspaces/001-default-timeout/records/2026-08-13-02-current-folder-migration.md)에 있다.
+실제 Workspace 내부 상세와 새 receipt는 [`output migration record`](../../../../output/context/work/workspaces/001-default-timeout/records/2026-08-13-02-current-folder-migration.md)에 있다.
 
 ## 남은 범위
 

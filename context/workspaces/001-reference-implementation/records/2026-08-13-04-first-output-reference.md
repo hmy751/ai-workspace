@@ -10,7 +10,7 @@
 
 ## 구현한 Project
 
-[`../../output/`](../../output/)에 request policy config를 다루는 작은 Python Project를 만들었다.
+[`../../../../output/`](../../../../output/)에 request policy config를 다루는 작은 Python Project를 만들었다.
 
 - Project canonical context: PRD, architecture, default-timeout 결정
 - 실제 제품 코드: `src/config_loader.py`
@@ -51,7 +51,7 @@ active Workspace와 선택 목록을 정하기 위해 `workspaces/index.json`과
 - 제품 test 7개 중 default-timeout test 1개 실패
 - exit code: `1`
 - 실제 오류: `AssertionError: 3000 != 5000`
-- output receipt: [`fail`](../../output/context/work/workspaces/001-default-timeout/records/verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json)
+- output receipt: [`fail`](../../../../output/context/work/workspaces/001-default-timeout/records/verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json)
 - 지속 상태: `verification_failed`
 
 이는 자연 발생한 장애가 아니라 상태 반영을 검증하기 위해 의도적으로 만든 reference 장면이다.
@@ -62,7 +62,7 @@ Project canonical 기준대로 기본값을 `5000`으로 복원하고 같은 검
 
 - 제품 test 7개 통과
 - exit code: `0`
-- output receipt: [`pass`](../../output/context/work/workspaces/001-default-timeout/records/verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json)
+- output receipt: [`pass`](../../../../output/context/work/workspaces/001-default-timeout/records/verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json)
 - 지속 상태: `verified_waiting_acceptance`
 - 후속 recovery가 성공 receipt와 사용자 수락이라는 다음 행동을 복구
 

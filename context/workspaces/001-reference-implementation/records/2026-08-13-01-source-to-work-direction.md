@@ -28,7 +28,7 @@ flowchart LR
 
 ### 사용자 직접 입력은 목표와 완료 기준을 정한다
 
-[`사용자 scaffold`](../source/00-intake/2026-08-12-user-scaffold.md)는 다음 범위를 정한다.
+[`사용자 scaffold`](../../../source/00-intake/2026-08-12-user-scaffold.md)는 다음 범위를 정한다.
 
 - 이미 개발 프로젝트가 있다고 가정한다.
 - Project common context와 Work context를 복구하고 선택적으로 사용해야 한다.
@@ -39,7 +39,7 @@ flowchart LR
 
 ### Anthropic 공식 자료는 context 품질을 평가하는 기준으로 쓴다
 
-[`사용자 선택 발췌`](../source/10-external/anthropic-effective-context-engineering/user-selected-excerpts.md)는 context를 많이 넣는 것보다 원하는 행동에 필요한 구성을 고르고, 작업 메모리에는 현재 필요한 정보만 두며, 긴 작업은 고충실도 압축과 구조화된 기록으로 이어 가라고 설명한다.
+[`사용자 선택 발췌`](../../../source/10-external/anthropic-effective-context-engineering/user-selected-excerpts.md)는 context를 많이 넣는 것보다 원하는 행동에 필요한 구성을 고르고, 작업 메모리에는 현재 필요한 정보만 두며, 긴 작업은 고충실도 압축과 구조화된 기록으로 이어 가라고 설명한다.
 
 따라서 다음을 확인하는 데 사용한다.
 
@@ -51,7 +51,7 @@ flowchart LR
 
 ### 사용자 선택 블로그는 harness coverage를 묻는 기준으로 쓴다
 
-[`사용자 선택 발췌`](../source/10-external/blog-agentic-patterns/user-selected-excerpts.md)는 guide만으로는 강제되지 않으므로 기계 검사, 의미 검토, 사람 개입을 실패 유형에 맞게 조합하고, 필요한 정보는 지도에서 점진적으로 찾으며, harness는 나중에 부분별로 제거할 수 있어야 한다고 설명한다.
+[`사용자 선택 발췌`](../../../source/10-external/blog-agentic-patterns/user-selected-excerpts.md)는 guide만으로는 강제되지 않으므로 기계 검사, 의미 검토, 사람 개입을 실패 유형에 맞게 조합하고, 필요한 정보는 지도에서 점진적으로 찾으며, harness는 나중에 부분별로 제거할 수 있어야 한다고 설명한다.
 
 따라서 실제로 관찰된 실패마다 다음을 묻는 데 사용한다.
 
@@ -65,13 +65,13 @@ flowchart LR
 
 ### 사용자가 가져온 Codex 의견은 설계 누락을 찾는 질문으로 쓴다
 
-[`context 운영 질문`](../source/20-ai-opinion/codex-context-questions.md)은 각 상태에 대해 내용, 유효성, 정본, 읽히는 시점, 갱신 주체, 검증 근거를 분리해 묻게 한다.
+[`context 운영 질문`](../../../source/20-ai-opinion/codex-context-questions.md)은 각 상태에 대해 내용, 유효성, 정본, 읽히는 시점, 갱신 주체, 검증 근거를 분리해 묻게 한다.
 
 새 문서나 자동화를 추가할 때 이 여섯 질문에 답하지 못하면 구조를 먼저 늘리지 않는다. 이 질문 집합 자체는 아직 사용자 승인 설계안이 아니다.
 
 ### AX와 cofathon은 실패 시나리오와 실제 연결을 고르는 관찰 자료로 쓴다
 
-[`AX source map`](../source/30-prior-work/ax-myrealtrip/source-map.md)과 [`cofathon source map`](../source/30-prior-work/cofathon/source-map.md)에서 공통으로 관찰되는 연결은 다음과 같다.
+[`AX source map`](../../../source/30-prior-work/ax-myrealtrip/source-map.md)과 [`cofathon source map`](../../../source/30-prior-work/cofathon/source-map.md)에서 공통으로 관찰되는 연결은 다음과 같다.
 
 - 재진입 지침에서 현재 지도와 안정 기준으로 들어간다.
 - 현재 상태, 장기 기준, 시간순 이력, 실행 가능한 검사를 다른 책임으로 둔다.

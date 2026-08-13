@@ -11,7 +11,7 @@
 - **Project common context**: 장기간 유지되는 목표, 기준, 결정, 제약
 - **Work context**: 특정 작업의 문제, 현재 상태, 근거, 불확실성, 다음 행동
 
-Project common context처럼 작업이 바뀌어도 계속 유효한 내용은 이 파일이, 빠르게 바뀌는 Work context의 현재 상태는 [`state.md`](./state.md)가 소유한다. `current`, `records`, `source`는 이 context를 운영하는 저장 층위이며, 별도의 세 번째 context 역할로 간주하지 않는다.
+이 reference 구현 Workspace에서 작업 단계가 바뀌어도 계속 유효한 내용은 이 파일이, 빠르게 바뀌는 상태는 [`state.md`](./state.md)가 소유한다. `current`, `records`, `source`는 context를 운영하는 저장 층위이며, 별도의 세 번째 context 역할로 간주하지 않는다.
 
 ## 만들려는 것
 
@@ -22,11 +22,12 @@ Project common context처럼 작업이 바뀌어도 계속 유효한 내용은 �
 
 설치 패키지 자체가 목표는 아니다. 운영 흐름과 상태의 연결이 먼저 보여야 한다.
 
-## 현재 채택한 운영 경계
+## 이 작업대에 채택한 운영 경계
 
-- `context/current/`: 다음 세션이 바로 행동하는 데 필요한 현재 상태. 계속 유효한 `memory.md`와 빠르게 바뀌는 `state.md`로 나눈다.
-- `context/records/`: 작업 중 만든 지속 가능한 문서·분석·중간 산출물·검증 기록의 누적층.
-- `context/source/`: 원자료와 provenance의 읽기 전용 층.
+- `context/workspaces/`: 서로 다른 작업의 current와 records를 Workspace별로 분리한다.
+- 이 Workspace의 `current/`: reference 구현 작업에서 계속 유효한 memory와 최종 state.
+- 이 Workspace의 `records/`: reference 구현 중 만든 지속 가능한 문서·분석·중간 산출물·검증 기록.
+- 루트 `context/source/`: Workspace들이 필요할 때 선택해서 읽는 원자료와 provenance의 읽기 전용 층.
 - 루트 `output/`: 목표에 따른 실제 산출물. 분석 문서와 context 기록을 두지 않는다.
 
 ## output에 적용할 Project–Workspace 관계
@@ -59,4 +60,4 @@ Project common context처럼 작업이 바뀌어도 계속 유효한 내용은 �
 - 블로그 원문과 사용자가 선택한 발췌는 context+harness 관점을 구체화하는 참고 자료로 본다.
 - 사용자가 공감해 가져온 Codex 의견은 설계 질문으로 보존하되, 사용자 승인 결정과 동일시하지 않는다.
 - AX와 cofathon은 사용자가 실제로 작업한 방식을 관찰하는 자료이며 새 구조의 정답 원천은 아니다.
-- 등록된 자료는 [`../source/manifest.json`](../source/manifest.json)에서 찾는다. 다른 Desktop 저장소는 source로 확장하지 않는다.
+- 등록된 자료는 [`../../../source/manifest.json`](../../../source/manifest.json)에서 찾는다. 다른 Desktop 저장소는 source로 확장하지 않는다.

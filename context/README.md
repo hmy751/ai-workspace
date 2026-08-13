@@ -2,29 +2,30 @@
 
 실제 개발 프로젝트에서 사람과 AI가 프로젝트 공통 맥락과 진행 중인 작업 상태를 복구하고, 필요한 정보만 선택해 행동하며, 검증 결과를 지속 상태에 다시 반영할 수 있게 하는 context+harness 운영 구조를 탐구하는 작업대다.
 
-## 세 층의 역할
+## 구성
 
-- [`current/`](./current/): 다음 세션이 바로 행동하기 위해 먼저 읽는 현재 상태다. 작업이 바뀌어도 계속 유효한 `memory.md`와 빠르게 바뀌는 `state.md`로 나눈다.
-- [`records/`](./records/): 작업하면서 만든 지속 가능한 문서, 분석, 중간 산출물, 시도, 결정, 검증 기록이 누적되는 곳이다. records에 있다는 이유만으로 현재라는 뜻은 아니다.
-- [`source/`](./source/): 판단을 다시 확인할 수 있는 원본, 사용자 선택 발췌, AI 의견, 기존 작업 관찰 자료와 provenance.
+- [`workspaces/`](./workspaces/): 서로 다른 작업의 현재 상태와 누적 기록을 Workspace별로 분리한다.
+- [`source/`](./source/): 여러 Workspace가 필요에 따라 선택해서 읽는 원본, 사용자 선택 발췌, AI 의견, 기존 작업 관찰 자료와 provenance다.
 
-루트 [`../output/`](../output/)은 context 층이 아니라 목표에 따른 실제 산출물 자리다. output을 만들기까지의 분석과 검증 기록은 records에 두고, 실제 산출물을 records에 복제하지 않는다.
+루트 [`../output/`](../output/)은 context 층이 아니라 목표에 따른 실제 산출물 자리다. Workspace의 분석과 검증 기록은 해당 Workspace의 `records/`에 두고, 실제 산출물을 records에 복제하지 않는다.
 
-## Current의 내부 역할
+## Workspace 경계
 
-- `current/memory.md`: 여러 작업을 지나도 계속 유효하고, 모르면 이후 행동이 달라지는 목표·기준·결정·제약·지속 효과
-- `current/state.md`: 지금 이어갈 문제, 현재 상태, 근거 접근점, 불확실성, 검증 결과, 다음 행동
+각 Workspace는 하나의 작업 맥락을 소유한다.
 
-current는 확인된 사실만 모으는 곳이 아니다. 미확인 상태나 사용자 판단 대기도 다음 행동에 필요하면 상태를 명시해 둔다. 다만 완료 과정, 긴 분석, 상세 검증 결과를 누적하지 않는다.
+- `README.md`: 작업의 정체성·범위·사람이 읽는 순서
+- `current/`: 다음 세션이 바로 행동하는 데 필요한 현재 상태
+- `records/`: 해당 작업에서 만든 지속 가능한 분석·결정·시도·검증 기록
 
-## 갱신 흐름
+지금까지의 source 정리와 실행 가능한 reference 구현은 [`001-reference-implementation`](./workspaces/001-reference-implementation/)에 보존한다. 다음 실제 Project 적용은 [`002-project-application`](./workspaces/002-project-application/)에서 이어 간다.
 
-1. 후속 작업에서 다시 사용할 문서·분석·중간 산출물·검증 기록을 `records/`에 남긴다.
-2. 실제 파일, source, test, 사용자 정정 등으로 현재 상태를 확인한다.
-3. 그중 **다음 세션이 모르면 현재를 잘못 이해하거나 잘못 행동할 내용만** `current/`에 반영한다.
-4. 완료 과정과 상세 결과는 records에 남긴다. 완료 뒤에도 유지되는 효과·제약은 `current/memory.md`, 후속 작업은 `current/state.md`에 남긴다.
-5. 더 이상 다음 행동에 영향을 주지 않는 내용은 사실이어도 current에서 내린다. records는 지우지 않는다.
+이 작업대에는 `output/context/work`의 Harness, JSON 계약, machine status를 그대로 복제하지 않는다. 여러 작업의 현재 상태와 기록이 섞이지 않게 하는 Workspace 경계만 먼저 적용한다.
 
-재진입할 때는 [`current/index.md`](./current/index.md)에서 시작한다. 현재 질문의 이유나 상세 결과가 필요할 때만 연결된 records를 읽고, 원자료를 재확인해야 할 때 source를 연다.
+## 재진입
 
-첫 context+harness 운영 구조는 루트 [`../output/`](../output/)에 실행 가능한 reference로 구현했다. 이 한 구현을 범용 구조로 채택할지와 실제 Project 적용 방식은 아직 정하지 않았다.
+1. [`workspaces/README.md`](./workspaces/README.md)에서 active Workspace를 확인한다. 사용자가 Workspace를 명시했다면 그 지시를 우선한다.
+2. 선택한 Workspace의 `README.md`와 `current/index.md`를 읽는다.
+3. 현재 질문에 필요한 records만 선택해서 읽는다.
+4. 판단 근거를 다시 확인해야 할 때만 [`source/`](./source/)를 연다.
+
+다른 Workspace의 current나 records는 비교·이관·검증에 필요하다고 명시된 경우에만 읽는다.
