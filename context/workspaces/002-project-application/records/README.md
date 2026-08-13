@@ -6,3 +6,7 @@
 - 상세 과정과 근거는 records에 남기고, 지금도 유효한 기준은 `../current/memory.md`, 이어 갈 상태는 `../current/state.md`에 압축한다.
 - 대상 Project의 원문이나 파일을 무조건 복제하지 않는다. live 경로를 참조할지 snapshot을 보존할지 먼저 provenance와 변경 가능성을 판단한다.
 - 다른 Workspace의 records를 이곳에 복사하지 않고 필요한 결론과 접근점만 current에서 가리킨다.
+
+## 기록
+
+- [`2026-08-13-01-payment-recovery-project-application.md`](2026-08-13-01-payment-recovery-project-application.md): 첫 실제 Project의 배치 변경, recover·verify 시도, durable 증거 보강과 검증 상한
