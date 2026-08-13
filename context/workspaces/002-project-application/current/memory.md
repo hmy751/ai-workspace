@@ -1,6 +1,6 @@
 # Project application memory
 
-마지막 갱신: `2026-08-13`
+마지막 갱신: `2026-08-14`
 
 ## 목표
 
@@ -15,6 +15,12 @@
 - 적용 전 미커밋 사용자 작업 `App.tsx`, `styles.css`는 수정하지 않았다. 적용 전 존재하던 untracked `context/code-map.md`는 사용자가 적용 진행 중 직접 삭제해 현재 없으며, Harness가 삭제했거나 복구할 손실이 아니다.
 - Harness가 없어져도 기존 Project canonical과 Workspace의 README·current·records 의미가 남아야 한다.
 
+## 반복 적용 절차
+
+- [`output/`](../../../../output/)은 실행 가능한 원형, repo-local [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/) skill은 이식 절차와 migration-only helper, 이 Workspace의 records는 실제 적용 결과와 예외를 소유한다.
+- helper는 이식 전에 target 상태를 관찰·보존하고 target-specific Harness test receipt를 만드는 장치다. 제품 runtime이나 범용 설치 payload가 아니며 target에 복제하지 않는다.
+- 이 절차는 `AGENTS.md`가 대상 Project 경로가 포함된 이식 요청에만 routing한다. 이 저장소의 `output/`, Workspace, context maintainer와 결합된 절차여서 global skill로 등록하지 않았다.
+
 ## 검증 상한
 
 - 구조와 선택적 복구, 고정 typecheck·test·Checkout build, receipt 누적, machine status 갱신과 후속 재복구까지 확인했다.
@@ -25,6 +31,7 @@
 ## 접근점
 
 - 이 Workspace의 상세 적용·검증 기록: [`2026-08-13-01-payment-recovery-project-application.md`](../records/2026-08-13-01-payment-recovery-project-application.md)
+- 반복 절차 승격과 검증 기록: [`2026-08-14-01-apply-context-harness-skill-promotion.md`](../records/2026-08-14-01-apply-context-harness-skill-promotion.md)
 - 대상 진입점: `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio/AGENTS.md`
 - 대상 current: `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio/context/work/workspaces/001-payment-recovery-mvp/current/`
 - 대상 migration record: `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio/context/work/workspaces/001-payment-recovery-mvp/records/2026-08-13-01-context-harness-application.md`

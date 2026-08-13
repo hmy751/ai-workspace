@@ -11,3 +11,5 @@
 3. [`records/`](records/): 적용 결정, migration, 실패·성공 검증과 증거 상한
 
 이 Workspace는 `output/context/work`의 전체 구조를 정답처럼 복제하지 않는다. 대상 Project의 기존 canonical과 배치를 먼저 확인하고, 필요한 책임과 운영 흐름만 최소로 적용한다.
+
+첫 적용에서 반복 가능한 이식 절차는 repo-local [`apply-context-harness`](../../../.agents/skills/apply-context-harness/) skill로 승격했다. skill은 실제 적용 결과를 소유하지 않으며, 각 이식의 결과와 예외는 이 Workspace의 records에 남긴다.

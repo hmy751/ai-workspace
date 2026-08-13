@@ -10,6 +10,13 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 - 각 Workspace의 `records/`: 해당 작업에서 만든 지속 가능한 문서·분석·중간 산출물·검증 기록의 누적층. 여기에 있다는 이유만으로 현재 상태가 되지는 않는다.
 - `context/source/`: 여러 Workspace가 필요할 때 선택해서 읽는 원자료와 provenance. 현재 판단이나 새 해석을 쓰지 않는다.
 - `output/`: 목표에 따른 실제 산출물. 분석 문서와 context 기록을 대신 보관하지 않는다.
+- `.agents/skills/`: 이 저장소에서 반복할 작업 절차. 실행 원형이나 실제 적용 기록을 복제하지 않는다.
+
+## Repo-local skill routing
+
+사용자가 대상 Project 경로와 함께 `output/`의 context+harness 이식·적용, Workspace current/records와 recover·verify 설치를 요청하면 [`.agents/skills/apply-context-harness/SKILL.md`](.agents/skills/apply-context-harness/SKILL.md)를 사용한다.
+
+이 skill은 `output/`을 범용 템플릿처럼 복사하지 않는다. 대상의 기존 canonical과 사용자 변경을 먼저 고정하고, Project common·Workspace·Harness 책임을 대상 배치에 맞춘 뒤 `recover → verify → recover`와 durable receipt로 검증한다. 브라우저·외부 시스템·사람 acceptance, target commit은 별도 승인 없이 완료 처리하지 않는다.
 
 ## Re-entry
 

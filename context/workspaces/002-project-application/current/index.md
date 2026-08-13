@@ -1,6 +1,6 @@
 # Project application current
 
-마지막 갱신: `2026-08-13`
+마지막 갱신: `2026-08-14`
 
 이 폴더는 실제 Project 적용 작업의 현재 상태를 소유한다.
 

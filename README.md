@@ -11,8 +11,9 @@
 - 준비된 적용 Workspace: [`003-project-application`](./context/workspaces/003-project-application/)
 - 공유 source 원본과 색인: [`context/source/`](./context/source/)
 - 실행 가능한 reference 산출물: [`output/`](./output/)
+- 실제 Project 이식 절차: [`.agents/skills/apply-context-harness/`](./.agents/skills/apply-context-harness/)
 - context 유지 subagent: [`.codex/agents/context-maintainer.toml`](./.codex/agents/context-maintainer.toml)
 - agent 등록: [`.codex/config.toml`](./.codex/config.toml)
 - 호출 조건과 책임 경계: [`AGENTS.md`](./AGENTS.md)
 
-agent 정의와 routing은 이 저장소 안에서만 관리한다. 전역 agent·skill·프로젝트 색인·runtime 설정에는 등록하지 않는다.
+agent 정의, repo-local skill과 routing은 이 저장소 안에서만 관리한다. 전역 agent·skill·프로젝트 색인·runtime 설정에는 등록하지 않는다.
