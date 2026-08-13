@@ -1,0 +1,59 @@
+{
+  "argv": [
+    "python3",
+    "-m",
+    "unittest",
+    "tests.test_config_loader",
+    "-v"
+  ],
+  "evidence_capture": "before_verification",
+  "evidence_collected_at": "2026-08-12T18:41:54.315Z",
+  "evidence_files": [
+    {
+      "path": "src/config_loader.py",
+      "sha256": "bc205ccbf85ae426e278bace6a90da039fb659bc1266a009b1354f05648c3d5f",
+      "size": 1496
+    },
+    {
+      "path": "tests/test_config_loader.py",
+      "sha256": "f5de705fdaa935387e0eb1fe55b167c938056f0bcadcbd14900bdb27bbf665d0",
+      "size": 1741
+    }
+  ],
+  "exit_code": 1,
+  "finished_at": "2026-08-12T18:41:54.363Z",
+  "normalization": {
+    "output_root_token": "<OUTPUT_ROOT>",
+    "stderr_replacements": 1,
+    "stdout_replacements": 0
+  },
+  "output_capture": {
+    "encoding": "utf-8",
+    "errors": "replace",
+    "limit_unit": "characters",
+    "max_chars_per_stream": 20000,
+    "stderr": {
+      "observed_chars": 1534,
+      "persisted_chars": 1495,
+      "read_error": null,
+      "truncated": false
+    },
+    "stdout": {
+      "observed_chars": 0,
+      "persisted_chars": 0,
+      "read_error": null,
+      "truncated": false
+    }
+  },
+  "process_returncode": 1,
+  "result": "fail",
+  "schema_version": 1,
+  "started_at": "2026-08-12T18:41:54.315Z",
+  "stderr": "test_explicit_timeout_is_preserved (tests.test_config_loader.LoadRequestPolicyTests.test_explicit_timeout_is_preserved) ... ok\ntest_missing_timeout_uses_5000_ms (tests.test_config_loader.LoadRequestPolicyTests.test_missing_timeout_uses_5000_ms) ... FAIL\ntest_rejects_boolean_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_boolean_timeout) ... ok\ntest_rejects_non_integer_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_non_integer_timeout) ... ok\ntest_rejects_non_positive_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_non_positive_timeout) ... ok\ntest_rejects_unknown_keys (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_unknown_keys) ... ok\ntest_returns_immutable_policy (tests.test_config_loader.LoadRequestPolicyTests.test_returns_immutable_policy) ... ok\n\n======================================================================\nFAIL: test_missing_timeout_uses_5000_ms (tests.test_config_loader.LoadRequestPolicyTests.test_missing_timeout_uses_5000_ms)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<OUTPUT_ROOT>/tests/test_config_loader.py\", line 11, in test_missing_timeout_uses_5000_ms\n    self.assertEqual(policy.request_timeout_ms, 5000)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 3000 != 5000\n\n----------------------------------------------------------------------\nRan 7 tests in 0.000s\n\nFAILED (failures=1)\n",
+  "stdout": "",
+  "timeout": {
+    "timed_out": false,
+    "timeout_seconds": 30.0
+  },
+  "workspace_id": "001-default-timeout"
+}

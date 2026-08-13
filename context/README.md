@@ -27,4 +27,4 @@ current는 확인된 사실만 모으는 곳이 아니다. 미확인 상태나 �
 
 재진입할 때는 [`current/index.md`](./current/index.md)에서 시작한다. 현재 질문의 이유나 상세 결과가 필요할 때만 연결된 records를 읽고, 원자료를 재확인해야 할 때 source를 연다.
 
-아직 context+harness 운영 구조 자체나 설치 패키지를 설계한 상태는 아니다.
+첫 context+harness 운영 구조는 루트 [`../output/`](../output/)에 실행 가능한 reference로 구현했다. 이 한 구현을 범용 구조로 채택할지와 실제 Project 적용 방식은 아직 정하지 않았다.

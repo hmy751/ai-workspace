@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "workspace_id": "001-default-timeout",
+  "project_context": [
+    {
+      "path": "docs/prd.md",
+      "reason": "request_timeout_ms의 행위 완료 기준과 유효성 범위를 확인하기 위해 선택했다."
+    },
+    {
+      "path": "docs/decisions/0001-default-timeout.md",
+      "reason": "누락된 timeout의 canonical 기본값이 5000밀리초라는 결정을 확인하기 위해 선택했다."
+    }
+  ],
+  "verification": {
+    "argv": [
+      "python3",
+      "-m",
+      "unittest",
+      "tests.test_config_loader",
+      "-v"
+    ],
+    "evidence_paths": [
+      "src/config_loader.py",
+      "tests/test_config_loader.py"
+    ],
+    "timeout_seconds": 30,
+    "max_output_chars": 20000
+  },
+  "next_actions": {
+    "pass": "receipt와 선택된 Project 기준의 정합성을 검토하고 이 작업을 수락할지 명시적으로 결정한다.",
+    "fail": "receipt의 stdout과 stderr에서 최초 실패를 확인하고 코드 또는 테스트를 수정한 뒤 같은 고정 검증을 다시 실행한다."
+  }
+}
