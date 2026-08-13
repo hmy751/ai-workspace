@@ -2,7 +2,7 @@
 
 사람과 AI가 프로젝트 공통 맥락과 진행 중인 작업 상태를 복구하고, 필요한 정보만 선택해 행동하며, 검증 결과를 지속 상태에 다시 반영할 수 있게 하는 context+harness 운영 구조를 만드는 저장소다.
 
-source intake와 context 운영 경계 정리를 마쳤고, `output/`에 첫 실행 가능한 Project–Workspace reference를 구현해 실제 실패·수정·성공·재진입 순환까지 검증한 상태다. 현재 결과는 사용자 수락 전이다.
+source intake와 context 운영 경계 정리를 마쳤고, `output/`에 첫 실행 가능한 Project–Workspace reference를 구현해 실제 실패·수정·성공·재진입 순환까지 검증했다. Workspace current 폴더화 결과는 사용자가 수락했으며, Harness의 `recover`와 `verify`가 각자 구현·계약·테스트·설명 경계를 갖도록 책임 중심 재구성하고 실제 reference를 다시 검증한 상태다.
 
 - context 작업대: [`context/`](./context/)
 - 현재 상태의 진입점: [`context/current/`](./context/current/)

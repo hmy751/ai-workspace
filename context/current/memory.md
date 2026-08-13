@@ -35,10 +35,12 @@ Project common context처럼 작업이 바뀌어도 계속 유효한 내용은 �
 - 실제 작업은 여러 Workspace 단위로 운영하며, 각 Workspace는 필요한 상위 Project 맥락만 선택해 접근점을 유지한다.
 - Workspace의 `current`는 `memory/`와 `state/` 폴더로 나눈다. `memory/index.md`와 주제별 문서는 계속 유효한 현재 맥락을, `state/index.md`는 사람이 읽는 현재 문제와 해석을, `state/status.json`은 harness가 갱신하는 최근 결과와 다음 행동을 소유한다.
 - memory 폴더에 과거를 누적하지 않는다. 지금도 유효하고 기본 재진입에 필요한 주제만 두며, 상세 과정과 이전 상태·검증 receipt는 `records/`에 누적한다.
-- Workspace 루트 `README.md`를 사람의 첫 화면으로 두고, machine manifest와 raw receipt를 읽기 전에 현재 문서의 위치와 읽는 순서를 찾게 한다.
+- Workspace 루트 `README.md`를 사람의 첫 화면으로 두고, machine 계약과 raw receipt를 읽기 전에 현재 문서의 위치와 읽는 순서를 찾게 한다.
+- `workspace.json`은 Workspace identity, `recover.json`은 Project context 선택, `verify.json`은 고정 검증과 결과별 다음 행동을 소유한다.
+- Harness는 상위 경계 아래 `recover`와 `verify`의 정의·구현·테스트를 각각 묶고, 두 책임이 실제로 공유하는 Workspace 선택·안전한 접근·status/receipt 인계만 공통 계약으로 둔다.
 - 상위 Project 자체의 폴더 구조, Workspace 결과를 상위 Project에 반영하는 규칙, Workspace 생성·완료·보관 수명주기는 아직 정하지 않았다.
 
-최초 합의와 미결정 범위는 [`Project–Workspace context 운영 구조 합의`](../records/2026-08-13-03-project-workspace-context-agreement.md), 사람용·기계용 current 분리는 [`Workspace current 폴더화`](../records/2026-08-13-05-workspace-current-folder-migration.md)에 있다.
+최초 합의와 미결정 범위는 [`Project–Workspace context 운영 구조 합의`](../records/2026-08-13-03-project-workspace-context-agreement.md), 사람용·기계용 current 분리는 [`Workspace current 폴더화`](../records/2026-08-13-05-workspace-current-folder-migration.md), 수락된 Harness 책임 배치는 [`Harness 책임 경계 재구성`](../records/2026-08-13-06-harness-responsibility-boundary-refactor.md)에 있다.
 
 ## 현재 context 유지 장치
 
