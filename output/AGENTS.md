@@ -1,30 +1,32 @@
 # Reference Project 운영 규칙
 
-이 디렉터리는 Project, Workspaces, Harness의 책임 경계를 함께 보여 주는 실행 가능한 reference다. 전체 관계와 사람용 시작점은 먼저 [`README.md`](README.md)에서 확인한다.
+이 디렉터리는 Project context, Work context, 제품의 책임 경계를 함께 보여 주는 실행 가능한 reference다. 전체 관계와 사람용 시작점은 먼저 [`README.md`](README.md)와 [`context/README.md`](context/README.md)에서 확인한다.
 
 ## 재진입과 검증
 
 `output/` root에서 다음 명령을 사용한다.
 
 ```bash
-python3 -m harness recover
-python3 -m harness verify
+python3 -m context.work.harness recover
+python3 -m context.work.harness verify
 ```
 
-- Recover의 목적·입력·출력·비소유 범위는 [`harness/recover/README.md`](harness/recover/README.md)가 정의한다.
-- Verify의 목적·입력·출력·상태 반영 범위는 [`harness/verify/README.md`](harness/verify/README.md)가 정의한다.
-- Harness와 두 책임의 관계는 [`harness/README.md`](harness/README.md)가 정의한다.
-- 지속 Workspace의 내부 관계는 [`workspaces/README.md`](workspaces/README.md)와 각 Workspace README가 정의한다.
+- Project context와 Work context의 관계는 [`context/README.md`](context/README.md)가 정의한다.
+- Recover의 목적·입력·출력·비소유 범위는 [`context/work/harness/recover/README.md`](context/work/harness/recover/README.md)가 정의한다.
+- Verify의 목적·입력·출력·상태 반영 범위는 [`context/work/harness/verify/README.md`](context/work/harness/verify/README.md)가 정의한다.
+- Harness와 Workspace collection의 관계는 [`context/work/README.md`](context/work/README.md)가 정의한다.
+- 지속 Workspace의 내부 관계는 [`context/work/workspaces/README.md`](context/work/workspaces/README.md)와 각 Workspace README가 정의한다.
 
 ## 변경 배치
 
-- Recover 전용 규칙·구현·검증은 `harness/recover/`에서 함께 변경한다.
-- Verify 전용 규칙·구현·검증은 `harness/verify/`에서 함께 변경한다.
-- 두 책임에서 실제로 같은 의미로 사용하는 Workspace 식별·안전한 접근·status 인계 계약만 `harness/workspace_contract.py`에 둔다.
+- Recover 전용 규칙·구현·검증은 `context/work/harness/recover/`에서 함께 변경한다.
+- Verify 전용 규칙·구현·검증은 `context/work/harness/verify/`에서 함께 변경한다.
+- 두 책임에서 실제로 같은 의미로 사용하는 Workspace 식별·안전한 접근·status 인계 계약만 `context/work/harness/workspace_contract.py`에 둔다.
 - 한 책임만 사용하는 코드를 공유 영역으로 올리지 않는다.
-- Project 기준·코드·제품 테스트를 Harness 아래로 옮기거나 복제하지 않는다.
+- Project 기준은 `context/project/`, 제품 코드·테스트는 `src/`와 `tests/`에 두고 Harness 아래로 옮기거나 복제하지 않는다.
 - Workspace `current/`와 `records/`의 의미를 Harness 코드가 독점 정의하지 않는다.
 - 작업별 Project context 선택은 `recover.json`, 고정 검증과 결과별 다음 행동은 `verify.json`에서 변경한다.
+- Project 문서·제품 evidence·검증 cwd는 Project root 기준, Workspace index·current·records는 `context/work/` 기준으로 해석한다.
 
 ## 검증
 
