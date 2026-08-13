@@ -1,42 +1,39 @@
 # Reference Project 운영 규칙
 
-이 디렉터리는 Project의 canonical 문서·코드·테스트와, 한 작업을 복구하고 검증하는 Workspace를 함께 보여 주는 실행 가능한 reference다.
+이 디렉터리는 Project, Workspaces, Harness의 책임 경계를 함께 보여 주는 실행 가능한 reference다. 전체 관계와 사람용 시작점은 먼저 [`README.md`](README.md)에서 확인한다.
 
-## 재진입
+## 재진입과 검증
 
-작업을 시작할 때 먼저 output root에서 다음 명령을 실행한다.
-
-```bash
-python3 harness/workspace.py recover
-```
-
-Workspace id를 생략하면 `workspaces/index.json`의 active workspace를 사용한다. `recover`는 index와 manifest를 선택용 제어 정보로 읽고, status가 receipt를 가리키면 해당 JSON의 존재와 schema·Workspace·결과·완료 시각 정합성도 검증한다. receipt 본문은 recovery context에 싣지 않는다. context 본문으로는 해당 Workspace의 `current/memory/index.md`, 같은 폴더의 주제별 Markdown, `current/state/index.md`, `current/state/status.json`, manifest가 이번 작업에 선택한 Project 문서만 순서대로 싣는다. recovery packet은 `control_paths`와 `loaded_context_paths`를 나눠 공개한다. `records/` 전체나 선택되지 않은 Project 문서를 재진입 기본 입력으로 읽지 않는다. 구조화된 입력이 필요하면 `recover --json`을 사용한다.
-
-`current/memory/`의 direct-child Markdown은 index를 제외하고 파일명 순으로 모두 기본 recovery에 들어간다. 새 파일은 지금도 유효하고 매 재진입에 필요한 주제일 때만 추가한다. 이전 상태와 상세 과정은 memory가 아니라 `records/`에 둔다.
-
-## 검증과 상태 반영
+`output/` root에서 다음 명령을 사용한다.
 
 ```bash
-python3 harness/workspace.py verify
+python3 -m harness recover
+python3 -m harness verify
 ```
 
-`verify`는 `workspace.json`의 `verification.argv` 배열을 output root에서 `shell=False`로 실행한다. `verification.timeout_seconds`와 `verification.max_output_chars`를 생략하면 각각 30초와 stream당 100,000문자를 적용한다. timeout은 exit `124`의 실패 receipt와 status로 남긴다. 저장하는 stdout·stderr는 상한을 적용하고 원래 관찰 길이와 truncation 여부를 함께 기록하며, output root 절대경로는 `<OUTPUT_ROOT>`로 정규화한다. 성공과 실패 모두 충돌하지 않는 JSON receipt를 해당 Workspace의 `records/`에 남기고, `current/state/status.json`을 atomic하게 갱신한다. 사람이 읽는 `current/state/index.md`는 수정하지 않는다.
+- Recover의 목적·입력·출력·비소유 범위는 [`harness/recover/README.md`](harness/recover/README.md)가 정의한다.
+- Verify의 목적·입력·출력·상태 반영 범위는 [`harness/verify/README.md`](harness/verify/README.md)가 정의한다.
+- Harness와 두 책임의 관계는 [`harness/README.md`](harness/README.md)가 정의한다.
+- 지속 Workspace의 내부 관계는 [`workspaces/README.md`](workspaces/README.md)와 각 Workspace README가 정의한다.
 
-- 성공 상태는 `verified_waiting_acceptance`다. 검증 통과만으로 `completed`가 되지 않는다.
-- 실패 상태는 `verification_failed`다. 다음 재진입은 receipt와 `status.json`에 남은 실패 다음 행동에서 이어 간다.
-- 사람이 쓰는 현재 문제와 해석은 `state/index.md`, 기계가 쓰는 최근 결과와 다음 행동은 `state/status.json`이 소유한다.
-- 검증 명령을 임의 명령으로 바꾸어 실행하지 않는다. 작업 계약이 바뀌면 manifest를 명시적으로 검토해 수정한다.
+## 변경 배치
 
-## Project와 Workspace 경계
+- Recover 전용 규칙·구현·검증은 `harness/recover/`에서 함께 변경한다.
+- Verify 전용 규칙·구현·검증은 `harness/verify/`에서 함께 변경한다.
+- 두 책임에서 실제로 같은 의미로 사용하는 Workspace 식별·안전한 접근·status 인계 계약만 `harness/workspace_contract.py`에 둔다.
+- 한 책임만 사용하는 코드를 공유 영역으로 올리지 않는다.
+- Project 기준·코드·제품 테스트를 Harness 아래로 옮기거나 복제하지 않는다.
+- Workspace `current/`와 `records/`의 의미를 Harness 코드가 독점 정의하지 않는다.
+- 작업별 Project context 선택은 `recover.json`, 고정 검증과 결과별 다음 행동은 `verify.json`에서 변경한다.
 
-`docs/`, `src/`, `tests/`는 Project의 canonical 기준과 구현이다. `workspaces/`는 이번 작업의 선택된 접근점, 현재 커서, 검증 receipt를 소유한다. Workspace 결과를 Project canonical 문서나 코드에 자동 반영하지 않는다. Project 변경은 일반적인 코드 수정과 리뷰를 거쳐 별도로 수행한다.
+## 검증
 
-이 reference가 구현한 수명주기는 active Workspace의 복구와 반복 검증까지다. 다음 항목은 아직 구현하지 않았다.
+전체 제품·Harness 검증은 다음 명령으로 실행한다.
 
-- 새 Workspace 생성과 active 전환 명령
-- 검증 뒤 사람의 acceptance를 기록하고 `completed`로 전이하는 명령
-- 완료 Workspace의 close, archive, delete 정책
-- Workspace 결과를 Project canonical에 승격하는 규칙과 자동화
-- 동시에 실행한 여러 `verify`가 하나의 state cursor를 갱신할 때의 조정
+```bash
+python3 -m unittest discover -s . -p 'test_*.py' -v
+```
 
-따라서 receipt는 검증 명령의 실행 증거이지, 제품 동작 전체나 사람의 최종 수락을 증명하지 않는다.
+책임 재배치 뒤에는 실제 active Workspace에서 `recover → verify → recover`도 실행해 packet, receipt, `current/state/status.json`의 연결을 확인한다.
+
+검증 통과는 `verified_waiting_acceptance`이며 사람의 수락이나 Workspace 완료를 뜻하지 않는다. Acceptance와 완료 전이는 verify 책임에 암묵적으로 추가하지 않는다.

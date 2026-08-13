@@ -12,7 +12,13 @@
 다음 명령은 위 파일과 이번 작업에 선택된 Project 문서를 읽기 좋은 순서로 보여 준다. 이 Workspace 디렉터리가 아니라 [`output/` root](../..)에서 실행한다.
 
 ```sh
-python3 harness/workspace.py recover
+python3 -m harness recover
 ```
 
-[`workspace.json`](workspace.json)은 Project context 선택, 고정 검증 명령, 결과별 다음 행동을 소유하는 실행 계약이다. 사람이 읽는 현재 문서와 분리되어 있지만 `recover`와 `verify`는 이 계약을 사용한다.
+Machine 계약은 책임별로 분리되어 있다.
+
+- [`workspace.json`](workspace.json): Workspace 정체성
+- [`recover.json`](recover.json): 이번 작업에 선택한 Project context
+- [`verify.json`](verify.json): 고정 검증 명령, evidence, 실행 제한, 결과별 다음 행동
+
+사람이 읽는 현재 문서와 machine 계약은 분리되어 있다. 각 책임의 동작과 경계는 [`Harness recover`](../../harness/recover/README.md)와 [`Harness verify`](../../harness/verify/README.md)에서 시작한다.

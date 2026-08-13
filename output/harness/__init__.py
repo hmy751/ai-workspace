@@ -1,1 +1,1 @@
-"""Workspace recovery and verification harness."""
+"""Bounded Workspace recovery and verification harness."""
