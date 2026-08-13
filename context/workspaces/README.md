@@ -5,6 +5,7 @@
 ## Active Workspace
 
 - active: [`002-project-application`](./002-project-application/)
+- ready: [`003-project-application`](./003-project-application/)
 - completed reference: [`001-reference-implementation`](./001-reference-implementation/)
 
 사용자가 특정 Workspace를 지목하면 그 지시가 active 표기보다 우선한다. active 변경은 새 작업을 시작하거나 작업 책임을 명시적으로 전환할 때만 반영한다.

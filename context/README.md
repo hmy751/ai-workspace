@@ -17,7 +17,7 @@
 - `current/`: 다음 세션이 바로 행동하는 데 필요한 현재 상태
 - `records/`: 해당 작업에서 만든 지속 가능한 분석·결정·시도·검증 기록
 
-지금까지의 source 정리와 실행 가능한 reference 구현은 [`001-reference-implementation`](./workspaces/001-reference-implementation/)에 보존한다. 다음 실제 Project 적용은 [`002-project-application`](./workspaces/002-project-application/)에서 이어 간다.
+지금까지의 source 정리와 실행 가능한 reference 구현은 [`001-reference-implementation`](./workspaces/001-reference-implementation/)에 보존한다. 새 적용 작업은 [`workspaces/`](./workspaces/)에서 서로 독립된 Workspace로 시작한다.
 
 이 작업대에는 `output/context/work`의 Harness, JSON 계약, machine status를 그대로 복제하지 않는다. 여러 작업의 현재 상태와 기록이 섞이지 않게 하는 Workspace 경계만 먼저 적용한다.
 
