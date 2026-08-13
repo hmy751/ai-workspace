@@ -4,8 +4,8 @@
 The harness deliberately uses only the Python standard library.  A Workspace
 manifest chooses the small set of Project context files needed for the current
 task and owns one fixed verification argv.  Verification receipts are
-append-only; the machine-owned block in ``current/state.md`` is the mutable
-cursor used on the next re-entry.
+append-only; ``current/state/status.json`` is the mutable machine cursor used
+on the next re-entry while ``current/state/index.md`` remains human-owned.
 """
 
 from __future__ import annotations
@@ -28,14 +28,13 @@ import uuid
 
 
 SCHEMA_VERSION = 1
+RECOVERY_SCHEMA_VERSION = 2
 DEFAULT_TIMEOUT_SECONDS = 30.0
 MAX_TIMEOUT_SECONDS = 300.0
 DEFAULT_MAX_OUTPUT_CHARS = 100_000
 MAX_OUTPUT_CHARS = 1_000_000
 TIMEOUT_EXIT_CODE = 124
 OUTPUT_ROOT_TOKEN = "<OUTPUT_ROOT>"
-STATE_BEGIN = "<!-- workspace-state:begin -->"
-STATE_END = "<!-- workspace-state:end -->"
 WORKSPACE_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
 VALID_STATE_STATUSES = {
     "ready_for_verification",
@@ -363,24 +362,11 @@ def _load_manifest(root: Path, workspace_id: str) -> dict[str, Any]:
     }
 
 
-def _parse_state_marker(state_text: str, workspace_id: str) -> dict[str, Any]:
-    if state_text.count(STATE_BEGIN) != 1 or state_text.count(STATE_END) != 1:
-        _fail("state.md must contain exactly one machine-owned marker block")
-    begin = state_text.index(STATE_BEGIN) + len(STATE_BEGIN)
-    end = state_text.index(STATE_END)
-    if begin >= end:
-        _fail("state.md machine-owned marker block is malformed")
-    marker_text = state_text[begin:end].strip()
-    try:
-        marker = json.loads(marker_text)
-    except json.JSONDecodeError as exc:
-        raise HarnessError(
-            f"state.md machine-owned marker is not valid JSON: {exc}"
-        ) from exc
-    if not isinstance(marker, dict):
-        _fail("state.md machine-owned marker must be a JSON object")
+def _validate_state_status(
+    status: dict[str, Any], workspace_id: str
+) -> dict[str, Any]:
     _expect_exact_keys(
-        marker,
+        status,
         {
             "schema_version",
             "workspace_id",
@@ -390,48 +376,48 @@ def _parse_state_marker(state_text: str, workspace_id: str) -> dict[str, Any]:
             "finished_at",
             "next_action",
         },
-        "state marker",
+        "Workspace state status",
     )
-    _expect_schema_version(marker["schema_version"], "state marker")
-    if _validate_workspace_id(marker["workspace_id"]) != workspace_id:
-        _fail("state marker workspace_id does not match the selected workspace")
+    _expect_schema_version(status["schema_version"], "Workspace state status")
+    if _validate_workspace_id(status["workspace_id"]) != workspace_id:
+        _fail("state status workspace_id does not match the selected workspace")
     if (
-        not isinstance(marker["status"], str)
-        or marker["status"] not in VALID_STATE_STATUSES
+        not isinstance(status["status"], str)
+        or status["status"] not in VALID_STATE_STATUSES
     ):
-        _fail(f"invalid state marker status: {marker['status']!r}")
-    if marker["result"] is not None and (
-        not isinstance(marker["result"], str)
-        or marker["result"] not in {"pass", "fail"}
+        _fail(f"invalid Workspace state status: {status['status']!r}")
+    if status["result"] is not None and (
+        not isinstance(status["result"], str)
+        or status["result"] not in {"pass", "fail"}
     ):
-        _fail("state marker result must be null, 'pass', or 'fail'")
+        _fail("state status result must be null, 'pass', or 'fail'")
     for field in ("receipt", "finished_at"):
-        if marker[field] is not None and not isinstance(marker[field], str):
-            _fail(f"state marker {field} must be a string or null")
-    _expect_nonempty_string(marker["next_action"], "state marker next_action")
+        if status[field] is not None and not isinstance(status[field], str):
+            _fail(f"state status {field} must be a string or null")
+    _expect_nonempty_string(status["next_action"], "state status next_action")
     expected_result = {
         "ready_for_verification": None,
         "verification_failed": "fail",
         "verified_waiting_acceptance": "pass",
-    }[marker["status"]]
-    if marker["result"] != expected_result:
-        _fail("state marker status and result are inconsistent")
-    if marker["status"] == "ready_for_verification":
+    }[status["status"]]
+    if status["result"] != expected_result:
+        _fail("state status and result are inconsistent")
+    if status["status"] == "ready_for_verification":
         if any(
-            marker[field] is not None
+            status[field] is not None
             for field in ("receipt", "finished_at")
         ):
-            _fail("ready_for_verification marker must not have a receipt or time")
+            _fail("ready_for_verification status must not have a receipt or time")
     else:
-        receipt = _expect_nonempty_string(marker["receipt"], "state marker receipt")
+        receipt = _expect_nonempty_string(status["receipt"], "state status receipt")
         _expect_nonempty_string(
-            marker["finished_at"], "state marker finished_at"
+            status["finished_at"], "state status finished_at"
         )
-        receipt = _validate_relative_path(receipt, "state marker receipt")
+        receipt = _validate_relative_path(receipt, "state status receipt")
         expected_prefix = f"workspaces/{workspace_id}/records/"
         if not receipt.startswith(expected_prefix) or not receipt.endswith(".json"):
-            _fail("state marker receipt must identify this Workspace's JSON record")
-    return marker
+            _fail("state status receipt must identify this Workspace's JSON record")
+    return status
 
 
 def _reject_symlink_components(
@@ -445,15 +431,63 @@ def _reject_symlink_components(
             _fail(f"{label} must not use symlink components")
 
 
+def _resolve_directory_without_symlinks(
+    root: Path, relative_path: str, label: str
+) -> Path:
+    _reject_symlink_components(root, relative_path, label)
+    path = _resolve_inside_root(root, relative_path, label)
+    if not path.is_dir():
+        _fail(f"{label} must be a directory: {relative_path}")
+    return path
+
+
+def _resolve_regular_file_without_symlinks(
+    root: Path, relative_path: str, label: str
+) -> Path:
+    _reject_symlink_components(root, relative_path, label)
+    path = _resolve_inside_root(root, relative_path, label)
+    if not path.is_file():
+        _fail(f"{label} must be a regular file: {relative_path}")
+    return path
+
+
+def _read_text_without_symlinks(
+    root: Path, relative_path: str, label: str
+) -> str:
+    path = _resolve_regular_file_without_symlinks(root, relative_path, label)
+    return path.read_text(encoding="utf-8")
+
+
+def _read_json_without_symlinks(
+    root: Path, relative_path: str, label: str
+) -> dict[str, Any]:
+    raw = _read_text_without_symlinks(root, relative_path, label)
+    try:
+        value = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise HarnessError(f"{label} is not valid JSON: {exc}") from exc
+    if not isinstance(value, dict):
+        _fail(f"{label} must contain a JSON object")
+    return value
+
+
+def _load_state_status(root: Path, workspace_id: str) -> dict[str, Any]:
+    status_relative = f"workspaces/{workspace_id}/current/state/status.json"
+    status = _read_json_without_symlinks(
+        root, status_relative, "Workspace state status"
+    )
+    return _validate_state_status(status, workspace_id)
+
+
 def _validate_state_receipt(
-    root: Path, workspace_id: str, marker: dict[str, Any]
+    root: Path, workspace_id: str, status: dict[str, Any]
 ) -> str | None:
     """Validate the receipt referenced by state without returning its body."""
 
-    if marker["receipt"] is None:
+    if status["receipt"] is None:
         return None
 
-    receipt_relative = marker["receipt"]
+    receipt_relative = status["receipt"]
     records_relative = f"workspaces/{workspace_id}/records"
     _reject_symlink_components(root, records_relative, "Workspace records path")
     records_dir = _resolve_inside_root(
@@ -462,35 +496,37 @@ def _validate_state_receipt(
     if not records_dir.is_dir():
         _fail("Workspace records path must be a directory")
 
-    _reject_symlink_components(root, receipt_relative, "state marker receipt")
+    _reject_symlink_components(root, receipt_relative, "state status receipt")
     receipt_path = _resolve_inside_root(
-        root, receipt_relative, "state marker receipt"
+        root, receipt_relative, "state status receipt"
     )
     try:
         receipt_path.relative_to(records_dir)
     except ValueError as exc:
         raise HarnessError(
-            "state marker receipt must resolve inside this Workspace's records/"
+            "state status receipt must resolve inside this Workspace's records/"
         ) from exc
     if not receipt_path.is_file():
-        _fail("state marker receipt must be a regular file")
+        _fail("state status receipt must be a regular file")
 
     try:
         receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
-        raise HarnessError(f"state marker receipt is not readable JSON: {exc}") from exc
+        raise HarnessError(
+            f"state status receipt is not readable JSON: {exc}"
+        ) from exc
     if not isinstance(receipt, dict):
-        _fail("state marker receipt must contain a JSON object")
+        _fail("state status receipt must contain a JSON object")
     for field in ("schema_version", "workspace_id", "result", "finished_at"):
         if field not in receipt:
-            _fail(f"state marker receipt is missing {field}")
+            _fail(f"state status receipt is missing {field}")
     _expect_schema_version(receipt["schema_version"], "verification receipt")
     if receipt["workspace_id"] != workspace_id:
-        _fail("state marker and receipt workspace_id do not match")
-    if receipt["result"] != marker["result"]:
-        _fail("state marker and receipt result do not match")
-    if receipt["finished_at"] != marker["finished_at"]:
-        _fail("state marker and receipt finished_at do not match")
+        _fail("state status and receipt workspace_id do not match")
+    if receipt["result"] != status["result"]:
+        _fail("state status and receipt result do not match")
+    if receipt["finished_at"] != status["finished_at"]:
+        _fail("state status and receipt finished_at do not match")
     return receipt_relative
 
 
@@ -501,22 +537,58 @@ def _select_workspace_id(root: Path, explicit_id: str | None) -> str:
     return _validate_workspace_id(explicit_id)
 
 
+def _load_memory_context(
+    root: Path, workspace_id: str
+) -> tuple[str, str, list[dict[str, str]]]:
+    memory_directory_relative = f"workspaces/{workspace_id}/current/memory"
+    memory_directory = _resolve_directory_without_symlinks(
+        root, memory_directory_relative, "Workspace memory directory"
+    )
+    memory_index_path = f"{memory_directory_relative}/index.md"
+    memory_index = _read_text_without_symlinks(
+        root, memory_index_path, "Workspace memory index"
+    )
+
+    memory_context: list[dict[str, str]] = []
+    for candidate in sorted(
+        memory_directory.iterdir(), key=lambda path: path.name
+    ):
+        if candidate.name == "index.md" or not candidate.name.endswith(".md"):
+            continue
+        relative_path = f"{memory_directory_relative}/{candidate.name}"
+        content = _read_text_without_symlinks(
+            root, relative_path, f"Workspace memory context {candidate.name}"
+        )
+        memory_context.append({"path": relative_path, "content": content})
+    return memory_index_path, memory_index, memory_context
+
+
 def recover(root: Path, explicit_id: str | None) -> dict[str, Any]:
     """Build a bounded recovery packet for one Workspace."""
 
     workspace_id = _select_workspace_id(root, explicit_id)
     manifest = _load_manifest(root, workspace_id)
-    memory_path = f"workspaces/{workspace_id}/current/memory.md"
-    state_path = f"workspaces/{workspace_id}/current/state.md"
-    memory = _read_text_inside_root(root, memory_path, "Workspace memory")
-    state = _read_text_inside_root(root, state_path, "Workspace state")
-    state_marker = _parse_state_marker(state, workspace_id)
+    memory_index_path, memory_index, memory_context = _load_memory_context(
+        root, workspace_id
+    )
+    state_directory_relative = f"workspaces/{workspace_id}/current/state"
+    _resolve_directory_without_symlinks(
+        root, state_directory_relative, "Workspace state directory"
+    )
+    state_index_path = f"{state_directory_relative}/index.md"
+    state_status_path = f"{state_directory_relative}/status.json"
+    state_index = _read_text_without_symlinks(
+        root, state_index_path, "Workspace state index"
+    )
+    state_status = _load_state_status(root, workspace_id)
     receipt_control_path = _validate_state_receipt(
-        root, workspace_id, state_marker
+        root, workspace_id, state_status
     )
 
     selected_context = []
-    loaded_paths = [memory_path, state_path]
+    loaded_paths = [memory_index_path]
+    loaded_paths.extend(entry["path"] for entry in memory_context)
+    loaded_paths.extend([state_index_path, state_status_path])
     for entry in manifest["project_context"]:
         content = _read_text_inside_root(
             root, entry["path"], f"selected Project context {entry['path']}"
@@ -538,14 +610,15 @@ def recover(root: Path, explicit_id: str | None) -> dict[str, Any]:
         control_paths.append(receipt_control_path)
 
     return {
-        "schema_version": SCHEMA_VERSION,
+        "schema_version": RECOVERY_SCHEMA_VERSION,
         "workspace_id": workspace_id,
         "manifest_path": f"workspaces/{workspace_id}/workspace.json",
         "control_paths": control_paths,
         "loaded_context_paths": loaded_paths,
-        "memory": memory,
-        "state": state,
-        "state_marker": state_marker,
+        "memory_index": memory_index,
+        "memory_context": memory_context,
+        "state_index": state_index,
+        "state_status": state_status,
         "project_context": selected_context,
         "verification": manifest["verification"],
     }
@@ -564,8 +637,22 @@ def _format_recovery_packet(packet: dict[str, Any]) -> str:
         "Loaded context paths (in recovery order):",
     ])
     lines.extend(f"- {path}" for path in packet["loaded_context_paths"])
-    lines.extend(["", "## memory.md", "", packet["memory"].rstrip()])
-    lines.extend(["", "## state.md", "", packet["state"].rstrip()])
+    lines.extend(["", "## memory/index.md", "", packet["memory_index"].rstrip()])
+    for entry in packet["memory_context"]:
+        lines.extend(
+            [
+                "",
+                f"## Memory context: {entry['path']}",
+                "",
+                entry["content"].rstrip(),
+            ]
+        )
+    lines.extend(["", "## state/index.md", "", packet["state_index"].rstrip()])
+    lines.extend(["", "## state/status.json", ""])
+    for field in ("status", "result", "finished_at", "receipt", "next_action"):
+        value = packet["state_status"][field]
+        rendered = "null" if value is None else str(value)
+        lines.append(f"- {field}: {rendered}")
     for entry in packet["project_context"]:
         lines.extend(
             [
@@ -842,31 +929,20 @@ def _write_receipt(
     return f"{records_relative}/{filename}"
 
 
-def _updated_state_text(
-    original: str, workspace_id: str, marker: dict[str, Any]
-) -> str:
-    _parse_state_marker(original, workspace_id)
-    begin = original.index(STATE_BEGIN)
-    end = original.index(STATE_END) + len(STATE_END)
-    marker_block = (
-        f"{STATE_BEGIN}\n"
-        + json.dumps(marker, ensure_ascii=False, indent=2)
-        + f"\n{STATE_END}"
-    )
-    return original[:begin] + marker_block + original[end:]
-
-
 def verify(root: Path, explicit_id: str | None) -> int:
     """Run a Workspace's fixed verification and persist its result."""
 
     workspace_id = _select_workspace_id(root, explicit_id)
     manifest = _load_manifest(root, workspace_id)
-    state_relative = f"workspaces/{workspace_id}/current/state.md"
-    state_path = _resolve_inside_root(root, state_relative, "Workspace state")
-    if not state_path.is_file():
-        _fail("Workspace state must be a regular file")
-    original_state = state_path.read_text(encoding="utf-8")
-    _parse_state_marker(original_state, workspace_id)
+    state_directory_relative = f"workspaces/{workspace_id}/current/state"
+    _resolve_directory_without_symlinks(
+        root, state_directory_relative, "Workspace state directory"
+    )
+    state_status_relative = f"{state_directory_relative}/status.json"
+    state_status_path = _resolve_regular_file_without_symlinks(
+        root, state_status_relative, "Workspace state status"
+    )
+    _load_state_status(root, workspace_id)
 
     argv = manifest["verification"]["argv"]
     evidence_collected_at = _utc_now()
@@ -906,7 +982,7 @@ def verify(root: Path, explicit_id: str | None) -> int:
     }
     receipt_relative = _write_receipt(root, workspace_id, receipt)
 
-    state_marker = {
+    state_status = {
         "schema_version": SCHEMA_VERSION,
         "workspace_id": workspace_id,
         "status": (
@@ -919,19 +995,20 @@ def verify(root: Path, explicit_id: str | None) -> int:
         "finished_at": finished_at,
         "next_action": manifest["next_actions"][result],
     }
-    updated_state = _updated_state_text(
-        original_state, workspace_id, state_marker
+    _atomic_write(
+        state_status_path,
+        json.dumps(state_status, ensure_ascii=False, indent=2, sort_keys=True)
+        + "\n",
     )
-    _atomic_write(state_path, updated_state)
 
     summary = {
         "workspace_id": workspace_id,
         "result": result,
         "exit_code": exit_code,
         "receipt": receipt_relative,
-        "status": state_marker["status"],
+        "status": state_status["status"],
         "timed_out": execution["timed_out"],
-        "next_action": state_marker["next_action"],
+        "next_action": state_status["next_action"],
     }
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return exit_code

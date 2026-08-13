@@ -10,7 +10,9 @@
 python3 harness/workspace.py recover
 ```
 
-Workspace id를 생략하면 `workspaces/index.json`의 active workspace를 사용한다. `recover`는 index와 manifest를 선택용 제어 정보로 읽고, state가 receipt를 가리키면 해당 JSON의 존재와 schema·Workspace·결과·완료 시각 정합성도 검증한다. receipt 본문은 recovery context에 싣지 않는다. context 본문으로는 해당 Workspace의 `current/memory.md`, `current/state.md`, manifest가 이번 작업에 선택한 Project 문서만 순서대로 싣는다. recovery packet은 `control_paths`와 `loaded_context_paths`를 나눠 공개한다. `records/` 전체나 선택되지 않은 Project 문서를 재진입 기본 입력으로 읽지 않는다. 구조화된 입력이 필요하면 `recover --json`을 사용한다.
+Workspace id를 생략하면 `workspaces/index.json`의 active workspace를 사용한다. `recover`는 index와 manifest를 선택용 제어 정보로 읽고, status가 receipt를 가리키면 해당 JSON의 존재와 schema·Workspace·결과·완료 시각 정합성도 검증한다. receipt 본문은 recovery context에 싣지 않는다. context 본문으로는 해당 Workspace의 `current/memory/index.md`, 같은 폴더의 주제별 Markdown, `current/state/index.md`, `current/state/status.json`, manifest가 이번 작업에 선택한 Project 문서만 순서대로 싣는다. recovery packet은 `control_paths`와 `loaded_context_paths`를 나눠 공개한다. `records/` 전체나 선택되지 않은 Project 문서를 재진입 기본 입력으로 읽지 않는다. 구조화된 입력이 필요하면 `recover --json`을 사용한다.
+
+`current/memory/`의 direct-child Markdown은 index를 제외하고 파일명 순으로 모두 기본 recovery에 들어간다. 새 파일은 지금도 유효하고 매 재진입에 필요한 주제일 때만 추가한다. 이전 상태와 상세 과정은 memory가 아니라 `records/`에 둔다.
 
 ## 검증과 상태 반영
 
@@ -18,11 +20,11 @@ Workspace id를 생략하면 `workspaces/index.json`의 active workspace를 사�
 python3 harness/workspace.py verify
 ```
 
-`verify`는 `workspace.json`의 `verification.argv` 배열을 output root에서 `shell=False`로 실행한다. `verification.timeout_seconds`와 `verification.max_output_chars`를 생략하면 각각 30초와 stream당 100,000문자를 적용한다. timeout은 exit `124`의 실패 receipt와 state로 남긴다. 저장하는 stdout·stderr는 상한을 적용하고 원래 관찰 길이와 truncation 여부를 함께 기록하며, output root 절대경로는 `<OUTPUT_ROOT>`로 정규화한다. 성공과 실패 모두 충돌하지 않는 JSON receipt를 해당 Workspace의 `records/`에 남기고, `current/state.md`의 machine-owned marker를 atomic하게 갱신한다.
+`verify`는 `workspace.json`의 `verification.argv` 배열을 output root에서 `shell=False`로 실행한다. `verification.timeout_seconds`와 `verification.max_output_chars`를 생략하면 각각 30초와 stream당 100,000문자를 적용한다. timeout은 exit `124`의 실패 receipt와 status로 남긴다. 저장하는 stdout·stderr는 상한을 적용하고 원래 관찰 길이와 truncation 여부를 함께 기록하며, output root 절대경로는 `<OUTPUT_ROOT>`로 정규화한다. 성공과 실패 모두 충돌하지 않는 JSON receipt를 해당 Workspace의 `records/`에 남기고, `current/state/status.json`을 atomic하게 갱신한다. 사람이 읽는 `current/state/index.md`는 수정하지 않는다.
 
 - 성공 상태는 `verified_waiting_acceptance`다. 검증 통과만으로 `completed`가 되지 않는다.
-- 실패 상태는 `verification_failed`다. 다음 재진입은 receipt와 `state.md`에 남은 실패 다음 행동에서 이어 간다.
-- 사람이 쓰는 state 설명은 marker 밖에 둔다. marker 안은 harness가 소유한다.
+- 실패 상태는 `verification_failed`다. 다음 재진입은 receipt와 `status.json`에 남은 실패 다음 행동에서 이어 간다.
+- 사람이 쓰는 현재 문제와 해석은 `state/index.md`, 기계가 쓰는 최근 결과와 다음 행동은 `state/status.json`이 소유한다.
 - 검증 명령을 임의 명령으로 바꾸어 실행하지 않는다. 작업 계약이 바뀌면 manifest를 명시적으로 검토해 수정한다.
 
 ## Project와 Workspace 경계

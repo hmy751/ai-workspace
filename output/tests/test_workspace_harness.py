@@ -12,8 +12,6 @@ import unittest
 
 
 HARNESS_SOURCE = Path(__file__).resolve().parents[1] / "harness" / "workspace.py"
-STATE_BEGIN = "<!-- workspace-state:begin -->"
-STATE_END = "<!-- workspace-state:end -->"
 
 
 class WorkspaceHarnessTests(unittest.TestCase):
@@ -27,7 +25,8 @@ class WorkspaceHarnessTests(unittest.TestCase):
             "docs",
             "src",
             "tests",
-            "workspaces/001-example/current",
+            "workspaces/001-example/current/memory",
+            "workspaces/001-example/current/state",
             "workspaces/001-example/records",
         ):
             (self.root / directory).mkdir(parents=True, exist_ok=True)
@@ -85,6 +84,9 @@ class WorkspaceHarnessTests(unittest.TestCase):
         (self.root / "workspaces" / "001-example" / "records" / "old.json").write_text(
             '{"secret": "UNLOADED_RECORD_SECRET"}\n', encoding="utf-8"
         )
+        (self.root / "workspaces" / "001-example" / "records" / "old.md").write_text(
+            "UNLOADED_RECORD_MARKDOWN_SECRET\n", encoding="utf-8"
+        )
 
         self.index = {
             "schema_version": 1,
@@ -116,10 +118,32 @@ class WorkspaceHarnessTests(unittest.TestCase):
         }
         self._write_json("workspaces/index.json", self.index)
         self._write_json("workspaces/001-example/workspace.json", self.manifest)
-        (self.root / "workspaces" / "001-example" / "current" / "memory.md").write_text(
-            "WORKSPACE_MEMORY\n", encoding="utf-8"
+        memory_directory = (
+            self.root / "workspaces" / "001-example" / "current" / "memory"
         )
-        self._write_state()
+        (memory_directory / "index.md").write_text(
+            "WORKSPACE_MEMORY_INDEX\n", encoding="utf-8"
+        )
+        (memory_directory / "02-decisions.md").write_text(
+            "WORKSPACE_MEMORY_DECISIONS\n", encoding="utf-8"
+        )
+        (memory_directory / "01-goal.md").write_text(
+            "WORKSPACE_MEMORY_GOAL\n", encoding="utf-8"
+        )
+        (memory_directory / "notes.txt").write_text(
+            "UNLOADED_MEMORY_NON_MARKDOWN_SECRET\n", encoding="utf-8"
+        )
+        (memory_directory / "nested").mkdir()
+        (memory_directory / "nested" / "archived.md").write_text(
+            "UNLOADED_NESTED_MEMORY_SECRET\n", encoding="utf-8"
+        )
+        state_directory = (
+            self.root / "workspaces" / "001-example" / "current" / "state"
+        )
+        (state_directory / "index.md").write_text(
+            "# state\n\nhuman-owned current description\n", encoding="utf-8"
+        )
+        self._write_status()
 
     def tearDown(self) -> None:
         self.temporary_directory.cleanup()
@@ -130,7 +154,7 @@ class WorkspaceHarnessTests(unittest.TestCase):
             encoding="utf-8",
         )
 
-    def _initial_marker(self) -> dict[str, object]:
+    def _initial_status(self) -> dict[str, object]:
         return {
             "schema_version": 1,
             "workspace_id": "001-example",
@@ -141,17 +165,10 @@ class WorkspaceHarnessTests(unittest.TestCase):
             "next_action": "고정 검증을 실행한다.",
         }
 
-    def _write_state(self, marker: dict[str, object] | None = None) -> None:
-        marker = marker or self._initial_marker()
-        content = (
-            "# state\n\n"
-            "human-owned current description\n\n"
-            f"{STATE_BEGIN}\n"
-            f"{json.dumps(marker, ensure_ascii=False, indent=2)}\n"
-            f"{STATE_END}\n"
-        )
-        (self.root / "workspaces" / "001-example" / "current" / "state.md").write_text(
-            content, encoding="utf-8"
+    def _write_status(self, status: dict[str, object] | None = None) -> None:
+        self._write_json(
+            "workspaces/001-example/current/state/status.json",
+            status or self._initial_status(),
         )
 
     def _run_cli(self, *arguments: str) -> subprocess.CompletedProcess[str]:
@@ -164,12 +181,17 @@ class WorkspaceHarnessTests(unittest.TestCase):
             check=False,
         )
 
-    def _read_marker(self) -> dict[str, object]:
-        state = (
-            self.root / "workspaces" / "001-example" / "current" / "state.md"
-        ).read_text(encoding="utf-8")
-        marker_text = state.split(STATE_BEGIN, 1)[1].split(STATE_END, 1)[0]
-        return json.loads(marker_text)
+    def _read_status(self) -> dict[str, object]:
+        return json.loads(
+            (
+                self.root
+                / "workspaces"
+                / "001-example"
+                / "current"
+                / "state"
+                / "status.json"
+            ).read_text(encoding="utf-8")
+        )
 
     def _receipt_files(self) -> list[Path]:
         return sorted(
@@ -178,7 +200,7 @@ class WorkspaceHarnessTests(unittest.TestCase):
             )
         )
 
-    def _verified_marker(
+    def _verified_status(
         self,
         receipt: str,
         *,
@@ -204,6 +226,7 @@ class WorkspaceHarnessTests(unittest.TestCase):
 
         self.assertEqual(completed.returncode, 0, completed.stderr)
         packet = json.loads(completed.stdout)
+        self.assertEqual(packet["schema_version"], 2)
         self.assertEqual(packet["workspace_id"], "001-example")
         self.assertEqual(
             packet["control_paths"],
@@ -215,12 +238,37 @@ class WorkspaceHarnessTests(unittest.TestCase):
         self.assertEqual(
             packet["loaded_context_paths"],
             [
-                "workspaces/001-example/current/memory.md",
-                "workspaces/001-example/current/state.md",
+                "workspaces/001-example/current/memory/index.md",
+                "workspaces/001-example/current/memory/01-goal.md",
+                "workspaces/001-example/current/memory/02-decisions.md",
+                "workspaces/001-example/current/state/index.md",
+                "workspaces/001-example/current/state/status.json",
                 "docs/selected.md",
             ],
         )
-        self.assertEqual(packet["memory"], "WORKSPACE_MEMORY\n")
+        self.assertEqual(packet["memory_index"], "WORKSPACE_MEMORY_INDEX\n")
+        self.assertEqual(
+            packet["memory_context"],
+            [
+                {
+                    "path": "workspaces/001-example/current/memory/01-goal.md",
+                    "content": "WORKSPACE_MEMORY_GOAL\n",
+                },
+                {
+                    "path": (
+                        "workspaces/001-example/current/memory/02-decisions.md"
+                    ),
+                    "content": "WORKSPACE_MEMORY_DECISIONS\n",
+                },
+            ],
+        )
+        self.assertEqual(
+            packet["state_index"],
+            "# state\n\nhuman-owned current description\n",
+        )
+        self.assertEqual(packet["state_status"], self._initial_status())
+        self.assertNotIn("memory", packet)
+        self.assertNotIn("state", packet)
         self.assertEqual(
             [entry["path"] for entry in packet["project_context"]],
             ["docs/selected.md"],
@@ -228,6 +276,21 @@ class WorkspaceHarnessTests(unittest.TestCase):
         self.assertIn("SELECTED_PROJECT_CONTEXT", completed.stdout)
         self.assertNotIn("UNSELECTED_PROJECT_SECRET", completed.stdout)
         self.assertNotIn("UNLOADED_RECORD_SECRET", completed.stdout)
+        self.assertNotIn("UNLOADED_RECORD_MARKDOWN_SECRET", completed.stdout)
+        self.assertNotIn("UNLOADED_MEMORY_NON_MARKDOWN_SECRET", completed.stdout)
+        self.assertNotIn("UNLOADED_NESTED_MEMORY_SECRET", completed.stdout)
+
+    def test_plain_recovery_renders_scannable_state_status(self) -> None:
+        completed = self._run_cli("recover")
+
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertIn("## state/status.json", completed.stdout)
+        self.assertIn("- status: ready_for_verification", completed.stdout)
+        self.assertIn("- result: null", completed.stdout)
+        self.assertIn("- finished_at: null", completed.stdout)
+        self.assertIn("- receipt: null", completed.stdout)
+        self.assertIn("- next_action: 고정 검증을 실행한다.", completed.stdout)
+        self.assertNotIn('"status": "ready_for_verification"', completed.stdout)
 
     def test_recover_rejects_traversal_absolute_schema_and_shell_string(self) -> None:
         invalid_manifests = []
@@ -299,49 +362,105 @@ class WorkspaceHarnessTests(unittest.TestCase):
         self.assertIn("resolve inside docs", resolved_outside.stderr)
         self.assertNotIn("UNLOADED_RECORD_SECRET", resolved_outside.stdout)
 
-    def test_recover_rejects_invalid_or_duplicate_state_marker(self) -> None:
-        marker = self._initial_marker()
-        marker["schema_version"] = 9
-        self._write_state(marker)
+    def test_recover_rejects_invalid_state_status(self) -> None:
+        status = self._initial_status()
+        status["schema_version"] = 9
+        self._write_status(status)
 
         wrong_schema = self._run_cli("recover")
         self.assertEqual(wrong_schema.returncode, 2)
         self.assertIn("schema_version", wrong_schema.stderr)
 
-        inconsistent_marker = self._initial_marker()
-        inconsistent_marker["status"] = "verified_waiting_acceptance"
-        self._write_state(inconsistent_marker)
+        inconsistent_status = self._initial_status()
+        inconsistent_status["status"] = "verified_waiting_acceptance"
+        self._write_status(inconsistent_status)
 
         inconsistent = self._run_cli("recover")
         self.assertEqual(inconsistent.returncode, 2)
         self.assertIn("inconsistent", inconsistent.stderr)
 
-        wrong_type_marker = self._initial_marker()
-        wrong_type_marker["status"] = ["ready_for_verification"]
-        self._write_state(wrong_type_marker)
+        wrong_type_status = self._initial_status()
+        wrong_type_status["status"] = ["ready_for_verification"]
+        self._write_status(wrong_type_status)
 
         wrong_type = self._run_cli("recover")
         self.assertEqual(wrong_type.returncode, 2)
-        self.assertIn("invalid state marker status", wrong_type.stderr)
+        self.assertIn("invalid Workspace state status", wrong_type.stderr)
 
-        state_path = self.root / "workspaces" / "001-example" / "current" / "state.md"
-        valid_state = (
-            f"{STATE_BEGIN}\n"
-            f"{json.dumps(self._initial_marker())}\n"
-            f"{STATE_END}\n"
+    def test_recover_rejects_missing_malformed_and_symlinked_status(self) -> None:
+        status_path = (
+            self.root
+            / "workspaces"
+            / "001-example"
+            / "current"
+            / "state"
+            / "status.json"
         )
-        state_path.write_text(valid_state + valid_state, encoding="utf-8")
+        status_path.unlink()
 
-        duplicate = self._run_cli("recover")
-        self.assertEqual(duplicate.returncode, 2)
-        self.assertIn("exactly one", duplicate.stderr)
+        missing = self._run_cli("recover")
+        self.assertEqual(missing.returncode, 2)
+        self.assertIn("does not exist", missing.stderr)
+
+        status_path.write_text("{not-json\n", encoding="utf-8")
+        malformed = self._run_cli("recover")
+        self.assertEqual(malformed.returncode, 2)
+        self.assertIn("not valid JSON", malformed.stderr)
+
+        status_path.unlink()
+        outside_status = self.root / "docs" / "status.json"
+        outside_status.write_text(
+            json.dumps(self._initial_status()), encoding="utf-8"
+        )
+        status_path.symlink_to(outside_status)
+        linked = self._run_cli("recover")
+        self.assertEqual(linked.returncode, 2)
+        self.assertIn("symlink", linked.stderr)
+
+    def test_recover_rejects_symlinked_memory_topic(self) -> None:
+        source = self.root / "docs" / "linked-memory.md"
+        source.write_text("LINKED_MEMORY_MUST_NOT_LOAD\n", encoding="utf-8")
+        link = (
+            self.root
+            / "workspaces"
+            / "001-example"
+            / "current"
+            / "memory"
+            / "03-linked.md"
+        )
+        link.symlink_to(source)
+
+        completed = self._run_cli("recover")
+
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("symlink", completed.stderr)
+        self.assertNotIn("LINKED_MEMORY_MUST_NOT_LOAD", completed.stdout)
+
+    def test_recover_rejects_symlinked_current_directories(self) -> None:
+        current_directory = (
+            self.root / "workspaces" / "001-example" / "current"
+        )
+        for directory_name in ("memory", "state"):
+            with self.subTest(directory=directory_name):
+                directory = current_directory / directory_name
+                real_directory = current_directory / f"{directory_name}-real"
+                directory.rename(real_directory)
+                directory.symlink_to(real_directory, target_is_directory=True)
+                try:
+                    completed = self._run_cli("recover")
+
+                    self.assertEqual(completed.returncode, 2)
+                    self.assertIn("symlink", completed.stderr)
+                finally:
+                    directory.unlink()
+                    real_directory.rename(directory)
 
     def test_recover_validates_receipt_without_loading_its_body(self) -> None:
         receipt_relative = (
             "workspaces/001-example/records/verify-existing.json"
         )
-        marker = self._verified_marker(receipt_relative)
-        self._write_state(marker)
+        status = self._verified_status(receipt_relative)
+        self._write_status(status)
 
         missing = self._run_cli("recover", "--json")
         self.assertEqual(missing.returncode, 2)
@@ -351,7 +470,7 @@ class WorkspaceHarnessTests(unittest.TestCase):
             "schema_version": 1,
             "workspace_id": "001-example",
             "result": "fail",
-            "finished_at": marker["finished_at"],
+            "finished_at": status["finished_at"],
             "body_secret": "RECEIPT_BODY_MUST_NOT_ENTER_CONTEXT",
         }
         self._write_json(receipt_relative, receipt)
@@ -366,7 +485,7 @@ class WorkspaceHarnessTests(unittest.TestCase):
         self.assertEqual(wrong_time.returncode, 2)
         self.assertIn("finished_at do not match", wrong_time.stderr)
 
-        receipt["finished_at"] = marker["finished_at"]
+        receipt["finished_at"] = status["finished_at"]
         self._write_json(receipt_relative, receipt)
         recovered = self._run_cli("recover", "--json")
         self.assertEqual(recovered.returncode, 0, recovered.stderr)
@@ -390,25 +509,56 @@ class WorkspaceHarnessTests(unittest.TestCase):
         )
         receipt_relative = "workspaces/001-example/records/linked.json"
         (self.root / receipt_relative).symlink_to(outside_receipt)
-        self._write_state(self._verified_marker(receipt_relative))
+        self._write_status(self._verified_status(receipt_relative))
 
         completed = self._run_cli("recover")
 
         self.assertEqual(completed.returncode, 2)
         self.assertIn("symlink", completed.stderr)
 
+    def test_verify_validates_status_before_running_command(self) -> None:
+        status_path = (
+            self.root
+            / "workspaces"
+            / "001-example"
+            / "current"
+            / "state"
+            / "status.json"
+        )
+        status_path.write_text("{not-json\n", encoding="utf-8")
+
+        completed = self._run_cli("verify")
+
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("not valid JSON", completed.stderr)
+        self.assertEqual(self._receipt_files(), [])
+        self.assertEqual(
+            (self.root / "src" / "value.txt").read_text(encoding="utf-8"),
+            "wrong\n",
+        )
+
     def test_verify_persists_failure_then_pass_without_completing(self) -> None:
+        state_index_path = (
+            self.root
+            / "workspaces"
+            / "001-example"
+            / "current"
+            / "state"
+            / "index.md"
+        )
+        original_state_index = state_index_path.read_bytes()
         failed = self._run_cli("verify")
 
         self.assertEqual(failed.returncode, 1, failed.stdout + failed.stderr)
         failed_summary = json.loads(failed.stdout)
         self.assertEqual(failed_summary["status"], "verification_failed")
-        failed_marker = self._read_marker()
-        self.assertEqual(failed_marker["status"], "verification_failed")
-        self.assertEqual(failed_marker["result"], "fail")
+        failed_status = self._read_status()
+        self.assertEqual(failed_status["status"], "verification_failed")
+        self.assertEqual(failed_status["result"], "fail")
         self.assertEqual(
-            failed_marker["next_action"], self.manifest["next_actions"]["fail"]
+            failed_status["next_action"], self.manifest["next_actions"]["fail"]
         )
+        self.assertEqual(state_index_path.read_bytes(), original_state_index)
 
         receipts_after_failure = self._receipt_files()
         self.assertEqual(len(receipts_after_failure), 1)
@@ -425,7 +575,7 @@ class WorkspaceHarnessTests(unittest.TestCase):
         self.assertIsInstance(failed_receipt["stderr"], str)
         self.assertEqual(failed_receipt["evidence_capture"], "before_verification")
         self.assertEqual(
-            failed_marker["finished_at"], failed_receipt["finished_at"]
+            failed_status["finished_at"], failed_receipt["finished_at"]
         )
         self.assertEqual(
             failed_receipt["argv"], self.manifest["verification"]["argv"]
@@ -445,15 +595,16 @@ class WorkspaceHarnessTests(unittest.TestCase):
             passed_summary["status"], "verified_waiting_acceptance"
         )
         self.assertNotEqual(passed_summary["status"], "completed")
-        passed_marker = self._read_marker()
+        passed_status = self._read_status()
         self.assertEqual(
-            passed_marker["status"], "verified_waiting_acceptance"
+            passed_status["status"], "verified_waiting_acceptance"
         )
-        self.assertEqual(passed_marker["result"], "pass")
-        self.assertNotEqual(passed_marker["status"], "completed")
+        self.assertEqual(passed_status["result"], "pass")
+        self.assertNotEqual(passed_status["status"], "completed")
         self.assertEqual(
-            passed_marker["next_action"], self.manifest["next_actions"]["pass"]
+            passed_status["next_action"], self.manifest["next_actions"]["pass"]
         )
+        self.assertEqual(state_index_path.read_bytes(), original_state_index)
 
         receipts_after_pass = self._receipt_files()
         self.assertEqual(len(receipts_after_pass), 2)
@@ -477,7 +628,7 @@ class WorkspaceHarnessTests(unittest.TestCase):
         self.assertEqual(
             value_evidence["sha256"], hashlib.sha256(expected_bytes).hexdigest()
         )
-        self.assertEqual(passed_marker["receipt"], passed_summary["receipt"])
+        self.assertEqual(passed_status["receipt"], passed_summary["receipt"])
 
     def test_verify_keeps_result_when_command_deletes_evidence(self) -> None:
         manifest = copy.deepcopy(self.manifest)
@@ -511,9 +662,9 @@ class WorkspaceHarnessTests(unittest.TestCase):
         self.assertEqual(
             value_evidence["sha256"], hashlib.sha256(expected_bytes).hexdigest()
         )
-        marker = self._read_marker()
-        self.assertEqual(marker["receipt"], summary["receipt"])
-        self.assertEqual(marker["finished_at"], receipt["finished_at"])
+        status = self._read_status()
+        self.assertEqual(status["receipt"], summary["receipt"])
+        self.assertEqual(status["finished_at"], receipt["finished_at"])
 
     def test_verify_timeout_persists_failure_receipt_and_state(self) -> None:
         manifest = copy.deepcopy(self.manifest)
@@ -545,11 +696,11 @@ class WorkspaceHarnessTests(unittest.TestCase):
         self.assertEqual(receipt["result"], "fail")
         self.assertTrue(receipt["timeout"]["timed_out"])
         self.assertEqual(receipt["timeout"]["timeout_seconds"], 0.1)
-        marker = self._read_marker()
-        self.assertEqual(marker["status"], "verification_failed")
-        self.assertEqual(marker["result"], "fail")
-        self.assertEqual(marker["receipt"], summary["receipt"])
-        self.assertEqual(marker["finished_at"], receipt["finished_at"])
+        status = self._read_status()
+        self.assertEqual(status["status"], "verification_failed")
+        self.assertEqual(status["result"], "fail")
+        self.assertEqual(status["receipt"], summary["receipt"])
+        self.assertEqual(status["finished_at"], receipt["finished_at"])
 
     def test_verify_normalizes_root_and_caps_persisted_output(self) -> None:
         manifest = copy.deepcopy(self.manifest)

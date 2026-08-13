@@ -1,0 +1,59 @@
+{
+  "argv": [
+    "python3",
+    "-m",
+    "unittest",
+    "tests.test_config_loader",
+    "-v"
+  ],
+  "evidence_capture": "before_verification",
+  "evidence_collected_at": "2026-08-13T04:59:30.865Z",
+  "evidence_files": [
+    {
+      "path": "src/config_loader.py",
+      "sha256": "cbf191bcfbf56abfc84e8bcdee6d34839662043af83c868b09fd6a30a7f49532",
+      "size": 1496
+    },
+    {
+      "path": "tests/test_config_loader.py",
+      "sha256": "f5de705fdaa935387e0eb1fe55b167c938056f0bcadcbd14900bdb27bbf665d0",
+      "size": 1741
+    }
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-08-13T04:59:30.913Z",
+  "normalization": {
+    "output_root_token": "<OUTPUT_ROOT>",
+    "stderr_replacements": 0,
+    "stdout_replacements": 0
+  },
+  "output_capture": {
+    "encoding": "utf-8",
+    "errors": "replace",
+    "limit_unit": "characters",
+    "max_chars_per_stream": 20000,
+    "stderr": {
+      "observed_chars": 939,
+      "persisted_chars": 939,
+      "read_error": null,
+      "truncated": false
+    },
+    "stdout": {
+      "observed_chars": 0,
+      "persisted_chars": 0,
+      "read_error": null,
+      "truncated": false
+    }
+  },
+  "process_returncode": 0,
+  "result": "pass",
+  "schema_version": 1,
+  "started_at": "2026-08-13T04:59:30.865Z",
+  "stderr": "test_explicit_timeout_is_preserved (tests.test_config_loader.LoadRequestPolicyTests.test_explicit_timeout_is_preserved) ... ok\ntest_missing_timeout_uses_5000_ms (tests.test_config_loader.LoadRequestPolicyTests.test_missing_timeout_uses_5000_ms) ... ok\ntest_rejects_boolean_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_boolean_timeout) ... ok\ntest_rejects_non_integer_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_non_integer_timeout) ... ok\ntest_rejects_non_positive_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_non_positive_timeout) ... ok\ntest_rejects_unknown_keys (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_unknown_keys) ... ok\ntest_returns_immutable_policy (tests.test_config_loader.LoadRequestPolicyTests.test_returns_immutable_policy) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.000s\n\nOK\n",
+  "stdout": "",
+  "timeout": {
+    "timed_out": false,
+    "timeout_seconds": 30.0
+  },
+  "workspace_id": "001-default-timeout"
+}
