@@ -11,4 +11,4 @@ Context+harness의 작은 계약 변경이 기준 Project, 이식 skill, 여러 
 3. [`output/index.md`](output/index.md): 이 Workspace goal의 선택된 개선 산출물
 4. [`records/`](records/): 관찰, 후보, 결정, 실험과 검증 기록
 
-이 Workspace는 이전 구현·적용 Workspace를 합치거나 historical record를 현재 계약에 맞춰 다시 쓰지 않는다. 교정된 구조와 최종 검증은 [`records/2026-08-14-06`](records/2026-08-14-06-reference-maintain-structural-correction-and-verification.md), 그전 완료 판단은 당시 상태 그대로 보존한 [`records/2026-08-14-05`](records/2026-08-14-05-reference-recover-verify-implementation-and-verification.md)에서 확인한다.
+이 Workspace는 이전 구현·적용 Workspace를 합치거나 historical record를 현재 계약에 맞춰 다시 쓰지 않는다. 교정된 책임 구조와 검증은 [`records/2026-08-14-06`](records/2026-08-14-06-reference-maintain-structural-correction-and-verification.md), 이후 Maintain agent의 책임 디렉터리 배치와 등록 결정은 [`records/2026-08-14-07`](records/2026-08-14-07-reference-maintain-agent-colocation-and-registration.md), 그전 완료 판단은 당시 상태 그대로 보존한 [`records/2026-08-14-05`](records/2026-08-14-05-reference-recover-verify-implementation-and-verification.md)에서 확인한다.

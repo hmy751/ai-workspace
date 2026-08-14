@@ -2,12 +2,14 @@
 
 이 디렉터리는 Project 안에서 여러 작업을 지속 가능한 Workspace로 운영하는 상위 경계다.
 
+이 영역을 수정하는 AI 작업 지침과 Maintain agent routing은 [`AGENTS.md`](AGENTS.md)에서 찾는다.
+
 - [`workspaces/`](workspaces/): 각 작업의 identity, 선택 계약, 현재 context, 원자료와 provenance, goal 산출물 지도, 누적 records
 - [`harness/`](harness/): 선택한 Workspace를 Recover·Maintain·Verify하고 관리 장치 자체를 별도로 검증하는 교체 가능한 실행 경계
 
 Harness는 개별 Workspace에 속한 내용이 아니다. 여러 Workspace가 공유하는 교체 가능한 장치이며, Workspace의 목표·사람의 판단·`current/source/output/records` 의미를 독점하지 않는다. Harness를 제거해도 각 Workspace는 해당 README에서 독립적으로 읽을 수 있어야 한다.
 
-Workspace Context의 의미와 관리 기준은 [`workspaces/`](workspaces/)가 계속 소유한다. Harness의 [`Maintain`](harness/maintain/)은 그 기준을 자연스러운 의미 변화 경계에서 적용하는 관리 책임이며, Reference 전용 agent adapter 또는 main이 수행한다. Adapter를 제거하거나 교체해도 Workspace의 의미와 관리 기준은 남는다.
+Workspace Context의 의미와 관리 기준은 [`workspaces/`](workspaces/)가 계속 소유한다. Harness의 [`Maintain`](harness/maintain/)은 그 기준을 자연스러운 의미 변화 경계에서 적용하는 관리 책임이며, 같은 책임 디렉터리의 [Reference 전용 agent](harness/maintain/workspace-context-maintainer.toml) 또는 main이 수행한다. Adapter를 제거하거나 교체해도 Workspace의 의미와 관리 기준은 남는다.
 
 Harness 계약·구현 변경은 실제 active Workspace에 durable receipt를 남기는 방식으로 자기 검증하지 않는다. [`harness/validation/`](harness/validation/)의 임시 Project/Workspace fixture 검사가 Harness 회귀를 소유한다.
 

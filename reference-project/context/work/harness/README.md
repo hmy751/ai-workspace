@@ -12,7 +12,7 @@ python3 -m context.work.harness verify [workspace_id]
 작업 Context의 세 책임은 각각 자기 목적·규칙·실행 방식의 진입점을 가진다.
 
 - **Recover**: 새 세션·새 작업 주체의 Workspace 재진입에서 읽기 전용 packet을 만든다. 결정적 `recover` CLI와 [`recover/`](recover/)가 소유한다.
-- **Maintain**: 작업 중 생긴 의미 변화를 선택한 Workspace의 기존 Context Owner에 반영한다. [`maintain/`](maintain/)이 실행 계약을 소유하고, 현재 Codex 실행 adapter는 [`.codex/agents/workspace-context-maintainer.toml`](../../../.codex/agents/workspace-context-maintainer.toml)이다. Agent 또는 main이 수행하고 main이 근거와 diff를 검토한다.
+- **Maintain**: 작업 중 생긴 의미 변화를 선택한 Workspace의 기존 Context Owner에 반영한다. [`maintain/`](maintain/)이 실행 계약과 [Codex agent 정의](maintain/workspace-context-maintainer.toml)를 함께 소유한다. Project 설정은 그 하위 파일의 발견 경로만 등록하며, agent 또는 main이 수행하고 main이 근거와 diff를 검토한다.
 - **Verify**: Workspace 상태 전환·인계에 필요한 지속적 제품 증거를 남긴다. 결정적 `verify` CLI와 [`verify/`](verify/)가 소유한다.
 
 **Harness validation**은 작업 흐름의 네 번째 단계가 아니라 위 관리 장치 자체의 회귀 검증 경계다. [`validation/`](validation/)이 임시 fixture에서 Recover·Verify 연결과 checked-in 제품 상태 격리를 검사한다. 사람의 목표·acceptance·완료 판단은 Harness 바깥에 남는다.
@@ -23,7 +23,7 @@ Maintain은 Context 의미 정합성, Verify는 고정 명령의 기계 증거, 
 
 - [`workspace_contract.py`](workspace_contract.py): active/id 선택, identity-only `workspace.json`, Work root 내부의 안전한 파일 접근, `status.json`과 receipt 연결 필드의 최소 공통 계약
 - [`recover/`](recover/): `recover.json`, current context 선택·로딩, 연결 receipt header와 선언된 snapshot freshness 확인, receipt 본문을 노출하지 않는 recovery packet과 사람용 출력
-- [`maintain/`](maintain/): 명시적 Workspace와 전달받은 evidence를 기준으로 의미 변화를 기존 Owner에 배치하는 agent/main 계약과 교체 가능한 adapter의 관계
+- [`maintain/`](maintain/): 명시적 Workspace와 전달받은 evidence를 기준으로 의미 변화를 기존 Owner에 배치하는 agent/main 계약과 교체 가능한 Codex adapter 정의
 - [`verify/`](verify/): `verify.json`, evidence 선확보, 제한 실행, Workspace `records/receipts/verify/`의 append-only receipt, atomic status 갱신
 - [`validation/`](validation/): 임시 Workspace 순환과 checked-in 제품 machine state 보존 검사
 - [`testing.py`](testing.py): Recover·Verify·validation 테스트가 함께 사용하는 최소 fixture 기반

@@ -12,7 +12,7 @@ Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Wor
 
 ## 시작점
 
-전체 context 관계는 [context README](context/README.md), 사람이 현재 작업을 볼 때는 [active Workspace README](context/work/workspaces/001-default-timeout/README.md)에서 시작한다. Harness의 책임과 workflow를 변경할 때는 [Harness README](context/work/harness/README.md)에서 시작한다.
+전체 context 관계는 [context README](context/README.md), 사람이 현재 작업을 볼 때는 [active Workspace README](context/work/workspaces/001-default-timeout/README.md)에서 시작한다. Work·Harness의 AI 운영 지침은 [Work AGENTS](context/work/AGENTS.md), Harness 책임과 workflow는 [Harness README](context/work/harness/README.md)에서 시작한다.
 
 실제 명령은 `reference-project/` root에서 실행한다.
 
@@ -31,8 +31,9 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
 
 ```text
 .
-├── .codex/agents/
-│   └── workspace-context-maintainer.toml  # 교체 가능한 Maintain adapter
+├── .codex/
+│   └── config.toml               # 하위 Maintain agent 발견 경로만 등록
+├── AGENTS.md                     # 책임별 하위 지침을 찾는 최소 router
 ├── src/                          # 실제 제품 코드
 ├── tests/
 │   └── test_config_loader.py     # 제품 동작 검증
@@ -46,9 +47,10 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
     │   └── decisions/
     └── work/
         ├── README.md             # Work context 운영 경계
+        ├── AGENTS.md             # Work·Harness 운영과 Maintain agent routing
         ├── harness/              # 교체 가능한 Workspace 관리 장치
         │   ├── recover/          # 읽기 전용 재진입
-        │   ├── maintain/         # 의미 갱신 책임과 adapter 관계
+        │   ├── maintain/         # 의미 갱신 책임과 실제 agent 정의
         │   ├── verify/           # durable 제품 검증 증거
         │   └── validation/       # 제품 상태를 보존하는 Harness 자체 검증
         └── workspaces/

@@ -1,0 +1,3 @@
+[agents.workspace_context_maintainer]
+description = "명시된 Workspace와 전달받은 근거만 대조해 지속 Context를 기존 Owner에 반영하고, 열린 판단은 main에 돌려주는 Reference Project maintainer."
+config_file = "../context/work/harness/maintain/workspace-context-maintainer.toml"

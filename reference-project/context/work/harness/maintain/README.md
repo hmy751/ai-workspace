@@ -2,7 +2,7 @@
 
 Maintain은 작업 중 생긴 의미 있는 변화를 선택한 Workspace의 지속 Context에 맞게 반영하는 Harness 관리 책임이다. Context의 의미나 책임 Owner를 새로 정하지 않으며, [`Work context`](../../README.md)와 [`Workspace collection`](../../workspaces/README.md), 선택한 Workspace의 README가 소유한 기존 경계를 적용한다.
 
-Codex에서 이 책임을 수행하는 현재 adapter는 [`workspace-context-maintainer.toml`](../../../../.codex/agents/workspace-context-maintainer.toml)이다. 이 adapter는 교체 가능한 실행 장치이며 Maintain 계약이나 Workspace Context의 정본이 아니다.
+Codex에서 이 책임을 수행하는 현재 adapter 정의는 같은 책임 경계의 [`workspace-context-maintainer.toml`](workspace-context-maintainer.toml)이다. Project root의 [`.codex/config.toml`](../../../../.codex/config.toml)이 이 하위 파일을 `workspace_context_maintainer` role로 등록하고, [`Work 운영 규칙`](../../AGENTS.md)이 호출 시점과 main 검토를 명시한다. Adapter는 교체 가능한 실행 장치이며 Maintain 계약이나 Workspace Context의 정본이 아니다.
 
 ## 활성 시점
 
@@ -68,4 +68,4 @@ Maintain은 다음을 수행하거나 결정하지 않는다.
 
 ## 교체와 제거
 
-Maintain의 지속 기준과 Workspace의 의미는 이 agent adapter 안에 있지 않다. Adapter를 제거하거나 다른 사람·AI·도구로 교체해도 이 README에서 시작해 Work·Workspace canonical을 적용하면 같은 책임을 수행할 수 있다. 따라서 adapter 교체를 위해 Context 구조나 각 Workspace의 의미를 다시 만들 필요가 없다.
+Maintain의 지속 기준과 Workspace의 의미는 이 agent adapter 안에 있지 않다. Adapter를 제거하거나 다른 사람·AI·도구로 교체해도 이 README에서 시작해 Work·Workspace canonical을 적용하면 같은 책임을 수행할 수 있다. 따라서 adapter 교체를 위해 Context 구조나 각 Workspace의 의미를 다시 만들 필요가 없다. Agent 정의를 옮기거나 교체할 때는 같은 디렉터리의 파일과 Project root `.codex/config.toml`의 발견 경로를 함께 확인한다.

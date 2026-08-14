@@ -19,7 +19,7 @@ Main은 global `ai-system_context-ownership-boundary`, `ai-system_responsibility
 - [`validation/`](../../../../reference-project/context/work/harness/validation/README.md): Harness 자체 회귀를 ephemeral fixture에서 검사한다. 네 번째 작업 workflow 단계가 아니다.
 - [`testing.py`](../../../../reference-project/context/work/harness/testing.py): 책임 디렉터리가 함께 쓰는 test fixture만 제공한다.
 
-지속되는 Workspace 의미와 관리 규칙은 Work·Workspace canonical에 남는다. [`workspace-context-maintainer.toml`](../../../../reference-project/.codex/agents/workspace-context-maintainer.toml)은 그 규칙을 실제 작업 경계에서 수행하는 교체 가능한 Reference adapter다. Maintain을 위한 Python CLI나 schema는 추가하지 않았고, outer [repo-local `context-maintainer`](../../../../.codex/agents/context-maintainer.toml)는 별도 Workspace와 권위를 유지한다.
+지속되는 Workspace 의미와 관리 규칙은 Work·Workspace canonical에 남는다. [`workspace-context-maintainer.toml`](../../../../reference-project/context/work/harness/maintain/workspace-context-maintainer.toml)은 그 규칙을 실제 작업 경계에서 수행하는 교체 가능한 Reference adapter다. Maintain을 위한 Python CLI나 schema는 추가하지 않았고, outer [repo-local `context-maintainer`](../../../../.codex/agents/context-maintainer.toml)는 별도 Workspace와 권위를 유지한다.
 
 ## 독립 review와 수정
 

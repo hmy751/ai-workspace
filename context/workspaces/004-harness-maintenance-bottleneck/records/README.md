@@ -16,3 +16,4 @@
 - [`2026-08-14-04-current-scope-and-maintain-boundary-correction.md`](2026-08-14-04-current-scope-and-maintain-boundary-correction.md): 현재 분석 대상을 Reference Recover·Verify로 좁히고 Maintain 책임과 outer repo-local agent를 분리한 사용자 정정
 - [`2026-08-14-05-reference-recover-verify-implementation-and-verification.md`](2026-08-14-05-reference-recover-verify-implementation-and-verification.md): Maintain이 설명에만 있던 당시 Reference 구현·검증과 이후 철회된 완료 판단
 - [`2026-08-14-06-reference-maintain-structural-correction-and-verification.md`](2026-08-14-06-reference-maintain-structural-correction-and-verification.md): 사용자 완료 거절 뒤 Maintain 구조를 교정한 책임 계층, review 수정, 최종 검증과 proof ceiling
+- [`2026-08-14-07-reference-maintain-agent-colocation-and-registration.md`](2026-08-14-07-reference-maintain-agent-colocation-and-registration.md): Maintain agent 정의를 책임 디렉터리에 두고 root 설정은 발견 등록만 맡긴 사용자 결정과 확인 범위

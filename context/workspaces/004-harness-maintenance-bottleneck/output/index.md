@@ -11,8 +11,10 @@ Context+harness의 안전성과 재진입 가능성을 유지하면서, Referenc
 - [`Harness 책임과 실행 경계`](../../../../reference-project/context/work/harness/README.md): Recover·Maintain·Verify와 Harness validation의 관계
 - [`Recover 계약과 구현`](../../../../reference-project/context/work/harness/recover/): explicit Workspace 선택, read-only recovery, verification snapshot freshness
 - [`Maintain 계약`](../../../../reference-project/context/work/harness/maintain/): 자연스러운 의미 변화 경계, 기존 Context Owner routing, main 검토와 비소유 범위
-- [`Reference Maintain adapter`](../../../../reference-project/.codex/agents/workspace-context-maintainer.toml): Maintain 계약을 읽어 수행하는 교체 가능한 Codex 실행 장치
+- [`Reference Maintain agent`](../../../../reference-project/context/work/harness/maintain/workspace-context-maintainer.toml): Maintain 계약과 같은 책임 디렉터리에 둔 교체 가능한 Codex 실행 장치
+- [`Project agent 등록`](../../../../reference-project/.codex/config.toml): 하위 Maintain agent 정의의 발견 경로만 등록하는 Project 설정
+- [`Work 운영 규칙`](../../../../reference-project/context/work/AGENTS.md): Work·Harness 작업 지침과 Maintain agent 호출·main 검토 routing
 - [`Verify 계약과 구현`](../../../../reference-project/context/work/harness/verify/): claim·canonical basis·evidence snapshot과 durable machine receipt
 - [`Harness validation`](../../../../reference-project/context/work/harness/validation/): checked-in 제품 상태를 바꾸지 않는 ephemeral `recover → verify → recover` 회귀 검사
 
-완료 거절 뒤의 구조 교정, review 수정과 증명 상한은 [`2026-08-14-06 교정·검증 기록`](../records/2026-08-14-06-reference-maintain-structural-correction-and-verification.md)에 있다. 이 Workspace는 산출물을 복제하지 않고 실제 canonical 위치만 연결한다.
+완료 거절 뒤의 책임 구조 교정, review 수정과 증명 상한은 [`2026-08-14-06 교정·검증 기록`](../records/2026-08-14-06-reference-maintain-structural-correction-and-verification.md), 이후 agent 배치와 등록 결정은 [`2026-08-14-07 구조 결정 기록`](../records/2026-08-14-07-reference-maintain-agent-colocation-and-registration.md)에 있다. 이 Workspace는 산출물을 복제하지 않고 실제 canonical 위치만 연결한다.
