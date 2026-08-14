@@ -170,6 +170,68 @@ class VerifyTests(WorkspaceFixture):
             "wrong\n",
         )
 
+    def test_requires_verify_receipts_directory_before_running_command(self) -> None:
+        receipts = (
+            self.work_root
+            / "workspaces"
+            / "001-example"
+            / "records"
+            / "receipts"
+            / "verify"
+        )
+        receipts.rmdir()
+        contract = copy.deepcopy(self.verify_contract)
+        contract["verification"]["argv"] = [
+            "python3",
+            "-m",
+            "unittest",
+            "tests.test_delete_evidence",
+            "-v",
+        ]
+        self.write_work_json(
+            "workspaces/001-example/verify.json", contract
+        )
+
+        completed = self.run_cli("verify")
+
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn(
+            "verify receipts directory does not exist", completed.stderr
+        )
+        self.assertTrue((self.project_root / "src" / "value.txt").exists())
+
+    def test_rejects_symlinked_verify_receipts_directory_before_command(self) -> None:
+        receipts = (
+            self.work_root
+            / "workspaces"
+            / "001-example"
+            / "records"
+            / "receipts"
+            / "verify"
+        )
+        receipts.rmdir()
+        outside = self.project_root / "outside-verify-receipts"
+        outside.mkdir()
+        receipts.symlink_to(outside, target_is_directory=True)
+        contract = copy.deepcopy(self.verify_contract)
+        contract["verification"]["argv"] = [
+            "python3",
+            "-m",
+            "unittest",
+            "tests.test_delete_evidence",
+            "-v",
+        ]
+        self.write_work_json(
+            "workspaces/001-example/verify.json", contract
+        )
+
+        completed = self.run_cli("verify")
+
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("must not use symlink components", completed.stderr)
+        self.assertTrue((self.project_root / "src" / "value.txt").exists())
+        self.assertEqual(list(outside.iterdir()), [])
+
     def test_persists_failure_then_pass_without_completing_or_overwriting(self) -> None:
         state_index_path = (
             self.work_root

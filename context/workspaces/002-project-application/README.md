@@ -2,7 +2,7 @@
 
 `reference-project/`에서 검증한 context+harness 책임을 실제 기존 Project 하나에 적용하고, 그대로 가져갈 책임과 대상 Project에 맞게 바꿀 배치를 확인하는 Workspace다.
 
-상태는 **active**다. 원본 대상 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio`의 첫 적용과 검증은 Git 이력에 보존했고, 현재 원본에서는 Harness를 제거한 clean 상태다. 격리 사본 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio-skill-test`의 blind 재적용은 당시 schema `3`과 기존 문서 직접 선택 계약을 검증한 과거 결과다. 이후 실제 내용의 `context/project/README.md`와 `overview.md`, overview-first schema `4`를 완료 조건으로 채택했으며 이 새 계약은 reference에서만 검증했고 실제 target에는 아직 적용하지 않았다.
+상태는 **active**다. 원본 대상 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio`의 첫 적용과 검증은 Git 이력에 보존했고, 마지막 직접 확인에서는 Harness를 제거한 clean 상태였다. 격리 사본 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio-skill-test`의 blind 재적용은 당시 schema `3`, 기존 문서 직접 선택, flat receipt 계약을 검증한 과거 결과다. 이후 실제 Project overview, schema `4`, 종류별 machine receipt 계약을 완료 조건으로 채택했지만 reference에서만 검증했고 실제 target에는 아직 적용하지 않았다.
 
 ## 읽는 순서
 

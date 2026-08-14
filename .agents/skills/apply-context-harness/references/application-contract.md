@@ -15,7 +15,7 @@ skill을 다듬을 때 `reference-project/`와 target 내용을 assets로 중복
 | 구분 | 모든 이식에서 유지 | 대상마다 다시 결정 |
 | --- | --- | --- |
 | Owner | 실제 `context/project/` Project common, Workspace, Harness를 분리 | 기존 상세 canonical, overview의 authority 관계와 routing 위치 |
-| Workspace | README, 최소 memory 3종, 빠른 state, 독립된 source, goal output index, 누적 records | ID, active 선택, 실제 목표·제약·Project 선택 경계·원자료·goal 산출물·다음 행동 |
+| Workspace | README, 최소 memory 3종, 빠른 state, 독립된 source, goal output index, 사람용 records와 종류별 machine receipts | ID, active 선택, 실제 목표·제약·Project 선택 경계·원자료·goal 산출물·다음 행동 |
 | recover | current, output index와 선언된 `context/project/` Markdown만 선택하고 source·records·output 본문 배제 | schema migration 필요 여부와 선택 문서 |
 | path | `context/project/` 고정, Project root와 Work root 구분, absolute·traversal·symlink 거부 | 기존 `context/`·Python package 충돌과 실제 상대 경로 |
 | verify | shell 없는 고정 argv, evidence 선캡처, 성공·실패 receipt | runtime, cwd, timeout, cache bypass, evidence closure |
@@ -37,6 +37,8 @@ Fresh target의 recover는 schema `4`와 `context/project/` 경계를 유지하�
 
 각 Workspace의 `current/`, `source/`, `output/`, `records/`는 형제 책임이다. `current/memory/`의 `01-goal.md`, `02-constraints.md`, `03-project-context.md`는 기본 재진입에 필요한 최소 구성이다. `source/index.md`는 source inventory의 최소 진입점이며, 실제 사용한 원문·변경하지 않은 snapshot·provenance만 연결한다. 별도 원자료가 없으면 없다고 적고 Project canonical을 복제하지 않는다. 해당 Workspace는 선택 범위·사용 시점·무결성·재접근 경로를 관리하며 원자료의 저자와 정본 권위는 원래 출처에 남는다. 현재 판단은 `current/`에 둔다.
 
+`records/` 바로 아래에는 날짜가 있는 사람이 읽는 분석·결정·migration·검증 해석을 둔다. 기계가 생성한 append-only JSON은 `records/receipts/` 아래에서 `preflight/`, `harness-tests/`, `verify/`로 종류를 분리한다. Harness는 receipt를 생성하지만, receipt가 증명하는 작업과 보존 수명주기의 Owner는 해당 Workspace다. 그래서 공용·교체 가능한 `context/work/harness/` 아래에 실행 결과를 쌓지 않는다. 기존 flat `records/*.json`은 이전 target의 status/recover 호환을 위해 읽을 수 있지만, 새 이식에서는 만들지 않는다.
+
 `output/index.md`는 Workspace goal을 위해 선택된 현재 산출물과 실제 canonical 위치의 최소 진입점이다. 실제 산출물이 Project 코드·문서·배포 위치에 있으면 복제하지 않는다. 분석 초안·후보 비교·탈락 사유·시행착오·선택 근거·교체된 이전 결과·검증 과정은 날짜가 있는 `records/`에 유지한다. 분석 문서도 goal 결과로 선택되면 output에서 찾게 하므로 파일 형식이 아니라 역할로 구분한다. Output 등재는 acceptance나 Workspace 완료를 뜻하지 않는다. Recover는 source를 검사하지 않고 output index만 기본 입력으로 읽으며 output artifact 본문과 records는 싣지 않는다.
 
 ## Preflight가 증명하는 것
@@ -51,7 +53,7 @@ Fresh target의 recover는 schema `4`와 `context/project/` 경계를 유지하�
 
 이 receipt는 한 번의 local capture pass에서 순차 관찰한 결과이며 Git lock을 잡은 atomic snapshot이 아니다. 동시 writer가 있으면 status와 file hash가 서로 다른 순간을 반영할 수 있다. 또한 파일의 저자, 변경 이유, 삭제 주체, Git 밖의 과거 상태를 증명하지 않는다. 사용자 발화와 실제 이후 행동을 구분해서 기록한다. Hash 연속성은 "내용이 같음"을 지지할 뿐 "누가 만들었음"을 증명하지 않는다.
 
-Receipt를 target 안에 바로 쓰면 그것도 working tree 변경이 되므로 기본 흐름은 `/private/tmp`에 먼저 쓰고, Workspace records 생성 후 exact copy하는 것이다. 복사 전후 SHA-256이 같은지 확인한다.
+Receipt를 target 안에 바로 쓰면 그것도 working tree 변경이 되므로 기본 흐름은 `/private/tmp`에 먼저 쓰고, Workspace와 `records/receipts/preflight/` 생성 후 exact copy하는 것이다. 복사 전후 SHA-256이 같은지 확인한다.
 
 ## 충돌과 dirty tree 처리
 
@@ -83,7 +85,7 @@ Project context 경계를 바꿨다면 적어도 다음을 target Harness tests�
 - non-Markdown 파일 거부
 - symlink와 비정규 파일 거부
 
-테스트 source 자체를 제품 verify evidence와 혼동하지 않는다. target-specific 변경의 현재 결과는 별도 Harness test receipt로 연결한다. Receipt helper는 임의 command를 받지 않고 현재 Python의 `unittest discover`만 실행해야 하며, timeout 때 같은 process group을 종료해야 한다. Test count가 0이거나 unittest 요약을 캡처하지 못하면 process exit가 0이어도 실패로 기록한다. stdout·stderr는 동시에 drain하되 설정한 byte prefix만 메모리에 보존한다. 새 session을 만들어 process group을 벗어난 descendant까지 격리하는 sandbox는 아니다.
+테스트 source 자체를 제품 verify evidence와 혼동하지 않는다. target-specific 변경의 현재 결과는 `records/receipts/harness-tests/`의 별도 Harness test receipt로 연결한다. Receipt helper는 임의 command를 받지 않고 현재 Python의 `unittest discover`만 실행해야 하며, timeout 때 같은 process group을 종료해야 한다. Test count가 0이거나 unittest 요약을 캡처하지 못하면 process exit가 0이어도 실패로 기록한다. stdout·stderr는 동시에 drain하되 설정한 byte prefix만 메모리에 보존한다. 새 session을 만들어 process group을 벗어난 descendant까지 격리하는 sandbox는 아니다.
 
 ## Verify evidence closure
 
@@ -97,6 +99,8 @@ Evidence 목록은 파일 수를 맞추는 일이 아니다. 고정 argv가 수�
 6. evidence를 실행 전에 hash하고 그 뒤 같은 process에서 명령을 실행한다.
 
 Cache hit 출력만으로 fresh pass를 선언하지 않는다. 도구가 제공하는 force/no-cache option을 고정 argv에 넣거나, cached validation이라는 한계를 명시한다. 전체 task 출력이 pass를 보고해도 evidence 목록이 입력을 닫지 못하면 "명령 출력상 통과"와 "어떤 tree가 검증됐는지"를 분리해서 말한다.
+
+반복 개발 확인은 직접 test 명령을 사용하고, product `verify`는 Workspace 상태 전환이나 다음 작업자·세션에 durable evidence를 인계할 때 실행한다. Product receipt는 `records/receipts/verify/`에 남긴다. 실행된 verify는 성공·실패 모두 하나의 사건이므로 같은 evidence hash라는 이유만으로 자동 삭제·병합하지 않는다. 이 운용 기준은 불필요한 생성을 줄이지만 retention이나 concurrent verify 조정을 자동화하지 않는다.
 
 ## 첫 적용에서 보존할 학습
 

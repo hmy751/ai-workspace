@@ -15,7 +15,7 @@
 - 첫 적용의 recover schema `3`은 Project-root 상대 경로 중 루트 `README.md`, `STATUS.md`, `docs/` 아래 Markdown을 직접 선택한 target-local 과거 계약이다. 새 target에 재사용하거나 새 계약 검증으로 해석하지 않는다.
 - Fresh target의 recover schema `4`는 `context/project/` 아래 regular Markdown만 허용하고 `context/project/overview.md`를 첫 항목으로 요구한다. Recovery packet shape는 바뀌지 않아 packet schema `5`를 유지한다.
 - 적용 전 사용자 작업 `App.tsx`, `styles.css`는 Harness와 분리해 target commit `527af89`에 보존했다. 적용 전 존재하던 untracked `context/code-map.md`는 사용자가 적용 진행 중 직접 삭제했으며 rollback에서도 복원하지 않았다.
-- 현재 target에서는 `git reset` 없이 commit `9519a43`으로 Harness 적용 commit을 되돌렸다. `AGENTS.md`와 `context/`는 없고 Harness용 `.gitignore` 변경도 사라졌으며, 제품 tree는 `527af89`와 같다.
+- 원본 target의 마지막 직접 확인에서는 `git reset` 없이 commit `9519a43`으로 Harness 적용 commit을 되돌린 상태였다. `AGENTS.md`와 `context/`는 없고 Harness용 `.gitignore` 변경도 사라졌으며, 제품 tree는 `527af89`와 같았다. 이후 source skill 변경에서는 target을 다시 열지 않았다.
 - `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio-skill-test`는 schema `3`과 기존 문서 직접 선택 계약 당시 skill을 blind 평가한 격리 사본이다. 새 Project context·schema `4` 계약, 원본 target이나 accepted canonical을 대신하지 않는다.
 - Harness가 없어져도 기존 Project canonical과 Workspace의 README·current·records 의미가 남아야 한다.
 
@@ -23,6 +23,8 @@
 
 - [`reference-project/`](../../../../reference-project/)는 실제 `context/project/`와 Work Harness 관계를 보여 주는 실행 가능한 기준 Project, repo-local [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/) skill은 target 원자료에서 실제 Project common context를 구성하는 이식 절차와 migration-only helper, 이 Workspace의 records는 실제 적용 결과와 예외를 소유한다.
 - helper는 이식 전에 target 상태를 관찰·보존하고 target-specific Harness test receipt를 만드는 장치다. 제품 runtime이나 범용 설치 payload가 아니며 target에 복제하지 않는다.
+- 새 이식은 사람용 날짜별 records를 `records/` root에, machine JSON을 `records/receipts/{preflight,harness-tests,verify}/`에 분리한다. Harness와 helper는 producer이고 receipt 의미·수명주기의 Owner는 target Workspace다. 이전 flat `records/*.json`은 읽기 호환만 유지하며 기존 target을 자동 migration하지 않는다.
+- 반복 개발 확인은 직접 test 명령을 사용하고, product `verify`는 상태 전환이나 다음 사람·세션에 근거를 인계할 때 durable receipt를 남기기 위해 사용한다. 실행된 receipt는 자동 삭제·병합하지 않으며 retention 자동화는 별도 문제다.
 - 이 절차는 `AGENTS.md`가 대상 Project 경로가 포함된 이식 요청에만 routing한다. 이 저장소의 `reference-project/`, Workspace, context maintainer와 결합된 절차여서 global skill로 등록하지 않았다.
 
 ## 검증 상한
@@ -31,8 +33,9 @@
 - Harness 계약 22개 통과는 실행 전 Python source 14개의 SHA-256·byte size와 함께 별도 receipt에 보존됐다. 제품 고정 검증은 실제 Turbo 대상 5개 package의 source·manifest·설정과 root 실행 설정 40개의 실행 전 hash를 포함한다. 이로써 Harness source와 고정 검증 입력에 대한 durable 증거 부족은 해소됐다.
 - 최종 자동 검증 통과는 로컬 Mock PG vertical slice의 고정 evidence snapshot에 한정된다. 실제 브라우저 승인·취소·focus 복귀·모바일 표시, 실제 PG·영속 DB·Android WebView·웹훅·운영 효과, 사람의 acceptance는 증명하지 않는다.
 - 자동 검증 통과 상태 `verified_waiting_acceptance`는 Workspace 완료나 사용자 수락을 뜻하지 않는다.
-- 새 계약의 source reference에서는 전체 37개 테스트와 `recover → verify → recover` live cycle을 확인했다. 최신 verify receipt는 제품 테스트 7개 통과를 보존하고, 후속 recover는 `overview.md`를 첫 Project context로 읽어 packet schema `5`를 반환했다.
+- 새 계약의 source reference에서는 전체 40개 테스트와 nested receipt를 쓰는 `recover → verify → recover` live cycle을 확인했다. 최신 verify receipt는 제품 테스트 7개 통과를 `records/receipts/verify/`에 보존하고, 후속 recover는 `overview.md`를 첫 Project context로 읽어 packet schema `5`를 반환했다. Skill helper 7개는 Python `3.14.3`과 `/usr/bin` Python `3.9.6`에서 각각 통과했다.
 - 격리 사본의 blind end-to-end 자동 검증은 schema `3`과 기존 문서 직접 선택 계약에 대한 과거 결과다. 새 `context/project/`·schema `4`의 실제 target 이식, 원본 설치·commit·사람 acceptance·다른 Project portability는 증명하지 않는다.
+- Payment target과 격리 target은 이번 receipt 계약 변경에서 열거나 재이식하지 않았다. 과거 적용 snapshot과 blind 평가의 flat receipt 배치는 새 nested 계약 검증이나 migration 결과가 아니다.
 
 ## 접근점
 
@@ -45,3 +48,4 @@
 - blind skill 평가 기록: [`2026-08-14-04-blind-apply-context-harness-skill-evaluation.md`](../records/2026-08-14-04-blind-apply-context-harness-skill-evaluation.md)
 - Project common context·recover 계약 변경 기록: [`2026-08-14-05-project-common-context-contract.md`](../records/2026-08-14-05-project-common-context-contract.md)
 - 기준 Project 루트 이름 변경 기록: [`2026-08-14-06-reference-project-root-rename.md`](../records/2026-08-14-06-reference-project-root-rename.md)
+- Target machine receipt 경계 계약: [`2026-08-14-07-target-machine-receipt-boundary-contract.md`](../records/2026-08-14-07-target-machine-receipt-boundary-contract.md)

@@ -77,13 +77,13 @@ python3 <skill-dir>/scripts/capture_target_state.py \
 
 1. 일반 진입점에서 Project common과 Work context의 Owner 관계를 찾게 한다. 기존 `AGENTS.md`나 context index가 있으면 교체하지 말고 충돌 없는 routing만 추가하고, 상세 Owner의 목표·구조·결정이 바뀌면 `context/project/overview.md`를 다시 대조해야 한다는 갱신 경로를 적는다.
 2. `context/project/README.md`와 `overview.md`를 만든다. README에는 책임·상세 Owner·충돌 우선순위·갱신 조건을, overview에는 실제 사용자 장면과 제품 목적, 범위와 범위 밖, 주요 시스템 흐름·구성요소, 여러 Workspace에 계속 적용되는 제약·채택 결정, 검증과 사람 acceptance 경계, 근거 path를 쓴다. 기존 문서의 복사본이나 링크 인덱스로 끝내지 않고, 원자료가 지지하지 않는 사실을 만들지 않는다. 첫 Workspace 장면이나 빠르게 바뀌는 상태를 Project 전체 사실로 승격하지 않는다. Exact baseline commit과 dirty state는 overview에 박아 두지 말고 preflight receipt와 migration record가 소유하게 한다.
-3. `context/work/workspaces/` 아래에 Workspace collection, active index, 첫 Workspace의 README·계약·`current/`·`source/`·`output/`·`records/`를 만든다. `current/memory/`에는 최소한 `01-goal.md`, `02-constraints.md`, `03-project-context.md`를 둔다. `source/index.md`를 source inventory의 최소 진입점으로 만들고, 실제 사용한 원문·변경하지 않은 snapshot·provenance만 연결한다. 별도 원자료가 없으면 없다고 적고 Project canonical을 복제하지 않는다. 원자료의 저자와 정본 권위는 원래 출처에 남긴다. 현재 판단·분석·결정·실행·검증 기록은 source에 섞지 않는다.
+3. `context/work/workspaces/` 아래에 Workspace collection, active index, 첫 Workspace의 README·계약·`current/`·`source/`·`output/`·`records/`를 만든다. `current/memory/`에는 최소한 `01-goal.md`, `02-constraints.md`, `03-project-context.md`를 둔다. `source/index.md`를 source inventory의 최소 진입점으로 만들고, 실제 사용한 원문·변경하지 않은 snapshot·provenance만 연결한다. 별도 원자료가 없으면 없다고 적고 Project canonical을 복제하지 않는다. 원자료의 저자와 정본 권위는 원래 출처에 남긴다. 현재 판단·분석·결정·실행·검증 기록은 source에 섞지 않는다. `records/README.md`는 사람이 읽는 날짜별 기록과 기계 receipt의 진입점을 설명하고, `records/receipts/README.md`는 `verify/`, `harness-tests/`, `preflight/`의 종류별 책임을 설명하게 한다. Product verify 실행 전에는 `records/receipts/verify/`를 symlink가 아닌 실제 디렉터리로 만든다.
 4. `output/index.md`를 Workspace goal을 위해 선택된 현재 산출물의 최소 진입점으로 만든다. 실제 산출물이 Project의 기존 코드·문서·배포 위치에 있으면 복제하지 않고 canonical 경로를 연결한다. Output에는 선택된 결과와 상태·proof ceiling만 두고, 분석 초안·후보 비교·탈락 사유·시행착오·선택 근거·교체된 이전 결과는 날짜가 있는 records에 남긴다. 파일 형식이 아니라 Workspace goal에서 맡는 역할로 둘을 구분하며, output 등재를 acceptance나 완료로 해석하지 않는다.
 5. `context/work/harness/`에는 `reference-project/context/work/harness/`의 실행 책임만 옮긴다. Fresh target의 recover는 reference schema `4`와 고정 `context/project/` Markdown 경계를 유지하고, 각 Workspace가 `overview.md`를 첫 항목으로 선택한 뒤 필요한 Project 문서만 더 선택하게 한다. 이전 reference schema `2`와 첫 payment 적용에서 다른 의미로 사용한 target-local schema `3`을 재해석하지 않는다.
 6. Recover 경계나 package 배치를 target에 맞춰 바꿨다면 absolute path, traversal, undeclared path, non-Markdown, symlink와 records 유입 거부 테스트를 함께 고친다.
-7. verify는 shell 없는 고정 argv를 사용하고, 실행 전에 evidence를 hash하며, 성공과 실패를 모두 새 receipt로 남기고 machine status만 atomic하게 갱신하게 한다.
+7. verify는 shell 없는 고정 argv를 사용하고, 실행 전에 evidence를 hash하며, 성공과 실패를 모두 `records/receipts/verify/`의 새 receipt로 남기고 machine status만 atomic하게 갱신하게 한다. 이전 target의 flat `records/*.json` receipt는 읽기 호환성을 유지하되 새로 만들지 않는다.
 8. cache replay가 가능한 도구는 fresh 실행 option을 계약에 고정하거나, fresh가 아님을 proof ceiling에 명시한다.
-9. preflight receipt를 첫 Workspace `records/`에 그대로 복사하고 migration record에서 연결한다.
+9. `records/receipts/preflight/`를 만들고 preflight receipt를 그곳에 그대로 복사한 뒤 migration record에서 연결한다. 임시본과 보존본의 SHA-256이 같은지 확인한다.
 
 사용자가 직접 삭제·이동·승격한 파일은 그 주체와 결정을 기록한다. Harness가 하지 않은 행동을 Harness의 효과나 손실로 서술하지 않는다.
 
@@ -98,11 +98,11 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
   --tests-start context/work/harness \
   --top-level . \
   --pattern 'test_*.py' \
-  --records-dir context/work/workspaces/<workspace-id>/records \
+  --records-dir context/work/workspaces/<workspace-id>/records/receipts/harness-tests \
   --timeout-seconds 300
 ```
 
-실제 target test layout에 맞춰 `--tests-start`, `--top-level`, `--pattern`만 명시적으로 조정한다. helper는 임의 argv나 shell을 받지 않고 현재 Python으로 `unittest discover`만 실행하며, timeout이면 같은 process group을 종료하고 실패 receipt를 남긴다. 단순 사람 기록만으로 "Harness tests pass"를 선언하지 않는다.
+명령 전에 `records/receipts/harness-tests/`를 symlink가 아닌 실제 디렉터리로 만든다. 실제 target test layout에 맞춰 `--tests-start`, `--top-level`, `--pattern`만 명시적으로 조정한다. helper는 임의 argv나 shell을 받지 않고 현재 Python으로 `unittest discover`만 실행하며, timeout이면 같은 process group을 종료하고 실패 receipt를 남긴다. 단순 사람 기록만으로 "Harness tests pass"를 선언하지 않는다.
 
 ## 6. 전체 순환을 검증한다
 
@@ -137,6 +137,7 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 - `context/project/README.md`와 `overview.md`가 실제 Project common context를 담고 상세 Owner·충돌 우선순위·근거 path를 밝히며, preflight receipt와 migration record가 관찰 기준을 연결한다.
 - 첫 Workspace가 최소 memory 세 파일, `source/index.md`, `output/index.md`, 독립된 `source/`·`output/`·`records/` 경계를 가진다. Recover에는 output index만 들어오고 source와 output artifact 본문은 들어오지 않는다.
 - Harness test receipt가 source hash와 현재 pass/fail을 연결한다.
+- 사람용 날짜별 records와 `records/receipts/{preflight,harness-tests,verify}/`의 기계 증거가 분리되어 있고, status가 최신 product verify receipt를 가리킨다.
 - `recover → verify → recover`가 live target에서 실행됐다.
 - product receipt와 status가 같은 최종 실행을 가리킨다.
 - 증명한 범위와 브라우저·외부 시스템·사람 acceptance의 미검증 범위를 분리했다.

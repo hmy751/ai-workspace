@@ -47,7 +47,7 @@ repo-local application skill helper 테스트 7개도 통과했다. 기본 `pyth
 
 이번 변경에서 수행한 `recover → verify → recover`의 최종 product receipt와 machine status를 직접 대조했다.
 
-- 최신 receipt: [`verify-20260814T033807136133Z-6688019152ce406bb6778a58a3417fc2.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/verify-20260814T033807136133Z-6688019152ce406bb6778a58a3417fc2.json)
+- 최신 receipt: [`verify-20260814T033807136133Z-6688019152ce406bb6778a58a3417fc2.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T033807136133Z-6688019152ce406bb6778a58a3417fc2.json)
 - receipt result: `pass`
 - 제품 unittest: 7개 통과
 - machine status: 같은 receipt를 가리키는 `verified_waiting_acceptance`

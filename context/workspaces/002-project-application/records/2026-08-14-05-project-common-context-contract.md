@@ -36,7 +36,7 @@ Exact baseline commit과 dirty state는 overview가 아니라 preflight receipt�
 Source reference working tree에서 다음을 확인했다.
 
 - 현재 `reference-project/`로 이름을 바꾼 당시 source root의 `python3 -m unittest discover -s . -p 'test_*.py' -v`: Harness와 제품 전체 37개 통과
-- live verify: 제품 테스트 7개 통과, exit `0`, evidence 2개를 실행 전에 hash하고 [새 receipt](../../../../reference-project/context/work/workspaces/001-default-timeout/records/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json)에 보존
+- live verify: 제품 테스트 7개 통과, exit `0`, evidence 2개를 실행 전에 hash하고 [새 receipt](../../../../reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json)에 보존
 - 후속 recover: `context/project/overview.md`를 첫 Project context로 선택하고 decision 문서만 추가해 packet schema `5` 반환
 
 이는 reference의 schema `4` validation, Markdown-only 경계, overview-first 선택과 기존 packet shape의 실행을 지지한다. Overview 내용이 임의 target 원자료와 의미상 맞는지, 이후 상세 Owner 변경에 따라 갱신되는지는 구조 테스트만으로 증명하지 않는다.

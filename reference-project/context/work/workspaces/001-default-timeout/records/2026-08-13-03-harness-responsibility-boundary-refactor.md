@@ -52,7 +52,7 @@ path traversal·절대경로·symlink 거부, receipt 본문 비노출, evidence
 - 사전 recovery: 기존 pass receipt와 `verified_waiting_acceptance` 복구
 - verify 결과: 제품 테스트 7개 통과, exit `0`
 - 책임 분리 구현의 첫 실제 pass receipt는 `verify-20260813T124912507712Z-d2e85f3cf26a4372a2fc5bf476ebd245.json`으로 남겼다. 이후 receipt를 기존 파일 비덮어쓰기와 완전 작성 뒤 공개를 함께 지키도록 보강하고 같은 검증을 다시 실행했다.
-- 최종 receipt: [`verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json`](verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json)
+- 최종 receipt: [`verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json`](receipts/verify/verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json)
 - 후속 recovery: packet schema `3`, identity·recover contract·새 receipt를 control path로 복구
 - context 본문: memory index와 주제 문서, state index와 status, 선택된 Project 문서 두 개만 로드
 - `state/index.md` SHA-256: 실행 전후 모두 `3360a031e6054e594d94ace6b4007dafad422e83883241017b94c1aacbe81ead`

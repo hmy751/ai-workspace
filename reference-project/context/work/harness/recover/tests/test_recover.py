@@ -630,6 +630,32 @@ class RecoverTests(WorkspaceFixture):
         self.assertNotIn(receipt_entry, packet["loaded_context_paths"])
         self.assertNotIn("RECEIPT_BODY_MUST_NOT_ENTER_CONTEXT", recovered.stdout)
 
+    def test_accepts_nested_verify_receipt_path(self) -> None:
+        receipt_relative = (
+            "workspaces/001-example/records/receipts/verify/"
+            "verify-existing.json"
+        )
+        status = self.verified_status(receipt_relative)
+        self.write_work_json(
+            receipt_relative,
+            {
+                "schema_version": 1,
+                "workspace_id": "001-example",
+                "result": "pass",
+                "finished_at": status["finished_at"],
+            },
+        )
+        self.write_status(status)
+
+        recovered = self.run_cli("recover", "--json")
+
+        self.assertEqual(recovered.returncode, 0, recovered.stderr)
+        packet = json.loads(recovered.stdout)
+        self.assertIn(
+            {"path_base": "work_root", "path": receipt_relative},
+            packet["control_paths"],
+        )
+
     def test_rejects_receipt_symlink(self) -> None:
         outside_receipt = (
             self.project_root / "context" / "project" / "receipt.json"

@@ -10,7 +10,7 @@ Harness는 개별 Workspace에 속한 내용이 아니다. 여러 Workspace가 �
 ## Root 관계
 
 - Project root: [`../..`](../..) — Project context, 제품 코드·테스트, verify 실행과 evidence 경로의 기준
-- Work root: 이 디렉터리 — Workspace index·계약·current·source·output·records·receipt 경로의 기준
+- Work root: 이 디렉터리 — Workspace index·계약·current·source·output·records와 `records/receipts/` 경로의 기준
 - Harness root: [`harness/`](harness/) — 실행 코드의 위치일 뿐 Project 또는 Workspace 의미의 기준이 아님
 
 기본 명령은 Project root에서 실행한다.

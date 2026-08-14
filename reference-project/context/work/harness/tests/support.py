@@ -41,6 +41,7 @@ class WorkspaceFixture(unittest.TestCase):
             "workspaces/001-example/source",
             "workspaces/001-example/output",
             "workspaces/001-example/records",
+            "workspaces/001-example/records/receipts/verify",
         ):
             (self.work_root / directory).mkdir(parents=True, exist_ok=True)
 
@@ -256,9 +257,14 @@ class WorkspaceFixture(unittest.TestCase):
 
     def receipt_files(self) -> list[Path]:
         return sorted(
-            (self.work_root / "workspaces" / "001-example" / "records").glob(
-                "verify-*.json"
-            )
+            (
+                self.work_root
+                / "workspaces"
+                / "001-example"
+                / "records"
+                / "receipts"
+                / "verify"
+            ).glob("verify-*.json")
         )
 
     def verified_status(

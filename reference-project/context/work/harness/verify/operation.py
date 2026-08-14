@@ -26,7 +26,6 @@ from ..workspace_contract import (
     fail,
     load_state_status,
     read_json_without_symlinks,
-    reject_symlink_components,
     resolve_directory_without_symlinks,
     resolve_regular_file_without_symlinks,
     select_workspace,
@@ -443,23 +442,31 @@ def _atomic_write_status(path: Path, content: str) -> None:
         raise
 
 
-def _write_receipt(
+def _resolve_verify_receipts_directory(
     work_root: Path,
     identity: WorkspaceIdentity,
+) -> tuple[str, Path]:
+    receipts_relative = (
+        f"{identity.workspace_path}/records/receipts/verify"
+    )
+    receipts_dir = resolve_directory_without_symlinks(
+        work_root,
+        receipts_relative,
+        "Workspace verify receipts directory",
+    )
+    return receipts_relative, receipts_dir
+
+
+def _write_receipt(
+    receipts_relative: str,
+    receipts_dir: Path,
     receipt: dict[str, Any],
 ) -> str:
-    records_relative = f"{identity.workspace_path}/records"
-    records_dir = resolve_directory_without_symlinks(
-        work_root, records_relative, "Workspace records directory"
-    )
-    reject_symlink_components(
-        work_root, records_relative, "Workspace records directory"
-    )
     content = json.dumps(
         receipt, ensure_ascii=False, indent=2, sort_keys=True
     ) + "\n"
     descriptor, temporary_name = tempfile.mkstemp(
-        prefix=".verify-receipt-", suffix=".tmp", dir=records_dir
+        prefix=".verify-receipt-", suffix=".tmp", dir=receipts_dir
     )
     temporary_path = Path(temporary_name)
     try:
@@ -474,12 +481,12 @@ def _write_receipt(
         for _ in range(5):
             timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
             filename = f"verify-{timestamp}-{uuid.uuid4().hex}.json"
-            receipt_path = records_dir / filename
+            receipt_path = receipts_dir / filename
             try:
                 os.link(temporary_path, receipt_path)
             except FileExistsError:
                 continue
-            return f"{records_relative}/{filename}"
+            return f"{receipts_relative}/{filename}"
         fail("could not allocate a unique append-only verification receipt")
     finally:
         try:
@@ -506,6 +513,9 @@ def verify_workspace(
         work_root, status_relative, "Workspace state status"
     )
     load_state_status(work_root, identity)
+    receipts_relative, receipts_dir = _resolve_verify_receipts_directory(
+        work_root, identity
+    )
 
     verification = contract["verification"]
     evidence_collected_at = _utc_now()
@@ -543,7 +553,9 @@ def verify_workspace(
         "evidence_capture": "before_verification",
         "evidence_files": evidence_files,
     }
-    receipt_relative = _write_receipt(work_root, identity, receipt)
+    receipt_relative = _write_receipt(
+        receipts_relative, receipts_dir, receipt
+    )
 
     next_action = contract["next_actions"][result]
     state_status = {

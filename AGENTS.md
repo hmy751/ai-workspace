@@ -8,7 +8,7 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 - 각 Workspace의 `README.md`: 해당 작업의 정체성·범위·재진입 순서를 정의한다.
 - 각 Workspace의 `current/`: 다음 세션이 바로 행동하기 위해 읽는 현재 상태. 작업 단계가 바뀌어도 계속 유효한 `memory.md`와 빠르게 바뀌는 `state.md`로 나눈다.
 - 각 Workspace의 `output/`: 해당 Workspace goal을 위해 선택된 현재 산출물과 실제 canonical 위치를 찾는 층. 기존 Project 경로에 산출물이 있으면 복제하지 않고 `output/index.md`에서 가리킨다.
-- 각 Workspace의 `records/`: 해당 작업에서 만든 지속 가능한 문서·분석·중간 산출물·검증 기록의 누적층. 여기에 있다는 이유만으로 현재 상태가 되지는 않는다.
+- 각 Workspace의 `records/`: 해당 작업에서 만든 지속 가능한 문서·분석·중간 산출물·검증 기록의 누적층. 사람이 읽는 날짜별 기록은 바로 아래에, 기계가 생성한 JSON 증거는 `records/receipts/<종류>/`에 분리한다. 여기에 있다는 이유만으로 현재 상태가 되지는 않는다.
 - `context/source/`: 여러 Workspace가 필요할 때 선택해서 읽는 원자료와 provenance. 현재 판단이나 새 해석을 쓰지 않는다.
 - 루트 `reference-project/`: 이 저장소가 만드는 실행 가능한 기준 Project. Workspace `output/`은 이를 복제하지 않고 goal과 실제 산출물의 선택 관계만 연결할 수 있다.
 - `.agents/skills/`: 이 저장소에서 반복할 작업 절차. 실행 원형이나 실제 적용 기록을 복제하지 않는다.
@@ -35,7 +35,7 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 - 결정, 실패, blocker, 검증, 완료, 폐기로 현재 영향이 달라짐
 - 대상 Workspace의 `current/`가 실제 파일·Git 상태·test 결과·사용자 정정과 어긋날 가능성이 생김
 
-일회성 탐색이나 임시 명령 출력을 매번 records로 만들지는 않는다. 다만 후속 작업에서 다시 사용할 분석이나 결과라면 상태 변화가 없어도 대상 Workspace의 records에 보존한다.
+일회성 탐색이나 임시 명령 출력을 매번 records로 만들지는 않는다. 다만 후속 작업에서 다시 사용할 분석이나 결과라면 상태 변화가 없어도 대상 Workspace의 records에 보존한다. 반복 개발 확인은 직접 test 명령을 우선하고, durable machine receipt는 상태 전환이나 인계에 필요한 검증에 사용한다.
 
 `context_maintainer`는 지정한 Workspace만 갱신한다. 다른 Workspace의 current·records를 합치거나 active를 임의로 바꾸지 않는다. 사용자가 Workspace 전환을 결정한 경우에만 `context/workspaces/README.md`의 active 표기를 바꾼다.
 

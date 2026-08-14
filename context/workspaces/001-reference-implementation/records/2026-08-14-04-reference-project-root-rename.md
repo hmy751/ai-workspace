@@ -19,7 +19,7 @@
 - `reference-project/`에서 `python3 -B -m unittest discover -s . -p 'test_*.py' -v`: 제품 7개, recover 21개, verify 9개로 총 37개 통과
 - `reference-project/` Markdown 로컬 링크 90개 검사: 누락 0개
 - 실제 `recover -> verify -> recover`: 통과
-- 최신 pass receipt: [`verify-20260814T064854356201Z-2b17198a679c47e0ba9f7bbc23aefad6.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/verify-20260814T064854356201Z-2b17198a679c47e0ba9f7bbc23aefad6.json)
+- 최신 pass receipt: [`verify-20260814T064854356201Z-2b17198a679c47e0ba9f7bbc23aefad6.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T064854356201Z-2b17198a679c47e0ba9f7bbc23aefad6.json)
 - machine status: 같은 receipt를 가리키는 `verified_waiting_acceptance`
 - 후속 recover: packet schema `5`, current 6개·Workspace output index 1개·Project context 2개 로드
 

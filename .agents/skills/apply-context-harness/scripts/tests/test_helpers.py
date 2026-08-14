@@ -120,7 +120,10 @@ class RecordHarnessTestsTest(unittest.TestCase):
         project = base / "project"
         source = project / "context/work/harness"
         tests = source / "tests"
-        records = project / "context/work/workspaces/001-demo/records"
+        records = (
+            project
+            / "context/work/workspaces/001-demo/records/receipts/harness-tests"
+        )
         tests.mkdir(parents=True)
         records.mkdir(parents=True)
         for package in (
@@ -148,7 +151,7 @@ class RecordHarnessTestsTest(unittest.TestCase):
             "--pattern",
             "test_*.py",
             "--records-dir",
-            "context/work/workspaces/001-demo/records",
+            "context/work/workspaces/001-demo/records/receipts/harness-tests",
         ]
 
     def test_records_passing_command_and_source_hash(self) -> None:

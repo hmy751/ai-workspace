@@ -11,8 +11,9 @@
 3. [`../output/index.md`](../output/index.md)에서 현재 goal 산출물과 실제 canonical 위치를 확인한다.
 4. 새 Project common context와 recover 계약, 검증 상한은 [계약 변경 기록](../records/2026-08-14-05-project-common-context-contract.md)에서 확인한다.
 5. 기준 Project 루트 이름과 skill source lookup 변경은 [이름 변경 기록](../records/2026-08-14-06-reference-project-root-rename.md)에서 확인한다.
-6. 원본 target과 이전 계약의 격리 평가 target 차이는 [blind 평가 기록](../records/2026-08-14-04-blind-apply-context-harness-skill-evaluation.md)에서 확인한다.
-7. 그 밖의 상세 근거가 필요할 때만 `../records/`를 읽는다.
-8. 원자료를 다시 확인해야 할 때만 [`../../../source/`](../../../source/)를 연다.
+6. 새 target의 machine receipt 배치와 기존 Payment target 미적용 경계는 [receipt 계약 기록](../records/2026-08-14-07-target-machine-receipt-boundary-contract.md)에서 확인한다.
+7. 원본 target과 이전 계약의 격리 평가 target 차이는 [blind 평가 기록](../records/2026-08-14-04-blind-apply-context-harness-skill-evaluation.md)에서 확인한다.
+8. 그 밖의 상세 근거가 필요할 때만 `../records/`를 읽는다.
+9. 원자료를 다시 확인해야 할 때만 [`../../../source/`](../../../source/)를 연다.
 
 다른 Workspace의 current나 records는 이 파일의 접근점 또는 사용자 지시가 있을 때만 읽는다.

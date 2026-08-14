@@ -13,7 +13,7 @@
 - 지원하지 않는 키와 잘못된 타입·범위는 거부한다.
 - 검증 결과는 생성 후 바꿀 수 없는 policy 객체다.
 - 파일 파싱, 환경 변수 병합, 실제 네트워크 요청 실행은 제품 범위 밖이다.
-- Workspace 복구와 receipt 보존은 제품 코드가 아니라 제거 가능한 Work Harness가 맡는다.
+- Workspace 복구와 receipt 생성·status 연결은 제품 코드가 아니라 제거 가능한 Work Harness가 맡고, 생성된 receipt의 의미와 보존 수명주기는 해당 Workspace가 소유한다.
 
 ## 주요 실행 구조
 

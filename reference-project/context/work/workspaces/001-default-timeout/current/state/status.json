@@ -1,7 +1,7 @@
 {
-  "finished_at": "2026-08-14T06:48:54.355Z",
+  "finished_at": "2026-08-14T07:07:29.764Z",
   "next_action": "receipt와 선택된 Project 기준의 정합성을 검토하고 이 작업을 수락할지 명시적으로 결정한다.",
-  "receipt": "workspaces/001-default-timeout/records/verify-20260814T064854356201Z-2b17198a679c47e0ba9f7bbc23aefad6.json",
+  "receipt": "workspaces/001-default-timeout/records/receipts/verify/verify-20260814T070729765148Z-4de3a77434444335b088d4944631e94f.json",
   "result": "pass",
   "schema_version": 2,
   "status": "verified_waiting_acceptance",

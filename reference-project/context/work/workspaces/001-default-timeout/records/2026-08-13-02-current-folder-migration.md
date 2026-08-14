@@ -24,7 +24,7 @@
 - 실제 로드 순서: memory index → 번호가 붙은 memory 3개 → state index → status JSON → 선택된 Project 문서 2개
 - 연결 receipt는 state 정합성 확인용 control path로만 읽고 context 본문에는 싣지 않음
 - 같은 고정 제품 검증 7개 통과, exit `0`
-- 새 receipt: [`verify-20260813T045930913927Z-e6a729ee16834df8a16d1fc7d412e5ab.json`](verify-20260813T045930913927Z-e6a729ee16834df8a16d1fc7d412e5ab.json)
+- 새 receipt: [`verify-20260813T045930913927Z-e6a729ee16834df8a16d1fc7d412e5ab.json`](receipts/verify/verify-20260813T045930913927Z-e6a729ee16834df8a16d1fc7d412e5ab.json)
 - 검증 전후 `state/index.md` SHA-256이 `3360a031e6054e594d94ace6b4007dafad422e83883241017b94c1aacbe81ead`로 같아 사람용 문서가 보존됨
 - 검증 뒤 `status.json`이 새 pass receipt를 가리키고 후속 `recover`가 이를 다시 확인함
 - 독립 검증에서 Workspace README의 명령 실행 기준 디렉터리가 모호해 Workspace 안에서 실행하면 실패하는 문제를 발견했고, `output/` root에서 실행한다고 명시함

@@ -26,7 +26,7 @@
 - `output/`에서 `python3 -m unittest discover -s . -p 'test_*.py' -v`: 제품 7개, recover 21개, verify 9개로 총 37개 통과
 - `.agents/skills/apply-context-harness`에서 helper unittest: 7개 통과
 - Skill validator: 통과
-- Live verify: 제품 테스트 7개 통과, exit `0`. 최신 receipt는 [`verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json)이며 machine status도 이 receipt를 가리키는 `verified_waiting_acceptance`다.
+- Live verify: 제품 테스트 7개 통과, exit `0`. 최신 receipt는 [`verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json)이며 machine status도 이 receipt를 가리키는 `verified_waiting_acceptance`다.
 - 후속 live recover는 packet schema `5`로 성공했다. `loaded_context_paths`에는 current 6개, Workspace output index 1개, Project overview와 default-timeout 결정 2개가 순서대로 들어갔다.
 
 ## 검증 상한과 후속 경계

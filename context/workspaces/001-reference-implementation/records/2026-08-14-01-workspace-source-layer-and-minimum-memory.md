@@ -57,7 +57,7 @@ repo-local application skill helper 테스트 7개도 통과했고 skill validat
 
 `recover → verify → recover` 순환이 통과했다.
 
-- 새 product receipt: [`verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json)
+- 새 product receipt: [`verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json)
 - receipt result: `pass`
 - 제품 unittest: 7개 통과
 - machine status: 같은 receipt를 가리키는 `verified_waiting_acceptance`

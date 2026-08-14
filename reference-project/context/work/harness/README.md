@@ -11,7 +11,7 @@ python3 -m context.work.harness verify [workspace_id]
 
 - [`workspace_contract.py`](workspace_contract.py): active/id 선택, identity-only `workspace.json`, Work root 내부의 안전한 파일 접근, `status.json`과 receipt 연결 필드의 최소 공통 계약
 - [`recover/`](recover/): `recover.json`, current context 선택·로딩, 연결 receipt header 확인, recovery packet과 사람용 출력
-- [`verify/`](verify/): `verify.json`, evidence 선확보, 제한 실행, append-only receipt, atomic status 갱신
+- [`verify/`](verify/): `verify.json`, evidence 선확보, 제한 실행, Workspace `records/receipts/verify/`의 append-only receipt, atomic status 갱신
 - [`cli.py`](cli.py): 두 책임으로 argument를 routing하고 결과를 출력
 - [`__main__.py`](__main__.py): module 실행 진입점
 

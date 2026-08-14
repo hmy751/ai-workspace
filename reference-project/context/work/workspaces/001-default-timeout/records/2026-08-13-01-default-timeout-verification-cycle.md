@@ -23,7 +23,7 @@ context와 harness의 연결을 재현하기 위해 올바르게 작성된 `DEFA
 
 - 결과: exit `1`, `test_missing_timeout_uses_5000_ms` 1개 실패
 - 실제 차이: `AssertionError: 3000 != 5000`
-- receipt: [`verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json`](verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json)
+- receipt: [`verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json`](receipts/verify/verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json)
 - 지속 상태: `verification_failed`
 - 다음 행동: receipt에서 최초 실패를 확인하고 코드 또는 테스트를 수정한 뒤 같은 검증 재실행
 
@@ -34,7 +34,7 @@ receipt에는 실행 argv, exit code, 제한된 stdout·stderr와 실행 직전 
 Project의 canonical 결정과 PRD에 맞춰 기본값을 `5000`으로 복원하고 같은 고정 검증을 다시 실행했다.
 
 - 결과: 7개 제품 테스트 통과, exit `0`
-- receipt: [`verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json`](verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json)
+- receipt: [`verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json`](receipts/verify/verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json)
 - 지속 상태: `verified_waiting_acceptance`
 - 다음 행동: receipt와 선택한 Project 기준을 검토하고 사람의 수락 여부 결정
 

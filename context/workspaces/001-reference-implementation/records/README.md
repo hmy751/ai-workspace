@@ -13,6 +13,8 @@
 - 분석 초안, 후보 비교, 탈락 사유, 시행착오, 결정 근거, 중간 검증은 날짜가 있는 record로 남긴다.
 - 분석 문서라도 이 Workspace goal의 결과로 선택됐다면 [`../output/index.md`](../output/index.md)에서 찾게 한다. 선택 전 후보와 선택 이유, 교체된 이전 결과는 records에 유지한다.
 - 파일 형식이나 완성도만으로 records와 output을 나누지 않고, Workspace goal에서 맡는 역할로 구분한다.
+- 사람이 읽는 날짜별 기록은 `records/` 바로 아래에 두고, 기계 JSON은 `records/receipts/<종류>/`로 분리한다. Harness와 helper는 receipt producer이고 의미·수명주기의 Owner는 해당 Workspace다.
+- 반복 개발 확인은 직접 test 명령으로 수행하고, 상태 전환이나 인계에 필요한 실행만 durable receipt로 남긴다.
 
 ## Current와의 관계
 
@@ -32,3 +34,4 @@ records의 문서를 current로 통째로 복사하지 않는다. 다음 세션�
 - [`2026-08-14-02-workspace-output-layer-and-record-boundary.md`](2026-08-14-02-workspace-output-layer-and-record-boundary.md): goal output 지도, records와의 역할 경계, recovery packet schema `5` 검증
 - [`2026-08-14-03-project-overview-and-recover-contract.md`](2026-08-14-03-project-overview-and-recover-contract.md): 실제 Project common context의 최소 진입점, overview-first·Markdown-only recover 계약과 최신 검증
 - [`2026-08-14-04-reference-project-root-rename.md`](2026-08-14-04-reference-project-root-rename.md): 루트 `output/`을 `reference-project/`로 이름 변경한 이유, 범위와 재검증
+- [`2026-08-14-05-machine-receipt-boundary-and-durable-verify.md`](2026-08-14-05-machine-receipt-boundary-and-durable-verify.md): 사람용 records와 종류별 machine receipt 배치, Owner, 호환과 durable verify 운용

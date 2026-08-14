@@ -46,7 +46,7 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
 
 - 사전 recovery: packet schema `4`로 Work-root Workspace 경로와 Project-root Project context 경로를 구분해 복구
 - verify: Project root에서 제품 unittest 7개 실행, exit `0`
-- 새 receipt: [`verify-20260813T135739719409Z-2c773fcd8f4f4409b9a7c394194b3b13.json`](verify-20260813T135739719409Z-2c773fcd8f4f4409b9a7c394194b3b13.json)
+- 새 receipt: [`verify-20260813T135739719409Z-2c773fcd8f4f4409b9a7c394194b3b13.json`](receipts/verify/verify-20260813T135739719409Z-2c773fcd8f4f4409b9a7c394194b3b13.json)
 - machine status: schema `2`, `verified_waiting_acceptance`, 최신 receipt를 Work-root 상대 경로로 연결
 - 후속 recovery: 새 status와 receipt header, 선택된 `context/project/` 문서 두 개를 다시 복구
 - 사람용 `current/state/index.md` SHA-256은 실행 전후 모두 `3360a031e6054e594d94ace6b4007dafad422e83883241017b94c1aacbe81ead`
