@@ -1,6 +1,6 @@
 # Project application memory
 
-마지막 갱신: `2026-08-13`
+마지막 갱신: `2026-08-14`
 
 ## 목표
 
@@ -10,7 +10,7 @@
 
 - [`output/`](../../../../output/)은 책임과 흐름을 검증한 reference이지, 모든 Project에 그대로 복사할 범용 템플릿이 아니다.
 - 대상 Project의 기존 canonical, 디렉터리 배치, 테스트와 운영 방식을 먼저 확인한다.
-- 경로 이름보다 Project common context, Workspace current/records, recover/verify 책임과 인계가 실제로 어디에 귀속되는지를 본다.
+- 경로 이름보다 Project common context, Workspace current/source/output/records, recover/verify 책임과 인계가 실제로 어디에 귀속되는지를 본다.
 - 필요한 최소 경계부터 적용하고, Harness가 없어져도 Project와 Workspace의 의미가 남도록 한다.
 - 다른 Desktop 저장소는 사용자가 대상과 작업 범위를 지정한 뒤에만 읽거나 수정한다.
 

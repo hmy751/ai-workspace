@@ -15,6 +15,7 @@
 - 네 번째 최종 고정 verify는 실제 Turbo 대상 5개 package를 포괄하는 40개 evidence를 실행 전에 보존하고, cache 없이 11개 task를 모두 실행해 통과했다. 5개 test file의 31개 test, typecheck와 Checkout production build가 통과했으며 상세 결과는 [적용·검증 기록](../records/2026-08-13-01-payment-recovery-project-application.md)에 있다.
 - 대상 working tree에서 Harness 적용분인 `.gitignore` 수정과 새 `AGENTS.md`, `context/`는 아직 커밋되지 않았다. 적용 전 사용자 변경 `App.tsx`, `styles.css`도 미커밋 상태이며 수정하지 않았다. 적용 전 untracked였던 `context/code-map.md`는 사용자가 직접 삭제했고 현재 없다.
 - 첫 적용의 반복 절차를 repo-local `apply-context-harness` skill로 승격했다. helper unit 7개는 Python 3.14.3과 `/usr/bin/python3` 3.9.6에서 각각 통과했고, skill validator·YAML·discovery/trigger 검증과 독립 리뷰도 통과했다. 상세 근거는 [승격 기록](../records/2026-08-14-01-apply-context-harness-skill-promotion.md)에 있다.
+- 이후 `2026-08-14` 원형과 skill에 추가한 Workspace `source/`, `output/index.md`, 최소 memory 세 파일 계약은 기존 payment target에 자동 적용하지 않았고 다시 검증하지 않았다. 현재 target 상태와 새 이식 계약을 같은 버전으로 해석하지 않는다.
 
 ## 남은 불확실성
 
@@ -22,6 +23,7 @@
 - 실제 PG, 영속 DB, Android WebView, 웹훅, 운영 서비스 효과는 검증하지 않았다.
 - 사람의 acceptance와 이후 commit·Project canonical 반영 여부는 결정되지 않았다.
 - 두 번째 실제 Project에는 아직 이식하지 않았다. 따라서 skill의 portability와 다른 canonical·runtime·test graph에 대한 generalization은 검증되지 않았다.
+- 기존 payment target의 source/output/minimum-memory 후속 migration 여부도 아직 결정하지 않았다.
 
 ## 다음 행동
 

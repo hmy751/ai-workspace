@@ -4,17 +4,18 @@
 
 context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
-- `context/workspaces/`: 서로 다른 작업의 current와 records를 Workspace별로 분리한다.
+- `context/workspaces/`: 서로 다른 작업의 current, goal output, records를 Workspace별로 분리한다.
 - 각 Workspace의 `README.md`: 해당 작업의 정체성·범위·재진입 순서를 정의한다.
 - 각 Workspace의 `current/`: 다음 세션이 바로 행동하기 위해 읽는 현재 상태. 작업 단계가 바뀌어도 계속 유효한 `memory.md`와 빠르게 바뀌는 `state.md`로 나눈다.
+- 각 Workspace의 `output/`: 해당 Workspace goal을 위해 선택된 현재 산출물과 실제 canonical 위치를 찾는 층. 기존 Project 경로에 산출물이 있으면 복제하지 않고 `output/index.md`에서 가리킨다.
 - 각 Workspace의 `records/`: 해당 작업에서 만든 지속 가능한 문서·분석·중간 산출물·검증 기록의 누적층. 여기에 있다는 이유만으로 현재 상태가 되지는 않는다.
 - `context/source/`: 여러 Workspace가 필요할 때 선택해서 읽는 원자료와 provenance. 현재 판단이나 새 해석을 쓰지 않는다.
-- `output/`: 목표에 따른 실제 산출물. 분석 문서와 context 기록을 대신 보관하지 않는다.
+- 루트 `output/`: 이 저장소가 만드는 실제 reference 산출물. Workspace `output/`은 이를 복제하지 않고 goal과 실제 산출물의 선택 관계만 연결할 수 있다.
 - `.agents/skills/`: 이 저장소에서 반복할 작업 절차. 실행 원형이나 실제 적용 기록을 복제하지 않는다.
 
 ## Repo-local skill routing
 
-사용자가 대상 Project 경로와 함께 `output/`의 context+harness 이식·적용, Workspace current/records와 recover·verify 설치를 요청하면 [`.agents/skills/apply-context-harness/SKILL.md`](.agents/skills/apply-context-harness/SKILL.md)를 사용한다.
+사용자가 대상 Project 경로와 함께 `output/`의 context+harness 이식·적용, Workspace current/source/output/records와 recover·verify 설치를 요청하면 [`.agents/skills/apply-context-harness/SKILL.md`](.agents/skills/apply-context-harness/SKILL.md)를 사용한다.
 
 이 skill은 `output/`을 범용 템플릿처럼 복사하지 않는다. 대상의 기존 canonical과 사용자 변경을 먼저 고정하고, Project common·Workspace·Harness 책임을 대상 배치에 맞춘 뒤 `recover → verify → recover`와 durable receipt로 검증한다. 브라우저·외부 시스템·사람 acceptance, target commit은 별도 승인 없이 완료 처리하지 않는다.
 
@@ -22,7 +23,7 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 지속 작업을 시작할 때는 `context/README.md`와 `context/workspaces/README.md`에서 Workspace를 선택한다. 사용자가 Workspace를 명시했다면 그 지시를 우선하고, 그렇지 않으면 active Workspace를 사용한다.
 
-선택한 Workspace의 `README.md`, `current/index.md`, `current/memory.md`, `current/state.md`를 읽는다. 다른 Workspace의 current·records나 shared source 전체를 기본으로 읽지 않고, 현재 질문에 필요한 자료만 선택한다.
+선택한 Workspace의 `README.md`, `current/index.md`, `current/memory.md`, `current/state.md`, `output/index.md`를 읽는다. 다른 Workspace의 current·output·records나 shared source 전체를 기본으로 읽지 않고, 현재 질문에 필요한 자료만 선택한다.
 
 ## Context maintenance routing
 

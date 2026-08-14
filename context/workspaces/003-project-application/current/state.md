@@ -1,6 +1,6 @@
 # Project application state
 
-마지막 갱신: `2026-08-13`
+마지막 갱신: `2026-08-14`
 
 ## 현재 문제
 
@@ -11,6 +11,7 @@
 - 다음 적용 작업을 기존 reference 구현 작업과 섞지 않기 위해 이 Workspace를 만들었다.
 - 기존 reference 구현과 검증은 [`001-reference-implementation`](../../001-reference-implementation/)에 보존되어 있다.
 - 대상 Project 경로, 변경 범위, 검증할 첫 작업은 아직 지정되지 않았다.
+- 따라서 [`output/index.md`](../output/index.md)에 선택된 goal 산출물이나 canonical 위치도 아직 없다.
 - 따라서 다른 Desktop 저장소를 열거나 migration을 시작하지 않았다.
 
 ## 다음 행동

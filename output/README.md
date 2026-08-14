@@ -48,10 +48,14 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
                 ├── recover.json
                 ├── verify.json
                 ├── current/
+                ├── source/
+                ├── output/
                 └── records/
 ```
 
-Project 문서 전체를 Workspace에 복사하지 않는다. 이 Workspace의 [`recover.json`](context/work/workspaces/001-default-timeout/recover.json)은 [`PRD`](context/project/prd.md)와 [`default timeout 결정`](context/project/decisions/0001-default-timeout.md)만 선택한다. 선택하지 않은 [`architecture`](context/project/architecture.md)와 `records/` 전체는 기본 recovery context에 들어가지 않는다.
+각 Workspace는 `current/`, `source/`, `output/`, `records/`를 형제로 둔다. `current/memory/`의 `01-goal.md`, `02-constraints.md`, `03-project-context.md`는 최소 재진입 context이고, `source/`에는 해당 Workspace가 선택한 원문·snapshot·provenance만 둔다. 분석 메모·후보·비교·탈락안·선택 근거를 포함한 과정과 실행·검증 기록은 `records/`가 맡고, goal을 위해 선택된 현재 산출물은 [`output/index.md`](context/work/workspaces/001-default-timeout/output/index.md)에서 찾게 한다. 이 sample의 실제 제품 구현은 Project root의 canonical을 연결하며 Workspace 안에 복제하지 않는다.
+
+Project 문서 전체를 Workspace에 복사하지 않는다. 이 Workspace의 [`recover.json`](context/work/workspaces/001-default-timeout/recover.json)은 [`PRD`](context/project/prd.md)와 [`default timeout 결정`](context/project/decisions/0001-default-timeout.md)만 선택한다. 선택하지 않은 [`architecture`](context/project/architecture.md), Workspace `source/`와 `records/` 전체, Workspace `output/index.md`가 연결한 산출물 본문은 기본 recovery context에 들어가지 않는다.
 
 ## 실제 실행 증거
 
@@ -60,6 +64,7 @@ reference 순환을 확인하기 위해 기본 timeout 구현을 의도적으로
 - [실패 receipt](context/work/workspaces/001-default-timeout/records/verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json): 제품 테스트 실패와 exit `1`
 - [성공 receipt](context/work/workspaces/001-default-timeout/records/verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json): 같은 제품 테스트 통과와 exit `0`
 - [사람용 현재 화면](context/work/workspaces/001-default-timeout/current/state/index.md)과 [machine status](context/work/workspaces/001-default-timeout/current/state/status.json): 현재 문제의 의미와 최근 검증 cursor 분리
+- [goal output 지도](context/work/workspaces/001-default-timeout/output/index.md): 실제 제품 구현의 canonical 위치를 복제 없이 연결
 - [검증 순환 기록](context/work/workspaces/001-default-timeout/records/2026-08-13-01-default-timeout-verification-cycle.md)과 [current 폴더화 기록](context/work/workspaces/001-default-timeout/records/2026-08-13-02-current-folder-migration.md): 당시 구현과 검증 범위
 - [Harness 책임 경계 기록](context/work/workspaces/001-default-timeout/records/2026-08-13-03-harness-responsibility-boundary-refactor.md): recover·verify 응집, 26개 테스트, 실제 새 CLI 재검증
 - [책임 재구성 뒤 최종 성공 receipt](context/work/workspaces/001-default-timeout/records/verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json): 제품 테스트 7개 통과, exit `0`, 실행 전 evidence hash

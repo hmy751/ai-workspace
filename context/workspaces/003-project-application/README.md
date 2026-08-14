@@ -8,6 +8,7 @@
 
 1. [`current/memory.md`](current/memory.md): 적용 목표·기준·제약·reference 접근점
 2. [`current/state.md`](current/state.md): 현재 준비 상태와 다음 행동
-3. [`records/`](records/): 대상 Project를 정한 뒤 생기는 분석·migration·검증 기록
+3. [`output/index.md`](output/index.md): 이 Workspace goal을 위해 선택된 현재 산출물과 canonical 위치
+4. [`records/`](records/): 대상 Project를 정한 뒤 생기는 분석·migration·검증 기록
 
 이 Workspace는 `output/context/work`의 전체 구조를 정답처럼 복제하지 않는다. 대상 Project의 기존 canonical과 배치를 먼저 확인하고, 필요한 책임과 운영 흐름만 최소로 적용한다.

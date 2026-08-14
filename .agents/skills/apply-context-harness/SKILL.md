@@ -1,6 +1,6 @@
 ---
 name: apply-context-harness
-description: 기존 개발 Project 하나에 context harness를 기존 canonical과 사용자 변경을 보존하며 최소 이식하고 recover, fixed verify, receipt, 재진입까지 실제 검증한다. 사용자가 대상 경로와 함께 "context harness 이식/적용", "output을 다른 프로젝트에 붙여줘", "Workspace current/records와 recover/verify를 설치해줘"라고 요청할 때 사용한다. 단순 output 수정, 구조 설명, 이미 설치된 Project의 브라우저 acceptance만 수행하는 요청에는 사용하지 않는다.
+description: 기존 개발 Project 하나에 context harness를 기존 canonical과 사용자 변경을 보존하며 최소 이식하고 recover, fixed verify, receipt, 재진입까지 실제 검증한다. 사용자가 대상 경로와 함께 "context harness 이식/적용", "output을 다른 프로젝트에 붙여줘", "Workspace current/source/output/records와 recover/verify를 설치해줘"라고 요청할 때 사용한다. 단순 output 수정, 구조 설명, 이미 설치된 Project의 브라우저 acceptance만 수행하는 요청에는 사용하지 않는다.
 ---
 
 # Apply Context Harness
@@ -44,7 +44,7 @@ python3 <skill-dir>/scripts/capture_target_state.py \
 다음을 원자료에서 확인하고 migration record에 명시한다.
 
 - Project 공통 목표·구조·결정·공개 상태를 현재 어느 문서가 소유하는가.
-- 진행 중인 첫 작업의 정체성, 계속 유효한 memory, 빠르게 바뀌는 state, records를 어디에 둘 것인가.
+- 진행 중인 첫 작업의 정체성, 계속 유효한 memory, 빠르게 바뀌는 state, 작업이 직접 선택한 source, goal 산출물과 canonical 위치, records를 어디에 둘 것인가.
 - 제품 검증의 기존 명령, runtime, cwd, timeout, cache 의미와 실제 입력 범위는 무엇인가.
 - 기존 `context/`, Python package, `.gitignore`, instruction file과 어떤 충돌이 있는가.
 - 자동 검증이 증명하지 못하는 브라우저·외부 시스템·사람 판단은 무엇인가.
@@ -59,6 +59,9 @@ python3 <skill-dir>/scripts/capture_target_state.py \
 - 새 파일, 수정 파일, 충돌 파일, 명시적 제외 파일
 - Project canonical routing
 - Workspace ID와 active 선택
+- 첫 Workspace의 최소 memory인 `01-goal.md`, `02-constraints.md`, `03-project-context.md`에 둘 실제 내용
+- 첫 Workspace가 작업 입력으로 보존할 원문·snapshot·provenance, `source/index.md` inventory, `source/`에서 명시적으로 제외할 현재 판단·분석·실행 기록
+- `output/index.md`에서 연결할 goal 산출물, 실제 canonical 위치, 현재 상태와 proof ceiling. 대상 Project에 이미 산출물이 있으면 복제하지 않는다.
 - `recover.json`이 선택할 정확한 Project 문서와 선택 이유
 - `verify.json`의 고정 argv, cwd, timeout, output limit, fresh-run 방법
 - 검증 명령이 실제 읽는 source·manifest·설정 전체를 대표하는 evidence 목록
@@ -71,12 +74,13 @@ python3 <skill-dir>/scripts/capture_target_state.py \
 대상에 필요한 최소 산출물을 additive하게 만든다.
 
 1. 일반 진입점에서 Project common과 Work context의 Owner 관계를 찾게 한다. 기존 `AGENTS.md`나 context index가 있으면 교체하지 말고 충돌 없는 routing만 추가한다.
-2. `context/work/workspaces/` 아래에 Workspace collection, active index, 첫 Workspace의 README·계약·`current/`·`records/`를 만든다.
-3. `context/work/harness/`에는 `output/context/work/harness/`의 실행 책임만 옮긴다. Harness가 Project 기준이나 사람 판단을 소유하게 하지 않는다.
-4. 대상 Project canonical의 실제 위치에 맞춰 recover schema와 허용 경계를 바꾼다. 이 변경은 target-specific 코드 변경이므로 absolute path, traversal, undeclared path, non-Markdown, symlink와 records 유입 거부 테스트를 함께 고친다.
-5. verify는 shell 없는 고정 argv를 사용하고, 실행 전에 evidence를 hash하며, 성공과 실패를 모두 새 receipt로 남기고 machine status만 atomic하게 갱신하게 한다.
-6. cache replay가 가능한 도구는 fresh 실행 option을 계약에 고정하거나, fresh가 아님을 proof ceiling에 명시한다.
-7. preflight receipt를 첫 Workspace `records/`에 그대로 복사하고 migration record에서 연결한다.
+2. `context/work/workspaces/` 아래에 Workspace collection, active index, 첫 Workspace의 README·계약·`current/`·`source/`·`output/`·`records/`를 만든다. `current/memory/`에는 최소한 `01-goal.md`, `02-constraints.md`, `03-project-context.md`를 둔다. `source/index.md`를 source inventory의 최소 진입점으로 만들고, 실제 사용한 원문·변경하지 않은 snapshot·provenance만 연결한다. 별도 원자료가 없으면 없다고 적고 Project canonical을 복제하지 않는다. 원자료의 저자와 정본 권위는 원래 출처에 남긴다. 현재 판단·분석·결정·실행·검증 기록은 source에 섞지 않는다.
+3. `output/index.md`를 Workspace goal을 위해 선택된 현재 산출물의 최소 진입점으로 만든다. 실제 산출물이 Project의 기존 코드·문서·배포 위치에 있으면 복제하지 않고 canonical 경로를 연결한다. Output에는 선택된 결과와 상태·proof ceiling만 두고, 분석 초안·후보 비교·탈락 사유·시행착오·선택 근거·교체된 이전 결과는 날짜가 있는 records에 남긴다. 파일 형식이 아니라 Workspace goal에서 맡는 역할로 둘을 구분하며, output 등재를 acceptance나 완료로 해석하지 않는다.
+4. `context/work/harness/`에는 `output/context/work/harness/`의 실행 책임만 옮긴다. Harness가 Project 기준이나 사람 판단을 소유하게 하지 않는다.
+5. 대상 Project canonical의 실제 위치에 맞춰 recover schema와 허용 경계를 바꾼다. 이 변경은 target-specific 코드 변경이므로 absolute path, traversal, undeclared path, non-Markdown, symlink와 records 유입 거부 테스트를 함께 고친다.
+6. verify는 shell 없는 고정 argv를 사용하고, 실행 전에 evidence를 hash하며, 성공과 실패를 모두 새 receipt로 남기고 machine status만 atomic하게 갱신하게 한다.
+7. cache replay가 가능한 도구는 fresh 실행 option을 계약에 고정하거나, fresh가 아님을 proof ceiling에 명시한다.
+8. preflight receipt를 첫 Workspace `records/`에 그대로 복사하고 migration record에서 연결한다.
 
 사용자가 직접 삭제·이동·승격한 파일은 그 주체와 결정을 기록한다. Harness가 하지 않은 행동을 Harness의 효과나 손실로 서술하지 않는다.
 
@@ -101,7 +105,7 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 
 다음 순서를 바꾸지 않는다.
 
-1. `recover`: Workspace current와 선택한 Project 문서만 loaded 되었는지 exact set으로 확인한다. 선택하지 않은 문서, records, verify 계약이 빠졌는지도 확인한다.
+1. `recover`: Workspace current, `output/index.md`, 선택한 Project 문서만 loaded 되었는지 exact set으로 확인한다. 최소 memory 세 파일이나 output index가 없으면 실패하는지, 선택하지 않은 문서, Workspace source 전체, output artifact 본문, records, verify 계약이 빠졌는지도 확인한다.
 2. `verify`: 계약의 고정 명령을 실행한다. receipt가 evidence를 실행 전에 캡처했는지, cache가 실제 우회됐는지, exit·timeout·stdout/stderr truncation과 task/test/build 범위를 확인한다.
 3. `recover`: 새 machine status와 최신 receipt header가 다시 연결되는지 확인한다. receipt 본문 전체가 recovery context로 들어가면 안 된다.
 4. 사람용 state가 자동으로 완료 처리되지 않았는지 확인한다. pass는 `verified_waiting_acceptance`이며 acceptance나 Workspace 완료가 아니다.
@@ -127,6 +131,7 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 
 - preflight receipt와 보호 대상이 남아 있다.
 - Project canonical Owner와 target별 adaptation이 문서화됐다.
+- 첫 Workspace가 최소 memory 세 파일, `source/index.md`, `output/index.md`, 독립된 `source/`·`output/`·`records/` 경계를 가진다. Recover에는 output index만 들어오고 source와 output artifact 본문은 들어오지 않는다.
 - Harness test receipt가 source hash와 현재 pass/fail을 연결한다.
 - `recover → verify → recover`가 live target에서 실행됐다.
 - product receipt와 status가 같은 최종 실행을 가리킨다.

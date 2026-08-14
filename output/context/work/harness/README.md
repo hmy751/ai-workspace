@@ -17,7 +17,7 @@ python3 -m context.work.harness verify [workspace_id]
 
 Recover는 `verify.json`을 읽지 않고 verify는 `recover.json`을 읽지 않는다. 따라서 한쪽 전용 계약 오류가 다른 명령의 실행을 막지 않는다.
 
-Harness는 자신의 설치 위치를 Project 의미의 기준으로 사용하지 않는다. Project context·제품 evidence·검증 cwd는 Project root를, Workspace index·current·records는 [`Work root`](../README.md)를 기준으로 해석한다. 이 장치를 제거해도 Workspace의 의미와 기록은 [`../workspaces/`](../workspaces/)에서 읽을 수 있다.
+Harness는 자신의 설치 위치를 Project 의미의 기준으로 사용하지 않는다. Project context·제품 evidence·검증 cwd는 Project root를, Workspace index·current·source·output·records는 [`Work root`](../README.md)를 기준으로 해석한다. Recover는 Workspace source를 기본 입력으로 읽지 않고 Workspace `output/index.md`만 산출물 지도로 읽으며, 연결된 산출물 본문은 자동으로 읽지 않는다. 이 장치를 제거해도 Workspace의 의미와 원자료·산출물 지도·기록은 [`../workspaces/`](../workspaces/)에서 읽을 수 있다.
 
 책임별 테스트까지 모두 실행하려면 Project root에서 다음 명령을 사용한다.
 

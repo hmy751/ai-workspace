@@ -15,14 +15,18 @@ skill을 다듬을 때 `output/`과 target 내용을 assets로 중복시키지 �
 | 구분 | 모든 이식에서 유지 | 대상마다 다시 결정 |
 | --- | --- | --- |
 | Owner | Project common, Workspace, Harness를 분리 | 기존 canonical 문서와 routing 위치 |
-| Workspace | README, 계속 유효한 memory, 빠른 state, 누적 records | ID, active 선택, 실제 목표·제약·다음 행동 |
-| recover | current와 선언된 Project 문서만 선택, records 전체 배제 | Project context root, schema version, 선택 문서 |
+| Workspace | README, 최소 memory 3종, 빠른 state, 독립된 source, goal output index, 누적 records | ID, active 선택, 실제 목표·제약·Project 선택 경계·원자료·goal 산출물·다음 행동 |
+| recover | current, output index와 선언된 Project 문서만 선택하고 source·records·output 본문 배제 | Project context root, schema version, 선택 문서 |
 | path | Project root와 Work root 구분, absolute·traversal·symlink 거부 | Python package 충돌과 실제 상대 경로 |
 | verify | shell 없는 고정 argv, evidence 선캡처, 성공·실패 receipt | runtime, cwd, timeout, cache bypass, evidence closure |
 | status | machine 결과와 최신 receipt cursor 연결 | 사람용 상태 문구와 실제 acceptance 절차 |
 | 제거 가능성 | Harness 제거 뒤에도 canonical과 Workspace 의미 유지 | repo-local routing과 ignore 규칙 |
 
 `context/project/` 경로 자체는 invariant가 아니다. 기존 루트 README와 `docs/`가 canonical이면 그 Owner를 유지하고 recover 허용 경계만 명시적으로 바꾼다.
+
+각 Workspace의 `current/`, `source/`, `output/`, `records/`는 형제 책임이다. `current/memory/`의 `01-goal.md`, `02-constraints.md`, `03-project-context.md`는 기본 재진입에 필요한 최소 구성이다. `source/index.md`는 source inventory의 최소 진입점이며, 실제 사용한 원문·변경하지 않은 snapshot·provenance만 연결한다. 별도 원자료가 없으면 없다고 적고 Project canonical을 복제하지 않는다. 해당 Workspace는 선택 범위·사용 시점·무결성·재접근 경로를 관리하며 원자료의 저자와 정본 권위는 원래 출처에 남는다. 현재 판단은 `current/`에 둔다.
+
+`output/index.md`는 Workspace goal을 위해 선택된 현재 산출물과 실제 canonical 위치의 최소 진입점이다. 실제 산출물이 Project 코드·문서·배포 위치에 있으면 복제하지 않는다. 분석 초안·후보 비교·탈락 사유·시행착오·선택 근거·교체된 이전 결과·검증 과정은 날짜가 있는 `records/`에 유지한다. 분석 문서도 goal 결과로 선택되면 output에서 찾게 하므로 파일 형식이 아니라 역할로 구분한다. Output 등재는 acceptance나 Workspace 완료를 뜻하지 않는다. Recover는 source를 검사하지 않고 output index만 기본 입력으로 읽으며 output artifact 본문과 records는 싣지 않는다.
 
 ## Preflight가 증명하는 것
 
@@ -55,7 +59,11 @@ Receipt를 target 안에 바로 쓰면 그것도 working tree 변경이 되므�
 Project context 경계를 바꿨다면 적어도 다음을 target Harness tests에 둔다.
 
 - 선택한 문서만 loaded 되고 순서가 계약과 같은 경우
+- 최소 memory 세 파일 중 하나라도 없으면 실패하는 경우
+- output index가 없거나 symlink·비정규 파일이면 실패하는 경우
+- output index만 loaded 되고 output artifact 본문은 빠지는 경우
 - 선택하지 않은 Project 문서, records, verify 계약이 빠지는 경우
+- Workspace source inventory와 원문이 기본 recovery packet에서 빠지는 경우
 - Project root와 Work root 상대 경로가 올바르게 분리되는 경우
 - legacy schema 또는 지원하지 않는 schema 거부
 - absolute path와 `..` traversal 거부

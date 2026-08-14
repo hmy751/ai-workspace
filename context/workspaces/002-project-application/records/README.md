@@ -11,3 +11,4 @@
 
 - [`2026-08-13-01-payment-recovery-project-application.md`](2026-08-13-01-payment-recovery-project-application.md): 첫 실제 Project의 배치 변경, recover·verify 시도, durable 증거 보강과 검증 상한
 - [`2026-08-14-01-apply-context-harness-skill-promotion.md`](2026-08-14-01-apply-context-harness-skill-promotion.md): 첫 적용에서 반복 절차로 승격한 역할 분리, helper 계약, 검증과 portability 상한
+- [`2026-08-14-02-workspace-output-map.md`](2026-08-14-02-workspace-output-map.md): Workspace goal 산출물과 실제 canonical 위치를 복제 없이 연결한 구조 결정

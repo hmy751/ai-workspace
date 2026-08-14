@@ -29,8 +29,13 @@ from ..workspace_contract import (
 
 
 RECOVER_CONTRACT_SCHEMA_VERSION = 2
-RECOVERY_PACKET_SCHEMA_VERSION = 4
+RECOVERY_PACKET_SCHEMA_VERSION = 5
 PROJECT_CONTEXT_ROOT = "context/project"
+REQUIRED_MEMORY_FILES = (
+    "01-goal.md",
+    "02-constraints.md",
+    "03-project-context.md",
+)
 
 
 def _recover_contract_path(identity: WorkspaceIdentity) -> str:
@@ -122,6 +127,17 @@ def _load_memory(
         ),
     }
 
+    missing_required = [
+        name
+        for name in REQUIRED_MEMORY_FILES
+        if not (directory / name).is_file()
+    ]
+    if missing_required:
+        fail(
+            "Workspace memory is missing required files: "
+            + ", ".join(missing_required)
+        )
+
     entries: list[dict[str, str]] = []
     for candidate in sorted(directory.iterdir(), key=lambda path: path.name):
         if candidate.name == "index.md" or not candidate.name.endswith(".md"):
@@ -139,6 +155,25 @@ def _load_memory(
             }
         )
     return memory_index, entries
+
+
+def _load_output_index(
+    work_root: Path, identity: WorkspaceIdentity
+) -> dict[str, str]:
+    """Load only the Workspace goal-output map, never artifact bodies."""
+
+    directory_relative = f"{identity.workspace_path}/output"
+    resolve_directory_without_symlinks(
+        work_root, directory_relative, "Workspace output directory"
+    )
+    index_path = f"{directory_relative}/index.md"
+    return {
+        "path": index_path,
+        "path_base": "work_root",
+        "content": read_text_without_symlinks(
+            work_root, index_path, "Workspace output index"
+        ),
+    }
 
 
 def _validate_linked_receipt(
@@ -220,6 +255,7 @@ def build_recovery_packet(
     linked_receipt = _validate_linked_receipt(
         work_root, identity, state_status
     )
+    output_index = _load_output_index(work_root, identity)
 
     selected_context: list[dict[str, str]] = []
     loaded_paths = [
@@ -233,6 +269,7 @@ def build_recovery_packet(
         [
             {"path_base": "work_root", "path": state_index_path},
             {"path_base": "work_root", "path": status_path},
+            {"path_base": "work_root", "path": output_index["path"]},
         ]
     )
     for entry in contract["project_context"]:
@@ -285,6 +322,7 @@ def build_recovery_packet(
                 "value": state_status,
             },
         },
+        "output": {"index": output_index},
         "project_context": selected_context,
     }
 
@@ -348,6 +386,11 @@ def render_recovery_packet(packet: dict[str, Any]) -> str:
             else ""
         )
         lines.append(f"- {field}: {rendered}{suffix}")
+
+    output = packet["output"]
+    lines.extend(
+        ["", "## output/index.md", "", output["index"]["content"].rstrip()]
+    )
 
     for entry in packet["project_context"]:
         lines.extend(

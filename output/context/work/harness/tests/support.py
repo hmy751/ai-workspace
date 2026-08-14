@@ -38,6 +38,8 @@ class WorkspaceFixture(unittest.TestCase):
         for directory in (
             "workspaces/001-example/current/memory",
             "workspaces/001-example/current/state",
+            "workspaces/001-example/source",
+            "workspaces/001-example/output",
             "workspaces/001-example/records",
         ):
             (self.work_root / directory).mkdir(parents=True, exist_ok=True)
@@ -103,6 +105,21 @@ class WorkspaceFixture(unittest.TestCase):
         (records / "old.md").write_text(
             "UNLOADED_RECORD_MARKDOWN_SECRET\n", encoding="utf-8"
         )
+        source = self.work_root / "workspaces" / "001-example" / "source"
+        (source / "index.md").write_text(
+            "UNLOADED_SOURCE_INVENTORY_SECRET\n", encoding="utf-8"
+        )
+        (source / "raw-input.txt").write_text(
+            "UNLOADED_SOURCE_RAW_SECRET\n", encoding="utf-8"
+        )
+        output = self.work_root / "workspaces" / "001-example" / "output"
+        (output / "index.md").write_text(
+            "WORKSPACE_OUTPUT_INDEX\n\n- [analysis](analysis.md)\n",
+            encoding="utf-8",
+        )
+        (output / "analysis.md").write_text(
+            "UNLOADED_OUTPUT_ARTIFACT_SECRET\n", encoding="utf-8"
+        )
 
         self.index = {
             "schema_version": 1,
@@ -161,11 +178,14 @@ class WorkspaceFixture(unittest.TestCase):
         (memory / "index.md").write_text(
             "WORKSPACE_MEMORY_INDEX\n", encoding="utf-8"
         )
-        (memory / "02-decisions.md").write_text(
-            "WORKSPACE_MEMORY_DECISIONS\n", encoding="utf-8"
+        (memory / "02-constraints.md").write_text(
+            "WORKSPACE_MEMORY_CONSTRAINTS\n", encoding="utf-8"
         )
         (memory / "01-goal.md").write_text(
             "WORKSPACE_MEMORY_GOAL\n", encoding="utf-8"
+        )
+        (memory / "03-project-context.md").write_text(
+            "WORKSPACE_MEMORY_PROJECT_CONTEXT\n", encoding="utf-8"
         )
         (memory / "notes.txt").write_text(
             "UNLOADED_MEMORY_NON_MARKDOWN_SECRET\n", encoding="utf-8"

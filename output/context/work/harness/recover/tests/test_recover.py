@@ -7,12 +7,12 @@ from context.work.harness.tests.support import WorkspaceFixture
 
 
 class RecoverTests(WorkspaceFixture):
-    def test_loads_only_recover_owned_current_and_project_context(self) -> None:
+    def test_loads_current_output_map_and_project_context_only(self) -> None:
         completed = self.run_cli("recover", "--json")
 
         self.assertEqual(completed.returncode, 0, completed.stderr)
         packet = json.loads(completed.stdout)
-        self.assertEqual(packet["schema_version"], 4)
+        self.assertEqual(packet["schema_version"], 5)
         self.assertEqual(packet["workspace_id"], "001-example")
         self.assertEqual(
             packet["workspace"],
@@ -52,7 +52,11 @@ class RecoverTests(WorkspaceFixture):
                 },
                 {
                     "path_base": "work_root",
-                    "path": "workspaces/001-example/current/memory/02-decisions.md",
+                    "path": "workspaces/001-example/current/memory/02-constraints.md",
+                },
+                {
+                    "path_base": "work_root",
+                    "path": "workspaces/001-example/current/memory/03-project-context.md",
                 },
                 {
                     "path_base": "work_root",
@@ -61,6 +65,10 @@ class RecoverTests(WorkspaceFixture):
                 {
                     "path_base": "work_root",
                     "path": "workspaces/001-example/current/state/status.json",
+                },
+                {
+                    "path_base": "work_root",
+                    "path": "workspaces/001-example/output/index.md",
                 },
                 {
                     "path_base": "project_root",
@@ -88,10 +96,17 @@ class RecoverTests(WorkspaceFixture):
                 },
                 {
                     "path": (
-                        "workspaces/001-example/current/memory/02-decisions.md"
+                        "workspaces/001-example/current/memory/02-constraints.md"
                     ),
                     "path_base": "work_root",
-                    "content": "WORKSPACE_MEMORY_DECISIONS\n",
+                    "content": "WORKSPACE_MEMORY_CONSTRAINTS\n",
+                },
+                {
+                    "path": (
+                        "workspaces/001-example/current/memory/03-project-context.md"
+                    ),
+                    "path_base": "work_root",
+                    "content": "WORKSPACE_MEMORY_PROJECT_CONTEXT\n",
                 },
             ],
         )
@@ -101,6 +116,17 @@ class RecoverTests(WorkspaceFixture):
         )
         self.assertEqual(
             packet["state"]["status"]["value"], self.initial_status()
+        )
+        self.assertEqual(
+            packet["output"]["index"],
+            {
+                "path": "workspaces/001-example/output/index.md",
+                "path_base": "work_root",
+                "content": (
+                    "WORKSPACE_OUTPUT_INDEX\n\n"
+                    "- [analysis](analysis.md)\n"
+                ),
+            },
         )
         self.assertEqual(
             [entry["path"] for entry in packet["project_context"]],
@@ -116,8 +142,142 @@ class RecoverTests(WorkspaceFixture):
         self.assertNotIn("UNSELECTED_PROJECT_SECRET", completed.stdout)
         self.assertNotIn("UNLOADED_RECORD_SECRET", completed.stdout)
         self.assertNotIn("UNLOADED_RECORD_MARKDOWN_SECRET", completed.stdout)
+        self.assertNotIn("UNLOADED_SOURCE_INVENTORY_SECRET", completed.stdout)
+        self.assertNotIn("UNLOADED_SOURCE_RAW_SECRET", completed.stdout)
+        self.assertNotIn("UNLOADED_OUTPUT_ARTIFACT_SECRET", completed.stdout)
+        self.assertFalse(
+            any(
+                entry["path"].startswith("workspaces/001-example/source/")
+                for entry in (
+                    packet["control_paths"] + packet["loaded_context_paths"]
+                )
+            )
+        )
         self.assertNotIn("UNLOADED_MEMORY_NON_MARKDOWN_SECRET", completed.stdout)
         self.assertNotIn("UNLOADED_NESTED_MEMORY_SECRET", completed.stdout)
+
+    def test_requires_workspace_output_index(self) -> None:
+        output_index = (
+            self.work_root
+            / "workspaces"
+            / "001-example"
+            / "output"
+            / "index.md"
+        )
+        content = output_index.read_text(encoding="utf-8")
+        output_index.unlink()
+        try:
+            completed = self.run_cli("recover")
+        finally:
+            output_index.write_text(content, encoding="utf-8")
+
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("Workspace output index does not exist", completed.stderr)
+
+    def test_does_not_require_or_inspect_workspace_output_artifacts(self) -> None:
+        artifact = (
+            self.work_root
+            / "workspaces"
+            / "001-example"
+            / "output"
+            / "analysis.md"
+        )
+        content = artifact.read_text(encoding="utf-8")
+        artifact.unlink()
+        try:
+            completed = self.run_cli("recover", "--json")
+        finally:
+            artifact.write_text(content, encoding="utf-8")
+
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertIn("[analysis](analysis.md)", completed.stdout)
+        self.assertNotIn("UNLOADED_OUTPUT_ARTIFACT_SECRET", completed.stdout)
+
+    def test_rejects_symlinked_workspace_output_index(self) -> None:
+        output_index = (
+            self.work_root
+            / "workspaces"
+            / "001-example"
+            / "output"
+            / "index.md"
+        )
+        content = output_index.read_text(encoding="utf-8")
+        outside = self.project_root / "output-index.md"
+        outside.write_text(
+            "LINKED_OUTPUT_INDEX_MUST_NOT_LOAD\n", encoding="utf-8"
+        )
+        output_index.unlink()
+        output_index.symlink_to(outside)
+        try:
+            completed = self.run_cli("recover")
+        finally:
+            output_index.unlink()
+            output_index.write_text(content, encoding="utf-8")
+
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("symlink", completed.stderr)
+        self.assertNotIn("LINKED_OUTPUT_INDEX_MUST_NOT_LOAD", completed.stdout)
+
+    def test_rejects_non_regular_workspace_output_index(self) -> None:
+        output_index = (
+            self.work_root
+            / "workspaces"
+            / "001-example"
+            / "output"
+            / "index.md"
+        )
+        content = output_index.read_text(encoding="utf-8")
+        output_index.unlink()
+        output_index.mkdir()
+        try:
+            completed = self.run_cli("recover")
+        finally:
+            output_index.rmdir()
+            output_index.write_text(content, encoding="utf-8")
+
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("must be a regular file", completed.stderr)
+
+    def test_requires_minimum_memory_files(self) -> None:
+        memory = (
+            self.work_root
+            / "workspaces"
+            / "001-example"
+            / "current"
+            / "memory"
+        )
+
+        for required_name in (
+            "01-goal.md",
+            "02-constraints.md",
+            "03-project-context.md",
+        ):
+            with self.subTest(required_name=required_name):
+                required_path = memory / required_name
+                content = required_path.read_text(encoding="utf-8")
+                required_path.unlink()
+                try:
+                    completed = self.run_cli("recover")
+                    self.assertEqual(completed.returncode, 2)
+                    self.assertIn("missing required files", completed.stderr)
+                    self.assertIn(required_name, completed.stderr)
+                finally:
+                    required_path.write_text(content, encoding="utf-8")
+
+    def test_does_not_require_or_inspect_workspace_source(self) -> None:
+        source = (
+            self.work_root / "workspaces" / "001-example" / "source"
+        )
+        unavailable_source = source.with_name("source-unavailable")
+        source.rename(unavailable_source)
+        try:
+            completed = self.run_cli("recover", "--json")
+        finally:
+            unavailable_source.rename(source)
+
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertNotIn("UNLOADED_SOURCE_INVENTORY_SECRET", completed.stdout)
+        self.assertNotIn("UNLOADED_SOURCE_RAW_SECRET", completed.stdout)
 
     def test_succeeds_when_verify_contract_is_invalid(self) -> None:
         (
@@ -170,6 +330,9 @@ class RecoverTests(WorkspaceFixture):
         self.assertIn("- finished_at: null", completed.stdout)
         self.assertIn("- receipt: null", completed.stdout)
         self.assertIn("- next_action: 고정 검증을 실행한다.", completed.stdout)
+        self.assertIn("## output/index.md", completed.stdout)
+        self.assertIn("WORKSPACE_OUTPUT_INDEX", completed.stdout)
+        self.assertNotIn("UNLOADED_OUTPUT_ARTIFACT_SECRET", completed.stdout)
         self.assertNotIn('"status": "ready_for_verification"', completed.stdout)
         self.assertNotIn("Fixed verification argv", completed.stdout)
 

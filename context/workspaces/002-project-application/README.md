@@ -8,7 +8,8 @@
 
 1. [`current/memory.md`](current/memory.md): 적용 목표·대상·지속 결정·검증 상한·접근점
 2. [`current/state.md`](current/state.md): 현재 검증 상태·남은 불확실성·다음 행동
-3. [`records/`](records/): 적용 결정, migration, 실패·성공 검증과 증거 상한
+3. [`output/index.md`](output/index.md): 이 Workspace goal을 위해 선택된 현재 산출물과 실제 canonical 위치
+4. [`records/`](records/): 적용 결정, migration, 실패·성공 검증과 증거 상한
 
 이 Workspace는 `output/context/work`의 전체 구조를 정답처럼 복제하지 않는다. 대상 Project의 기존 canonical과 배치를 먼저 확인하고, 필요한 책임과 운영 흐름만 최소로 적용한다.
 

@@ -1,6 +1,6 @@
 # Reference implementation current
 
-마지막 갱신: `2026-08-13`
+마지막 갱신: `2026-08-14`
 
 이 폴더는 reference 구현 Workspace에서 지금도 유효한 내용과 최종 상태의 입구다. 긴 작업 이력이나 원자료를 복제하지 않는다.
 
@@ -8,8 +8,9 @@
 
 1. [`memory.md`](./memory.md)에서 이 작업의 목표·기준·결정·제약·지속 효과를 확인한다.
 2. [`state.md`](./state.md)에서 완료 상태·근거·검증 상한을 확인한다.
-3. 더 자세한 이유나 실행 결과가 필요할 때 `state.md`가 가리키는 `../records/` 기록을 읽는다.
-4. 판단 근거를 다시 확인해야 할 때만 [`../../../source/`](../../../source/)를 연다.
+3. [`../output/index.md`](../output/index.md)에서 이 Workspace goal의 현재 산출물과 실제 canonical 위치를 확인한다.
+4. 더 자세한 이유나 실행 결과가 필요할 때 `state.md`가 가리키는 `../records/` 기록을 읽는다.
+5. 판단 근거를 다시 확인해야 할 때만 [`../../../source/`](../../../source/)를 연다.
 
 ## 유지 담당
 
