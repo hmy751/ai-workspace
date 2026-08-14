@@ -4,27 +4,29 @@
 
 ## 현재 문제
 
-첫 적용의 브라우저 acceptance를 확인하는 일과, 승격한 반복 절차를 두 번째 실제 Project에서 검증하는 일이 남아 있다.
+원본 target은 Harness 미설치 상태로 보존하면서, 격리 사본에서 완료한 blind skill 평가의 상한과 아직 필요한 사람 판단을 분리해야 한다.
 
 ## 현재 상태
 
-- 대상 Project는 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio`, 기준 branch는 `feat/payment-recovery-mvp`, Harness 적용 전·현재 HEAD는 `76d8e2f`다.
-- Project canonical을 복제하지 않고 `AGENTS.md`, `context/README.md`, `context/work/harness/`, `context/work/workspaces/001-payment-recovery-mvp/`를 적용했다.
-- Harness 계약 테스트는 recover 13개와 verify 9개, 총 22개가 통과했다. 실행 전 Harness source 14개의 hash·size와 exit `0`은 별도 durable receipt에 보존됐다.
-- live recover는 Workspace current 6개와 선택한 Project canonical 3개만 불러오고 최종 receipt와 `verified_waiting_acceptance` 상태를 연결했다.
-- 네 번째 최종 고정 verify는 실제 Turbo 대상 5개 package를 포괄하는 40개 evidence를 실행 전에 보존하고, cache 없이 11개 task를 모두 실행해 통과했다. 5개 test file의 31개 test, typecheck와 Checkout production build가 통과했으며 상세 결과는 [적용·검증 기록](../records/2026-08-13-01-payment-recovery-project-application.md)에 있다.
-- 대상 working tree에서 Harness 적용분인 `.gitignore` 수정과 새 `AGENTS.md`, `context/`는 아직 커밋되지 않았다. 적용 전 사용자 변경 `App.tsx`, `styles.css`도 미커밋 상태이며 수정하지 않았다. 적용 전 untracked였던 `context/code-map.md`는 사용자가 직접 삭제했고 현재 없다.
-- 첫 적용의 반복 절차를 repo-local `apply-context-harness` skill로 승격했다. helper unit 7개는 Python 3.14.3과 `/usr/bin/python3` 3.9.6에서 각각 통과했고, skill validator·YAML·discovery/trigger 검증과 독립 리뷰도 통과했다. 상세 근거는 [승격 기록](../records/2026-08-14-01-apply-context-harness-skill-promotion.md)에 있다.
-- 이후 `2026-08-14` 원형과 skill에 추가한 Workspace `source/`, `output/index.md`, 최소 memory 세 파일 계약은 기존 payment target에 자동 적용하지 않았고 다시 검증하지 않았다. 현재 target 상태와 새 이식 계약을 같은 버전으로 해석하지 않는다.
+- 대상 Project는 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio`, branch는 `feat/payment-recovery-mvp`, 현재 HEAD는 `9519a43`이고 working tree는 clean이다.
+- 기존 사용자 제품 변경 `App.tsx`, `styles.css`는 `527af89`에 별도로 커밋했다.
+- 첫 Harness 적용 전체는 `eaacec7`에 snapshot으로 남겼다. 당시 Harness 계약 22개, 제품 Turbo 11개 task와 31개 test, Checkout build가 통과했고 상세 증거는 [적용·검증 기록](../records/2026-08-13-01-payment-recovery-project-application.md)에 있다.
+- `git reset`을 사용하지 않고 `9519a43`에서 `eaacec7`을 revert했다. 현재 target에는 `AGENTS.md`, `context/`, Harness용 `.gitignore` 변경이 없다.
+- 현재 HEAD의 tree는 Harness 적용 직전 제품 commit `527af89`와 완전히 같다. `git diff --exit-code 527af89 HEAD`가 `0`을 반환했다.
+- rollback 후 Harness 밖에서 동일한 `pnpm exec turbo run typecheck test build --force`를 실행해 cache 없이 11개 task, 31개 test, typecheck와 Checkout production build가 다시 통과했다.
+- 첫 적용에서 승격한 repo-local [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/) skill에는 이후 Workspace source/output/minimum-memory 계약도 반영됐지만, 이 최신 계약은 현재 target에 아직 재적용하지 않았다.
+- 격리 평가 target은 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio-skill-test`, branch `codex/context-harness-skill-test`, HEAD `527af89`다. 원본 002 current·records·output을 읽지 못하게 한 prompt에서 skill 이름·target 경로·첫 장면만 받고 별도 task `019ffec6-7cad-7120-b803-a6f4ef6787f3`가 이식을 수행했다.
+- 격리 평가에서는 preflight·dry-run·target adaptation 뒤 첫 verify가 `node_modules` 부재로 실패했고, offline frozen install 후 verify 통과와 후속 recover까지 완료했다. 별도 독립 review와 main 재검증도 통과했다.
+- 격리 target에는 `AGENTS.md`와 `context/` 44개 설치 파일이 untracked 상태로 남아 있다. tracked diff와 staged diff는 없고 commit·staging·사람 acceptance는 수행하지 않았다.
+- main 재검증은 preflight 원본·사본 SHA 일치, recover의 정확한 10개 경로, Harness source 14개와 test 28개의 receipt, 제품 evidence 36개 hash와 status linkage를 확인했다. direct Harness 28개 test와 제품 Turbo 11/11 task·31개 test·build도 cache `0`으로 통과했고 독립 review에서 P1·P2 문제는 없었다. ignored runtime artifact, transcript에 의존하는 실행 순서, 다른 ref에서 발견 가능한 과거 Harness commit, 선언과 다른 실제 pnpm 버전은 [blind 평가 기록](../records/2026-08-14-04-blind-apply-context-harness-skill-evaluation.md)의 상한으로 남겼다.
 
 ## 남은 불확실성
 
-- 외부 결제 화면의 승인·취소, focus 복귀, 모바일 표시와 승인 응답 유실 자동 복구를 실제 브라우저에서 확인하지 않았다.
-- 실제 PG, 영속 DB, Android WebView, 웹훅, 운영 서비스 효과는 검증하지 않았다.
-- 사람의 acceptance와 이후 commit·Project canonical 반영 여부는 결정되지 않았다.
-- 두 번째 실제 Project에는 아직 이식하지 않았다. 따라서 skill의 portability와 다른 canonical·runtime·test graph에 대한 generalization은 검증되지 않았다.
-- 기존 payment target의 source/output/minimum-memory 후속 migration 여부도 아직 결정하지 않았다.
+- 현재 target에는 Harness가 없으므로 recover·verify·receipt 재진입을 실행할 수 없다.
+- 최신 source/output/minimum-memory 계약은 격리 사본에서 검증했지만 원본 target에는 설치하지 않았다.
+- 외부 결제 화면의 승인·취소, focus 복귀, 모바일 표시, 실제 PG·영속 DB·Android WebView·웹훅·운영 효과와 사람 acceptance는 여전히 확인하지 않았다.
+- 다른 실제 Project에 대한 portability도 검증하지 않았다.
 
 ## 다음 행동
 
-첫 적용은 최종 receipt의 evidence 범위를 확인한 뒤 실제 브라우저 동작을 실행해 사용자가 acceptance를 결정한다. portability는 사용자가 두 번째 대상 Project와 변경 범위를 지정한 뒤 repo-local skill로 실제 이식을 끝까지 수행해 검증한다. 그전에는 첫 적용을 완료로 바꾸거나 반복 절차를 범용으로 입증됐다고 쓰지 않는다.
+원본 target `9519a43`은 clean·Harness 미설치 상태로 유지한다. 격리 평가 결과의 acceptance, 격리 파일의 commit 또는 제거, 원본 재적용은 사용자가 각각 결정해야 하며 자동 검증만으로 대신 확정하지 않는다.

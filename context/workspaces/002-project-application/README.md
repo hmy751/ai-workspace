@@ -2,7 +2,7 @@
 
 `output/`에서 검증한 context+harness 책임을 실제 기존 Project 하나에 적용하고, 그대로 가져갈 책임과 대상 Project에 맞게 바꿀 배치를 확인하는 Workspace다.
 
-상태는 **active**다. 적용 대상은 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio`이며, 구조 적용·고정 자동 검증·재진입은 완료했다. 현재는 사람의 acceptance와 실제 브라우저 동작 검증을 기다린다.
+상태는 **active**다. 원본 대상 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio`의 첫 적용과 검증은 Git 이력에 보존했고, 현재 원본에서는 Harness를 제거한 clean 상태다. 격리 사본 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio-skill-test`에서는 과거 002 문서를 보지 않은 blind 재적용·자동 검증을 완료했지만, 원본 설치나 사람 acceptance로 보지 않는다.
 
 ## 읽는 순서
 
