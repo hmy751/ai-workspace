@@ -11,7 +11,7 @@
 - `output/index.md`는 산출물 복제본이 아니라 위치와 역할을 연결하는 selector로 둔다.
 - 첫 실제 적용물의 canonical은 대상 Project의 `AGENTS.md`와 적용된 Workspace에 그대로 둔다.
 - 반복 적용 절차의 canonical은 이 저장소의 repo-local `apply-context-harness` skill에 둔다.
-- 루트 `output/`은 적용 입력인 실행 원형으로 구분하며, 대상 Project에 배치된 goal 산출물로 바꾸어 쓰지 않는다.
+- 루트 `reference-project/`는 적용 입력인 실행 가능한 기준 Project로 구분하며, 대상 Project에 배치된 goal 산출물로 바꾸어 쓰지 않는다.
 - output에 노출되었다는 이유로 Workspace 완료, 사람의 acceptance, target commit 또는 portability 입증을 추론하지 않는다.
 
 ## 현재 영향

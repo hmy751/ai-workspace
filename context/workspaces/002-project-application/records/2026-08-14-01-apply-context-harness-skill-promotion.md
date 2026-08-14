@@ -7,19 +7,19 @@
 
 첫 Payment Recovery 적용에서 반복된 이식 순서와 증거 요구를 repo-local [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/) skill로 승격했다. 첫 적용의 구체 배치·실패·receipt·proof ceiling은 [기존 적용 기록](2026-08-13-01-payment-recovery-project-application.md)이 계속 소유하며, skill에 복제하지 않았다.
 
-이 절차는 대상 Project의 경로가 있는 context+harness 이식 요청에서 기존 canonical과 사용자 변경을 먼저 고정하고, 대상별 Owner 배치와 recover·verify 계약을 만든 뒤 `recover → verify → recover`와 durable receipt로 확인한다. 대상 경로가 없거나 단순 `output/` 수정·구조 설명·이미 설치된 Project의 브라우저 acceptance만 요청하는 경우에는 발동하지 않는다.
+이 절차는 대상 Project의 경로가 있는 context+harness 이식 요청에서 기존 canonical과 사용자 변경을 먼저 고정하고, 대상별 Owner 배치와 recover·verify 계약을 만든 뒤 `recover → verify → recover`와 durable receipt로 확인한다. 대상 경로가 없거나 단순 `reference-project/` 수정·구조 설명·이미 설치된 Project의 브라우저 acceptance만 요청하는 경우에는 발동하지 않는다.
 
 ## 세 산출물의 역할
 
-- [`output/`](../../../../output/): Project–Workspace–Harness 책임이 실제로 실행되는 원형이다. 범용 복사 템플릿이나 설치 패키지가 아니다.
-- [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/): 원형의 책임을 대상 Project의 기존 Owner 구조에 맞춰 이식하는 절차와 migration-only helper다. Project 사실이나 적용 결과를 소유하지 않고, `output/`이나 target 내용을 assets로 복제하지 않는다.
+- 현재 [`reference-project/`](../../../../reference-project/): Project–Workspace–Harness 책임이 실제로 실행되는 기준 Project다. 범용 복사 템플릿이나 설치 패키지가 아니다.
+- [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/): 기준 Project의 책임을 대상 Project의 기존 Owner 구조에 맞춰 이식하는 절차와 migration-only helper다. Project 사실이나 적용 결과를 소유하지 않고, `reference-project/`나 target 내용을 assets로 복제하지 않는다.
 - 이 Workspace의 `records/`: 실제 적용에서 확인한 배치, 사용자 선택, 시도, 실패·성공 receipt, target별 예외와 증거 상한을 보존한다.
 
-실행 책임 변경은 `output/`, 반복할 판단과 절차는 skill, 실제 이식 결과는 application Workspace records에 둔다.
+실행 책임 변경은 `reference-project/`, 반복할 판단과 절차는 skill, 실제 이식 결과는 application Workspace records에 둔다.
 
 ## Repo-local 배치와 routing
 
-skill은 이 저장소의 live `output/`, Project application Workspace, context maintainer routing을 함께 사용하므로 [`.agents/skills/`](../../../../.agents/skills/)에 두었다. 루트 [`AGENTS.md`](../../../../AGENTS.md)는 사용자가 대상 Project 경로와 함께 이식·적용을 요청할 때 skill을 사용하도록 routing하고, 루트 [`README.md`](../../../../README.md)는 사람이 찾는 진입점을 제공한다.
+skill은 이 저장소의 live `reference-project/`, Project application Workspace, context maintainer routing을 함께 사용하므로 [`.agents/skills/`](../../../../.agents/skills/)에 두었다. 루트 [`AGENTS.md`](../../../../AGENTS.md)는 사용자가 대상 Project 경로와 함께 이식·적용을 요청할 때 skill을 사용하도록 routing하고, 루트 [`README.md`](../../../../README.md)는 사람이 찾는 진입점을 제공한다.
 
 점검 시 `~/.claude/skills/apply-context-harness`, `~/.codex/skills/apply-context-harness`는 없었고 global skills·projects·runtime index에도 이름이 없었다. repo-local skill을 전역 capability나 다른 Project의 기본 규칙으로 등록하지 않았다.
 

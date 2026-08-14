@@ -8,7 +8,7 @@
 
 ## 적용 기준
 
-- [`output/`](../../../../output/)은 책임과 흐름을 검증한 reference이지, 모든 Project에 그대로 복사할 범용 템플릿이 아니다.
+- [`reference-project/`](../../../../reference-project/)는 책임과 흐름을 검증한 기준 Project이지, 모든 Project에 그대로 복사할 범용 템플릿이 아니다.
 - 대상 Project의 기존 canonical, 디렉터리 배치, 테스트와 운영 방식을 먼저 확인한다.
 - 경로 이름보다 Project common context, Workspace current/source/output/records, recover/verify 책임과 인계가 실제로 어디에 귀속되는지를 본다.
 - 필요한 최소 경계부터 적용하고, Harness가 없어져도 Project와 Workspace의 의미가 남도록 한다.
@@ -16,7 +16,7 @@
 
 ## Reference 접근점
 
-- 실행 가능한 reference: [`output/README.md`](../../../../output/README.md)
+- 실행 가능한 기준 Project: [`reference-project/README.md`](../../../../reference-project/README.md)
 - Project–Workspace 최초 합의: [`001 record 03`](../../001-reference-implementation/records/2026-08-13-03-project-workspace-context-agreement.md)
 - Project·Work root 분리 결과와 검증 상한: [`001 record 07`](../../001-reference-implementation/records/2026-08-13-07-project-work-context-boundary.md)
 

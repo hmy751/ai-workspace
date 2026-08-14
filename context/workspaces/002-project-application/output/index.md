@@ -30,7 +30,7 @@
 
 ## 적용 입력
 
-- 실행 가능한 원형의 canonical은 이 저장소의 루트 [`output/`](../../../../output/)이다.
-- 루트 `output/`은 첫 적용의 입력이며, 대상 Project에 배치된 goal 산출물 자체는 아니다.
+- 실행 가능한 기준 Project의 canonical은 이 저장소의 루트 [`reference-project/`](../../../../reference-project/)다.
+- 루트 `reference-project/`는 첫 적용의 입력이며, 대상 Project에 배치된 goal 산출물 자체는 아니다.
 
 이 지도에 commit이 있다는 사실은 현재 설치, Workspace 완료, 사용자 수락 또는 외부 동작 검증을 뜻하지 않는다.

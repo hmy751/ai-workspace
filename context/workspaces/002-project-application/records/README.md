@@ -15,3 +15,4 @@
 - [`2026-08-14-03-context-harness-rollback-for-retest.md`](2026-08-14-03-context-harness-rollback-for-retest.md): 제품 변경과 적용 snapshot을 commit으로 분리하고 reset 없이 Harness를 제거한 재테스트 기준점
 - [`2026-08-14-04-blind-apply-context-harness-skill-evaluation.md`](2026-08-14-04-blind-apply-context-harness-skill-evaluation.md): 과거 002 문서를 차단한 격리 사본에서 당시 schema `3` skill의 end-to-end 이식과 독립 재검증을 수행한 결과
 - [`2026-08-14-05-project-common-context-contract.md`](2026-08-14-05-project-common-context-contract.md): 실제 Project common context 최소층과 overview-first recover 계약으로 바꾼 이유, source reference 검증과 target 미검증 경계
+- [`2026-08-14-06-reference-project-root-rename.md`](2026-08-14-06-reference-project-root-rename.md): 루트 `output/`을 `reference-project/`로 바꿔 Workspace output과 기준 Project 책임을 구분한 결정, skill source lookup 변경과 target 미검증 경계

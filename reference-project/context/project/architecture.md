@@ -20,7 +20,7 @@
 
 ## 검증 경로
 
-`output/`을 현재 디렉터리로 두고 다음 명령을 실행한다.
+`reference-project/`를 현재 디렉터리로 두고 다음 명령을 실행한다.
 
 ```sh
 python3 -m unittest tests.test_config_loader -v

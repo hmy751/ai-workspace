@@ -4,7 +4,7 @@
 
 ## 재진입과 검증
 
-`output/` root에서 다음 명령을 사용한다.
+`reference-project/` root에서 다음 명령을 사용한다.
 
 ```bash
 python3 -m context.work.harness recover

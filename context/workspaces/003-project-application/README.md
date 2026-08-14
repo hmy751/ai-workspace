@@ -1,6 +1,6 @@
 # Project application Workspace
 
-`output/`에서 검증한 context+harness 책임을 실제 기존 Project 하나에 적용해 보고, 그대로 복사할 부분과 대상 Project에 맞게 바꿔야 할 부분을 확인하는 다음 작업 Workspace다.
+`reference-project/`에서 검증한 context+harness 책임을 실제 기존 Project 하나에 적용해 보고, 그대로 가져갈 책임과 대상 Project에 맞게 바꿔야 할 배치를 확인하는 다음 작업 Workspace다.
 
 상태는 **ready**다. 아직 대상 Project가 지정되지 않았으므로 다른 Desktop 저장소는 조사하지 않는다.
 
@@ -11,4 +11,4 @@
 3. [`output/index.md`](output/index.md): 이 Workspace goal을 위해 선택된 현재 산출물과 canonical 위치
 4. [`records/`](records/): 대상 Project를 정한 뒤 생기는 분석·migration·검증 기록
 
-이 Workspace는 `output/context/work`의 전체 구조를 정답처럼 복제하지 않는다. 대상 Project의 기존 canonical과 배치를 먼저 확인하고, 필요한 책임과 운영 흐름만 최소로 적용한다.
+이 Workspace는 `reference-project/context/work`의 전체 구조를 정답처럼 복제하지 않는다. 대상 Project의 기존 canonical과 배치를 먼저 확인하고, 필요한 책임과 운영 흐름만 최소로 적용한다.

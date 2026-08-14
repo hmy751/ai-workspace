@@ -15,7 +15,7 @@
 
 ## reference와 skill에 반영된 계약
 
-- [`output/context/project/README.md`](../../../../output/context/project/README.md)가 최소 진입점과 Owner 우선순위를 설명하고, [`overview.md`](../../../../output/context/project/overview.md)가 sample Request policy 제품의 실제 공통 맥락을 담는다.
+- 현재 [`reference-project/context/project/README.md`](../../../../reference-project/context/project/README.md)가 최소 진입점과 Owner 우선순위를 설명하고, [`overview.md`](../../../../reference-project/context/project/overview.md)가 sample Request policy 제품의 실제 공통 맥락을 담는다.
 - Recover contract는 schema `4`다. 선택 경계를 Project root의 `context/project/` 아래 regular Markdown으로 고정하고 `context/project/overview.md`를 첫 항목으로 요구한다.
 - 이전 reference schema `2`와 첫 실제 적용에서 다른 의미로 사용한 target-local schema `3`은 재사용하지 않는다. Recovery packet 구조는 바뀌지 않아 schema `5`를 유지한다.
 - Sample Workspace는 overview를 먼저, 이번 작업에 필요한 default-timeout 결정을 다음으로 선택한다. PRD와 architecture 전체, Workspace source·records, output index가 연결한 artifact 본문은 기본 recovery packet에 싣지 않는다.
@@ -26,7 +26,7 @@
 - `output/`에서 `python3 -m unittest discover -s . -p 'test_*.py' -v`: 제품 7개, recover 21개, verify 9개로 총 37개 통과
 - `.agents/skills/apply-context-harness`에서 helper unittest: 7개 통과
 - Skill validator: 통과
-- Live verify: 제품 테스트 7개 통과, exit `0`. 최신 receipt는 [`verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json`](../../../../output/context/work/workspaces/001-default-timeout/records/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json)이며 machine status도 이 receipt를 가리키는 `verified_waiting_acceptance`다.
+- Live verify: 제품 테스트 7개 통과, exit `0`. 최신 receipt는 [`verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json)이며 machine status도 이 receipt를 가리키는 `verified_waiting_acceptance`다.
 - 후속 live recover는 packet schema `5`로 성공했다. `loaded_context_paths`에는 current 6개, Workspace output index 1개, Project overview와 default-timeout 결정 2개가 순서대로 들어갔다.
 
 ## 검증 상한과 후속 경계

@@ -1,15 +1,15 @@
 ---
 name: apply-context-harness
-description: 기존 개발 Project 하나에 실제 Project common context와 Workspace context harness를 기존 canonical과 사용자 변경을 보존하며 최소 이식하고 recover, fixed verify, receipt, 재진입까지 실제 검증한다. 사용자가 대상 경로와 함께 "context harness 이식/적용", "output을 다른 프로젝트에 붙여줘", "Project context와 Workspace current/source/output/records, recover/verify를 설치해줘"라고 요청할 때 사용한다. 단순 output 수정, 구조 설명, 이미 설치된 Project의 브라우저 acceptance만 수행하는 요청에는 사용하지 않는다.
+description: 기존 개발 Project 하나에 실제 Project common context와 Workspace context harness를 기존 canonical과 사용자 변경을 보존하며 최소 이식하고 recover, fixed verify, receipt, 재진입까지 실제 검증한다. 사용자가 대상 경로와 함께 "context harness 이식/적용", "reference-project를 다른 프로젝트에 붙여줘", "Project context와 Workspace current/source/output/records, recover/verify를 설치해줘"라고 요청할 때 사용한다. 단순 기준 Project 수정, 구조 설명, 이미 설치된 Project의 브라우저 acceptance만 수행하는 요청에는 사용하지 않는다.
 ---
 
 # Apply Context Harness
 
 ## 목적
 
-이 저장소의 `output/`에서 검증한 책임을 대상 Project의 기존 소유 구조에 맞춰 이식한다. Sample 내용을 복제하는 대신 실제 Project common context, Workspace, Harness의 Owner 관계와 `recover → verify → recover` 순환을 대상의 사실과 증거로 복원한다.
+이 저장소의 `reference-project/`에서 검증한 책임을 대상 Project의 기존 소유 구조에 맞춰 이식한다. Sample 내용을 복제하는 대신 실제 Project common context, Workspace, Harness의 Owner 관계와 `recover → verify → recover` 순환을 대상의 사실과 증거로 복원한다.
 
-`output/`은 실행 가능한 원형이고 이 skill은 이식 절차다. `output/`을 skill assets로 복제하지 말고, 호출 시점의 live source와 commit을 읽어 사용한다.
+`reference-project/`는 실행 가능한 기준 Project이고 이 skill은 이식 절차다. 기준 Project를 skill assets로 복제하지 말고, 호출 시점의 live source와 commit을 읽어 사용한다.
 
 ## 시작 조건
 
@@ -17,8 +17,8 @@ description: 기존 개발 Project 하나에 실제 Project common context와 Wo
 2. 대상이 지정되지 않았으면 경로와 첫 Workspace로 다룰 작업 장면을 한 번에 묻고 멈춘다.
 3. 대상이 지정됐으면 인접 저장소를 열지 말고 바로 preflight를 시작한다.
 4. 이 skill의 [`references/application-contract.md`](references/application-contract.md)를 끝까지 읽는다.
-5. `git -C <skill-dir> rev-parse --show-toplevel`로 source repository root를 구하고 `output/`의 존재를 확인한다. 상대 경로 단계 수로 repository root를 추측하지 않는다.
-6. `git -C <source-root> status --short -- output`으로 source bytes가 source commit과 같은지 확인한다. `output/`이 dirty면 commit만 기록하고 진행하지 않는다. 현재 dirty bytes를 이식할지 먼저 사용자에게 알리고, 승인되면 dirty path 전체의 diff와 SHA-256을 manifest에 넣는다. 아니면 source 변경을 별도 작업으로 먼저 확정한다.
+5. `git -C <skill-dir> rev-parse --show-toplevel`로 source repository root를 구하고 `reference-project/`의 존재를 확인한다. 상대 경로 단계 수로 repository root를 추측하지 않는다.
+6. `git -C <source-root> status --short -- reference-project`로 source bytes가 source commit과 같은지 확인한다. `reference-project/`가 dirty면 commit만 기록하고 진행하지 않는다. 현재 dirty bytes를 이식할지 먼저 사용자에게 알리고, 승인되면 dirty path 전체의 diff와 SHA-256을 manifest에 넣는다. 아니면 source 변경을 별도 작업으로 먼저 확정한다.
 
 ## 1. 변경 전 상태를 고정한다
 
@@ -57,7 +57,7 @@ python3 <skill-dir>/scripts/capture_target_state.py \
 
 파일을 합치기 전에 대화나 작업 기록에 다음 manifest를 제시한다.
 
-- source commit, `output/` clean/dirty 상태와 dirty source를 쓸 때의 path별 hash·diff
+- source commit, `reference-project/` clean/dirty 상태와 dirty source를 쓸 때의 path별 hash·diff
 - 새 파일, 수정 파일, 충돌 파일, 명시적 제외 파일
 - 새 `context/project/README.md`와 `overview.md`의 실제 내용, 상세 Owner·충돌 우선순위·근거 path와 preflight 관찰 기준
 - Workspace ID와 active 선택
@@ -69,7 +69,7 @@ python3 <skill-dir>/scripts/capture_target_state.py \
 - 검증 명령이 실제 읽는 source·manifest·설정 전체를 대표하는 evidence 목록
 - 남을 proof ceiling과 사람 acceptance 지점
 
-샘플 Project 문서, sample Workspace 내용, 과거 receipt, `output/src`, `output/tests`, `__pycache__`는 payload에 포함하지 않는다. 기존 디렉터리 위에 광범위한 recursive copy를 하지 않는다.
+샘플 Project 문서, sample Workspace 내용, 과거 receipt, `reference-project/src`, `reference-project/tests`, `__pycache__`는 payload에 포함하지 않는다. 기존 디렉터리 위에 광범위한 recursive copy를 하지 않는다.
 
 ## 4. 책임 단위로 이식한다
 
@@ -79,7 +79,7 @@ python3 <skill-dir>/scripts/capture_target_state.py \
 2. `context/project/README.md`와 `overview.md`를 만든다. README에는 책임·상세 Owner·충돌 우선순위·갱신 조건을, overview에는 실제 사용자 장면과 제품 목적, 범위와 범위 밖, 주요 시스템 흐름·구성요소, 여러 Workspace에 계속 적용되는 제약·채택 결정, 검증과 사람 acceptance 경계, 근거 path를 쓴다. 기존 문서의 복사본이나 링크 인덱스로 끝내지 않고, 원자료가 지지하지 않는 사실을 만들지 않는다. 첫 Workspace 장면이나 빠르게 바뀌는 상태를 Project 전체 사실로 승격하지 않는다. Exact baseline commit과 dirty state는 overview에 박아 두지 말고 preflight receipt와 migration record가 소유하게 한다.
 3. `context/work/workspaces/` 아래에 Workspace collection, active index, 첫 Workspace의 README·계약·`current/`·`source/`·`output/`·`records/`를 만든다. `current/memory/`에는 최소한 `01-goal.md`, `02-constraints.md`, `03-project-context.md`를 둔다. `source/index.md`를 source inventory의 최소 진입점으로 만들고, 실제 사용한 원문·변경하지 않은 snapshot·provenance만 연결한다. 별도 원자료가 없으면 없다고 적고 Project canonical을 복제하지 않는다. 원자료의 저자와 정본 권위는 원래 출처에 남긴다. 현재 판단·분석·결정·실행·검증 기록은 source에 섞지 않는다.
 4. `output/index.md`를 Workspace goal을 위해 선택된 현재 산출물의 최소 진입점으로 만든다. 실제 산출물이 Project의 기존 코드·문서·배포 위치에 있으면 복제하지 않고 canonical 경로를 연결한다. Output에는 선택된 결과와 상태·proof ceiling만 두고, 분석 초안·후보 비교·탈락 사유·시행착오·선택 근거·교체된 이전 결과는 날짜가 있는 records에 남긴다. 파일 형식이 아니라 Workspace goal에서 맡는 역할로 둘을 구분하며, output 등재를 acceptance나 완료로 해석하지 않는다.
-5. `context/work/harness/`에는 `output/context/work/harness/`의 실행 책임만 옮긴다. Fresh target의 recover는 reference schema `4`와 고정 `context/project/` Markdown 경계를 유지하고, 각 Workspace가 `overview.md`를 첫 항목으로 선택한 뒤 필요한 Project 문서만 더 선택하게 한다. 이전 reference schema `2`와 첫 payment 적용에서 다른 의미로 사용한 target-local schema `3`을 재해석하지 않는다.
+5. `context/work/harness/`에는 `reference-project/context/work/harness/`의 실행 책임만 옮긴다. Fresh target의 recover는 reference schema `4`와 고정 `context/project/` Markdown 경계를 유지하고, 각 Workspace가 `overview.md`를 첫 항목으로 선택한 뒤 필요한 Project 문서만 더 선택하게 한다. 이전 reference schema `2`와 첫 payment 적용에서 다른 의미로 사용한 target-local schema `3`을 재해석하지 않는다.
 6. Recover 경계나 package 배치를 target에 맞춰 바꿨다면 absolute path, traversal, undeclared path, non-Markdown, symlink와 records 유입 거부 테스트를 함께 고친다.
 7. verify는 shell 없는 고정 argv를 사용하고, 실행 전에 evidence를 hash하며, 성공과 실패를 모두 새 receipt로 남기고 machine status만 atomic하게 갱신하게 한다.
 8. cache replay가 가능한 도구는 fresh 실행 option을 계약에 고정하거나, fresh가 아님을 proof ceiling에 명시한다.
@@ -117,7 +117,7 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 
 ## 7. 독립 검토와 정합성 유지
 
-구현자가 아닌 reviewer에게 source `output/`, target 원자료, preflight, Harness receipt, product receipt, status를 직접 보게 한다. 다음 주장을 각각 supported, unsupported, contradicted로 판정하게 한다.
+구현자가 아닌 reviewer에게 source `reference-project/`, target 원자료, preflight, Harness receipt, product receipt, status를 직접 보게 한다. 다음 주장을 각각 supported, unsupported, contradicted로 판정하게 한다.
 
 - 기존 canonical과 사용자 변경을 보존했는가.
 - `context/project/`가 링크 목록이나 복제본이 아니라 target 원자료가 지지하는 실제 Project common context이며, 상세 Owner·충돌 우선순위·근거가 명확한가.

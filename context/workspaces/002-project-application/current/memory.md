@@ -8,7 +8,7 @@
 
 ## 대상과 적용 결정
 
-- 적용 원본은 이 저장소의 [`output/`](../../../../output/)이고, 대상 Project는 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio`다.
+- 적용 기준은 이 저장소의 [`reference-project/`](../../../../reference-project/)이고, 대상 Project는 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio`다.
 - 완료된 target에는 실제 내용의 `context/project/README.md`와 `context/project/overview.md`가 Project common context의 최소 진입점으로 있어야 한다. README는 이 층의 책임·상세 Owner·충돌 우선순위·갱신 조건을, overview는 여러 Workspace에 공통으로 필요한 목적·범위·구조·제약·채택 결정·검증 경계를 target 사실로 구성한다.
 - 대상의 기존 `README.md`, `docs/product-brief.md`, `docs/architecture.md`, `docs/failure-scenarios.md`, `docs/roadmap.md`, `STATUS.md`, 코드와 테스트는 상세 사실의 domain canonical로 보존한다. `context/project/overview.md`는 이들을 복제하거나 링크만 나열하지 않으며, 충돌하면 상세 Owner를 우선하고 overview를 stale로 판정해 다시 대조한다. 기존 Owner 자체를 옮기는 것은 별도 승인 대상이다.
 - 첫 적용에서는 repo-local `AGENTS.md`, `context/README.md`, 교체 가능한 `context/work/harness/`, `context/work/workspaces/001-payment-recovery-mvp/`를 배치했다. 이 상태는 target commit `eaacec7`에 보존했다.
@@ -21,9 +21,9 @@
 
 ## 반복 적용 절차
 
-- [`output/`](../../../../output/)은 실제 `context/project/`와 Work Harness 관계를 보여 주는 실행 가능한 원형, repo-local [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/) skill은 target 원자료에서 실제 Project common context를 구성하는 이식 절차와 migration-only helper, 이 Workspace의 records는 실제 적용 결과와 예외를 소유한다.
+- [`reference-project/`](../../../../reference-project/)는 실제 `context/project/`와 Work Harness 관계를 보여 주는 실행 가능한 기준 Project, repo-local [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/) skill은 target 원자료에서 실제 Project common context를 구성하는 이식 절차와 migration-only helper, 이 Workspace의 records는 실제 적용 결과와 예외를 소유한다.
 - helper는 이식 전에 target 상태를 관찰·보존하고 target-specific Harness test receipt를 만드는 장치다. 제품 runtime이나 범용 설치 payload가 아니며 target에 복제하지 않는다.
-- 이 절차는 `AGENTS.md`가 대상 Project 경로가 포함된 이식 요청에만 routing한다. 이 저장소의 `output/`, Workspace, context maintainer와 결합된 절차여서 global skill로 등록하지 않았다.
+- 이 절차는 `AGENTS.md`가 대상 Project 경로가 포함된 이식 요청에만 routing한다. 이 저장소의 `reference-project/`, Workspace, context maintainer와 결합된 절차여서 global skill로 등록하지 않았다.
 
 ## 검증 상한
 
@@ -44,3 +44,4 @@
 - 재테스트 준비 rollback 기록: [`2026-08-14-03-context-harness-rollback-for-retest.md`](../records/2026-08-14-03-context-harness-rollback-for-retest.md)
 - blind skill 평가 기록: [`2026-08-14-04-blind-apply-context-harness-skill-evaluation.md`](../records/2026-08-14-04-blind-apply-context-harness-skill-evaluation.md)
 - Project common context·recover 계약 변경 기록: [`2026-08-14-05-project-common-context-contract.md`](../records/2026-08-14-05-project-common-context-contract.md)
+- 기준 Project 루트 이름 변경 기록: [`2026-08-14-06-reference-project-root-rename.md`](../records/2026-08-14-06-reference-project-root-rename.md)

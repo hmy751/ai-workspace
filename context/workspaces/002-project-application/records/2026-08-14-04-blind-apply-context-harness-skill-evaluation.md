@@ -50,7 +50,7 @@ main은 작업자의 요약만 신뢰하지 않고 다음을 다시 확인했다
 핵심 이식 계약에는 P1·P2 문제가 없었지만, 다음 다섯 가지는 후속 skill 개선이나 더 강한 재시험에 남길 P3 또는 증거 상한이다.
 
 - 44개는 Git이 보여 주는 **non-ignored 설치 파일** 수다. 실행 뒤 ignored `node_modules/`, `.turbo/`, `dist/`, `*.tsbuildinfo`도 격리 target에 남아 있으므로 “working tree에는 `AGENTS.md`와 `context/`만 추가됐다”는 표현은 non-ignored 변경으로 한정해야 한다.
-- 별도 task는 첫 상위 지침 탐색에서 Desktop 아래의 지침 **파일명 목록**까지 넓게 출력한 뒤 즉시 target과 source `output/`으로 범위를 좁혔다. 인접 저장소 파일 내용은 열거나 판단에 쓰지 않았지만, 이후 구현은 조상 경로를 직접 확인해 이 불필요한 metadata 노출도 피하는 편이 낫다.
+- 별도 task는 첫 상위 지침 탐색에서 Desktop 아래의 지침 **파일명 목록**까지 넓게 출력한 뒤 즉시 target과 당시 source root `output/`으로 범위를 좁혔다. 이 source root는 이후 `reference-project/`로 이름을 바꿨다. 인접 저장소 파일 내용은 열거나 판단에 쓰지 않았지만, 이후 구현은 조상 경로를 직접 확인해 이 불필요한 metadata 노출도 피하는 편이 낫다.
 - 과거 002 문서를 읽지 않았다는 사실과 dry-run manifest가 target 쓰기보다 먼저였다는 실행 순서는 별도 task transcript가 뒷받침한다. 최종 filesystem과 receipt만으로는 이 과정의 선후 관계를 독립 증명할 수 없다.
 - 평가 branch의 ancestry에는 이전 Harness commit `eaacec7`이 없었지만, 같은 Git 저장소의 `feat/payment-recovery-mvp` ref에는 그 commit이 남아 있어 `git log --all`처럼 전체 ref를 탐색하면 발견할 수 있었다. Transcript에는 별도 task가 이 과거 commit을 열어 사용한 흔적이 없으므로 이번 결과는 **prompt-bounded blind**이며, 과거 이력을 물리적으로 제거한 blind test는 아니다. 더 강한 재시험은 `527af89` tree를 새 Git 저장소로 내보내 수행해야 한다.
 - 실제 실행 도구는 Node `v24.19.0`, pnpm `11.19.0`이었고 Project `package.json`은 `pnpm@11.16.0`을 선언한다. verify evidence는 Node·pnpm binary와 설치 dependency bytes를 포함하지 않으므로 같은 도구chain의 정확한 재현성까지 증명하지 않는다.

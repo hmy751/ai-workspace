@@ -6,7 +6,7 @@
 
 첫 Payment Recovery 적용과 격리 blind 평가는 기존 루트 `README.md`, `STATUS.md`, `docs/`를 Project common Owner로 두고 별도 `context/project/`를 만들지 않았다. 이 배치는 기존 상세 문서를 보존했지만, 여러 Workspace가 공통 맥락을 실제 내용으로 복구하는 물리 진입점을 target에 남기지 않았다.
 
-사용자 정정에 따라 [`output/`](../../../../output/)은 이식 뒤 도착해야 할 실행 원형, repo-local [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/) skill은 target을 그 상태로 옮기는 절차, target의 `context/project/`는 해당 Project의 실제 공통 맥락을 소유하는 것으로 역할을 다시 분리했다.
+사용자 정정에 따라 현재 [`reference-project/`](../../../../reference-project/)는 이식 뒤 도착해야 할 책임을 실행하는 기준 Project, repo-local [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/) skill은 target을 그 상태로 옮기는 절차, target의 `context/project/`는 해당 Project의 실제 공통 맥락을 소유하는 것으로 역할을 다시 분리했다.
 
 ## 채택한 Project context 계약
 
@@ -29,14 +29,14 @@ Exact baseline commit과 dirty state는 overview가 아니라 preflight receipt�
 - Recovery packet shape는 바뀌지 않아 packet schema `5`를 유지한다.
 - Reference schema `2`와 첫 Payment Recovery 적용의 target-local schema `3`을 재해석하지 않는다. Schema `3`은 루트 `README.md`, `STATUS.md`, `docs/` Markdown을 직접 선택한 과거 계약이다.
 
-구현과 실행 경계는 [`recover operation`](../../../../output/context/work/harness/recover/operation.py)과 [`Project context README`](../../../../output/context/project/README.md)에서 확인한다.
+구현과 실행 경계는 [`recover operation`](../../../../reference-project/context/work/harness/recover/operation.py)과 [`Project context README`](../../../../reference-project/context/project/README.md)에서 확인한다.
 
 ## 현재 검증
 
 Source reference working tree에서 다음을 확인했다.
 
-- `output/` root의 `python3 -m unittest discover -s . -p 'test_*.py' -v`: Harness와 제품 전체 37개 통과
-- live verify: 제품 테스트 7개 통과, exit `0`, evidence 2개를 실행 전에 hash하고 [새 receipt](../../../../output/context/work/workspaces/001-default-timeout/records/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json)에 보존
+- 현재 `reference-project/`로 이름을 바꾼 당시 source root의 `python3 -m unittest discover -s . -p 'test_*.py' -v`: Harness와 제품 전체 37개 통과
+- live verify: 제품 테스트 7개 통과, exit `0`, evidence 2개를 실행 전에 hash하고 [새 receipt](../../../../reference-project/context/work/workspaces/001-default-timeout/records/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json)에 보존
 - 후속 recover: `context/project/overview.md`를 첫 Project context로 선택하고 decision 문서만 추가해 packet schema `5` 반환
 
 이는 reference의 schema `4` validation, Markdown-only 경계, overview-first 선택과 기존 packet shape의 실행을 지지한다. Overview 내용이 임의 target 원자료와 의미상 맞는지, 이후 상세 Owner 변경에 따라 갱신되는지는 구조 테스트만으로 증명하지 않는다.

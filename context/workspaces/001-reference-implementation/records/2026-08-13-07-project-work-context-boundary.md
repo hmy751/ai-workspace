@@ -87,7 +87,7 @@ Project context와 evidence 경로는 `../../../` 같은 물리적 탈출 경로
 - 이동한 기존 receipt 5개는 `HEAD`의 이동 전 파일과 byte·SHA-256이 모두 일치했다.
 - `output/` Markdown 로컬 링크 전수 검사에서 깨진 링크는 없었다.
 
-Workspace 내부의 상세 증거는 [`Project·Work context 경계 이동 기록`](../../../../output/context/work/workspaces/001-default-timeout/records/2026-08-13-04-project-work-context-boundary-migration.md)에 있다.
+Workspace 내부의 상세 증거는 [`Project·Work context 경계 이동 기록`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-04-project-work-context-boundary-migration.md)에 있다.
 
 ## 검증 상한
 

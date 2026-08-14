@@ -14,7 +14,7 @@ Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Wor
 
 전체 context 관계는 [context README](context/README.md), 사람이 현재 작업을 볼 때는 [active Workspace README](context/work/workspaces/001-default-timeout/README.md)에서 시작한다. Harness의 책임과 workflow를 변경할 때는 [Harness README](context/work/harness/README.md)에서 시작한다.
 
-실제 명령은 `output/` root에서 실행한다.
+실제 명령은 `reference-project/` root에서 실행한다.
 
 ```bash
 python3 -m context.work.harness recover

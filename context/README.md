@@ -7,7 +7,7 @@
 - [`workspaces/`](./workspaces/): 서로 다른 작업의 현재 상태, goal 산출물, 누적 기록을 Workspace별로 분리한다.
 - [`source/`](./source/): 여러 Workspace가 필요에 따라 선택해서 읽는 원본, 사용자 선택 발췌, AI 의견, 기존 작업 관찰 자료와 provenance다.
 
-루트 [`../output/`](../output/)은 context 층이 아니라 이 저장소가 만드는 실제 reference 산출물 자리다. Workspace의 과정 분석·후보·결정·검증 기록은 해당 Workspace의 `records/`에 두고, goal을 위해 선택된 현재 산출물은 Workspace `output/index.md`에서 찾는다. 실제 산출물이 루트 `output/`이나 다른 canonical 경로에 있으면 Workspace 안에 복제하지 않는다.
+루트 [`../reference-project/`](../reference-project/)는 context 층이 아니라 이 저장소가 만드는 실행 가능한 기준 Project다. Workspace의 과정 분석·후보·결정·검증 기록은 해당 Workspace의 `records/`에 두고, goal을 위해 선택된 현재 산출물은 Workspace `output/index.md`에서 찾는다. 실제 산출물이 루트 `reference-project/`나 다른 canonical 경로에 있으면 Workspace 안에 복제하지 않는다.
 
 ## Workspace 경계
 
@@ -20,7 +20,7 @@
 
 지금까지의 source 정리와 실행 가능한 reference 구현은 [`001-reference-implementation`](./workspaces/001-reference-implementation/)에 보존한다. 새 적용 작업은 [`workspaces/`](./workspaces/)에서 서로 독립된 Workspace로 시작한다.
 
-이 작업대에는 `output/context/work`의 Harness, JSON 계약, machine status를 그대로 복제하지 않는다. 여러 작업의 현재 상태와 기록이 섞이지 않게 하는 Workspace 경계만 먼저 적용한다.
+이 작업대에는 `reference-project/context/work`의 Harness, JSON 계약, machine status를 그대로 복제하지 않는다. 여러 작업의 현재 상태와 기록이 섞이지 않게 하는 Workspace 경계만 먼저 적용한다.
 
 ## 재진입
 

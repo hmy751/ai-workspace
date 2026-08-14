@@ -120,7 +120,7 @@ output/
 - receipt evidence hash가 실제 source와 product test에 일치
 - 독립 read-only 검토에서 P1·P2·P3 결함 없음
 
-Workspace 내부의 상세 증거는 [`output Harness 책임 경계 기록`](../../../../output/context/work/workspaces/001-default-timeout/records/2026-08-13-03-harness-responsibility-boundary-refactor.md)에 있다.
+Workspace 내부의 상세 증거는 [`output Harness 책임 경계 기록`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-03-harness-responsibility-boundary-refactor.md)에 있다.
 
 ## 검증 상한
 

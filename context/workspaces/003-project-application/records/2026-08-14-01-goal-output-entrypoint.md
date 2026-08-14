@@ -10,7 +10,7 @@ Workspace 공통 계약은 goal을 위해 선택된 현재 산출물과 실제 c
 
 - [`output/index.md`](../output/index.md)를 goal 산출물의 진입점으로 추가한다.
 - 아직 선택된 산출물과 canonical 위치가 없다는 상태를 그대로 기록한다.
-- 루트 [`output/README.md`](../../../../output/README.md)는 적용에 사용하는 reference이며, 대상 Project 적용 결과로 간주하지 않는다.
+- 현재 루트 [`reference-project/README.md`](../../../../reference-project/README.md)는 적용에 사용하는 기준 Project이며, 대상 Project 적용 결과로 간주하지 않는다.
 - 향후 결과가 선택되면 실제 canonical 위치와 검증 상한을 output index에서 가리키고, 후보·선택 근거·검증 상세는 records에 남긴다.
 
 ## 현재 영향

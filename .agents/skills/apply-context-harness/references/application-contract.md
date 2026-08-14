@@ -1,14 +1,14 @@
 # Context Harness 이식 계약
 
-이 문서는 `output/`의 실행 원형을 실제 기존 Project에 옮길 때 유지할 책임과 대상마다 다시 판단할 부분을 분리한다. 첫 적용의 상세 원자료는 [`002 Project application record`](../../../../context/workspaces/002-project-application/records/2026-08-13-01-payment-recovery-project-application.md), 실제 Project common context를 필수 도착점으로 바꾼 현재 결정은 [`Project common context contract record`](../../../../context/workspaces/002-project-application/records/2026-08-14-05-project-common-context-contract.md)에 있다.
+이 문서는 `reference-project/`의 실행 책임을 실제 기존 Project에 옮길 때 유지할 책임과 대상마다 다시 판단할 부분을 분리한다. 첫 적용의 상세 원자료는 [`002 Project application record`](../../../../context/workspaces/002-project-application/records/2026-08-13-01-payment-recovery-project-application.md), 실제 Project common context를 필수 도착점으로 바꾼 현재 결정은 [`Project common context contract record`](../../../../context/workspaces/002-project-application/records/2026-08-14-05-project-common-context-contract.md)에 있다.
 
 ## 세 산출물의 역할
 
-- `output/`: Project–Workspace–Harness 관계가 실제로 실행되는 reference. 복사 템플릿이나 설치 패키지가 아니다.
+- `reference-project/`: Project–Workspace–Harness 관계가 실제로 실행되는 기준 Project. 복사 템플릿이나 설치 패키지가 아니다.
 - `.agents/skills/apply-context-harness/`: target을 조사하고 reference 책임을 맞춰 옮기고 검증하는 반복 절차. Project 사실을 소유하지 않는다.
 - target Project: 자신의 canonical, Workspace 내용, 제품 코드, verify 명령과 acceptance를 소유한다.
 
-skill을 다듬을 때 `output/`과 target 내용을 assets로 중복시키지 않는다. 일반화할 판단 규칙은 이 skill에, 실행 책임 변경은 `output/`에, 적용 결과와 예외는 해당 application Workspace records에 남긴다.
+skill을 다듬을 때 `reference-project/`와 target 내용을 assets로 중복시키지 않는다. 일반화할 판단 규칙은 이 skill에, 실행 책임 변경은 `reference-project/`에, 적용 결과와 예외는 해당 application Workspace records에 남긴다.
 
 ## 유지할 책임과 바꿀 배치
 

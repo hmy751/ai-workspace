@@ -25,9 +25,9 @@
 
 ## 실제 reference 변경
 
-- sample Workspace에 [`source/index.md`](../../../../output/context/work/workspaces/001-default-timeout/source/index.md)를 추가했다.
-- [`Workspace collection 안내`](../../../../output/context/work/workspaces/README.md)와 각 상위 진입점에서 `current/source/records`의 형제 관계와 source 책임을 설명한다.
-- sample Workspace의 [`README.md`](../../../../output/context/work/workspaces/001-default-timeout/README.md)에서 사람의 source 재확인 경로를 추가했다.
+- sample Workspace에 [`source/index.md`](../../../../reference-project/context/work/workspaces/001-default-timeout/source/index.md)를 추가했다.
+- [`Workspace collection 안내`](../../../../reference-project/context/work/workspaces/README.md)와 각 상위 진입점에서 `current/source/records`의 형제 관계와 source 책임을 설명한다.
+- sample Workspace의 [`README.md`](../../../../reference-project/context/work/workspaces/001-default-timeout/README.md)에서 사람의 source 재확인 경로를 추가했다.
 - `current/memory/`의 `01-goal.md`, `02-constraints.md`, `03-project-context.md`를 모든 Workspace recovery에 필요한 최소 memory로 정했다.
 - recover는 최소 memory 세 파일 중 하나라도 없으면 실패한다.
 - recover는 Workspace `source/`의 존재나 내용을 검사하지 않고, inventory나 원문을 기본 recovery packet에 싣지 않는다.
@@ -57,7 +57,7 @@ repo-local application skill helper 테스트 7개도 통과했고 skill validat
 
 `recover → verify → recover` 순환이 통과했다.
 
-- 새 product receipt: [`verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json`](../../../../output/context/work/workspaces/001-default-timeout/records/verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json)
+- 새 product receipt: [`verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/records/verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json)
 - receipt result: `pass`
 - 제품 unittest: 7개 통과
 - machine status: 같은 receipt를 가리키는 `verified_waiting_acceptance`

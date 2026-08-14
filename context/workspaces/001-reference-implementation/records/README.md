@@ -31,3 +31,4 @@ records의 문서를 current로 통째로 복사하지 않는다. 다음 세션�
 - [`2026-08-14-01-workspace-source-layer-and-minimum-memory.md`](2026-08-14-01-workspace-source-layer-and-minimum-memory.md): Workspace source 층과 기본 recovery에 필요한 최소 memory 계약
 - [`2026-08-14-02-workspace-output-layer-and-record-boundary.md`](2026-08-14-02-workspace-output-layer-and-record-boundary.md): goal output 지도, records와의 역할 경계, recovery packet schema `5` 검증
 - [`2026-08-14-03-project-overview-and-recover-contract.md`](2026-08-14-03-project-overview-and-recover-contract.md): 실제 Project common context의 최소 진입점, overview-first·Markdown-only recover 계약과 최신 검증
+- [`2026-08-14-04-reference-project-root-rename.md`](2026-08-14-04-reference-project-root-rename.md): 루트 `output/`을 `reference-project/`로 이름 변경한 이유, 범위와 재검증
