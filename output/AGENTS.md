@@ -24,8 +24,10 @@ python3 -m context.work.harness verify
 - 두 책임에서 실제로 같은 의미로 사용하는 Workspace 식별·안전한 접근·status 인계 계약만 `context/work/harness/workspace_contract.py`에 둔다.
 - 한 책임만 사용하는 코드를 공유 영역으로 올리지 않는다.
 - Project 기준은 `context/project/`, 제품 코드·테스트는 `src/`와 `tests/`에 두고 Harness 아래로 옮기거나 복제하지 않는다.
+- `context/project/README.md`와 `overview.md`는 실제 Project common context의 최소 진입점이다. 기존 제품 문서를 그대로 복사하거나 링크만 나열하지 않고, 여러 Workspace가 공유할 목적·구조·제약·채택 결정과 상세 Owner의 우선순위를 실제 내용으로 유지한다.
+- 상세 제품 Owner, 코드나 채택 결정이 바뀌면 `context/project/overview.md`를 다시 대조한다. 충돌한 overview를 최신 사실처럼 두지 않는다.
 - Workspace `current/`, `source/`, `output/`, `records/`의 의미를 Harness 코드가 독점 정의하지 않는다.
-- 작업별 Project context 선택은 `recover.json`, 고정 검증과 결과별 다음 행동은 `verify.json`에서 변경한다.
+- 작업별 Project context 선택은 `recover.json`, 고정 검증과 결과별 다음 행동은 `verify.json`에서 변경한다. Recover가 선택하는 Project context는 `context/project/` 아래 regular Markdown으로 제한한다.
 - Project 문서·제품 evidence·검증 cwd는 Project root 기준, Workspace index·current·source·output·records는 `context/work/` 기준으로 해석한다.
 - 분석 메모·후보·비교·탈락안·선택 근거는 `records/`에 누적하고, goal을 위해 선택된 현재 산출물은 Workspace `output/index.md`에서 찾게 한다.
 - 실제 산출물이 Project root의 코드·문서·테스트라면 Workspace `output/`에 복제하지 않고 `output/index.md`에서 canonical 상대 경로를 연결한다.

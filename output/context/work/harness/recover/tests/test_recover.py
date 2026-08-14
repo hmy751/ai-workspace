@@ -72,7 +72,7 @@ class RecoverTests(WorkspaceFixture):
                 },
                 {
                     "path_base": "project_root",
-                    "path": "context/project/selected.md",
+                    "path": "context/project/overview.md",
                 },
             ],
         )
@@ -130,7 +130,7 @@ class RecoverTests(WorkspaceFixture):
         )
         self.assertEqual(
             [entry["path"] for entry in packet["project_context"]],
-            ["context/project/selected.md"],
+            ["context/project/overview.md"],
         )
         self.assertEqual(
             {entry["path_base"] for entry in packet["project_context"]},
@@ -138,7 +138,7 @@ class RecoverTests(WorkspaceFixture):
         )
         self.assertNotIn("verification", packet)
         self.assertNotIn("verify.json", completed.stdout)
-        self.assertIn("SELECTED_PROJECT_CONTEXT", completed.stdout)
+        self.assertIn("PROJECT_OVERVIEW_CONTEXT", completed.stdout)
         self.assertNotIn("UNSELECTED_PROJECT_SECRET", completed.stdout)
         self.assertNotIn("UNLOADED_RECORD_SECRET", completed.stdout)
         self.assertNotIn("UNLOADED_RECORD_MARKDOWN_SECRET", completed.stdout)
@@ -309,14 +309,14 @@ class RecoverTests(WorkspaceFixture):
         )
         decoy_project_context = self.work_root / "context" / "project"
         decoy_project_context.mkdir(parents=True)
-        (decoy_project_context / "selected.md").write_text(
+        (decoy_project_context / "overview.md").write_text(
             "WORK_ROOT_PROJECT_CONTEXT_DECOY\n", encoding="utf-8"
         )
 
         completed = self.run_cli("recover", "--json")
 
         self.assertEqual(completed.returncode, 0, completed.stderr)
-        self.assertIn("SELECTED_PROJECT_CONTEXT", completed.stdout)
+        self.assertIn("PROJECT_OVERVIEW_CONTEXT", completed.stdout)
         self.assertNotIn("PROJECT_ROOT_WORKSPACE_DECOY", completed.stdout)
         self.assertNotIn("WORK_ROOT_PROJECT_CONTEXT_DECOY", completed.stdout)
 
@@ -350,6 +350,16 @@ class RecoverTests(WorkspaceFixture):
         legacy_schema = copy.deepcopy(self.recover_contract)
         legacy_schema["schema_version"] = 1
         invalid_contracts.append((legacy_schema, "schema_version"))
+
+        previous_reference_schema = copy.deepcopy(self.recover_contract)
+        previous_reference_schema["schema_version"] = 2
+        invalid_contracts.append(
+            (previous_reference_schema, "schema_version")
+        )
+
+        previous_target_schema = copy.deepcopy(self.recover_contract)
+        previous_target_schema["schema_version"] = 3
+        invalid_contracts.append((previous_target_schema, "schema_version"))
 
         wrong_id = copy.deepcopy(self.recover_contract)
         wrong_id["workspace_id"] = "002-other"
@@ -398,6 +408,83 @@ class RecoverTests(WorkspaceFixture):
         self.assertEqual(linked.returncode, 2)
         self.assertIn("symlink", linked.stderr)
         self.assertNotIn("UNLOADED_RECORD_SECRET", linked.stdout)
+
+    def test_requires_project_overview_first_and_present(self) -> None:
+        overview = (
+            self.project_root / "context" / "project" / "overview.md"
+        )
+        content = overview.read_text(encoding="utf-8")
+        overview.unlink()
+        try:
+            missing = self.run_cli("recover")
+        finally:
+            overview.write_text(content, encoding="utf-8")
+
+        self.assertEqual(missing.returncode, 2)
+        self.assertIn("does not exist", missing.stderr)
+
+        overview_second = copy.deepcopy(self.recover_contract)
+        overview_second["project_context"] = [
+            {
+                "path": "context/project/not-selected.md",
+                "reason": "overview보다 먼저 선택할 수 없는 문서",
+            },
+            overview_second["project_context"][0],
+        ]
+        self.write_work_json(
+            "workspaces/001-example/recover.json", overview_second
+        )
+
+        misplaced = self.run_cli("recover", "--json")
+
+        self.assertEqual(misplaced.returncode, 2)
+        self.assertIn(
+            "must select context/project/overview.md first",
+            misplaced.stderr,
+        )
+        self.assertNotIn("UNSELECTED_PROJECT_SECRET", misplaced.stdout)
+
+        without_overview = copy.deepcopy(self.recover_contract)
+        without_overview["project_context"][0]["path"] = (
+            "context/project/not-selected.md"
+        )
+        self.write_work_json(
+            "workspaces/001-example/recover.json", without_overview
+        )
+
+        rejected = self.run_cli("recover", "--json")
+
+        self.assertEqual(rejected.returncode, 2)
+        self.assertIn(
+            "must select context/project/overview.md first",
+            rejected.stderr,
+        )
+        self.assertNotIn("UNSELECTED_PROJECT_SECRET", rejected.stdout)
+
+    def test_rejects_non_markdown_project_context(self) -> None:
+        non_markdown = (
+            self.project_root / "context" / "project" / "selected.txt"
+        )
+        non_markdown.write_text(
+            "NON_MARKDOWN_PROJECT_CONTEXT_MUST_NOT_LOAD\n",
+            encoding="utf-8",
+        )
+        contract = copy.deepcopy(self.recover_contract)
+        contract["project_context"][0]["path"] = (
+            "context/project/selected.txt"
+        )
+        self.write_work_json(
+            "workspaces/001-example/recover.json", contract
+        )
+
+        completed = self.run_cli("recover", "--json")
+
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("must be a .md file", completed.stderr)
+        self.assertNotIn(
+            "NON_MARKDOWN_PROJECT_CONTEXT_MUST_NOT_LOAD",
+            completed.stdout,
+        )
 
     def test_rejects_workspace_identity_extra_responsibility(self) -> None:
         identity = copy.deepcopy(self.identity)

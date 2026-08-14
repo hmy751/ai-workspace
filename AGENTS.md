@@ -15,9 +15,9 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 ## Repo-local skill routing
 
-사용자가 대상 Project 경로와 함께 `output/`의 context+harness 이식·적용, Workspace current/source/output/records와 recover·verify 설치를 요청하면 [`.agents/skills/apply-context-harness/SKILL.md`](.agents/skills/apply-context-harness/SKILL.md)를 사용한다.
+사용자가 대상 Project 경로와 함께 `output/`의 context+harness 이식·적용, 실제 Project common context, Workspace current/source/output/records와 recover·verify 설치를 요청하면 [`.agents/skills/apply-context-harness/SKILL.md`](.agents/skills/apply-context-harness/SKILL.md)를 사용한다.
 
-이 skill은 `output/`을 범용 템플릿처럼 복사하지 않는다. 대상의 기존 canonical과 사용자 변경을 먼저 고정하고, Project common·Workspace·Harness 책임을 대상 배치에 맞춘 뒤 `recover → verify → recover`와 durable receipt로 검증한다. 브라우저·외부 시스템·사람 acceptance, target commit은 별도 승인 없이 완료 처리하지 않는다.
+이 skill은 `output/`을 범용 템플릿처럼 복사하지 않는다. 대상의 기존 canonical과 사용자 변경을 먼저 고정하고, `context/project/`에는 target 원자료가 지지하는 실제 Project common context를 구성한 뒤 Workspace·Harness와 `recover → verify → recover`를 durable receipt로 검증한다. 기존 문서를 복제하거나 링크만 모은 Project context는 완료로 보지 않는다. 브라우저·외부 시스템·사람 acceptance, target commit은 별도 승인 없이 완료 처리하지 않는다.
 
 ## Re-entry
 

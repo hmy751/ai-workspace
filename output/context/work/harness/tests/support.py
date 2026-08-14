@@ -44,8 +44,8 @@ class WorkspaceFixture(unittest.TestCase):
         ):
             (self.work_root / directory).mkdir(parents=True, exist_ok=True)
 
-        (self.project_root / "context" / "project" / "selected.md").write_text(
-            "SELECTED_PROJECT_CONTEXT\n", encoding="utf-8"
+        (self.project_root / "context" / "project" / "overview.md").write_text(
+            "PROJECT_OVERVIEW_CONTEXT\n", encoding="utf-8"
         )
         (
             self.project_root / "context" / "project" / "not-selected.md"
@@ -130,11 +130,11 @@ class WorkspaceFixture(unittest.TestCase):
             "workspace_id": "001-example",
         }
         self.recover_contract = {
-            "schema_version": 2,
+            "schema_version": 4,
             "workspace_id": "001-example",
             "project_context": [
                 {
-                    "path": "context/project/selected.md",
+                    "path": "context/project/overview.md",
                     "reason": "fixture에서 필요한 유일한 Project 기준",
                 }
             ],

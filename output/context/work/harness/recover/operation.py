@@ -28,9 +28,10 @@ from ..workspace_contract import (
 )
 
 
-RECOVER_CONTRACT_SCHEMA_VERSION = 2
+RECOVER_CONTRACT_SCHEMA_VERSION = 4
 RECOVERY_PACKET_SCHEMA_VERSION = 5
 PROJECT_CONTEXT_ROOT = "context/project"
+REQUIRED_PROJECT_CONTEXT_PATH = "context/project/overview.md"
 REQUIRED_MEMORY_FILES = (
     "01-goal.md",
     "02-constraints.md",
@@ -87,6 +88,8 @@ def _load_recover_contract(
             fail(
                 "Project context path must be selected from context/project/"
             )
+        if PurePosixPath(path).suffix != ".md":
+            fail("Project context path must be a .md file")
         if path in seen_paths:
             fail(f"duplicate Project context path: {path}")
         seen_paths.add(path)
@@ -103,6 +106,11 @@ def _load_recover_contract(
             entry["reason"], f"project_context[{index}].reason"
         )
         validated_context.append({"path": path, "reason": reason})
+
+    if validated_context[0]["path"] != REQUIRED_PROJECT_CONTEXT_PATH:
+        fail(
+            "project_context must select context/project/overview.md first"
+        )
 
     return {
         "schema_version": RECOVER_CONTRACT_SCHEMA_VERSION,

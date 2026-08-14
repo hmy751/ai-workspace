@@ -1,6 +1,6 @@
 # Context Harness 이식 계약
 
-이 문서는 `output/`의 실행 원형을 실제 기존 Project에 옮길 때 유지할 책임과 대상마다 다시 판단할 부분을 분리한다. 첫 적용의 상세 원자료는 [`002 Project application record`](../../../../context/workspaces/002-project-application/records/2026-08-13-01-payment-recovery-project-application.md)에 있다.
+이 문서는 `output/`의 실행 원형을 실제 기존 Project에 옮길 때 유지할 책임과 대상마다 다시 판단할 부분을 분리한다. 첫 적용의 상세 원자료는 [`002 Project application record`](../../../../context/workspaces/002-project-application/records/2026-08-13-01-payment-recovery-project-application.md), 실제 Project common context를 필수 도착점으로 바꾼 현재 결정은 [`Project common context contract record`](../../../../context/workspaces/002-project-application/records/2026-08-14-05-project-common-context-contract.md)에 있다.
 
 ## 세 산출물의 역할
 
@@ -14,15 +14,26 @@ skill을 다듬을 때 `output/`과 target 내용을 assets로 중복시키지 �
 
 | 구분 | 모든 이식에서 유지 | 대상마다 다시 결정 |
 | --- | --- | --- |
-| Owner | Project common, Workspace, Harness를 분리 | 기존 canonical 문서와 routing 위치 |
+| Owner | 실제 `context/project/` Project common, Workspace, Harness를 분리 | 기존 상세 canonical, overview의 authority 관계와 routing 위치 |
 | Workspace | README, 최소 memory 3종, 빠른 state, 독립된 source, goal output index, 누적 records | ID, active 선택, 실제 목표·제약·Project 선택 경계·원자료·goal 산출물·다음 행동 |
-| recover | current, output index와 선언된 Project 문서만 선택하고 source·records·output 본문 배제 | Project context root, schema version, 선택 문서 |
-| path | Project root와 Work root 구분, absolute·traversal·symlink 거부 | Python package 충돌과 실제 상대 경로 |
+| recover | current, output index와 선언된 `context/project/` Markdown만 선택하고 source·records·output 본문 배제 | schema migration 필요 여부와 선택 문서 |
+| path | `context/project/` 고정, Project root와 Work root 구분, absolute·traversal·symlink 거부 | 기존 `context/`·Python package 충돌과 실제 상대 경로 |
 | verify | shell 없는 고정 argv, evidence 선캡처, 성공·실패 receipt | runtime, cwd, timeout, cache bypass, evidence closure |
 | status | machine 결과와 최신 receipt cursor 연결 | 사람용 상태 문구와 실제 acceptance 절차 |
 | 제거 가능성 | Harness 제거 뒤에도 canonical과 Workspace 의미 유지 | repo-local routing과 ignore 규칙 |
 
-`context/project/` 경로 자체는 invariant가 아니다. 기존 루트 README와 `docs/`가 canonical이면 그 Owner를 유지하고 recover 허용 경계만 명시적으로 바꾼다.
+## Project common context 최소 계약
+
+완료된 target에는 `context/project/README.md`와 `context/project/overview.md`가 있어야 한다. 이 물리 경계는 reference가 보여 주는 도착점 invariant이며, skill이 임의 target을 그 상태로 옮기는 방법을 소유한다.
+
+- `README.md`: Project context의 책임, 기존 README·STATUS·docs·코드·테스트가 소유하는 상세 사실, 충돌 우선순위, overview 갱신 조건
+- `overview.md`: 실제 사용자 장면과 제품 목적, 범위와 범위 밖, 주요 시스템 흐름·구성요소, 여러 Workspace에 계속 적용되는 제약·채택 결정, 검증과 사람 acceptance 경계, 근거 path
+
+Overview는 기존 문단의 복사본이나 링크 인덱스가 아니다. 여러 상세 Owner에서 Workspace 공통 판단에 필요한 내용을 target 사실로 다시 구성하고, 원자료가 지지하지 않는 경험·결정·완료 상태를 만들지 않는다. 첫 Workspace의 목표·현재 상태·분석·후보·검증 이력을 Project 전체 사실로 승격하지 않는다. 기존 상세 Owner와 충돌하면 해당 Owner를 우선하고 overview를 stale로 판정한다. 기존 Owner 자체를 `context/project/`로 옮기는 것은 별도 승인된 Owner migration이다.
+
+Exact baseline commit과 dirty state는 preflight receipt와 migration record가 소유한다. Overview에 자기 자신을 포함하는 최종 commit hash를 고정하려 하지 않는다. 구조 테스트와 recover 성공은 overview의 의미 정확성이나 이후 drift 방지를 증명하지 않으므로, 이식 시 독립 reviewer가 상세 Owner와 내용을 대조하고 target routing에 갱신 조건을 남긴다.
+
+Fresh target의 recover는 schema `4`와 `context/project/` 경계를 유지하며 `overview.md`를 첫 Project context로 요구한다. Schema `2`는 이전 reference의 더 느슨한 파일 계약이고, schema `3`은 첫 payment 적용에서 루트 README·STATUS·docs를 직접 선택하는 target-local 의미로 사용됐으므로 재사용하지 않는다. Recovery packet shape가 바뀌지 않으므로 packet schema `5`는 유지한다.
 
 각 Workspace의 `current/`, `source/`, `output/`, `records/`는 형제 책임이다. `current/memory/`의 `01-goal.md`, `02-constraints.md`, `03-project-context.md`는 기본 재진입에 필요한 최소 구성이다. `source/index.md`는 source inventory의 최소 진입점이며, 실제 사용한 원문·변경하지 않은 snapshot·provenance만 연결한다. 별도 원자료가 없으면 없다고 적고 Project canonical을 복제하지 않는다. 해당 Workspace는 선택 범위·사용 시점·무결성·재접근 경로를 관리하며 원자료의 저자와 정본 권위는 원래 출처에 남는다. 현재 판단은 `current/`에 둔다.
 
@@ -59,6 +70,7 @@ Receipt를 target 안에 바로 쓰면 그것도 working tree 변경이 되므�
 Project context 경계를 바꿨다면 적어도 다음을 target Harness tests에 둔다.
 
 - 선택한 문서만 loaded 되고 순서가 계약과 같은 경우
+- live target의 `context/project/overview.md`가 선택되어 실제 내용이 loaded 되는 경우
 - 최소 memory 세 파일 중 하나라도 없으면 실패하는 경우
 - output index가 없거나 symlink·비정규 파일이면 실패하는 경우
 - output index만 loaded 되고 output artifact 본문은 빠지는 경우
@@ -90,7 +102,7 @@ Cache hit 출력만으로 fresh pass를 선언하지 않는다. 도구가 제공
 
 첫 적용의 구체적인 시도·숫자·결과는 문서 첫머리의 application record 링크에서 읽는다. 이 skill에는 다음 일반화된 판단만 유지한다.
 
-- 기존 canonical이 있으면 새 `context/project/`를 만들지 말고 recover 허용 경계를 대상에 맞춘다.
+- 기존 detailed canonical은 보존하되 `context/project/README.md`와 실제 내용의 `overview.md`를 만들고 Owner·충돌 우선순위를 명시한다.
 - 사용자 파일 보호를 사후 정황에 맡기지 말고 첫 쓰기 전에 preflight receipt를 만든다.
 - runtime과 cache 의미를 미리 확인하고 fresh 실행이 아니면 그 한계를 숨기지 않는다.
 - evidence는 중요 파일 표본이 아니라 실제 task graph의 입력을 설명하도록 닫는다.
@@ -100,6 +112,7 @@ Cache hit 출력만으로 fresh pass를 선언하지 않는다. 도구가 제공
 ## 자동화하지 않을 판단
 
 - 어떤 문서가 canonical인지와 누가 Owner인지
+- 기존 detailed canonical과 derived overview가 충돌할 때의 의미 판단과 Owner migration 승인
 - 어떤 Workspace가 active여야 하는지
 - 사용자 파일 삭제·이동·승격
 - 임의 검증 명령의 신뢰 승인

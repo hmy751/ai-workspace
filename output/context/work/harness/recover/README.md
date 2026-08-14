@@ -4,7 +4,7 @@
 
 ## 소유 계약
 
-- `workspace.json`의 정체성과 `recover.json`의 `project_context`만 읽는다.
+- `workspace.json`의 정체성과 `recover.json` schema `4`의 `project_context`만 읽는다. Project context 선택은 Project root의 `context/project/` 아래 regular Markdown 파일로 제한하고 `overview.md`를 첫 항목으로 요구한다. Schema `2`와 첫 payment 적용에서 target-local로 사용한 schema `3`의 의미를 재사용하지 않는다.
 - `current/memory/`의 `index.md`와 direct-child Markdown을 파일명 순서로 싣는다. `01-goal.md`, `02-constraints.md`, `03-project-context.md`는 recovery에 필요한 최소 memory 계약이므로 하나라도 없으면 실패한다.
 - 사람용 `current/state/index.md`와 machine용 `current/state/status.json`을 함께 싣는다.
 - Workspace `output/index.md`를 goal 산출물 지도로 싣는다. index가 연결하는 코드·문서·테스트나 같은 폴더의 다른 산출물 본문은 자동으로 읽지 않는다.
