@@ -4,7 +4,8 @@
 
 ## Active Workspace
 
-- active: [`002-project-application`](./002-project-application/)
+- active: [`004-harness-maintenance-bottleneck`](./004-harness-maintenance-bottleneck/)
+- paused application: [`002-project-application`](./002-project-application/)
 - ready: [`003-project-application`](./003-project-application/)
 - completed reference: [`001-reference-implementation`](./001-reference-implementation/)
 
