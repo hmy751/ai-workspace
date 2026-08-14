@@ -1,0 +1,232 @@
+20분 37초 동안 작업함
+
+
+먼저 staged된 reference-project/ rename 작업을 그대로 커밋하겠습니다. 그다음 receipt 저장 규칙과 기존 apply-context-harness skill까지 함께 바꾸는 작업이라, skill-creator 지침을 다시 확인하고 Workspace 소유를 유지한 records/receipts/<type>/ 구조로 구현하겠습니다.
+
+
+
+
+도구를 불러왔습니다 파일을 읽음 명령을 실행함
+
+
+컨텍스트가 자동으로 압축됨
+
+
+
+이전 rename 변경은 이미 d442c20으로 분리 커밋됐습니다. 이제 receipt는 Harness 내부가 아니라 각 Workspace가 계속 소유하되, records/receipts/<종류>/로 분리하고 기존 flat 경로도 읽을 수 있게 유지하는 방향으로 구현하겠습니다. 반복 검증은 일반 테스트로 하고, 상태 전환·인계 시점만 durable receipt를 남기는 기준도 함께 고정할게요.
+
+
+
+
+도구를 불러왔습니다 파일을 읽음 명령을 실행함
+
+
+먼저 runtime 경계를 손봅니다. 중요한 점은 새 receipt 디렉터리가 없거나 symlink이면 제품 검증을 실행한 뒤 실패하는 게 아니라, 제품 명령을 실행하기 전에 거부해야 한다는 것입니다. 이 순서를 회귀 테스트로 고정하겠습니다.
+
+
+
+
+파일 수정함 파일을 읽음 명령을 실행함
+
+
+기존 10개 receipt는 삭제·정리하지 않고 바이트 그대로 이동합니다. 사람용 날짜 기록은 records/ 바로 아래에 남기고, 기계 JSON만 records/receipts/verify/로 격리합니다. 과거 flat receipt를 읽는 호환성은 유지합니다.
+
+
+
+
+파일 수정함 파일을 읽음 명령을 실행함
+
+
+이제 이식 skill도 같은 책임을 따르게 맞춥니다. 이 변경은 skill-creator 지침에 따라 “기준 Project가 실행 책임을 소유하고, skill은 대상에 그 책임을 옮기는 절차만 소유한다”는 분리를 유지하면서 적용하고 있습니다.
+
+
+
+
+파일 수정함 파일을 읽음 명령을 실행함
+
+
+구조 이동 뒤 첫 확인은 기존 status가 이동된 receipt를 계속 읽는지 보는 것입니다. 그 다음 새 verify가 중첩 경로에만 receipt를 만들고, 마지막 recover가 그 새 cursor를 다시 연결하는지 live 순환으로 확인하겠습니다.
+
+
+
+
+파일 수정함 파일을 읽음 명령을 실행함
+
+
+기준 Project 쪽 live 순환까지 통과했습니다. 이제 저장소의 작업 context가 실제 변경과 어긋나지 않도록, 먼저 001-reference-implementation만 maintainer에게 갱신시키고 제가 diff를 검토하겠습니다. 그 다음 skill 변경을 소유하는 002-project-application도 별도로 맞춥니다.
+
+
+
+
+Maintain 001 output layer업데이트됨
+
+파일 수정함 명령을 실행함
+
+
+현재 구현 자체는 완료됐고, 기존 10개 JSON은 Git 기준 100% rename으로 확인돼 내용이 바뀌지 않았습니다. 새 경로에서도 기존 receipt 복구 → 새 verify 생성 → 새 receipt 복구가 모두 통과했습니다. 지금은 001과 002의 재진입 문서가 이 새 책임 경계를 정확히 가리키도록 마지막 정합성 작업 중입니다.
+
+
+
+
+Maintain 001 output layer업데이트됨
+
+파일을 읽었습니다 명령을 실행함
+
+
+Maintain 001 output layerInspect verify receipt owner업데이트됨
+
+파일을 읽었습니다 명령을 실행함
+
+
+Maintain 001 output layer업데이트됨
+
+파일을 읽었습니다 명령을 실행함
+
+
+Maintain 001 output layer업데이트됨
+
+마지막 검증에서는 같은 명령을 불필요하게 다시 verify하지 않습니다. 이미 live durable receipt가 생겼으므로, 지금은 상태를 바꾸지 않는 전체 테스트·helper 양 Python 버전·skill validator·링크·Git whitespace 검사를 병렬로 돌리겠습니다.
+
+
+
+
+명령을 실행했습니다
+
+
+Inspect verify receipt owner업데이트됨
+
+파일 수정함 파일을 읽음
+
+
+Inspect verify receipt owner완료됨
+
+명령을 실행했습니다
+
+
+독립 리뷰도 최신 diff에서 P1/P2/P3 모두 없다고 확인했습니다. 다만 현재는 기존 JSON 이동만 먼저 stage된 중간 상태라, 그대로 두면 status·코드·문서가 빠진 불완전한 묶음이 됩니다. 최종 recover를 한 번 더 확인한 뒤 이번 receipt 변경 전체를 하나의 coherent staged change로 맞추겠습니다. 새 커밋은 만들지 않습니다.
+
+
+
+
+파일 수정함 파일을 읽음 명령을 실행함
+
+
+
+
+
+완료했습니다.
+이전 output/ → reference-project/ 변경은 d442c20으로 커밋했습니다.
+새 receipt 구조는 Workspace 소유를 유지합니다:사람용 기록: records/YYYY-MM-DD-*.md
+제품 검증: records/receipts/verify/
+Harness 테스트: records/receipts/harness-tests/
+Preflight: records/receipts/preflight/
+
+기존 receipt 10개는 내용 변경 없이 R100으로 이동했습니다.
+새 verify는 nested 경로에만 기록하며, 기존 flat 경로는 읽기 호환을 유지합니다.
+[Records 진입점](/Users/hammyeong-yeon/Desktop/context-harness/reference-project/context/work/workspaces/001-default-timeout/records/README.md)
+[이식 skill](/Users/hammyeong-yeon/Desktop/context-harness/.agents/skills/apply-context-harness/SKILL.md)
+[설계·검증 기록](/Users/hammyeong-yeon/Desktop/context-harness/context/workspaces/001-reference-implementation/records/2026-08-14-05-machine-receipt-boundary-and-durable-verify.md)
+검증 결과는 reference 40개, skill helper 7개를 Python 3.14와 3.9에서 각각 통과했고, skill validator와 로컬 링크 326개도 정상입니다. 실제 recover → verify → recover도 새 nested receipt로 통과했으며 독립 리뷰 결과 P1/P2/P3가 없습니다.
+Receipt 자동 삭제·병합은 넣지 않았습니다. 반복 확인은 직접 테스트로 하고, 상태 전환·인계 시점에만 durable verify를 실행하는 기준으로 불필요한 생성을 줄입니다.
+이번 receipt 변경 전체는 stage만 했고 아직 커밋하지 않았습니다. Payment 저장소도 건드리지 않았습니다.
+
+파일 37개를 편집했습니다+260-63변경 사항 검토실행 취소리뷰
+
+.agents/skills/apply-context-harness/SKILL.md.agents/skills/apply-context-harness/SKILL.md+6-5
+.agents/skills/apply-context-harness/references/application-contract.md.agents/skills/apply-context-harness/references/application-contract.md+7-3
+.agents/skills/apply-context-harness/scripts/tests/test_helpers.py.agents/skills/apply-context-harness/scripts/tests/test_helpers.py+5-2
+34개 파일 더 보기
+
+근데 지금 작업이 20분이나 걸렸는데 어디서 많이 병목이 생기는거야 지금?
+
+
+
+
+
+
+오후 4:23
+
+
+
+
+
+
+
+
+가장 큰 병목은 테스트 실행이 아니라 제가 작은 저장 위치 변경을 “전체 계약 migration”으로 넓게 처리한 데 있었습니다.
+대략적인 병목은 이렇습니다.
+001, 002 context maintainer를 순차 실행하고 30초 단위로 여러 번 기다림: 가장 큼
+기준 Project, skill, 루트 지침, 두 Workspace current·records까지 정합화: 변경 파일이 58개로 커짐
+독립 reviewer가 전체 diff를 다시 검사하도록 기다림
+기존 receipt 10개 이동 때문에 과거 문서의 직접 링크를 모두 갱신
+전체 테스트와 링크 검사를 여러 차례 반복
+반면 실제 실행 시간은 짧았습니다.
+Reference 40개 테스트: 약 3.6초
+Skill helper 7개: Python 버전별 약 2.2초
+링크 326개 검사: 1초 미만
+Verify와 recover: 각각 1초 미만
+즉 CPU나 빌드가 느린 게 아니라, 제가 다음을 과하게 한 게 원인입니다.
+Context maintainer 두 작업을 한 agent로 순차 처리했습니다. 병렬로 했으면 훨씬 빨랐습니다.
+구현이 안정되기 전에 중간 검증을 여러 차례 돌렸습니다.
+Canonical 문서뿐 아니라 historical link와 두 Workspace 재진입 문서까지 한 턴에 완전히 닫으려 했습니다.
+마지막에 staging 후에야 두 새 record의 EOF 공백 문제를 발견해 한 번 더 수정했습니다.
+다음부터 같은 종류의 작업은 이렇게 줄이는 게 좋겠습니다.
+runtime·테스트·canonical 문서를 먼저 한 번에 수정
+001과 002 context maintainer는 병렬 실행
+직접 테스트는 개발 중 1회, 전체 검증은 최종 1회
+reviewer도 최종 diff가 고정된 뒤 1회만 실행
+historical link migration은 기계적으로 한 번에 처리
+사용자에게 “코드 완료”와 “context 정합화 완료”를 구분해 중간 결과를 먼저 보여주기
+이번 건은 결과의 안정성은 높지만, 솔직히 20분까지 걸릴 작업은 아니었습니다. 같은 범위라면 다음에는 7~10분 정도로 줄이는 게 맞습니다.
+
+
+오후 4:23
+
+
+
+
+
+
+
+
+그럼 하네스 구성때문인가? 나 아직 감이 안오네 지금 말하는것들이
+
+
+
+
+
+
+오후 4:24
+
+
+맞아요. 정확히는 하네스의 실행이 느린 게 아니라, 하네스 주변에 같은 변경을 반영해야 하는 층이 너무 많아서 오래 걸린 겁니다.
+이번 변경의 핵심 코드는 사실 이것뿐이었습니다.
+records/verify-*.json
+→ records/receipts/verify/verify-*.json
+그런데 현재 구성에서는 이 한 변경을 다음 모든 곳에 맞췄습니다.
+verify 코드와 테스트
+기준 Project 문서
+기존 receipt 10개와 링크
+이식 skill
+001 Workspace current·records
+002 Workspace current·records
+독립 reviewer
+그래서 코드와 테스트는 몇 초 만에 끝났지만, “모든 설명과 재진입 상태도 현재 코드와 완전히 일치해야 한다”는 하네스 운영 방식 때문에 시간이 늘었습니다.
+즉 결론은:
+recover, verify 같은 하네스 프로그램이 무거운 것은 아닙니다.
+하네스 규칙 하나가 여러 문서와 Workspace에 반복해서 적히는 현재 구성이 무겁습니다.
+특히 reference-project, skill, 001, 002가 같은 계약을 조금씩 다시 설명하고 있어서 변경 전파 범위가 큽니다.
+지금 구조에서 진짜 줄여야 할 부분은 이겁니다.
+실제 계약은 reference-project/ 한 곳이 소유
+skill은 그 계약을 이식하는 방법만 기록
+001과 002는 계약 내용을 다시 풀어 쓰지 않고, 현재 상태와 해당 계약 링크만 기록
+코드 동작 변경은 테스트하고, 단순 문서·경로 변경마다 독립 review까지 반복하지 않기
+그러면 이번 같은 변경은 대략 다음 정도로 끝납니다.
+코드 + 테스트
+기준 문서
+skill 경로
+Workspace 기록 한 건
+지금은 하네스를 꼼꼼하게 만든 대가로 유지 비용이 커진 상태입니다. 하네스를 없앨 문제는 아니고, 같은 내용을 여러 층에서 중복 소유하지 않도록 한 번 정리할 시점이 온 것 같습니다.
+
+
+오후 4:24

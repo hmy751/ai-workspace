@@ -8,6 +8,12 @@ Context+harness의 안전성과 재진입 가능성은 유지하면서, 작은 �
 
 ## 유지할 기준
 
+- Harness의 보호 대상은 현재 명령·schema·경로 자체가 아니라, 필요한 맥락의 선택적 복구와 실제 검증 결과가 지속 상태·다음 행동으로 이어져 다음 작업자가 낡은 상태나 근거 없는 완료에서 시작하지 않게 하는 것이다.
+- Harness의 목적과 구현 방법을 구분한다. 책임, 활성 시점, 실행 주체와 CLI·schema·경로 같은 수단을 자동으로 동일시하지 않는다.
+- 재진입의 read-only Recover, 의미 변화의 Maintain, durable product Verify, ephemeral Harness validation과 사람 acceptance를 서로 다른 책임으로 유지한다. Validation은 네 번째 작업 workflow 단계가 아니다.
+- Reference의 Maintain 책임은 자연스러운 작업 경계의 agent/main workflow이며, 지속되는 의미와 규칙은 Work·Workspace canonical이 소유한다. Harness에는 이 책임의 진입점이 구조적으로 드러나고, tool-specific 실행은 교체 가능한 Reference adapter가 맡는다.
+- Maintain을 위한 Python CLI·schema는 두지 않는다. Reference의 `workspace-context-maintainer` adapter와 outer repo-local `context_maintainer`는 서로 다른 대상과 권위를 가진다.
+- Harness 구현은 책임을 기준으로 `recover/`, `maintain/`, `verify/`, `validation/`을 나누고 공용 test fixture만 `testing.py`에 둔다.
 - 실제 실행 계약의 Owner와 이식 절차, 적용 이력의 Owner를 구분한다.
 - 확인하지 않은 의미 정확성, 외부 동작, 사람 acceptance를 구조 테스트만으로 증명했다고 말하지 않는다.
 - 사용자 변경, 기존 canonical, append-only evidence를 속도 개선을 이유로 덮어쓰거나 삭제하지 않는다.
@@ -19,11 +25,10 @@ Context+harness의 안전성과 재진입 가능성은 유지하면서, 작은 �
 
 ## 현재 범위
 
-- 기준 Project의 실행 계약이 어디서 canonical이어야 하는지
-- Skill에 반드시 남겨야 하는 이식 판단과 reference를 가리키기만 해도 되는 내용
-- Outer Workspace current·records가 실제 현재 상태만 소유하도록 줄일 수 있는 중복
-- Context maintainer와 독립 review를 언제 병렬화하거나 생략할 수 있는지
-- Runtime 변경, 문서·경로 변경, historical link migration에 필요한 검증 강도의 차이
+- 사용자 완료 거절 뒤 구조를 교정해 구현·검증한 `reference-project` Recover·Maintain·Verify·validation 책임 재배치
+- Work·Workspace canonical과 replaceable Maintain adapter의 경계
+- 교정된 구현의 현재 proof ceiling
+- 사람 acceptance와 commit 전 최종 결과 확인
 
 ## 범위 밖
 
@@ -31,11 +36,17 @@ Context+harness의 안전성과 재진입 가능성은 유지하면서, 작은 �
 - Receipt 증거 또는 path 안전성 약화
 - 사람 acceptance 자동화
 - 현재 Payment target 재적용
+- `apply-context-harness` skill과 다른 Project 이식·전파 개선
+- Outer repo-local `context_maintainer` 자체 개선 또는 Reference 구현으로의 채택
+- Project common context와 Workspace `current/source/output/records` 책임 구조 자체의 재설계
 - Workspace 전체 lifecycle을 한 번에 새로 설계하는 작업
 
 ## 접근점
 
+- Recover·verify 목적과 활성 시점 가설: [`records/2026-08-14-02`](../records/2026-08-14-02-recover-verify-purpose-and-activation-hypotheses.md)
+- Harness 책임·주체·구현 층위 종합: [`records/2026-08-14-03`](../records/2026-08-14-03-harness-responsibilities-actors-and-implementation-layers.md)
+- 현재 범위와 Maintain 경계 교정: [`records/2026-08-14-04`](../records/2026-08-14-04-current-scope-and-maintain-boundary-correction.md)
+- 완료 판단 전의 Reference Recover·Verify 구현과 검증: [`records/2026-08-14-05`](../records/2026-08-14-05-reference-recover-verify-implementation-and-verification.md)
+- Reference Maintain 구조 교정과 최종 검증: [`records/2026-08-14-06`](../records/2026-08-14-06-reference-maintain-structural-correction-and-verification.md)
 - 실행 가능한 기준 Project: [`reference-project/README.md`](../../../../reference-project/README.md)
-- 이식 절차: [`apply-context-harness/SKILL.md`](../../../../.agents/skills/apply-context-harness/SKILL.md)
 - 직전 machine receipt 변경 기록: [`001 record`](../../001-reference-implementation/records/2026-08-14-05-machine-receipt-boundary-and-durable-verify.md)
-- 실제 target 이식 계약 기록: [`002 record`](../../002-project-application/records/2026-08-14-07-target-machine-receipt-boundary-contract.md)

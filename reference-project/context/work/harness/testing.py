@@ -1,4 +1,4 @@
-"""Isolated Project-root/Work-root fixture shared by harness tests."""
+"""Minimal isolated Project/Workspace support shared by Harness tests."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ import tempfile
 import unittest
 
 
-HARNESS_SOURCE = Path(__file__).resolve().parents[1]
+HARNESS_SOURCE = Path(__file__).resolve().parent
 
 
 class WorkspaceFixture(unittest.TestCase):
@@ -141,8 +141,10 @@ class WorkspaceFixture(unittest.TestCase):
             ],
         }
         self.verify_contract = {
-            "schema_version": 1,
+            "schema_version": 2,
             "workspace_id": "001-example",
+            "claim": "제품 값이 Project의 기대값과 일치한다.",
+            "canonical_basis": ["context/project/overview.md"],
             "verification": {
                 "argv": [
                     "python3",
@@ -152,10 +154,6 @@ class WorkspaceFixture(unittest.TestCase):
                     "-v",
                 ],
                 "evidence_paths": ["src/value.txt", "tests/test_behavior.py"],
-            },
-            "next_actions": {
-                "pass": "사람의 수락 여부를 결정한다.",
-                "fail": "첫 실패를 수정하고 다시 검증한다.",
             },
         }
         self.write_work_json("workspaces/index.json", self.index)
@@ -218,13 +216,12 @@ class WorkspaceFixture(unittest.TestCase):
 
     def initial_status(self) -> dict[str, object]:
         return {
-            "schema_version": 2,
+            "schema_version": 3,
             "workspace_id": "001-example",
             "status": "ready_for_verification",
             "result": None,
             "receipt": None,
             "finished_at": None,
-            "next_action": "고정 검증을 실행한다.",
         }
 
     def write_status(self, status: dict[str, object] | None = None) -> None:
@@ -275,15 +272,14 @@ class WorkspaceFixture(unittest.TestCase):
         finished_at: str = "2026-08-13T00:00:00.000Z",
     ) -> dict[str, object]:
         return {
-            "schema_version": 2,
+            "schema_version": 3,
             "workspace_id": "001-example",
             "status": (
-                "verified_waiting_acceptance"
+                "verification_passed"
                 if result == "pass"
                 else "verification_failed"
             ),
             "result": result,
             "receipt": receipt,
             "finished_at": finished_at,
-            "next_action": "receipt를 검토한다.",
         }

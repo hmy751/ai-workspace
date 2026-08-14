@@ -11,3 +11,8 @@
 ## 기록
 
 - [`2026-08-14-01-workspace-creation-and-problem-frame.md`](2026-08-14-01-workspace-creation-and-problem-frame.md): 새 Workspace 생성 결정, 직전 작업에서 확인한 병목과 분석 시작점
+- [`2026-08-14-02-recover-verify-purpose-and-activation-hypotheses.md`](2026-08-14-02-recover-verify-purpose-and-activation-hypotheses.md): Harness 원래 목적, 현재 Recover·verify 구현 방법, 활성 시점별 책임 분리 가설과 미결정 범위
+- [`2026-08-14-03-harness-responsibilities-actors-and-implementation-layers.md`](2026-08-14-03-harness-responsibilities-actors-and-implementation-layers.md): Recover·Maintain·Verify·Handoff·Harness check의 현재 사실, 책임·활성 시점·주체·구현 층위 후보와 미결정 범위
+- [`2026-08-14-04-current-scope-and-maintain-boundary-correction.md`](2026-08-14-04-current-scope-and-maintain-boundary-correction.md): 현재 분석 대상을 Reference Recover·Verify로 좁히고 Maintain 책임과 outer repo-local agent를 분리한 사용자 정정
+- [`2026-08-14-05-reference-recover-verify-implementation-and-verification.md`](2026-08-14-05-reference-recover-verify-implementation-and-verification.md): Maintain이 설명에만 있던 당시 Reference 구현·검증과 이후 철회된 완료 판단
+- [`2026-08-14-06-reference-maintain-structural-correction-and-verification.md`](2026-08-14-06-reference-maintain-structural-correction-and-verification.md): 사용자 완료 거절 뒤 Maintain 구조를 교정한 책임 계층, review 수정, 최종 검증과 proof ceiling

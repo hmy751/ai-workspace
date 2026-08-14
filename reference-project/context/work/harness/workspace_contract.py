@@ -11,14 +11,32 @@ from typing import Any, NoReturn
 
 WORKSPACE_INDEX_SCHEMA_VERSION = 1
 WORKSPACE_IDENTITY_SCHEMA_VERSION = 1
-STATE_STATUS_SCHEMA_VERSION = 2
-VERIFICATION_RECEIPT_SCHEMA_VERSION = 1
+LEGACY_STATE_STATUS_SCHEMA_VERSION = 2
+STATE_STATUS_SCHEMA_VERSION = 3
+SUPPORTED_STATE_STATUS_SCHEMA_VERSIONS = frozenset(
+    {LEGACY_STATE_STATUS_SCHEMA_VERSION, STATE_STATUS_SCHEMA_VERSION}
+)
+LEGACY_VERIFICATION_RECEIPT_SCHEMA_VERSION = 1
+VERIFICATION_RECEIPT_SCHEMA_VERSION = 2
+SUPPORTED_VERIFICATION_RECEIPT_SCHEMA_VERSIONS = frozenset(
+    {
+        LEGACY_VERIFICATION_RECEIPT_SCHEMA_VERSION,
+        VERIFICATION_RECEIPT_SCHEMA_VERSION,
+    }
+)
 
 WORKSPACE_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
-VALID_STATE_STATUSES = {
-    "ready_for_verification",
-    "verification_failed",
-    "verified_waiting_acceptance",
+STATE_STATUSES_BY_SCHEMA_VERSION = {
+    LEGACY_STATE_STATUS_SCHEMA_VERSION: {
+        "ready_for_verification": None,
+        "verification_failed": "fail",
+        "verified_waiting_acceptance": "pass",
+    },
+    STATE_STATUS_SCHEMA_VERSION: {
+        "ready_for_verification": None,
+        "verification_failed": "fail",
+        "verification_passed": "pass",
+    },
 }
 
 
@@ -32,7 +50,7 @@ class WorkspaceIdentity:
 
     workspace_id: str
     workspace_path: str
-    index_path: str
+    index_path: str | None
     identity_path: str
 
 
@@ -79,6 +97,35 @@ def validate_workspace_id(value: Any) -> str:
     if workspace_id in {".", ".."}:
         fail("workspace id must not be '.' or '..'")
     return workspace_id
+
+
+def validate_verification_receipt_path(
+    value: Any, workspace_id: str
+) -> str:
+    """Accept only product Verify receipt locations owned by a Workspace."""
+
+    receipt = validate_relative_path(value, "state status receipt")
+    records_prefix = f"workspaces/{workspace_id}/records"
+    allowed_prefixes = (
+        f"{records_prefix}/receipts/verify/verify-",
+        f"{records_prefix}/verify-",
+    )
+    for prefix in allowed_prefixes:
+        if not receipt.startswith(prefix):
+            continue
+        filename_suffix = receipt[len(prefix) :]
+        if (
+            filename_suffix != ".json"
+            and filename_suffix.endswith(".json")
+            and "/" not in filename_suffix
+            and "\\" not in filename_suffix
+        ):
+            return receipt
+    fail(
+        "state status receipt must identify this Workspace's product Verify "
+        "receipt at records/receipts/verify/verify-*.json or legacy "
+        "records/verify-*.json"
+    )
 
 
 def validate_relative_path(value: Any, label: str) -> str:
@@ -203,15 +250,16 @@ def _load_workspace_index(work_root: Path) -> dict[str, Any]:
 def select_workspace(
     work_root: Path, explicit_workspace_id: str | None
 ) -> WorkspaceIdentity:
-    """Select active/explicit id, then load identity-only workspace.json."""
+    """Select an explicit id or fall back to the active Workspace index."""
 
-    index_path = "workspaces/index.json"
-    index = _load_workspace_index(work_root)
-    workspace_id = (
-        index["active_workspace_id"]
-        if explicit_workspace_id is None
-        else validate_workspace_id(explicit_workspace_id)
-    )
+    if explicit_workspace_id is None:
+        index_path: str | None = "workspaces/index.json"
+        workspace_id = _load_workspace_index(work_root)[
+            "active_workspace_id"
+        ]
+    else:
+        index_path = None
+        workspace_id = validate_workspace_id(explicit_workspace_id)
     workspace_path = f"workspaces/{workspace_id}"
     identity_path = f"{workspace_path}/workspace.json"
     identity = read_json_without_symlinks(
@@ -238,29 +286,36 @@ def select_workspace(
 def validate_state_status(
     status: dict[str, Any], workspace_id: str
 ) -> dict[str, Any]:
+    schema_version = status.get("schema_version")
+    if (
+        type(schema_version) is not int
+        or schema_version not in SUPPORTED_STATE_STATUS_SCHEMA_VERSIONS
+    ):
+        fail(
+            "unsupported Workspace state status schema_version: "
+            f"{schema_version!r}"
+        )
+    expected_keys = {
+        "schema_version",
+        "workspace_id",
+        "status",
+        "result",
+        "receipt",
+        "finished_at",
+    }
+    if schema_version == LEGACY_STATE_STATUS_SCHEMA_VERSION:
+        expected_keys.add("next_action")
     expect_exact_keys(
         status,
-        {
-            "schema_version",
-            "workspace_id",
-            "status",
-            "result",
-            "receipt",
-            "finished_at",
-            "next_action",
-        },
-        "Workspace state status",
-    )
-    expect_schema_version(
-        status["schema_version"],
-        STATE_STATUS_SCHEMA_VERSION,
+        expected_keys,
         "Workspace state status",
     )
     if validate_workspace_id(status["workspace_id"]) != workspace_id:
         fail("state status workspace_id does not match the selected workspace")
+    expected_results = STATE_STATUSES_BY_SCHEMA_VERSION[schema_version]
     if (
         not isinstance(status["status"], str)
-        or status["status"] not in VALID_STATE_STATUSES
+        or status["status"] not in expected_results
     ):
         fail(f"invalid Workspace state status: {status['status']!r}")
     if status["result"] is not None and (
@@ -271,13 +326,12 @@ def validate_state_status(
     for field in ("receipt", "finished_at"):
         if status[field] is not None and not isinstance(status[field], str):
             fail(f"state status {field} must be a string or null")
-    expect_nonempty_string(status["next_action"], "state status next_action")
+    if schema_version == LEGACY_STATE_STATUS_SCHEMA_VERSION:
+        expect_nonempty_string(
+            status["next_action"], "state status next_action"
+        )
 
-    expected_result = {
-        "ready_for_verification": None,
-        "verification_failed": "fail",
-        "verified_waiting_acceptance": "pass",
-    }[status["status"]]
+    expected_result = expected_results[status["status"]]
     if status["result"] != expected_result:
         fail("state status and result are inconsistent")
     if status["status"] == "ready_for_verification":
@@ -285,14 +339,11 @@ def validate_state_status(
             fail("ready_for_verification status must not have a receipt or time")
         return status
 
-    receipt = validate_relative_path(
+    validate_verification_receipt_path(
         expect_nonempty_string(status["receipt"], "state status receipt"),
-        "state status receipt",
+        workspace_id,
     )
     expect_nonempty_string(status["finished_at"], "state status finished_at")
-    expected_prefix = f"workspaces/{workspace_id}/records/"
-    if not receipt.startswith(expected_prefix) or not receipt.endswith(".json"):
-        fail("state status receipt must identify this Workspace's JSON record")
     return status
 
 

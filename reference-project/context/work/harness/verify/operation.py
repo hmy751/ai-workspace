@@ -8,10 +8,12 @@ import json
 import math
 import os
 from pathlib import Path, PurePosixPath, PureWindowsPath
+import platform
 import signal
 import subprocess
 import tempfile
 import threading
+import time
 from typing import Any
 import uuid
 
@@ -35,12 +37,15 @@ from ..workspace_contract import (
 )
 
 
-VERIFY_CONTRACT_SCHEMA_VERSION = 1
+VERIFY_CONTRACT_SCHEMA_VERSION = 2
 DEFAULT_TIMEOUT_SECONDS = 30.0
 MAX_TIMEOUT_SECONDS = 300.0
 DEFAULT_MAX_OUTPUT_CHARS = 100_000
 MAX_OUTPUT_CHARS = 1_000_000
 TIMEOUT_EXIT_CODE = 124
+PROCESS_SCOPE_POLL_SECONDS = 0.005
+PROCESS_SCOPE_CLEANUP_SECONDS = 1.0
+OUTPUT_DRAIN_GRACE_SECONDS = 1.0
 # Serialized receipt compatibility: this token has always represented the
 # Project root used as the verification cwd, which remains the same directory.
 PROJECT_ROOT_TOKEN = "<OUTPUT_ROOT>"
@@ -125,7 +130,13 @@ def _load_verify_contract(
     )
     expect_exact_keys(
         contract,
-        {"schema_version", "workspace_id", "verification", "next_actions"},
+        {
+            "schema_version",
+            "workspace_id",
+            "claim",
+            "canonical_basis",
+            "verification",
+        },
         "Workspace verify contract",
     )
     expect_schema_version(
@@ -135,6 +146,14 @@ def _load_verify_contract(
     )
     if validate_workspace_id(contract["workspace_id"]) != identity.workspace_id:
         fail("verify contract workspace_id does not match the selected workspace")
+
+    claim = expect_nonempty_string(contract["claim"], "verification claim")
+
+    canonical_basis = _validate_snapshot_paths(
+        project_root,
+        contract["canonical_basis"],
+        "canonical_basis",
+    )
 
     verification = contract["verification"]
     if not isinstance(verification, dict):
@@ -172,57 +191,56 @@ def _load_verify_contract(
             f"zero and at most {MAX_OUTPUT_CHARS}"
         )
 
-    evidence_paths = verification["evidence_paths"]
-    if not isinstance(evidence_paths, list) or not evidence_paths:
-        fail("verification.evidence_paths must be a non-empty JSON array")
-    validated_evidence: list[str] = []
-    seen_paths: set[str] = set()
-    for index, value in enumerate(evidence_paths):
-        path = validate_relative_path(
-            value, f"verification.evidence_paths[{index}]"
-        )
-        if path in seen_paths:
-            fail(f"duplicate evidence path: {path}")
-        seen_paths.add(path)
-        resolve_regular_file_without_symlinks(
-            project_root,
-            path,
-            f"verification.evidence_paths[{index}]",
-        )
-        validated_evidence.append(path)
-
-    next_actions = contract["next_actions"]
-    if not isinstance(next_actions, dict):
-        fail("next_actions must be a JSON object")
-    expect_exact_keys(next_actions, {"pass", "fail"}, "next_actions")
-    validated_next_actions = {
-        result: expect_nonempty_string(
-            next_actions[result], f"next_actions.{result}"
-        )
-        for result in ("pass", "fail")
-    }
+    validated_evidence = _validate_snapshot_paths(
+        project_root,
+        verification["evidence_paths"],
+        "verification.evidence_paths",
+    )
     return {
         "schema_version": VERIFY_CONTRACT_SCHEMA_VERSION,
         "workspace_id": identity.workspace_id,
+        "claim": claim,
+        "canonical_basis": canonical_basis,
         "verification": {
             "argv": argv,
             "evidence_paths": validated_evidence,
             "timeout_seconds": timeout_seconds,
             "max_output_chars": max_output_chars,
         },
-        "next_actions": validated_next_actions,
     }
 
 
-def _hash_evidence(
-    project_root: Path, evidence_paths: list[str]
+def _validate_snapshot_paths(
+    project_root: Path,
+    values: Any,
+    field: str,
+) -> list[str]:
+    if not isinstance(values, list) or not values:
+        fail(f"{field} must be a non-empty JSON array")
+    validated: list[str] = []
+    seen_paths: set[str] = set()
+    for index, value in enumerate(values):
+        label = f"{field}[{index}]"
+        path = validate_relative_path(value, label)
+        if path in seen_paths:
+            fail(f"duplicate {field} path: {path}")
+        seen_paths.add(path)
+        resolve_regular_file_without_symlinks(project_root, path, label)
+        validated.append(path)
+    return validated
+
+
+def _snapshot_files(
+    project_root: Path,
+    relative_paths: list[str],
+    field: str,
 ) -> list[dict[str, Any]]:
-    evidence: list[dict[str, Any]] = []
-    for index, relative_path in enumerate(evidence_paths):
+    snapshots: list[dict[str, Any]] = []
+    for index, relative_path in enumerate(relative_paths):
         path = resolve_regular_file_without_symlinks(
             project_root,
             relative_path,
-            f"verification.evidence_paths[{index}]",
+            f"{field}[{index}]",
         )
         digest = hashlib.sha256()
         size = 0
@@ -233,12 +251,45 @@ def _hash_evidence(
                     digest.update(chunk)
         except OSError as exc:
             raise HarnessError(
-                f"could not snapshot evidence file {relative_path}: {exc}"
+                f"could not snapshot {field} file {relative_path}: {exc}"
             ) from exc
-        evidence.append(
+        snapshots.append(
             {"path": relative_path, "sha256": digest.hexdigest(), "size": size}
         )
-    return evidence
+    return snapshots
+
+
+def _runtime_environment() -> dict[str, Any]:
+    """Return bounded, non-secret facts needed to interpret the execution."""
+
+    return {
+        "command_cwd": PROJECT_ROOT_TOKEN,
+        "os_name": os.name,
+        "platform_system": platform.system(),
+        "platform_machine": platform.machine(),
+        "python_implementation": platform.python_implementation(),
+        "python_version": platform.python_version(),
+        "verify_contract_schema_version": VERIFY_CONTRACT_SCHEMA_VERSION,
+        "verification_receipt_schema_version": (
+            VERIFICATION_RECEIPT_SCHEMA_VERSION
+        ),
+    }
+
+
+def _snapshot_sha256(
+    canonical_basis_files: list[dict[str, Any]],
+    evidence_files: list[dict[str, Any]],
+) -> str:
+    serialized = json.dumps(
+        {
+            "canonical_basis_files": canonical_basis_files,
+            "evidence_files": evidence_files,
+        },
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+    return hashlib.sha256(serialized).hexdigest()
 
 
 class _BoundedStreamCapture:
@@ -331,6 +382,19 @@ def _capture_result(
     return persisted, metadata, capture.root_replacements
 
 
+def _posix_process_group_is_alive(process_group_id: int) -> bool:
+    """Return whether the verification's POSIX process group still exists."""
+
+    try:
+        os.killpg(process_group_id, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        # The group exists even if an unusual platform policy denies signalling.
+        return True
+    return True
+
+
 def _kill_timed_out_process(process: subprocess.Popen[str]) -> None:
     try:
         if os.name == "posix":
@@ -340,6 +404,47 @@ def _kill_timed_out_process(process: subprocess.Popen[str]) -> None:
     except ProcessLookupError:
         pass
     process.wait()
+
+    if os.name != "posix":
+        return
+
+    # The group leader may already have exited while a descendant remains in
+    # its process group. Give SIGKILL a short, bounded interval to take effect
+    # so Verify does not return while an ordinary descendant is still running.
+    cleanup_deadline = time.monotonic() + PROCESS_SCOPE_CLEANUP_SECONDS
+    while _posix_process_group_is_alive(process.pid):
+        if time.monotonic() >= cleanup_deadline:
+            break
+        time.sleep(PROCESS_SCOPE_POLL_SECONDS)
+
+
+def _wait_for_verification_scope(
+    process: subprocess.Popen[str], timeout_seconds: float
+) -> bool:
+    """Wait for the launched verification scope; return whether it timed out."""
+
+    if os.name != "posix":
+        # Portable stdlib fallback: bound the direct process. POSIX additionally
+        # bounds the new process group, including ordinary descendants.
+        try:
+            process.wait(timeout=timeout_seconds)
+        except subprocess.TimeoutExpired:
+            _kill_timed_out_process(process)
+            return True
+        return False
+
+    deadline = time.monotonic() + timeout_seconds
+    while True:
+        leader_finished = process.poll() is not None
+        group_alive = _posix_process_group_is_alive(process.pid)
+        if leader_finished and not group_alive:
+            return False
+
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            _kill_timed_out_process(process)
+            return True
+        time.sleep(min(PROCESS_SCOPE_POLL_SECONDS, remaining))
 
 
 def _run_bounded_verification(
@@ -385,14 +490,11 @@ def _run_bounded_verification(
         )
         stdout_thread.start()
         stderr_thread.start()
-        try:
-            process.wait(timeout=timeout_seconds)
-        except subprocess.TimeoutExpired:
-            timed_out = True
-            _kill_timed_out_process(process)
+        timed_out = _wait_for_verification_scope(process, timeout_seconds)
         process_returncode = process.returncode
-        stdout_thread.join(timeout=5)
-        stderr_thread.join(timeout=5)
+        drain_deadline = time.monotonic() + OUTPUT_DRAIN_GRACE_SECONDS
+        stdout_thread.join(timeout=max(0.0, drain_deadline - time.monotonic()))
+        stderr_thread.join(timeout=max(0.0, drain_deadline - time.monotonic()))
         if stdout_thread.is_alive():
             stdout_capture.read_error = "stdout pipe did not close after process exit"
         if stderr_thread.is_alive():
@@ -518,10 +620,21 @@ def verify_workspace(
     )
 
     verification = contract["verification"]
-    evidence_collected_at = _utc_now()
-    evidence_files = _hash_evidence(
-        project_root, verification["evidence_paths"]
+    inputs_collected_at = _utc_now()
+    canonical_basis_files = _snapshot_files(
+        project_root,
+        contract["canonical_basis"],
+        "canonical_basis",
     )
+    evidence_files = _snapshot_files(
+        project_root,
+        verification["evidence_paths"],
+        "verification.evidence_paths",
+    )
+    snapshot_sha256 = _snapshot_sha256(
+        canonical_basis_files, evidence_files
+    )
+    runtime_environment = _runtime_environment()
     started_at = _utc_now()
     execution = _run_bounded_verification(
         verification["argv"],
@@ -535,6 +648,7 @@ def verify_workspace(
     receipt = {
         "schema_version": VERIFICATION_RECEIPT_SCHEMA_VERSION,
         "workspace_id": identity.workspace_id,
+        "claim": contract["claim"],
         "started_at": started_at,
         "finished_at": finished_at,
         "argv": verification["argv"],
@@ -549,7 +663,12 @@ def verify_workspace(
         },
         "output_capture": execution["output_capture"],
         "normalization": execution["normalization"],
-        "evidence_collected_at": evidence_collected_at,
+        "runtime_environment": runtime_environment,
+        "snapshot_sha256": snapshot_sha256,
+        "canonical_basis_collected_at": inputs_collected_at,
+        "canonical_basis_capture": "before_verification",
+        "canonical_basis_files": canonical_basis_files,
+        "evidence_collected_at": inputs_collected_at,
         "evidence_capture": "before_verification",
         "evidence_files": evidence_files,
     }
@@ -557,19 +676,17 @@ def verify_workspace(
         receipts_relative, receipts_dir, receipt
     )
 
-    next_action = contract["next_actions"][result]
     state_status = {
         "schema_version": STATE_STATUS_SCHEMA_VERSION,
         "workspace_id": identity.workspace_id,
         "status": (
-            "verified_waiting_acceptance"
+            "verification_passed"
             if result == "pass"
             else "verification_failed"
         ),
         "result": result,
         "receipt": receipt_relative,
         "finished_at": finished_at,
-        "next_action": next_action,
     }
     _atomic_write_status(
         status_path,
@@ -579,10 +696,10 @@ def verify_workspace(
 
     return exit_code, {
         "workspace_id": identity.workspace_id,
+        "claim": contract["claim"],
         "result": result,
         "exit_code": exit_code,
         "receipt": receipt_relative,
         "status": state_status["status"],
         "timed_out": execution["timed_out"],
-        "next_action": next_action,
     }

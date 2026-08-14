@@ -1,6 +1,6 @@
 # Project context와 Work context reference
 
-이미 존재하는 개발 Project에서 한 Workspace가 필요한 Project 맥락만 복구하고, 실제 변경의 검증 결과를 다음 재진입 상태로 돌려보내는 실행 가능한 reference다.
+이미 존재하는 개발 Project에서 한 Workspace가 필요한 Project 맥락만 복구하고, 작업 중 의미 변화와 실제 검증 결과를 서로 다른 책임으로 유지한 뒤 다음 재진입 상태로 넘기는 실행 가능한 reference다.
 
 이 reference는 Project context와 Work context를 상위 경계로 두고, 실제 제품과 관리 장치의 관계를 함께 보여 준다.
 
@@ -8,7 +8,7 @@
 - **Work context**: [`context/work/`](context/work/)가 여러 Workspace와 공용 Harness의 운영 관계를 소유한다.
 - **제품**: [`src/`](src/)와 [`tests/test_config_loader.py`](tests/test_config_loader.py)가 실제 구현과 제품 검증을 소유한다.
 
-Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Workspace의 의미를 소유하지 않고, 두 경계의 canonical을 읽어 검증 결과를 연결한다.
+Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Workspace의 의미를 소유하지 않고, Recover·Maintain·Verify의 작업 책임과 Harness validation을 구조적으로 분리한다. 결정적 CLI는 Recover와 Verify가, 의미 갱신은 별도 Maintain 계약과 교체 가능한 agent/main adapter가, 관리 장치의 회귀는 임시 fixture validation이 맡는다.
 
 ## 시작점
 
@@ -17,19 +17,22 @@ Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Wor
 실제 명령은 `reference-project/` root에서 실행한다.
 
 ```bash
-python3 -m context.work.harness recover
-python3 -m context.work.harness verify
+python3 -m context.work.harness recover 001-default-timeout
+python3 -m context.work.harness verify 001-default-timeout
 python3 -m unittest discover -s . -p 'test_*.py' -v
 ```
 
-- `recover`: active Workspace와 recover 전용 계약을 읽어 필요한 current와 선택된 Project context만 recovery packet으로 만든다.
-- `verify`: verify 전용 계약의 고정 argv를 제한 안에서 실행하고 receipt와 machine status를 갱신한다.
-- 전체 test discovery: 제품 테스트와 각 Harness 책임 안에 함께 둔 테스트를 모두 실행한다.
+- `recover`: 명시한 Workspace를 우선하고 id가 없을 때만 active 기본값을 사용해, 필요한 current와 선택된 Project context를 read-only recovery packet으로 만든다.
+- `maintain`: Python 명령이 아니라 [`Maintain 계약`](context/work/harness/maintain/README.md)에 따라 명시한 Workspace의 의미 변화를 기존 Owner에 반영하고 main이 diff를 검토하는 agent/main 책임이다.
+- `verify`: claim·canonical basis·evidence를 실행 전에 snapshot하고 고정 argv를 제한 안에서 실행한 뒤 receipt와 machine status만 갱신한다.
+- 전체 test discovery: 제품 테스트와 임시 fixture에서 실행되는 Harness validation을 포함한 책임별 테스트를 실행한다. Active 제품 Workspace의 receipt와 status는 바꾸지 않는다.
 
 ## 구조
 
 ```text
 .
+├── .codex/agents/
+│   └── workspace-context-maintainer.toml  # 교체 가능한 Maintain adapter
 ├── src/                          # 실제 제품 코드
 ├── tests/
 │   └── test_config_loader.py     # 제품 동작 검증
@@ -43,7 +46,11 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
     │   └── decisions/
     └── work/
         ├── README.md             # Work context 운영 경계
-        ├── harness/              # 공용 recover·verify 관리 장치
+        ├── harness/              # 교체 가능한 Workspace 관리 장치
+        │   ├── recover/          # 읽기 전용 재진입
+        │   ├── maintain/         # 의미 갱신 책임과 adapter 관계
+        │   ├── verify/           # durable 제품 검증 증거
+        │   └── validation/       # 제품 상태를 보존하는 Harness 자체 검증
         └── workspaces/
             ├── README.md         # 지속 Workspace collection 경계
             ├── index.json        # active Workspace 선택
@@ -80,10 +87,11 @@ reference 순환을 확인하기 위해 기본 timeout 구현을 의도적으로
 - [책임 재구성 뒤 최종 성공 receipt](context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json): 제품 테스트 7개 통과, exit `0`, 실행 전 evidence hash
 - [Project·Work context 경계 이동 기록](context/work/workspaces/001-default-timeout/records/2026-08-13-04-project-work-context-boundary-migration.md): 두 root 분리, 29개 테스트, 새 위치의 실제 순환
 - [경계 이동 뒤 성공 receipt](context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T135739719409Z-2c773fcd8f4f4409b9a7c394194b3b13.json): Project root에서 제품 테스트 7개 통과, Work root에 결과 연결
-- [Machine receipt 경계 기록](context/work/workspaces/001-default-timeout/records/2026-08-14-05-machine-receipt-boundary.md)과 [최신 nested receipt](context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T070729765148Z-4de3a77434444335b088d4944631e94f.json): 사람용 records와 종류별 기계 증거 분리, 이전 flat 경로 호환, 40개 테스트와 실제 순환
+- [Machine receipt 경계 기록](context/work/workspaces/001-default-timeout/records/2026-08-14-05-machine-receipt-boundary.md)과 [당시 nested receipt](context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T070729765148Z-4de3a77434444335b088d4944631e94f.json): 사람용 records와 종류별 기계 증거 분리, 이전 flat 경로 호환, 40개 테스트와 당시 실제 순환
+- [책임 분리 뒤 제품 receipt](context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T103703075846Z-a1cde45907164974a19c22564a956127.json): claim, canonical basis 3개와 evidence 2개의 실행 전 snapshot, bounded runtime, 제품 테스트 7개 통과, schema `3` machine-only status와 explicit Recover의 `fresh` 재확인
 
 ## 증명 범위
 
-이 reference가 확인하는 것은 선택적 context 복구, 고정 검증 실행, 실패·성공 receipt 생성, machine status 갱신, 갱신 상태의 재복구다.
+이 reference가 확인하는 것은 명시적 또는 active-default Workspace의 선택적 context 복구, Maintain 책임·Reference agent adapter의 구조적 연결, claim·canonical basis·evidence snapshot, 고정 검증 실행, 실패·성공 receipt 생성, machine-only status 갱신, 선언된 snapshot freshness의 재복구다. Harness 회귀 순환은 임시 fixture에서 실행해 active 제품 상태를 오염시키지 않는다.
 
-Workspace 생성·전환·acceptance·완료·보관, Workspace 결과의 Project canonical 반영, concurrent verify 조정, 실제 네트워크 요청과 운영 서비스 효과는 아직 구현하거나 증명하지 않았다. Harness 계약은 저장소가 신뢰하는 입력이며 악의적인 검증 프로그램을 격리하는 sandbox가 아니다. Receipt와 status는 각각 atomic하게 쓰지만 하나의 transaction으로 묶이지 않는다.
+정적 연결과 테스트는 Maintain agent가 실제 변화에서 어떤 의미를 남겨야 하는지 또는 작성 내용이 충분한지를 증명하지 않는다. 그 판단은 main의 evidence·diff 검토가 필요하다. Workspace 생성·전환·acceptance·완료·보관, Workspace 결과의 Project canonical 반영, concurrent Verify 조정, 실제 네트워크 요청과 운영 서비스 효과도 아직 구현하거나 증명하지 않았다. POSIX Verify timeout은 같은 process group의 일반 descendant까지 다루지만 스스로 새 session으로 분리한 process와 비-POSIX descendant 전체 종료는 보장하지 않는다. Harness 계약은 저장소가 신뢰하는 입력이며 악의적인 검증 프로그램을 격리하는 sandbox가 아니다. Receipt와 status는 각각 atomic하게 쓰지만 하나의 transaction으로 묶이지 않는다.

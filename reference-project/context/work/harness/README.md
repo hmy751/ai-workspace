@@ -1,21 +1,36 @@
 # Workspace Harness
 
-이 package는 한 Workspace를 다시 읽는 `recover`와 고정 검증을 실행하는 `verify`를 공통 CLI 아래 연결한다.
+이 디렉터리는 Workspace Context를 다시 읽고, 작업 중 의미 변화를 기존 Owner에 반영하고, 상태 전환에 필요한 제품 증거를 남기는 교체 가능한 관리 장치다. Context 자체의 의미와 책임 Owner는 [`Work context`](../README.md)와 [`Workspace collection`](../workspaces/README.md)에 남는다.
 
 ```bash
 python3 -m context.work.harness recover [workspace_id] [--json]
 python3 -m context.work.harness verify [workspace_id]
 ```
 
-## 책임 배치
+## 책임 계층
+
+작업 Context의 세 책임은 각각 자기 목적·규칙·실행 방식의 진입점을 가진다.
+
+- **Recover**: 새 세션·새 작업 주체의 Workspace 재진입에서 읽기 전용 packet을 만든다. 결정적 `recover` CLI와 [`recover/`](recover/)가 소유한다.
+- **Maintain**: 작업 중 생긴 의미 변화를 선택한 Workspace의 기존 Context Owner에 반영한다. [`maintain/`](maintain/)이 실행 계약을 소유하고, 현재 Codex 실행 adapter는 [`.codex/agents/workspace-context-maintainer.toml`](../../../.codex/agents/workspace-context-maintainer.toml)이다. Agent 또는 main이 수행하고 main이 근거와 diff를 검토한다.
+- **Verify**: Workspace 상태 전환·인계에 필요한 지속적 제품 증거를 남긴다. 결정적 `verify` CLI와 [`verify/`](verify/)가 소유한다.
+
+**Harness validation**은 작업 흐름의 네 번째 단계가 아니라 위 관리 장치 자체의 회귀 검증 경계다. [`validation/`](validation/)이 임시 fixture에서 Recover·Verify 연결과 checked-in 제품 상태 격리를 검사한다. 사람의 목표·acceptance·완료 판단은 Harness 바깥에 남는다.
+
+Maintain은 Context 의미 정합성, Verify는 고정 명령의 기계 증거, Harness validation은 관리 장치의 회귀를 담당한다. 하나의 인계 경계에서 Maintain과 Verify가 모두 필요할 수 있지만 한쪽의 통과가 다른 쪽이나 사람 acceptance를 대신하지 않는다.
+
+구현 파일의 배치는 다음과 같다.
 
 - [`workspace_contract.py`](workspace_contract.py): active/id 선택, identity-only `workspace.json`, Work root 내부의 안전한 파일 접근, `status.json`과 receipt 연결 필드의 최소 공통 계약
-- [`recover/`](recover/): `recover.json`, current context 선택·로딩, 연결 receipt header 확인, recovery packet과 사람용 출력
+- [`recover/`](recover/): `recover.json`, current context 선택·로딩, 연결 receipt header와 선언된 snapshot freshness 확인, receipt 본문을 노출하지 않는 recovery packet과 사람용 출력
+- [`maintain/`](maintain/): 명시적 Workspace와 전달받은 evidence를 기준으로 의미 변화를 기존 Owner에 배치하는 agent/main 계약과 교체 가능한 adapter의 관계
 - [`verify/`](verify/): `verify.json`, evidence 선확보, 제한 실행, Workspace `records/receipts/verify/`의 append-only receipt, atomic status 갱신
+- [`validation/`](validation/): 임시 Workspace 순환과 checked-in 제품 machine state 보존 검사
+- [`testing.py`](testing.py): Recover·Verify·validation 테스트가 함께 사용하는 최소 fixture 기반
 - [`cli.py`](cli.py): 두 책임으로 argument를 routing하고 결과를 출력
 - [`__main__.py`](__main__.py): module 실행 진입점
 
-Recover는 `verify.json`을 읽지 않고 verify는 `recover.json`을 읽지 않는다. 따라서 한쪽 전용 계약 오류가 다른 명령의 실행을 막지 않는다.
+CLI는 결정적으로 수행할 수 있는 Recover와 Verify만 routing한다. Maintain의 의미 판단을 Python command나 schema로 가장하지 않는다. Recover는 `verify.json`을 읽지 않고 Verify는 `recover.json`을 읽지 않으므로 한쪽 전용 계약 오류가 다른 명령의 실행을 막지 않는다.
 
 Harness는 자신의 설치 위치를 Project 의미의 기준으로 사용하지 않는다. Project context·제품 evidence·검증 cwd는 Project root를, Workspace index·current·source·output·records는 [`Work root`](../README.md)를 기준으로 해석한다. Recover는 Workspace source를 기본 입력으로 읽지 않고 Workspace `output/index.md`만 산출물 지도로 읽으며, 연결된 산출물 본문은 자동으로 읽지 않는다. 이 장치를 제거해도 Workspace의 의미와 원자료·산출물 지도·기록은 [`../workspaces/`](../workspaces/)에서 읽을 수 있다.
 
@@ -24,3 +39,13 @@ Harness는 자신의 설치 위치를 Project 의미의 기준으로 사용하�
 ```bash
 python3 -m unittest discover -s . -p 'test_*.py' -v
 ```
+
+Harness의 끝까지 연결만 집중해 확인할 때는 임시 fixture에서 `recover → verify → recover`를 실행하는 다음 검사를 쓴다.
+
+```bash
+python3 -m unittest \
+  context.work.harness.validation.tests.test_ephemeral_workspace_state_preservation \
+  -v
+```
+
+이 검사가 만든 receipt와 status는 임시 디렉터리와 함께 폐기된다. 실제 active Workspace에서 durable verify를 실행하는 것은 Harness 회귀 검사가 아니라, 그 Workspace의 상태 전환이나 인계 증거가 필요할 때만 한다.

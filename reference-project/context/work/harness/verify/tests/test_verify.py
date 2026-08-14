@@ -3,8 +3,12 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
+import signal
+import time
+import unittest
 
-from context.work.harness.tests.support import WorkspaceFixture
+from context.work.harness.testing import WorkspaceFixture
 
 
 class VerifyTests(WorkspaceFixture):
@@ -99,6 +103,25 @@ class VerifyTests(WorkspaceFixture):
         evidence_traversal["verification"]["evidence_paths"] = ["../outside"]
         invalid_contracts.append((evidence_traversal, "traverse"))
 
+        blank_claim = copy.deepcopy(self.verify_contract)
+        blank_claim["claim"] = "  "
+        invalid_contracts.append((blank_claim, "verification claim"))
+
+        no_basis = copy.deepcopy(self.verify_contract)
+        no_basis["canonical_basis"] = []
+        invalid_contracts.append((no_basis, "canonical_basis"))
+
+        basis_traversal = copy.deepcopy(self.verify_contract)
+        basis_traversal["canonical_basis"] = ["../outside"]
+        invalid_contracts.append((basis_traversal, "canonical_basis"))
+
+        old_semantic_actions = copy.deepcopy(self.verify_contract)
+        old_semantic_actions["next_actions"] = {
+            "pass": "accept it",
+            "fail": "fix it",
+        }
+        invalid_contracts.append((old_semantic_actions, "next_actions"))
+
         for invalid_contract, expected_error in invalid_contracts:
             with self.subTest(expected_error=expected_error):
                 self.write_work_json(
@@ -111,7 +134,7 @@ class VerifyTests(WorkspaceFixture):
 
     def test_rejects_verify_contract_schema_id_and_symlinked_evidence(self) -> None:
         wrong_schema = copy.deepcopy(self.verify_contract)
-        wrong_schema["schema_version"] = 2
+        wrong_schema["schema_version"] = 1
         self.write_work_json(
             "workspaces/001-example/verify.json", wrong_schema
         )
@@ -147,6 +170,20 @@ class VerifyTests(WorkspaceFixture):
         self.assertIn("symlink", completed.stderr)
         self.assertEqual(self.receipt_files(), [])
 
+        basis = self.project_root / "context" / "project" / "linked-basis.md"
+        basis.symlink_to(outside)
+        linked_basis = copy.deepcopy(self.verify_contract)
+        linked_basis["canonical_basis"] = [
+            "context/project/linked-basis.md"
+        ]
+        self.write_work_json(
+            "workspaces/001-example/verify.json", linked_basis
+        )
+        completed = self.run_cli("verify")
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("symlink", completed.stderr)
+        self.assertEqual(self.receipt_files(), [])
+
     def test_validates_status_before_running_command(self) -> None:
         status_path = (
             self.work_root
@@ -169,6 +206,46 @@ class VerifyTests(WorkspaceFixture):
             ),
             "wrong\n",
         )
+
+        self.write_status(
+            self.verified_status(
+                "workspaces/001-example/records/receipts/harness-tests/"
+                "verify-harness.json"
+            )
+        )
+
+        wrong_receipt_type = self.run_cli("verify")
+
+        self.assertEqual(wrong_receipt_type.returncode, 2)
+        self.assertIn("product Verify receipt", wrong_receipt_type.stderr)
+        self.assertEqual(self.receipt_files(), [])
+        self.assertEqual(
+            (self.project_root / "src" / "value.txt").read_text(
+                encoding="utf-8"
+            ),
+            "wrong\n",
+        )
+
+    def test_reads_legacy_status_then_writes_machine_only_status(self) -> None:
+        self.write_status(
+            {
+                "schema_version": 2,
+                "workspace_id": "001-example",
+                "status": "ready_for_verification",
+                "result": None,
+                "receipt": None,
+                "finished_at": None,
+                "next_action": "고정 검증을 실행한다.",
+            }
+        )
+
+        completed = self.run_cli("verify", "001-example")
+
+        self.assertEqual(completed.returncode, 1, completed.stdout + completed.stderr)
+        status = self.read_status()
+        self.assertEqual(status["schema_version"], 3)
+        self.assertEqual(status["status"], "verification_failed")
+        self.assertNotIn("next_action", status)
 
     def test_requires_verify_receipts_directory_before_running_command(self) -> None:
         receipts = (
@@ -259,12 +336,9 @@ class VerifyTests(WorkspaceFixture):
         self.assertEqual(failed_summary["status"], "verification_failed")
         failed_status = self.read_status()
         self.assertEqual(failed_status["status"], "verification_failed")
-        self.assertEqual(failed_status["schema_version"], 2)
+        self.assertEqual(failed_status["schema_version"], 3)
         self.assertEqual(failed_status["result"], "fail")
-        self.assertEqual(
-            failed_status["next_action"],
-            self.verify_contract["next_actions"]["fail"],
-        )
+        self.assertNotIn("next_action", failed_status)
         self.assertEqual(state_index_path.read_bytes(), original_state_index)
 
         receipts_after_failure = self.receipt_files()
@@ -273,8 +347,9 @@ class VerifyTests(WorkspaceFixture):
         failed_receipt = json.loads(failed_receipt_bytes)
         self.assertEqual(failed_receipt["exit_code"], failed.returncode)
         self.assertEqual(failed_receipt["result"], "fail")
-        self.assertEqual(failed_receipt["schema_version"], 1)
+        self.assertEqual(failed_receipt["schema_version"], 2)
         self.assertEqual(failed_receipt["workspace_id"], "001-example")
+        self.assertEqual(failed_receipt["claim"], self.verify_contract["claim"])
         self.assertIsInstance(failed_receipt["started_at"], str)
         self.assertIsInstance(failed_receipt["finished_at"], str)
         self.assertIsInstance(failed_receipt["stdout"], str)
@@ -292,6 +367,41 @@ class VerifyTests(WorkspaceFixture):
             [item["path"] for item in failed_receipt["evidence_files"]],
             self.verify_contract["verification"]["evidence_paths"],
         )
+        self.assertEqual(
+            [item["path"] for item in failed_receipt["canonical_basis_files"]],
+            self.verify_contract["canonical_basis"],
+        )
+        self.assertEqual(
+            failed_receipt["canonical_basis_capture"],
+            "before_verification",
+        )
+        self.assertEqual(
+            failed_receipt["canonical_basis_collected_at"],
+            failed_receipt["evidence_collected_at"],
+        )
+        runtime = failed_receipt["runtime_environment"]
+        self.assertEqual(runtime["command_cwd"], "<OUTPUT_ROOT>")
+        self.assertIsInstance(runtime["python_version"], str)
+        self.assertIsInstance(runtime["python_implementation"], str)
+        self.assertIsInstance(runtime["platform_system"], str)
+        self.assertEqual(runtime["verify_contract_schema_version"], 2)
+        self.assertEqual(runtime["verification_receipt_schema_version"], 2)
+        expected_snapshot = json.dumps(
+            {
+                "canonical_basis_files": failed_receipt[
+                    "canonical_basis_files"
+                ],
+                "evidence_files": failed_receipt["evidence_files"],
+            },
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+        self.assertEqual(
+            failed_receipt["snapshot_sha256"],
+            hashlib.sha256(expected_snapshot).hexdigest(),
+        )
+        self.assertNotIn("next_action", failed_receipt)
 
         evidence_path = self.project_root / "src" / "value.txt"
         evidence_path.write_text("expected\n", encoding="utf-8")
@@ -299,16 +409,15 @@ class VerifyTests(WorkspaceFixture):
 
         self.assertEqual(passed.returncode, 0, passed.stdout + passed.stderr)
         passed_summary = json.loads(passed.stdout)
-        self.assertEqual(passed_summary["status"], "verified_waiting_acceptance")
+        self.assertEqual(passed_summary["status"], "verification_passed")
         self.assertNotEqual(passed_summary["status"], "completed")
+        self.assertEqual(passed_summary["claim"], self.verify_contract["claim"])
+        self.assertNotIn("next_action", passed_summary)
         passed_status = self.read_status()
-        self.assertEqual(passed_status["status"], "verified_waiting_acceptance")
+        self.assertEqual(passed_status["status"], "verification_passed")
         self.assertEqual(passed_status["result"], "pass")
         self.assertNotEqual(passed_status["status"], "completed")
-        self.assertEqual(
-            passed_status["next_action"],
-            self.verify_contract["next_actions"]["pass"],
-        )
+        self.assertNotIn("next_action", passed_status)
         self.assertEqual(state_index_path.read_bytes(), original_state_index)
         self.assertEqual(old_record.read_bytes(), original_old_record)
 
@@ -379,6 +488,45 @@ class VerifyTests(WorkspaceFixture):
         self.assertEqual(status["receipt"], summary["receipt"])
         self.assertEqual(status["finished_at"], receipt["finished_at"])
 
+    def test_captures_canonical_basis_before_command_deletes_it(self) -> None:
+        basis_path = self.project_root / "context" / "project" / "overview.md"
+        expected_bytes = basis_path.read_bytes()
+        delete_basis_test = self.project_root / "tests" / "test_delete_basis.py"
+        delete_basis_test.write_text(
+            "from pathlib import Path\n"
+            "import unittest\n\n"
+            "class DeleteBasisTests(unittest.TestCase):\n"
+            "    def test_delete_then_fail(self):\n"
+            "        Path('context/project/overview.md').unlink()\n"
+            "        self.fail('intentional failure after basis deletion')\n",
+            encoding="utf-8",
+        )
+        contract = copy.deepcopy(self.verify_contract)
+        contract["verification"]["argv"] = [
+            "python3",
+            "-m",
+            "unittest",
+            "tests.test_delete_basis",
+            "-v",
+        ]
+        self.write_work_json(
+            "workspaces/001-example/verify.json", contract
+        )
+
+        completed = self.run_cli("verify")
+
+        self.assertEqual(completed.returncode, 1, completed.stdout + completed.stderr)
+        self.assertFalse(basis_path.exists())
+        receipt = json.loads(
+            self.receipt_files()[0].read_text(encoding="utf-8")
+        )
+        basis_snapshot = receipt["canonical_basis_files"][0]
+        self.assertEqual(basis_snapshot["path"], "context/project/overview.md")
+        self.assertEqual(basis_snapshot["size"], len(expected_bytes))
+        self.assertEqual(
+            basis_snapshot["sha256"], hashlib.sha256(expected_bytes).hexdigest()
+        )
+
     def test_timeout_persists_exit_124_failure_receipt_and_status(self) -> None:
         contract = copy.deepcopy(self.verify_contract)
         contract["verification"].update(
@@ -416,6 +564,75 @@ class VerifyTests(WorkspaceFixture):
         self.assertEqual(status["result"], "fail")
         self.assertEqual(status["receipt"], summary["receipt"])
         self.assertEqual(status["finished_at"], receipt["finished_at"])
+
+    @unittest.skipUnless(
+        os.name == "posix", "process-group descendant coverage is POSIX-only"
+    )
+    def test_timeout_covers_descendant_after_group_leader_exits(self) -> None:
+        launcher = self.project_root / "tests" / "spawn-descendant"
+        descendant_pid_path = self.project_root / "descendant.pid"
+        launcher.write_text(
+            "#!/bin/sh\n"
+            "sleep 30 &\n"
+            "echo \"$!\" > descendant.pid\n"
+            "exit 0\n",
+            encoding="utf-8",
+        )
+        launcher.chmod(0o700)
+        contract = copy.deepcopy(self.verify_contract)
+        contract["verification"].update(
+            {
+                "argv": ["tests/spawn-descendant"],
+                "timeout_seconds": 0.3,
+                "max_output_chars": 1000,
+            }
+        )
+        self.write_work_json(
+            "workspaces/001-example/verify.json", contract
+        )
+
+        started = time.monotonic()
+        completed = self.run_cli("verify")
+        elapsed = time.monotonic() - started
+
+        self.assertEqual(
+            completed.returncode, 124, completed.stdout + completed.stderr
+        )
+        self.assertLess(elapsed, 2.0)
+        self.assertTrue(
+            descendant_pid_path.is_file(), completed.stdout + completed.stderr
+        )
+        descendant_pid = int(descendant_pid_path.read_text(encoding="utf-8"))
+
+        def descendant_is_alive() -> bool:
+            try:
+                os.kill(descendant_pid, 0)
+            except ProcessLookupError:
+                return False
+            return True
+
+        def kill_descendant_if_alive() -> None:
+            try:
+                os.kill(descendant_pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+
+        self.addCleanup(kill_descendant_if_alive)
+        disappearance_deadline = time.monotonic() + 1.0
+        while descendant_is_alive() and time.monotonic() < disappearance_deadline:
+            time.sleep(0.005)
+        self.assertFalse(descendant_is_alive())
+
+        summary = json.loads(completed.stdout)
+        self.assertTrue(summary["timed_out"])
+        receipt = json.loads(
+            self.receipt_files()[0].read_text(encoding="utf-8")
+        )
+        self.assertEqual(receipt["process_returncode"], 0)
+        self.assertEqual(receipt["exit_code"], 124)
+        self.assertEqual(receipt["result"], "fail")
+        self.assertTrue(receipt["timeout"]["timed_out"])
+        self.assertEqual(receipt["timeout"]["timeout_seconds"], 0.3)
 
     def test_normalizes_root_and_caps_persisted_output(self) -> None:
         contract = copy.deepcopy(self.verify_contract)
@@ -467,6 +684,4 @@ class VerifyTests(WorkspaceFixture):
 
 
 if __name__ == "__main__":
-    import unittest
-
     unittest.main()

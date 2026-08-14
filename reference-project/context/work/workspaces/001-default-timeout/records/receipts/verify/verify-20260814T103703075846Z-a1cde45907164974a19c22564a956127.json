@@ -1,0 +1,90 @@
+{
+  "argv": [
+    "python3",
+    "-m",
+    "unittest",
+    "tests.test_config_loader",
+    "-v"
+  ],
+  "canonical_basis_capture": "before_verification",
+  "canonical_basis_collected_at": "2026-08-14T10:37:03.029Z",
+  "canonical_basis_files": [
+    {
+      "path": "context/project/prd.md",
+      "sha256": "49e03bb508b8ba969196e0d5bb311bf32a9e0eba9bec31df9d45d809df38fb23",
+      "size": 1181
+    },
+    {
+      "path": "context/project/architecture.md",
+      "sha256": "a42c8f6cfa1d4822e3fd54adf9d256f50541fbd9de4ccad76def4c45c7018269",
+      "size": 1435
+    },
+    {
+      "path": "context/project/decisions/0001-default-timeout.md",
+      "sha256": "64ce56f1baf6e10c51e9e31fa1cf6d21c45dd710e1119a9d4b0a73a9a8fbd0e8",
+      "size": 1280
+    }
+  ],
+  "claim": "Request policy loader가 canonical 기본 timeout 5000밀리초와 입력 검증·불변성 계약을 구현하며 고정 제품 테스트가 통과한다.",
+  "evidence_capture": "before_verification",
+  "evidence_collected_at": "2026-08-14T10:37:03.029Z",
+  "evidence_files": [
+    {
+      "path": "src/config_loader.py",
+      "sha256": "cbf191bcfbf56abfc84e8bcdee6d34839662043af83c868b09fd6a30a7f49532",
+      "size": 1496
+    },
+    {
+      "path": "tests/test_config_loader.py",
+      "sha256": "f5de705fdaa935387e0eb1fe55b167c938056f0bcadcbd14900bdb27bbf665d0",
+      "size": 1741
+    }
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-08-14T10:37:03.075Z",
+  "normalization": {
+    "output_root_token": "<OUTPUT_ROOT>",
+    "stderr_replacements": 0,
+    "stdout_replacements": 0
+  },
+  "output_capture": {
+    "encoding": "utf-8",
+    "errors": "replace",
+    "limit_unit": "characters",
+    "max_chars_per_stream": 20000,
+    "stderr": {
+      "observed_chars": 939,
+      "persisted_chars": 939,
+      "read_error": null,
+      "truncated": false
+    },
+    "stdout": {
+      "observed_chars": 0,
+      "persisted_chars": 0,
+      "read_error": null,
+      "truncated": false
+    }
+  },
+  "process_returncode": 0,
+  "result": "pass",
+  "runtime_environment": {
+    "command_cwd": "<OUTPUT_ROOT>",
+    "os_name": "posix",
+    "platform_machine": "arm64",
+    "platform_system": "Darwin",
+    "python_implementation": "CPython",
+    "python_version": "3.14.3",
+    "verification_receipt_schema_version": 2,
+    "verify_contract_schema_version": 2
+  },
+  "schema_version": 2,
+  "snapshot_sha256": "2927b29ed667e66f241c7e0eefa89dd17b12918161f2909a96b70b4620513f97",
+  "started_at": "2026-08-14T10:37:03.029Z",
+  "stderr": "test_explicit_timeout_is_preserved (tests.test_config_loader.LoadRequestPolicyTests.test_explicit_timeout_is_preserved) ... ok\ntest_missing_timeout_uses_5000_ms (tests.test_config_loader.LoadRequestPolicyTests.test_missing_timeout_uses_5000_ms) ... ok\ntest_rejects_boolean_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_boolean_timeout) ... ok\ntest_rejects_non_integer_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_non_integer_timeout) ... ok\ntest_rejects_non_positive_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_non_positive_timeout) ... ok\ntest_rejects_unknown_keys (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_unknown_keys) ... ok\ntest_returns_immutable_policy (tests.test_config_loader.LoadRequestPolicyTests.test_returns_immutable_policy) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.000s\n\nOK\n",
+  "stdout": "",
+  "timeout": {
+    "timed_out": false,
+    "timeout_seconds": 30.0
+  },
+  "workspace_id": "001-default-timeout"
+}

@@ -1,6 +1,12 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "workspace_id": "001-default-timeout",
+  "claim": "Request policy loader가 canonical 기본 timeout 5000밀리초와 입력 검증·불변성 계약을 구현하며 고정 제품 테스트가 통과한다.",
+  "canonical_basis": [
+    "context/project/prd.md",
+    "context/project/architecture.md",
+    "context/project/decisions/0001-default-timeout.md"
+  ],
   "verification": {
     "argv": [
       "python3",
@@ -15,9 +21,5 @@
     ],
     "timeout_seconds": 30,
     "max_output_chars": 20000
-  },
-  "next_actions": {
-    "pass": "receipt와 선택된 Project 기준의 정합성을 검토하고 이 작업을 수락할지 명시적으로 결정한다.",
-    "fail": "receipt의 stdout과 stderr에서 최초 실패를 확인하고 코드 또는 테스트를 수정한 뒤 같은 고정 검증을 다시 실행한다."
   }
 }

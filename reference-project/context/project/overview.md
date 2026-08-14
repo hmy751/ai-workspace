@@ -23,7 +23,7 @@
 
 ## 검증과 acceptance 경계
 
-표준 라이브러리 기반 제품 테스트의 통과는 현재 config loader가 선언된 행위를 구현한다는 근거다. 실제 네트워크 요청, 외부 서비스 응답 시간, 운영 환경 적용과 사람의 acceptance는 증명하지 않는다. Harness의 `verified_waiting_acceptance`도 Project 완료를 뜻하지 않는다.
+표준 라이브러리 기반 제품 테스트의 통과는 현재 config loader가 선언된 행위를 구현한다는 근거다. 실제 네트워크 요청, 외부 서비스 응답 시간, 운영 환경 적용과 사람의 acceptance는 증명하지 않는다. Harness의 `verification_passed`도 Project 완료를 뜻하지 않는다.
 
 ## 상세 Owner와 정합성
 

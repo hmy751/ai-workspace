@@ -4,34 +4,22 @@
 
 ## 현재 문제
 
-Machine receipt 저장 경로를 바꾸는 작업은 실제 runtime 테스트보다 같은 계약을 여러 문서와 Workspace에 반영하고 순차 maintainer·review를 기다리는 데 더 많은 시간이 들었다. 어떤 반영이 필수 정합성이고 어떤 반영이 중복인지 아직 구분 규칙이 없다.
+Maintain이 설명에만 있던 이전 구현의 완료 판단은 사용자가 거절했다. Harness 안의 Maintain 책임과 replaceable adapter까지 구조적으로 교정한 구현은 검증됐고, 사람 acceptance와 commit은 아직 결정되지 않았다.
 
-## 현재 확인된 사실
+## 현재 상태
 
-- 직전 변경은 commit `179bdc2`에 보존됐다.
-- Reference 전체 40개 테스트는 약 4초 안에 끝났고 helper 테스트도 Python 버전별 약 2초였다. 이번 약 20분 작업의 주된 지연은 제품 build나 Harness runtime 실행이 아니었다.
-- 한 machine receipt 경계 변경이 runtime·테스트, 기준 Project 문서, 이식 skill, 기존 receipt 10개와 직접 링크, 001·002 Workspace current·records까지 전파됐다.
-- 001과 002 context maintenance를 한 실행 주체에 순차로 맡겼고, 최종 독립 review까지 기다렸다.
-- 같은 계약을 `reference-project/`, skill, 001 current, 002 current에서 다시 설명해 변경 전파면이 커졌다.
+- Harness는 책임 기준의 `recover/`, `maintain/`, `verify/`, `validation/`과 공용 fixture `testing.py`로 구성했다. Validation은 별도 task workflow 단계가 아니다.
+- Maintain의 지속 의미·규칙은 Work·Workspace canonical에 남기고, Reference에는 별도 `workspace-context-maintainer` adapter를 두었다. Maintain Python CLI·schema와 outer agent 채택은 없다.
+- 최초 독립 review의 P2 두 건을 수정했다. Status receipt cursor는 nested Verify receipt와 legacy direct receipt만 허용하고, POSIX Verify timeout은 보통의 동일 process-group descendant까지 종료·정리한다. Package 설명 P3도 바로잡았다.
+- Worker 전체 suite는 53/53 통과했다. 독립 re-review가 두 P2 수정을 재현했고 P1·P2·P3 없이 accept했다.
+- 상세 교정·검증·proof ceiling은 [`records/2026-08-14-06`](../records/2026-08-14-06-reference-maintain-structural-correction-and-verification.md)에 둔다. [`records/2026-08-14-05`](../records/2026-08-14-05-reference-recover-verify-implementation-and-verification.md)는 완료 거절 전 상태로 보존한다.
 
-## 아직 확인할 것
+## 남은 판단
 
-- 각 반복 문장이 실제로 독립 Owner 책임인지, 다른 canonical을 가리키면 충분한 파생 설명인지
-- Context maintainer를 Workspace별 병렬 실행해도 의미 결정이나 같은 파일 충돌이 생기지 않는 범위
-- 독립 review가 필요한 변경과 일반 test·link check로 충분한 변경의 기준
-- Context를 옮기거나 새 Workspace를 만들 때 main이 과도한 공통 체크리스트 없이 변경 성격에 맞는 최소 확인을 선택하는 기준
-- 약 20분 중 문서 편집, agent 대기, review, 재검증이 각각 차지한 정확한 시간. 현재 수치는 정밀 계측이 아니라 이번 실행 관찰에 기반한다.
+- 사용자의 결과 acceptance
+- 이 변경을 commit할지와 commit 경계
+- 실제 Maintain agent의 의미 선택·문서 작성·runtime 호출, detached/new-session과 non-POSIX descendant-wide 종료, concurrent Verify, 악의적 verification sandboxing의 미검증 범위를 후속 작업으로 다룰지
 
 ## 다음 행동
 
-직전 machine receipt 변경을 한 사례로 삼아 변경된 규칙마다 다음을 표시한 병목 지도를 만든다.
-
-1. 실제 canonical Owner
-2. 반드시 함께 바뀌어야 하는 consumer
-3. 링크만 갱신하면 되는 기록
-4. 갱신할 필요가 없었던 중복 설명
-5. 필요한 검증과 생략 가능한 반복 검증
-
-이 지도를 먼저 검토한 뒤에만 root 지침, skill, context maintainer routing 또는 문서 배치를 수정한다.
-
-이번 Workspace 생성은 문서·routing 변경이므로 로컬 링크, active 표기, Git diff만 확인한다. Reference runtime과 receipt 계약은 바뀌지 않아 full test와 독립 review를 다시 실행하지 않는다.
+사용자가 교정된 구현과 proof ceiling을 검토해 acceptance와 commit 여부를 결정한다. Skill과 다른 Project 이식은 이번 acceptance와 분리한다.

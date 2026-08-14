@@ -1,18 +1,43 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 
-from context.work.harness.tests.support import WorkspaceFixture
+from context.work.harness.testing import WorkspaceFixture
 
 
 class RecoverTests(WorkspaceFixture):
+    def project_snapshot(self, relative_path: str) -> dict[str, object]:
+        content = (self.project_root / relative_path).read_bytes()
+        return {
+            "path": relative_path,
+            "sha256": hashlib.sha256(content).hexdigest(),
+            "size": len(content),
+        }
+
+    def snapshot_sha256(
+        self,
+        canonical_basis_files: list[dict[str, object]],
+        evidence_files: list[dict[str, object]],
+    ) -> str:
+        serialized = json.dumps(
+            {
+                "canonical_basis_files": canonical_basis_files,
+                "evidence_files": evidence_files,
+            },
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+        return hashlib.sha256(serialized).hexdigest()
+
     def test_loads_current_output_map_and_project_context_only(self) -> None:
         completed = self.run_cli("recover", "--json")
 
         self.assertEqual(completed.returncode, 0, completed.stderr)
         packet = json.loads(completed.stdout)
-        self.assertEqual(packet["schema_version"], 5)
+        self.assertEqual(packet["schema_version"], 6)
         self.assertEqual(packet["workspace_id"], "001-example")
         self.assertEqual(
             packet["workspace"],
@@ -155,6 +180,38 @@ class RecoverTests(WorkspaceFixture):
         )
         self.assertNotIn("UNLOADED_MEMORY_NON_MARKDOWN_SECRET", completed.stdout)
         self.assertNotIn("UNLOADED_NESTED_MEMORY_SECRET", completed.stdout)
+
+    def test_explicit_workspace_does_not_require_or_read_active_index(
+        self,
+    ) -> None:
+        index_path = self.work_root / "workspaces" / "index.json"
+        index_path.write_text("{not-json\n", encoding="utf-8")
+
+        malformed = self.run_cli("recover", "001-example", "--json")
+
+        self.assertEqual(malformed.returncode, 0, malformed.stderr)
+        packet = json.loads(malformed.stdout)
+        self.assertNotIn(
+            {"path_base": "work_root", "path": "workspaces/index.json"},
+            packet["control_paths"],
+        )
+
+        index_path.unlink()
+        missing = self.run_cli("recover", "001-example", "--json")
+
+        self.assertEqual(missing.returncode, 0, missing.stderr)
+        packet = json.loads(missing.stdout)
+        self.assertEqual(packet["workspace_id"], "001-example")
+        self.assertNotIn("workspaces/index.json", missing.stdout)
+
+    def test_active_workspace_fallback_still_validates_index(self) -> None:
+        index_path = self.work_root / "workspaces" / "index.json"
+        index_path.write_text("{not-json\n", encoding="utf-8")
+
+        malformed = self.run_cli("recover")
+
+        self.assertEqual(malformed.returncode, 2)
+        self.assertIn("Workspace index is not valid JSON", malformed.stderr)
 
     def test_requires_workspace_output_index(self) -> None:
         output_index = (
@@ -329,12 +386,33 @@ class RecoverTests(WorkspaceFixture):
         self.assertIn("- result: null", completed.stdout)
         self.assertIn("- finished_at: null", completed.stdout)
         self.assertIn("- receipt: null", completed.stdout)
-        self.assertIn("- next_action: 고정 검증을 실행한다.", completed.stdout)
+        self.assertNotIn("- next_action:", completed.stdout)
+        self.assertIn("- receipt_freshness: not_applicable", completed.stdout)
         self.assertIn("## output/index.md", completed.stdout)
         self.assertIn("WORKSPACE_OUTPUT_INDEX", completed.stdout)
         self.assertNotIn("UNLOADED_OUTPUT_ARTIFACT_SECRET", completed.stdout)
         self.assertNotIn('"status": "ready_for_verification"', completed.stdout)
         self.assertNotIn("Fixed verification argv", completed.stdout)
+
+    def test_plain_output_preserves_legacy_next_action(
+        self,
+    ) -> None:
+        legacy_status = {
+            "schema_version": 2,
+            "workspace_id": "001-example",
+            "status": "ready_for_verification",
+            "result": None,
+            "receipt": None,
+            "finished_at": None,
+            "next_action": "고정 검증을 실행한다.",
+        }
+        self.write_status(legacy_status)
+
+        completed = self.run_cli("recover")
+
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertIn("- status: ready_for_verification", completed.stdout)
+        self.assertIn("- next_action: 고정 검증을 실행한다.", completed.stdout)
 
     def test_rejects_recover_contract_traversal_absolute_schema_and_id(self) -> None:
         invalid_contracts: list[tuple[dict[str, object], str]] = []
@@ -409,7 +487,7 @@ class RecoverTests(WorkspaceFixture):
         self.assertIn("symlink", linked.stderr)
         self.assertNotIn("UNLOADED_RECORD_SECRET", linked.stdout)
 
-    def test_requires_project_overview_first_and_present(self) -> None:
+    def test_requires_each_selected_project_context_file_to_exist(self) -> None:
         overview = (
             self.project_root / "context" / "project" / "overview.md"
         )
@@ -423,6 +501,9 @@ class RecoverTests(WorkspaceFixture):
         self.assertEqual(missing.returncode, 2)
         self.assertIn("does not exist", missing.stderr)
 
+    def test_preserves_selected_project_context_order_without_setup_policy(
+        self,
+    ) -> None:
         overview_second = copy.deepcopy(self.recover_contract)
         overview_second["project_context"] = [
             {
@@ -437,13 +518,17 @@ class RecoverTests(WorkspaceFixture):
 
         misplaced = self.run_cli("recover", "--json")
 
-        self.assertEqual(misplaced.returncode, 2)
-        self.assertIn(
-            "must select context/project/overview.md first",
-            misplaced.stderr,
+        self.assertEqual(misplaced.returncode, 0, misplaced.stderr)
+        packet = json.loads(misplaced.stdout)
+        self.assertEqual(
+            [entry["path"] for entry in packet["project_context"]],
+            [
+                "context/project/not-selected.md",
+                "context/project/overview.md",
+            ],
         )
-        self.assertNotIn("UNSELECTED_PROJECT_SECRET", misplaced.stdout)
 
+    def test_requires_project_overview_selection_but_not_first(self) -> None:
         without_overview = copy.deepcopy(self.recover_contract)
         without_overview["project_context"][0]["path"] = (
             "context/project/not-selected.md"
@@ -456,8 +541,7 @@ class RecoverTests(WorkspaceFixture):
 
         self.assertEqual(rejected.returncode, 2)
         self.assertIn(
-            "must select context/project/overview.md first",
-            rejected.stderr,
+            "must select context/project/overview.md", rejected.stderr
         )
         self.assertNotIn("UNSELECTED_PROJECT_SECRET", rejected.stdout)
 
@@ -509,7 +593,7 @@ class RecoverTests(WorkspaceFixture):
         self.assertIn("schema_version", completed.stderr)
 
         inconsistent = self.initial_status()
-        inconsistent["status"] = "verified_waiting_acceptance"
+        inconsistent["status"] = "verification_passed"
         self.write_status(inconsistent)
 
         completed = self.run_cli("recover")
@@ -523,6 +607,36 @@ class RecoverTests(WorkspaceFixture):
         completed = self.run_cli("recover")
         self.assertEqual(completed.returncode, 2)
         self.assertIn("invalid Workspace state status", completed.stderr)
+
+        legacy_with_current_status = {
+            "schema_version": 2,
+            "workspace_id": "001-example",
+            "status": "verification_passed",
+            "result": "pass",
+            "receipt": "workspaces/001-example/records/verify-existing.json",
+            "finished_at": "2026-08-13T00:00:00.000Z",
+            "next_action": "receipt를 검토한다.",
+        }
+        self.write_status(legacy_with_current_status)
+
+        completed = self.run_cli("recover")
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("invalid Workspace state status", completed.stderr)
+
+        current_with_legacy_key = {
+            "schema_version": 3,
+            "workspace_id": "001-example",
+            "status": "ready_for_verification",
+            "result": None,
+            "receipt": None,
+            "finished_at": None,
+            "next_action": "v3에는 이 필드가 없다.",
+        }
+        self.write_status(current_with_legacy_key)
+
+        completed = self.run_cli("recover")
+        self.assertEqual(completed.returncode, 2)
+        self.assertIn("extra=['next_action']", completed.stderr)
 
     def test_rejects_missing_malformed_and_symlinked_status(self) -> None:
         status_path = (
@@ -628,6 +742,10 @@ class RecoverTests(WorkspaceFixture):
         receipt_entry = {"path_base": "work_root", "path": receipt_relative}
         self.assertIn(receipt_entry, packet["control_paths"])
         self.assertNotIn(receipt_entry, packet["loaded_context_paths"])
+        self.assertEqual(
+            packet["state"]["status"]["receipt_freshness"]["status"],
+            "unknown_legacy",
+        )
         self.assertNotIn("RECEIPT_BODY_MUST_NOT_ENTER_CONTEXT", recovered.stdout)
 
     def test_accepts_nested_verify_receipt_path(self) -> None:
@@ -656,6 +774,224 @@ class RecoverTests(WorkspaceFixture):
             packet["control_paths"],
         )
 
+    def test_rejects_non_verify_receipt_types_and_malformed_names(self) -> None:
+        invalid_receipts = [
+            (
+                "workspaces/001-example/records/receipts/harness-tests/"
+                "verify-harness.json"
+            ),
+            (
+                "workspaces/001-example/records/receipts/preflight/"
+                "verify-preflight.json"
+            ),
+            (
+                "workspaces/001-example/records/receipts/other/"
+                "verify-other.json"
+            ),
+            (
+                "workspaces/001-example/records/receipts/verify/"
+                "harness-result.json"
+            ),
+            (
+                "workspaces/001-example/records/receipts/verify/"
+                "verify-.json"
+            ),
+            (
+                "workspaces/001-example/records/receipts/verify/"
+                "verify-result.txt"
+            ),
+            (
+                "workspaces/001-example/records/receipts/verify/archive/"
+                "verify-result.json"
+            ),
+        ]
+        receipt = {
+            "schema_version": 1,
+            "workspace_id": "001-example",
+            "result": "pass",
+            "finished_at": "2026-08-13T00:00:00.000Z",
+        }
+
+        for receipt_relative in invalid_receipts:
+            with self.subTest(receipt=receipt_relative):
+                receipt_path = self.work_root / receipt_relative
+                receipt_path.parent.mkdir(parents=True, exist_ok=True)
+                self.write_work_json(receipt_relative, receipt)
+                self.write_status(self.verified_status(receipt_relative))
+
+                completed = self.run_cli("recover", "--json")
+
+                self.assertEqual(completed.returncode, 2)
+                self.assertIn("product Verify receipt", completed.stderr)
+
+    def test_accepts_current_status_and_receipt_schemas(self) -> None:
+        receipt_relative = (
+            "workspaces/001-example/records/receipts/verify/"
+            "verify-current.json"
+        )
+        finished_at = "2026-08-14T00:00:00.000Z"
+        canonical_basis_files = [
+            self.project_snapshot("context/project/overview.md")
+        ]
+        evidence_files = [self.project_snapshot("src/value.txt")]
+        self.write_work_json(
+            receipt_relative,
+            {
+                "schema_version": 2,
+                "workspace_id": "001-example",
+                "claim": "제품 값이 Project 기준과 일치한다.",
+                "result": "pass",
+                "finished_at": finished_at,
+                "snapshot_sha256": self.snapshot_sha256(
+                    canonical_basis_files, evidence_files
+                ),
+                "canonical_basis_files": canonical_basis_files,
+                "evidence_files": evidence_files,
+            },
+        )
+        self.write_status(
+            {
+                "schema_version": 3,
+                "workspace_id": "001-example",
+                "status": "verification_passed",
+                "result": "pass",
+                "receipt": receipt_relative,
+                "finished_at": finished_at,
+            }
+        )
+
+        completed = self.run_cli("recover", "--json")
+
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        packet = json.loads(completed.stdout)
+        self.assertEqual(
+            packet["state"]["status"]["value"]["status"],
+            "verification_passed",
+        )
+        self.assertNotIn(
+            "next_action", packet["state"]["status"]["value"]
+        )
+        self.assertEqual(
+            packet["state"]["status"]["receipt_freshness"]["status"],
+            "fresh",
+        )
+
+    def test_current_receipt_reports_changed_and_missing_files_as_stale(
+        self,
+    ) -> None:
+        receipt_relative = (
+            "workspaces/001-example/records/receipts/verify/"
+            "verify-freshness.json"
+        )
+        finished_at = "2026-08-14T00:00:00.000Z"
+        canonical_basis_files = [
+            self.project_snapshot("context/project/overview.md")
+        ]
+        evidence_files = [self.project_snapshot("src/value.txt")]
+        receipt = {
+            "schema_version": 2,
+            "workspace_id": "001-example",
+            "claim": "제품 값이 Project 기준과 일치한다.",
+            "result": "pass",
+            "finished_at": finished_at,
+            "snapshot_sha256": self.snapshot_sha256(
+                canonical_basis_files, evidence_files
+            ),
+            "canonical_basis_files": canonical_basis_files,
+            "evidence_files": evidence_files,
+        }
+        self.write_work_json(receipt_relative, receipt)
+        self.write_status(
+            {
+                "schema_version": 3,
+                "workspace_id": "001-example",
+                "status": "verification_passed",
+                "result": "pass",
+                "receipt": receipt_relative,
+                "finished_at": finished_at,
+            }
+        )
+        evidence = self.project_root / "src" / "value.txt"
+        evidence.write_text("changed\n", encoding="utf-8")
+
+        changed = self.run_cli("recover", "--json")
+
+        self.assertEqual(changed.returncode, 0, changed.stderr)
+        freshness = json.loads(changed.stdout)["state"]["status"][
+            "receipt_freshness"
+        ]
+        self.assertEqual(freshness["status"], "stale")
+        self.assertEqual(freshness["changed_file_count"], 1)
+        self.assertEqual(freshness["missing_file_count"], 0)
+        self.assertNotIn("src/value.txt", changed.stdout)
+
+        evidence.unlink()
+        missing = self.run_cli("recover", "--json")
+
+        self.assertEqual(missing.returncode, 0, missing.stderr)
+        freshness = json.loads(missing.stdout)["state"]["status"][
+            "receipt_freshness"
+        ]
+        self.assertEqual(freshness["status"], "stale")
+        self.assertEqual(freshness["changed_file_count"], 0)
+        self.assertEqual(freshness["missing_file_count"], 1)
+
+    def test_rejects_unsafe_current_receipt_snapshot_paths(self) -> None:
+        receipt_relative = (
+            "workspaces/001-example/records/receipts/verify/"
+            "verify-unsafe-snapshot.json"
+        )
+        finished_at = "2026-08-14T00:00:00.000Z"
+        canonical_basis_files = [
+            self.project_snapshot("context/project/overview.md")
+        ]
+        evidence_files = [self.project_snapshot("src/value.txt")]
+        receipt = {
+            "schema_version": 2,
+            "workspace_id": "001-example",
+            "claim": "제품 값이 Project 기준과 일치한다.",
+            "result": "pass",
+            "finished_at": finished_at,
+            "snapshot_sha256": self.snapshot_sha256(
+                canonical_basis_files, evidence_files
+            ),
+            "canonical_basis_files": canonical_basis_files,
+            "evidence_files": evidence_files,
+        }
+        self.write_status(
+            {
+                "schema_version": 3,
+                "workspace_id": "001-example",
+                "status": "verification_passed",
+                "result": "pass",
+                "receipt": receipt_relative,
+                "finished_at": finished_at,
+            }
+        )
+
+        receipt["evidence_files"][0]["path"] = "../outside.txt"
+        receipt["snapshot_sha256"] = self.snapshot_sha256(
+            receipt["canonical_basis_files"], receipt["evidence_files"]
+        )
+        self.write_work_json(receipt_relative, receipt)
+        traversal = self.run_cli("recover")
+        self.assertEqual(traversal.returncode, 2)
+        self.assertIn("traverse", traversal.stderr)
+
+        linked_path = self.project_root / "src" / "linked-value.txt"
+        linked_path.symlink_to(self.project_root / "src" / "value.txt")
+        receipt["evidence_files"][0] = {
+            **self.project_snapshot("src/value.txt"),
+            "path": "src/linked-value.txt",
+        }
+        receipt["snapshot_sha256"] = self.snapshot_sha256(
+            receipt["canonical_basis_files"], receipt["evidence_files"]
+        )
+        self.write_work_json(receipt_relative, receipt)
+        symlink = self.run_cli("recover")
+        self.assertEqual(symlink.returncode, 2)
+        self.assertIn("symlink", symlink.stderr)
+
     def test_rejects_receipt_symlink(self) -> None:
         outside_receipt = (
             self.project_root / "context" / "project" / "receipt.json"
@@ -671,7 +1007,7 @@ class RecoverTests(WorkspaceFixture):
             ),
             encoding="utf-8",
         )
-        receipt_relative = "workspaces/001-example/records/linked.json"
+        receipt_relative = "workspaces/001-example/records/verify-linked.json"
         (self.work_root / receipt_relative).symlink_to(outside_receipt)
         self.write_status(self.verified_status(receipt_relative))
 

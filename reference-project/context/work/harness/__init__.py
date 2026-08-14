@@ -1,1 +1,1 @@
-"""Bounded Workspace recovery and verification harness."""
+"""Workspace recovery, maintenance routing, verification, and validation."""

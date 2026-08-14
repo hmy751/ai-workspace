@@ -14,12 +14,12 @@ from .workspace_contract import HarnessError
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Recover or verify a bounded Project Workspace"
+        description="Recover a selected Workspace or record bounded verification evidence"
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     recover_parser = subparsers.add_parser(
-        "recover", help="print the active Workspace recovery packet"
+        "recover", help="print an explicit or active-default recovery packet"
     )
     recover_parser.add_argument("workspace_id", nargs="?")
     recover_parser.add_argument(
@@ -27,7 +27,7 @@ def _build_parser() -> argparse.ArgumentParser:
     )
 
     verify_parser = subparsers.add_parser(
-        "verify", help="run the Workspace's fixed verification argv"
+        "verify", help="record evidence for the Workspace's fixed claim and argv"
     )
     verify_parser.add_argument("workspace_id", nargs="?")
     return parser

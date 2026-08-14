@@ -3,7 +3,7 @@
 이 디렉터리는 Project의 지속 맥락과 개별 작업의 지속 맥락을 서로 다른 책임으로 유지하면서, Work context가 필요한 Project 기준을 선택해 사용하는 관계를 정의한다.
 
 - [`project/`](project/): 여러 작업에 걸쳐 공유되는 제품 목적·구조·제약·채택 결정을 실제 내용으로 유지하는 Project common context
-- [`work/`](work/): 여러 Workspace의 현재 상태·원자료·goal 산출물 지도·기록과 이를 복구·검증하는 공용 Harness의 운영 경계
+- [`work/`](work/): 여러 Workspace의 현재 상태·원자료·goal 산출물 지도·기록과 이를 복구·유지·검증하는 공용 Harness의 운영 경계
 
 Project context는 기존 제품 문서의 복사본이나 링크 목록이 아니며 Workspace 안으로도 복제하지 않는다. 상세 제품 Owner가 따로 있으면 그 사실과 우선순위를 밝힌 실제 공통 맥락을 `project/`에 유지하고, 각 Workspace는 현재 작업에 필요한 Project 문서의 경로와 선택 이유만 계약에 남긴다. Harness는 두 경계를 연결하는 관리 장치이며 Project 기준이나 Workspace의 의미를 소유하지 않는다.
 

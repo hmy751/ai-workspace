@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "snapshot_date": "2026-08-12",
+  "snapshot_date": "2026-08-14",
   "scope": {
     "included": [
       "user-provided pasted reference bundle",
@@ -8,7 +8,8 @@
       "linked user-selected blog article",
       "user-endorsed Codex opinion",
       "specified AX prior-work folder",
-      "specified cofathon prior-work repository"
+      "specified cofathon prior-work repository",
+      "user-pasted prior conversation about harness maintenance latency"
     ],
     "excluded": [
       "all other Desktop repositories and workspaces"
@@ -21,6 +22,15 @@
       "role": "top-level goal, source boundary, and desired operating structure",
       "path": "00-intake/2026-08-12-user-scaffold.md",
       "status": "preserved"
+    },
+    {
+      "id": "harness-maintenance-background-2026-08-14",
+      "kind": "user_pasted_prior_conversation",
+      "role": "background source for Workspace 004 maintenance bottleneck analysis, not canonical truth",
+      "path": "00-intake/2026-08-14-harness-maintenance-background/README.md",
+      "transcript": "00-intake/2026-08-14-harness-maintenance-background/previous-task-transcript.txt",
+      "status": "preserved_verbatim_not_verified",
+      "sha256": "ef04c95b75e8ec2eea12249d2e5b03f851722fefa57375c8f813167a5cc8e814"
     },
     {
       "id": "intake-2026-08-12-reference-bundle",
