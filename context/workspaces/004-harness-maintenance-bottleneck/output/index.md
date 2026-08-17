@@ -1,12 +1,14 @@
 # Harness maintenance bottleneck output
 
-마지막 갱신: `2026-08-14`
+마지막 갱신: `2026-08-16`
 
 ## Workspace goal
 
-Context+harness의 안전성과 재진입 가능성을 유지하면서, Reference Recover·Maintain·Verify의 활성 결합과 반복 검증 병목을 책임별로 분리한다.
+Context+harness의 안전성과 재진입 가능성을 유지하면서, Reference 실행 책임과 target 이식 절차의 중복 소유 및 반복 검증 병목을 줄인다.
 
 ## 현재 선택된 산출물
+
+### Committed Reference
 
 - [`Harness 책임과 실행 경계`](../../../../reference-project/context/work/harness/README.md): Recover·Maintain·Verify와 Harness validation의 관계
 - [`Recover 계약과 구현`](../../../../reference-project/context/work/harness/recover/): explicit Workspace 선택, read-only recovery, verification snapshot freshness
@@ -17,4 +19,12 @@ Context+harness의 안전성과 재진입 가능성을 유지하면서, Referenc
 - [`Verify 계약과 구현`](../../../../reference-project/context/work/harness/verify/): claim·canonical basis·evidence snapshot과 durable machine receipt
 - [`Harness validation`](../../../../reference-project/context/work/harness/validation/): checked-in 제품 상태를 바꾸지 않는 ephemeral `recover → verify → recover` 회귀 검사
 
-완료 거절 뒤의 책임 구조 교정, review 수정과 증명 상한은 [`2026-08-14-06 교정·검증 기록`](../records/2026-08-14-06-reference-maintain-structural-correction-and-verification.md), 이후 agent 배치와 등록 결정은 [`2026-08-14-07 구조 결정 기록`](../records/2026-08-14-07-reference-maintain-agent-colocation-and-registration.md)에 있다. 이 Workspace는 산출물을 복제하지 않고 실제 canonical 위치만 연결한다.
+이 Reference 결과는 commits `638bfbc`, `7793bab`에 보존됐다.
+
+### Skill simplification and Project context Owner closure
+
+- [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/SKILL.md): live Reference를 이식하며 target의 구분되는 공통 책임별 Project context Owner와 근거 있는 omission을 구성·보고하는 절차
+- [`Application contract`](../../../../.agents/skills/apply-context-harness/references/application-contract.md): overview 합본을 막고 책임별 Owner closure, omission 근거, 충돌과 evidence closure를 판단하는 기준
+- [`Repo-local skill index`](../../../../.agents/skills/README.md): Reference와 이식 절차의 분리된 역할
+
+Reference 교정과 proof ceiling은 [`2026-08-14-06`](../records/2026-08-14-06-reference-maintain-structural-correction-and-verification.md), agent 배치와 등록은 [`2026-08-14-07`](../records/2026-08-14-07-reference-maintain-agent-colocation-and-registration.md), skill 간소화와 forward 검증은 [`2026-08-14-08`](../records/2026-08-14-08-apply-context-harness-simplification-and-verification.md)에 있다. V2 당시 평가는 [`2026-08-16-01`](../records/2026-08-16-01-simplified-skill-reapplication-result.md), v3 당시 평가는 [`2026-08-16-02`](../records/2026-08-16-02-semantic-content-closure-correction-and-v3-forward-test.md), 현재 Owner omission 교정은 [`2026-08-16-03`](../records/2026-08-16-03-project-context-owner-omission-loophole-correction.md)에 있다. 상세 근거는 [`Workspace 002 correction record`](../../002-project-application/records/2026-08-16-03-project-context-owner-closure-correction.md)가 소유한다. 최신 skill은 Git history에 보존됐지만 재시험·사람 acceptance 전이며, 이 Workspace는 target 산출물을 복제하지 않는다.

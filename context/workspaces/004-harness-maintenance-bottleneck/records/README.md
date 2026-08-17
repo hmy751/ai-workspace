@@ -17,3 +17,7 @@
 - [`2026-08-14-05-reference-recover-verify-implementation-and-verification.md`](2026-08-14-05-reference-recover-verify-implementation-and-verification.md): Maintain이 설명에만 있던 당시 Reference 구현·검증과 이후 철회된 완료 판단
 - [`2026-08-14-06-reference-maintain-structural-correction-and-verification.md`](2026-08-14-06-reference-maintain-structural-correction-and-verification.md): 사용자 완료 거절 뒤 Maintain 구조를 교정한 책임 계층, review 수정, 최종 검증과 proof ceiling
 - [`2026-08-14-07-reference-maintain-agent-colocation-and-registration.md`](2026-08-14-07-reference-maintain-agent-colocation-and-registration.md): Maintain agent 정의를 책임 디렉터리에 두고 root 설정은 발견 등록만 맡긴 사용자 결정과 확인 범위
+- [`2026-08-14-08-apply-context-harness-simplification-and-verification.md`](2026-08-14-08-apply-context-harness-simplification-and-verification.md): Reference 실행 계약과 이식 절차의 중복 소유를 줄인 skill 간소화, forward preflight, review와 proof ceiling
+- [`2026-08-16-01-simplified-skill-reapplication-result.md`](2026-08-16-01-simplified-skill-reapplication-result.md): 같은 Payment target blind 재적용에서 확인한 skill 중복 제거 효과, 위험 기반 review의 P1 발견, reporting 보완과 proof ceiling
+- [`2026-08-16-02-semantic-content-closure-correction-and-v3-forward-test.md`](2026-08-16-02-semantic-content-closure-correction-and-v3-forward-test.md): v2의 Project common context 의미 결함, skill의 semantic content closure 보강, blind v3에서의 해소와 proof ceiling
+- [`2026-08-16-03-project-context-owner-omission-loophole-correction.md`](2026-08-16-03-project-context-owner-omission-loophole-correction.md): v3의 PRD·decision Owner omission loophole, 책임별 Owner closure 규칙 보강과 미재시험 상태

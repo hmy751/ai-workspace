@@ -1,16 +1,17 @@
 # Project application Workspace
 
-`reference-project/`에서 검증한 context+harness 책임을 실제 기존 Project 하나에 적용하고, 그대로 가져갈 책임과 대상 Project에 맞게 바꿀 배치를 확인하는 Workspace다.
+`reference-project/`에서 검증한 context+harness 책임을 기존 Project에 적용하고, 대상의 기존 canonical을 보존하면서 반복 이식 절차가 실제 장면과 검증 근거를 다시 구성하는지 확인하는 Workspace다.
 
-상태는 **active**다. 원본 대상 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio`의 첫 적용과 검증은 Git 이력에 보존했고, 마지막 직접 확인에서는 Harness를 제거한 clean 상태였다. 격리 사본 `/Users/hammyeong-yeon/Desktop/payment-recovery-portfolio-skill-test`의 blind 재적용은 당시 schema `3`, 기존 문서 직접 선택, flat receipt 계약을 검증한 과거 결과다. 이후 실제 Project overview, schema `4`, 종류별 machine receipt 계약을 완료 조건으로 채택했지만 reference에서만 검증했고 실제 target에는 아직 적용하지 않았다.
+상태는 **paused**다. 원본 적용, 과거 blind 평가, Project common context가 충분하지 않았던 v2와 v3를 서로 다른 증거로 보존한다. 현재 skill은 공통 제품 기준·구조·채택 결정의 Owner closure까지 다시 보강했지만 재시험하지 않았고 v3 target도 보정하지 않았다.
 
 ## 읽는 순서
 
-1. [`current/memory.md`](current/memory.md): 적용 목표·대상·지속 결정·검증 상한·접근점
-2. [`current/state.md`](current/state.md): 현재 검증 상태·남은 불확실성·다음 행동
-3. [`output/index.md`](output/index.md): 이 Workspace goal을 위해 선택된 현재 산출물과 실제 canonical 위치
-4. [`records/`](records/): 적용 결정, migration, 실패·성공 검증과 증거 상한
+1. [`current/memory.md`](current/memory.md): 적용 목표·대상 구분·지속 기준·검증 상한
+2. [`current/state.md`](current/state.md): skill 재보강·재시험 없음·v3 미보정 상태
+3. [`output/index.md`](output/index.md): 현재 절차와 미완료 v3 결과의 역할
+4. [Owner closure 정정 기록](records/2026-08-16-03-project-context-owner-closure-correction.md): v3 누락과 추가된 skill 규칙
+5. v2·v3 실행 자체는 앞선 날짜별 records에서 확인한다.
 
-이 Workspace는 `reference-project/context/work`의 전체 구조를 정답처럼 복제하지 않는다. 대상 Project의 기존 canonical과 배치를 먼저 확인하고, 필요한 책임과 운영 흐름만 최소로 적용한다.
+이 Workspace는 `reference-project/context/work`의 전체 내용을 정답처럼 복제하지 않는다. 대상 Project의 기존 canonical과 사용자 변경을 먼저 고정하고, 선택한 Workspace 장면을 복구·검증하는 데 필요한 책임만 추가한다.
 
-첫 적용에서 반복 가능한 이식 절차는 repo-local [`apply-context-harness`](../../../.agents/skills/apply-context-harness/) skill로 승격했다. skill은 실제 Project common context를 구성하는 이식 절차를 소유하지만 실제 target 내용과 적용 결과를 소유하지 않으며, 각 이식의 결과와 예외는 이 Workspace의 records에 남긴다.
+반복 이식 절차의 source는 repo-local [`apply-context-harness`](../../../.agents/skills/apply-context-harness/) skill이다. Skill은 절차를 소유하고, 실제 target 내용·적용 상태·receipt와 acceptance 여부는 각 target과 이 Workspace의 기록이 소유한다.

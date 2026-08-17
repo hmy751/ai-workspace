@@ -18,3 +18,6 @@
 - [`2026-08-14-05-project-common-context-contract.md`](2026-08-14-05-project-common-context-contract.md): 실제 Project common context 최소층과 overview-first recover 계약으로 바꾼 이유, source reference 검증과 target 미검증 경계
 - [`2026-08-14-06-reference-project-root-rename.md`](2026-08-14-06-reference-project-root-rename.md): 루트 `output/`을 `reference-project/`로 바꿔 Workspace output과 기준 Project 책임을 구분한 결정, skill source lookup 변경과 target 미검증 경계
 - [`2026-08-14-07-target-machine-receipt-boundary-contract.md`](2026-08-14-07-target-machine-receipt-boundary-contract.md): 새 target의 종류별 machine receipt 배치, producer·Owner 경계, 직접 test와 durable verify 구분, 기존 Payment target 미적용 상한
+- [`2026-08-16-01-simplified-skill-blind-reapplication.md`](2026-08-16-01-simplified-skill-blind-reapplication.md): simplified skill을 새 격리 target에 과거 application Workspace 없이 재적용한 순서, 보정 Verify, 반복 timing flake, main 재검증과 proof ceiling
+- [`2026-08-16-02-project-common-context-correction-and-v3-forward-test.md`](2026-08-16-02-project-common-context-correction-and-v3-forward-test.md): v2 Project common context 결함에 대한 사용자 정정, 내용 충족 검사 보정, v3 blind forward test와 남은 proof ceiling
+- [`2026-08-16-03-project-context-owner-closure-correction.md`](2026-08-16-03-project-context-owner-closure-correction.md): v3에서 독립된 공통 제품 기준·결정 Owner가 누락된 사용자 정정, skill 재보강과 미재시험·target 미보정 상태
