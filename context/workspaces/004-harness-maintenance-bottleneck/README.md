@@ -2,7 +2,7 @@
 
 Context+harness의 작은 계약 변경이 기준 Project, 이식 skill, 여러 Workspace current·records, 검증과 review까지 넓게 전파된 사례에서 시작한 유지보수 병목 분석 공간이다.
 
-상태는 **active**다. `reference-project`의 Recover·Maintain·Verify·validation 책임 재배치는 commits `638bfbc`, `7793bab`에 보존됐다. Skill의 exact 실행 계약 중복은 제거했고 v3에서 링크형 common context는 개선했지만, target에 독립된 product criteria와 recovery decision이 있는데도 `prd/`·`decisions/` Owner를 생략할 수 있는 loophole을 사용자가 발견했다. Main은 구분되는 공통 책임별 Owner와 근거 있는 omission 규칙을 다시 보강했고 이 변경을 Workspace 기록과 함께 Git history에 보존했지만 아직 재시험하지 않았다. 사람 acceptance, 반복 timing flake 진단과 서로 다른 Project 검증 여부는 열려 있다.
+상태는 **paused**다. `reference-project`의 Recover·Maintain·Verify·validation 책임 재배치는 commits `638bfbc`, `7793bab`에, skill 간소화와 Project context Owner closure 교정은 commit `f082035`에 보존됐다. 최신 skill 교정은 아직 재시험·사람 acceptance 전이다. 이후 제기된 일상 운영 지연, `current/records` 신뢰성과 background maintenance 설계는 별도 [`Workspace 005`](../005-context-continuity-maintenance/)가 소유한다.
 
 ## 읽는 순서
 
