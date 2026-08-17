@@ -13,3 +13,6 @@
 
 - [`2026-08-17-01-harness-operation-latency-and-role-diagnosis.md`](2026-08-17-01-harness-operation-latency-and-role-diagnosis.md): 30분·26분 문제에서 분리한 Recover·Verify·Maintain·validation 역할, 실제 시간 근거, flake와 반복 비용
 - [`2026-08-17-02-context-continuity-and-background-maintenance-framing.md`](2026-08-17-02-context-continuity-and-background-maintenance-framing.md): 사용자 C/E 우선순위와 A 방향, 현업 자료 대조, background maintainer의 자동 쓰기·축적 방지·보고 cadence 후보
+- [`2026-08-17-03-response-end-maintenance-contract-and-verify-reopening.md`](2026-08-17-03-response-end-maintenance-contract-and-verify-reopening.md): 매 응답 종료 점검, no-write 조건, direct-write allowlist, ambiguity 즉시 보고, memory routing 방향과 다시 열린 Verify 논의
+- [`2026-08-17-04-verify-evidence-recording-boundary.md`](2026-08-17-04-verify-evidence-recording-boundary.md): 기존 Verify 목적 재검토, Main과 겹치는 책임 제거, 선택적 최소 증거 수집·기록 보조로 축소한 경계와 proof ceiling
+- [`2026-08-17-05-maintainer-retrieval-runtime-and-cursor-contract.md`](2026-08-17-05-maintainer-retrieval-runtime-and-cursor-contract.md): current 우선 retrieval, delta의 일시성, Maintainer 수명·rebootstrap, response-end event, processing cursor와 좁은 Git 대조 계약
