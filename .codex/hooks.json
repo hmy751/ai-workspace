@@ -1,0 +1,40 @@
+{
+  "description": "Workspace 005 response-end context-maintainer observe runtime.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CONTEXT_MAINTAINER_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && /usr/bin/python3 \"$CONTEXT_MAINTAINER_REPO/.codex/context_maintainer/cli.py\" hook SessionStart || printf '{}\\n'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CONTEXT_MAINTAINER_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && /usr/bin/python3 \"$CONTEXT_MAINTAINER_REPO/.codex/context_maintainer/cli.py\" hook UserPromptSubmit || printf '{}\\n'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CONTEXT_MAINTAINER_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && /usr/bin/python3 \"$CONTEXT_MAINTAINER_REPO/.codex/context_maintainer/cli.py\" hook Stop --drain || printf '{}\\n'",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

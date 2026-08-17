@@ -34,6 +34,8 @@ Main과 사용자의 작업 흐름은 빠르게 유지하면서, 다음 세션�
 - Memory가 늘어나는 것 자체는 문제로 보지 않는다. 새로운 장기 기준은 추가할 수 있고, 기존 기준이 바뀌면 중복 append보다 현재 기준으로 교체·정합화한다. 판단 근거를 다시 볼 필요가 있으면 memory에서 record를 연결할 수 있지만 모든 memory에 record를 의무화하지 않는다.
 - 향후 `memory/` 폴더와 index routing으로 책임별 문서를 연결하고, 재진입 때 필요한 memory만 선택해 읽는 방향을 채택했다. 현재 `current/memory.md`를 이 구조로 migration하거나 runtime을 구현한 것은 아니다.
 - 실제 갱신 구현에는 `delta 분류 → Owner 선택 → 동시 수정·stale overwrite 확인 → write → 링크·상태 확인 → 보고` 순서를 포함한다.
+- Write 여부는 durability로 판단한다. Durable 변화가 없으면 no-write·무보고, 명확한 durable 변화는 허용 Owner에 반영한다. 사소한 명확 반영은 조용히 처리하고 중요한 명확 반영만 수정 후 짧게 보고한다.
+- Semantic ambiguity는 runtime 실패처럼 retry하지 않는다. 추측해 쓰기 전에 즉시 질문하고 해당 반영만 보류한다.
 - Recover는 현재 별도 문제나 변경 요구가 없다.
 
 ## 선택된 Maintain retrieval·runtime 기준
@@ -42,9 +44,12 @@ Main과 사용자의 작업 흐름은 빠르게 유지하면서, 다음 세션�
 - 판단·결정·제약의 외부 canonical은 Workspace README와 current의 index·memory·state 및 필요한 routing이다. 구현·실행 사실의 canonical은 실제 파일, Git과 test 결과다. Maintainer의 내부 기억은 이 외부 근거를 대신하지 않는다.
 - Delta는 마지막 처리 cursor 이후의 정확한 새 사용자·Main 발화, 관련 changed path와 tool·Git·test 접근점을 담는 일시적 전달 입력이다. Delta 자체를 새 durable 문서나 context 저장층으로 관리하지 않는다.
 - Maintainer는 현재 conversation task, 활성 Workspace와 current worktree가 같은 동안 한 주체를 살려 재사용한다. 응답 사이에는 대기하고, 같은 Maintainer의 response-end event는 순서대로 직렬 처리한다.
+- 기존 Workspace의 새 세션에서는 첫 작업 전에 `current/index` 중심의 bounded grounding으로 Maintainer가 이해를 갖추고, 목표·현재 상태·다음 행동을 한 번 짧게 보여 준다. 새 Workspace는 미리 읽지 않고 세션 대화에서 identity·goal·Owner가 형성된 뒤 지속 Context를 관리한다.
+- Maintainer는 세션의 대화와 작업을 자연스럽게 따라가며 이해하는 agent다. Delta와 response-end event는 이 동작을 실제 runtime에 연결하는 adapter 입력이지 Maintainer의 역할 정의나 별도 durable Context가 아니다.
 - 사용자 대상 Main 응답이 확정된 시점만 response-end event다. Maintainer나 다른 subagent의 내부 응답은 새 trigger가 아니다. Event는 main을 막지 않는 background 처리로 넘긴다.
 - Workspace·worktree 전환, 대화 종료나 handoff, Maintainer restart·자기 context compaction, processing cursor gap, Owner·routing 구조 변경 시 외부 canonical에서 rebootstrap하거나 수명 경계를 reset한다. Main context compaction만으로 Maintainer reset을 자동 요구하지 않는다.
 - Processing cursor는 context나 records가 아닌 runtime machine checkpoint다. No-change도 처리 완료로 전진하지만, 실패는 last completed response를 전진시키지 않아 replay할 수 있어야 한다.
+- Transient 실패는 먼저 retry·replay·rebootstrap하고, 자동 복구 뒤에도 external canonical과 실제 상태로 freshness를 세우지 못했을 때만 짧게 경고한다. 복구 중에는 false success를 만들지 않는다.
 - Git 대조는 전체 repository review가 아니다. 대화-only 응답이면 생략하고, 파일 작업이면 event가 알려준 관련 경로만 확인한다. Context write 직전에는 target 최신본과 revision을 다시 확인하며, branch·HEAD·worktree 전환이나 근거 모순이 있을 때만 범위를 넓힌다.
 
 ## 선택된 Verify 운영 기준
@@ -57,4 +62,8 @@ Main과 사용자의 작업 흐름은 빠르게 유지하면서, 다음 세션�
 
 ## 증명 상한
 
-이 Workspace는 현재 진단과 선택된 운영 기준만 소유한다. Background maintainer, response-end activation, memory index routing, event feed, 동시 쓰기 방어와 축소 Verify helper는 구현·실행·효과 측정을 하지 않았다. 기록된 유지 시간은 이번 대화의 task telemetry와 기존 records에 기반하며 일반 실행 시간 보장을 뜻하지 않는다.
+Workspace 005 전용 response-end Observe event·queue·cursor는 root dogfood로 구현했고 저장소 내부 protocol test는 통과했다. 그러나 실제 Codex smoke에서 `async Stop`이 session 종료와 함께 취소되어 response pairing이 완성되지 않았다. 이 root-only 배치는 global `ai-system_*` shared reference를 계획 중심에 두지 말라는 사용자 정정을 Reference Project 실행 원형까지 제외하라는 뜻으로 오해해 생겼으며, 최종 architecture로 acceptance되지 않았다.
+
+재사용 가능한 실행 원형은 `reference-project/`가 소유하고 root는 이 저장소의 thin dogfood adapter가 되는 계획을 확정했다. Reference 계약 수정부터 session runtime spike, 첫 vertical slice, memory·records·output write, 축소 Verify, Recover 호환과 `apply-context-harness`까지 순차 구현한다. Hook·queue·storage·CLI·schema·고정 latency 수치는 spike 전까지 기술 후보로 둔다. 상세 동작과 순서는 [세션형 Maintainer 동작·구현 계획 record](../records/2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md)가 소유한다.
+
+Background semantic maintainer, Context 자동 write, memory index routing, session 격리·복구와 축소 Verify helper는 아직 구현·acceptance하지 않았다. 기록된 유지 시간은 이번 대화의 task telemetry와 기존 records에 기반하며 일반 실행 시간 보장을 뜻하지 않는다.

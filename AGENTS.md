@@ -41,6 +41,8 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 `context_maintainer`가 수정한 diff와 근거는 main이 검토한다. 사용자 목표·승인 결정·새로운 설계 기준을 subagent가 대신 확정하게 하지 않는다. agent를 호출할 수 없는 환경이면 main이 같은 점검을 수행하고 그 사실을 보고한다.
 
+Repo-local [`.codex/context_maintainer/`](.codex/context_maintainer/)는 Workspace 005의 response-end 전달 경로를 시험한 결함 포함 Observe runtime이다. LLM 판단이나 Context write를 하지 않으며 위 수동 maintenance routing을 아직 대체하지 않는다. 재사용 가능한 최종 구현의 Owner는 `reference-project/`이고 root는 향후 thin dogfood adapter만 소유한다. 현재 전달 상태와 gap은 `python3 .codex/context_maintainer/cli.py status`에서 확인하되, 알려진 proof ceiling과 다음 계획은 [Workspace 005 record 08](context/workspaces/005-context-continuity-maintenance/records/2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md)를 우선한다.
+
 ## Source boundary
 
 `context/source/`의 raw snapshot과 prior-work snapshot은 읽기 전용 원본으로 취급한다. 새 해석이나 현재 판단을 source에 쓰지 않는다. 사용자가 지정하지 않은 다른 Desktop 저장소로 조사 범위를 넓히지 않는다.

@@ -4,52 +4,49 @@
 
 ## 현재 문제
 
-Maintain의 의미 계약, 축소된 Verify 책임, retrieval·runtime·processing cursor의 동작 경계까지 정했다. 이제 이 설계 계약을 실제 hook·event delivery·checkpoint·queue로 옮기기 전에 남은 기술 선택과 최소 protocol prototype 범위를 정해야 한다.
+Root Observe를 최종 구조로 확대하지 않고, Workspace 005에서 확정한 세션형 Maintainer 운영 전체를 `reference-project/`에 재사용 가능한 구현으로 완성해야 한다. 사용자의 동작 의미와 단계형 구현 계획은 다시 맞췄다. 현재 커서는 이전의 ownership 재계획이 아니라 Reference Harness·Maintain 계약을 먼저 수정한 뒤 Reference 안에서 실행 가능성을 확인하는 단계다.
 
 ## 확정된 사실
 
-- 약 30분·26분의 긴 작업은 Recover나 Verify wrapper 자체보다 반복 이식, 중복 제품 검증, 순차·반복 Maintain, review와 timing flake rerun이 합쳐진 결과다.
-- Maintain은 단순 record append가 아니라 `README/current/output/records` 사이의 의미 판단과 재작성이라 분 단위 비용이 실제로 발생했다. 같은 사건을 Workspace 002와 004에 반복 서술한 것도 비용을 키웠다.
-- Timing flake는 실제 synchronization 결함이지만 20~30분의 근본 원인은 아니다.
-- 매 응답 종료 점검, durable 변화가 없을 때 no-write, 명확한 변화의 allowlist 자동 반영, ambiguity 즉시 보고를 사용자가 선택했다.
-- Memory 파일 수 자체는 제한하지 않는다. 장기 기준은 늘어날 수 있고, 향후 index routing으로 필요한 memory만 선택해 읽는다. 이 구조는 아직 구현하지 않았다.
-- Recover는 현재 문제 없음으로 유지한다.
-- Verify는 제품 검증 주체가 아니라 이미 일어난 test·eval·수동 확인의 최소 증거를 선택적으로 보존하는 기록 보조로 낮추기로 했다. 현재 Reference 구현과 schema는 아직 바꾸지 않았다.
-- Records는 평소 넓게 읽지 않고 index가 지정한 조건에서만 선택한다. 판단·결정·제약은 Workspace README/current, 구현·실행 사실은 실제 파일·Git·test가 외부 canonical이다.
-- Delta는 durable 저장층이 아닌 response-end의 일시적 전달 입력이다. 같은 conversation task·Workspace·worktree에서는 Maintainer를 재사용하고 event를 직렬 처리한다.
-- Maintainer 자기 restart·compaction, Workspace·worktree 전환, 대화 종료·handoff, cursor gap이나 Owner·routing 구조 변경 때 rebootstrap한다. Main compaction만으로는 자동 reset하지 않는다.
-- No-change와 성공 write는 processing cursor를 전진시키고, 실패는 completed cursor를 전진시키지 않아 replay 가능하게 한다.
-- Git 대조는 event의 관련 경로와 write target freshness에 한정하며, branch·HEAD·worktree 전환이나 모순 때만 확장한다.
+- 재사용 가능한 Maintain·Verify 구현 전체는 `reference-project/`가 소유하고 root는 Workspace 005 thin dogfood adapter만 소유한다.
+- Maintainer는 task 세션마다 생기는 agent다. 기존 Workspace에서는 첫 작업 전에 `current/index` 중심으로 bounded grounding하고 짧은 시작 상태를 보여 주며, 새 Workspace에서는 대화를 따라 identity·goal·Owner가 형성된 뒤 지속 Context를 관리한다.
+- 같은 task·Workspace·worktree에서는 Maintainer의 이해를 유지한다. 새 작업 세션에서는 새 Maintainer가 외부 canonical에서 다시 이해하며, Main compaction만으로 살아 있는 Maintainer를 reset하지 않는다.
+- 매 Main 응답 종료마다 활동하되 초기 grounding 이후에는 Main을 기다리게 하지 않는다. Event·delta는 이 동작을 연결하는 구현 입력이지 별도 사용자-facing 역할이나 durable Context가 아니다.
+- Durable 변화 없음은 no-write·무보고다. 사소한 명확 반영은 조용히 처리하고, 중요한 명확 반영은 수정 후 짧게 보고하며, ambiguity는 write 전에 즉시 질문한다.
+- Transient 실패는 먼저 자동 복구한다. 복구 뒤에도 freshness를 다시 세우지 못할 때만 짧게 경고하고 false success를 만들지 않는다.
+- Root `.codex/hooks.json`과 `.codex/context_maintainer/`에는 Workspace 005 고정 Observe가 있다. Git에서 제외된 runtime에 event·queue·cursor를 관리할 뿐 LLM 판단이나 Context write를 하지 않는다.
+- Internal unit test 28개와 compile·JSON·diff 검사는 통과했지만 Git fingerprint 실패 오표시, queue·ledger crash 무결성, 잘못된 `next_sequence`의 status crash, 대화-only event의 전체 repository Git scan을 검출하지 못했다.
+- Live smoke에서는 async Stop이 취소돼 sequence 1이 `waiting_stop`이고 cursor 파일이 없다. Repo-global FIFO라 다른 session까지 막을 수 있으며, end-to-end pairing과 운영 acceptance는 실패 상태다.
+- Root `.DS_Store`는 별도 untracked 파일이므로 구현 산출물로 포함하거나 되돌리지 않는다.
+- `apply-context-harness` skill, Verify 구현·schema와 memory 구조도 이번 slice에서 수정하지 않았다.
 
-## 현재 설계 커서
+## 확정된 구현 순서
 
-다음 단계는 확정된 의미 계약을 바꾸는 토론이 아니라 구현 전 기술 결정과 protocol prototype 설계다.
+1. Reference Harness·Maintain의 사람용 진입 문서와 계약을 세션형 Maintainer 의미로 수정한다.
+2. Reference Maintain 안에서 session lifetime, background 비차단, 보고와 restart 복구 가능성을 time-boxed spike로 확인한다.
+3. 근거를 보고 trigger, agent continuity, checkpoint, retry와 reporting adapter의 최소 구조를 결정한다.
+4. Initial sync, warm continuity, no-change, 좁은 `current/state` write, 중요 반영 보고, ambiguity 질문과 자동 복구를 첫 vertical slice로 구현한다.
+5. Root를 Reference thin adapter로 전환해 실제 여러 turn·Main compaction·Maintainer restart·failure를 dogfood한다.
+6. Memory와 index, 집계 records, 확정 output routing 순서로 write 범위를 확장한다.
+7. 축소 Verify와 기존 Verify·Recover 호환을 구현·검증한다. Recover 역할은 실제 결함 없이 확대하지 않는다.
+8. `apply-context-harness` 갱신, root 중복 runtime 정리, 전체 validation과 fresh-task acceptance를 수행한다.
 
-1. 사용자 대상 Main 응답 확정을 어떤 hook 또는 runtime signal이 event로 만들지 정한다.
-2. Event envelope와 processing cursor의 최소 schema·저장 위치를 정한다.
-3. 같은 Maintainer의 직렬 queue, duplicate·gap·out-of-order·failure replay와 locking 방식을 정한다.
-4. Rebootstrap 조건을 runtime이 어떻게 감지하고 외부 canonical을 다시 읽을지 정한다.
-5. No-change, updated, needs-decision, failed 흐름을 파일 write 없이 먼저 검증할 최소 prototype을 설계한다.
+## 구현 후보와 미결정점
 
-Verify evidence helper는 갱신 workflow가 지속할 검증 증거를 발견했을 때 선택적으로 호출하는 하위 기록 장치다. 매 event의 필수 단계나 별도 제품 검증 gate가 아니다.
-
-## 바로 이어서 확인할 질문
-
-먼저 현재 Codex 환경에서 사용자 대상 Main 응답 확정을 관찰할 수 있는 hook·event producer와, context 밖 runtime checkpoint를 둘 수 있는 실제 위치를 조사한다. 그 근거로 event·cursor 최소 schema와 no-write prototype 범위를 제안하되 아직 runtime을 구현하지 않는다.
-
-## 이후 미결정점
-
-- Response-end를 발행할 실제 hook·runtime integration point
-- Event delivery와 processing cursor의 구체 저장 위치·schema
-- 같은 Maintainer를 재사용하는 queue·locking·restart 방식
-- Maintainer compaction, cursor gap과 Owner·routing 변경의 감지 방법
+- Reference canonical의 exact 파일 배치와 root adapter가 공유할 코드 경계
+- Session 시작·response-end를 관찰할 실제 hook과 보고 integration point
+- 같은 Maintainer 이해를 이어 쓸 정확한 Codex adapter 방식
+- Queue, locking, storage, transaction과 processing cursor의 구체 schema
+- 현재 root dogfood state와 uncommitted 변경을 재배치할 migration 순서
+- Session별 queue/cursor 격리와 cross-session gap 차단
+- Maintainer compaction, cursor gap과 Owner·routing 변경의 rebootstrap 방식
 - 향후 `memory/` 폴더와 index routing의 Owner 분리·선택 read 규칙
 - Main과 maintainer가 동시에 쓸 때 target revision 표현과 stale-write 방어
-- Ambiguity·실패 보고 채널과 replay 이후 중복 보고 방지
+- 중요 반영·ambiguity·복구 실패를 보여 줄 정확한 채널과 중복 보고 방지
 - 축소 Verify evidence의 선택 조건, 보존 형식과 retention
 - Descendant timeout timing flake의 synchronization 수정
-- 개선 효과를 판단할 latency, stale-context 발견, handoff 성공 지표
+- Baseline 측정 뒤 정할 latency, stale-context 발견과 handoff 성공 지표
 
 ## 다음 행동
 
-Codex의 실제 hook·subagent 수명·background 실행 가능 지점을 읽기 전용으로 확인한 뒤, event envelope와 processing cursor의 최소 기술안 및 prototype 범위를 제시한다. Runtime, cursor file, queue와 memory folder migration은 아직 만들지 않는다.
+이번 문서 갱신과 현재 Workspace 005 변경을 검증·commit한 뒤, `reference-project/context/work/harness/maintain/` 계약과 관련 Harness 진입 문서를 수정한다. Root Observe 결함부터 국소 수정하거나 기술 후보를 계약으로 먼저 고정하지 않는다.
