@@ -1,69 +1,78 @@
 # Context continuity maintenance memory
 
-마지막 갱신: `2026-08-17`
+마지막 갱신: `2026-08-18`
 
 ## 목표
 
-Main과 사용자의 작업 흐름은 빠르게 유지하면서, 다음 세션이 낡은 `current`나 무관한 records 때문에 잘못 출발하지 않도록 지속 context의 freshness와 handoff 품질을 관리한다. 매 AI 응답 종료에 그 응답의 delta를 점검하되, durable 변화가 있을 때만 좁게 갱신하는 운영 모델을 만든다.
+Main과 사용자의 작업 흐름은 빠르게 유지하면서, 다음 세션이 낡은 `current`나 무관한 records 때문에 잘못 출발하지 않도록 지속 context의 freshness와 handoff 품질을 관리한다. 세션형 Maintainer가 작업을 함께 이해하고 같은 task·Workspace·worktree 동안 그 이해를 유지하며, 매 사용자 대상 Main 응답 종료에는 직전 처리 이후의 delta만 점검해 durable 변화가 있을 때만 좁게 갱신한다.
+
+속도는 hook 실행 시간만 짧다는 뜻이 아니다. 첫 grounding 뒤에는 Main이 Maintain 완료를 기다리지 않고, Maintainer도 매번 전체 history·records·repository를 다시 읽지 않도록 이미 얻은 이해를 재사용해야 한다.
 
 ## 사용자 우선순위
 
-- 현재 시스템의 가장 큰 우려는 **C와 E**다. 사용자의 설명에서 C는 `current/records` 자체가 깨지면 나머지 Recover·handoff도 함께 무너지는 기반 신뢰 문제이고, E는 다른 세션이 들어와 작업을 이어 갈 수 있어야 한다는 continuity 문제다.
-- 평소 작업에서는 **A, B, C, E**가 모두 부담이다. A에 해당하는 재조사는 허용할 수 있지만 짧고 bounded해야 한다. B에 해당하는 완전한 상시 유지가 현실적으로 어렵다는 점은 인정하며, 중간의 의미 있는 변화와 대화·작업 종료 경계에서 적절히 갱신하는 방식은 받아들일 수 있다.
-- Recover는 E를 일부 해결하지만 C를 대신하지 않는다. Recover는 선택된 `current`를 충실히 읽을 뿐, 그 내용이 stale하면 stale handoff를 더 정확히 재현한다. 따라서 `Maintain → trustworthy current → Recover → 다음 세션` 순서에서 C가 E의 선행 조건이다.
-- 사용자는 Verify에 test가 계속 쌓이거나 Main이 이미 수행한 검증을 다시 맡아 관심사가 커지는 것을 우려한다. Verify는 제품 검증을 소유하지 않고, 이미 일어난 test·eval·수동 확인 중 나중에 다시 볼 가치가 있는 최소 증거만 보존한다.
+- 가장 큰 우려는 **C와 E**다. C는 `current/records`가 깨지면 Recover와 handoff도 함께 무너지는 기반 신뢰 문제이고, E는 다른 세션이 들어와 작업을 이어 갈 수 있어야 한다는 continuity 문제다.
+- Recover는 E를 일부 돕지만 C를 대신하지 않는다. Recover는 선택된 current를 충실히 읽으므로, `Maintain → trustworthy current → Recover → 다음 세션`에서 freshness가 먼저다.
+- 재조사는 허용할 수 있지만 짧고 bounded해야 한다. 같은 세션에서 이미 이해한 내용을 매 응답마다 다시 학습하는 것은 빠른 운영이 아니다.
+- Verify에 test가 계속 쌓이거나 Main이 이미 수행한 검증을 다시 맡아 관심사가 커지면 안 된다. Verify는 나중에 다시 볼 가치가 있는 이미 수행된 확인만 보존한다.
 
-## 유지할 역할 경계
+## 역할과 소유권 경계
 
-- **Main/work**가 실제 변경과 반복 개발 판단을 수행하고 평소에는 제품의 direct test를 실행한다.
-- **Recover**는 명시 Workspace의 필요한 current·output·Project context와 연결된 검증 근거를 read-only로 복구한다. 문서 의미를 고치지 않는다.
-- **Verify**는 Main·제품 test·CI·eval·사람이 이미 수행한 확인의 최소 증거를 나중에 헷갈리지 않도록 보존하는 선택적 기록 보조다. test·eval 설계와 선택, 코드나 test 작성, 명령 재실행, coverage·충분성 판단, acceptance를 소유하지 않는다.
-- **Maintain**은 매 AI 응답 종료에 활성화되어 그 응답에서 생긴 delta와 관련 Context Owner를 점검한다. 실제 작업·Git·test 결과와 대조해 durable 변화가 있을 때만 `current`, 필요한 record와 output routing을 의미적으로 갱신하며, 변화가 없으면 쓰지 않고 종료한다.
-- **Harness validation**은 Recover와 증거 기록 helper 같은 Harness runtime의 schema·path 방어가 작동하는지 검사한다. 일상 제품 작업의 추가 제품 검증 단계가 아니다.
-- 사람 acceptance와 제품 Owner 판단은 위 역할들이 대신하지 않는다.
+- **Main/work**는 실제 변경, 제품 판단과 direct test·eval·수동 확인을 수행한다.
+- **Recover**는 명시 Workspace의 선택된 current·output·Project context와 legacy 검증 연결을 read-only로 복구한다. Context 의미나 freshness를 고치지 않는다.
+- **Maintain**은 Main 작업 세션 동안 선택한 Workspace를 이해하고 response-end마다 durable 의미 변화만 기존 Context Owner에 반영한다. Workspace 선택, 제품 canonical, acceptance와 commit을 대신 결정하지 않는다.
+- **Verify**는 다른 주체가 이미 수행한 확인의 결과·재접근 위치·미검증 범위를 append-only evidence로 기록한다. 제품 명령 실행, 충분성 판단, machine status 전이와 acceptance를 소유하지 않는다.
+- **Harness validation**은 위 runtime의 schema·path·호환·crash 방어를 검사한다. 일상 제품 작업의 별도 검증 단계가 아니다.
+- 재사용 가능한 계약·runtime·semantic runner·writer·test는 `reference-project/`가 소유한다. Root는 Workspace 005 선택과 hook·agent 발견에 필요한 얇은 연결 설정만 소유한다.
 
-## 선택된 Maintain 운영 기준
+Global `ai-system_*` reference는 이 소유권 응집, 사람용 진입, 독립 판단과 제거 가능성을 감사하는 렌즈다. 이번 Workspace의 목표나 별도 산출물이 아니며 global 파일을 수정하지 않는다.
 
-- 점검은 매 AI 응답 종료마다 실행한다. 매번 문서를 쓰거나 record를 만드는 규칙은 아니다. 이번 응답에 durable 변화가 없으면 아무것도 수정하지 않고 종료한다.
-- 명확한 변화는 background maintainer가 다음 allowlist 안에서 자동 반영한다.
-  - 지금의 문제·상태·다음 행동은 `current/state`
-  - 작업 뒤에도 유지될 명시적 장기 기준은 memory
-  - 판단 과정·근거를 다시 볼 필요가 있는 중요한 사건은 필요한 경우 하나로 집계한 record
-  - 이미 선택이 확정된 산출물의 경로·상태는 `output/index`
-- 애매한 후보는 쌓아두거나 추측해 쓰지 않고 즉시 짧게 보고하며, 해당 반영만 보류한다. 관련 없는 main 작업은 계속하고, 애매함이 현재 작업 방향을 바꿀 위험이 있을 때만 main도 멈춘다.
-- Memory가 늘어나는 것 자체는 문제로 보지 않는다. 새로운 장기 기준은 추가할 수 있고, 기존 기준이 바뀌면 중복 append보다 현재 기준으로 교체·정합화한다. 판단 근거를 다시 볼 필요가 있으면 memory에서 record를 연결할 수 있지만 모든 memory에 record를 의무화하지 않는다.
-- 향후 `memory/` 폴더와 index routing으로 책임별 문서를 연결하고, 재진입 때 필요한 memory만 선택해 읽는 방향을 채택했다. 현재 `current/memory.md`를 이 구조로 migration하거나 runtime을 구현한 것은 아니다.
-- 실제 갱신 구현에는 `delta 분류 → Owner 선택 → 동시 수정·stale overwrite 확인 → write → 링크·상태 확인 → 보고` 순서를 포함한다.
-- Write 여부는 durability로 판단한다. Durable 변화가 없으면 no-write·무보고, 명확한 durable 변화는 허용 Owner에 반영한다. 사소한 명확 반영은 조용히 처리하고 중요한 명확 반영만 수정 후 짧게 보고한다.
-- Semantic ambiguity는 runtime 실패처럼 retry하지 않는다. 추측해 쓰기 전에 즉시 질문하고 해당 반영만 보류한다.
-- Recover는 현재 별도 문제나 변경 요구가 없다.
+## 세션 시작과 지속 이해
 
-## 선택된 Maintain retrieval·runtime 기준
+- Main 작업 세션마다 세션 전용 Maintainer 하나가 생긴다.
+- 기존 Workspace의 새 세션은 첫 작업 전에 Workspace README와 current index가 선택한 필요한 current만 bounded grounding한다. 과거 이유가 실제로 필요할 때만 관련 record나 Project canonical을 추가로 읽는다.
+- 초기 grounding 뒤에는 목표·현재 상태·다음 행동을 한 번 짧게 보여 Main과 사용자가 시작점을 맞춘다.
+- 새 Workspace는 미리 읽을 내용이 없다. Maintainer는 세션 대화를 따라가지만, identity·goal·Owner와 사람용 entrypoint가 형성되기 전에는 지속 write를 하지 않는다.
+- 같은 conversation task·Workspace·worktree에서는 같은 warm Maintainer thread가 이해를 유지한다. Main compaction만으로 초기화하거나 전체 문서를 다시 읽지 않는다.
+- 새 Main 작업 세션에서는 새 Maintainer가 외부 canonical과 실제 상태에서 다시 grounding한다. 이전 agent의 내부 기억을 세션 사이 durable truth로 사용하지 않는다.
 
-- 평소 bootstrap은 Workspace README와 `current/index`가 current canonical과 읽을 조건을 routing하는 데서 시작한다. Records 본문은 index를 읽은 뒤 과거 이유·상세 근거가 실제로 필요할 때만 선택한다.
-- 판단·결정·제약의 외부 canonical은 Workspace README와 current의 index·memory·state 및 필요한 routing이다. 구현·실행 사실의 canonical은 실제 파일, Git과 test 결과다. Maintainer의 내부 기억은 이 외부 근거를 대신하지 않는다.
-- Delta는 마지막 처리 cursor 이후의 정확한 새 사용자·Main 발화, 관련 changed path와 tool·Git·test 접근점을 담는 일시적 전달 입력이다. Delta 자체를 새 durable 문서나 context 저장층으로 관리하지 않는다.
-- Maintainer는 현재 conversation task, 활성 Workspace와 current worktree가 같은 동안 한 주체를 살려 재사용한다. 응답 사이에는 대기하고, 같은 Maintainer의 response-end event는 순서대로 직렬 처리한다.
-- 기존 Workspace의 새 세션에서는 첫 작업 전에 `current/index` 중심의 bounded grounding으로 Maintainer가 이해를 갖추고, 목표·현재 상태·다음 행동을 한 번 짧게 보여 준다. 새 Workspace는 미리 읽지 않고 세션 대화에서 identity·goal·Owner가 형성된 뒤 지속 Context를 관리한다.
-- Maintainer는 세션의 대화와 작업을 자연스럽게 따라가며 이해하는 agent다. Delta와 response-end event는 이 동작을 실제 runtime에 연결하는 adapter 입력이지 Maintainer의 역할 정의나 별도 durable Context가 아니다.
-- 사용자 대상 Main 응답이 확정된 시점만 response-end event다. Maintainer나 다른 subagent의 내부 응답은 새 trigger가 아니다. Event는 main을 막지 않는 background 처리로 넘긴다.
-- Workspace·worktree 전환, 대화 종료나 handoff, Maintainer restart·자기 context compaction, processing cursor gap, Owner·routing 구조 변경 시 외부 canonical에서 rebootstrap하거나 수명 경계를 reset한다. Main context compaction만으로 Maintainer reset을 자동 요구하지 않는다.
-- Processing cursor는 context나 records가 아닌 runtime machine checkpoint다. No-change도 처리 완료로 전진하지만, 실패는 last completed response를 전진시키지 않아 replay할 수 있어야 한다.
-- Transient 실패는 먼저 retry·replay·rebootstrap하고, 자동 복구 뒤에도 external canonical과 실제 상태로 freshness를 세우지 못했을 때만 짧게 경고한다. 복구 중에는 false success를 만들지 않는다.
-- Git 대조는 전체 repository review가 아니다. 대화-only 응답이면 생략하고, 파일 작업이면 event가 알려준 관련 경로만 확인한다. Context write 직전에는 target 최신본과 revision을 다시 확인하며, branch·HEAD·worktree 전환이나 근거 모순이 있을 때만 범위를 넓힌다.
+## Response-end 판단·쓰기·보고
 
-## 선택된 Verify 운영 기준
+- 매 사용자 대상 Main 응답 종료를 활동 시점으로 삼는다. Maintainer나 다른 subagent의 내부 응답은 새 trigger가 아니다.
+- Hook이 user·assistant delta와 관련 변경 경로·test/Git 결과의 좁은 evidence를 durable capture한 뒤 detached worker가 semantic 판단과 write를 수행한다. 초기 grounding 뒤 Main은 그 완료를 기다리지 않는다.
+- Durable 변화가 없으면 아무것도 쓰지 않고 보고도 하지 않는다.
+- 명확한 durable 변화는 `current`, 필요한 날짜별 `records`, source provenance/index, `output/index` 중 올바른 기존 Owner 한 곳에 반영한다. 같은 사실을 여러 층에 반복하지 않는다.
+- 사소하고 명확한 반영은 조용히 처리한다. 사용자가 알아야 할 중요한 명확 반영은 먼저 수정하고 짧게 결과를 보고한다.
+- 의미·Owner·장기성·사용자 의도가 애매하면 추측해 쓰지 않고 질문한다. 해당 반영만 보류하며 관련 없는 Main 작업은 계속한다.
+- Background worker가 새 UI turn을 직접 만들 수 없으므로 중요한 결과와 질문은 다음 `UserPromptSubmit` safe point에서 bounded notice로 Main에 전달한다. `needs_decision`은 화면에 전달됐다는 이유로 해결되지 않고, 뒤 응답의 의미가 그 질문을 실제로 답하거나 대체할 때만 해소한다.
 
-- Maintain이 실제 확인 결과를 관찰해 `current/records` 반영 필요성과 의미를 판단한다. Verify는 이 판단을 대신하지 않으며, 지속 가치가 있고 구조화가 자연스러운 증거가 필요할 때만 Maintain이 부르는 하위 기록 장치다.
-- 최소 증거는 날짜·시각, producer 또는 출처, 무엇을 어떤 방법으로 확인했는지, 구체 결과, commit·CI·artifact·screenshot 같은 접근점, 남은 미확인 범위다.
-- 기계 결과가 자연스럽게 있으면 JSON evidence로 보존할 수 있다. 수동 확인과 정성 평가는 Markdown 또는 원자료 링크로 충분하며, 모든 실행을 JSON으로 만들지 않는다. File path나 hash도 이미 결과에 있거나 증거 식별에 꼭 필요할 때만 둔다.
-- Verify는 여러 test 파일을 일괄 snapshot·검사하거나 제품 명령을 다시 실행하지 않고, exit code만으로 `verification_passed`나 완료를 선언하지 않는다.
-- 현재 Reference Verify 구현은 여전히 fixed argv 실행, basis/evidence snapshot, append-only receipt와 machine status 갱신 계약이다. 선택한 축소 경계로 코드·schema를 바꾸거나 과거 receipt를 migration하지 않았으며, 기존 receipt는 historical evidence로 보존한다.
+## Freshness와 복구 기준
+
+- Response event와 processing checkpoint는 Workspace Context가 아닌 ignored runtime state다. No-change도 완료 cursor를 전진하지만, 실패는 완료로 가장하지 않고 같은 event를 replay할 수 있어야 한다.
+- Queue와 checkpoint는 session별로 격리하되, 새 세션의 grounding·write는 그보다 먼저 시작한 세션의 freshness와 보고를 확인한다. 더 나중에 생긴 세션 때문에 과거 세션이 역으로 막히면 안 된다.
+- 한 worker는 한 response event만 처리하고, 남은 durable work에는 successor wake를 남긴다. Capture와 worker 종료가 겹쳐도 새 queue generation을 놓치지 않아야 한다.
+- 일시적 실패와 Maintainer restart는 retry·replay·canonical rebootstrap으로 먼저 조용히 복구한다. ordinary background lag나 살아 있는 lease만으로 경고하지 않는다.
+- Processor 반복 실패, content conflict, malformed checkpoint·session state, 확정된 sequence gap처럼 자동 복구 뒤에도 freshness를 세울 수 없을 때만 짧게 경고한다.
+- 누락 Stop이 실제 higher sequence로 확정된 gap은 자동으로 건너뛰지 않는다. 사용자 승인, 정확한 session·expected sequence와 bounded provenance를 받은 명시적 repair만 cursor를 전진시킨다.
+- Semantic ambiguity는 runtime 실패가 아니므로 retry로 미루지 않는다.
+
+## Guarded write 기준
+
+- Agent decision은 곧바로 파일 권한이 아니다. Event identity와 baseline hash를 가진 durable intent를 먼저 남기고 deterministic writer가 Workspace-relative allowlist, symlink·Markdown link, latest baseline을 검사한다.
+- 모든 Main session은 Workspace 하나의 writer lock·journal·completion marker를 공유한다. 서로 다른 session이 같은 Context를 stale baseline으로 덮어쓰면 안 된다.
+- Multi-file write는 stage·journal·replace와 directory sync를 거친다. Crash 뒤에는 exact transaction marker와 journal로 이미 적용된 판단을 재실행 없이 reconcile하거나 안전하게 재시도한다.
+- Write 뒤 checkpoint 전 crash, checkpoint 뒤 intent·marker cleanup 전 crash 모두 같은 event를 중복 의미 판단하거나 다른 session의 write를 잃지 않게 해야 한다.
+- Target이 판단 중 바뀌어 baseline이 stale하면 옛 intent를 영구 replay하지 않는다. Warm state를 invalidation하고 최신 canonical에서 다시 grounding·판단한다.
+
+## Verify와 Recover 호환 기준
+
+- Verify evidence는 관찰 시각, producer, subject, 실제 method, `pass|fail|partial` outcome, 구체 결과, source reference와 미검증 범위를 입력받는다.
+- 세 outcome은 모두 기록 성공 시 CLI exit `0`일 수 있다. 이는 evidence가 append-only receipt로 보존됐다는 뜻이지 제품 성공이나 완료가 아니다.
+- 새 recorder는 `records/receipts/verify/evidence-*.json`만 추가하며 제품 명령, `verify.json`, legacy `verify-*.json`, `current/state/status.json`, `recover.json`을 읽거나 바꾸지 않는다.
+- 과거 Verify receipt와 status는 migration하지 않고 Recover의 읽기 호환을 보존한다. 새 evidence는 legacy 제품 검증 cursor로 자동 승격하지 않는다.
+- `apply-context-harness`는 target canonical과 사용자 변경을 먼저 고정하고, Reference의 Maintain 실행 연결과 축소 Verify를 이식하되 실제 fresh hook·warm session을 실행하지 않았다면 증명했다고 쓰지 않는다.
 
 ## 증명 상한
 
-Workspace 005 전용 response-end Observe event·queue·cursor는 root dogfood로 구현했고 저장소 내부 protocol test는 통과했다. 그러나 실제 Codex smoke에서 `async Stop`이 session 종료와 함께 취소되어 response pairing이 완성되지 않았다. 이 root-only 배치는 global `ai-system_*` shared reference를 계획 중심에 두지 말라는 사용자 정정을 Reference Project 실행 원형까지 제외하라는 뜻으로 오해해 생겼으며, 최종 architecture로 acceptance되지 않았다.
+Reference 코드와 root 연결 설정은 구현됐고, 이전 root Observe runtime은 active 경로에서 제거됐다. Fake semantic process와 임시 filesystem을 사용한 단위·통합 검사는 session pairing·격리, grounding·warm resume, forming no-write, guarded multi-owner write, crash replay, ambiguity·report 전달, legacy Recover/Verify 호환을 폭넓게 다룬다.
 
-재사용 가능한 실행 원형은 `reference-project/`가 소유하고 root는 이 저장소의 thin dogfood adapter가 되는 계획을 확정했다. Reference 계약 수정부터 session runtime spike, 첫 vertical slice, memory·records·output write, 축소 Verify, Recover 호환과 `apply-context-harness`까지 순차 구현한다. Hook·queue·storage·CLI·schema·고정 latency 수치는 spike 전까지 기술 후보로 둔다. 상세 동작과 순서는 [세션형 Maintainer 동작·구현 계획 record](../records/2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md)가 소유한다.
-
-Background semantic maintainer, Context 자동 write, memory index routing, session 격리·복구와 축소 Verify helper는 아직 구현·acceptance하지 않았다. 기록된 유지 시간은 이번 대화의 task telemetry와 기존 records에 기반하며 일반 실행 시간 보장을 뜻하지 않는다.
+Cross-session recovery wake, response replay conflict 차단, checkpoint가 이미 포함한 raw residue cleanup과 incomplete capture residue의 비차단·선별 경고를 포함한 Maintain test `165/165`, Reference 전체 test `223/223`, 이식 skill helper test `7/7`이 통과했다. Python compile, JSON·TOML parse, 두 hook 설정의 8개 shell command 문법·동기 실행 조건과 root·Reference status 진입도 확인했다. 실제 nested `codex exec`가 Workspace를 읽고 같은 thread를 resume하는 동작, fresh Codex host의 hook trust·session 시작, 실제 background process와 UI notice 전달, semantic 문서 품질은 live acceptance 전까지 미검증이다. 전달 evidence가 없는 외부 branch·worktree 전환을 자동 감지하는 별도 fingerprint도 이번 구현에 넣지 않았다. 정적 설정과 fake-process test를 이 범위의 증거로 승격하지 않는다.

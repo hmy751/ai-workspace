@@ -1,6 +1,6 @@
 # Records
 
-이 폴더에는 context continuity와 background maintenance 운영을 구체화하며 만든 지속 가능한 진단, 사용자 판단, 외부 자료 대조, 후보와 결정 근거를 누적한다.
+이 폴더에는 context continuity와 background maintenance 운영을 구체화하며 만든 지속 가능한 진단, 사용자 판단, 외부 자료 대조, 후보·결정 근거와 구현 proof를 누적한다.
 
 - 파일명은 `YYYY-MM-DD-NN-주제.md` 형식을 사용한다.
 - 긴 대화는 trigger·확인된 사실·사용자 판단·미결정을 구분해 남긴다.
@@ -19,3 +19,4 @@
 - [`2026-08-17-06-response-end-observe-runtime-and-live-smoke.md`](2026-08-17-06-response-end-observe-runtime-and-live-smoke.md): Workspace 005 Observe protocol 구현, 28개 내부 test와 실제 async Stop 취소, end-to-end proof ceiling 및 다음 결정
 - [`2026-08-17-07-reference-ownership-correction-and-handoff.md`](2026-08-17-07-reference-ownership-correction-and-handoff.md): global `ai-system` reference에 대한 사용자 정정, root-only 배치 오해, 미커밋 구현과 Reference ownership 재계획 커서
 - [`2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md`](2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md): 세션형 Maintainer의 초기 sync·지속 이해·background 활동·판단·보고·복구와 Reference 전체 구현 계획
+- [`2026-08-18-09-reference-maintain-runtime-implementation-and-proof.md`](2026-08-18-09-reference-maintain-runtime-implementation-and-proof.md): Reference-first Maintain·축소 Verify 구현, root 연결 설정, recovery invariant, 현재 검증과 live acceptance proof ceiling

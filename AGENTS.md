@@ -17,7 +17,7 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 사용자가 대상 Project 경로와 함께 `reference-project/`의 context+harness 이식·적용, 실제 Project common context, Workspace current/source/output/records와 recover·verify 설치를 요청하면 [`.agents/skills/apply-context-harness/SKILL.md`](.agents/skills/apply-context-harness/SKILL.md)를 사용한다.
 
-이 skill은 `reference-project/`를 범용 템플릿처럼 복사하지 않는다. 대상의 기존 canonical과 사용자 변경을 먼저 고정하고, `context/project/`에는 target 원자료가 지지하는 실제 Project common context를 구성한 뒤 Workspace·Harness와 `recover → verify → recover`를 durable receipt로 검증한다. 기존 문서를 복제하거나 링크만 모은 Project context는 완료로 보지 않는다. 브라우저·외부 시스템·사람 acceptance, target commit은 별도 승인 없이 완료 처리하지 않는다.
+이 skill은 `reference-project/`를 범용 템플릿처럼 복사하지 않는다. 대상의 기존 canonical과 사용자 변경을 먼저 고정하고, `context/project/`에는 target 원자료가 지지하는 실제 Project common context를 구성한다. 이식 뒤에는 `recover → 실제 Owner의 direct test·eval·수동 확인 → 필요할 때만 Verify evidence 기록 → 다음 recover`를 구분해 검증한다. 기존 문서를 복제하거나 링크만 모은 Project context는 완료로 보지 않는다. 브라우저·외부 시스템·사람 acceptance, target commit은 별도 승인 없이 완료 처리하지 않는다.
 
 ## Re-entry
 
@@ -27,7 +27,7 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 ## Context maintenance routing
 
-다음 중 하나가 생긴 작업은 자연스러운 종료 경계에서 `context_maintainer` subagent에게 대상 Workspace를 명시해 context 정합성 점검을 한 번 맡긴다.
+Workspace 005로 작업할 때 root [`.codex/hooks.json`](.codex/hooks.json)은 Reference Maintain runtime을 통해 다음 변화를 response-end마다 점검한다. 대상 Workspace와 runtime 위치는 [`.codex/context-maintain.json`](.codex/context-maintain.json)이 선택하며, root에 의미 판단 코드나 prompt를 복제하지 않는다.
 
 - 계속 보존할 작업 문서·분석·중간 산출물·검증 기록이 생김
 - 해당 Workspace의 목표·기준·제약, source 선택 또는 output 경계가 바뀜
@@ -37,11 +37,13 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 일회성 탐색이나 임시 명령 출력을 매번 records로 만들지는 않는다. 다만 후속 작업에서 다시 사용할 분석이나 결과라면 상태 변화가 없어도 대상 Workspace의 records에 보존한다. 반복 개발 확인은 직접 test 명령을 우선하고, durable machine receipt는 상태 전환이나 인계에 필요한 검증에 사용한다.
 
-`context_maintainer`는 지정한 Workspace만 갱신한다. 다른 Workspace의 current·records를 합치거나 active를 임의로 바꾸지 않는다. 사용자가 Workspace 전환을 결정한 경우에만 `context/workspaces/README.md`의 active 표기를 바꾼다.
+Maintain은 설정에 명시된 Workspace 005만 갱신한다. 다른 Workspace의 current·records를 합치거나 active를 임의로 바꾸지 않는다. 사용자가 Workspace 전환을 결정한 경우에만 `context/workspaces/README.md`의 active 표기와 dogfood 설정을 별도로 바꾼다.
 
-`context_maintainer`가 수정한 diff와 근거는 main이 검토한다. 사용자 목표·승인 결정·새로운 설계 기준을 subagent가 대신 확정하게 하지 않는다. agent를 호출할 수 없는 환경이면 main이 같은 점검을 수행하고 그 사실을 보고한다.
+Maintain이 수정한 diff와 근거는 main이 실제 파일·Git·test 결과와 대조한다. 사용자 목표·승인 결정·새로운 설계 기준을 Maintainer가 대신 확정하게 하지 않는다. Hook이 신뢰 승인되지 않았거나 실행되지 않은 세션에서는 [`.codex/config.toml`](.codex/config.toml)이 등록한 `workspace_context_maintainer`를 수동 fallback으로 한 번 호출하거나 main이 같은 점검을 수행하고 그 사실을 보고한다. 정상 hook 세션에서는 동일 책임을 별도 subagent로 매 응답마다 중복 실행하지 않는다.
 
-Repo-local [`.codex/context_maintainer/`](.codex/context_maintainer/)는 Workspace 005의 response-end 전달 경로를 시험한 결함 포함 Observe runtime이다. LLM 판단이나 Context write를 하지 않으며 위 수동 maintenance routing을 아직 대체하지 않는다. 재사용 가능한 최종 구현의 Owner는 `reference-project/`이고 root는 향후 thin dogfood adapter만 소유한다. 현재 전달 상태와 gap은 `python3 .codex/context_maintainer/cli.py status`에서 확인하되, 알려진 proof ceiling과 다음 계획은 [Workspace 005 record 08](context/workspaces/005-context-continuity-maintenance/records/2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md)를 우선한다.
+`SessionStart`는 처음에만 bounded grounding을 동기로 끝내 Main과 시작 상태를 맞춘다. `UserPromptSubmit`, `PostToolUse`, `Stop`은 전달 자료만 동기로 안전하게 기록한다. `PostToolUse`는 변경 경로와 test 결과 같은 좁은 evidence만 보강하고 worker를 띄우지 않는다. 의미 판단·Context 반영은 response-end에 hook 프로세스가 띄운 detached worker가 수행해 Main을 기다리게 하지 않는다. 새 hook은 host의 최초 신뢰 승인 후 효력을 갖는다. 정적 검사와 별도로 session 시작, warm continuity, background 처리와 복구를 실제 host에서 확인해야 한다.
+
+이전 Observe runtime은 active 파일에서 제거했다. 당시 전달 실험·결함·proof ceiling은 [Workspace 005 records 06–08](context/workspaces/005-context-continuity-maintenance/records/)과 Git 이력에 남는다. 현재 runtime 상태는 `python3 reference-project/context/work/harness/maintain/hook.py --config .codex/context-maintain.json status`에서 확인한다.
 
 ## Source boundary
 

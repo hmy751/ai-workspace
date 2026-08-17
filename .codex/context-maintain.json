@@ -1,0 +1,8 @@
+{
+  "schema": "context-maintain.config.v1",
+  "workspace_id": "005-context-continuity-maintenance",
+  "work_root": "context",
+  "maintain_contract_path": "reference-project/context/work/harness/maintain/README.md",
+  "runtime_root": ".context-harness/runtime/context-maintain",
+  "sandbox": "read-only"
+}

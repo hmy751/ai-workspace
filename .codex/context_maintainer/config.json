@@ -1,9 +1,0 @@
-{
-  "protocol_version": 1,
-  "mode": "observe",
-  "workspace": {
-    "id": "005-context-continuity-maintenance",
-    "path": "context/workspaces/005-context-continuity-maintenance"
-  },
-  "runtime_path": ".context-harness/runtime/context-maintainer/v1"
-}

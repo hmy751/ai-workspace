@@ -6,9 +6,9 @@
 
 1. [`current/memory/index.md`](current/memory/index.md)에서 작업이 진행되는 동안 계속 유효한 맥락을 찾는다.
 2. [`current/state/index.md`](current/state/index.md)에서 지금 확인할 문제와 상태의 의미를 읽는다.
-3. [`current/state/status.json`](current/state/status.json)에서 최근 검증의 기계 결과와 receipt cursor를 확인한다. 다음 행동은 바로 앞의 사람용 state에서 읽는다.
+3. [`current/state/status.json`](current/state/status.json)에서 과거 제품 검증 실행기가 남긴 최근 기계 결과와 receipt cursor를 확인한다. 새 evidence 기록은 이 status를 바꾸지 않는다. 다음 행동은 바로 앞의 사람용 state에서 읽는다.
 4. [`output/index.md`](output/index.md)에서 이 goal을 위해 선택된 현재 산출물과 canonical 위치를 찾는다.
-5. 상세 분석 과정이나 실행 결과가 필요할 때만 [`records/README.md`](records/README.md)의 날짜별 기록 또는 status가 가리키는 기계 receipt를 연다.
+5. 상세 분석 과정이나 실행 결과가 필요할 때만 [`records/README.md`](records/README.md)의 날짜별 기록, 과거 status가 가리키는 제품 receipt, 새 `evidence-*` 기록을 선택해 연다.
 6. 원문이나 snapshot을 다시 대조해야 할 때만 [`source/index.md`](source/index.md)에서 이 Workspace가 보존한 source와 provenance를 찾는다.
 
 다음 명령은 위 파일과 이번 작업에 선택된 Project 문서를 읽기 좋은 순서로 보여 준다. 이 Workspace 디렉터리가 아니라 [Project root](../../../..)에서 실행한다.
@@ -21,7 +21,8 @@ Machine 계약은 책임별로 분리되어 있다.
 
 - [`workspace.json`](workspace.json): Workspace 정체성
 - [`recover.json`](recover.json): Project root를 기준으로 이번 작업에 선택한 `context/project/` 문서
-- [`verify.json`](verify.json): 확인할 claim, Project canonical basis, 고정 검증 명령, evidence와 실행 제한
+
+이 sample에 남은 `verify.json`, `verify-*.json` receipt와 verification status는 과거 제품 검증 실행기의 호환·역사 artifact다. 현재 Verify는 이미 수행된 test·eval·수동 확인을 `evidence-*.json`으로 기록할 뿐 이 계약을 읽거나 status를 갱신하지 않는다.
 
 사람이 읽는 현재 문서와 machine 계약은 분리되어 있다. 각 책임의 동작과 경계는 [`Harness README`](../../harness/README.md), [`Recover`](../../harness/recover/README.md), [`Maintain`](../../harness/maintain/README.md), [`Verify`](../../harness/verify/README.md)에서 시작한다.
 
@@ -30,6 +31,6 @@ Machine 계약은 책임별로 분리되어 있다.
 - [`current/`](current/): 지금도 유효하여 다음 행동에 필요한 목표, 제약, Project 선택 경계와 최근 상태
 - [`source/`](source/): 이 Workspace가 선택한 원문, 변경하지 않은 snapshot, provenance만 보존하는 층. 현재 판단, 분석, 결정, 실행·검증 기록은 두지 않는다.
 - [`output/`](output/): goal을 위해 선택된 현재 제품 구현의 canonical 위치를 보여 주는 산출물 지도. Project root의 실제 파일은 복제하지 않는다.
-- [`records/`](records/README.md): source와 실제 작업을 바탕으로 만든 분석, 결정, 실행·검증 기록. 분석 메모·후보·비교·탈락안·선택 근거는 바로 아래 날짜별 Markdown에, 기계 증거는 [`receipts/`](records/receipts/README.md) 아래 종류별로 남긴다.
+- [`records/`](records/README.md): source와 실제 작업을 바탕으로 만든 분석, 결정, 실행·검증 기록. 분석 메모·후보·비교·탈락안·선택 근거는 바로 아래 날짜별 Markdown에, 이미 수행된 test·eval·수동 확인의 기계 증거는 [`receipts/`](records/receipts/README.md) 아래 종류별로 남긴다.
 
 이 sample Workspace는 자신의 `source/` 선택·snapshot·provenance와 분리 유지 책임을 가진다. 원자료의 저자와 정본 권위는 원래 출처에 남으며 Reference 상위 구조나 Harness가 이를 넘겨받지 않는다. `recover`는 source를 기본 입력으로 읽지 않고 `output/index.md`만 산출물 지도로 읽으며 연결된 제품 파일 본문은 자동으로 읽지 않는다.

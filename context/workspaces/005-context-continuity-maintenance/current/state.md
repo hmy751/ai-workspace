@@ -1,52 +1,44 @@
 # Context continuity maintenance state
 
-마지막 갱신: `2026-08-17`
+마지막 갱신: `2026-08-18`
 
-## 현재 문제
+## 현재 상태
 
-Root Observe를 최종 구조로 확대하지 않고, Workspace 005에서 확정한 세션형 Maintainer 운영 전체를 `reference-project/`에 재사용 가능한 구현으로 완성해야 한다. 사용자의 동작 의미와 단계형 구현 계획은 다시 맞췄다. 현재 커서는 이전의 ownership 재계획이 아니라 Reference Harness·Maintain 계약을 먼저 수정한 뒤 Reference 안에서 실행 가능성을 확인하는 단계다.
+Workspace 005에서 확정한 세션형 Maintain·축소 Verify 운영은 Reference-first 구조로 구현·재검증됐고 이번 변경 묶음으로 보존됐다. Cross-session에서 이전 worker가 시작되지 않거나 죽어도 가장 이른 queue를 복구하고 다음 session을 다시 깨우며, replay conflict와 checkpoint 뒤 raw cleanup도 false success 없이 복구한다. 현재 승인 범위에 남은 필수 구현은 없다.
 
-## 확정된 사실
+## 구현된 현재 구조
 
-- 재사용 가능한 Maintain·Verify 구현 전체는 `reference-project/`가 소유하고 root는 Workspace 005 thin dogfood adapter만 소유한다.
-- Maintainer는 task 세션마다 생기는 agent다. 기존 Workspace에서는 첫 작업 전에 `current/index` 중심으로 bounded grounding하고 짧은 시작 상태를 보여 주며, 새 Workspace에서는 대화를 따라 identity·goal·Owner가 형성된 뒤 지속 Context를 관리한다.
-- 같은 task·Workspace·worktree에서는 Maintainer의 이해를 유지한다. 새 작업 세션에서는 새 Maintainer가 외부 canonical에서 다시 이해하며, Main compaction만으로 살아 있는 Maintainer를 reset하지 않는다.
-- 매 Main 응답 종료마다 활동하되 초기 grounding 이후에는 Main을 기다리게 하지 않는다. Event·delta는 이 동작을 연결하는 구현 입력이지 별도 사용자-facing 역할이나 durable Context가 아니다.
-- Durable 변화 없음은 no-write·무보고다. 사소한 명확 반영은 조용히 처리하고, 중요한 명확 반영은 수정 후 짧게 보고하며, ambiguity는 write 전에 즉시 질문한다.
-- Transient 실패는 먼저 자동 복구한다. 복구 뒤에도 freshness를 다시 세우지 못할 때만 짧게 경고하고 false success를 만들지 않는다.
-- Root `.codex/hooks.json`과 `.codex/context_maintainer/`에는 Workspace 005 고정 Observe가 있다. Git에서 제외된 runtime에 event·queue·cursor를 관리할 뿐 LLM 판단이나 Context write를 하지 않는다.
-- Internal unit test 28개와 compile·JSON·diff 검사는 통과했지만 Git fingerprint 실패 오표시, queue·ledger crash 무결성, 잘못된 `next_sequence`의 status crash, 대화-only event의 전체 repository Git scan을 검출하지 못했다.
-- Live smoke에서는 async Stop이 취소돼 sequence 1이 `waiting_stop`이고 cursor 파일이 없다. Repo-global FIFO라 다른 session까지 막을 수 있으며, end-to-end pairing과 운영 acceptance는 실패 상태다.
-- Root `.DS_Store`는 별도 untracked 파일이므로 구현 산출물로 포함하거나 되돌리지 않는다.
-- `apply-context-harness` skill, Verify 구현·schema와 memory 구조도 이번 slice에서 수정하지 않았다.
+- `reference-project/context/work/harness/maintain/`이 세션형 Maintain의 사람용 계약, hook controller, session runtime, warm Codex runner, decision schema·intent와 guarded writer, 수동 fallback agent 및 test를 함께 소유한다.
+- Root `.codex/context-maintain.json`, `.codex/hooks.json`, `.codex/config.toml`과 agent config는 Workspace 005를 Reference runtime에 연결하는 얇은 설정이다. Root에 semantic prompt·writer·queue 코드를 복제하지 않는다.
+- 이전 `.codex/context_maintainer/` Observe 구현과 그 전용 agent는 active 경로에서 제거했다. 당시 실패와 결함은 records 06–08과 Git 이력에 남긴다.
+- 기존 Workspace의 `SessionStart`는 bounded initial grounding과 한 번의 짧은 시작 상태를 동기로 제공한다. 이후 `UserPromptSubmit`·`PostToolUse`·`Stop`은 bounded capture만 하고 response-end semantic 판단과 write는 detached worker가 수행한다.
+- 같은 task·Workspace·worktree에서는 local Codex thread id를 저장해 warm resume한다. 잘못된 state, runner failure나 stale target은 외부 canonical에서 rebootstrap·re-grounding한다.
+- Forming Workspace는 identity만 설정할 수 있지만 `README.md`, current와 output의 사람용 entrypoint가 생기기 전에는 semantic write를 금지한다.
+- Decision은 `no_change`, 조용한 반영, 보고할 반영, `needs_decision`을 구분한다. 중요 보고와 ambiguity는 다음 safe hook에서 bounded 전달하고, ambiguity는 전달과 의미적 resolution을 분리한다.
+- Session별 immutable response event와 checkpoint는 processing 순서를 보존한다. Workspace 수준 freshness·pending report 조회는 시간상 이전 session만 고려해 새 session handoff를 막거나 역방향 deadlock을 만들지 않게 한다.
+- Writer는 Workspace 전체에서 하나의 lock·journal·completion namespace를 공유한다. Baseline hash, allowlist와 path·symlink·Markdown link 방어 뒤 multi-file replace를 수행하고, exact transaction marker로 crash 뒤 중복 판단과 lost update를 막는다.
+- 누락 Stop gap은 자동 skip하지 않는다. 실제 higher sequence로 gap이 확정되고 사용자가 승인했을 때만 다음처럼 exact session·sequence·provenance로 repair한다.
 
-## 확정된 구현 순서
+```bash
+python3 reference-project/context/work/harness/maintain/hook.py \
+  --config .codex/context-maintain.json \
+  repair-gap \
+  --session-id <main-session-id> \
+  --expected-sequence <sequence> \
+  --approved-by <lowercase-provenance-code> \
+  --reason <lowercase-provenance-code>
+```
 
-1. Reference Harness·Maintain의 사람용 진입 문서와 계약을 세션형 Maintainer 의미로 수정한다.
-2. Reference Maintain 안에서 session lifetime, background 비차단, 보고와 restart 복구 가능성을 time-boxed spike로 확인한다.
-3. 근거를 보고 trigger, agent continuity, checkpoint, retry와 reporting adapter의 최소 구조를 결정한다.
-4. Initial sync, warm continuity, no-change, 좁은 `current/state` write, 중요 반영 보고, ambiguity 질문과 자동 복구를 첫 vertical slice로 구현한다.
-5. Root를 Reference thin adapter로 전환해 실제 여러 turn·Main compaction·Maintainer restart·failure를 dogfood한다.
-6. Memory와 index, 집계 records, 확정 output routing 순서로 write 범위를 확장한다.
-7. 축소 Verify와 기존 Verify·Recover 호환을 구현·검증한다. Recover 역할은 실제 결함 없이 확대하지 않는다.
-8. `apply-context-harness` 갱신, root 중복 runtime 정리, 전체 validation과 fresh-task acceptance를 수행한다.
+- `reference-project/context/work/harness/verify/`는 이미 수행된 test·eval·수동 확인의 evidence만 append-only로 기록한다. 제품 명령이나 machine status를 실행·전이하지 않고, legacy Verify receipt/status에 대한 Recover 읽기 호환을 보존한다.
+- `apply-context-harness`는 target의 기존 canonical과 사용자 변경을 보존하면서 Maintain 실행 연결과 축소 Verify를 이식하고, live host를 실행하지 않은 범위를 acceptance로 주장하지 않도록 갱신했다.
 
-## 구현 후보와 미결정점
+## 남은 상태와 proof ceiling
 
-- Reference canonical의 exact 파일 배치와 root adapter가 공유할 코드 경계
-- Session 시작·response-end를 관찰할 실제 hook과 보고 integration point
-- 같은 Maintainer 이해를 이어 쓸 정확한 Codex adapter 방식
-- Queue, locking, storage, transaction과 processing cursor의 구체 schema
-- 현재 root dogfood state와 uncommitted 변경을 재배치할 migration 순서
-- Session별 queue/cursor 격리와 cross-session gap 차단
-- Maintainer compaction, cursor gap과 Owner·routing 변경의 rebootstrap 방식
-- 향후 `memory/` 폴더와 index routing의 Owner 분리·선택 read 규칙
-- Main과 maintainer가 동시에 쓸 때 target revision 표현과 stale-write 방어
-- 중요 반영·ambiguity·복구 실패를 보여 줄 정확한 채널과 중복 보고 방지
-- 축소 Verify evidence의 선택 조건, 보존 형식과 retention
-- Descendant timeout timing flake의 synchronization 수정
-- Baseline 측정 뒤 정할 latency, stale-context 발견과 handoff 성공 지표
+- 이전 worker recovery, response replay conflict 차단, checkpoint-covered raw cleanup과 incomplete capture residue의 비차단·선별 경고를 포함한 Maintain test `165/165`, Reference 전체 test `223/223`, apply skill helper test `7/7`이 통과했다. Python compile, JSON·TOML parse, hook shell command 8개의 문법·동기 실행 조건과 root·Reference status 진입도 통과했다.
+- 실제 nested `codex exec`와 같은 thread resume, fresh Codex host의 hook trust·SessionStart·background process·UI notice·semantic write 품질은 아직 live acceptance하지 않았다. 실행하려면 별도 Codex session에 선택한 fixture Context와 delta가 전달되는 외부 실행 경계를 승인받아야 한다.
+- Writer baseline은 stale target overwrite를 막지만, 전달 evidence가 없는 외부 branch·worktree 전환과 conversation-only `no_change`를 자동 fingerprint로 판별하는 별도 장치는 이번 완료 범위에 넣지 않았다.
+- Root `.DS_Store`는 이번 구현과 무관한 untracked 파일이다. Stage·commit에 포함하거나 되돌리지 않는다.
 
 ## 다음 행동
 
-이번 문서 갱신과 현재 Workspace 005 변경을 검증·commit한 뒤, `reference-project/context/work/harness/maintain/` 계약과 관련 Harness 진입 문서를 수정한다. Root Observe 결함부터 국소 수정하거나 기술 후보를 계약으로 먼저 고정하지 않는다.
+현재 승인 범위의 필수 후속 작업은 없다. 실제 nested `codex exec`와 fresh host acceptance는 사용자가 외부 실행을 별도로 승인할 때 임시 Reference fixture에서 proof ceiling을 좁히는 후속 검증으로 수행한다.

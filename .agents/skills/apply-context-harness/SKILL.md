@@ -44,7 +44,8 @@ Dirty tree만으로 멈추지 않는다. Payload와 겹치거나 기존 canonica
 
 - Project 공통 목표·구조·결정과 상세 사실의 현재 Owner
 - 첫 Workspace의 목표, 지속 memory, 빠른 state, 선택 source, goal output과 records Owner
-- 제품 검증의 실제 runtime, cwd, fresh-run 조건과 입력 범위
+- 제품 test·eval·수동 확인의 실제 Owner, runtime, cwd, fresh-run 조건과 결과 접근점
+- Codex Maintain hook을 둘 기존 `.codex` 설정, Python runtime, trust와 session별 Workspace binding
 - 기존 context 경로, package, instruction, ignore와 도구 설정의 충돌
 - 자동 검증이 확인하지 못하는 외부 시스템과 사람 acceptance
 
@@ -60,8 +61,8 @@ Project common context는 live Reference가 요구하는 진입 책임을 target
 - 기존 Owner의 어떤 공통 사실을 Project context의 어느 책임·파일·문단에 어떻게 다시 서술할지, 각 선택 책임과 근거가 있는 생략 책임, 첫 Workspace에 넣을 목표·제약·state·source·output 내용
 - Reference 책임별 `source Owner → target 배치 → 그대로 사용/적응/제외 → 이유` 매핑
 - Target instruction과 도구 설정에 추가할 routing, agent 등록 또는 main fallback
-- Target의 Recover·Verify 계약과 제품 검증 입력을 live Reference에서 적응한 결과
-- 변경 위험에 맞춘 Harness validation, product Verify와 review 계획
+- Target의 Recover 선택, Maintain runtime·hook binding, Verify evidence 입력을 live Reference에서 적응한 결과
+- 변경 위험에 맞춘 Harness validation, 제품 Owner의 직접 검증, 선택적 evidence 기록과 review 계획
 - 남는 proof ceiling, 사람 acceptance와 commit 경계
 
 사용자가 manifest를 승인한 뒤 쓴다. Sample 문서·Workspace 내용·과거 receipt·sample 제품 코드와 테스트는 payload가 아니다. 기존 디렉터리에 broad recursive copy를 하지 않는다.
@@ -70,9 +71,9 @@ Project common context는 live Reference가 요구하는 진입 책임을 target
 
 1. 일반 진입점에 Project common과 Work context의 Owner routing을 additive하게 연결한다. 기존 instruction과 설정을 교체하지 않는다.
 2. Project common context를 링크 목록이나 기존 문단 복사본이 아닌 target 사실로 구성한다. 상세 Owner, 충돌 우선순위와 갱신 조건을 함께 남기고, [`application-contract.md`](references/application-contract.md)의 내용 충족 검사를 통과시킨다.
-3. Live Reference가 요구하는 Workspace 지속 층과 machine 계약을 첫 작업의 실제 목표·제약·source·output·검증으로 채운다. Sample 내용과 기존 Project 산출물을 복제하지 않는다.
+3. Live Reference가 요구하는 Workspace 지속 층과 machine identity·Recover 선택을 첫 작업의 실제 목표·제약·source·output으로 채운다. `records/receipts/`는 symlink가 아닌 실제 디렉터리로 설치한다. Verify가 처음 호출될 때 자기 소유 `verify/` leaf를 안전하게 만들 수 있어야 한다. Sample `verify.json`, status, receipt, 제품 내용과 기존 Project 산출물을 복제하지 않는다.
 4. Harness runtime·계약·테스트는 승인된 source commit에서 가져오고, target package·경로·runtime과 충돌하는 부분만 좁게 적응한다. Reference 내부 계약을 skill 문장으로 재구현하지 않는다.
-5. Tool-specific Maintain adapter를 쓸 수 있으면 target의 기존 설정과 role 이름을 보존하며 발견 경로를 등록한다. 설정 parse와 adapter path 해석은 확인하되 새 task의 실제 role discovery를 실행하지 않았다면 증명했다고 쓰지 않는다. 충돌하거나 discovery가 확인되지 않으면 덮어쓰지 않고 live Maintain 계약을 main이 수행하는 fallback과 미설치 범위를 기록한다.
+5. Tool-specific Maintain adapter를 쓸 수 있으면 target의 기존 `.codex` 설정과 hook을 교체하지 않고 merge한다. Target Workspace·Work root·Maintain contract·ignored runtime root를 얇은 config에 binding하고, Reference-owned runtime·agent·prompt·test는 target Harness 책임 아래 함께 설치한다. Python 요구 버전, hook trust, agent 발견 경로와 command path 해석을 확인하되 새 task의 실제 hook·warm session을 실행하지 않았다면 증명했다고 쓰지 않는다. 충돌하거나 discovery가 확인되지 않으면 live Maintain 계약을 main이 수행하는 fallback과 미설치 범위를 기록한다.
 6. Preflight receipt는 Workspace가 생긴 뒤 보존 위치로 exact copy하고 임시본과 SHA-256이 같은지 확인한다.
 
 사용자가 직접 삭제·이동·승격한 파일은 그 주체와 결정을 기록한다. Harness가 하지 않은 행동을 Harness 효과로 서술하지 않는다.
@@ -81,7 +82,7 @@ Project common context는 live Reference가 요구하는 진입 책임을 target
 
 - 설명·링크·routing만 바뀌면 경로, local link, 설정 parse와 diff를 확인한다. 실행 의미가 바뀌지 않았다면 full suite, durable Verify와 독립 review를 자동으로 붙이지 않는다.
 - Harness 코드·machine 계약·evidence 범위·path 방어·사용자 파일 보호가 바뀌면 관련 단위 테스트에서 시작해 target 전체 Harness tests와 ephemeral Harness validation으로 넓힌다.
-- Target-specific Harness 변경의 지속 증거가 필요하면 다음 helper로 source snapshot과 test 결과를 별도 receipt에 남긴다. Product Verify receipt와 섞지 않는다.
+- Target-specific Harness 변경의 지속 증거가 필요하면 다음 helper로 source snapshot과 test 결과를 별도 receipt에 남긴다. 제품 Owner의 검증 결과나 Verify evidence receipt와 섞지 않는다.
 
 ```bash
 python3 <skill-dir>/scripts/record_harness_tests.py \
@@ -94,7 +95,9 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
   --timeout-seconds 300
 ```
 
-- 초기 이식 완료처럼 상태 전환·인계 증거가 필요한 경계에서만 live product Verify를 실행한다. 이후 Recover가 현재 machine result를 다시 연결하는지 확인한다. Ephemeral validation 결과, durable Harness test receipt와 Product Verify receipt를 서로 혼동하지 않는다.
+- 제품 test·eval·수동 확인은 target의 실제 Owner와 명령으로 직접 수행한다. 그 결과를 다음 세션에 보존할 가치가 있을 때만 Verify evidence recorder에 producer·subject·method·result·source reference·미검증 범위를 입력한다. Recorder는 명령을 재실행하거나 status를 전이하지 않으며, evidence의 `pass`와 기록 성공을 제품 충분성·acceptance로 해석하지 않는다.
+- 새 Workspace의 첫 evidence 기록을 ephemeral fixture에서 실행해 `records/receipts/verify/` leaf 생성, append-only receipt, 기존 파일 무변경을 확인한다. 실제 target의 기존 hook·config merge와 legacy artifact 보존은 preflight와 적용 뒤 diff를 직접 대조하며, target에 실제로 적용하지 않았다면 검증했다고 쓰지 않는다.
+- 이식 전부터 있던 legacy `verify.json`, `verify-*` receipt와 status는 이동·재작성하지 않고 live Recover가 지원하는 읽기 호환만 확인한다. 새 target에는 sample legacy 계약·status·receipt를 만들지 않는다. Ephemeral validation 결과, durable Harness test receipt, 제품 Owner의 직접 검증과 선택적 Verify evidence를 서로 혼동하지 않는다.
 - Context 의미가 바뀌면 명시한 Workspace만 Maintain하고 main이 근거와 diff를 검토한다. Verify pass를 사람용 완료나 acceptance로 바꾸지 않는다.
 - Project common context는 링크를 열지 않은 1차 읽기에서 Project 공통 판단에 필요한 내용을 설명할 수 있는지 검토하고, 그 뒤 상세 Owner를 열어 사실·범위·충돌 우선순위가 맞는지 대조한다.
 - 신규 이식, 사용자 파일 충돌 또는 실행·안전 계약 변경은 구현자가 아닌 reviewer가 raw source, target 원자료, preflight와 실제 증거를 직접 대조한다. 낮은 위험의 설명·routing 변경은 main의 좁은 확인으로 끝낼 수 있다.
@@ -106,8 +109,9 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 - Project common context와 첫 Workspace가 target 사실을 담으며 실제 산출물을 복제하지 않고, Project context의 각 선택 문서가 링크 없이도 맡은 공통 책임을 설명한다.
 - Target Owner에서 확인한 구분되는 공통 책임은 대응하는 Project context Owner가 맡고, 생략한 책임은 독립된 공통 내용이 없다는 근거가 남아 있다.
 - 각 Reference 책임이 설치·적응됐거나 제외 이유와 fallback이 명시됐다.
+- 새 Workspace의 `records/receipts/`가 실제 디렉터리이며, 첫 Verify evidence 기록이 sample legacy artifact 없이 자기 `verify/` leaf와 receipt를 만들 수 있다.
 - 변경 위험에 맞는 검증 결과와 proof ceiling이 남아 있다.
-- Machine 결과, 사람용 Context, acceptance와 commit 권한이 분리돼 있다.
+- 제품 검증 결과, 선택적으로 기록한 evidence, 사람용 Context, acceptance와 commit 권한이 분리돼 있다.
 - 독립 review가 필요한 범위의 P1은 해결됐고 P2는 해결되거나 사용자가 영향을 보고 수용했다.
 
 Target commit, acceptance, Project canonical 반영, Workspace 완료·보관은 별도 승인 없이 자동 수행하지 않는다. Staging이 필요하면 기존 사용자 변경과 이식 파일을 exact path로 분리한다.
@@ -116,7 +120,7 @@ Target commit, acceptance, Project canonical 반영, Workspace 완료·보관은
 
 1. 어디에 어떤 Reference 책임을 이식·적응·제외했는가.
 2. 기존 canonical과 사용자 변경을 어떻게 보존했는가.
-3. 어떤 validation과 product Verify가 무엇을 실제로 확인했는가.
-4. Receipt와 현재 재진입 위치는 어디인가.
+3. 어떤 validation과 제품 Owner의 직접 검증이 무엇을 실제로 확인했고, 그중 무엇을 evidence로 기록했는가.
+4. Evidence receipt와 현재 재진입 위치는 어디인가.
 5. 아직 사람이나 실환경이 확인할 것은 무엇인가.
 6. Commit 여부와 working tree 경계는 무엇인가.

@@ -1,5 +1,5 @@
 {
-  "description": "Workspace 005 response-end context-maintainer observe runtime.",
+  "description": "Workspace 005 connection settings for the Reference Maintain runtime.",
   "hooks": {
     "SessionStart": [
       {
@@ -7,8 +7,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "CONTEXT_MAINTAINER_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && /usr/bin/python3 \"$CONTEXT_MAINTAINER_REPO/.codex/context_maintainer/cli.py\" hook SessionStart || printf '{}\\n'",
-            "timeout": 5
+            "command": "CONTEXT_MAINTAIN_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && python3 \"$CONTEXT_MAINTAIN_REPO/reference-project/context/work/harness/maintain/hook.py\" --config \"$CONTEXT_MAINTAIN_REPO/.codex/context-maintain.json\" hook SessionStart || printf '%s\\n' '{\"continue\":true,\"systemMessage\":\"Maintain 초기 동기화 실행에 실패했습니다. 선택한 Workspace current를 직접 확인해 시작 상태를 맞추세요.\",\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"Maintain 초기 동기화가 실행되지 않았습니다. 선택한 Workspace README와 current/index 중심으로 필요한 current를 직접 읽고, 첫 commentary에서 목표·현재 상태·다음 행동을 한 문장으로 맞추세요.\"}}'",
+            "timeout": 120
           }
         ]
       }
@@ -18,7 +18,19 @@
         "hooks": [
           {
             "type": "command",
-            "command": "CONTEXT_MAINTAINER_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && /usr/bin/python3 \"$CONTEXT_MAINTAINER_REPO/.codex/context_maintainer/cli.py\" hook UserPromptSubmit || printf '{}\\n'",
+            "command": "CONTEXT_MAINTAIN_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && python3 \"$CONTEXT_MAINTAIN_REPO/reference-project/context/work/harness/maintain/hook.py\" --config \"$CONTEXT_MAINTAIN_REPO/.codex/context-maintain.json\" hook UserPromptSubmit || printf '%s\\n' '{\"continue\":true,\"systemMessage\":\"Maintain hook 실행에 실패했습니다. Main 작업은 계속합니다.\"}'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CONTEXT_MAINTAIN_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && python3 \"$CONTEXT_MAINTAIN_REPO/reference-project/context/work/harness/maintain/hook.py\" --config \"$CONTEXT_MAINTAIN_REPO/.codex/context-maintain.json\" hook PostToolUse || printf '%s\\n' '{\"continue\":true,\"systemMessage\":\"Maintain hook 실행에 실패했습니다. Main 작업은 계속합니다.\"}'",
             "timeout": 5
           }
         ]
@@ -29,9 +41,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "CONTEXT_MAINTAINER_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && /usr/bin/python3 \"$CONTEXT_MAINTAINER_REPO/.codex/context_maintainer/cli.py\" hook Stop --drain || printf '{}\\n'",
-            "async": true,
-            "timeout": 10
+            "command": "CONTEXT_MAINTAIN_REPO=\"$(git rev-parse --show-toplevel 2>/dev/null)\" && python3 \"$CONTEXT_MAINTAIN_REPO/reference-project/context/work/harness/maintain/hook.py\" --config \"$CONTEXT_MAINTAIN_REPO/.codex/context-maintain.json\" hook Stop || printf '%s\\n' '{\"continue\":true,\"systemMessage\":\"Maintain hook 실행에 실패했습니다. Main 작업은 계속합니다.\"}'",
+            "timeout": 5
           }
         ]
       }

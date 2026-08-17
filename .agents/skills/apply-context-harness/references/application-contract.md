@@ -24,13 +24,15 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 - 실제 작업 장면, 목표, 지속 제약, 빠른 상태와 다음 행동은 무엇인가.
 - 어떤 원문·snapshot·provenance를 source로 선택하고 무엇을 제외할 것인가.
 - Goal을 위해 선택한 산출물과 실제 canonical은 어디인가.
-- 제품 검증 claim과 기준, 실행 입력, runtime·cwd·timeout·cache 의미는 무엇인가.
+- 제품 test·eval·수동 확인의 Owner, 실행 입력, runtime·cwd·cache 의미와 재접근 가능한 결과는 무엇인가.
 
 ### Reference 책임 적응
 
 - 각 책임의 live Owner와 파일을 target에 그대로 둘지, target 구조에 맞춰 적응할지, 제외할지 판단한다.
-- Tool-specific adapter와 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. Adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
-- Reference sample의 제품·Workspace 내용과 과거 receipt는 payload에서 제외한다.
+- Tool-specific adapter와 Project 설정은 target의 기존 role·hook·설정 Owner를 먼저 확인한다. Maintain core와 의미 규칙은 Harness 책임 아래 함께 두고 Project root에는 Workspace binding과 발견·hook 연결만 둔다. Adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
+- Target의 runtime root는 Git에서 제외하고 session별 queue·cursor·agent state를 다른 Workspace나 worktree와 섞지 않는다. Hook command의 Python 요구 버전, Project root 해석과 trust 필요성을 manifest에 드러낸다.
+- Workspace의 `records/receipts/` parent는 symlink가 아닌 실제 디렉터리로 둔다. Verify evidence recorder는 명시적으로 호출됐을 때 자기 소유 `verify/` leaf만 만들며, Workspace나 상위 records 구조를 대신 생성하지 않는다.
+- Reference sample의 제품·Workspace 내용, `verify.json`, status와 과거 receipt는 payload에서 제외한다. 기존 target에 같은 legacy artifact가 있으면 byte와 Owner를 보존한다.
 
 ## Project common context 내용 충족
 
@@ -69,18 +71,20 @@ Live Reference와 target 성격에 따라 필요한 Project context 파일을 �
 
 기존 `context/`, instruction과 tool config는 빈 설치 자리가 아니다. Directory replace, broad recursive copy, 자동 이동·삭제와 broad staging을 하지 않는다. 임시 preflight receipt를 Workspace에 보존할 때는 바이트와 SHA-256을 유지한다.
 
-## Evidence closure
+## 제품 검증과 evidence closure
 
-Product Verify의 evidence는 중요해 보이는 파일 표본이 아니라 고정 실행이 실제로 읽는 입력을 설명해야 한다.
+제품 검증은 Verify recorder가 아니라 target의 제품 test·CI·eval·사람 Owner가 수행한다. 이식 과정에서 직접 실행할 때는 다음을 확인한다.
 
 1. Root argv가 호출하는 package manager, task runner와 script를 펼친다.
 2. Lockfile, workspace 선언, 공통 compiler·build 설정을 확인한다.
 3. 실제 대상 package의 tracked source, manifest와 package-local 설정을 포함한다.
 4. Runtime fixture, scenario, schema와 generated input을 확인한다.
 5. 제외한 output, external state와 environment를 proof ceiling에 적는다.
-6. Evidence를 실행 전에 snapshot한 뒤 같은 검증 사건에서 명령을 실행한다.
+6. 실행한 정확한 명령·환경·결과와 다시 찾을 수 있는 접근점을 보존한다.
 
 Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option을 고정하거나 cached validation 한계를 밝힌다. 명령 통과와 evidence가 어떤 tree를 대표하는지는 별도로 설명한다.
+
+Verify evidence recorder를 선택적으로 사용할 때는 이미 수행된 확인의 producer, subject, method, 관찰 결과, source reference와 미검증 범위를 입력한다. Recorder가 source reference를 열거나 결과를 재검증하지 않는다는 ceiling을 유지한다. 기록 성공, `outcome: pass`, Harness test pass를 제품 acceptance나 Workspace 완료로 승격하지 않는다.
 
 ## 검증 선택
 
@@ -88,12 +92,12 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 | --- | --- | --- |
 | 설명·링크·routing | 경로, link, 설정 parse, diff | 실행 의미나 discovery가 달라짐 |
 | Harness 코드·machine 계약·path 방어 | 관련 단위 테스트 | 공통 경계나 target 배치가 달라짐 |
-| Target Harness 적응 | 전체 Harness tests와 ephemeral validation | 실패, source 변경 또는 proof 공백 |
-| 상태 전환·인계 | Product Verify와 후속 Recover | Evidence closure나 runtime 불확실성 |
+| Target Harness 적응 | 전체 Harness tests와 ephemeral validation. 새 Workspace에서는 첫 evidence 기록의 `verify/` leaf 생성도 포함 | 실패, source 변경 또는 proof 공백 |
+| 상태 전환·인계 | 제품 Owner의 직접 검증, 필요시 Verify evidence 기록, 사람용 current 확인 | Evidence closure나 runtime 불확실성 |
 | Context 의미 변화 | 명시 Workspace Maintain과 main diff 검토 | 새 목표·canonical·acceptance 판단 필요 |
 | 신규 이식·사용자 파일 충돌 | 독립 review | P1/P2 또는 원자료 충돌 |
 
-반복 개발 확인과 durable evidence를 구분한다. Harness validation은 임시 fixture의 회귀 검사이고, Harness test receipt는 target-specific 관리 장치 증거이며, Product Verify는 실제 Workspace 상태 전환 증거다. 서로를 대신하지 않는다.
+반복 개발 확인과 durable evidence를 구분한다. Harness validation은 임시 fixture의 회귀 검사이고, Harness test receipt는 target-specific 관리 장치 증거이며, Verify evidence는 이미 수행된 확인의 선택적 기록이다. 제품 Owner의 직접 검증과 사람 판단을 대신하지 않는다.
 
 ## 자동화하지 않을 판단
 
@@ -103,7 +107,7 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 - 임의 검증 명령의 신뢰 승인
 - 일부 hash나 cache 결과를 전체 tree proof로 승격
 - Pass 뒤 acceptance, completion, canonical 반영과 commit
-- Concurrent Verify와 receipt/status transaction 보장
+- Evidence 기록 성공을 status 전이·freshness·acceptance로 해석
 
 Helper는 관찰과 실행 증거만 결정적으로 만든다. 의미 선택과 최종 적용은 target 원자료, 사용자 권한과 실제 결과를 본 main이 맡는다.
 
@@ -113,5 +117,5 @@ Target 사실로 다음을 답한다.
 
 1. 어떤 Reference commit과 책임을 target에 그대로 적용·적응·제외했는가.
 2. Recover가 실제로 무엇을 읽고 무엇을 제외했는가.
-3. Validation과 Product Verify가 어떤 입력·runtime에서 무엇을 확인했는가.
+3. Validation과 제품 Owner의 직접 검증이 어떤 입력·runtime에서 무엇을 확인했고, 그중 무엇을 evidence로 기록했는가.
 4. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.
