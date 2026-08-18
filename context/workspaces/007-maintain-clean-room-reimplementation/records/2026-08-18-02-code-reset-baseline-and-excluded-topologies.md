@@ -83,7 +83,7 @@ Parent에 없던 005 final Maintain Python package와 test는 이 복원으로 �
 - `.codex/agents/context-maintainer.toml`: 부모의 Observe agent를 복원하지 않음
 - Root `AGENTS.md`, `README.md`: 자동 Maintain 비활성, 수동 Workspace 관리와 clean-room 경계를 설명
 
-Root `.gitignore`의 `.context-harness/runtime/` ignore는 그대로 유지했다. 실제 ignored 경로 `.context-harness/runtime/context-maintainer/v1/`에는 과거 Observe의 `control.json`(`next_sequence: 2`, `last_enqueued: null`)과 빈 `runtime.lock`이 남아 있다. 자동 연결은 이 경로를 참조하지 않으며, 이 state를 새 runtime의 canonical·완료 증거·migration 입력으로 재해석하거나 삭제하지 않았다. 새 runtime 선택을 뜻하지도 않는다.
+Root `.gitignore`의 `.context-harness/runtime/` ignore는 그대로 유지했다. 이 경로에는 과거 005 Observe와 중단된 006 실험의 runtime 잔재가 함께 남아 있지만 active 설정은 어느 것도 참조하지 않는다. 전체 ignored runtime을 새 설계의 source·canonical·완료 증거·migration 입력으로 재해석하거나 삭제하지 않았으며, 새 runtime 선택을 뜻하지도 않는다.
 
 ## 보존한 역사와 사용자 파일
 

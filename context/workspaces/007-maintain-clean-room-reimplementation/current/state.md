@@ -8,7 +8,7 @@
 - 006 중단 기록은 `0952b1d`, code reset은 `b508d80`에 있다.
 - `reference-project/`와 적용 skill의 복원 대상은 preimplementation commit `2649e9b`와 일치한다.
 - Root hook은 빈 설정이며 Maintain agent·Workspace binding은 없다.
-- 과거 ignored Observe state는 남아 있지만 inactive이며 새 canonical이나 migration 입력이 아니다.
+- `.context-harness/runtime/`의 과거 005·006 runtime 잔재 전체는 inactive이며 새 설계·canonical·migration 입력이 아니다.
 - 사용자 소유 untracked `.DS_Store`는 범위 밖이다.
 
 정확한 commit·path·검증은 [`record 02`](../records/2026-08-18-02-code-reset-baseline-and-excluded-topologies.md)가 소유한다.
