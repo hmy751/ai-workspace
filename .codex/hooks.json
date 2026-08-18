@@ -1,5 +1,5 @@
 {
-  "description": "Workspace 005 connection settings for the Reference Maintain runtime.",
+  "description": "Selected Workspace connection settings for the Reference Maintain runtime.",
   "hooks": {
     "SessionStart": [
       {

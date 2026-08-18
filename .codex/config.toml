@@ -1,3 +1,3 @@
 [agents.workspace_context_maintainer]
-description = "Workspace 005 dogfood에서 세션 동안 이해를 유지하고 durable Context 변화만 반영하는 Reference Maintainer."
+description = "현재 설정이 선택한 Workspace에서 세션 동안 이해를 유지하고 durable Context 변화만 반영하는 Reference Maintainer."
 config_file = "workspace-context-maintainer.toml"

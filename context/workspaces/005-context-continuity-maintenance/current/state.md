@@ -9,7 +9,7 @@ Workspace 005에서 확정한 세션형 Maintain·축소 Verify 운영은 Refere
 ## 구현된 현재 구조
 
 - `reference-project/context/work/harness/maintain/`이 세션형 Maintain의 사람용 계약, hook controller, session runtime, warm Codex runner, decision schema·intent와 guarded writer, 수동 fallback agent 및 test를 함께 소유한다.
-- Root `.codex/context-maintain.json`, `.codex/hooks.json`, `.codex/config.toml`과 agent config는 Workspace 005를 Reference runtime에 연결하는 얇은 설정이다. Root에 semantic prompt·writer·queue 코드를 복제하지 않는다.
+- 구현 commit 당시 root `.codex/context-maintain.json`, `.codex/hooks.json`, `.codex/config.toml`과 agent config는 Workspace 005를 Reference runtime에 연결하는 얇은 설정이었다. 이 active binding은 후속 Workspace로 전환될 수 있으며, Root에 semantic prompt·writer·queue 코드를 복제하지 않는 경계는 계속 유효하다.
 - 이전 `.codex/context_maintainer/` Observe 구현과 그 전용 agent는 active 경로에서 제거했다. 당시 실패와 결함은 records 06–08과 Git 이력에 남긴다.
 - 기존 Workspace의 `SessionStart`는 bounded initial grounding과 한 번의 짧은 시작 상태를 동기로 제공한다. 이후 `UserPromptSubmit`·`PostToolUse`·`Stop`은 bounded capture만 하고 response-end semantic 판단과 write는 detached worker가 수행한다.
 - 같은 task·Workspace·worktree에서는 local Codex thread id를 저장해 warm resume한다. 잘못된 state, runner failure나 stale target은 외부 canonical에서 rebootstrap·re-grounding한다.

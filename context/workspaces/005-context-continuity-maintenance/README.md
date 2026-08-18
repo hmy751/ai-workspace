@@ -2,7 +2,7 @@
 
 Main과 사용자의 실제 작업을 막지 않으면서 `current/records`를 다음 세션이 믿고 이어 갈 만큼 유지하는 운영 방식을 Reference의 실행 가능한 책임으로 완성하는 Workspace다. Recover·Verify·Maintain을 없애는 작업이 아니라, 각 책임을 분리한 채 세션형 Maintainer가 이미 얻은 이해를 재사용하고 durable 변화만 기존 Context Owner에 반영하게 한다.
 
-상태는 **active**이며 이번 구현 범위는 완료됐다. 재사용 가능한 Maintain runtime, semantic warm session, guarded writer와 축소 Verify evidence recorder는 `reference-project/`가 소유하고, root는 Workspace 005를 선택해 이를 dogfood하는 얇은 설정만 소유하도록 구현했다. 이전 root Observe runtime은 active 경로에서 제거했고 cross-session recovery wake, false-success·raw cleanup 결함과 전체 로컬 통합 재검증도 닫았다. 실제 nested Codex와 fresh host acceptance는 별도 승인 후에 proof ceiling을 좁히는 후속 검증이다.
+상태는 **completed**이며 이번 구현 범위는 완료됐다. 재사용 가능한 Maintain runtime, semantic warm session, guarded writer와 축소 Verify evidence recorder는 `reference-project/`가 소유하고, 구현 commit 당시 root는 Workspace 005를 선택해 이를 dogfood하는 얇은 설정만 소유하도록 구성했다. 이전 root Observe runtime은 active 경로에서 제거했고 cross-session recovery wake, false-success·raw cleanup 결함과 전체 로컬 통합 재검증도 닫았다. 실제 nested Codex와 fresh host acceptance는 별도 승인 후에 proof ceiling을 좁히는 후속 검증이다.
 
 ## 읽는 순서
 

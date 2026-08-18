@@ -27,7 +27,7 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 ## Context maintenance routing
 
-Workspace 005로 작업할 때 root [`.codex/hooks.json`](.codex/hooks.json)은 Reference Maintain runtime을 통해 다음 변화를 response-end마다 점검한다. 대상 Workspace와 runtime 위치는 [`.codex/context-maintain.json`](.codex/context-maintain.json)이 선택하며, root에 의미 판단 코드나 prompt를 복제하지 않는다.
+현재 설정이 선택한 active Workspace로 작업할 때 root [`.codex/hooks.json`](.codex/hooks.json)은 Reference Maintain runtime을 통해 다음 변화를 response-end마다 점검한다. 대상 Workspace와 runtime 위치는 [`.codex/context-maintain.json`](.codex/context-maintain.json)이 선택하며, root에 의미 판단 코드나 prompt를 복제하지 않는다.
 
 - 계속 보존할 작업 문서·분석·중간 산출물·검증 기록이 생김
 - 해당 Workspace의 목표·기준·제약, source 선택 또는 output 경계가 바뀜
@@ -37,7 +37,7 @@ Workspace 005로 작업할 때 root [`.codex/hooks.json`](.codex/hooks.json)은 
 
 일회성 탐색이나 임시 명령 출력을 매번 records로 만들지는 않는다. 다만 후속 작업에서 다시 사용할 분석이나 결과라면 상태 변화가 없어도 대상 Workspace의 records에 보존한다. 반복 개발 확인은 직접 test 명령을 우선하고, durable machine receipt는 상태 전환이나 인계에 필요한 검증에 사용한다.
 
-Maintain은 설정에 명시된 Workspace 005만 갱신한다. 다른 Workspace의 current·records를 합치거나 active를 임의로 바꾸지 않는다. 사용자가 Workspace 전환을 결정한 경우에만 `context/workspaces/README.md`의 active 표기와 dogfood 설정을 별도로 바꾼다.
+Maintain은 설정에 명시된 Workspace 하나만 갱신한다. 다른 Workspace의 current·records를 합치거나 active를 임의로 바꾸지 않는다. 사용자가 Workspace 전환을 결정한 경우에만 `context/workspaces/README.md`의 active 표기와 dogfood 설정을 별도로 바꾼다.
 
 Maintain이 수정한 diff와 근거는 main이 실제 파일·Git·test 결과와 대조한다. 사용자 목표·승인 결정·새로운 설계 기준을 Maintainer가 대신 확정하게 하지 않는다. Hook이 신뢰 승인되지 않았거나 실행되지 않은 세션에서는 [`.codex/config.toml`](.codex/config.toml)이 등록한 `workspace_context_maintainer`를 수동 fallback으로 한 번 호출하거나 main이 같은 점검을 수행하고 그 사실을 보고한다. 정상 hook 세션에서는 동일 책임을 별도 subagent로 매 응답마다 중복 실행하지 않는다.
 

@@ -16,14 +16,13 @@
 - [Reference Project hook 설정](../../../../reference-project/.codex/hooks.json)과 [Workspace binding](../../../../reference-project/.codex/context-maintain.json): 다른 Project에서 적응할 수 있는 실행 연결 예시
 - [Apply Context Harness skill](../../../../.agents/skills/apply-context-harness/SKILL.md): target canonical과 사용자 변경을 보존하면서 현재 Reference 책임을 이식하는 절차
 
-## Workspace 005 연결 설정
+## Workspace 005 연결 설정의 완료 시점
 
-- [Root Workspace binding](../../../../.codex/context-maintain.json): `005-context-continuity-maintenance`와 root ignored runtime을 선택하는 값
-- [Root hooks](../../../../.codex/hooks.json): root에서 Reference `hook.py`를 호출하는 thin 연결
-- [Root agent discovery](../../../../.codex/config.toml)와 [agent config](../../../../.codex/workspace-context-maintainer.toml): hook 미사용 시 수동 fallback을 찾는 연결
-- [Root 운영 routing](../../../../AGENTS.md): 정상 hook과 fallback의 중복을 피하고 Workspace 005만 갱신하는 local contract
+- Commit `9553d0a`는 root binding이 `005-context-continuity-maintenance`를 선택한 상태에서 Reference 구현과 dogfood 연결을 함께 보존했다.
+- Root `.codex/context-maintain.json`, hooks와 agent discovery는 active Workspace 전환에 따라 값이 달라지는 thin connection이다. 현재 worktree의 설정을 Workspace 005의 고정 산출물로 해석하지 않는다.
+- [Root hooks](../../../../.codex/hooks.json), [agent discovery](../../../../.codex/config.toml)와 [agent config](../../../../.codex/workspace-context-maintainer.toml)는 Reference 실행을 찾는 구조를 계속 보여 준다.
 
-Root 연결 설정은 Workspace 선택·path·hook discovery만 소유한다. Maintain의 prompt, queue·checkpoint, semantic runner, writer와 test는 Reference에만 있으며 이전 `.codex/context_maintainer/` Observe runtime은 active output이 아니다.
+Root 연결 설정은 Workspace 선택·path·hook discovery만 소유한다. Maintain의 prompt, queue·checkpoint, semantic runner, writer와 test는 Reference에만 있으며 이전 `.codex/context_maintainer/` Observe runtime은 active output이 아니다. Workspace 005의 완료 시점 exact binding은 commit `9553d0a`에서 확인한다.
 
 ## 판단과 proof 기록
 
