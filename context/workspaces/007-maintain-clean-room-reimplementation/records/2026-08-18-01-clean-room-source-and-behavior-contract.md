@@ -2,7 +2,7 @@
 
 날짜: `2026-08-18`
 
-상태: **새 구현을 구속하는 source·behavior 기준**
+상태: **새 구현이 보존할 behavior 기준과 과거 topology의 비구속 경계**
 
 ## 이 기록의 역할
 
@@ -17,14 +17,14 @@
 - [005 record 02](../../005-context-continuity-maintenance/records/2026-08-17-02-context-continuity-and-background-maintenance-framing.md): current freshness가 Recover와 cross-session handoff보다 선행한다는 문제
 - [005 record 03](../../005-context-continuity-maintenance/records/2026-08-17-03-response-end-maintenance-contract-and-verify-reopening.md): 매 response-end 점검, no-change no-write와 write 전 ambiguity
 - [005 record 04](../../005-context-continuity-maintenance/records/2026-08-17-04-verify-evidence-recording-boundary.md): Verify를 제품 검증 주체가 아닌 선택적 증거 기록 보조로 낮춘 경계
-- [005 record 08](../../005-context-continuity-maintenance/records/2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md): 세션형 Maintainer의 이해·비차단·보고·복구와 기술 후보 비승계
+- [005 record 08](../../005-context-continuity-maintenance/records/2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md): 세션형 Maintainer의 이해·비차단·보고·복구와 기술 후보가 자동 승계되지 않는 경계
 
 다음은 보조 또는 반례 source다.
 
 - [005 record 05](../../005-context-continuity-maintenance/records/2026-08-17-05-maintainer-retrieval-runtime-and-cursor-contract.md): bounded retrieval, 같은 세션의 이해 재사용과 no-change도 점검 완료라는 의미를 보조한다. 당시 cursor·event 형태는 architecture 요구가 아니다.
 - [005 record 06](../../005-context-continuity-maintenance/records/2026-08-17-06-response-end-observe-runtime-and-live-smoke.md): async `Stop` 취소와 repo-global FIFO gap을 실제 host에서 재현한 negative evidence다.
-- [005 record 09](../../005-context-continuity-maintenance/records/2026-08-18-09-reference-maintain-runtime-implementation-and-proof.md): Reference/root 소유 결과와 로컬 proof ceiling만 사용한다. 상세 recovery topology는 이어받지 않는다.
-- [006 self-check](../../006-maintain-behavior-responsibility-allocation/records/2026-08-18-03-self-check-and-purpose-first-reset.md)와 [clean-room 결정](../../006-maintain-behavior-responsibility-allocation/records/2026-08-18-05-clean-room-restart-decision.md): 기존 구현을 보존한 채 줄이는 접근이 목적보다 compatibility를 키운 이유를 보존한다. 006 code name과 state shape는 요구사항이 아니다.
+- [005 record 09](../../005-context-continuity-maintenance/records/2026-08-18-09-reference-maintain-runtime-implementation-and-proof.md): Reference/root 소유 결과와 로컬 proof ceiling을 우선 사용한다. 상세 recovery topology는 기본 architecture가 아니라 필요성을 다시 판단할 역사적 구현 근거다.
+- [006 self-check](../../006-maintain-behavior-responsibility-allocation/records/2026-08-18-03-self-check-and-purpose-first-reset.md)와 [clean-room 결정](../../006-maintain-behavior-responsibility-allocation/records/2026-08-18-05-clean-room-restart-decision.md): 기존 구현을 보존한 채 줄이는 접근이 목적보다 compatibility를 키운 이유를 보존한다. 006 code name과 state shape에는 요구사항이나 금지 항목의 지위를 미리 부여하지 않는다.
 
 ## 사용자 발화의 최소 원문
 
@@ -116,9 +116,9 @@ Workspace README가 정체성·범위와 current·output·records 관계의 cano
 
 Hook·runtime·warm-session adapter를 제거해도 Workspace 의미, 관리 기준과 책임 관계가 남아야 한다. 현재 platform 전제를 보완하는 장치가 지속 의미를 독점하면 안 된다.
 
-## 이어받지 않는 topology
+## 자동 승계하지 않는 과거 topology
 
-[005 record 08](../../005-context-continuity-maintenance/records/2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md)은 특정 hook 조합, queue·locking·storage·transaction, session resume 명령, cursor 파일·schema, CLI·JSON, raw 보존과 UI 채널을 교체 가능한 기술 후보로 명시했다. 그러므로 다음을 요구사항으로 승격하지 않는다.
+[005 record 08](../../005-context-continuity-maintenance/records/2026-08-17-08-session-maintainer-behavior-and-reference-implementation-plan.md)은 특정 hook 조합, queue·locking·storage·transaction, session resume 명령, cursor 파일·schema, CLI·JSON, raw 보존과 UI 채널을 교체 가능한 기술 후보로 명시했다. 따라서 다음은 미리 승인된 요구사항도 금지된 구조도 아니며, 현재 조건에서 필요성과 대안을 다시 판단한다.
 
 - UserPrompt에서 sequence를 먼저 예약하는 partial/orphan protocol
 - Worktree 전체 FIFO와 missing-Stop gap repair
@@ -127,7 +127,7 @@ Hook·runtime·warm-session adapter를 제거해도 Workspace 의미, 관리 기
 - Workspace attention, legacy migration과 delivery cursor
 - Unit/fake-process suite의 기존 test count
 
-새 설계가 독립적으로 비슷한 장치를 다시 선택할 수는 있다. 그 경우에도 여섯 장면과 직접 연결된 필요, 더 단순한 대안, 새 실패·복구 비용과 실제 acceptance를 새로 증명해야 한다.
+새 설계는 같은 장치든 다른 장치든 선택할 수 있다. 어떤 선택이든 여섯 장면과 직접 연결된 필요, 더 단순한 대안, 새 실패·복구 비용과 실제 acceptance를 현재 근거에서 설명해야 한다.
 
 ## 새 세션의 첫 산출물
 
@@ -141,4 +141,4 @@ Hook·runtime·warm-session adapter를 제거해도 Workspace 의미, 관리 기
 - 실패 시 false success 없이 드러날 상태
 - 가장 작은 직접 검증과 actual host acceptance
 
-Matrix가 과거 state 이름이나 파일 topology를 전제로 하면 설계를 멈추고 이 behavior contract로 돌아온다.
+Matrix가 과거 state 이름이나 파일 topology를 출발 전제로 삼는다면 그 필요와 대안을 명시적으로 비교한다. 현재 근거 없이 관성적으로 선택된 경우에만 이 behavior contract로 돌아와 다시 판단한다.

@@ -8,10 +8,10 @@
 - 006 중단 기록은 `0952b1d`, code reset은 `b508d80`에 있다.
 - `reference-project/`와 적용 skill의 복원 대상은 preimplementation commit `2649e9b`와 일치한다.
 - Root hook은 빈 설정이며 Maintain agent·Workspace binding은 없다.
-- `.context-harness/runtime/`의 과거 005·006 runtime 잔재 전체는 inactive이며 새 설계·canonical·migration 입력이 아니다.
+- `.context-harness/runtime/`의 과거 005·006 runtime 잔재 전체는 inactive이고 현재 설계 근거·canonical·migration 입력으로 선택되지 않았다. 다시 사용할 필요가 생기면 의미와 처리 권한을 별도로 판단한다.
 - 사용자 소유 untracked `.DS_Store`는 범위 밖이다.
 
-정확한 commit·path·검증은 [`record 02`](../records/2026-08-18-02-code-reset-baseline-and-excluded-topologies.md)가 소유한다.
+정확한 commit·path·검증은 [`record 02`](../records/2026-08-18-02-code-reset-baseline-and-prior-topology-evidence.md)가 소유한다.
 
 ## 검증 상한
 
@@ -21,4 +21,4 @@
 
 ## 다음 시작점
 
-새 세션은 `reference-project/`를 직접 읽고, record 01의 동작과 record 02의 금지선만 대조해 첫 접근을 스스로 정한다. 과거 구현 diff를 출발 architecture로 사용하지 않는다.
+새 세션은 `reference-project/`를 직접 읽고 record 01의 동작, record 02의 과거 근거·proof ceiling과 현재 조건을 대조해 첫 접근을 스스로 정한다. 과거 구현 diff에는 우선권도 금지 지위도 없으며, 필요하면 다른 후보와 같은 기준으로 다시 검토한다.

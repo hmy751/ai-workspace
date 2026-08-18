@@ -10,6 +10,6 @@ Workspace 005의 사용자-facing Maintain 동작을 다시 도출해 `reference
 
 없다.
 
-설계 입력은 [`record 01`](../records/2026-08-18-01-clean-room-source-and-behavior-contract.md)과 [`record 02`](../records/2026-08-18-02-code-reset-baseline-and-excluded-topologies.md)뿐이다. 실제 구현 대상과 현재 구조는 새 세션이 [`reference-project/`](../../../../reference-project/)를 직접 읽어 판단한다.
+이 Workspace가 미리 선택해 둔 근거는 [`record 01`](../records/2026-08-18-01-clean-room-source-and-behavior-contract.md)과 [`record 02`](../records/2026-08-18-02-code-reset-baseline-and-prior-topology-evidence.md)다. 새 세션은 여기에 [`reference-project/`](../../../../reference-project/), 글로벌 AI-system references와 현재 host 조건을 직접 조사해 실제 설계 입력을 구성한다.
 
 Root 연결은 새 Reference 구현의 actual acceptance 뒤에만 선택한다.

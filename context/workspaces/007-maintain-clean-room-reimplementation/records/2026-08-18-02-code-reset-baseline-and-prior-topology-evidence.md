@@ -1,4 +1,4 @@
-# Code reset baseline과 제외한 topology
+# Code reset baseline과 과거 topology 근거
 
 날짜: `2026-08-18`
 
@@ -125,7 +125,7 @@ python3 -m unittest discover -s reference-project -t reference-project -p 'test_
 
 따라서 최종 판정은 `53/53 green`이 아니라 **52/53과 53/53 사이에서 흔들리는 parent baseline timing instability**다. 복원 path가 parent와 exact해 reset 회귀로 판정하지 않으며, 새 Maintain 구현과 섞어 고치지 않는다. Verify process handling을 변경할 작업이 생기면 이 test의 process scheduling 전제와 timeout을 별도 진단한다.
 
-## 새 설계에서 제외한 topology
+## 새 설계를 구속하지 않는 과거 topology 근거
 
 ### Root Observe
 
@@ -133,7 +133,7 @@ python3 -m unittest discover -s reference-project -t reference-project -p 'test_
 - repo-global sequence와 FIFO
 - missing Stop 뒤 manual gap repair
 
-실제 host exit에서 async Stop이 취소됐고 한 session의 gap이 다른 session을 막았다. 이 실패는 다시 고칠 starting architecture가 아니라, hook 설정과 unit test만으로 response-end delivery를 증명할 수 없다는 negative acceptance다.
+실제 host exit에서 async Stop이 취소됐고 한 session의 gap이 다른 session을 막았다. 이는 이 구조를 금지한다는 뜻이 아니라, 같은 방식을 다시 선택한다면 host 종료 조건과 session 간 격리를 새 근거로 해결해야 한다는 negative acceptance다.
 
 ### Workspace 005 final runtime
 
@@ -141,7 +141,7 @@ python3 -m unittest discover -s reference-project -t reference-project -p 'test_
 - semantic intent, writer journal, stage, completion marker와 checkpoint의 다층 commit bridge
 - session report delivery·resolution과 cross-session recovery protocol
 
-Record 09의 Reference ownership 결과와 proof ceiling은 보존하지만 이 lifecycle은 requirement가 아니다.
+Record 09의 Reference ownership 결과와 proof ceiling은 보존한다. 이 lifecycle은 미리 선택된 requirement도 금지된 option도 아니며 현재 필요성에서 다시 판단한다.
 
 ### Workspace 006 improvement attempt
 
@@ -150,7 +150,7 @@ Record 09의 Reference ownership 결과와 proof ceiling은 보존하지만 이 
 - legacy checkpoint migration·compatibility
 - delivery cursor와 replay bridge
 
-이 시도는 일부 active state를 없앴지만 새 store·migration·compatibility·delivery 복구를 만들었고, 기존 intent→journal→completion→checkpoint를 남겼다. 내부 test 통과는 목적에 맞는 최소 구조의 증거가 아니므로 새 architecture 후보로 승계하지 않는다.
+이 시도는 일부 active state를 없앴지만 새 store·migration·compatibility·delivery 복구를 만들었고, 기존 intent→journal→completion→checkpoint를 남겼다. 내부 test 통과만으로 새 architecture의 우선 후보가 되지는 않지만, 같은 아이디어가 현재 필요성에서 다시 도출되는 것을 막지는 않는다.
 
 ## 이 baseline이 의미하는 것
 
