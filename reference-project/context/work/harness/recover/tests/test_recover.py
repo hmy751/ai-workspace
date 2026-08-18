@@ -349,12 +349,13 @@ class RecoverTests(WorkspaceFixture):
         self.assertEqual(completed.returncode, 0, completed.stderr)
         self.assertNotIn("INVALID_VERIFY_CONTRACT_SECRET", completed.stdout)
 
-    def test_module_help_exposes_recover_and_verify(self) -> None:
+    def test_module_help_exposes_recover_maintain_and_verify(self) -> None:
         completed = self.run_cli("--help")
 
         self.assertEqual(completed.returncode, 0, completed.stderr)
-        self.assertIn("{recover,verify}", completed.stdout)
+        self.assertIn("{recover,maintain,verify}", completed.stdout)
         self.assertIn("recover", completed.stdout)
+        self.assertIn("maintain", completed.stdout)
         self.assertIn("verify", completed.stdout)
 
     def test_keeps_workspace_and_project_context_path_bases_separate(self) -> None:

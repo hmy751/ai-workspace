@@ -59,7 +59,7 @@ Project common context는 live Reference가 요구하는 진입 책임을 target
 - 새 파일, 수정 파일, 충돌 파일, 명시적 제외 파일
 - 기존 Owner의 어떤 공통 사실을 Project context의 어느 책임·파일·문단에 어떻게 다시 서술할지, 각 선택 책임과 근거가 있는 생략 책임, 첫 Workspace에 넣을 목표·제약·state·source·output 내용
 - Reference 책임별 `source Owner → target 배치 → 그대로 사용/적응/제외 → 이유` 매핑
-- Target instruction과 도구 설정에 추가할 routing, agent 등록 또는 main fallback
+- Target instruction과 도구 설정에 추가할 routing, 수동 agent role, lifecycle hook, explicit binding, wrapper, runtime ignore 또는 main fallback의 개별 설치·제외 판단
 - Target의 Recover·Verify 계약과 제품 검증 입력을 live Reference에서 적응한 결과
 - 변경 위험에 맞춘 Harness validation, product Verify와 review 계획
 - 남는 proof ceiling, 사람 acceptance와 commit 경계
@@ -72,7 +72,7 @@ Project common context는 live Reference가 요구하는 진입 책임을 target
 2. Project common context를 링크 목록이나 기존 문단 복사본이 아닌 target 사실로 구성한다. 상세 Owner, 충돌 우선순위와 갱신 조건을 함께 남기고, [`application-contract.md`](references/application-contract.md)의 내용 충족 검사를 통과시킨다.
 3. Live Reference가 요구하는 Workspace 지속 층과 machine 계약을 첫 작업의 실제 목표·제약·source·output·검증으로 채운다. Sample 내용과 기존 Project 산출물을 복제하지 않는다.
 4. Harness runtime·계약·테스트는 승인된 source commit에서 가져오고, target package·경로·runtime과 충돌하는 부분만 좁게 적응한다. Reference 내부 계약을 skill 문장으로 재구현하지 않는다.
-5. Tool-specific Maintain adapter를 쓸 수 있으면 target의 기존 설정과 role 이름을 보존하며 발견 경로를 등록한다. 설정 parse와 adapter path 해석은 확인하되 새 task의 실제 role discovery를 실행하지 않았다면 증명했다고 쓰지 않는다. 충돌하거나 discovery가 확인되지 않으면 덮어쓰지 않고 live Maintain 계약을 main이 수행하는 fallback과 미설치 범위를 기록한다.
+5. Live Reference의 tool-specific Maintain 연결을 target에서 쓸 수 있으면 기존 설정과 role 이름을 보존하며 수동 role, lifecycle hook, explicit Workspace binding, hook wrapper와 ignored runtime을 각각 설치·적응·제외한다. Role 발견 경로만 등록한 상태를 automatic Maintain 설치로 부르지 않는다. 설정 parse와 각 adapter path 해석은 확인하되 새 task의 실제 role·hook discovery와 lifecycle 장면을 실행하지 않았다면 증명했다고 쓰지 않는다. 충돌하거나 discovery가 확인되지 않으면 덮어쓰지 않고 live Maintain 계약을 main이 수행하는 fallback과 미설치 범위를 기록한다.
 6. Preflight receipt는 Workspace가 생긴 뒤 보존 위치로 exact copy하고 임시본과 SHA-256이 같은지 확인한다.
 
 사용자가 직접 삭제·이동·승격한 파일은 그 주체와 결정을 기록한다. Harness가 하지 않은 행동을 Harness 효과로 서술하지 않는다.

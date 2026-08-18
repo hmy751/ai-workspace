@@ -8,7 +8,7 @@
 - **Work context**: [`context/work/`](context/work/)가 여러 Workspace와 공용 Harness의 운영 관계를 소유한다.
 - **제품**: [`src/`](src/)와 [`tests/test_config_loader.py`](tests/test_config_loader.py)가 실제 구현과 제품 검증을 소유한다.
 
-Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Workspace의 의미를 소유하지 않고, Recover·Maintain·Verify의 작업 책임과 Harness validation을 구조적으로 분리한다. 결정적 CLI는 Recover와 Verify가, 의미 갱신은 별도 Maintain 계약과 교체 가능한 agent/main adapter가, 관리 장치의 회귀는 임시 fixture validation이 맡는다.
+Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Workspace의 의미를 소유하지 않고, Recover·Maintain·Verify의 작업 책임과 Harness validation을 구조적으로 분리한다. Recover는 bounded 재진입을, 같은 session의 Maintain agent는 response-end 의미 판단을, guarded apply는 허용된 Context side effect를, Verify는 제품 증거 기록을, 임시 fixture validation은 관리 장치 회귀를 맡는다.
 
 ## 시작점
 
@@ -18,12 +18,16 @@ Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Wor
 
 ```bash
 python3 -m context.work.harness recover 001-default-timeout
+python3 -m context.work.harness maintain bootstrap 001-default-timeout --json
+python3 -m context.work.harness maintain apply \
+  001-default-timeout path/to/maintain-decision.json
 python3 -m context.work.harness verify 001-default-timeout
 python3 -m unittest discover -s . -p 'test_*.py' -v
 ```
 
 - `recover`: 명시한 Workspace를 우선하고 id가 없을 때만 active 기본값을 사용해, 필요한 current와 선택된 Project context를 read-only recovery packet으로 만든다.
-- `maintain`: Python 명령이 아니라 [`Maintain 계약`](context/work/harness/maintain/README.md)에 따라 명시한 Workspace의 의미 변화를 기존 Owner에 반영하고 main이 diff를 검토하는 agent/main 책임이다.
+- `maintain bootstrap`: 기존 Recover를 explicit Workspace id로 재사용해 새 semantic agent가 한 번 grounding할 bounded packet을 만든다.
+- `maintain apply`: agent가 판단한 structured decision에 의미를 더하지 않고 outcome별 zero-write, 허용 Owner·symlink·stale preimage를 검사해 명확한 update만 반영한다.
 - `verify`: claim·canonical basis·evidence를 실행 전에 snapshot하고 고정 argv를 제한 안에서 실행한 뒤 receipt와 machine status만 갱신한다.
 - 전체 test discovery: 제품 테스트와 임시 fixture에서 실행되는 Harness validation을 포함한 책임별 테스트를 실행한다. Active 제품 Workspace의 receipt와 status는 바꾸지 않는다.
 
@@ -32,7 +36,10 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
 ```text
 .
 ├── .codex/
-│   └── config.toml               # 하위 Maintain agent 발견 경로만 등록
+│   ├── config.toml               # 수동 fallback용 Maintain agent 발견 경로
+│   ├── maintain.json             # host session의 explicit Workspace binding
+│   ├── hooks.json                # Maintain lifecycle command routing
+│   └── hooks/maintain.py         # Project-root hook wrapper
 ├── AGENTS.md                     # 책임별 하위 지침을 찾는 최소 router
 ├── src/                          # 실제 제품 코드
 ├── tests/
@@ -50,7 +57,7 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
         ├── AGENTS.md             # Work·Harness 운영과 Maintain agent routing
         ├── harness/              # 교체 가능한 Workspace 관리 장치
         │   ├── recover/          # 읽기 전용 재진입
-        │   ├── maintain/         # 의미 갱신 책임과 실제 agent 정의
+        │   ├── maintain/         # session agent bridge, guarded apply, host adapter와 test
         │   ├── verify/           # durable 제품 검증 증거
         │   └── validation/       # 제품 상태를 보존하는 Harness 자체 검증
         └── workspaces/
@@ -94,6 +101,6 @@ reference 순환을 확인하기 위해 기본 timeout 구현을 의도적으로
 
 ## 증명 범위
 
-이 reference가 확인하는 것은 명시적 또는 active-default Workspace의 선택적 context 복구, Maintain 책임·Reference agent adapter의 구조적 연결, claim·canonical basis·evidence snapshot, 고정 검증 실행, 실패·성공 receipt 생성, machine-only status 갱신, 선언된 snapshot freshness의 재복구다. Harness 회귀 순환은 임시 fixture에서 실행해 active 제품 상태를 오염시키지 않는다.
+이 reference가 결정적으로 확인하는 것은 명시적 또는 active-default Workspace의 선택적 context 복구, Maintain의 explicit bootstrap과 guarded decision side effect, claim·canonical basis·evidence snapshot, 고정 검증 실행, 실패·성공 receipt 생성, machine-only status 갱신, 선언된 snapshot freshness의 재복구다. Harness 회귀 순환은 임시 fixture에서 실행해 active 제품 상태를 오염시키지 않는다.
 
-정적 연결과 테스트는 Maintain agent가 실제 변화에서 어떤 의미를 남겨야 하는지 또는 작성 내용이 충분한지를 증명하지 않는다. 그 판단은 main의 evidence·diff 검토가 필요하다. Workspace 생성·전환·acceptance·완료·보관, Workspace 결과의 Project canonical 반영, concurrent Verify 조정, 실제 네트워크 요청과 운영 서비스 효과도 아직 구현하거나 증명하지 않았다. POSIX Verify timeout은 같은 process group의 일반 descendant까지 다루지만 스스로 새 session으로 분리한 process와 비-POSIX descendant 전체 종료는 보장하지 않는다. Harness 계약은 저장소가 신뢰하는 입력이며 악의적인 검증 프로그램을 격리하는 sandbox가 아니다. Receipt와 status는 각각 atomic하게 쓰지만 하나의 transaction으로 묶이지 않는다.
+정적 연결과 unit test는 Maintain agent가 실제 변화에서 어떤 의미를 남겨야 하는지, 같은 agent session이 유지되는지, 모든 사용자 대상 Main response-end가 관찰되는지, Main 비차단과 중요 보고·ambiguity 질문이 실제 host에서 도달하는지를 증명하지 않는다. 이 항목은 semantic eval과 actual Codex host acceptance가 필요하며, 그 전에는 role 등록을 automatic Maintain이라고 부르지 않는다. Workspace 생성·전환·acceptance·완료·보관, Workspace 결과의 Project canonical 반영, concurrent Verify 조정, 실제 네트워크 요청과 운영 서비스 효과도 아직 구현하거나 증명하지 않았다. POSIX Verify timeout은 같은 process group의 일반 descendant까지 다루지만 스스로 새 session으로 분리한 process와 비-POSIX descendant 전체 종료는 보장하지 않는다. Harness 계약은 저장소가 신뢰하는 입력이며 악의적인 검증 프로그램을 격리하는 sandbox가 아니다. Receipt와 status는 각각 atomic하게 쓰지만 하나의 transaction으로 묶이지 않는다.

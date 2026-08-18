@@ -29,7 +29,7 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 ### Reference 책임 적응
 
 - 각 책임의 live Owner와 파일을 target에 그대로 둘지, target 구조에 맞춰 적응할지, 제외할지 판단한다.
-- Tool-specific adapter와 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. Adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
+- Tool-specific Maintain 연결과 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. 수동 role, lifecycle hook, explicit binding, wrapper와 runtime ignore를 각각 설치·적응·제외하고, role 등록만으로 automatic lifecycle을 주장하지 않는다. 일부 또는 전체 adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
 - Reference sample의 제품·Workspace 내용과 과거 receipt는 payload에서 제외한다.
 
 ## Project common context 내용 충족
