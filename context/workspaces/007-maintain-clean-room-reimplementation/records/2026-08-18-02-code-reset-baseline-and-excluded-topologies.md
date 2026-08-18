@@ -121,9 +121,9 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=reference-project \
 python3 -m unittest discover -s reference-project -t reference-project -p 'test_*.py' -q
 ```
 
-첫 전체 실행에서는 기존 Verify의 `test_timeout_covers_descendant_after_group_leader_exits`가 descendant PID 파일을 timeout 전에 만들지 못해 53개 중 1개가 실패했다. 동일 test를 단독 재실행하면 통과했고, 전체 suite를 다시 실행한 최종 결과도 `53/53` 통과였다.
+전체 suite는 세 번 실행했다. 첫 실행과 007 setup 뒤 최종 실행에서는 기존 Verify의 `test_timeout_covers_descendant_after_group_leader_exits`가 descendant PID 파일을 0.3초 timeout 전에 만들지 못해 각각 53개 중 같은 1개가 실패했다. 그 사이 동일 test 단독 실행과 전체 suite 재실행은 각각 통과했다.
 
-이 관찰을 숨기지 않는다. 현재 복원 path가 부모와 exact하게 일치하고 재현되지 않아 reset 결함으로 판정하지 않았지만, process timeout 경계를 다시 수정하면 flaky timing 또는 실제 race인지 재검토한다.
+따라서 최종 판정은 `53/53 green`이 아니라 **52/53과 53/53 사이에서 흔들리는 parent baseline timing instability**다. 복원 path가 parent와 exact해 reset 회귀로 판정하지 않으며, 새 Maintain 구현과 섞어 고치지 않는다. Verify process handling을 변경할 작업이 생기면 이 test의 process scheduling 전제와 timeout을 별도 진단한다.
 
 ## 새 설계에서 제외한 topology
 
