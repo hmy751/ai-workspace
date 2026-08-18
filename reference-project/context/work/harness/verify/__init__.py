@@ -1,5 +1,5 @@
-"""Workspace verification evidence recording responsibility."""
+"""Workspace verification responsibility."""
 
-from .operation import record_evidence
+from .operation import verify_workspace
 
-__all__ = ["record_evidence"]
+__all__ = ["verify_workspace"]

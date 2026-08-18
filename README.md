@@ -7,18 +7,17 @@
 - context 경계와 재진입: [`context/`](./context/)
 - Workspace 목록과 active 작업: [`context/workspaces/`](./context/workspaces/)
 - 완료된 reference 구현 Workspace: [`001-reference-implementation`](./context/workspaces/001-reference-implementation/)
-- active context continuity Workspace: [`005-context-continuity-maintenance`](./context/workspaces/005-context-continuity-maintenance/)
+- active 작업 선택: [`context/workspaces/README.md`](./context/workspaces/README.md)
 - 보류된 적용 Workspace: [`002-project-application`](./context/workspaces/002-project-application/)
 - 준비된 적용 Workspace: [`003-project-application`](./context/workspaces/003-project-application/)
 - 공유 source 원본과 색인: [`context/source/`](./context/source/)
 - 실행 가능한 기준 Project: [`reference-project/`](./reference-project/)
 - 실제 Project 이식 절차: [`.agents/skills/apply-context-harness/`](./.agents/skills/apply-context-harness/)
-- 재사용 가능한 Maintain 계약·runtime·agent: [`reference-project/context/work/harness/maintain/`](./reference-project/context/work/harness/maintain/)
-- Workspace 005 dogfood 선택값: [`.codex/context-maintain.json`](./.codex/context-maintain.json)
-- response-end hook 연결: [`.codex/hooks.json`](./.codex/hooks.json)
-- Reference agent 발견 연결: [`.codex/config.toml`](./.codex/config.toml)
+- clean-room 출발점인 Maintain 경계 문서: [`reference-project/context/work/harness/maintain/`](./reference-project/context/work/harness/maintain/)
+- 비활성 자동 hook 설정: [`.codex/hooks.json`](./.codex/hooks.json)
+- 비활성 agent 등록 설정: [`.codex/config.toml`](./.codex/config.toml)
 - 호출 조건과 책임 경계: [`AGENTS.md`](./AGENTS.md)
 
-root는 Workspace 005를 선택하는 설정과 hook·agent 발견 경로만 소유한다. 의미 판단, 쓰기 제약, session runtime과 test의 canonical은 Reference에 있다. 이전 Observe 실험은 Workspace 005 records 06–08과 Git 이력에 남지만 active runtime으로 사용하지 않는다.
+Workspace 005의 최종 Maintain 구현은 새 clean-room 재구현을 위해 구현 직전 기준으로 복원했다. 자동 hook과 agent 연결은 새 행동 계약과 실제 host 검증이 끝날 때까지 비활성으로 둔다. Workspace 005와 006은 근거와 실패 이력으로 보존하며 active runtime으로 사용하지 않는다.
 
 agent 정의, repo-local skill과 routing은 이 저장소 안에서만 관리한다. 전역 agent·skill·프로젝트 색인·runtime 설정에는 등록하지 않는다.

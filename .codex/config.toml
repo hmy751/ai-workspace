@@ -1,3 +1,1 @@
-[agents.workspace_context_maintainer]
-description = "현재 설정이 선택한 Workspace에서 세션 동안 이해를 유지하고 durable Context 변화만 반영하는 Reference Maintainer."
-config_file = "workspace-context-maintainer.toml"
+# Automatic Maintain agents are intentionally unregistered during the clean-room reimplementation.

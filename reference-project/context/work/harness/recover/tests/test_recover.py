@@ -774,35 +774,6 @@ class RecoverTests(WorkspaceFixture):
             packet["control_paths"],
         )
 
-    def test_rejects_evidence_receipt_as_product_verification_status(self) -> None:
-        receipt_relative = (
-            "workspaces/001-example/records/receipts/verify/"
-            "evidence-existing.json"
-        )
-        self.write_work_json(
-            receipt_relative,
-            {
-                "schema_version": 1,
-                "receipt_type": "recorded_verification_evidence",
-                "workspace_id": "001-example",
-                "recorded_at": "2026-08-17T11:31:00.000Z",
-                "observed_at": "2026-08-17T20:30:45+09:00",
-                "producer": "Main task",
-                "subject": "selected unit tests",
-                "method": "python3 -m unittest tests.test_behavior -v",
-                "outcome": "pass",
-                "result_summary": "reported test outcome",
-                "source_refs": [],
-                "unverified_scope": ["browser behavior was not checked"],
-            },
-        )
-        self.write_status(self.verified_status(receipt_relative))
-
-        completed = self.run_cli("recover", "--json")
-
-        self.assertEqual(completed.returncode, 2)
-        self.assertIn("product Verify receipt", completed.stderr)
-
     def test_rejects_non_verify_receipt_types_and_malformed_names(self) -> None:
         invalid_receipts = [
             (

@@ -27,23 +27,11 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 ## Context maintenance routing
 
-현재 설정이 선택한 active Workspace로 작업할 때 root [`.codex/hooks.json`](.codex/hooks.json)은 Reference Maintain runtime을 통해 다음 변화를 response-end마다 점검한다. 대상 Workspace와 runtime 위치는 [`.codex/context-maintain.json`](.codex/context-maintain.json)이 선택하며, root에 의미 판단 코드나 prompt를 복제하지 않는다.
+자동 Maintain hook과 agent는 clean-room 재구현 동안 의도적으로 비활성이다. [`.codex/hooks.json`](.codex/hooks.json)은 빈 hook 집합만 가지며, [`.codex/config.toml`](.codex/config.toml)은 Maintainer를 등록하지 않는다. 삭제된 Reference runtime이나 이전 root Observe runtime을 임시로 다시 연결하지 않는다.
 
-- 계속 보존할 작업 문서·분석·중간 산출물·검증 기록이 생김
-- 해당 Workspace의 목표·기준·제약, source 선택 또는 output 경계가 바뀜
-- 현재 문제·상태·불확실성·작업 커서·다음 행동이 바뀜
-- 결정, 실패, blocker, 검증, 완료, 폐기로 현재 영향이 달라짐
-- 대상 Workspace의 `current/`가 실제 파일·Git 상태·test 결과·사용자 정정과 어긋날 가능성이 생김
+그동안 main은 선택한 Workspace의 `README.md`, `current/`, `output/`, 필요한 `records/`를 직접 읽고 관리한다. 계속 보존할 판단·분석·검증이 생기거나 목표·현재 상태·다음 행동이 바뀌면 해당 Workspace 문서에 반영하되, 일회성 탐색 출력은 누적하지 않는다. 실제 파일·Git·test 결과와 대조하지 않은 상태를 fresh 또는 완료라고 기록하지 않는다.
 
-일회성 탐색이나 임시 명령 출력을 매번 records로 만들지는 않는다. 다만 후속 작업에서 다시 사용할 분석이나 결과라면 상태 변화가 없어도 대상 Workspace의 records에 보존한다. 반복 개발 확인은 직접 test 명령을 우선하고, durable machine receipt는 상태 전환이나 인계에 필요한 검증에 사용한다.
-
-Maintain은 설정에 명시된 Workspace 하나만 갱신한다. 다른 Workspace의 current·records를 합치거나 active를 임의로 바꾸지 않는다. 사용자가 Workspace 전환을 결정한 경우에만 `context/workspaces/README.md`의 active 표기와 dogfood 설정을 별도로 바꾼다.
-
-Maintain이 수정한 diff와 근거는 main이 실제 파일·Git·test 결과와 대조한다. 사용자 목표·승인 결정·새로운 설계 기준을 Maintainer가 대신 확정하게 하지 않는다. Hook이 신뢰 승인되지 않았거나 실행되지 않은 세션에서는 [`.codex/config.toml`](.codex/config.toml)이 등록한 `workspace_context_maintainer`를 수동 fallback으로 한 번 호출하거나 main이 같은 점검을 수행하고 그 사실을 보고한다. 정상 hook 세션에서는 동일 책임을 별도 subagent로 매 응답마다 중복 실행하지 않는다.
-
-`SessionStart`는 처음에만 bounded grounding을 동기로 끝내 Main과 시작 상태를 맞춘다. `UserPromptSubmit`, `PostToolUse`, `Stop`은 전달 자료만 동기로 안전하게 기록한다. `PostToolUse`는 변경 경로와 test 결과 같은 좁은 evidence만 보강하고 worker를 띄우지 않는다. 의미 판단·Context 반영은 response-end에 hook 프로세스가 띄운 detached worker가 수행해 Main을 기다리게 하지 않는다. 새 hook은 host의 최초 신뢰 승인 후 효력을 갖는다. 정적 검사와 별도로 session 시작, warm continuity, background 처리와 복구를 실제 host에서 확인해야 한다.
-
-이전 Observe runtime은 active 파일에서 제거했다. 당시 전달 실험·결함·proof ceiling은 [Workspace 005 records 06–08](context/workspaces/005-context-continuity-maintenance/records/)과 Git 이력에 남는다. 현재 runtime 상태는 `python3 reference-project/context/work/harness/maintain/hook.py --config .codex/context-maintain.json status`에서 확인한다.
+새 Maintain 구현은 행동 계약과 책임 배치를 먼저 확정하고 실제 host에서 시작·연속 대화·response-end·실패 장면을 검증한 뒤에만 root에 다시 연결한다. Workspace 005의 구현 topology와 Workspace 006의 중단된 재구성은 역사적 근거와 배제 사례이지 active architecture가 아니다.
 
 ## Source boundary
 

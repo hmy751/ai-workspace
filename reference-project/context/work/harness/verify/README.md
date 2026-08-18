@@ -1,65 +1,28 @@
 # Verify
 
-`verify`는 이미 다른 주체가 수행한 test, eval, 수동 확인의 결과와 확인하지 못한 범위를 선택한 Workspace에 append-only evidence로 기록한다. 제품 명령을 실행하거나 결과의 충분성을 판정하는 verifier가 아니다.
+`verify`는 선택한 Workspace의 `verify.json`에 명시된 한 가지 claim을 고정 argv로 확인하고, 실행 전에 그 claim의 canonical basis와 제품 evidence를 snapshot한 뒤 receipt와 machine status를 남기는 결정적 실행기다.
 
 ## 소유 계약
 
-- 입력 evidence의 schema와 선택한 `workspace_id`를 검증한다.
-- Project-root 상대 JSON 파일 또는 stdin에서 입력을 받는다.
-- 기존 `records/receipts/`가 symlink가 아닌 실제 디렉터리인지 확인한다. 자기 소유 `verify/` leaf가 없으면 안전하게 만들고, 기존 파일을 덮지 않는 `evidence-*.json` receipt를 추가한다.
-- `source_refs`는 이미 수행된 확인으로 돌아갈 수 있는 위치를 기록할 뿐이다. Verify는 locator를 열거나 원자료의 진위를 다시 판정하지 않는다.
-- `outcome`의 `pass`, `fail`, `partial`은 evidence 생산자가 보고한 결과다. 세 결과 모두 유효하게 기록되면 CLI는 exit `0`을 반환한다.
-- 제품 코드·테스트를 실행하지 않고, 제품 파일을 snapshot하거나 hash하지 않는다.
-- `verify.json`, 기존 `verify-*.json` receipt, `current/state/status.json`, `recover.json`을 읽거나 수정하지 않는다.
-- Workspace 상태 전환, Recover 입력, 다음 행동, 사람 acceptance, 작업 완료를 결정하지 않는다.
+- `workspace.json`의 정체성과 `verify.json` schema v2의 `claim`, `canonical_basis`, `verification`만 읽는다.
+- `claim`은 이번 실행이 무엇을 확인하는지 구체적으로 서술한다. 명령 통과만으로 claim의 의미가 충분히 증명되거나 작업이 완료됐다고 간주하지 않는다.
+- `canonical_basis`와 `evidence_paths` 파일의 Project-root 상대 경로, SHA-256, byte size를 명령 실행 전에 모두 확보한다. basis는 판단 기준, evidence는 그 기준을 구현·검사하는 파일이다.
+- argv는 shell 없이 실행하며 shell·`env` trampoline, 절대 경로, path traversal을 거부한다.
+- timeout은 제품 timeout 규칙을 판정하는 기능이 아니라 검증 subprocess가 무한히 머무르지 않게 하는 실행 한도다. POSIX에서는 새 process group의 일반 descendant까지 같은 deadline으로 기다리고 초과하면 group을 종료해 exit `124`의 실패로 남긴다. 스스로 새 session으로 분리한 process와 비-POSIX의 descendant 전체 종료는 이 경계가 보장하지 않는다. stdout·stderr는 stream별 상한과 Project-root 정규화를 적용한다.
+- 시작 전에 `records/receipts/verify/`가 symlink가 아닌 실제 디렉터리인지 확인한다.
+- 성공과 실패 모두 기존 파일을 덮지 않는 schema v2 receipt를 `records/receipts/verify/`에 추가한다. receipt에는 claim, 두 종류의 선확보 snapshot과 이를 함께 식별하는 `snapshot_sha256`, argv·exit·bounded output, timeout 결과, 민감한 환경 변수를 제외한 Python/OS Harness runtime 정보가 들어간다.
+- `current/state/status.json`은 schema v3의 `verification_passed` 또는 `verification_failed`와 receipt cursor만 atomic 교체한다.
+- `next_actions`를 계약·receipt·status·CLI summary에 두지 않는다. `current/state/index.md`, `recover.json`, 사람용 records를 읽거나 수정하지 않으며 다음 조치, context maintenance, acceptance를 결정하지 않는다.
 
-## Evidence 입력
-
-입력은 다음 필드를 정확히 가진 schema v1 JSON object다.
-
-- `observed_at`: evidence가 관찰된 시각. timezone을 포함한 RFC 3339 timestamp
-- `producer`: test runner, Main task, 사람 등 evidence를 만든 주체
-- `subject`: 무엇을 확인했는지
-- `method`: 실제로 수행한 test, eval, 수동 확인 방법
-- `outcome`: `pass`, `fail`, `partial` 중 하나
-- `result_summary`: 관찰된 결과의 짧은 요약
-- `source_refs`: 원래 결과로 돌아가기 위한 `kind`와 `locator` 목록. 재접근 경로가 없으면 빈 배열
-- `unverified_scope`: 이 evidence로 확인하지 않은 범위. 최소 한 항목이 필요하다.
-
-예시는 다음과 같다.
-
-```json
-{
-  "schema_version": 1,
-  "observed_at": "2026-08-17T20:30:45+09:00",
-  "producer": "Main task",
-  "subject": "default timeout unit tests",
-  "method": "python3 -m unittest tests.test_config_loader -v",
-  "outcome": "pass",
-  "result_summary": "7 tests completed successfully",
-  "source_refs": [
-    {
-      "kind": "task-transcript",
-      "locator": "verification command 1"
-    }
-  ],
-  "unverified_scope": [
-    "운영 서비스의 실제 timeout 동작은 확인하지 않았다."
-  ]
-}
-```
-
-Project root에서 파일 또는 stdin으로 기록한다.
+Project root에서 다음처럼 실행한다.
 
 ```bash
-python3 -m context.work.harness verify 001-default-timeout --input-json evidence.json
-python3 -m context.work.harness verify 001-default-timeout --input-json - < evidence.json
+python3 -m context.work.harness verify
+python3 -m context.work.harness verify 001-default-timeout
 ```
 
-성공 summary의 `recorded: true`는 입력 evidence receipt가 append-only 경로에 기록됐다는 뜻이다. `evidence_outcome: pass`도 제품이 충분히 검증됐거나 Workspace가 완료됐다는 뜻이 아니다. Verify는 빠진 Workspace나 `records/receipts/` 상위 구조를 대신 만들지 않는다.
+검증 성공 상태는 `verification_passed`다. 이것은 snapshot된 basis/evidence와 기록된 runtime 조건에서 고정 argv가 exit `0`을 반환했다는 기계 사실이다. 사람의 acceptance, claim의 의미적 충분성, `completed` 전이를 뜻하지 않는다.
 
-## 과거 제품 검증과의 경계
+`verify`는 상태 전환이나 인계에서 다시 확인할 필요가 있는 실행 사실을 durable evidence로 남길 때 사용한다. 단순 반복 개발 확인은 직접 test 명령을 사용한다. 실행한 receipt는 결과가 같아도 자동으로 덮거나 합치지 않는다.
 
-기존 `verify.json`, `verify-*.json` receipt와 schema v2·v3 status는 과거 제품 검증 기록과 Recover 호환을 위해 다시 쓰지 않고 보존할 수 있다. 새 Verify는 이 파일들을 입력으로 사용하거나 새 형식으로 이관하지 않는다.
-
-Recover는 status가 가리키는 과거 `verify-*.json` product receipt만 기존 규칙으로 복구한다. 새 `evidence-*.json`은 독립적인 evidence 기록이며 status의 제품 검증 근거로 연결할 수 없고, Recover가 자동으로 읽거나 최신 evidence로 선택하지 않는다.
+과거 schema v1 receipt와 schema v2 status는 연결된 기록을 복구하기 위해 계속 읽을 수 있고, 이전 flat `records/verify-*.json` receipt 경로도 유지한다. 다른 receipt 종류나 임의의 `records/*.json`을 제품 Verify 결과로 연결하지 않는다. 역사 파일은 새 schema로 다시 쓰지 않는다. `next_actions`를 포함하던 `verify.json` schema v1은 실행 책임이 달라졌으므로 schema v2로 명시적으로 이관해야 한다.
