@@ -4,6 +4,8 @@
 
 상태: **사용자 결정 반영 / Reference 계약 갱신 기준**
 
+후속 구현·검증: 아래에 남긴 failure ordering과 semantic acceptance의 결과는 [`record 07`](2026-08-19-07-failure-ordering-and-semantic-acceptance.md)이 소유한다.
+
 ## 이 기록의 역할
 
 [구현과 actual host evidence](2026-08-19-05-reference-implementation-and-host-evidence.md) 뒤 독립 리뷰의 큰 문제를 모두 다음 구현 요구로 올리는 대신, 사용자와 Maintainer의 본래 목적을 다시 대조해 현재 구현을 `유지`, `수정`, `보류`, `추가 acceptance`로 재분류한다.

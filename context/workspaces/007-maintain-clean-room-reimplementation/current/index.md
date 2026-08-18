@@ -8,4 +8,4 @@
 2. [`state.md`](state.md): reset된 현재 상태와 다음 시작점
 3. [`../output/index.md`](../output/index.md): 선택된 구현과 root 연결 상태
 
-상세 근거는 [`../records/`](../records/)의 01·02·03·04·05·06이 소유한다. 현재 범위와 다음 행동은 record 06이 가장 늦은 판단으로 재분류한다.
+상세 근거는 [`../records/`](../records/)의 01·02·03·04·05·06·07·08이 소유한다. 현재 범위는 record 06, 구현·acceptance 결과는 record 07, outer root 적용 경계는 record 08이 소유한다.

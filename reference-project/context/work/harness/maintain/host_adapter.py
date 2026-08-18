@@ -517,22 +517,40 @@ class MaintainHostAdapter:
                     _atomic_write_json(event_path, event)
             notices = self._take_notices(session_directory)
             unresolved = self._unresolved_event_keys(session_directory)
+            blocking_failures = self._blocking_failure_keys(session_directory)
 
         # A previous detached worker may have crashed or lost a launch race.
         # Re-kicking is safe because the per-session drain lock serializes the
         # workers and the effect file makes resolved boundaries effect-once.
-        if unresolved:
+        if unresolved and not blocking_failures:
             self._start_detached_drain(session_directory.name)
 
-        if not notices and not unresolved:
+        if not notices and not unresolved and not blocking_failures:
             return _hook_output("UserPromptSubmit")
         messages = [str(notice["message"]) for notice in notices]
         if unresolved:
+            if blocking_failures:
+                messages.append(
+                    f"{len(unresolved)} later Workspace Maintain response-end "
+                    "boundary/boundaries remain pending behind a failed "
+                    "semantic or apply boundary. They were not applied, do not "
+                    "establish fresh or current Context, and will not be "
+                    "retried in this Main session. A new Main session must "
+                    "ground from the canonical Workspace."
+                )
+            else:
+                messages.append(
+                    f"{len(unresolved)} previously accepted Workspace Maintain "
+                    "response-end boundary/boundaries are still pending. They "
+                    "are not completed and do not establish fresh or current "
+                    "Context; a detached worker was started again."
+                )
+        elif blocking_failures:
             messages.append(
-                f"{len(unresolved)} previously accepted Workspace Maintain "
-                "response-end boundary/boundaries are still pending. They are "
-                "not completed and do not establish fresh or current Context; "
-                "a detached worker was started again."
+                "Automatic Workspace Maintain is paused for this Main session "
+                "after a failed semantic or apply boundary. No later Context "
+                "freshness is claimed; a new Main session must ground from the "
+                "canonical Workspace."
             )
         context = "Previous Workspace Maintain results requiring attention:\n- " + (
             "\n- ".join(messages)
@@ -611,8 +629,10 @@ class MaintainHostAdapter:
                     fail("duplicate Maintain response-end has different content")
             else:
                 _atomic_write_json(event_path, event)
+            blocking_failures = self._blocking_failure_keys(session_directory)
 
-        self._start_detached_drain(session_key)
+        if not blocking_failures:
+            self._start_detached_drain(session_key)
         return _hook_output("Stop")
 
     def session_end(self, payload: Mapping[str, Any]) -> dict[str, Any]:
@@ -627,19 +647,21 @@ class MaintainHostAdapter:
             orphaned = self._fail_orphan_prompts(session_directory)
             unresolved = self._unresolved_event_keys(session_directory)
             failed = self._failed_effect_keys(session_directory)
+            blocking_failures = self._blocking_failure_keys(session_directory)
             notices = self._take_notices(session_directory)
             _atomic_write_json(
                 session_directory / "session-end.json",
                 {
                     "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
                     "ended_at": self._clock(),
+                    "blocking_failure_keys": blocking_failures,
                     "failed_effect_keys": failed,
                     "orphan_prompt_keys": orphaned,
                     "surfaced_notice_count": len(notices),
                     "unresolved_event_keys": unresolved,
                 },
             )
-        if unresolved:
+        if unresolved and not blocking_failures:
             self._start_detached_drain(session_key)
         if unresolved or orphaned or failed or notices:
             status_message = (
@@ -648,10 +670,15 @@ class MaintainHostAdapter:
                 f"event(s) not yet resolved; {len(failed)} effect(s) are "
                 "failed, not completed. Completion or freshness is not claimed."
             )
-            if unresolved:
+            if unresolved and not blocking_failures:
                 status_message += (
                     " A best-effort worker was started for accepted "
                     "response-end events."
+                )
+            elif unresolved:
+                status_message += (
+                    " Later events remain pending behind a failed semantic or "
+                    "apply boundary and were not retried in this Main session."
                 )
             notice_messages = [str(notice["message"]) for notice in notices]
             message = "\n".join([status_message, *notice_messages])
@@ -704,6 +731,7 @@ class MaintainHostAdapter:
                 effect_path,
                 {
                     "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+                    "blocks_later_events": False,
                     "status": "failed",
                     "finished_at": self._clock(),
                     "error": "prompt_without_response_end",
@@ -783,6 +811,35 @@ class MaintainHostAdapter:
             if effect.get("status") == "failed":
                 failed.append(path.stem)
         return failed
+
+    @staticmethod
+    def _effect_blocks_later_events(effect: Mapping[str, Any]) -> bool:
+        if "blocks_later_events" not in effect:
+            # schema v1 effects written before failure ordering was added did
+            # not distinguish pairing failures from semantic/apply failures.
+            # Treat an old failed effect as blocking rather than risk applying
+            # a later event against an uncertain thread/Context relationship.
+            return effect.get("status") == "failed"
+        blocks_later = effect.get("blocks_later_events")
+        if type(blocks_later) is not bool:
+            fail("Maintain runtime effect blocking flag must be boolean")
+        return blocks_later
+
+    def _blocking_failure_keys(self, session_directory: Path) -> list[str]:
+        blocking: list[str] = []
+        for turn_key, _ in self._events(session_directory):
+            effect_path = self._effect_path(session_directory, turn_key)
+            if not effect_path.exists():
+                continue
+            effect = _read_json_object(
+                effect_path, "Maintain runtime effect"
+            )
+            if (
+                effect.get("status") == "failed"
+                and self._effect_blocks_later_events(effect)
+            ):
+                blocking.append(turn_key)
+        return blocking
 
     def _write_notice(
         self,
@@ -877,6 +934,7 @@ class MaintainHostAdapter:
             "processed": 0,
             "failed": 0,
             "already_resolved": 0,
+            "blocked": 0,
             "busy": False,
         }
         with self._drain_lock(session_directory):
@@ -885,6 +943,17 @@ class MaintainHostAdapter:
                 effect_path = self._effect_path(session_directory, turn_key)
                 if effect_path.exists():
                     summary["already_resolved"] += 1
+                    effect = _read_json_object(
+                        effect_path, "Maintain runtime effect"
+                    )
+                    if (
+                        effect.get("status") == "failed"
+                        and self._effect_blocks_later_events(effect)
+                    ):
+                        summary["blocked"] = len(
+                            self._unresolved_event_keys(session_directory)
+                        )
+                        break
                     continue
                 user_prompt = event.get("user_prompt")
                 turn_id = event.get("turn_id")
@@ -908,6 +977,7 @@ class MaintainHostAdapter:
                         effect_path,
                         {
                             "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+                            "blocks_later_events": False,
                             "status": "failed",
                             "finished_at": self._clock(),
                             "error": message,
@@ -968,12 +1038,17 @@ class MaintainHostAdapter:
                         effect_path,
                         {
                             "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+                            "blocks_later_events": True,
                             "status": "failed",
                             "finished_at": self._clock(),
                             "error": str(exc),
                         },
                     )
                     summary["failed"] += 1
+                    summary["blocked"] = len(
+                        self._unresolved_event_keys(session_directory)
+                    )
+                    break
         return summary
 
 

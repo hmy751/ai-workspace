@@ -450,6 +450,199 @@ class MaintainHostAdapterTests(WorkspaceFixture):
         self.assertIn("failed, not completed", notification)
         self.assertIn("semantic crash", notification)
 
+    def test_semantic_failure_keeps_later_events_pending_without_rekick(
+        self,
+    ) -> None:
+        session_id = "host-session-blocked-after-semantic-failure"
+        self.adapter.session_start(self.session_start_payload(session_id))
+        before = self.workspace_bytes()
+
+        self.adapter.user_prompt(
+            self.prompt_payload(session_id, "turn-failure", "first prompt")
+        )
+        self.adapter.response_end(
+            self.stop_payload(session_id, "turn-failure", "first response")
+        )
+        self.adapter.user_prompt(
+            self.prompt_payload(session_id, "turn-later", "later prompt")
+        )
+        self.adapter.response_end(
+            self.stop_payload(session_id, "turn-later", "later response")
+        )
+        FakeSemanticSession.resume_errors = [HarnessError("semantic crash")]
+
+        first = self.adapter.drain(self.session_key(session_id))
+        second = self.adapter.drain(self.session_key(session_id))
+        popen_count = len(self.popen.calls)
+        attention = self.adapter.user_prompt(
+            self.prompt_payload(session_id, "turn-attention", "what is pending?")
+        )
+
+        self.assertEqual(first["failed"], 1)
+        self.assertEqual(first["blocked"], 1)
+        self.assertEqual(first["processed"], 0)
+        self.assertEqual(second["already_resolved"], 1)
+        self.assertEqual(second["blocked"], 1)
+        self.assertEqual(len(FakeSemanticSession.deltas), 1)
+        self.assertEqual(self.apply_calls, [])
+        self.assertEqual(self.workspace_bytes(), before)
+        self.assertEqual(len(self.popen.calls), popen_count)
+
+        effects_directory = (
+            self.runtime_root
+            / self.session_key(session_id)
+            / "effects"
+        )
+        failed_key = self.session_key("turn-failure")
+        later_key = self.session_key("turn-later")
+        failed_effect = json.loads(
+            (effects_directory / f"{failed_key}.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertIs(failed_effect["blocks_later_events"], True)
+        self.assertFalse((effects_directory / f"{later_key}.json").exists())
+        context = attention["hookSpecificOutput"]["additionalContext"]
+        self.assertIn("remain pending behind a failed semantic", context)
+        self.assertIn("will not be retried in this Main session", context)
+
+        popen_count = len(self.popen.calls)
+        ending = self.adapter.session_end(
+            {
+                "hook_event_name": "SessionEnd",
+                "session_id": session_id,
+                "cwd": "/unused/by-direct-test",
+                "reason": "complete",
+            }
+        )
+        self.assertEqual(len(self.popen.calls), popen_count)
+        end_context = ending["hookSpecificOutput"]["additionalContext"]
+        self.assertIn("Later events remain pending", end_context)
+        self.assertIn("were not retried in this Main session", end_context)
+
+    def test_apply_failure_blocks_later_event(self) -> None:
+        apply_attempts: list[dict[str, object]] = []
+
+        def failing_apply(
+            project_root: Path,
+            work_root: Path,
+            workspace_id: str,
+            decision: dict[str, object],
+        ) -> dict[str, Any]:
+            apply_attempts.append(decision)
+            raise HarnessError("guarded apply crash")
+
+        adapter = MaintainHostAdapter(
+            self.project_root,
+            runtime_root=self.runtime_root,
+            session_type=FakeSemanticSession,
+            runner=lambda *args, **kwargs: None,
+            popen=self.popen,
+            clock=self.clock,
+            python_executable="fixture-python",
+            bootstrap=bootstrap_workspace,
+            apply_decision=failing_apply,
+        )
+        session_id = "host-session-blocked-after-apply-failure"
+        adapter.session_start(self.session_start_payload(session_id))
+        adapter.user_prompt(
+            self.prompt_payload(session_id, "turn-failure", "first prompt")
+        )
+        adapter.response_end(
+            self.stop_payload(session_id, "turn-failure", "first response")
+        )
+        adapter.user_prompt(
+            self.prompt_payload(session_id, "turn-later", "later prompt")
+        )
+        adapter.response_end(
+            self.stop_payload(session_id, "turn-later", "later response")
+        )
+
+        summary = adapter.drain(self.session_key(session_id))
+
+        self.assertEqual(summary["failed"], 1)
+        self.assertEqual(summary["blocked"], 1)
+        self.assertEqual(len(apply_attempts), 1)
+        self.assertEqual(len(FakeSemanticSession.deltas), 1)
+
+    def test_legacy_failed_effect_blocks_later_event_fail_closed(self) -> None:
+        session_id = "host-session-legacy-failure"
+        self.adapter.session_start(self.session_start_payload(session_id))
+        self.adapter.user_prompt(
+            self.prompt_payload(session_id, "turn-failure", "first prompt")
+        )
+        self.adapter.response_end(
+            self.stop_payload(session_id, "turn-failure", "first response")
+        )
+        FakeSemanticSession.resume_errors = [HarnessError("legacy crash")]
+        self.adapter.drain(self.session_key(session_id))
+
+        effect_path = (
+            self.runtime_root
+            / self.session_key(session_id)
+            / "effects"
+            / f"{self.session_key('turn-failure')}.json"
+        )
+        legacy_effect = json.loads(effect_path.read_text(encoding="utf-8"))
+        del legacy_effect["blocks_later_events"]
+        effect_path.write_text(
+            json.dumps(legacy_effect) + "\n", encoding="utf-8"
+        )
+
+        popen_count = len(self.popen.calls)
+        attention = self.adapter.user_prompt(
+            self.prompt_payload(session_id, "turn-later", "later prompt")
+        )
+        self.adapter.response_end(
+            self.stop_payload(session_id, "turn-later", "later response")
+        )
+        summary = self.adapter.drain(self.session_key(session_id))
+
+        self.assertEqual(summary["already_resolved"], 1)
+        self.assertEqual(summary["blocked"], 1)
+        self.assertEqual(len(FakeSemanticSession.deltas), 1)
+        self.assertEqual(len(self.popen.calls), popen_count)
+        context = attention["hookSpecificOutput"]["additionalContext"]
+        self.assertIn("paused for this Main session", context)
+
+    def test_unpaired_event_failure_does_not_block_later_semantic_event(
+        self,
+    ) -> None:
+        session_id = "host-session-nonblocking-pairing-failure"
+        self.adapter.session_start(self.session_start_payload(session_id))
+        self.adapter.response_end(
+            self.stop_payload(
+                session_id,
+                "turn-without-prompt",
+                "response without a captured prompt",
+            )
+        )
+        self.adapter.user_prompt(
+            self.prompt_payload(session_id, "turn-valid", "valid prompt")
+        )
+        self.adapter.response_end(
+            self.stop_payload(session_id, "turn-valid", "valid response")
+        )
+
+        summary = self.adapter.drain(self.session_key(session_id))
+
+        self.assertEqual(summary["failed"], 1)
+        self.assertEqual(summary["processed"], 1)
+        self.assertEqual(summary["blocked"], 0)
+        self.assertEqual(len(FakeSemanticSession.deltas), 1)
+        self.assertEqual(
+            FakeSemanticSession.deltas[0]["turn_id"], "turn-valid"
+        )
+        failed_effect = json.loads(
+            (
+                self.runtime_root
+                / self.session_key(session_id)
+                / "effects"
+                / f"{self.session_key('turn-without-prompt')}.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertIs(failed_effect["blocks_later_events"], False)
+
     def test_ambiguity_and_important_update_surface_on_next_prompt(self) -> None:
         session_id = "host-session-notifications"
         self.adapter.session_start(self.session_start_payload(session_id))

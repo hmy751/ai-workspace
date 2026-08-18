@@ -110,9 +110,11 @@ Reference Project는 다음 교체 가능한 연결을 함께 제공한다.
 
 `SessionStart`만 bounded grounding 완료를 기다린다. Grounding이 실패하거나 사람 결정이 필요하면 session state를 grounded로 commit하지 않고 그 사실을 Main과 사용자 표면에 돌려보낸다.
 
-`UserPromptSubmit`은 stable `turn_id`와 prompt를 짧게 보존하고, 이전 important update·ambiguity·failure 또는 아직 끝나지 않은 accepted boundary가 있으면 다음 Main model request와 사용자 UI에 전달한다. Pending은 worker를 다시 시작하되 완료·fresh·current로 표시하지 않는다. Immediate 별도 chat message를 생성하는 장치가 아니므로, background 결과는 다음 prompt가 들어올 때 보인다.
+`UserPromptSubmit`은 stable `turn_id`와 prompt를 짧게 보존하고, 이전 important update·ambiguity·failure 또는 아직 끝나지 않은 accepted boundary가 있으면 다음 Main model request와 사용자 UI에 전달한다. 일반 pending은 worker를 다시 시작하되 완료·fresh·current로 표시하지 않는다. 이전 semantic resume 또는 guarded apply가 실패해 thread와 Context의 관계가 불확실하면 뒤 event를 같은 session에서 재시작하지 않고 pending으로 남기며 새 Main session의 bounded grounding을 요구한다. Immediate 별도 chat message를 생성하는 장치가 아니므로, background 결과는 다음 prompt가 들어올 때 보인다.
 
-`Stop` handler는 stable `turn_id`와 `last_assistant_message`를 session별 event로 먼저 확정하고 detached worker를 시작한 뒤 끝난다. 장시간 agent 판단과 write를 기다리지 않는다. Worker는 같은 semantic thread를 resume하고 guarded apply를 거친다. Effect가 이미 확정된 ordinary duplicate는 다시 적용하지 않으며, prompt만 있고 `Stop`이 없거나 worker가 실패하면 완료가 아니라 failure로 남긴다. Semantic resume·apply 뒤 effect 기록 전 hard crash의 strict effect-once는 주장하지 않는다.
+`Stop` handler는 stable `turn_id`와 `last_assistant_message`를 session별 event로 먼저 확정하고 detached worker를 시작한 뒤 끝난다. 장시간 agent 판단과 write를 기다리지 않는다. Worker는 같은 semantic thread를 resume하고 guarded apply를 거친다. Effect가 이미 확정된 ordinary duplicate는 다시 적용하지 않는다. Prompt·response pairing 이전 실패는 failure로 남기고 뒤의 정상 event 처리를 막지 않는다. Semantic resume 또는 guarded apply가 실패하면 그 event는 뒤 event를 막는 failure가 되고, 뒤 event는 적용되지 않은 pending으로 남는다. Semantic resume·apply 뒤 effect 기록 전 hard crash의 strict effect-once는 주장하지 않는다.
+
+Failure ordering 필드가 생기기 전 schema v1 runtime의 `failed` effect는 원래 실패 단계를 구분할 수 없으므로 fail-closed로 뒤 event를 막는다. 새 Main session의 canonical grounding으로 돌아가는 안전한 과잉 정지이며, 새 runtime의 pairing 실패에는 명시적으로 nonblocking을 기록한다.
 
 Runtime 기본 위치는 ignored `.codex/maintain-runtime/`이다. Project 내부의 absolute lexical descendant만 허용하고 기존 symlink component를 거부한다. Warm thread binding과 delivery truth만 소유하며 Workspace 의미를 복제하지 않는다. 폴더를 지우면 자동 session continuity만 사라지고, 다음 session은 canonical에서 다시 grounding한다.
 
