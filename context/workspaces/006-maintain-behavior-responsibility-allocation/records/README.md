@@ -11,4 +11,8 @@
 
 ## 기록
 
-아직 생성된 record가 없다.
+- [`2026-08-18-01-initial-responsibility-scan-and-root-binding-test.md`](2026-08-18-01-initial-responsibility-scan-and-root-binding-test.md): 이전 Maintain 계약을 다시 고정한 작업 범위, 현재 기준선, 가변 root Workspace 선택과 portable Reference test의 결합, 본격 분석 순서를 기록
+- [`2026-08-18-02-response-end-responsibility-map-and-first-slice.md`](2026-08-18-02-response-end-responsibility-map-and-first-slice.md): response-end 판단부터 write·report·checkpoint·intent cleanup까지의 책임 지도, 첫 fail-closed 개선과 검증 결과
+- [`2026-08-18-03-self-check-and-purpose-first-reset.md`](2026-08-18-03-self-check-and-purpose-first-reset.md): self-check 판정, Workspace 005 records 01–09에서 복원한 사용자 목적과 실패 흐름, 현재 topology 보존을 중단하고 최소 책임 구조로 돌아간 기준
+- [`2026-08-18-04-completed-response-and-workspace-attention.md`](2026-08-18-04-completed-response-and-workspace-attention.md): completed response에만 처리 순서를 부여하고 session report를 Workspace attention으로 교체한 첫 구조 개선, migration·crash 경계·검증과 남은 과제
+- [`2026-08-18-05-clean-room-restart-decision.md`](2026-08-18-05-clean-room-restart-decision.md): 기존 구현 개선 접근을 중단하고 005 합의와 pre-implementation code baseline에서 별도 Workspace로 재시작하기로 한 결정

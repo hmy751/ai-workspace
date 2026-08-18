@@ -1,32 +1,34 @@
 # Maintain behavior responsibility allocation Workspace
 
-Workspace 005에서 완성한 Reference Maintain의 사용자 기능을 기본적으로 유지하면서, 그 동작을 구성하는 모델 판단, 지침·prompt, schema·validator, controller·runtime·writer와 사람 권한의 배치가 적절한지 점검하고 내부 코드와 작성 방식을 개선하는 Workspace다.
+Workspace 005에서 합의한 Reference Maintain의 목적과 사용자 경험을 보존하면서, 당시 구현을 책임 배치 관점에서 개선하려 했던 Workspace다.
 
-상태는 **active**이며 아직 구체적인 개선 대상이나 변경안은 정하지 않았다. 작업은 글로벌 [`ai-system_behavior-responsibility-allocation.md`](/Users/hammyeong-yeon/.claude/references/ai-system_behavior-responsibility-allocation.md)를 판단 기준으로 삼되, reference를 복제하거나 수정하지 않고 Workspace 안에서 실제 Maintain 동작과 책임 배치를 대조한다.
+상태는 **stopped**다. 기존 코드를 개선 대상으로 둔 채 시작하면서 구현 topology에 판단이 계속 묶였고, 첫 구조 변경도 compatibility와 crash protocol을 다시 키웠다. 사용자는 이 접근을 더 보정하지 않고, Workspace 005의 합의와 글로벌 AI-system references에서 새 구현을 도출하는 별도 Workspace로 책임을 옮기기로 결정했다. 006의 코드 변경은 선택된 산출물이 아니며 새 구현의 architecture로 이어받지 않는다.
 
 ## 읽는 순서
 
-1. [`current/memory.md`](current/memory.md): 목표, 적용할 책임 배치 기준과 현재 경계
-2. [`current/state.md`](current/state.md): 시작 상태, 아직 정하지 않은 것과 다음 대화의 커서
-3. [`output/index.md`](output/index.md): 개선 대상인 Reference canonical과 Workspace 005 구현 baseline
-4. [`records/README.md`](records/README.md): 이후 만들어질 분석·결정·검증 기록의 진입점
-5. 글로벌 [`AI 동작의 판단·보장·권한 배치`](/Users/hammyeong-yeon/.claude/references/ai-system_behavior-responsibility-allocation.md): 실제 동작에서 책임 배치를 판단할 때 읽는 기준
+1. [`current/state.md`](current/state.md): 중단 상태, 검증 상한과 이관 커서
+2. [`records/2026-08-18-05-clean-room-restart-decision.md`](records/2026-08-18-05-clean-room-restart-decision.md): 왜 006을 멈추고 코드 기준선을 되돌리는지
+3. [`records/2026-08-18-03-self-check-and-purpose-first-reset.md`](records/2026-08-18-03-self-check-and-purpose-first-reset.md): Workspace 005에서 복원한 사용자 mental model
+4. [`records/2026-08-18-04-completed-response-and-workspace-attention.md`](records/2026-08-18-04-completed-response-and-workspace-attention.md): 선택되지 않은 구현 시도와 proof ceiling
+5. [`records/README.md`](records/README.md): 기록 전체의 진입점
 
-## 범위
+## 이 Workspace가 보존하는 것
 
 - Reference Maintain의 운영상 하나인 동작과 시작 조건·입력·결과·부작용·비목표 식별
+- Workspace 005 records에서 사용자 목적, 실패한 Observe 실험과 교체 가능한 기술 후보를 시간순으로 복원
+- 목적에서 필요한 최소 semantic 판단·durable state·source of truth를 먼저 도출
 - 해석·선택, 보장·거부, 권한·승인, 실행·기록 책임의 현재 배치 대조
-- 지침·prompt·schema·config·validator·code·test가 각각 표현·집행·검증하는 약속 확인
-- 기능을 늘리는 대신 중복, 숨은 정책, 과도한 runtime 책임과 불명확한 작성 경계 개선
+- 현재 파일·protocol을 유지할 이유와 제거·통합·파생 가능성, 추가 실패·복구·검증 비용 대조
+- 지침·prompt·schema·config·validator·code·test가 각각 표현·집행·검증해야 하는 최소 약속 확인
+- 기능을 늘리는 대신 중복, 숨은 정책, 과도한 runtime 책임과 불명확한 작성 경계 제거
 - 책임을 단순화·교체·이동·제거할 때 달라지는 약속과 검증 범위 기록
-- 결정된 개선의 실제 canonical 반영과 필요한 직접 test·eval·수동 확인
+- 기존 topology를 개선하는 접근이 다시 compatibility 중심 설계로 커진 과정과 중단 이유
 
-## 현재 범위 밖
+## 더 하지 않는 것
 
-- 구체적인 문제와 근거를 확인하기 전 새 기능이나 새 runtime 상태 추가
-- Workspace 005의 historical records 재작성 또는 완료된 구현 이력 복제
-- 글로벌 `ai-system_behavior-responsibility-allocation.md` 자체 수정
-- 사용자 대신 정책, 중요한 예외, acceptance나 완료를 확정하는 것
-- 직접 관련성이 확인되지 않은 Recover·Verify·다른 Workspace의 확장 검토
+- 006의 implementation diff를 수정하거나 새 architecture로 승격
+- 006 안에서 Reference Maintain을 계속 구현
+- Workspace 005의 historical records 재작성
+- 새 Workspace의 current나 결정을 006에 대신 기록
 
-Workspace 005는 현재 구현과 그 선택·proof를 소유한다. 이 Workspace는 필요한 baseline만 연결하고, 내부 책임 배치 개선 과정과 새 결론을 독립적으로 소유한다.
+Workspace 005는 당시의 합의·실험·최종 구현과 proof를 소유한다. 006은 기존 구현 개선 시도의 기록만 소유하며, 다음 구현은 별도 Workspace가 독립적으로 판단한다.
