@@ -29,6 +29,8 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 자동 Maintain hook과 agent는 clean-room 재구현 동안 의도적으로 비활성이다. [`.codex/hooks.json`](.codex/hooks.json)은 빈 hook 집합만 가지며, [`.codex/config.toml`](.codex/config.toml)은 Maintainer를 등록하지 않는다. 삭제된 Reference runtime이나 이전 root Observe runtime을 임시로 다시 연결하지 않는다.
 
+현재 clean-room 작업의 canonical은 [Workspace 007](context/workspaces/007-maintain-clean-room-reimplementation/)이다. Workspace 005와 006은 선별 근거와 실패 이력으로만 읽고 그 구현 topology를 current로 이어 쓰지 않는다.
+
 그동안 main은 선택한 Workspace의 `README.md`, `current/`, `output/`, 필요한 `records/`를 직접 읽고 관리한다. 계속 보존할 판단·분석·검증이 생기거나 목표·현재 상태·다음 행동이 바뀌면 해당 Workspace 문서에 반영하되, 일회성 탐색 출력은 누적하지 않는다. 실제 파일·Git·test 결과와 대조하지 않은 상태를 fresh 또는 완료라고 기록하지 않는다.
 
 새 Maintain 구현은 행동 계약과 책임 배치를 먼저 확정하고 실제 host에서 시작·연속 대화·response-end·실패 장면을 검증한 뒤에만 root에 다시 연결한다. Workspace 005의 구현 topology와 Workspace 006의 중단된 재구성은 역사적 근거와 배제 사례이지 active architecture가 아니다.

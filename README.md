@@ -7,7 +7,7 @@
 - context 경계와 재진입: [`context/`](./context/)
 - Workspace 목록과 active 작업: [`context/workspaces/`](./context/workspaces/)
 - 완료된 reference 구현 Workspace: [`001-reference-implementation`](./context/workspaces/001-reference-implementation/)
-- active 작업 선택: [`context/workspaces/README.md`](./context/workspaces/README.md)
+- active Maintain clean-room Workspace: [`007-maintain-clean-room-reimplementation`](./context/workspaces/007-maintain-clean-room-reimplementation/)
 - 보류된 적용 Workspace: [`002-project-application`](./context/workspaces/002-project-application/)
 - 준비된 적용 Workspace: [`003-project-application`](./context/workspaces/003-project-application/)
 - 공유 source 원본과 색인: [`context/source/`](./context/source/)

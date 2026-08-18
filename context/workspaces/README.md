@@ -4,8 +4,9 @@
 
 ## Active Workspace
 
-- active: [`006-maintain-behavior-responsibility-allocation`](./006-maintain-behavior-responsibility-allocation/)
-- completed maintain implementation: [`005-context-continuity-maintenance`](./005-context-continuity-maintenance/)
+- active: [`007-maintain-clean-room-reimplementation`](./007-maintain-clean-room-reimplementation/)
+- stopped responsibility-allocation attempt: [`006-maintain-behavior-responsibility-allocation`](./006-maintain-behavior-responsibility-allocation/)
+- historical maintain implementation and proof: [`005-context-continuity-maintenance`](./005-context-continuity-maintenance/)
 - paused maintenance implementation: [`004-harness-maintenance-bottleneck`](./004-harness-maintenance-bottleneck/)
 - paused application: [`002-project-application`](./002-project-application/)
 - ready: [`003-project-application`](./003-project-application/)
