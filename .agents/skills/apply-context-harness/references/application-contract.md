@@ -29,7 +29,7 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 ### Reference 책임 적응
 
 - 각 책임의 live Owner와 파일을 target에 그대로 둘지, target 구조에 맞춰 적응할지, 제외할지 판단한다.
-- Tool-specific Maintain 연결과 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. 수동 role, lifecycle hook, explicit binding, wrapper와 runtime ignore를 각각 설치·적응·제외하고, role 등록만으로 automatic lifecycle을 주장하지 않는다. 일부 또는 전체 adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
+- Tool-specific Maintain 연결과 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. 수동 role, lifecycle hook, explicit binding, wrapper와 runtime ignore를 각각 설치·적응·제외하고, role 등록만으로 automatic lifecycle을 주장하지 않는다. Project-local Codex hook은 target root의 Codex task에서 `/hooks` review/trust와 runtime session receipt가 확인되기 전까지 `activation_pending`으로 둔다. 일부 또는 전체 adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
 - Reference sample의 제품·Workspace 내용과 과거 receipt는 payload에서 제외한다.
 
 ## Project common context 내용 충족
@@ -91,6 +91,7 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 | Target Harness 적응 | 전체 Harness tests와 ephemeral validation | 실패, source 변경 또는 proof 공백 |
 | 상태 전환·인계 | Product Verify와 후속 Recover | Evidence closure나 runtime 불확실성 |
 | Context 의미 변화 | 명시 Workspace Maintain과 main diff 검토 | 새 목표·canonical·acceptance 판단 필요 |
+| Codex lifecycle hook | installed/activation_pending/activated 상태 분리 | target task의 hook trust 또는 runtime receipt 부재 |
 | 신규 이식·사용자 파일 충돌 | 독립 review | P1/P2 또는 원자료 충돌 |
 
 반복 개발 확인과 durable evidence를 구분한다. Harness validation은 임시 fixture의 회귀 검사이고, Harness test receipt는 target-specific 관리 장치 증거이며, Product Verify는 실제 Workspace 상태 전환 증거다. 서로를 대신하지 않는다.
@@ -100,7 +101,7 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 - Canonical과 Owner 선택, Owner migration 승인
 - Active Workspace 선택과 변경
 - 사용자 파일 삭제·이동·승격
-- 임의 검증 명령의 신뢰 승인
+- 임의 검증 명령의 신뢰 승인. 단, 사용자가 명시적으로 요청한 target-local Codex hook trust는 target root task에서 hook definition을 확인하고 activation receipt를 남기는 별도 activation 단계로 처리할 수 있다.
 - 일부 hash나 cache 결과를 전체 tree proof로 승격
 - Pass 뒤 acceptance, completion, canonical 반영과 commit
 - Concurrent Verify와 receipt/status transaction 보장
@@ -114,4 +115,5 @@ Target 사실로 다음을 답한다.
 1. 어떤 Reference commit과 책임을 target에 그대로 적용·적응·제외했는가.
 2. Recover가 실제로 무엇을 읽고 무엇을 제외했는가.
 3. Validation과 Product Verify가 어떤 입력·runtime에서 무엇을 확인했는가.
-4. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.
+4. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 trust와 runtime receipt가 무엇으로 확인됐는가.
+5. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.
