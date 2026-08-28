@@ -2,9 +2,7 @@
 
 `recover`는 다음 세션이 바로 판단하고 행동할 수 있도록 명시된 Workspace 또는 active 기본값의 제한된 recovery packet을 만든다. Workspace id를 명시하면 그 id가 선택 권위이며 `workspaces/index.json`을 읽거나 검증하지 않는다. id가 없을 때만 index의 active Workspace를 기본값으로 사용한다.
 
-Recover는 새 Workspace를 만들 때 이전 작업에서 무엇을 이어받을지 결정하지 않는다. 그 의미 선별과 Workspace 사이의 참조 경계는 [`Workspace collection`](../../workspaces/README.md#새-workspace-생성과-전환)이 소유한다. Recover는 이미 선별된 successor current를 읽을 뿐, 누락을 찾기 위해 이전 Workspace·source inventory·records를 탐색하거나 계승 의미를 보충하지 않는다.
-
-따라서 기본 packet 밖의 원문을 특정 판단 전에 읽어야 한다면 새 Workspace current가 exact canonical 경로나 직접 링크, 그 문서의 역할, 필요한 이유와 읽을 시점을 직접 알려야 한다. `source/index.md`에 링크가 있다는 사실만으로 다음 세션이 그 중요도나 접근 경로를 안다고 가정하지 않는다. 경로·schema 검사를 통과한 packet도 의미적으로 충분한 인계였음을 증명하지 않는다.
+Recover는 새 Workspace를 만들 때 이전 작업에서 무엇을 이어받을지 결정하지 않는다. 그 의미 선별과 Workspace 사이의 참조 경계는 [`새 Workspace 생성과 전환`](../../workspaces/CREATE-AND-TRANSITION.md)이 소유한다. Recover는 이미 선별된 successor current를 읽을 뿐, 누락을 찾기 위해 이전 Workspace·source inventory·records를 탐색하거나 계승 의미를 보충하지 않는다. 경로·schema 검사를 통과한 packet도 의미적으로 충분한 인계였음을 증명하지 않는다.
 
 ## 소유 계약
 

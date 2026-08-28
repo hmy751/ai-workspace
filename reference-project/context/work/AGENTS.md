@@ -27,11 +27,9 @@ python3 -m context.work.harness verify
 
 ## 새 Workspace 생성과 전환
 
-새 Workspace를 만들거나 현재 작업을 다른 Workspace로 전환하기 전에 [`workspaces/README.md#새-workspace-생성과-전환`](workspaces/README.md#새-workspace-생성과-전환)과 [`Workspace 사이의 참조 경계`](workspaces/README.md#workspace-사이의-참조-경계)를 적용한다.
+새 Workspace를 만들거나 현재 작업을 후속 Workspace로 분리하는 요청에는 repo-local [`create-context-workspace` skill](../../.agents/skills/create-context-workspace/SKILL.md)을 사용한다. Skill과 main은 [`생성·전환 canonical`](workspaces/CREATE-AND-TRANSITION.md)을 적용하며, 상세 의미를 이 운영 파일에 다시 정의하지 않는다.
 
-- Main은 이 canonical에 따라 successor 파일을 구성하되 predecessor를 수정하지 않고, 생성 뒤 successor의 bounded Recover만으로 재진입 의미를 검토한다.
-- Project context 후보는 Workspace 전환과 분리해 [`Project context Owner`](../project/README.md)에게 routing한다.
-- 실제 활성화 때는 같은 Main session에서 binding을 바꾸고 계속하지 않는다. 이전 session을 끝내고 active 기본값과 host binding을 맞춘 뒤, 새 Main session에서 successor id로 Recover와 Maintain grounding을 시작한다.
+기존 Workspace의 단순 재진입·수정에는 생성 skill을 사용하지 않는다. 생성과 actual activation은 별도 경계이며, 같은 Main session에서 binding을 바꾸고 successor 작업을 계속하지 않는다.
 
 ## Maintain agent routing
 

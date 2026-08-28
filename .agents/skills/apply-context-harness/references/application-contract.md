@@ -29,6 +29,7 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 ### Reference 책임 적응
 
 - 각 책임의 live Owner와 파일을 target에 그대로 둘지, target 구조에 맞춰 적응할지, 제외할지 판단한다.
+- Reference의 repo-local Workspace 생성 skill과 root routing을 target 도구가 발견할 수 있는지, 같은 이름의 기존 skill·instruction Owner와 충돌하는지 확인하고 설치·적응·제외를 정한다. 첫 Workspace는 이식 책임이 직접 만들며 아직 설치되지 않은 운영 skill을 중첩 호출하지 않는다.
 - Tool-specific Maintain 연결과 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. 수동 role, lifecycle hook, explicit binding, wrapper와 runtime ignore를 각각 설치·적응·제외하고, role 등록만으로 automatic lifecycle을 주장하지 않는다. Project-local Codex hook은 target root의 Codex task에서 `/hooks` review/trust와 runtime session receipt가 확인되기 전까지 `activation_pending`으로 둔다. 일부 또는 전체 adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
 - Reference sample의 제품·Workspace 내용과 과거 receipt는 payload에서 제외한다.
 
@@ -62,10 +63,11 @@ Live Reference와 target 성격에 따라 필요한 Project context 파일을 �
 이 receipt는 atomic snapshot, ignored file inventory, 저자·변경 이유나 Git 밖의 과거를 증명하지 않는다. 따라서 다음을 추가로 수행한다.
 
 1. Dry-run payload의 exact path와 ancestor가 실제로 존재하는지 확인한다.
-2. Target ignore 규칙과 기존 clean canonical·설정 내용을 대조한다.
-3. Preflight 변경과 payload의 교집합을 계산한다.
-4. 교집합이 없으면 exact addition과 좁은 patch로 진행한다.
-5. 교집합이나 Owner 충돌이 있으면 additive routing 가능성을 확인하고 의미 선택을 사용자에게 돌려보낸다.
+2. `.agents/skills/create-context-workspace/`와 root instruction route의 기존 clean 파일을 helper receipt와 별도로 직접 확인한다.
+3. Target ignore 규칙과 기존 clean canonical·설정 내용을 대조한다.
+4. Preflight 변경과 payload의 교집합을 계산한다.
+5. 교집합이 없으면 exact addition과 좁은 patch로 진행한다.
+6. 교집합이나 Owner 충돌이 있으면 additive routing 가능성을 확인하고 의미 선택을 사용자에게 돌려보낸다.
 
 기존 `context/`, instruction과 tool config는 빈 설치 자리가 아니다. Directory replace, broad recursive copy, 자동 이동·삭제와 broad staging을 하지 않는다. 임시 preflight receipt를 Workspace에 보존할 때는 바이트와 SHA-256을 유지한다.
 
@@ -87,6 +89,7 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 | 변경 성격 | 최소 확인 | 확대 조건 |
 | --- | --- | --- |
 | 설명·링크·routing | 경로, link, 설정 parse, diff | 실행 의미나 discovery가 달라짐 |
+| Repo-local Workspace 생성 skill | frontmatter, canonical link, root routing, 기존 skill 보존 | 새 target-root session의 discovery·implicit invocation 확인 필요 |
 | Harness 코드·machine 계약·path 방어 | 관련 단위 테스트 | 공통 경계나 target 배치가 달라짐 |
 | Target Harness 적응 | 전체 Harness tests와 ephemeral validation | 실패, source 변경 또는 proof 공백 |
 | 상태 전환·인계 | Product Verify와 후속 Recover | Evidence closure나 runtime 불확실성 |
@@ -114,6 +117,7 @@ Target 사실로 다음을 답한다.
 
 1. 어떤 Reference commit과 책임을 target에 그대로 적용·적응·제외했는가.
 2. Recover가 실제로 무엇을 읽고 무엇을 제외했는가.
-3. Validation과 Product Verify가 어떤 입력·runtime에서 무엇을 확인했는가.
-4. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 trust와 runtime receipt가 무엇으로 확인됐는가.
-5. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.
+3. Repo-local Workspace 생성 skill과 root routing이 설치·적응·제외 중 무엇이며, 실제 discovery는 어디까지 확인됐는가.
+4. Validation과 Product Verify가 어떤 입력·runtime에서 무엇을 확인했는가.
+5. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 trust와 runtime receipt가 무엇으로 확인됐는가.
+6. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.

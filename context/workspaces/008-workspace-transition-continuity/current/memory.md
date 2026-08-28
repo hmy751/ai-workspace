@@ -4,7 +4,7 @@
 
 ## 목표
 
-새 Workspace가 이전 작업의 후속일 때 새 goal에 필요한 현재 의미를 직접 소유하고 상세 근거만 선택적으로 참조하게 하면서, 과거 Workspace 상속·상호 동기화·연쇄 Recover와 Project context 자동 승격을 막는 Reference 계약을 만든다.
+새 Workspace가 이전 작업의 후속일 때 필요한 현재 의미를 직접 소유하고 상세 근거만 선택적으로 참조하게 하는 생성·전환 canonical을 한 진입점에 응집하고, 이미 설치된 Project에서 그 canonical을 실행하는 repo-local skill을 제공한다.
 
 ## 확정된 의미
 
@@ -19,9 +19,12 @@
 
 ## 구현 경계
 
-- 의미 계약의 canonical은 Reference의 `context/work/workspaces/README.md`가 소유한다.
-- Work 운영 지침은 AI가 이 canonical을 적용하도록 routing만 한다.
+- Workspace collection의 구조는 Reference의 `context/work/workspaces/README.md`, 생성·전환 책임은 같은 경계의 `CREATE-AND-TRANSITION.md`가 소유한다.
+- Work 운영 지침은 새 Workspace 생성 요청을 repo-local `create-context-workspace` skill과 canonical로 routing한다.
+- Skill은 의미 기준을 복제하지 않고 live canonical과 Workspace contract를 읽어 successor를 구성하고 bounded Recover만 받은 별도 주체의 재진입 검토를 시도한다.
+- `apply-context-harness`는 최초 이식과 첫 Workspace를 계속 소유하며, 새 운영 skill과 target root routing을 이후 Workspace용 책임으로 설치·적응·제외한다.
 - Recover·Maintain 문서는 누락 복구, Workspace 생성, 동기화와 Project context 승격이 자기 책임이 아님을 밝힌다.
-- 이번 단계에서는 문서 계약만 정리하고 code, schema, hook, skill과 자동 생성기는 추가하지 않는다.
+- 이번 단계에서도 machine code, schema, hook과 deterministic 생성기는 추가하지 않는다. Skill은 모델이 canonical을 적용하는 교체 가능한 실행 adapter다.
 - `memory-harness-research`는 후속 적용 전까지 읽기 근거일 뿐 수정하지 않는다.
-- 사용자가 요청하지 않은 commit을 만들지 않는다.
+- 이전 문서 계약은 사용자 요청에 따라 commit `1a4a9ff`로 먼저 분리했다. 현재 skill 변경은 별도 working tree 변경으로 유지한다.
+- 격리 forward test는 successor current의 직접 의미와 exact 원문 접근점, predecessor·index·binding 불변과 packet-only 재진입을 확인했다. 이 결과는 actual target discovery·활성화나 모든 후속 goal의 의미 충분성을 보장하지 않는다.

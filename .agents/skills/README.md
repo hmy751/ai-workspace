@@ -4,6 +4,6 @@
 
 - [`apply-context-harness/`](apply-context-harness/): 호출 시점의 live `reference-project/`가 소유한 Project·Workspace·Harness 책임을 대상 Project의 기존 canonical과 사용자 변경을 보존하며 적응하고, 변경 위험에 맞춰 검증한다.
 
-`reference-project/`는 실행 가능한 기준 Project, `.agents/skills/`는 그 책임을 다른 Project에 적용하는 절차, `context/workspaces/`는 실제 적용 과정과 결과 기록을 소유한다. 같은 내용이나 target 산출물을 skill assets로 복제하지 않는다.
+`reference-project/`는 실행 가능한 기준 Project, 이 디렉터리의 skill은 그 책임을 다른 Project에 적용하는 절차, `context/workspaces/`는 실제 적용 과정과 결과 기록을 소유한다. 설치된 Project 안에서 동작하는 [`create-context-workspace`](../../reference-project/.agents/skills/create-context-workspace/) 같은 운영 skill은 `reference-project/.agents/skills/`에 두고 이식 절차가 target에 설치·적응·제외한다. 같은 원칙이나 target 산출물을 skill assets로 복제하지 않는다.
 
 위치는 2026-08-14 확인한 [OpenAI Build skills 문서](https://learn.chatgpt.com/docs/build-skills)의 repository scope 검색 경로인 `$REPO_ROOT/.agents/skills`를 따른다. 다른 저장소에 일반 배포할 시점이 오면 여기서 바로 전역 복사하지 말고 plugin 또는 별도 승인된 배포 경계를 다시 판단한다.

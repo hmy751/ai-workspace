@@ -29,7 +29,7 @@ Codex에서 main이 수동 fallback으로 부를 의미 판단 role은 [`workspa
 
 Maintain은 explicit binding으로 선택된 한 Workspace 안의 의미 변화를 관리한다. 후속 Workspace를 만들거나 이전 Workspace의 의미를 옮기고, active index·host binding을 바꾸거나 Workspace 사이를 동기화하지 않는다. Project context에도 Project-wide 적용 후보를 자동 반영하지 않는다.
 
-새 Workspace 생성과 전환은 [`Workspace collection`](../../workspaces/README.md#새-workspace-생성과-전환)의 의미 선별 기준을 main과 사람이 적용하는 별도 경계다. 같은 Main session에서 host binding을 바꾸고 계속하지 않는다. 이전 Main session을 끝낸 뒤 successor binding으로 새 Main session을 시작하고, 새 explicit id와 그 Workspace의 bounded Recover packet으로 새 Maintainer session을 grounding한다. 이전 Maintainer session의 warm 이해나 아직 반영 여부가 확정되지 않은 background event를 후속 Workspace의 current 또는 전달 완료처럼 간주하지 않는다.
+새 Workspace 생성과 전환은 [`생성·전환 canonical`](../../workspaces/CREATE-AND-TRANSITION.md)을 main과 별도 skill이 적용하는 책임이다. 이전 Maintainer session의 warm 이해나 아직 반영 여부가 확정되지 않은 background event를 후속 Workspace의 current 또는 전달 완료처럼 간주하지 않는다. 같은 Main session의 binding 변경과 자동 re-grounding 제한은 아래 실행 순서가 소유한다.
 
 ### Agent가 소유하는 의미 판단
 
