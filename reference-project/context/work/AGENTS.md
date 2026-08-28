@@ -25,6 +25,14 @@ python3 -m context.work.harness verify
 - **Verify**: Workspace 상태 전환이나 인계에 남길 지속적인 제품 증거가 필요할 때 실행한다. `verify.json`의 고정 명령을 실행하고 receipt와 machine status를 남기지만 context의 의미를 갱신하거나 사람의 acceptance를 결정하지 않는다.
 - **Harness validation**: 작업 흐름의 단계가 아니라 Harness 자체 검증 경계다. Recover·Verify 계약이나 구현이 바뀔 때 임시 Project/Workspace fixture에서 결정적 회귀 검사를 실행하고 실제 active Workspace의 receipt나 status를 생성·변경하지 않는다.
 
+## 새 Workspace 생성과 전환
+
+새 Workspace를 만들거나 현재 작업을 다른 Workspace로 전환하기 전에 [`workspaces/README.md#새-workspace-생성과-전환`](workspaces/README.md#새-workspace-생성과-전환)과 [`Workspace 사이의 참조 경계`](workspaces/README.md#workspace-사이의-참조-경계)를 적용한다.
+
+- Main은 이 canonical에 따라 successor 파일을 구성하되 predecessor를 수정하지 않고, 생성 뒤 successor의 bounded Recover만으로 재진입 의미를 검토한다.
+- Project context 후보는 Workspace 전환과 분리해 [`Project context Owner`](../project/README.md)에게 routing한다.
+- 실제 활성화 때는 같은 Main session에서 binding을 바꾸고 계속하지 않는다. 이전 session을 끝내고 active 기본값과 host binding을 맞춘 뒤, 새 Main session에서 successor id로 Recover와 Maintain grounding을 시작한다.
+
 ## Maintain agent routing
 
 Main이 자동 lifecycle 없이 수동 fallback으로 호출할 Maintain role 정의는 [`harness/maintain/workspace-context-maintainer.toml`](harness/maintain/workspace-context-maintainer.toml)이다. Project-scoped role `workspace_context_maintainer`는 Project root의 [`.codex/config.toml`](../../.codex/config.toml)이 이 파일을 `config_file`로 등록한다. 자동 경로는 이 등록 role을 시작하는 것이 아니라 `codex_session.py`가 같은 Maintain 계약을 읽는 별도 persisted thread를 시작하고 hook adapter가 lifecycle을 연결한다. Agent 계약과 Maintain 책임은 Work 아래에 두고, 루트 설정에는 수동 role 발견에 필요한 경로만 둔다.

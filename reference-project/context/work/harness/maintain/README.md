@@ -25,6 +25,12 @@ Codex에서 main이 수동 fallback으로 부를 의미 판단 role은 [`workspa
 
 제품 Verify receipt의 snapshot이 `fresh`라는 사실은 선언된 제품 파일이 receipt와 같다는 뜻일 뿐, 사람용 current 의미가 실제 작업과 맞다는 뜻이 아니다.
 
+### Workspace 생성·전환 비소유
+
+Maintain은 explicit binding으로 선택된 한 Workspace 안의 의미 변화를 관리한다. 후속 Workspace를 만들거나 이전 Workspace의 의미를 옮기고, active index·host binding을 바꾸거나 Workspace 사이를 동기화하지 않는다. Project context에도 Project-wide 적용 후보를 자동 반영하지 않는다.
+
+새 Workspace 생성과 전환은 [`Workspace collection`](../../workspaces/README.md#새-workspace-생성과-전환)의 의미 선별 기준을 main과 사람이 적용하는 별도 경계다. 같은 Main session에서 host binding을 바꾸고 계속하지 않는다. 이전 Main session을 끝낸 뒤 successor binding으로 새 Main session을 시작하고, 새 explicit id와 그 Workspace의 bounded Recover packet으로 새 Maintainer session을 grounding한다. 이전 Maintainer session의 warm 이해나 아직 반영 여부가 확정되지 않은 background event를 후속 Workspace의 current 또는 전달 완료처럼 간주하지 않는다.
+
 ### Agent가 소유하는 의미 판단
 
 같은 Maintainer agent session은 최초 packet으로 이해를 갖춘 뒤 각 response-end의 사용자 발화와 Main response를 이전 이해에 붙인다. 이미 그 입력에 제한된 실제 근거나 기존 Verify 결과가 포함돼 있으면 출처와 입증 범위를 함께 보존할 수 있지만, 누락된 repository diff·Git 상태·raw test log를 기본 수집하거나 제품 test·eval을 새로 실행하지 않는다. 다음은 자연어 맥락을 종합해야 하므로 agent 판단에 남는다.
@@ -95,7 +101,7 @@ Decision은 다음 의미를 갖는다.
 3. 같은 agent identity에 각 사용자 대상 Main response-end의 delta를 전달한다.
 4. Agent가 decision을 만들면 guarded apply가 검증·적용한다.
 5. No-change는 `context_status=no_change`로 이번 경계의 무변화만 나타내고 조용히 끝난다. 전체 Context freshness나 이전 실패 경계까지 current라고 주장하지 않는다. Quiet update도 report를 만들지 않는다. Important update는 실제 apply 성공 뒤에만 보고한다. Ambiguity는 zero-write 상태로 질문한다.
-6. 새 Main session은 bounded grounding부터 다시 한다. 살아 있는 Main session에서 agent thread가 사라지면 disk cache로 warm 이해를 흉내 내지 않고 실패로 남긴다. 같은 outer session의 자동 re-grounding은 이 Reference가 보장하지 않는다.
+6. 새 Main session은 bounded grounding부터 다시 한다. Workspace를 바꾸기 위해 살아 있는 Main session의 binding을 수정하지 않는다. 살아 있는 Main session에서 agent thread가 사라지면 disk cache로 warm 이해를 흉내 내지 않고 실패로 남긴다. 같은 outer session의 자동 re-grounding은 이 Reference가 지원하거나 보장하지 않는다.
 
 자동 lifecycle adapter가 없는 host에서는 main이 이 순서를 직접 수행할 수 있다. 이 수동 fallback은 Workspace 의미를 유지하지만 모든 response-end 자동 점검이나 Main 비차단을 증명하지 않는다.
 
@@ -145,6 +151,8 @@ Maintain은 다음을 수행하거나 결정하지 않는다.
 - Project 제품 코드·제품 문서·제품 test 수정
 - 제품 검증 실행, Verify receipt 또는 machine status 생성·수정·삭제
 - active Workspace 선택·변경
+- 다른 Workspace 생성·수정, Workspace 사이의 계승·동기화
+- Project context 후보의 자동 승격·반영
 - 사용자 대신 목표·source 권위·설계 기준·acceptance·완료 결정
 - 파일 stage, commit, push 또는 외부 쓰기
 - no-change heartbeat나 지속 warm cache 생성

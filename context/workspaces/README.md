@@ -4,7 +4,8 @@
 
 ## Active Workspace
 
-- active: [`007-maintain-clean-room-reimplementation`](./007-maintain-clean-room-reimplementation/)
+- active: [`008-workspace-transition-continuity`](./008-workspace-transition-continuity/)
+- completed reference maintain: [`007-maintain-clean-room-reimplementation`](./007-maintain-clean-room-reimplementation/)
 - stopped responsibility-allocation attempt: [`006-maintain-behavior-responsibility-allocation`](./006-maintain-behavior-responsibility-allocation/)
 - historical maintain implementation and proof: [`005-context-continuity-maintenance`](./005-context-continuity-maintenance/)
 - paused maintenance implementation: [`004-harness-maintenance-bottleneck`](./004-harness-maintenance-bottleneck/)
@@ -24,6 +25,8 @@
 
 파일 형식만으로 output과 records를 나누지 않는다. 분석 문서라도 Workspace goal의 결과로 선택됐으면 output에서 찾게 하고, 선택 전 후보·선택 이유·교체된 이전 결과는 records에 남긴다. Output에 있다는 사실만으로 acceptance나 완료가 되지는 않으며 상태와 검증 상한은 current와 output index에서 구분한다.
 
-완료된 Workspace의 상세 과정은 records에 남기고, 다른 Workspace로 통째로 복제하지 않는다. 새 Workspace는 이전 결과 중 지금 작업에 필요한 결론과 근거 접근점만 자기 current에 선택해 둔다.
+완료된 Workspace의 상세 과정은 records에 남기고, 다른 Workspace로 통째로 복제하지 않는다. 새 Workspace는 이전 결과 중 지금 작업에 필요한 현재 의미를 자기 current에 직접 서술하고 상세 근거만 정확한 canonical이나 record로 연결한다. 링크만으로 다음 세션이 알아야 할 의미를 대신하지 않는다.
+
+이전 Workspace는 필요할 때 exact output·record를 단방향으로 참고할 수 있지만 후속 Workspace와 자동 동기화하거나 역전파하지 않는다. Workspace 밖 Project 전체에도 적용될 후보는 Workspace끼리 복제하지 않고 Project 공통 Owner와 실제 Project-wide 근거를 별도로 판단하며, 사용된 Workspace가 늘었다는 이유만으로 자동 승격하지 않는다.
 
 기계 receipt를 만드는 Harness나 helper는 생성 주체일 뿐 보존 Owner가 아니다. Receipt가 증명하는 작업과 수명주기는 해당 Workspace가 소유한다. 반복 개발 확인은 직접 test 명령을 사용하고, 상태 전환·인계에 필요한 실행만 durable receipt로 남긴다.
