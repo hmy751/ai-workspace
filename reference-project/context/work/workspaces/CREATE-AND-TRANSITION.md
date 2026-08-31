@@ -49,9 +49,11 @@ Repo-local [`create-context-workspace` skill](../../../.agents/skills/create-con
 
 Workspace 생성과 실제 활성화는 별도 결정이다. 생성만 요청받았으면 `workspaces/index.json`과 host의 explicit binding을 바꾸지 않는다.
 
-현재 작업을 새 Workspace로 전환하기로 결정해도 같은 Main session에서 binding을 바꾸고 successor 작업을 계속하지 않는다. 이전 session을 끝낸 뒤 새 session을 시작하기 전에 active 기본값과 host binding을 successor에 맞추고, 새 Main session이 explicit Workspace id의 bounded Recover와 Maintain grounding으로 시작한다. 생성 skill은 현재 session 안에서 actual host 활성화가 완료됐다고 주장하지 않는다.
+현재 작업을 successor로 전환할 때 새 Main session을 보편적으로 강제하지 않는다. 먼저 현재 binding과 background Maintain의 처리 중·pending·failed 상태를 확인한다. 미반영 내용이 successor의 goal·제약·첫 판단·다음 행동을 바꾸면 predecessor current를 먼저 보완하거나 successor가 알아야 할 의미를 직접 남긴다. 관련 없는 미처리 상태는 predecessor에 그대로 보존할 수 있으며, 존재 자체만으로 전환을 막지 않는다.
 
-이 경계는 이전 session의 background Maintain event가 모두 반영됐다고 보장하지 않는다. 전환 판단에 필요한 미반영 상태가 보이면 전달 완료로 간주하지 않고 predecessor current를 먼저 확인하거나 보완한다.
+같은 Main session을 이어 간다면 현재 사용자 turn은 predecessor 경계로 마감하고, 다음 successor 작업을 시작하기 전에 explicit Workspace id의 bounded Recover와 새 Maintain grounding이 실제로 성공했는지 확인한다. Grounding이 실패하거나 현재 host가 안전한 재결합을 지원하지 않으면 기존 binding을 유지하고 새 Main session을 fallback으로 사용한다. 새 session은 더 강한 격리나 독립 재진입이 필요할 때 선택할 수도 있다.
+
+Active 기본값이나 host binding 파일을 바꿨다는 사실만으로 actual activation, background event 반영 또는 새 grounding 완료를 주장하지 않는다. 이 문서의 판단 기준은 특정 host가 같은-session 재결합을 이미 구현했다는 보장이 아니다.
 
 ## 완료와 증명 상한
 

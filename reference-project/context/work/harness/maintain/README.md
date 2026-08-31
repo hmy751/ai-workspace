@@ -29,7 +29,7 @@ Codex에서 main이 수동 fallback으로 부를 의미 판단 role은 [`workspa
 
 Maintain은 explicit binding으로 선택된 한 Workspace 안의 의미 변화를 관리한다. 후속 Workspace를 만들거나 이전 Workspace의 의미를 옮기고, active index·host binding을 바꾸거나 Workspace 사이를 동기화하지 않는다. Project context에도 Project-wide 적용 후보를 자동 반영하지 않는다.
 
-새 Workspace 생성과 전환은 [`생성·전환 canonical`](../../workspaces/CREATE-AND-TRANSITION.md)을 main과 별도 skill이 적용하는 책임이다. 이전 Maintainer session의 warm 이해나 아직 반영 여부가 확정되지 않은 background event를 후속 Workspace의 current 또는 전달 완료처럼 간주하지 않는다. 같은 Main session의 binding 변경과 자동 re-grounding 제한은 아래 실행 순서가 소유한다.
+새 Workspace 생성과 전환은 [`생성·전환 canonical`](../../workspaces/CREATE-AND-TRANSITION.md)을 main과 별도 skill이 적용하는 책임이다. 같은 Main session을 이어 갈지 새 session으로 격리할지는 canonical이 요구하는 현재 binding·미처리 상태·successor 영향과 실제 host 능력을 main이 대조해 정한다. Maintain은 그 선택을 대신하지 않으며, 이전 session의 warm 이해, 설정 파일 변경이나 아직 반영 여부가 확정되지 않은 background event를 successor의 current·새 grounding 또는 전달 완료처럼 간주하지 않는다.
 
 ### Agent가 소유하는 의미 판단
 
@@ -101,7 +101,7 @@ Decision은 다음 의미를 갖는다.
 3. 같은 agent identity에 각 사용자 대상 Main response-end의 delta를 전달한다.
 4. Agent가 decision을 만들면 guarded apply가 검증·적용한다.
 5. No-change는 `context_status=no_change`로 이번 경계의 무변화만 나타내고 조용히 끝난다. 전체 Context freshness나 이전 실패 경계까지 current라고 주장하지 않는다. Quiet update도 report를 만들지 않는다. Important update는 실제 apply 성공 뒤에만 보고한다. Ambiguity는 zero-write 상태로 질문한다.
-6. 새 Main session은 bounded grounding부터 다시 한다. Workspace를 바꾸기 위해 살아 있는 Main session의 binding을 수정하지 않는다. 살아 있는 Main session에서 agent thread가 사라지면 disk cache로 warm 이해를 흉내 내지 않고 실패로 남긴다. 같은 outer session의 자동 re-grounding은 이 Reference가 지원하거나 보장하지 않는다.
+6. 새 Main session은 bounded grounding부터 다시 한다. 같은 Main session의 Workspace 전환은 생성·전환 canonical이 소유하며, 설정 변경만으로 자동 re-grounding됐다고 간주하지 않는다. 살아 있는 Main session에서 agent thread가 사라지면 disk cache로 warm 이해를 흉내 내지 않고 실패로 남긴다. 현재 Reference host adapter는 같은 outer session의 자동 re-grounding을 지원하거나 보장하지 않는다.
 
 자동 lifecycle adapter가 없는 host에서는 main이 이 순서를 직접 수행할 수 있다. 이 수동 fallback은 Workspace 의미를 유지하지만 모든 response-end 자동 점검이나 Main 비차단을 증명하지 않는다.
 

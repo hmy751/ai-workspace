@@ -1,6 +1,6 @@
 # Workspace transition continuity output
 
-마지막 갱신: `2026-08-28`
+마지막 갱신: `2026-08-31`
 
 ## Workspace goal
 
@@ -19,4 +19,4 @@
 - [`apply-context-harness`](../../../../.agents/skills/apply-context-harness/SKILL.md): 새 운영 skill을 target에 설치·적응·제외하는 이식 책임
 - [`reference-project/README.md`](../../../../reference-project/README.md): 사람용 진입점, 구조 지도와 proof ceiling
 
-Skill 기반 실행 adapter와 한 격리 001→002 재진입은 검증했지만 자동 skill 선택, deterministic generator, 모든 goal의 자동 의미 선별·충분성 판정, actual target discovery·host 활성화, 실제 다른 Project 적용 효과나 사람 acceptance를 증명하지 않는다. 검증 상태와 남은 판단은 [`current/state.md`](../current/state.md), 상세 근거는 [`records/2026-08-28-03-canonical-cohesion-and-workspace-skill.md`](../records/2026-08-28-03-canonical-cohesion-and-workspace-skill.md)가 소유한다.
+Skill 기반 실행 adapter와 한 격리 001→002 재진입은 검증했지만 자동 skill 선택, deterministic generator, 모든 goal의 자동 의미 선별·충분성 판정, actual host의 same-session 재결합이나 사람 acceptance를 증명하지 않는다. 검증 상태와 남은 판단은 [`current/state.md`](../current/state.md), 기존 skill 검증은 [`record 03`](../records/2026-08-28-03-canonical-cohesion-and-workspace-skill.md), 전환 규칙 보정은 [`record 04`](../records/2026-08-31-04-activation-rule-recalibration.md)가 소유한다.

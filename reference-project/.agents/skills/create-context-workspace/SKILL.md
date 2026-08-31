@@ -34,7 +34,7 @@ description: 이미 Context Harness가 설치된 Project 안에서 새 독립 Wo
 
 ## 활성화와 보고
 
-생성만 요청받았으면 `workspaces/index.json`과 host explicit binding을 변경하지 않는다. 같은 Main session에서 binding을 successor로 바꾸고 작업을 계속하거나 actual activation 완료를 주장하지 않는다. 활성화가 필요하면 canonical의 새 session 경계를 따르며, 현재 session에서는 successor가 생성·검토된 상태와 다음 session에 남은 활성화 작업만 보고한다.
+생성만 요청받았으면 `workspaces/index.json`과 host explicit binding을 변경하지 않는다. 활성화도 요청받았으면 canonical에 따라 현재 binding과 Maintain의 처리 중·pending·failed 상태가 successor 판단에 미치는 영향만 확인하고 필요한 의미를 보완한다. 같은 Main session을 이어 가는 경우 현재 turn은 predecessor로 마감하며, bounded Recover와 새 Maintain grounding이 실제로 성공하기 전에는 successor activation을 주장하지 않는다. 현재 host가 안전하게 재결합하지 못하거나 grounding이 실패하면 기존 binding을 유지하고 새 Main session을 fallback으로 보고한다. 설정 파일 변경만으로 activation 완료를 가장하지 않는다.
 
 마지막에는 다음을 짧게 보고한다.
 

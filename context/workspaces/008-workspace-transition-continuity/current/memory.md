@@ -1,6 +1,6 @@
 # Workspace transition continuity memory
 
-마지막 갱신: `2026-08-28`
+마지막 갱신: `2026-08-31`
 
 ## 목표
 
@@ -15,7 +15,7 @@
 - 이전 Workspace만 소유하는 선택 이유와 상세 과정은 exact output·record·source로 단방향 참조할 수 있지만 이전 Workspace를 수정·동기화하거나 successor가 자동 추종하게 하지 않는다.
 - Workspace 밖 Project 전체에도 적용될 후보는 기존 Project context Owner와 domain canonical, source 권위가 Project-wide 적용을 뒷받침하는지 별도로 판단한다. 여러 Workspace가 사용했다는 이유만으로 자동 승격하지 않는다.
 - Recover는 이미 선별된 bounded current를 읽고, Maintain은 explicit Workspace 하나의 변화만 관리한다. 둘 다 Workspace 생성·전환의 의미 선별이나 cross-Workspace 동기화를 소유하지 않는다.
-- 실제 활성화는 같은 Main session에서 binding만 바꾸는 동작이 아니다. 이전 session을 끝내고 successor binding을 맞춘 뒤 새 Main session이 explicit Recover와 Maintain grounding으로 시작한다.
+- 실제 활성화는 새 Main session을 보편적으로 강제하지 않는다. 현재 binding과 Maintain의 처리 중·pending·failed 상태가 successor 판단에 미치는 영향을 먼저 확인하고, 관련 의미만 보완한 뒤 같은 Main session을 이어 갈지 새 session으로 격리할지 정한다. 같은 session을 이어 가면 현재 turn은 predecessor로 마감하고, successor의 explicit Recover와 새 Maintain grounding이 실제로 성공한 뒤 다음 작업을 시작한다.
 
 ## 구현 경계
 
@@ -25,6 +25,7 @@
 - `apply-context-harness`는 최초 이식과 첫 Workspace를 계속 소유하며, 새 운영 skill과 target root routing을 이후 Workspace용 책임으로 설치·적응·제외한다.
 - Recover·Maintain 문서는 누락 복구, Workspace 생성, 동기화와 Project context 승격이 자기 책임이 아님을 밝힌다.
 - 이번 단계에서도 machine code, schema, hook과 deterministic 생성기는 추가하지 않는다. Skill은 모델이 canonical을 적용하는 교체 가능한 실행 adapter다.
-- `memory-harness-research`는 후속 적용 전까지 읽기 근거일 뿐 수정하지 않는다.
-- 이전 문서 계약은 사용자 요청에 따라 commit `1a4a9ff`로 먼저 분리했다. 현재 skill 변경은 별도 working tree 변경으로 유지한다.
+- `memory-harness-research`에는 2026-08-31 전환 규칙 재보정에 필요한 root routing, canonical, repo-local skill과 Maintain 비소유 문구만 먼저 반영했다. 제품·연구 내용, Workspace current와 runtime은 이 작업 범위가 아니다.
+- 이전 문서 계약은 commit `1a4a9ff`, canonical·skill 응집은 `51c42fb`로 보존돼 있다. 이번 재보정은 사용자 검토를 기다리는 별도 working tree 변경으로 유지한다.
 - 격리 forward test는 successor current의 직접 의미와 exact 원문 접근점, predecessor·index·binding 불변과 packet-only 재진입을 확인했다. 이 결과는 actual target discovery·활성화나 모든 후속 goal의 의미 충분성을 보장하지 않는다.
+- 2026-08-31 재검토에서 기존 새-Main-session 절대 규칙은 current adapter의 미지원 상태에서 reviewer가 제시한 두 해결책 중 문서-only 범위에 맞춰 고른 보수적 경로였음을 확인했다. 사용자 결정이나 기술적 불가능으로 승격하지 않고 조건부 fallback으로 되돌렸다.

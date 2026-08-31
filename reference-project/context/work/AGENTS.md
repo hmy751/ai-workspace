@@ -29,7 +29,7 @@ python3 -m context.work.harness verify
 
 새 Workspace를 만들거나 현재 작업을 후속 Workspace로 분리하는 요청에는 repo-local [`create-context-workspace` skill](../../.agents/skills/create-context-workspace/SKILL.md)을 사용한다. Skill과 main은 [`생성·전환 canonical`](workspaces/CREATE-AND-TRANSITION.md)을 적용하며, 상세 의미를 이 운영 파일에 다시 정의하지 않는다.
 
-기존 Workspace의 단순 재진입·수정에는 생성 skill을 사용하지 않는다. 생성과 actual activation은 별도 경계이며, 같은 Main session에서 binding을 바꾸고 successor 작업을 계속하지 않는다.
+기존 Workspace의 단순 재진입·수정이나 이미 만든 Workspace로의 전환에는 생성 skill을 다시 사용하지 않는다. 생성과 actual activation은 별도 경계다. 전환 요청에서는 canonical에 따라 현재 binding과 Maintain의 처리 중·pending·failed 상태가 successor 판단에 미치는 영향을 확인하고, 같은 Main session을 이어 갈지 새 session으로 격리할지 정한다.
 
 ## Maintain agent routing
 
