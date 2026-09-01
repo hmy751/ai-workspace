@@ -8,3 +8,5 @@
 - [`2026-08-28-02-validation-and-review.md`](2026-08-28-02-validation-and-review.md): 문서 연결·회귀 테스트·독립 시나리오와 Owner 검토 결과
 - [`2026-08-28-03-canonical-cohesion-and-workspace-skill.md`](2026-08-28-03-canonical-cohesion-and-workspace-skill.md): 생성·전환 canonical 응집, repo-local skill·이식 경계와 격리 001→002 forward test
 - [`2026-08-31-04-activation-rule-recalibration.md`](2026-08-31-04-activation-rule-recalibration.md): 새 Main session 절대 규칙의 기원, 사용자 재검토와 조건부 전환 판단으로의 보정
+- [`2026-09-01-05-session-scoped-binding-and-rebind.md`](2026-09-01-05-session-scoped-binding-and-rebind.md): Project-wide 오연결 사건, session별 explicit admission·generation 전환 구현과 target 적용 검증
+- [`2026-09-01-06-maintain-session-lifecycle-canonical.md`](2026-09-01-06-maintain-session-lifecycle-canonical.md): Session binding을 Maintain 내부 authoritative subcanonical로 둔 책임 재정렬과 기존 구현 보존

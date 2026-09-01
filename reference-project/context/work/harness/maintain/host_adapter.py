@@ -35,15 +35,35 @@ from ..workspace_contract import (
 )
 
 
-MAINTAIN_HOST_CONFIG_SCHEMA_VERSION = 1
-MAINTAIN_HOST_STATE_SCHEMA_VERSION = 1
-_CONFIG_KEYS = {"schema_version", "workspace_id"}
-_SESSION_KEYS = {
+MAINTAIN_HOST_CONFIG_SCHEMA_VERSION = 2
+MAINTAIN_HOST_STATE_SCHEMA_VERSION = 2
+_LEGACY_HOST_CONFIG_SCHEMA_VERSION = 1
+_LEGACY_HOST_STATE_SCHEMA_VERSION = 1
+_CONFIG_V1_KEYS = {"schema_version", "workspace_id"}
+_CONFIG_V2_KEYS = {"schema_version", "mode"}
+_SESSION_V1_KEYS = {
     "schema_version",
     "workspace_id",
     "thread_id",
     "grounded_at",
 }
+_SESSION_V2_KEYS = {
+    "schema_version",
+    "current_generation",
+    "bindings",
+}
+_BINDING_KEYS = {
+    "generation",
+    "workspace_id",
+    "thread_id",
+    "grounded_at",
+}
+_BINDING_SNAPSHOT_KEYS = (
+    "binding_generation",
+    "workspace_id",
+    "thread_id",
+)
+_STATUS_SNAPSHOT_ATTEMPTS = 5
 _HEX_DIGEST = re.compile(r"^[0-9a-f]{64}$")
 _HOOK_EVENTS = {
     "session-start": "SessionStart",
@@ -199,16 +219,36 @@ class MaintainHostAdapter:
 
         return CodexMaintainSession
 
-    def _binding(self) -> str:
+    def _validate_host_config(self) -> None:
         path = self.project_root / ".codex" / "maintain.json"
         value = _read_json_object(path, "Maintain host configuration")
-        expect_exact_keys(value, _CONFIG_KEYS, "Maintain host configuration")
+        schema_version = value.get("schema_version")
+        if schema_version == _LEGACY_HOST_CONFIG_SCHEMA_VERSION:
+            # Configuration v1 selected one Workspace for every Main session.
+            # It remains readable only so an installed Project can migrate
+            # without interrupting already-persisted session bindings.  Its
+            # workspace_id is deliberately never used to bind a new session.
+            expect_exact_keys(
+                value, _CONFIG_V1_KEYS, "Maintain host configuration"
+            )
+            expect_schema_version(
+                schema_version,
+                _LEGACY_HOST_CONFIG_SCHEMA_VERSION,
+                "Maintain host configuration",
+            )
+            validate_workspace_id(value["workspace_id"])
+            return
+        expect_exact_keys(value, _CONFIG_V2_KEYS, "Maintain host configuration")
         expect_schema_version(
-            value["schema_version"],
+            schema_version,
             MAINTAIN_HOST_CONFIG_SCHEMA_VERSION,
             "Maintain host configuration",
         )
-        return validate_workspace_id(value["workspace_id"])
+        mode = expect_nonempty_string(
+            value["mode"], "Maintain host configuration mode"
+        )
+        if mode != "explicit":
+            fail("Maintain host configuration mode must be 'explicit'")
 
     @staticmethod
     def _payload_string(payload: Mapping[str, Any], key: str) -> str:
@@ -311,30 +351,146 @@ class MaintainHostAdapter:
     def _read_session_state(self, session_directory: Path) -> dict[str, Any]:
         path = session_directory / "session.json"
         value = _read_json_object(path, "Maintain runtime session state")
-        expect_exact_keys(value, _SESSION_KEYS, "Maintain runtime session state")
+        schema_version = value.get("schema_version")
+        if schema_version == _LEGACY_HOST_STATE_SCHEMA_VERSION:
+            expect_exact_keys(
+                value, _SESSION_V1_KEYS, "Maintain runtime session state"
+            )
+            expect_schema_version(
+                schema_version,
+                _LEGACY_HOST_STATE_SCHEMA_VERSION,
+                "Maintain runtime session state",
+            )
+            binding = self._validated_binding(
+                {
+                    "generation": 1,
+                    "workspace_id": value["workspace_id"],
+                    "thread_id": value["thread_id"],
+                    "grounded_at": value["grounded_at"],
+                }
+            )
+            return {
+                "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+                "current_generation": 1,
+                "bindings": [binding],
+                "legacy": True,
+            }
+
+        expect_exact_keys(
+            value, _SESSION_V2_KEYS, "Maintain runtime session state"
+        )
         expect_schema_version(
-            value["schema_version"],
+            schema_version,
             MAINTAIN_HOST_STATE_SCHEMA_VERSION,
             "Maintain runtime session state",
         )
-        value["workspace_id"] = validate_workspace_id(value["workspace_id"])
-        value["thread_id"] = expect_nonempty_string(
-            value["thread_id"], "Maintain runtime thread_id"
-        )
+        raw_bindings = value["bindings"]
+        if not isinstance(raw_bindings, list) or not raw_bindings:
+            fail("Maintain runtime bindings must be a non-empty list")
+        bindings = [self._validated_binding(item) for item in raw_bindings]
+        generations = [item["generation"] for item in bindings]
+        if len(set(generations)) != len(generations):
+            fail("Maintain runtime binding generations must be unique")
+        if generations != sorted(generations):
+            fail("Maintain runtime bindings must be ordered by generation")
+        current_generation = value["current_generation"]
+        if current_generation is not None and (
+            type(current_generation) is not int
+            or current_generation not in generations
+        ):
+            fail(
+                "Maintain runtime current_generation must name a persisted "
+                "binding or be null"
+            )
+        return {
+            "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+            "current_generation": current_generation,
+            "bindings": bindings,
+            "legacy": False,
+        }
+
+    @staticmethod
+    def _validated_binding(value: Any) -> dict[str, Any]:
+        if not isinstance(value, dict):
+            fail("Maintain runtime binding must be a JSON object")
+        expect_exact_keys(value, _BINDING_KEYS, "Maintain runtime binding")
+        generation = value["generation"]
+        if type(generation) is not int or generation < 1:
+            fail("Maintain runtime binding generation must be a positive integer")
         grounded_at = value["grounded_at"]
         if not isinstance(grounded_at, (int, float)) or isinstance(
             grounded_at, bool
         ):
             fail("Maintain runtime grounded_at must be a number")
-        return value
+        return {
+            "generation": generation,
+            "workspace_id": validate_workspace_id(value["workspace_id"]),
+            "thread_id": expect_nonempty_string(
+                value["thread_id"], "Maintain runtime thread_id"
+            ),
+            "grounded_at": grounded_at,
+        }
 
-    def _require_grounded(
-        self, session_directory: Path, workspace_id: str
+    @staticmethod
+    def _binding_for_generation(
+        state: Mapping[str, Any], generation: int
     ) -> dict[str, Any]:
-        state = self._read_session_state(session_directory)
-        if state["workspace_id"] != workspace_id:
-            fail("Maintain runtime Workspace binding does not match configuration")
-        return state
+        for binding in state["bindings"]:
+            if binding["generation"] == generation:
+                return dict(binding)
+        fail(
+            f"Maintain runtime event names unknown binding generation {generation}"
+        )
+
+    def _current_binding(
+        self, state: Mapping[str, Any]
+    ) -> dict[str, Any] | None:
+        generation = state["current_generation"]
+        if generation is None:
+            return None
+        return self._binding_for_generation(state, generation)
+
+    def _binding_snapshot(
+        self,
+        value: Mapping[str, Any],
+        state: Mapping[str, Any],
+        label: str,
+    ) -> dict[str, Any]:
+        present = [key in value for key in _BINDING_SNAPSHOT_KEYS]
+        if not any(present):
+            if value.get("schema_version") != _LEGACY_HOST_STATE_SCHEMA_VERSION:
+                fail(f"{label} is missing its binding snapshot")
+            return self._binding_for_generation(state, 1)
+        if not all(present):
+            fail(f"{label} has a partial binding snapshot")
+        generation = value["binding_generation"]
+        if type(generation) is not int or generation < 1:
+            fail(f"{label} binding_generation must be a positive integer")
+        binding = self._binding_for_generation(state, generation)
+        workspace_id = validate_workspace_id(value["workspace_id"])
+        thread_id = expect_nonempty_string(value["thread_id"], f"{label} thread_id")
+        if (
+            workspace_id != binding["workspace_id"]
+            or thread_id != binding["thread_id"]
+        ):
+            fail(f"{label} binding snapshot changed")
+        return binding
+
+    @staticmethod
+    def _snapshot_fields(binding: Mapping[str, Any]) -> dict[str, Any]:
+        return {
+            "binding_generation": binding["generation"],
+            "workspace_id": binding["workspace_id"],
+            "thread_id": binding["thread_id"],
+        }
+
+    @staticmethod
+    def _persisted_state(state: Mapping[str, Any]) -> dict[str, Any]:
+        return {
+            "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+            "current_generation": state["current_generation"],
+            "bindings": state["bindings"],
+        }
 
     def _next_sequence(self, session_directory: Path) -> int:
         path = session_directory / "next-sequence.json"
@@ -361,24 +517,37 @@ class MaintainHostAdapter:
     def _effect_path(session_directory: Path, turn_key: str) -> Path:
         return session_directory / "effects" / f"{turn_key}.json"
 
-    def session_start(self, payload: Mapping[str, Any]) -> dict[str, Any]:
-        self._check_event(payload, "session-start")
-        session_id = self._payload_string(payload, "session_id")
-        workspace_id = self._binding()
+    def activate(self, session_id: str, workspace_id: str) -> dict[str, Any]:
+        """Ground ``workspace_id`` for one Main session and future prompts.
+
+        A prompt already captured before this call keeps its own binding
+        snapshot, so its later Stop event remains on the predecessor binding.
+        """
+
+        self._validate_host_config()
+        session_id = expect_nonempty_string(session_id, "Codex session id")
+        workspace_id = validate_workspace_id(workspace_id)
         session_directory = self._session_directory(session_id)
 
         with self._state_lock(session_directory):
             state_path = session_directory / "session.json"
             if state_path.exists():
-                state = self._require_grounded(session_directory, workspace_id)
-                return _hook_output(
-                    "SessionStart",
-                    additional_context=(
-                        "Workspace Maintain is reusing the already-grounded "
-                        f"session for explicit Workspace `{workspace_id}`. "
-                        "No new Context update or freshness claim was made."
-                    ),
-                )
+                state = self._read_session_state(session_directory)
+            else:
+                state = {
+                    "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+                    "current_generation": None,
+                    "bindings": [],
+                    "legacy": False,
+                }
+            current = self._current_binding(state)
+            if current is not None and current["workspace_id"] == workspace_id:
+                return {
+                    "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+                    "status": "already_active",
+                    "session_id": session_id,
+                    **self._snapshot_fields(current),
+                }
 
             try:
                 bounded_bootstrap = self._bootstrap(
@@ -398,19 +567,15 @@ class MaintainHostAdapter:
             except Exception as exc:
                 message = (
                     f"Maintain grounding failed for Workspace `{workspace_id}`: "
-                    f"{exc}. This session is not grounded or current."
+                    f"{exc}. The previous session binding was preserved."
                 )
                 self._write_notice(
                     session_directory,
-                    "grounding",
+                    f"activation-{workspace_id}-{int(self._clock() * 1_000_000)}",
                     kind="failure",
                     message=message,
                 )
-                return _hook_output(
-                    "SessionStart",
-                    additional_context=message,
-                    system_message=message,
-                )
+                raise HarnessError(message) from exc
 
             if grounding.get("status") != "grounded":
                 question = grounding.get("question")
@@ -418,47 +583,318 @@ class MaintainHostAdapter:
                     question = "Maintainer grounding requires a user decision."
                 message = (
                     f"Maintain could not ground Workspace `{workspace_id}` "
-                    f"without a user decision: {question} No grounded session, "
-                    "Context write, freshness, or completion is claimed."
+                    f"without a user decision: {question} The previous session "
+                    "binding was preserved."
                 )
                 self._write_notice(
                     session_directory,
-                    "grounding-needs-user-decision",
+                    f"activation-{workspace_id}-{int(self._clock() * 1_000_000)}",
                     kind="ambiguity",
                     message=message,
                 )
-                return _hook_output(
-                    "SessionStart",
-                    additional_context=message,
-                    system_message=message,
-                )
+                raise HarnessError(message)
 
-            _atomic_write_json(
-                state_path,
-                {
+            generation = max(
+                (binding["generation"] for binding in state["bindings"]),
+                default=0,
+            ) + 1
+            binding = {
+                "generation": generation,
+                "workspace_id": workspace_id,
+                "thread_id": thread_id,
+                "grounded_at": self._clock(),
+            }
+            updated_state = {
+                "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+                "current_generation": generation,
+                "bindings": [*state["bindings"], binding],
+            }
+            _atomic_write_json(state_path, updated_state)
+
+        return {
+            "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+            "status": "activated",
+            "session_id": session_id,
+            "previous_workspace_id": (
+                current["workspace_id"] if current is not None else None
+            ),
+            **self._snapshot_fields(binding),
+        }
+
+    def deactivate(self, session_id: str) -> dict[str, Any]:
+        """Leave future prompts unbound without discarding prior generations."""
+
+        self._validate_host_config()
+        session_id = expect_nonempty_string(session_id, "Codex session id")
+        session_directory = self._session_directory(session_id)
+        state_path = session_directory / "session.json"
+        if not session_directory.exists() or not state_path.exists():
+            return {
+                "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+                "status": "already_unbound",
+                "session_id": session_id,
+                "current_binding": None,
+            }
+        with self._state_lock(session_directory):
+            if not state_path.exists():
+                return {
                     "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
-                    "workspace_id": workspace_id,
-                    "thread_id": thread_id,
-                    "grounded_at": self._clock(),
-                },
+                    "status": "already_unbound",
+                    "session_id": session_id,
+                    "current_binding": None,
+                }
+            state = self._read_session_state(session_directory)
+            current = self._current_binding(state)
+            if current is None:
+                status = "already_unbound"
+            else:
+                state["current_generation"] = None
+                _atomic_write_json(state_path, self._persisted_state(state))
+                status = "deactivated"
+        return {
+            "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+            "status": status,
+            "session_id": session_id,
+            "previous_binding": (
+                self._snapshot_fields(current) if current is not None else None
+            ),
+            "current_binding": None,
+        }
+
+    def status(self, session_id: str) -> dict[str, Any]:
+        """Read one Main session binding without creating runtime state."""
+
+        self._validate_host_config()
+        session_id = expect_nonempty_string(session_id, "Codex session id")
+        session_directory = self._session_directory(session_id)
+        state_path = session_directory / "session.json"
+        if not session_directory.exists() or not state_path.exists():
+            return {
+                "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+                "status": "unbound",
+                "session_id": session_id,
+                "current_binding": None,
+                "bindings": [],
+                "runtime": self._empty_runtime_status(),
+            }
+        # Runtime files use atomic replacement, so status can stay strictly
+        # read-only instead of creating or touching lock files.  Re-reading
+        # session state around the runtime scan prevents a newly-committed
+        # generation from being interpreted against an older binding list.
+        state, runtime = self._stable_status_snapshot(session_directory)
+        current = self._current_binding(state)
+        bindings = [
+            self._snapshot_fields(binding) | {"grounded_at": binding["grounded_at"]}
+            for binding in state["bindings"]
+        ]
+        return {
+            "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
+            "status": "active" if current is not None else "unbound",
+            "session_id": session_id,
+            "current_binding": (
+                self._snapshot_fields(current) if current is not None else None
+            ),
+            "bindings": bindings,
+            "runtime": runtime,
+        }
+
+    def _stable_status_snapshot(
+        self, session_directory: Path
+    ) -> tuple[dict[str, Any], dict[str, Any]]:
+        for _ in range(_STATUS_SNAPSHOT_ATTEMPTS):
+            before = self._read_session_state(session_directory)
+            try:
+                runtime = self._runtime_status(session_directory, before)
+            except HarnessError:
+                after = self._read_session_state(session_directory)
+                if after != before:
+                    continue
+                raise
+            after = self._read_session_state(session_directory)
+            if after == before:
+                return before, runtime
+        fail(
+            "Maintain runtime changed repeatedly while status was taking a "
+            "read-only snapshot; retry status"
+        )
+
+    @staticmethod
+    def _empty_runtime_status() -> dict[str, Any]:
+        return {
+            "unresolved_event_count": 0,
+            "unresolved_event_keys": [],
+            "runnable_event_count": 0,
+            "runnable_event_keys": [],
+            "failed_effect_count": 0,
+            "failed_effect_keys": [],
+            "unassigned_failed_effect_count": 0,
+            "unassigned_failed_effect_keys": [],
+            "blocking_failure_count": 0,
+            "blocking_failure_keys": [],
+            "open_prompt_count": 0,
+            "open_prompt_keys": [],
+            "by_generation": [],
+        }
+
+    def _runtime_status(
+        self,
+        session_directory: Path,
+        state: Mapping[str, Any],
+    ) -> dict[str, Any]:
+        events = self._events(session_directory)
+        blocking_failure_keys = self._blocking_failure_keys(session_directory)
+        blocking_failure_set = set(blocking_failure_keys)
+        blocked_generations: set[int] = set()
+        event_generations: dict[str, int] = {}
+        for turn_key, event in events:
+            binding = self._binding_snapshot(
+                event, state, "Maintain runtime response-end event"
+            )
+            event_generations[turn_key] = binding["generation"]
+            if turn_key in blocking_failure_set:
+                blocked_generations.add(binding["generation"])
+
+        unresolved_event_keys = [
+            turn_key
+            for turn_key, _ in events
+            if not self._effect_path(session_directory, turn_key).exists()
+        ]
+        runnable_event_keys = [
+            turn_key
+            for turn_key in unresolved_event_keys
+            if event_generations[turn_key] not in blocked_generations
+        ]
+        failed_effect_keys = self._failed_effect_keys(session_directory)
+        failed_effect_generations: dict[str, int] = {}
+        unassigned_failed_effect_keys: list[str] = []
+        for turn_key in failed_effect_keys:
+            if turn_key in event_generations:
+                failed_effect_generations[turn_key] = event_generations[turn_key]
+                continue
+            effect_path = self._effect_path(session_directory, turn_key)
+            effect = _read_json_object(
+                effect_path, "Maintain runtime effect"
+            )
+            snapshot_present = [
+                key in effect for key in _BINDING_SNAPSHOT_KEYS
+            ]
+            if any(snapshot_present):
+                binding = self._binding_snapshot(
+                    effect, state, "Maintain runtime effect"
+                )
+                failed_effect_generations[turn_key] = binding["generation"]
+                continue
+            turn_path = self._turn_path(session_directory, turn_key)
+            if turn_path.exists():
+                turn = _read_json_object(
+                    turn_path, "Maintain runtime user-prompt event"
+                )
+                binding = self._binding_snapshot(
+                    turn, state, "Maintain runtime user-prompt event"
+                )
+                failed_effect_generations[turn_key] = binding["generation"]
+                continue
+            unassigned_failed_effect_keys.append(turn_key)
+
+        open_prompt_keys: list[str] = []
+        open_prompt_generations: dict[str, int] = {}
+        turns_directory = session_directory / "turns"
+        if turns_directory.exists():
+            for path in sorted(turns_directory.glob("*.json")):
+                turn_key = path.stem
+                if not _HEX_DIGEST.fullmatch(turn_key):
+                    fail("Maintain runtime contains an invalid prompt filename")
+                if self._event_path(session_directory, turn_key).exists():
+                    continue
+                if self._effect_path(session_directory, turn_key).exists():
+                    continue
+                turn = _read_json_object(
+                    path, "Maintain runtime user-prompt event"
+                )
+                binding = self._binding_snapshot(
+                    turn, state, "Maintain runtime user-prompt event"
+                )
+                open_prompt_keys.append(turn_key)
+                open_prompt_generations[turn_key] = binding["generation"]
+
+        by_generation: list[dict[str, Any]] = []
+        for binding in state["bindings"]:
+            generation = binding["generation"]
+            generation_events = [
+                key
+                for key, event_generation in event_generations.items()
+                if event_generation == generation
+            ]
+            generation_failed = [
+                key
+                for key, effect_generation in failed_effect_generations.items()
+                if effect_generation == generation
+            ]
+            generation_blocking = [
+                key for key in generation_events if key in blocking_failure_set
+            ]
+            generation_unresolved = [
+                key for key in unresolved_event_keys if key in generation_events
+            ]
+            generation_runnable = [
+                key for key in runnable_event_keys if key in generation_events
+            ]
+            generation_open = [
+                key
+                for key, prompt_generation in open_prompt_generations.items()
+                if prompt_generation == generation
+            ]
+            by_generation.append(
+                {
+                    **self._snapshot_fields(binding),
+                    "unresolved_event_count": len(generation_unresolved),
+                    "runnable_event_count": len(generation_runnable),
+                    "failed_effect_count": len(generation_failed),
+                    "blocking_failure_count": len(generation_blocking),
+                    "open_prompt_count": len(generation_open),
+                }
             )
 
-        starting_state = grounding.get("starting_state")
-        if not isinstance(starting_state, str) or not starting_state.strip():
-            starting_state = json.dumps(
-                grounding, ensure_ascii=False, sort_keys=True
-            )
-        context = (
-            f"Workspace Maintain grounded explicit Workspace `{workspace_id}` "
-            "once for this session. Grounding does not claim that Context is "
-            f"fresh, verified, accepted, or complete. Starting state: {starting_state}"
-        )
+        return {
+            "unresolved_event_count": len(unresolved_event_keys),
+            "unresolved_event_keys": unresolved_event_keys,
+            "runnable_event_count": len(runnable_event_keys),
+            "runnable_event_keys": runnable_event_keys,
+            "failed_effect_count": len(failed_effect_keys),
+            "failed_effect_keys": failed_effect_keys,
+            "unassigned_failed_effect_count": len(
+                unassigned_failed_effect_keys
+            ),
+            "unassigned_failed_effect_keys": unassigned_failed_effect_keys,
+            "blocking_failure_count": len(blocking_failure_keys),
+            "blocking_failure_keys": blocking_failure_keys,
+            "open_prompt_count": len(open_prompt_keys),
+            "open_prompt_keys": open_prompt_keys,
+            "by_generation": by_generation,
+        }
+
+    def session_start(self, payload: Mapping[str, Any]) -> dict[str, Any]:
+        self._check_event(payload, "session-start")
+        session_id = self._payload_string(payload, "session_id")
+        self._validate_host_config()
+        session_directory = self._session_directory(session_id)
+        state_path = session_directory / "session.json"
+        if not session_directory.exists() or not state_path.exists():
+            return _hook_output("SessionStart")
+        with self._state_lock(session_directory):
+            if not state_path.exists():
+                return _hook_output("SessionStart")
+            state = self._read_session_state(session_directory)
+            current = self._current_binding(state)
+        if current is None:
+            return _hook_output("SessionStart")
         return _hook_output(
             "SessionStart",
-            additional_context=context,
-            system_message=(
-                f"Maintain grounded Workspace `{workspace_id}`; no Context "
-                "update or completion was claimed."
+            additional_context=(
+                "Workspace Maintain is reusing the already-grounded session "
+                f"binding generation {current['generation']} for explicit "
+                f"Workspace `{current['workspace_id']}`. No new Context "
+                "update or freshness claim was made."
             ),
         )
 
@@ -467,14 +903,21 @@ class MaintainHostAdapter:
         session_id = self._payload_string(payload, "session_id")
         turn_id = self._payload_string(payload, "turn_id")
         prompt = self._payload_string(payload, "prompt")
-        workspace_id = self._binding()
+        self._validate_host_config()
         session_directory = self._session_directory(session_id)
         turn_key = _hash_identifier(turn_id)
+        state_path = session_directory / "session.json"
+        if not session_directory.exists() or not state_path.exists():
+            return _hook_output("UserPromptSubmit")
 
         with self._state_lock(session_directory):
-            self._require_grounded(session_directory, workspace_id)
+            if not state_path.exists():
+                return _hook_output("UserPromptSubmit")
+            state = self._read_session_state(session_directory)
             self._fail_orphan_prompts(
-                session_directory, exclude_turn_key=turn_key
+                session_directory,
+                state,
+                exclude_turn_key=turn_key,
             )
             turn_path = self._turn_path(session_directory, turn_key)
             event_path = self._event_path(session_directory, turn_key)
@@ -487,14 +930,23 @@ class MaintainHostAdapter:
                     or existing.get("prompt") != prompt
                 ):
                     fail("duplicate Maintain turn_id has different prompt content")
-            else:
-                sequence = (
-                    _read_json_object(
-                        event_path, "Maintain runtime response-end event"
-                    ).get("sequence")
-                    if event_path.exists()
-                    else self._next_sequence(session_directory)
+                self._binding_snapshot(
+                    existing, state, "Maintain runtime user-prompt event"
                 )
+            else:
+                if event_path.exists():
+                    event = _read_json_object(
+                        event_path, "Maintain runtime response-end event"
+                    )
+                    binding = self._binding_snapshot(
+                        event, state, "Maintain runtime response-end event"
+                    )
+                    sequence = event.get("sequence")
+                else:
+                    binding = self._current_binding(state)
+                    if binding is None:
+                        return _hook_output("UserPromptSubmit")
+                    sequence = self._next_sequence(session_directory)
                 if type(sequence) is not int or sequence < 1:
                     fail("Maintain runtime event sequence is invalid")
                 _atomic_write_json(
@@ -505,12 +957,10 @@ class MaintainHostAdapter:
                         "turn_id": turn_id,
                         "prompt": prompt,
                         "received_at": self._clock(),
+                        **self._snapshot_fields(binding),
                     },
                 )
                 if event_path.exists():
-                    event = _read_json_object(
-                        event_path, "Maintain runtime response-end event"
-                    )
                     if event.get("turn_id") != turn_id:
                         fail("Maintain runtime response-end turn binding changed")
                     event["user_prompt"] = prompt
@@ -518,25 +968,27 @@ class MaintainHostAdapter:
             notices = self._take_notices(session_directory)
             unresolved = self._unresolved_event_keys(session_directory)
             blocking_failures = self._blocking_failure_keys(session_directory)
+            runnable = self._runnable_unresolved_event_keys(
+                session_directory, state
+            )
 
         # A previous detached worker may have crashed or lost a launch race.
         # Re-kicking is safe because the per-session drain lock serializes the
         # workers and the effect file makes resolved boundaries effect-once.
-        if unresolved and not blocking_failures:
+        if runnable:
             self._start_detached_drain(session_directory.name)
 
         if not notices and not unresolved and not blocking_failures:
             return _hook_output("UserPromptSubmit")
         messages = [str(notice["message"]) for notice in notices]
         if unresolved:
-            if blocking_failures:
+            if blocking_failures and not runnable:
                 messages.append(
                     f"{len(unresolved)} later Workspace Maintain response-end "
                     "boundary/boundaries remain pending behind a failed "
                     "semantic or apply boundary. They were not applied, do not "
                     "establish fresh or current Context, and will not be "
-                    "retried in this Main session. A new Main session must "
-                    "ground from the canonical Workspace."
+                    "retried on the affected binding generation."
                 )
             else:
                 messages.append(
@@ -547,10 +999,9 @@ class MaintainHostAdapter:
                 )
         elif blocking_failures:
             messages.append(
-                "Automatic Workspace Maintain is paused for this Main session "
-                "after a failed semantic or apply boundary. No later Context "
-                "freshness is claimed; a new Main session must ground from the "
-                "canonical Workspace."
+                "Automatic Workspace Maintain is paused on at least one binding "
+                "generation after a failed semantic or apply boundary. No later "
+                "Context freshness is claimed for that generation."
             )
         context = "Previous Workspace Maintain results requiring attention:\n- " + (
             "\n- ".join(messages)
@@ -571,14 +1022,25 @@ class MaintainHostAdapter:
         main_response = self._payload_string(
             payload, "last_assistant_message"
         )
-        workspace_id = self._binding()
+        self._validate_host_config()
         session_directory = self._session_directory(session_id)
         session_key = session_directory.name
         turn_key = _hash_identifier(turn_id)
+        state_path = session_directory / "session.json"
+        if not session_directory.exists() or not state_path.exists():
+            return _hook_output("Stop")
 
         with self._state_lock(session_directory):
-            self._require_grounded(session_directory, workspace_id)
+            if not state_path.exists():
+                return _hook_output("Stop")
+            state = self._read_session_state(session_directory)
             turn_path = self._turn_path(session_directory, turn_key)
+            event_path = self._event_path(session_directory, turn_key)
+            existing_event: dict[str, Any] | None = None
+            if event_path.exists():
+                existing_event = _read_json_object(
+                    event_path, "Maintain runtime response-end event"
+                )
             if turn_path.exists():
                 turn = _read_json_object(
                     turn_path, "Maintain runtime user-prompt event"
@@ -587,12 +1049,41 @@ class MaintainHostAdapter:
                     fail("Maintain runtime prompt turn binding changed")
                 sequence = turn.get("sequence")
                 user_prompt = turn.get("prompt")
+                binding = self._binding_snapshot(
+                    turn, state, "Maintain runtime user-prompt event"
+                )
+                if existing_event is not None:
+                    existing_binding = self._binding_snapshot(
+                        existing_event,
+                        state,
+                        "Maintain runtime response-end event",
+                    )
+                    if existing_binding != binding:
+                        fail("Maintain runtime prompt and response binding changed")
+            elif existing_event is not None:
+                sequence = existing_event.get("sequence")
+                user_prompt = existing_event.get("user_prompt")
+                binding = self._binding_snapshot(
+                    existing_event,
+                    state,
+                    "Maintain runtime response-end event",
+                )
             else:
+                # Explicit activation can occur inside a Main turn whose
+                # UserPromptSubmit was intentionally unbound and therefore
+                # wrote no turn snapshot.  Assigning that Stop to the newly
+                # activated binding would cross the cutover boundary.  New
+                # state therefore accepts only paired Stops; legacy v1 state
+                # keeps its historical response-only failure accounting.
+                if not state["legacy"]:
+                    return _hook_output("Stop")
+                binding = self._current_binding(state)
+                if binding is None:
+                    return _hook_output("Stop")
                 sequence = self._next_sequence(session_directory)
                 user_prompt = None
             if type(sequence) is not int or sequence < 1:
                 fail("Maintain runtime turn sequence is invalid")
-            event_path = self._event_path(session_directory, turn_key)
             event = {
                 "schema_version": MAINTAIN_HOST_STATE_SCHEMA_VERSION,
                 "sequence": sequence,
@@ -600,15 +1091,12 @@ class MaintainHostAdapter:
                 "user_prompt": user_prompt,
                 "main_response": main_response,
                 "accepted_at": self._clock(),
+                **self._snapshot_fields(binding),
             }
-            if event_path.exists():
-                existing = _read_json_object(
-                    event_path, "Maintain runtime response-end event"
-                )
+            if existing_event is not None:
                 stable_existing = {
-                    key: existing.get(key)
+                    key: existing_event.get(key)
                     for key in (
-                        "schema_version",
                         "sequence",
                         "turn_id",
                         "user_prompt",
@@ -618,7 +1106,6 @@ class MaintainHostAdapter:
                 stable_event = {
                     key: event[key]
                     for key in (
-                        "schema_version",
                         "sequence",
                         "turn_id",
                         "user_prompt",
@@ -629,25 +1116,35 @@ class MaintainHostAdapter:
                     fail("duplicate Maintain response-end has different content")
             else:
                 _atomic_write_json(event_path, event)
-            blocking_failures = self._blocking_failure_keys(session_directory)
+            runnable = self._runnable_unresolved_event_keys(
+                session_directory, state
+            )
 
-        if not blocking_failures:
+        if runnable:
             self._start_detached_drain(session_key)
         return _hook_output("Stop")
 
     def session_end(self, payload: Mapping[str, Any]) -> dict[str, Any]:
         self._check_event(payload, "session-end")
         session_id = self._payload_string(payload, "session_id")
-        workspace_id = self._binding()
+        self._validate_host_config()
         session_directory = self._session_directory(session_id)
         session_key = session_directory.name
+        state_path = session_directory / "session.json"
+        if not session_directory.exists() or not state_path.exists():
+            return _hook_output("SessionEnd")
 
         with self._state_lock(session_directory):
-            self._require_grounded(session_directory, workspace_id)
-            orphaned = self._fail_orphan_prompts(session_directory)
+            if not state_path.exists():
+                return _hook_output("SessionEnd")
+            state = self._read_session_state(session_directory)
+            orphaned = self._fail_orphan_prompts(session_directory, state)
             unresolved = self._unresolved_event_keys(session_directory)
             failed = self._failed_effect_keys(session_directory)
             blocking_failures = self._blocking_failure_keys(session_directory)
+            runnable = self._runnable_unresolved_event_keys(
+                session_directory, state
+            )
             notices = self._take_notices(session_directory)
             _atomic_write_json(
                 session_directory / "session-end.json",
@@ -661,7 +1158,7 @@ class MaintainHostAdapter:
                     "unresolved_event_keys": unresolved,
                 },
             )
-        if unresolved and not blocking_failures:
+        if runnable:
             self._start_detached_drain(session_key)
         if unresolved or orphaned or failed or notices:
             status_message = (
@@ -670,7 +1167,7 @@ class MaintainHostAdapter:
                 f"event(s) not yet resolved; {len(failed)} effect(s) are "
                 "failed, not completed. Completion or freshness is not claimed."
             )
-            if unresolved and not blocking_failures:
+            if runnable:
                 status_message += (
                     " A best-effort worker was started for accepted "
                     "response-end events."
@@ -678,7 +1175,8 @@ class MaintainHostAdapter:
             elif unresolved:
                 status_message += (
                     " Later events remain pending behind a failed semantic or "
-                    "apply boundary and were not retried in this Main session."
+                    "apply boundary on their binding generation and were not "
+                    "retried."
                 )
             notice_messages = [str(notice["message"]) for notice in notices]
             message = "\n".join([status_message, *notice_messages])
@@ -692,6 +1190,7 @@ class MaintainHostAdapter:
     def _fail_orphan_prompts(
         self,
         session_directory: Path,
+        state: Mapping[str, Any],
         *,
         exclude_turn_key: str | None = None,
     ) -> list[str]:
@@ -715,6 +1214,9 @@ class MaintainHostAdapter:
             turn = _read_json_object(
                 turn_path, "Maintain runtime user-prompt event"
             )
+            binding = self._binding_snapshot(
+                turn, state, "Maintain runtime user-prompt event"
+            )
             turn_id = turn.get("turn_id")
             message = (
                 f"Maintain received prompt turn `{turn_id}` without a matching "
@@ -735,6 +1237,7 @@ class MaintainHostAdapter:
                     "status": "failed",
                     "finished_at": self._clock(),
                     "error": "prompt_without_response_end",
+                    **self._snapshot_fields(binding),
                 },
             )
             orphaned.append(turn_key)
@@ -841,6 +1344,48 @@ class MaintainHostAdapter:
                 blocking.append(turn_key)
         return blocking
 
+    def _blocking_generations(
+        self,
+        session_directory: Path,
+        state: Mapping[str, Any],
+    ) -> set[int]:
+        blocking: set[int] = set()
+        for turn_key, event in self._events(session_directory):
+            effect_path = self._effect_path(session_directory, turn_key)
+            if not effect_path.exists():
+                continue
+            effect = _read_json_object(
+                effect_path, "Maintain runtime effect"
+            )
+            if (
+                effect.get("status") == "failed"
+                and self._effect_blocks_later_events(effect)
+            ):
+                binding = self._binding_snapshot(
+                    event, state, "Maintain runtime response-end event"
+                )
+                blocking.add(binding["generation"])
+        return blocking
+
+    def _runnable_unresolved_event_keys(
+        self,
+        session_directory: Path,
+        state: Mapping[str, Any],
+    ) -> list[str]:
+        blocked_generations = self._blocking_generations(
+            session_directory, state
+        )
+        runnable: list[str] = []
+        for turn_key, event in self._events(session_directory):
+            if self._effect_path(session_directory, turn_key).exists():
+                continue
+            binding = self._binding_snapshot(
+                event, state, "Maintain runtime response-end event"
+            )
+            if binding["generation"] not in blocked_generations:
+                runnable.append(turn_key)
+        return runnable
+
     def _write_notice(
         self,
         session_directory: Path,
@@ -928,7 +1473,7 @@ class MaintainHostAdapter:
 
     def drain(self, session_key: str) -> dict[str, Any]:
         session_directory = self._directory_from_key(session_key)
-        workspace_id = self._binding()
+        self._validate_host_config()
         summary = {
             "session_key": session_key,
             "processed": 0,
@@ -938,8 +1483,16 @@ class MaintainHostAdapter:
             "busy": False,
         }
         with self._drain_lock(session_directory):
-            state = self._require_grounded(session_directory, workspace_id)
-            for turn_key, event in self._events(session_directory):
+            with self._state_lock(session_directory):
+                state = self._read_session_state(session_directory)
+                events = self._events(session_directory)
+            blocked_generations: set[int] = set()
+            for turn_key, event in events:
+                binding = self._binding_snapshot(
+                    event, state, "Maintain runtime response-end event"
+                )
+                workspace_id = binding["workspace_id"]
+                generation = binding["generation"]
                 effect_path = self._effect_path(session_directory, turn_key)
                 if effect_path.exists():
                     summary["already_resolved"] += 1
@@ -950,10 +1503,10 @@ class MaintainHostAdapter:
                         effect.get("status") == "failed"
                         and self._effect_blocks_later_events(effect)
                     ):
-                        summary["blocked"] = len(
-                            self._unresolved_event_keys(session_directory)
-                        )
-                        break
+                        blocked_generations.add(generation)
+                    continue
+                if generation in blocked_generations:
+                    summary["blocked"] += 1
                     continue
                 user_prompt = event.get("user_prompt")
                 turn_id = event.get("turn_id")
@@ -981,6 +1534,7 @@ class MaintainHostAdapter:
                             "status": "failed",
                             "finished_at": self._clock(),
                             "error": message,
+                            **self._snapshot_fields(binding),
                         },
                     )
                     summary["failed"] += 1
@@ -990,7 +1544,7 @@ class MaintainHostAdapter:
                     semantic_session = session_type.restore(
                         self.project_root,
                         workspace_id,
-                        thread_id=state["thread_id"],
+                        thread_id=binding["thread_id"],
                         runner=self._runner,
                     )
                     decision = semantic_session.resume(
@@ -1018,6 +1572,7 @@ class MaintainHostAdapter:
                             "finished_at": self._clock(),
                             "context_status": result.get("context_status"),
                             "importance": result.get("importance"),
+                            **self._snapshot_fields(binding),
                         },
                     )
                     summary["processed"] += 1
@@ -1042,13 +1597,11 @@ class MaintainHostAdapter:
                             "status": "failed",
                             "finished_at": self._clock(),
                             "error": str(exc),
+                            **self._snapshot_fields(binding),
                         },
                     )
                     summary["failed"] += 1
-                    summary["blocked"] = len(
-                        self._unresolved_event_keys(session_directory)
-                    )
-                    break
+                    blocked_generations.add(generation)
         return summary
 
 
@@ -1070,6 +1623,9 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "command",
         choices=(
+            "activate",
+            "deactivate",
+            "status",
             "session-start",
             "user-prompt",
             "response-end",
@@ -1077,9 +1633,16 @@ def _parser() -> argparse.ArgumentParser:
             "drain",
         ),
     )
+    parser.add_argument(
+        "control_value",
+        nargs="?",
+        help="Workspace id for positional 'activate WORKSPACE_ID'",
+    )
     parser.add_argument("--project-root")
     parser.add_argument("--runtime-root")
     parser.add_argument("--session-key")
+    parser.add_argument("--session-id")
+    parser.add_argument("--workspace-id")
     return parser
 
 
@@ -1093,19 +1656,36 @@ def _stdin_payload() -> dict[str, Any]:
     return value
 
 
+def _control_session_id(explicit_session_id: str | None) -> str:
+    candidate = (
+        explicit_session_id
+        if explicit_session_id is not None
+        else os.environ.get("CODEX_SESSION_ID")
+    )
+    if candidate is None:
+        fail(
+            "Maintain control command requires --session-id or "
+            "CODEX_SESSION_ID"
+        )
+    return expect_nonempty_string(candidate, "Codex session id")
+
+
 def main(argv: list[str] | None = None) -> int:
     arguments = _parser().parse_args(argv)
     try:
         payload: dict[str, Any] | None = None
+        is_hook_command = arguments.command in _HOOK_EVENTS
         if arguments.project_root:
             project_root = Path(arguments.project_root)
         elif arguments.command == "drain":
             fail("drain requires --project-root")
-        else:
+        elif is_hook_command:
             payload = _stdin_payload()
             project_root = _discover_project_root(
                 Path(str(payload.get("cwd", Path.cwd())))
             )
+        else:
+            project_root = _discover_project_root(Path.cwd())
         adapter = MaintainHostAdapter(
             project_root,
             runtime_root=(
@@ -1115,10 +1695,56 @@ def main(argv: list[str] | None = None) -> int:
         if arguments.command == "drain":
             if not arguments.session_key:
                 fail("drain requires --session-key")
+            if (
+                arguments.control_value
+                or arguments.session_id
+                or arguments.workspace_id
+            ):
+                fail("drain does not accept session or Workspace control options")
             output = adapter.drain(arguments.session_key)
+        elif arguments.command == "activate":
+            if arguments.session_key:
+                fail("--session-key is only valid for drain")
+            if (
+                arguments.workspace_id
+                and arguments.control_value
+                and arguments.workspace_id != arguments.control_value
+            ):
+                fail("activate received two different Workspace ids")
+            workspace_id = arguments.workspace_id or arguments.control_value
+            if not workspace_id:
+                fail("activate requires WORKSPACE_ID or --workspace-id")
+            output = adapter.activate(
+                _control_session_id(arguments.session_id),
+                workspace_id,
+            )
+        elif arguments.command == "deactivate":
+            if (
+                arguments.control_value
+                or arguments.session_key
+                or arguments.workspace_id
+            ):
+                fail("deactivate accepts only session selection options")
+            output = adapter.deactivate(
+                _control_session_id(arguments.session_id)
+            )
+        elif arguments.command == "status":
+            if (
+                arguments.control_value
+                or arguments.session_key
+                or arguments.workspace_id
+            ):
+                fail("status accepts only session selection options")
+            output = adapter.status(_control_session_id(arguments.session_id))
         else:
             if arguments.session_key:
                 fail("--session-key is only valid for drain")
+            if (
+                arguments.control_value
+                or arguments.session_id
+                or arguments.workspace_id
+            ):
+                fail("hook commands do not accept session control options")
             if payload is None:
                 payload = _stdin_payload()
             handlers = {
@@ -1131,8 +1757,8 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(output, ensure_ascii=False, sort_keys=True))
         return 0
     except (HarnessError, OSError, ValueError) as exc:
-        if arguments.command == "drain":
-            print(f"Maintain drain failed: {exc}", file=sys.stderr)
+        if arguments.command in {"drain", "activate", "deactivate", "status"}:
+            print(f"Maintain {arguments.command} failed: {exc}", file=sys.stderr)
             return 2
         event_name = _HOOK_EVENTS[arguments.command]
         message = (

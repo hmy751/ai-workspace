@@ -13,4 +13,6 @@ from context.work.harness.maintain.host_adapter import main  # noqa: E402
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(
+        main([*sys.argv[1:], "--project-root", str(PROJECT_ROOT)])
+    )

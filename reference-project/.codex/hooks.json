@@ -1,5 +1,5 @@
 {
-  "description": "Workspace Maintain session grounding and response-end routing",
+  "description": "Workspace Maintain session binding and response-end routing",
   "hooks": {
     "SessionStart": [
       {
@@ -8,7 +8,7 @@
             "type": "command",
             "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/maintain.py\" session-start",
             "timeout": 600,
-            "statusMessage": "Grounding Workspace context",
+            "statusMessage": "Checking Workspace Maintain binding",
             "additionalContextLimit": 12000
           }
         ]

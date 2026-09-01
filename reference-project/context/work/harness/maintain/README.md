@@ -6,14 +6,26 @@ Context의 의미와 Owner는 [`Work context`](../../README.md), [`Workspace col
 
 Codex에서 main이 수동 fallback으로 부를 의미 판단 role은 [`workspace-context-maintainer.toml`](workspace-context-maintainer.toml)이다. Project root의 [`.codex/config.toml`](../../../../.codex/config.toml)은 이 하위 파일을 `workspace_context_maintainer` role로 발견하게 할 뿐 자동 session 시작, warm identity나 response-end dispatch를 보장하지 않는다. 자동 lifecycle은 별도의 persisted session bridge와 hook adapter가 맡는다.
 
+## 내부 책임과 진입점
+
+Maintain 전체의 목적과 비소유 범위는 이 README가 canonical이다. 내부의 서로 다른 판단과 집행 경계는 다음 진입점에서 이어진다.
+
+- **Session binding과 lifecycle**: 사람·Main의 explicit Workspace 선택을 session별 generation으로 commit하고 prompt·response-end·worker·notice를 정확한 Workspace와 semantic thread에 귀속한다. 상세 계약은 [`SESSION-BINDING-AND-LIFECYCLE.md`](SESSION-BINDING-AND-LIFECYCLE.md)가 소유한다.
+- **Semantic 판단**: [`workspace-context-maintainer.toml`](workspace-context-maintainer.toml)과 [`codex_session.py`](codex_session.py)가 bounded grounding과 같은 thread의 response-end 판단을 연결한다. Agent는 durable 변화·기존 의미 Owner·ambiguity·보고 중요도를 판단하지만 Workspace 선택과 사람 acceptance를 대신하지 않는다.
+- **Guarded apply**: [`operation.py`](operation.py)와 decision schema가 agent의 structured decision에 새 의미를 더하지 않고 exact Workspace·허용 Owner·preimage·경로·outcome별 side effect를 검사한다.
+
+이 세 경계는 Maintain 안에서 함께 한 response-end 책임을 완성한다. Session binding을 Main session 전체의 일반 Workspace 선택 canonical이나 Recover·Maintain·Verify의 새 peer로 사용하지 않는다.
+
 ## 사용자에게 보여야 하는 동작
 
-1. 기존 Workspace에서 새 작업 session을 시작하면 명시적으로 선택된 Workspace의 bounded current를 한 번 읽고, 시작 상태를 한 번 맞춘다.
-2. 같은 session의 후속 response에서는 이미 얻은 이해를 이어 쓰고 넓은 recovery를 반복하지 않는다.
-3. 모든 사용자 대상 Main response-end에서 durable 변화 여부를 점검한다.
-4. 변화가 없으면 지속 Workspace Context write와 Maintain report를 모두 만들지 않는다.
-5. 명확한 변화는 기존 Owner에 반영한다. 사소하면 조용히 끝내고, 중요하면 실제 반영 뒤 보고한다. 목표·source 권위·acceptance처럼 사람 판단이 필요한 ambiguity는 관련 write 전에 묻는다.
-6. 최초 grounding 뒤 장시간 의미 판단 때문에 Main response를 기다리게 하지 않는다. 접수, 판단, write와 report 완료를 구별하며 실패·지연·stale을 `fresh`, `current` 또는 `completed`로 가장하지 않는다.
+1. Project에서 새 작업 session을 시작하는 것만으로 Maintain에 가입하지 않는다. 명시적 activation 전에는 unbound이며 Workspace grounding·queue·write·경고를 만들지 않는다.
+2. 사용자가 현재 작업에 Workspace를 명시적으로 연결하면 그 Main session만 선택한 Workspace의 bounded current를 한 번 읽고 시작 상태를 맞춘다.
+3. 같은 binding generation의 후속 response에서는 이미 얻은 이해를 이어 쓰고 넓은 recovery를 반복하지 않는다.
+4. 연결된 generation의 모든 사용자 대상 Main response-end에서 durable 변화 여부를 점검한다.
+5. 변화가 없으면 지속 Workspace Context write와 Maintain report를 모두 만들지 않는다.
+6. 명확한 변화는 기존 Owner에 반영한다. 사소하면 조용히 끝내고, 중요하면 실제 반영 뒤 보고한다. 목표·source 권위·acceptance처럼 사람 판단이 필요한 ambiguity는 관련 write 전에 묻는다.
+7. 최초 grounding 뒤 장시간 의미 판단 때문에 Main response를 기다리게 하지 않는다. 접수, 판단, write와 report 완료를 구별하며 실패·지연·stale을 `fresh`, `current` 또는 `completed`로 가장하지 않는다.
+8. 같은 Main session을 다른 Workspace로 전환하면 이미 접수된 turn은 predecessor에 마감하고, 성공한 새 grounding 뒤의 다음 prompt부터 successor를 사용한다. 실패하면 predecessor binding을 그대로 유지한다.
 
 점검 cadence와 write·report cadence는 다르다. 매 response-end 점검한다는 이유로 Workspace에 heartbeat, no-change record 또는 machine status를 남기지 않는다. Host adapter가 순서·중복·실패를 구별하기 위해 쓰는 ignored runtime은 Context나 기록이 아니며 제거 가능해야 한다.
 
@@ -27,9 +39,9 @@ Codex에서 main이 수동 fallback으로 부를 의미 판단 role은 [`workspa
 
 ### Workspace 생성·전환 비소유
 
-Maintain은 explicit binding으로 선택된 한 Workspace 안의 의미 변화를 관리한다. 후속 Workspace를 만들거나 이전 Workspace의 의미를 옮기고, active index·host binding을 바꾸거나 Workspace 사이를 동기화하지 않는다. Project context에도 Project-wide 적용 후보를 자동 반영하지 않는다.
+Maintain은 explicit binding으로 선택된 한 Workspace 안의 의미 변화를 관리한다. 후속 Workspace를 만들거나 이전 Workspace의 의미를 옮기고, active index를 바꾸거나 Workspace 사이를 동기화하지 않는다. Project context에도 Project-wide 적용 후보를 자동 반영하지 않는다. 어떤 Workspace를 현재 Main session에 연결·전환할지는 사람과 main이 결정하며, host adapter는 그 명시적 선택의 grounding 성공과 event 귀속만 결정적으로 집행한다.
 
-새 Workspace 생성과 전환은 [`생성·전환 canonical`](../../workspaces/CREATE-AND-TRANSITION.md)을 main과 별도 skill이 적용하는 책임이다. 같은 Main session을 이어 갈지 새 session으로 격리할지는 canonical이 요구하는 현재 binding·미처리 상태·successor 영향과 실제 host 능력을 main이 대조해 정한다. Maintain은 그 선택을 대신하지 않으며, 이전 session의 warm 이해, 설정 파일 변경이나 아직 반영 여부가 확정되지 않은 background event를 successor의 current·새 grounding 또는 전달 완료처럼 간주하지 않는다.
+새 Workspace 생성과 전환은 [`생성·전환 canonical`](../../workspaces/CREATE-AND-TRANSITION.md)을 main과 별도 skill이 적용하는 책임이다. 같은 Main session을 이어 갈지 새 session으로 격리할지는 canonical이 요구하는 현재 binding·미처리 상태·successor 영향과 실제 host 능력을 main이 대조해 정한다. Maintain은 그 선택을 대신하지 않으며, 이전 generation의 warm 이해, 설정 파일 변경이나 아직 반영 여부가 확정되지 않은 background event를 successor의 current·새 grounding 또는 전달 완료처럼 간주하지 않는다.
 
 ### Agent가 소유하는 의미 판단
 
@@ -94,55 +106,11 @@ Decision은 다음 의미를 갖는다.
 
 이 schema는 agent 판단을 코드로 대체하지 않는다. Outcome마다 어떤 부작용 권한이 있는지와 false success를 제한한다.
 
-## Host-neutral 실행 순서
+## Session binding과 lifecycle
 
-1. Host 또는 main이 Workspace id를 명시하고 Recover packet으로 새 Maintainer agent를 한 번 grounding한다.
-2. Grounding이 성공하기 전에는 warm 또는 current를 주장하지 않는다. 실패하면 Main에 Workspace와 실패 범위를 드러낸다.
-3. 같은 agent identity에 각 사용자 대상 Main response-end의 delta를 전달한다.
-4. Agent가 decision을 만들면 guarded apply가 검증·적용한다.
-5. No-change는 `context_status=no_change`로 이번 경계의 무변화만 나타내고 조용히 끝난다. 전체 Context freshness나 이전 실패 경계까지 current라고 주장하지 않는다. Quiet update도 report를 만들지 않는다. Important update는 실제 apply 성공 뒤에만 보고한다. Ambiguity는 zero-write 상태로 질문한다.
-6. 새 Main session은 bounded grounding부터 다시 한다. 같은 Main session의 Workspace 전환은 생성·전환 canonical이 소유하며, 설정 변경만으로 자동 re-grounding됐다고 간주하지 않는다. 살아 있는 Main session에서 agent thread가 사라지면 disk cache로 warm 이해를 흉내 내지 않고 실패로 남긴다. 현재 Reference host adapter는 같은 outer session의 자동 re-grounding을 지원하거나 보장하지 않는다.
+새 Main session의 unbound 기본값, explicit activation·rebind·deactivation, binding generation, prompt·response-end·late worker 귀속, hook·worker·notice lifecycle, 민감 runtime의 실제 저장 범위와 retention, config migration과 actual-host 증명 상한은 [`SESSION-BINDING-AND-LIFECYCLE.md`](SESSION-BINDING-AND-LIFECYCLE.md)가 소유한다.
 
-자동 lifecycle adapter가 없는 host에서는 main이 이 순서를 직접 수행할 수 있다. 이 수동 fallback은 Workspace 의미를 유지하지만 모든 response-end 자동 점검이나 Main 비차단을 증명하지 않는다.
-
-## Reference Codex host adapter
-
-Reference Project는 다음 교체 가능한 연결을 함께 제공한다.
-
-- [`.codex/maintain.json`](../../../../.codex/maintain.json): host session을 묶을 explicit Workspace id. Active index를 암묵적 binding으로 사용하지 않는다.
-- [`.codex/hooks.json`](../../../../.codex/hooks.json): `SessionStart`, `UserPromptSubmit`, `Stop`, `SessionEnd` command routing. Hook trust와 실제 event 의미는 Codex host가 소유한다.
-- [`codex_session.py`](codex_session.py): 최초에는 `codex exec`로 read-only semantic thread를 시작하고, 후속 response-end에는 검증한 같은 thread id를 `codex exec resume`으로 재사용한다. Nested thread에서는 project hook을 꺼 재귀 실행을 막는다.
-- [`host_adapter.py`](host_adapter.py): stable hook payload만 받아 session별 ignored runtime에 binding·event·실제 effect를 격리한다. Transcript 파일 형식은 읽지 않는다.
-
-`SessionStart`만 bounded grounding 완료를 기다린다. Grounding이 실패하거나 사람 결정이 필요하면 session state를 grounded로 commit하지 않고 그 사실을 Main과 사용자 표면에 돌려보낸다.
-
-`UserPromptSubmit`은 stable `turn_id`와 prompt를 짧게 보존하고, 이전 important update·ambiguity·failure 또는 아직 끝나지 않은 accepted boundary가 있으면 다음 Main model request와 사용자 UI에 전달한다. 일반 pending은 worker를 다시 시작하되 완료·fresh·current로 표시하지 않는다. 이전 semantic resume 또는 guarded apply가 실패해 thread와 Context의 관계가 불확실하면 뒤 event를 같은 session에서 재시작하지 않고 pending으로 남기며 새 Main session의 bounded grounding을 요구한다. Immediate 별도 chat message를 생성하는 장치가 아니므로, background 결과는 다음 prompt가 들어올 때 보인다.
-
-`Stop` handler는 stable `turn_id`와 `last_assistant_message`를 session별 event로 먼저 확정하고 detached worker를 시작한 뒤 끝난다. 장시간 agent 판단과 write를 기다리지 않는다. Worker는 같은 semantic thread를 resume하고 guarded apply를 거친다. Effect가 이미 확정된 ordinary duplicate는 다시 적용하지 않는다. Prompt·response pairing 이전 실패는 failure로 남기고 뒤의 정상 event 처리를 막지 않는다. Semantic resume 또는 guarded apply가 실패하면 그 event는 뒤 event를 막는 failure가 되고, 뒤 event는 적용되지 않은 pending으로 남는다. Semantic resume·apply 뒤 effect 기록 전 hard crash의 strict effect-once는 주장하지 않는다.
-
-Failure ordering 필드가 생기기 전 schema v1 runtime의 `failed` effect는 원래 실패 단계를 구분할 수 없으므로 fail-closed로 뒤 event를 막는다. 새 Main session의 canonical grounding으로 돌아가는 안전한 과잉 정지이며, 새 runtime의 pairing 실패에는 명시적으로 nonblocking을 기록한다.
-
-Runtime 기본 위치는 ignored `.codex/maintain-runtime/`이다. Project 내부의 absolute lexical descendant만 허용하고 기존 symlink component를 거부한다. Warm thread binding과 delivery truth만 소유하며 Workspace 의미를 복제하지 않는다. 폴더를 지우면 자동 session continuity만 사라지고, 다음 session은 canonical에서 다시 grounding한다.
-
-현재 process lock은 POSIX `fcntl`을 사용한다. 이 Reference host adapter는 non-POSIX portability를 주장하지 않는다.
-
-`codex` 실행 경로가 symlink이고 실제 binary 옆에 `codex-code-mode-host`가 있으면 semantic bridge는 실제 binary 경로를 사용한다. Host가 sibling tool을 실행 파일의 겉보기 경로에서 찾는 설치에서는 이 해소가 read-only Owner inspection을 가능하게 하며, sibling host가 없으면 임의 경로를 추정하지 않고 원래 실행 실패를 그대로 드러낸다.
-
-## Codex host proof ceiling
-
-Codex의 command hook은 `SessionStart`와 `Stop` 경계를 제공하지만 등록된 agent role을 직접 실행하지 않는다. Background hook 완료는 새 turn을 시작하지 않고 session 종료 시 취소될 수 있으므로, Reference는 async hook 안에서 장시간 agent를 실행하지 않고 빠른 sync enqueue 뒤 별도 process에서 persisted thread를 resume한다.
-
-자동 adapter를 연결하려면 실제 Codex host에서 다음을 먼저 확인한다.
-
-- 새 session당 bounded grounding 1회
-- 후속 turn에서 같은 agent identity 재사용
-- 사용자 대상 Main response와 `Stop`의 실제 관계
-- response-end의 빠른 접수 뒤 Main 비차단
-- 순서 역전·중복·종료 중 누락과 session 간 격리
-- important report와 ambiguity 질문이 다음 prompt에서 도달하는 실제 사용자 표면 및 그 지연이 허용되는지
-- semantic resume 또는 guarded apply가 실패한 뒤 후속 boundary가 최신 Context인 것처럼 적용되지 않는지
-
-이 확인 전에는 role 등록과 unit test만으로 automatic Maintain이나 actual acceptance를 주장하지 않는다.
+자동 lifecycle adapter가 없는 host에서도 Main은 이 README의 semantic 판단·guarded apply 책임을 수동으로 수행할 수 있다. 다만 수동 fallback은 모든 response-end 자동 점검, 같은 semantic identity 재사용이나 Main 비차단을 증명하지 않는다.
 
 ## 소유하지 않는 것
 

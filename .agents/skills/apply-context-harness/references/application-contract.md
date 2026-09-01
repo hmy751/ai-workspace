@@ -30,7 +30,7 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 
 - 각 책임의 live Owner와 파일을 target에 그대로 둘지, target 구조에 맞춰 적응할지, 제외할지 판단한다.
 - Reference의 repo-local Workspace 생성 skill과 root routing을 target 도구가 발견할 수 있는지, 같은 이름의 기존 skill·instruction Owner와 충돌하는지 확인하고 설치·적응·제외를 정한다. 첫 Workspace는 이식 책임이 직접 만들며 아직 설치되지 않은 운영 skill을 중첩 호출하지 않는다.
-- Tool-specific Maintain 연결과 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. 수동 role, lifecycle hook, explicit binding, wrapper와 runtime ignore를 각각 설치·적응·제외하고, role 등록만으로 automatic lifecycle을 주장하지 않는다. Project-local Codex hook은 target root의 Codex task에서 `/hooks` review/trust와 runtime session receipt가 확인되기 전까지 `activation_pending`으로 둔다. 일부 또는 전체 adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
+- Tool-specific Maintain 연결과 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. 수동 role, [session binding·lifecycle canonical](../../../../reference-project/context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md), lifecycle hook, schema v2 explicit admission config, session별 activation wrapper와 runtime ignore를 하나의 Maintain 내부 관계로 설치·적응·제외하고, role 등록만으로 automatic lifecycle을 주장하지 않는다. Project 공통 Workspace id, active index나 대화 의미로 새 session을 자동 binding하지 않는다. Schema v1 설치를 올릴 때는 legacy session state를 보존하는 v2 adapter를 먼저 배치한 뒤 config를 v2로 바꾸며 runtime을 일괄 삭제·retarget하지 않는다. Project-local Codex hook은 target root의 Codex task에서 hook review/trust, 사용자가 선택한 session의 explicit activation과 같은 binding generation의 runtime event receipt가 확인되기 전까지 `activation_pending`으로 둔다. Unbound 새 session은 정상 no-op이다. 일부 또는 전체 adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
 - Reference sample의 제품·Workspace 내용과 과거 receipt는 payload에서 제외한다.
 
 ## Project common context 내용 충족
@@ -94,7 +94,7 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 | Target Harness 적응 | 전체 Harness tests와 ephemeral validation | 실패, source 변경 또는 proof 공백 |
 | 상태 전환·인계 | Product Verify와 후속 Recover | Evidence closure나 runtime 불확실성 |
 | Context 의미 변화 | 명시 Workspace Maintain과 main diff 검토 | 새 목표·canonical·acceptance 판단 필요 |
-| Codex lifecycle hook | installed/activation_pending/activated 상태 분리 | target task의 hook trust 또는 runtime receipt 부재 |
+| Codex lifecycle hook | v2 default-unbound, installed/activation_pending/activated 상태 분리 | target task의 hook trust, explicit session activation 또는 같은 generation의 runtime event receipt 부재 |
 | 신규 이식·사용자 파일 충돌 | 독립 review | P1/P2 또는 원자료 충돌 |
 
 반복 개발 확인과 durable evidence를 구분한다. Harness validation은 임시 fixture의 회귀 검사이고, Harness test receipt는 target-specific 관리 장치 증거이며, Product Verify는 실제 Workspace 상태 전환 증거다. 서로를 대신하지 않는다.
@@ -119,5 +119,5 @@ Target 사실로 다음을 답한다.
 2. Recover가 실제로 무엇을 읽고 무엇을 제외했는가.
 3. Repo-local Workspace 생성 skill과 root routing이 설치·적응·제외 중 무엇이며, 실제 discovery는 어디까지 확인됐는가.
 4. Validation과 Product Verify가 어떤 입력·runtime에서 무엇을 확인했는가.
-5. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 trust와 runtime receipt가 무엇으로 확인됐는가.
+5. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 default-unbound, session별 explicit activation, trust와 runtime receipt가 무엇으로 확인됐는가.
 6. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.

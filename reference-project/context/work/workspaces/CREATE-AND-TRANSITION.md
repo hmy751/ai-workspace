@@ -47,13 +47,15 @@ Repo-local [`create-context-workspace` skill](../../../.agents/skills/create-con
 
 ## 생성과 활성화 경계
 
-Workspace 생성과 실제 활성화는 별도 결정이다. 생성만 요청받았으면 `workspaces/index.json`과 host의 explicit binding을 바꾸지 않는다.
+Workspace 생성과 실제 활성화는 별도 결정이다. 생성만 요청받았으면 `workspaces/index.json`과 현재 Main session의 explicit binding을 바꾸지 않는다. 새 Main session은 Project의 active index, 기본 Workspace나 대화 주제로 Maintain에 자동 가입하지 않는다.
 
 현재 작업을 successor로 전환할 때 새 Main session을 보편적으로 강제하지 않는다. 먼저 현재 binding과 background Maintain의 처리 중·pending·failed 상태를 확인한다. 미반영 내용이 successor의 goal·제약·첫 판단·다음 행동을 바꾸면 predecessor current를 먼저 보완하거나 successor가 알아야 할 의미를 직접 남긴다. 관련 없는 미처리 상태는 predecessor에 그대로 보존할 수 있으며, 존재 자체만으로 전환을 막지 않는다.
 
-같은 Main session을 이어 간다면 현재 사용자 turn은 predecessor 경계로 마감하고, 다음 successor 작업을 시작하기 전에 explicit Workspace id의 bounded Recover와 새 Maintain grounding이 실제로 성공했는지 확인한다. Grounding이 실패하거나 현재 host가 안전한 재결합을 지원하지 않으면 기존 binding을 유지하고 새 Main session을 fallback으로 사용한다. 새 session은 더 강한 격리나 독립 재진입이 필요할 때 선택할 수도 있다.
+같은 Main session을 이어 간다면 Main이 현재 사용자 turn 안에서 `CODEX_SESSION_ID`를 대상으로 `python3 .codex/hooks/maintain.py activate <successor_workspace_id>`를 실행한다. 실행 메커니즘과 operational state의 canonical은 [`Maintain session binding과 lifecycle`](../harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md)이다. 이 전환에서는 새 Maintain grounding이 실제로 성공한 뒤에만 future turn binding을 바꾸고, 이미 접수된 현재 prompt와 그 Stop은 predecessor로 마감하며 다음 prompt부터 successor를 사용한다. Grounding이 실패하면 기존 binding을 유지한다. 현재 host가 이 경계를 지원하지 않으면 새 Main session을 fallback으로 사용하며, 더 강한 격리나 독립 재진입이 필요할 때도 새 session을 선택할 수 있다.
 
-Active 기본값이나 host binding 파일을 바꿨다는 사실만으로 actual activation, background event 반영 또는 새 grounding 완료를 주장하지 않는다. 이 문서의 판단 기준은 특정 host가 같은-session 재결합을 이미 구현했다는 보장이 아니다.
+Successor 판단을 실제로 바꾸는 미반영 의미는 전환 전에 정리하지만, 관련 없는 pending의 존재만으로 이동을 막거나 successor로 넘기지 않는다. 이전 generation의 pending·failed·late worker 귀속과 `deactivate`의 runtime 보존 계약은 Maintain session lifecycle canonical이 소유한다.
+
+Active 기본값이나 `.codex/maintain.json`을 바꿨다는 사실만으로 actual activation, background event 반영 또는 새 grounding 완료를 주장하지 않는다. `activate` 성공 결과와 session별 persisted binding을 확인한다. Adapter test와 actual Codex host acceptance의 증명 범위는 Maintain session lifecycle canonical을 따른다.
 
 ## 완료와 증명 상한
 

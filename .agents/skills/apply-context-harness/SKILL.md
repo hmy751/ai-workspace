@@ -62,7 +62,7 @@ Project common context는 live Reference가 요구하는 진입 책임을 target
 - 기존 Owner의 어떤 공통 사실을 Project context의 어느 책임·파일·문단에 어떻게 다시 서술할지, 각 선택 책임과 근거가 있는 생략 책임, 첫 Workspace에 넣을 목표·제약·state·source·output 내용
 - Reference 책임별 `source Owner → target 배치 → 그대로 사용/적응/제외 → 이유` 매핑
 - Repo-local Workspace 생성 skill과 root routing의 `install/adapt/exclude`, exact 충돌과 fallback
-- Target instruction과 도구 설정에 추가할 routing, 수동 agent role, lifecycle hook, explicit binding, wrapper, runtime ignore 또는 main fallback의 개별 설치·제외 판단
+- Target instruction과 도구 설정에 추가할 routing, 수동 agent role, lifecycle hook, session별 explicit admission·activation 명령, wrapper, runtime ignore 또는 main fallback의 개별 설치·제외 판단
 - Target의 Recover·Verify 계약과 제품 검증 입력을 live Reference에서 적응한 결과
 - 변경 위험에 맞춘 Harness validation, product Verify와 review 계획
 - 남는 proof ceiling, 사람 acceptance와 commit 경계
@@ -76,7 +76,7 @@ Project common context는 live Reference가 요구하는 진입 책임을 target
 3. Live Reference가 요구하는 Workspace 지속 층과 machine 계약을 첫 작업의 실제 목표·제약·source·output·검증으로 채운다. Sample 내용과 기존 Project 산출물을 복제하지 않는다.
 4. Reference의 repo-local `create-context-workspace` skill과 root routing을 target 도구가 지원하면 기존 skill·instruction을 보존하며 설치하거나 좁게 적응한다. 최초 이식 중 첫 Workspace를 만들기 위해 아직 설치되지 않은 이 skill을 중첩 호출하지 않는다. 같은 이름의 기존 skill을 덮어쓰지 않으며, 지원하지 않거나 충돌을 해소할 수 없으면 제외 이유와 생성·전환 canonical을 main이 적용하는 fallback을 남긴다.
 5. Harness runtime·계약·테스트는 승인된 source commit에서 가져오고, target package·경로·runtime과 충돌하는 부분만 좁게 적응한다. Reference 내부 계약을 skill 문장으로 재구현하지 않는다.
-6. Live Reference의 tool-specific Maintain 연결을 target에서 쓸 수 있으면 기존 설정과 role 이름을 보존하며 수동 role, lifecycle hook, explicit binding, hook wrapper와 ignored runtime을 각각 설치·적응·제외한다. Role 발견 경로만 등록한 상태를 automatic Maintain 설치로 부르지 않는다. 설정 parse와 각 adapter path 해석은 확인하되 새 task의 실제 role·hook discovery와 lifecycle 장면을 실행하지 않았다면 증명했다고 쓰지 않는다. Project-local Codex hook은 이식 직후 기본 상태를 `activation_pending`으로 둔다. Target root의 Codex task에서 `/hooks`로 새 hook definition을 review/trust하고 `.codex/maintain-runtime/` 아래 session receipt가 생긴 뒤에만 `activated`라고 보고한다. 충돌하거나 discovery가 확인되지 않으면 덮어쓰지 않고 live Maintain 계약을 main이 수행하는 fallback과 미설치 범위를 기록한다.
+6. Live Reference의 tool-specific Maintain 연결을 target에서 쓸 수 있으면 기존 설정과 role 이름을 보존하며 수동 role, [session binding·lifecycle canonical](../../../reference-project/context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md), lifecycle hook, schema v2 explicit admission config, session별 `status|activate|deactivate` wrapper와 ignored runtime을 하나의 Maintain 책임으로 설치·적응·제외한다. Project 공통 config, active index나 첫 prompt 의미를 새 session의 Workspace binding으로 사용하지 않는다. Schema v1 config와 runtime이 있으면 v2 adapter를 먼저 배치해 기존 session state를 generation 1로 읽게 하고 새 session 자동 binding은 즉시 중단한 뒤 config를 v2로 바꾼다. Existing runtime을 일괄 삭제·retarget하지 않는다. Role 발견 경로만 등록한 상태를 automatic Maintain 설치로 부르지 않는다. 설정 parse와 각 adapter path 해석은 확인하되 새 task의 실제 role·hook discovery와 lifecycle 장면을 실행하지 않았다면 증명했다고 쓰지 않는다. Project-local Codex hook은 이식 직후 기본 상태를 `activation_pending`으로 둔다. Target root의 Codex task에서 hook definition을 review/trust하고, 사용자가 Maintain을 원하는 session만 명시적으로 activate해 binding과 prompt/Stop runtime receipt를 확인한 뒤에만 `activated`라고 보고한다. Unbound 새 session은 정상 no-op이며 receipt를 만들지 않는다고 실패로 해석하지 않는다. 충돌하거나 discovery가 확인되지 않으면 덮어쓰지 않고 live Maintain 계약을 main이 수행하는 fallback과 미설치 범위를 기록한다.
 7. Preflight receipt는 Workspace가 생긴 뒤 보존 위치로 exact copy하고 임시본과 SHA-256이 같은지 확인한다.
 
 사용자가 직접 삭제·이동·승격한 파일은 그 주체와 결정을 기록한다. Harness가 하지 않은 행동을 Harness 효과로 서술하지 않는다.
@@ -100,7 +100,7 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 
 - 초기 이식 완료처럼 상태 전환·인계 증거가 필요한 경계에서만 live product Verify를 실행한다. 이후 Recover가 현재 machine result를 다시 연결하는지 확인한다. Ephemeral validation 결과, durable Harness test receipt와 Product Verify receipt를 서로 혼동하지 않는다.
 - Context 의미가 바뀌면 명시한 Workspace만 Maintain하고 main이 근거와 diff를 검토한다. Verify pass를 사람용 완료나 acceptance로 바꾸지 않는다.
-- Codex lifecycle hook 검증은 `installed`와 `activated`를 분리한다. `installed`는 target 파일, 설정 parse, wrapper import와 bounded Recover가 통과한 상태다. `activated`는 target repo를 root로 하는 Codex task에서 project-local hook을 trust한 뒤 `SessionStart`가 실제로 실행되어 `.codex/maintain-runtime/<session-key>/session.json` 같은 runtime receipt가 생긴 상태다. 현재 task가 target root가 아니거나 hook trust가 없으면 activation을 완료로 쓰지 않는다.
+- Codex lifecycle hook 검증은 `installed`와 `activated`를 분리하고 live session lifecycle canonical의 runtime 저장 범위·권한 한계·actual-host proof ceiling을 함께 보존한다. `installed`는 target 파일, schema v2 설정 parse, wrapper import, unbound `status`와 bounded Recover가 통과한 상태다. `activated`는 target repo를 root로 하는 Codex task에서 project-local hook을 trust하고 사용자가 선택한 Workspace를 그 session에 명시적으로 activate한 뒤, persisted binding과 같은 generation의 prompt/Stop runtime receipt가 생긴 상태다. 현재 task가 target root가 아니거나 hook trust·explicit activation·event receipt 중 하나라도 없으면 activation을 완료로 쓰지 않는다. 다른 unbound session이 runtime이나 Workspace write를 만들지 않는지도 actual-host 격리 장면에서 확인한다.
 - Workspace 생성 skill은 target 파일·frontmatter·canonical link와 root routing을 확인해 `installed` 또는 `adapted`를 판정한다. 같은 이식 session의 파일 존재만으로 실제 skill discovery나 implicit invocation을 증명하지 않고, 새 target-root session에서 확인하지 못했으면 그 한계를 남긴다.
 - Project common context는 링크를 열지 않은 1차 읽기에서 Project 공통 판단에 필요한 내용을 설명할 수 있는지 검토하고, 그 뒤 상세 Owner를 열어 사실·범위·충돌 우선순위가 맞는지 대조한다.
 - 신규 이식, 사용자 파일 충돌 또는 실행·안전 계약 변경은 구현자가 아닌 reviewer가 raw source, target 원자료, preflight와 실제 증거를 직접 대조한다. 낮은 위험의 설명·routing 변경은 main의 좁은 확인으로 끝낼 수 있다.
@@ -113,7 +113,7 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 - Target Owner에서 확인한 구분되는 공통 책임은 대응하는 Project context Owner가 맡고, 생략한 책임은 독립된 공통 내용이 없다는 근거가 남아 있다.
 - 각 Reference 책임이 설치·적응됐거나 제외 이유와 fallback이 명시됐다.
 - Repo-local Workspace 생성 skill과 root routing이 설치·적응됐거나, 제외 이유와 canonical을 main이 적용하는 fallback이 명시됐다.
-- Project-local Maintain hook은 `installed`, `activation_pending`, `activated`, `excluded` 중 하나로 보고됐고, `activated`라고 쓰려면 target Codex task의 hook trust와 runtime session receipt가 확인됐다.
+- Project-local Maintain hook은 `installed`, `activation_pending`, `activated`, `excluded` 중 하나로 보고됐고, `activated`라고 쓰려면 target Codex task의 hook trust, session별 explicit activation과 같은 binding generation의 runtime event receipt가 확인됐다. 새 session이 기본 unbound라는 사실과 binding하지 않은 session의 무부작용을 별도로 보고한다.
 - 변경 위험에 맞는 검증 결과와 proof ceiling이 남아 있다.
 - Machine 결과, 사람용 Context, acceptance와 commit 권한이 분리돼 있다.
 - 독립 review가 필요한 범위의 P1은 해결됐고 P2는 해결되거나 사용자가 영향을 보고 수용했다.
@@ -126,6 +126,6 @@ Target commit, acceptance, Project canonical 반영, Workspace 완료·보관은
 2. 기존 canonical과 사용자 변경을 어떻게 보존했는가.
 3. 어떤 validation과 product Verify가 무엇을 실제로 확인했는가.
 4. Receipt와 현재 재진입 위치는 어디인가.
-5. Project-local Maintain hook의 상태가 installed, activation_pending, activated, excluded 중 무엇이며, trust와 runtime receipt가 어디까지 확인됐는가.
+5. Project-local Maintain hook의 상태가 installed, activation_pending, activated, excluded 중 무엇이며, default-unbound·session별 activation·trust와 runtime receipt가 어디까지 확인됐는가.
 6. 아직 사람이나 실환경이 확인할 것은 무엇인가.
 7. Commit 여부와 working tree 경계는 무엇인가.

@@ -34,7 +34,7 @@ description: 이미 Context Harness가 설치된 Project 안에서 새 독립 Wo
 
 ## 활성화와 보고
 
-생성만 요청받았으면 `workspaces/index.json`과 host explicit binding을 변경하지 않는다. 활성화도 요청받았으면 canonical에 따라 현재 binding과 Maintain의 처리 중·pending·failed 상태가 successor 판단에 미치는 영향만 확인하고 필요한 의미를 보완한다. 같은 Main session을 이어 가는 경우 현재 turn은 predecessor로 마감하며, bounded Recover와 새 Maintain grounding이 실제로 성공하기 전에는 successor activation을 주장하지 않는다. 현재 host가 안전하게 재결합하지 못하거나 grounding이 실패하면 기존 binding을 유지하고 새 Main session을 fallback으로 보고한다. 설정 파일 변경만으로 activation 완료를 가장하지 않는다.
+생성만 요청받았으면 `workspaces/index.json`과 현재 Main session의 explicit binding을 변경하지 않는다. 활성화도 요청받았으면 생성·전환 canonical에 따라 현재 binding과 Maintain의 처리 중·pending·failed 상태가 successor 판단에 미치는 영향만 확인하고 필요한 의미를 보완한 뒤, [`Maintain session binding·lifecycle canonical`](../../../context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md)을 읽고 실행한다. 같은 Main session을 이어 가는 경우 현재 turn 안에서 현재 `CODEX_SESSION_ID`를 대상으로 `python3 .codex/hooks/maintain.py activate <successor_workspace_id>`를 실행한다. 성공하면 현재 turn은 predecessor로 마감하고 다음 prompt부터 successor를 사용한다. Grounding이 실패하면 기존 binding이 유지됐는지 확인하고 새 Main session을 fallback으로 보고한다. `.codex/maintain.json`, active index나 Project 기본값 변경으로 activation 완료를 가장하지 않는다.
 
 마지막에는 다음을 짧게 보고한다.
 
@@ -42,7 +42,7 @@ description: 이미 Context Harness가 설치된 Project 안에서 새 독립 Wo
 - current에 직접 남긴 핵심 의미와 필수 source 접근점
 - 단방향 참조와 의도적 비상속 범위
 - bounded Recover와 독립 재진입 검토 결과
-- active index·binding 변경 여부와 실제로 증명하지 않은 범위
+- active index·session binding 변경 여부, activation 결과와 실제로 증명하지 않은 host 범위
 - commit 여부와 보호한 기존 변경
 
 사용자가 명시하지 않으면 stage·commit하지 않는다.
