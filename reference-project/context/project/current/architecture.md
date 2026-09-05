@@ -1,0 +1,38 @@
+# Request policy config 구조
+
+이 문서는 교체되는 현재 구현·지원·검증 경계의 Project-level 지도다. 구현이나 검증 방식을 판단할 때 읽으며 실제 코드와 테스트가 상세 Owner다. 마지막으로 `2026-09-04`, Git `f0bada9a0398e19721ae252b5e283eeed7e33237`의 `src/config_loader.py`와 `tests/test_config_loader.py`에 대조했다. 구성요소·실행 경로·검증 입력 또는 proof boundary가 바뀌면 stale 후보로 보고, 해당 영역을 바꾼 작업 주체가 상세 Owner를 다시 확인해 이 문서를 갱신한다.
+
+## 구성 요소
+
+- [`src/config_loader.py`](../../../src/config_loader.py)는 입력 dict의 키, 타입, 값 범위를 확인하고 `RequestPolicy`를 만든다.
+- `RequestPolicy`는 frozen dataclass이며, 검증이 끝난 `request_timeout_ms`를 불변 값으로 보유한다.
+- [`tests/test_config_loader.py`](../../../tests/test_config_loader.py)는 기본값, 명시값, 거부 조건, 불변성을 외부 동작으로 검증한다.
+
+## 실행 경로
+
+`load_request_policy(config)`는 다음 순서로 동작한다.
+
+1. 입력이 dict인지 확인한다.
+2. 지원하지 않는 키가 있는지 확인한다.
+3. `request_timeout_ms`가 없으면 제품 기본값을 선택하고, 있으면 입력값을 선택한다.
+4. 선택한 값이 boolean이 아닌 양의 정수인지 확인한다.
+5. 검증된 값으로 불변 `RequestPolicy`를 반환한다.
+
+기본값 `5000`밀리초의 소유 결정은 코드 설명이 아니라 [default timeout 결정](../decisions/0001-default-timeout.md)에 있다.
+
+## 현재 지원 경계
+
+- 지원: Python dict 입력, `request_timeout_ms`의 기본값·명시값 선택, 알려지지 않은 키와 잘못된 값 거부, 불변 policy 반환
+- 미지원: 파일 형식 파싱, 환경 변수 병합, 실제 네트워크 요청과 외부 서비스 동작
+- 상세 구현 Owner: [`src/config_loader.py`](../../../src/config_loader.py)
+- 동작 증거 Owner: [`tests/test_config_loader.py`](../../../tests/test_config_loader.py)
+
+## 검증 경로
+
+`reference-project/`를 현재 디렉터리로 두고 다음 명령을 실행한다.
+
+```sh
+python3 -m unittest tests.test_config_loader -v
+```
+
+프로세스 종료 코드 `0`과 모든 test case의 `ok`를 성공 조건으로 사용한다. 이 검증은 config loader의 동작을 증명하지만, 실제 네트워크 요청이나 운영 환경 적용까지 증명하지는 않는다.

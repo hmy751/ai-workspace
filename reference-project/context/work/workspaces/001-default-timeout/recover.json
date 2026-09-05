@@ -1,10 +1,18 @@
 {
-  "schema_version": 4,
+  "schema_version": 6,
   "workspace_id": "001-default-timeout",
   "project_context": [
     {
-      "path": "context/project/overview.md",
-      "reason": "여러 Workspace가 공유하는 제품 목적, 구조, 제약과 검증 경계를 확인하기 위해 선택했다."
+      "path": "context/project/README.md",
+      "reason": "Project 물리 layer, 실제 문서 위치, Owner 우선순위와 선택적 읽기 계약을 확인하기 위해 선택했다."
+    },
+    {
+      "path": "context/project/common/prd.md",
+      "reason": "이 goal에 지속해서 적용되는 제품 목적, timeout 입력 계약과 완료 기준을 확인하기 위해 선택했다."
+    },
+    {
+      "path": "context/project/current/architecture.md",
+      "reason": "현재 config loader의 지원 범위, 상세 코드·테스트 Owner와 검증의 증명 상한을 확인하기 위해 선택했다."
     },
     {
       "path": "context/project/decisions/0001-default-timeout.md",

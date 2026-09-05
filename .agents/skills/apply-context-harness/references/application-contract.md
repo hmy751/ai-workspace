@@ -16,7 +16,7 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 ### Project와 Work Owner
 
 - 여러 Workspace가 공유할 Project 목적·구조·제약·채택 결정의 상세 Owner는 어디인가.
-- Live Reference가 요구하는 Project common 진입 책임을 기존 Owner를 옮기지 않고 어떻게 구성할 것인가.
+- Live Reference가 요구하는 root routing과 `common/current/guidance` 물리 layer를 기존 Owner를 옮기지 않고 어떻게 구성할 것인가.
 - 기존 context·package·instruction·도구 설정과 어떤 물리·의미 충돌이 있는가.
 
 ### 첫 Workspace
@@ -33,28 +33,59 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 - Tool-specific Maintain 연결과 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. 수동 role, [session binding·lifecycle canonical](../../../../reference-project/context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md), lifecycle hook, schema v2 explicit admission config, session별 activation wrapper와 runtime ignore를 하나의 Maintain 내부 관계로 설치·적응·제외하고, role 등록만으로 automatic lifecycle을 주장하지 않는다. Project 공통 Workspace id, active index나 대화 의미로 새 session을 자동 binding하지 않는다. Schema v1 설치를 올릴 때는 legacy session state를 보존하는 v2 adapter를 먼저 배치한 뒤 config를 v2로 바꾸며 runtime을 일괄 삭제·retarget하지 않는다. Project-local Codex hook은 target root의 Codex task에서 hook review/trust, 사용자가 선택한 session의 explicit activation과 같은 binding generation의 runtime event receipt가 확인되기 전까지 `activation_pending`으로 둔다. Unbound 새 session은 정상 no-op이다. 일부 또는 전체 adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
 - Reference sample의 제품·Workspace 내용과 과거 receipt는 payload에서 제외한다.
 
-## Project common context 내용 충족
+## Layered Project context 내용 충족
 
 기존 README·STATUS·`docs/`와 코드·테스트는 상세 사실의 canonical로 유지한다. `context/project/`는 이를 이동하거나 문단째 복제하지 않고, 여러 Workspace가 반복해서 판단할 실제 Project 목적·현재 범위·구조·제약·채택 결정을 선별해 다시 서술한다. 상세 Owner 링크는 provenance와 재대조 경로이지 내용의 대체물이 아니다.
 
-먼저 상세 Owner의 공통 내용을 제품 목적·완료 기준·범위, 구현 구조·권한·검증 경로, 여러 작업에 계속 적용되는 채택 결정처럼 구분되는 책임으로 펼친다. Overview는 이 책임들의 진입 요약이지 별도 Owner를 없애기 위한 합본이 아니다.
+`context/project/`에는 다음 물리 경계를 만든다.
 
-Live Reference와 target 성격에 따라 필요한 Project context 파일을 선택한다. 최소 진입점 외의 PRD·architecture·decision이 선택 사항이어도, 파일 수를 줄이는 것 자체를 선택 근거로 삼지 않는다.
+```text
+context/project/
+├── README.md
+├── common/
+│   └── README.md
+├── current/
+│   └── README.md
+├── guidance/
+│   └── README.md
+└── decisions/
+    └── README.md
+```
 
-- 상세 Owner에 여러 Workspace가 반복해서 사용할 구분되는 제품 기준, 구현 구조 또는 채택 결정이 있으면 대응하는 Project context Owner를 만들고 실제 내용으로 채운다.
-- 별도 책임으로 둘 독립된 공통 내용이 없을 때만 해당 Owner를 생략하고, 조사한 상세 Owner와 생략 이유를 dry-run manifest와 적용 기록에 남긴다.
-- 내용이 있는데 overview에 흡수하거나, 출처 안내·첫 Workspace 요약만 남기기 위해 별도 Owner를 생략하지 않는다.
+Root `README.md`는 세 책임 layer, 실제 내용 위치, 읽기 조건과 Owner 우선순위를 찾는 안정된 routing anchor다. Project 본문을 root의 평면 overview로 합치지 않는다. 첫 Workspace의 `recover.json`은 root README와 현재 goal의 판단을 바꾸는 실제 layer 문서를 이유와 함께 별도로 선택하며, 모든 layer를 자동으로 읽지 않는다.
+
+- `common/`에는 여러 Work에 지속되는 제품·사용자·domain 의미와 Project-wide 제약을 둔다.
+- `current/`에는 상세 Owner 변화에 맞춰 교체되는 현재 구현·지원·미지원 범위, 연결 구조와 proof boundary를 둔다.
+- `guidance/`에는 특정 종류의 Work에서만 실제 반복 행동을 바꾸는 조건부 판단 기준을 둔다. 각 항목은 적용·비적용·재검토·제거 조건을 밝힌다.
+- `decisions/`에는 중요한 선택의 이유·대안·재검토 신호를 둔다. 현재 세 layer의 답을 기본적으로 대신하지 않지만 문서가 현재 normative Owner임을 명시한 예외는 허용한다.
+
+`common/current/guidance` layer와 각 README는 생략하지 않는다. 특정 layer에 README 외 실제 본문이 없을 수는 있으며, 이때 README에 현재 없음, 확인한 상세 Owner와 새 항목을 만들 조건을 적는다. 파일 수를 줄이기 위해 독립된 내용을 overview나 다른 layer에 흡수하지 않는다. 기존 target의 flat Project context 문서는 상세 canonical로 보존할지, 승인받아 Owner를 이동할지 먼저 판정하고 자동 이동하지 않는다.
+
+각 실제 내용 문서에서 읽기 조건, 현재 authority와 상세 Owner, 갱신 책임, stale·재검토 신호를 찾을 수 있어야 한다. 한 문서에 보조 설명이 함께 있을 수 있지만 주 책임과 경로를 흐리거나 수명과 갱신 Owner가 다른 내용을 합치지 않는다.
 
 구현 뒤 다음 순서로 내용 충족을 검토한다.
 
-1. 상세 Owner 링크를 열지 않고 `context/project/`만 읽는다.
-2. Project의 사용자 장면과 목적, 현재 구현 범위와 목표 범위의 차이, 성공 기준과 범위 밖, 주요 구성요소의 권한·실행 흐름·불변성, 여러 Workspace에 계속 적용되는 결정, 자동 검증과 사람 acceptance 경계를 설명한다.
+1. Root README에서 `common/current/guidance`와 `decisions`의 책임, layer README와 실제 내용 위치를 찾는다.
+2. 상세 Owner 링크를 열지 않고 `common/`의 사용자 장면·목적·domain 의미·성공 기준과 범위 밖, `current/`의 현재 구현·지원·미지원 범위·실행 흐름·proof boundary, `guidance/`의 적용 여부와 관련 Decision을 설명한다.
 3. 선택 문서가 맡은 질문에 답하지 못하고 상세 Owner 경로만 가리키면 미완성으로 판정한다.
 4. 그 뒤 상세 Owner를 열어 재서술한 사실이 원자료에 지지되고 현재·목표·미구현 상태를 섞지 않았는지 대조한다.
 5. 첫 Workspace의 목표·검증 범위·빠른 상태가 Project 전체 사실로 승격되지 않았는지 확인한다.
-6. 상세 Owner에서 확인한 구분되는 공통 책임마다 대응하는 Project context Owner가 있거나, 독립된 공통 내용이 없어 생략했다는 근거가 있는지 확인한다.
+6. 각 layer에 원자료가 지지하는 실제 내용이 있거나, README 외 본문이 없는 이유와 새 항목을 만들 조건이 명시됐는지 확인한다.
+7. 첫 Workspace의 explicit Recover packet에 root README와 goal에 필요한 실제 layer 문서가 함께 선택됐는지 확인한다. Fresh reader가 선택 문서만으로 사용자 장면·목적, 현재·목표·미구현 차이, domain 관계, 지원·미지원 경계, proof ceiling과 적용할 판단 기준을 설명하지 못하면 미완성이다.
 
 이 검토는 문서 길이나 링크 수로 자동 판정하지 않는다. 짧아도 공통 판단을 닫으면 충분하고, 길어도 출처 안내와 Workspace 전용 내용뿐이면 불충분하다.
+
+## 영향받는 live consumer reconciliation
+
+Project 문서의 path·책임·authority를 새로 만들거나 크게 바꿀 때에는 producer만 검사하지 않고 영향을 받는 live consumer를 고정한다.
+
+- id 없는 Recover가 선택하는 active/default Workspace
+- Maintain runtime의 current generation에 explicit session-bound된 Workspace
+- 이번 적용에서 명시적으로 생성·변경하는 Workspace
+
+과거 generation, unbound session과 이미 소비 경로에서 내려온 역사 Workspace는 자동 갱신하지 않는다. Private turn·prompt·response payload는 열지 않고 binding 식별에 필요한 session metadata만 본다. 역사 Workspace 비동기화 원칙은 해당 Workspace가 live consumer에서 내려온 뒤에 적용한다.
+
+각 live consumer는 Project 선택, 사람용 current의 경로·machine Owner 설명, output target을 현재 canonical에 맞게 reconcile하거나 successor 전환·deactivation으로 소비 경로에서 내린다. 모든 id에 `recover <workspace_id> --json`을 실행하고 active/default 경로는 id 없는 Recover도 실행한다. Recover 성공만으로 의미 정합성을 통과시키지 않고 fresh reader가 packet의 실제 내용과 target을 대조한다.
 
 ## Preflight와 충돌
 
@@ -71,6 +102,17 @@ Live Reference와 target 성격에 따라 필요한 Project context 파일을 �
 
 기존 `context/`, instruction과 tool config는 빈 설치 자리가 아니다. Directory replace, broad recursive copy, 자동 이동·삭제와 broad staging을 하지 않는다. 임시 preflight receipt를 Workspace에 보존할 때는 바이트와 SHA-256을 유지한다.
 
+## 적용 표면 검사
+
+Local link와 target 적응 잔재는 결정적 탐지와 의미 판정을 나눈다.
+
+1. 변경한 Project Markdown과 각 live consumer의 loaded current·output index에서 local link의 source, line, label, lexical target과 resolved target을 수집한다.
+2. Target이 존재하고 Project root 경계를 벗어나거나 symlink로 우회하지 않는지는 기계적으로 검사한다.
+3. 존재하는 target이라도 label·주변 설명이 말하는 실제 Owner인지 fresh reviewer가 판정한다. 기계 존재성 pass를 semantic target pass로 바꾸지 않는다.
+4. Source Reference의 sample Project 이름·Workspace id·sample path와 이번 변경에서 제거·rename한 Project 문서 path·basename을 dry-run manifest의 residue 목록으로 만든다.
+5. 적용 표면을 fixed-string으로 검사하고, archive·source·records의 provenance hit처럼 의도한 보존은 exact allowlist와 이유를 남긴다. 나머지 hit는 generic 문구인지 target 미적응·stale 참조인지 판정해 해소한다.
+6. 사람용 current가 `workspace.json`의 identity, `recover.json`의 선택, `verify.json`의 claim·basis·argv·evidence, `status.json`의 마지막 result·receipt cursor, Recover가 실행 시 계산하는 freshness와 `output/index.md`의 사람용 지도를 서로 바꿔 설명하지 않는지 확인한다.
+
 ## Evidence closure
 
 Product Verify의 evidence는 중요해 보이는 파일 표본이 아니라 고정 실행이 실제로 읽는 입력을 설명해야 한다.
@@ -81,6 +123,8 @@ Product Verify의 evidence는 중요해 보이는 파일 표본이 아니라 고
 4. Runtime fixture, scenario, schema와 generated input을 확인한다.
 5. 제외한 output, external state와 environment를 proof ceiling에 적는다.
 6. Evidence를 실행 전에 snapshot한 뒤 같은 검증 사건에서 명령을 실행한다.
+
+Directory-scoped command나 package script가 `evidence_paths` 밖 파일을 읽는데 일부 표본만 snapshot하는 상태를 허용하지 않는다. 완전한 closure를 구성할 수 없으면 argv를 좁히거나 claim과 proof ceiling을 선언 evidence 범위에 맞춰 낮춘다. Verify runtime과 receipt freshness는 undeclared input을 자동 발견하거나 현재 claim·argv 동일성을 증명하지 않는다.
 
 Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option을 고정하거나 cached validation 한계를 밝힌다. 명령 통과와 evidence가 어떤 tree를 대표하는지는 별도로 설명한다.
 
@@ -94,10 +138,13 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 | Target Harness 적응 | 전체 Harness tests와 ephemeral validation | 실패, source 변경 또는 proof 공백 |
 | 상태 전환·인계 | Product Verify와 후속 Recover | Evidence closure나 runtime 불확실성 |
 | Context 의미 변화 | 명시 Workspace Maintain과 main diff 검토 | 새 목표·canonical·acceptance 판단 필요 |
+| Project path·책임·authority 변화 | 모든 live consumer의 explicit Recover, active fallback Recover, local link·residue 탐지와 fresh semantic review | consumer를 유지할 수 없거나 successor·deactivation 선택 필요 |
 | Codex lifecycle hook | v2 default-unbound, installed/activation_pending/activated 상태 분리 | target task의 hook trust, explicit session activation 또는 같은 generation의 runtime event receipt 부재 |
 | 신규 이식·사용자 파일 충돌 | 독립 review | P1/P2 또는 원자료 충돌 |
 
 반복 개발 확인과 durable evidence를 구분한다. Harness validation은 임시 fixture의 회귀 검사이고, Harness test receipt는 target-specific 관리 장치 증거이며, Product Verify는 실제 Workspace 상태 전환 증거다. 서로를 대신하지 않는다.
+
+신규 이식이나 큰 Project 내용 복원·책임 재구성에서는 구현자의 결론과 파일명 힌트를 답안으로 주지 않은 cold/blind review를 사용한다. Application Workspace record에는 reviewer brief, 허용 source와 revision, worker result 또는 patch/hash, finding, 수정 이유와 최종 disposition을 남긴다. Private 원문 전체를 불필요하게 복제하지 않고 이 narrative review를 machine Verify receipt로 취급하지 않는다. 낮은 위험의 설명·routing 변경에는 이 절차를 자동으로 붙이지 않는다.
 
 ## 자동화하지 않을 판단
 
@@ -117,7 +164,9 @@ Target 사실로 다음을 답한다.
 
 1. 어떤 Reference commit과 책임을 target에 그대로 적용·적응·제외했는가.
 2. Recover가 실제로 무엇을 읽고 무엇을 제외했는가.
-3. Repo-local Workspace 생성 skill과 root routing이 설치·적응·제외 중 무엇이며, 실제 discovery는 어디까지 확인됐는가.
-4. Validation과 Product Verify가 어떤 입력·runtime에서 무엇을 확인했는가.
-5. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 default-unbound, session별 explicit activation, trust와 runtime receipt가 무엇으로 확인됐는가.
-6. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.
+3. 어떤 live consumer를 확인했고 Project 선택·current·output을 reconcile, 전환 또는 deactivation했는가.
+4. Local link·semantic target·residue와 machine Owner 설명을 어디까지 확인했는가.
+5. Repo-local Workspace 생성 skill과 root routing이 설치·적응·제외 중 무엇이며, 실제 discovery는 어디까지 확인됐는가.
+6. Validation과 Product Verify가 어떤 실제 input closure·runtime에서 무엇을 확인했는가.
+7. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 default-unbound, session별 explicit activation, trust와 runtime receipt가 무엇으로 확인됐는가.
+8. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.

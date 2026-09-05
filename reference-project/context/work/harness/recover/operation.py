@@ -29,10 +29,13 @@ from ..workspace_contract import (
 )
 
 
-RECOVER_CONTRACT_SCHEMA_VERSION = 4
+RECOVER_CONTRACT_SCHEMA_VERSION = 6
 RECOVERY_PACKET_SCHEMA_VERSION = 6
 PROJECT_CONTEXT_ROOT = "context/project"
-REQUIRED_PROJECT_CONTEXT_PATH = "context/project/overview.md"
+REQUIRED_PROJECT_CONTEXT_PATH = "context/project/README.md"
+PROJECT_CONTEXT_CONTENT_LAYERS = frozenset(
+    {"common", "current", "guidance", "decisions"}
+)
 REQUIRED_MEMORY_FILES = (
     "01-goal.md",
     "02-constraints.md",
@@ -89,6 +92,14 @@ def _load_recover_contract(
             fail(
                 "Project context path must be selected from context/project/"
             )
+        if path != REQUIRED_PROJECT_CONTEXT_PATH and (
+            len(parts) < 4 or parts[2] not in PROJECT_CONTEXT_CONTENT_LAYERS
+        ):
+            fail(
+                "Project context path must be context/project/README.md or "
+                "selected from context/project/common/, current/, guidance/, "
+                "or decisions/"
+            )
         if PurePosixPath(path).suffix != ".md":
             fail("Project context path must be a .md file")
         if path in seen_paths:
@@ -110,7 +121,7 @@ def _load_recover_contract(
 
     if REQUIRED_PROJECT_CONTEXT_PATH not in seen_paths:
         fail(
-            "project_context must select context/project/overview.md"
+            "project_context must select context/project/README.md"
         )
 
     return {

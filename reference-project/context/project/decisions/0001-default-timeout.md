@@ -13,10 +13,12 @@
 
 이 문서가 기본값의 canonical 상위 맥락이다. [`src/config_loader.py`](../../../src/config_loader.py)는 이 결정을 구현하고, [`tests/test_config_loader.py`](../../../tests/test_config_loader.py)는 누락 시 실제 결과가 `5000`인지 검증한다.
 
+Decision 문서는 보통 선택 이유·대안·재검토 신호를 보존하지만, 이 문서는 현재 기본값의 normative Owner임을 명시한 예외다. 다른 결정으로 대체할 때에는 상태와 관련 PRD·코드·테스트 관계를 함께 갱신한다.
+
 ## 결과
 
 - 설정을 생략한 호출자도 동일한 timeout 정책을 받는다.
 - 기본값을 변경하려면 이 결정, 제품 기준, 코드, 테스트의 정합성을 함께 검토해야 한다.
 - 이 값은 config loader 동작의 기준이며, 실제 요청 성공 시간이나 외부 서비스의 응답 시간을 보장하지 않는다.
 
-관련 제품 기준은 [PRD](../prd.md), 코드 구성과 실행 방법은 [architecture](../architecture.md)에 있다.
+관련 제품 기준은 [PRD](../common/prd.md), 코드 구성과 실행 방법은 [architecture](../current/architecture.md)에 있다.

@@ -6,7 +6,7 @@ Recover는 새 Workspace를 만들 때 이전 작업에서 무엇을 이어받�
 
 ## 소유 계약
 
-- `workspace.json`의 정체성과 `recover.json` schema `4`의 `project_context`만 읽는다. Project context 선택은 Project root의 `context/project/` 아래 regular Markdown 파일로 제한하고, `overview.md`를 반드시 포함하되 계약에 적힌 순서로 싣는다. Schema `2`와 첫 payment 적용에서 target-local로 사용한 schema `3`의 의미를 재사용하지 않는다.
+- `workspace.json`의 정체성과 `recover.json` schema `6`의 `project_context`만 읽는다. 안정된 routing anchor인 `context/project/README.md`를 반드시 포함하고, 나머지 선택은 Project root의 `context/project/common/`, `current/`, `guidance/`, `decisions/` 아래 regular Markdown으로 제한해 계약 순서대로 싣는다. Root의 다른 평면 문서와 미허용 하위 폴더는 거부한다. README 외에 goal에 필요한 실제 내용 문서를 고르는 것은 Workspace 생성·이관의 의미 판단이며 Recover가 모든 층을 자동으로 읽거나 문서 수·이름으로 충분성을 대신하지 않는다. Schema `2`, 첫 payment 적용에서 target-local로 사용한 schema `3`, overview를 필수 anchor로 삼던 schema `4`, root README는 요구하지만 평면 본문도 허용하던 schema `5`의 의미를 재사용하지 않는다.
 - `current/memory/`의 `index.md`와 direct-child Markdown을 파일명 순서로 싣는다. 새 주체가 목표·제약·Project 공통 맥락 없이 시작하지 않도록 `01-goal.md`, `02-constraints.md`, `03-project-context.md`를 필수 의미 입력으로 확인한다.
 - 사람용 `current/state/index.md`와 machine용 `current/state/status.json`을 함께 싣는다. 기존 status schema `2`와 현재 schema `3`을 읽으며, schema `3`에는 사람 판단을 지시하는 `next_action`이 없다.
 - Workspace `output/index.md`를 goal 산출물 지도로 싣는다. index가 연결하는 코드·문서·테스트나 같은 폴더의 다른 산출물 본문은 자동으로 읽지 않는다.
@@ -15,7 +15,7 @@ Recover는 새 Workspace를 만들 때 이전 작업에서 무엇을 이어받�
 
 ## 진입 시 검사 경계
 
-Recover는 선택된 입력을 안전하고 의미 있게 읽어 bounded packet을 만드는 데 필요한 검사를 유지한다. Workspace id와 identity·recover contract·status의 정합성, exact schema, root 경계, 상대 경로, regular file, symlink 방어, 선택 파일 존재 여부와 최소 memory·Project overview가 여기에 해당한다. 반면 Project context 문서의 나열 순서는 생성·이관 시점에 확인할 구성 정책이므로 재진입을 막지 않는다.
+Recover는 선택된 입력을 안전하고 의미 있게 읽어 bounded packet을 만드는 데 필요한 검사를 유지한다. Workspace id와 identity·recover contract·status의 정합성, exact schema, root·Project layer 경계, 상대 경로, regular file, symlink 방어, 선택 파일 존재 여부와 최소 memory·Project README가 여기에 해당한다. 반면 어떤 layer 문서가 현재 goal에 필요한지, 선택 내용이 의미적으로 충분한지와 문서 나열 순서는 생성·이관 시점에 확인할 구성 정책이므로 재진입을 막지 않는다.
 
 Project root에서 다음처럼 실행한다.
 

@@ -85,7 +85,8 @@ class MaintainOperationTests(WorkspaceFixture):
             "UNLOADED_SOURCE_INVENTORY_SECRET",
             "UNLOADED_SOURCE_RAW_SECRET",
             "UNLOADED_OUTPUT_ARTIFACT_SECRET",
-            "UNSELECTED_PROJECT_SECRET",
+            "UNSELECTED_PROJECT_GUIDANCE",
+            "UNSELECTED_PROJECT_DECISIONS_ROUTING",
         ):
             self.assertNotIn(excluded, serialized)
         with self.assertRaises(HarnessError):
