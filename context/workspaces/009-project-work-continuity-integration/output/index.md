@@ -1,6 +1,6 @@
 # Project·Work continuity integration output
 
-마지막 갱신: `2026-09-04`
+마지막 갱신: `2026-09-06`
 
 ## Workspace goal
 
@@ -8,6 +8,8 @@
 
 ## 현재 선택된 산출물
 
+- [`Project 맥락 보존·갱신 보완 기록`](../records/2026-09-06-08-project-context-update.md): 방어적 누락 실패의 근거, 사용자 합의, 관리 skill 도입과 이번 검증. 관리 skill을 pilot 후보로 남겼던 이전 판정보다 우선한다.
+- [`Project 맥락 갱신 skill`](../../../../reference-project/.agents/skills/update-project-context/SKILL.md): Project README의 보존·변경·관리 기준을 적용하는 실행 절차
 - [`1차 채택 판단`](../records/2026-09-04-02-adoption-assessment.md): 현재 Reference의 기존 책임과 후보를 대조한 정정 전 판단. 비물리 배치 판정은 현재 계약이 아니다.
 - [`TripProof 실제 적용 평가`](../records/2026-09-04-04-tripproof-application-assessment.md): target 적용 사실과 소비 drift의 근거. 비물리 배치·선택적 overview 판정은 정정 전 기록이다.
 - [`TripProof 적용 평가 독립 검토`](../records/2026-09-04-05-tripproof-application-review.md): 실제 target·live Reference 교차검토와 당시 `PASS`. 현재 물리 구조를 검증한 결과는 아니다.
@@ -21,14 +23,15 @@
 - [`source intake`](../records/2026-09-04-01-source-intake.md): 읽은 외부 working-tree snapshot, 범위와 근거 상한
 - [`bounded 재진입 검토`](../records/2026-09-04-03-bounded-reentry-review.md): 기본 진입점만으로 목표·판정·다음 행동을 복원하는지 확인한 최종 `PASS`
 
-현재 산출물은 분석·도입 판단과 그중 사용자가 선택한 첫 구현이다. Reference 변경은 working tree에 있으며 아직 commit되지 않았다.
+물리 layer 반영은 `7bd5089`로 commit됐다. 후속 Project 보존 기준·관리 skill·호출·이식 경로 보완은 문서 검증을 마쳤고 사용자가 commit을 요청했다. 해당 revision은 새 skill의 Git 이력에서 확인한다. 역사 기록의 당시 PASS를 이번 skill의 실제 호출·행동 검증으로 사용하지 않는다.
 
 ## 아직 없는 것
 
 - claim-scope bounded replay brief와 결과
 - 새 review 역할이 필요한지에 대한 행동 차이·비용·오탐 근거
 - 실제 외부 target의 recover schema `4 → 6` migration과 bound Codex host acceptance
-- 사람 acceptance, Workspace 완료와 commit
+- 이번 보완의 실제 host skill discovery·invocation과 반복 작업에서의 맥락 보존 증거
+- 실제 제품 acceptance와 Workspace 전체 완료
 
 ## 증명 상한
 

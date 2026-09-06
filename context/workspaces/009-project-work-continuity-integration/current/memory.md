@@ -1,6 +1,6 @@
 # Project·Work continuity integration memory
 
-마지막 갱신: `2026-09-04`
+마지막 갱신: `2026-09-06`
 
 ## 목표
 
@@ -11,7 +11,7 @@ TripProof 작업에서 관찰·분석한 판단 연속성 문제를 현재 `refe
 - 국소 근거가 넓은 완료로 승격되는 문제를 기존 Verify·Maintain과 책임 충돌 없이 어디까지 다룰 수 있는가.
 - 실제 적용 효과가 없는 설계 후보를 어떤 bounded replay와 live pilot 뒤에만 Reference 책임으로 채택할 것인가.
 
-이번 단계에서는 사용자가 선택한 Project 계약·적용 acceptance를 `reference-project/`의 기존 canonical Owner와 이식 workflow에 반영하고, 같은 책임을 두 곳에 만들지 않은 채 직접 test와 독립 재진입 검토로 확인했다. 후속 Work/Spec·claim-scope 장치는 별도 pilot 근거가 생길 때만 판단한다.
+물리 layer와 적용 acceptance는 `7bd5089`에 반영됐다. 후속 논의에서는 Project 맥락의 충분한 보존·구체적인 불확실성 표현과 `update-project-context`의 도입을 확정했다. 이 기준은 Project README가, skill은 적용 절차가 소유한다. 이번에는 문서·skill·호출·이식 경로를 보완하며 Workspace·Spec 관계와 Verify는 변경하지 않는다.
 
 ## 계속 유지할 판단
 
@@ -23,9 +23,12 @@ TripProof 작업에서 관찰·분석한 판단 연속성 문제를 현재 `refe
 - Recover contract schema `6`은 root README를 필수 anchor로 두고, 다른 Project 선택을 네 허용 경계 아래 Markdown으로 제한한다. Recovery packet schema는 shape가 바뀌지 않아 `6`을 유지한다. Project routing 변경 뒤에는 active/default와 current-generation explicit binding을 포함한 live consumer를 실제 Recover와 semantic target review로 확인한다.
 - Project 일반 진입점은 실제 내용의 정본 위치, 유효성을 판단할 책임 주체, 관련 작업에서의 읽기 조건, 변경 규칙과 관리 장치의 비소유 경계를 찾게 해야 한다.
 - Project context 완료는 파일·link 존재만이 아니라 다음 관련 Work가 제품 목적·사용자 문제·domain 관계·현재 구현 경계·관련 판단 기준을 재추론하지 않아도 되는 content recoverability를 요구한다.
+- 필요한 근거 있는 맥락은 일부가 불확실하다는 이유로 조용히 빼거나 전체 의미를 약화하지 않는다. 지지되는 내용은 해당 층에 분명하게 쓰고, 미정·미확인·충돌은 그 대상과 근거를 구체적으로 밝힌다. 층위는 책임 구분이며 확실성 등급이 아니다.
+- 위 보완의 근거는 TripProof 첫 재구성이 층위·색인을 갖추고도 코드로 확인하기 쉬운 사실과 방어적 제한을 우선해 제품 목적·판단 이유를 빠뜨렸던 실패다. 보존과 새로운 결정의 구분을 함께 유지하며, 이미 승인된 반영을 위해 같은 결정을 반복 요청하지 않는다.
+- `update-project-context`는 여러 Workspace에 계속 유효할 변화와 요청된 누락 복원을 기존 Project 문서에 반영한다. 작업 중 자연스러운 경계에서 사용하고 Workspace 종료에 묶지 않는다. Workspace Maintain과 합치지 않으며, 관리 기준은 Project README에서 읽는다.
 - Project context를 바꾼 뒤에는 producer만 보지 않는다. 영향을 받는 live consumer—active/default Recover consumer와 explicit session-bound Workspace—의 사람용 current·선택·output target을 reconcile하거나 successor로 전환하고 실제 Recover와 fresh-context 의미 검토로 확인한다.
 - 완료되어 소비 경로에서 내려온 역사 Workspace는 새 Project 구조에 역동기화하지 않는다. 아직 live consumer인 Workspace에는 이 예외를 적용하지 않는다.
-- Work가 변하는 판단·현재 권위·근거·history의 수명을 감싸고, 안정된 실행 구간에서 Spec/Ticket·bounded brief를 조건부로 품을 수 있다는 관계는 현재 설계 가설이다. 현행 TripProof Work에 적용된 증거가 없으므로 Reference 계약으로 채택하지 않고 successor Workspace pilot에서 판단한다.
+- Workspace·Spec 관계는 사용자가 다시 생각할 필요가 있지만 현재는 두자고 했다. 과거 문서의 독립 장기 Spec 대체 방향과 이후 Spec/Ticket·bounded brief 가설을 근거로 현재 Reference를 더 규칙화하지 않는다. Verify의 필수 여부·조건부 구성도 이번에는 변경하지 않는다.
 - 제품·코드·국소 판단은 서로 다른 근거를 요구한다. 근거가 직접 관찰한 대상·범위·revision보다 넓은 완료를 닫아서는 안 된다는 제한 원칙은 기존 Verify의 proof ceiling과 정합적이다.
 - 판단 변경이 관련 기존 결과에 영향을 줄 수 있다는 방향은 유지하되, 영향 검색법과 결과 상태 분류는 아직 적용 전 설계다.
 - `claim-impact-review`, `direction-gap-review`, 정확한 trigger와 두-reviewer 구성은 Reference 채택안이 아니다. 먼저 report-only bounded replay에서 실제 선택·범위·완료와 기존 결과 지위가 달라지는지 확인한다.
@@ -35,6 +38,7 @@ TripProof 작업에서 관찰·분석한 판단 연속성 문제를 현재 `refe
 ## 현재 Reference에서 이어받는 실제 기준
 
 - [`reference-project/context/project/README.md`](../../../../reference-project/context/project/README.md): Project 물리 layer, 상세 Owner 우선순위와 선택적 읽기의 live 기준
+- [`update-project-context`](../../../../reference-project/.agents/skills/update-project-context/SKILL.md): Project 관리 기준을 적용하는 실행 절차
 - [`reference-project/context/work/workspaces/README.md`](../../../../reference-project/context/work/workspaces/README.md): Workspace 내부 Owner와 수명 경계의 live 기준
 - [`reference-project/context/work/workspaces/CREATE-AND-TRANSITION.md`](../../../../reference-project/context/work/workspaces/CREATE-AND-TRANSITION.md): 독립 Workspace 생성·전환과 단방향 참조의 live 기준
 - [`reference-project/context/work/harness/verify/README.md`](../../../../reference-project/context/work/harness/verify/README.md): claim·basis·evidence와 사람 acceptance를 분리하는 live 기준
@@ -45,9 +49,9 @@ TripProof 작업에서 관찰·분석한 판단 연속성 문제를 현재 `refe
 ## 조사와 변경 제약
 
 - 외부 입력의 기준 경로는 `/Users/hammyeong-yeon/Desktop/memory-harness-research/context/analysis/07-tripproof-spec-driven-continuity`다.
-- 외부 저장소는 `main`의 commit `f9a397d75d99da9c42aa2eac0562eb6d7d204dda` 위 dirty working tree였다. commit만으로 이번에 읽은 내용을 재현할 수 없으므로 source intake의 파일 hash와 지위를 함께 본다.
+- 최초 외부 intake는 `f9a397d75d99da9c42aa2eac0562eb6d7d204dda` 위 dirty working tree였다. 이번 재독 때 HEAD는 `d80f571`이며 지정한 01·02·03 문서는 최초 intake와 SHA-256이 같다. 시점별 근거는 source intake와 08 보완 기록을 함께 본다.
 - 지정 범위 밖의 다른 Desktop 저장소, private 대화 원문과 네트워크 자료로 근거를 확장하지 않는다.
 - 외부 자료의 수치와 장면은 보존된 내부 감사·분석으로만 사용하며 이번 작업에서 원 evidence를 독립 재검산했다고 말하지 않는다.
 - 실제 TripProof 적용은 `chore/archive-project-harness`의 clean HEAD `8b1418d6e67c7897e933af3c8eaf0c76547c5d9b`에서 읽었고 `main`보다 4 commits 앞선 미병합 상태다. 현재 적용 구조와 장기 유지·제품 효과를 구분한다.
-- 이번에 확정한 Project 물리 layer 밖의 새 taxonomy·skill·hook·runtime은 책임과 소비 시점, 비적용 조건, 제거 조건과 pilot 행동 차이가 확인되기 전에 만들지 않는다.
+- 새 taxonomy·hook·runtime·reviewer는 이번 범위가 아니다. 도입이 확정된 Project 관리 skill은 책임·호출·비적용 경계를 보존해 이식하며, 실제 host invocation과 장기 효과를 정적 검사로 주장하지 않는다.
 - Reference 구현 뒤에는 이 Workspace의 current·output을 실제 diff·검증 상태와 함께 갱신하고, 과거 analysis나 machine receipt를 새 완료 증거로 바꾸지 않는다.

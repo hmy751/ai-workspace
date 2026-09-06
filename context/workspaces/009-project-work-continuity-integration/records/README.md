@@ -9,3 +9,4 @@
 - [`2026-09-04-05-tripproof-application-review.md`](2026-09-04-05-tripproof-application-review.md): 정정 전 실제 적용 평가의 독립 교차검토, 수정 내역과 당시 최종 `PASS`
 - [`2026-09-04-06-reference-project-implementation.md`](2026-09-04-06-reference-project-implementation.md): 정정 전 profile-only Reference 반영, 검증·독립 review와 working-tree 경계
 - [`2026-09-04-07-project-context-physical-layers.md`](2026-09-04-07-project-context-physical-layers.md): profile-only 전제를 폐기한 사용자 정정, 물리 layer 구조·Recover 경계와 후속 검증
+- [`2026-09-06-08-project-context-update.md`](2026-09-06-08-project-context-update.md): 방어적 누락 실패의 원문 근거, 사용자 합의, Project 보존 기준·관리 skill·호출·이식 경로 보완과 검증

@@ -2,7 +2,7 @@
 
 `memory-harness-research`의 TripProof spec-driven continuity 연구를 현재 `reference-project/`와 대조해, Project common context와 Work 운영에 어떤 의미를 가져오고 무엇은 먼저 시험하거나 보류할지 결정하는 작업이다.
 
-현재 상태는 **사용자 정정에 따른 Project 물리 layer 반영과 검증 완료, 사용자 acceptance와 commit 전**이다. `context/project/`에 `common/current/guidance`를 실제 탐색 경계로 만들고 `decisions`를 별도 이유 기록 경계로 유지했다. Workspace는 root README와 task-specific 실제 layer 문서만 선택하며, Project 변경 뒤 영향을 받는 live consumer의 실제 Recover·의미적 target까지 확인하는 acceptance를 유지한다. Work가 Spec/Ticket을 조건부 실행 산출물로 품는 관계와 판단 영향 review는 아직 pilot 전 설계라 Reference에 채택하지 않았다.
+Project 물리 layer 반영은 `7bd5089`로 commit됐다. 현재는 **필요한 맥락의 방어적 누락을 막는 Project 관리 기준과 `update-project-context` skill의 후속 보완·문서 검증을 마쳤고, 사용자가 commit을 요청한 상태**다. `common/current/guidance`와 bounded Recover를 유지하며, 보존·표현·변경 기준은 Project README가, 실행 절차는 skill이 소유한다. Workspace·Spec 관계의 추가 규칙화는 보류하고 Verify는 현재 방식을 유지한다. 현재 기준과 근거는 [`08 보완 기록`](records/2026-09-06-08-project-context-update.md)을 우선한다.
 
 ## 읽는 순서
 
@@ -14,7 +14,8 @@
 6. [`records/2026-09-04-05-tripproof-application-review.md`](records/2026-09-04-05-tripproof-application-review.md): 정정 전 실제 적용 평가의 독립 교차검토와 당시 `PASS`
 7. [`records/2026-09-04-06-reference-project-implementation.md`](records/2026-09-04-06-reference-project-implementation.md): 정정 전 Reference diff, 검증, 독립 review와 증명 상한
 8. [`records/2026-09-04-07-project-context-physical-layers.md`](records/2026-09-04-07-project-context-physical-layers.md): profile-only 전제를 폐기한 사용자 정정, 물리 layer 이식과 검증
-9. [`output/index.md`](output/index.md): 현재 선택된 Workspace 산출물과 아직 없는 것
+9. [`records/2026-09-06-08-project-context-update.md`](records/2026-09-06-08-project-context-update.md): 보존 기준의 실패 근거·사용자 합의, Project 갱신 skill과 검증
+10. [`output/index.md`](output/index.md): 현재 선택된 Workspace 산출물과 아직 없는 것
 
 ## 경계
 
@@ -24,5 +25,5 @@
 - 외부 연구에서 이미 채택한 방향, 내부 검토를 통과한 설계 후보, 실제 적용 효과를 구분한다. 연구 문서의 `ADOPT`를 이 Reference의 채택이나 사람 acceptance로 바꾸지 않는다.
 - 현재 Reference에 이미 있는 Project/Work 분리, bounded Recover, `current/source/output/records`, Verify의 기계 증거와 acceptance 분리를 다시 만들지 않는다.
 - TripProof의 제품 이름, 수치와 사건을 Reference의 보편 trigger나 schema로 옮기지 않는다.
-- 이 Workspace의 1차 분석만으로 새 skill·hook·reviewer·상태 schema를 설치하거나 제품 수렴·코드 성장 효과를 주장하지 않는다.
-- 이번에 선택한 Reference 변경은 working tree에 반영했다. 후속 pilot, 사람 acceptance와 commit은 각각 별도 판단이다.
+- 새 장치를 1차 분석만으로 설치하지 않는다. Project 맥락 갱신 skill은 후속 원문 재독과 사용자 합의로 도입이 확정됐으며, 새 hook·reviewer·상태 schema와 제품 수렴·코드 성장 효과는 포함하지 않는다.
+- 물리 layer commit 뒤 이번에 합의한 보완을 반영했고 사용자가 commit을 요청했다. 정확한 revision은 Git 이력에서 확인한다. 외부 target 이식과 실제 host 검증은 수행하지 않았다.

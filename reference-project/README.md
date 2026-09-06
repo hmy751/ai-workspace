@@ -14,6 +14,8 @@ Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Wor
 
 전체 context 관계는 [context README](context/README.md), 사람이 현재 작업을 볼 때는 [active Workspace README](context/work/workspaces/001-default-timeout/README.md)에서 시작한다. 새 Workspace를 만드는 사람은 [생성·전환 canonical](context/work/workspaces/CREATE-AND-TRANSITION.md), 실행하는 AI는 repo-local [Workspace 생성 skill](.agents/skills/create-context-workspace/SKILL.md)에서 시작한다. Work·Harness의 AI 운영 지침은 [Work AGENTS](context/work/AGENTS.md), Harness 책임과 workflow는 [Harness README](context/work/harness/README.md)에서 시작한다.
 
+작업 중 얻은 Project-wide 맥락을 갱신하거나 누락된 기존 맥락을 복원할 때는 [Project 관리 기준](context/project/README.md)과 [Project 맥락 갱신 skill](.agents/skills/update-project-context/SKILL.md)을 사용한다. 이 skill은 Workspace Maintain과 별도로 해당 Project 문서를 갱신하며, 근거 있는 내용과 남은 판단을 함께 보존한다.
+
 실제 명령은 `reference-project/` root에서 실행한다.
 
 ```bash
@@ -40,7 +42,9 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
 ```text
 .
 ├── .agents/
-│   └── skills/create-context-workspace/ # 설치 뒤 새 Workspace 생성·재진입 검토
+│   └── skills/
+│       ├── create-context-workspace/ # 설치 뒤 새 Workspace 생성·재진입 검토
+│       └── update-project-context/   # 지속 Project 맥락 갱신·누락 복원
 ├── .codex/
 │   ├── config.toml               # 수동 fallback용 Maintain agent 발견 경로
 │   ├── maintain.json             # session별 explicit admission mode
@@ -117,4 +121,6 @@ reference 순환을 확인하기 위해 기본 timeout 구현을 의도적으로
 
 이 reference가 결정적으로 확인하는 것은 명시적 또는 active-default Workspace의 선택적 context 복구, Maintain의 explicit bootstrap과 guarded decision side effect, claim·canonical basis·evidence snapshot, 고정 검증 실행, 실패·성공 receipt 생성, machine-only status 갱신, 선언된 snapshot freshness의 재복구다. Harness 회귀 순환은 임시 fixture에서 실행해 active 제품 상태를 오염시키지 않는다.
 
-정적 연결과 unit test는 Maintain agent가 실제 변화에서 어떤 의미를 남겨야 하는지, 같은 agent session이 실제 host에서 유지되는지, 연결된 generation의 모든 사용자 대상 Main response-end가 관찰되는지, Main 비차단과 중요 보고·ambiguity 질문이 실제 UI에 도달하는지를 증명하지 않는다. 이 항목은 semantic eval과 actual Codex host acceptance가 필요하며, 그 전에는 role 등록을 automatic Maintain이라고 부르지 않는다. Workspace 생성 skill은 canonical을 적용해 새 Workspace를 구성하고 bounded 재진입을 검토하는 실행 장치를 제공하지만, 자동 skill 선택, deterministic generator와 자동 의미 선별·충분성 판정은 구현하거나 증명하지 않았다. Reference host adapter는 새 session의 default-unbound, session별 explicit activation과 same-session binding generation 전환을 구현하고 unit test하지만, 실제 host의 hook trust·event 전달·재개·UI 표면까지 acceptance하지는 않는다. `.codex/maintain.json` 변경만으로 session을 연결하거나 전환하지 않는다. Workspace acceptance·완료·보관, Workspace 결과의 Project canonical 반영, concurrent Verify 조정, 실제 네트워크 요청과 운영 서비스 효과도 아직 구현하거나 증명하지 않았다. POSIX Verify timeout은 같은 process group의 일반 descendant까지 다루지만 스스로 새 session으로 분리한 process와 비-POSIX descendant 전체 종료는 보장하지 않는다. Harness 계약은 저장소가 신뢰하는 입력이며 악의적인 검증 프로그램을 격리하는 sandbox가 아니다. Receipt와 status는 각각 atomic하게 쓰지만 하나의 transaction으로 묶이지 않는다.
+정적 연결과 unit test는 Maintain agent가 실제 변화에서 어떤 의미를 남겨야 하는지, 같은 agent session이 실제 host에서 유지되는지, 연결된 generation의 모든 사용자 대상 Main response-end가 관찰되는지, Main 비차단과 중요 보고·ambiguity 질문이 실제 UI에 도달하는지를 증명하지 않는다. 이 항목은 semantic eval과 actual Codex host acceptance가 필요하며, 그 전에는 role 등록을 automatic Maintain이라고 부르지 않는다. Workspace 생성 skill은 canonical을 적용해 새 Workspace를 구성하고 bounded 재진입을 검토하는 실행 장치를 제공하지만, 자동 skill 선택, deterministic generator와 자동 의미 선별·충분성 판정은 구현하거나 증명하지 않았다. Reference host adapter는 새 session의 default-unbound, session별 explicit activation과 same-session binding generation 전환을 구현하고 unit test하지만, 실제 host의 hook trust·event 전달·재개·UI 표면까지 acceptance하지는 않는다. `.codex/maintain.json` 변경만으로 session을 연결하거나 전환하지 않는다. Workspace acceptance·완료·보관, concurrent Verify 조정, 실제 네트워크 요청과 운영 서비스 효과도 아직 구현하거나 증명하지 않았다. POSIX Verify timeout은 같은 process group의 일반 descendant까지 다루지만 스스로 새 session으로 분리한 process와 비-POSIX descendant 전체 종료는 보장하지 않는다. Harness 계약은 저장소가 신뢰하는 입력이며 악의적인 검증 프로그램을 격리하는 sandbox가 아니다. Receipt와 status는 각각 atomic하게 쓰지만 하나의 transaction으로 묶이지 않는다.
+
+Project 맥락 갱신은 별도 `update-project-context` skill이 Project 계약을 적용하는 절차로 제공한다. Workspace 결과의 자동 승격이나 제품 결정·acceptance를 구현하지 않으며, 정적 설치만으로 새 session의 실제 discovery·invocation, 맥락 보존의 충분성과 장기 유지 효과를 증명하지 않는다.

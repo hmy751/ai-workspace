@@ -29,7 +29,7 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 ### Reference 책임 적응
 
 - 각 책임의 live Owner와 파일을 target에 그대로 둘지, target 구조에 맞춰 적응할지, 제외할지 판단한다.
-- Reference의 repo-local Workspace 생성 skill과 root routing을 target 도구가 발견할 수 있는지, 같은 이름의 기존 skill·instruction Owner와 충돌하는지 확인하고 설치·적응·제외를 정한다. 첫 Workspace는 이식 책임이 직접 만들며 아직 설치되지 않은 운영 skill을 중첩 호출하지 않는다.
+- Reference의 repo-local `create-context-workspace`, `update-project-context`와 각각의 root routing을 target 도구가 발견할 수 있는지, 기존 skill·instruction Owner와 충돌하는지 확인하고 설치·적응·제외를 정한다. 이름이 달라도 같은 책임을 맡는 기존 Project 관리 skill을 확인한다. 첫 Workspace는 이식 책임이 직접 만들며 아직 설치되지 않은 운영 skill을 중첩 호출하지 않는다. Project 맥락 갱신 skill은 target Project README의 관리 기준을 적용하고 Workspace Maintain과 독립된 호출 경로를 가진다.
 - Tool-specific Maintain 연결과 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. 수동 role, [session binding·lifecycle canonical](../../../../reference-project/context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md), lifecycle hook, schema v2 explicit admission config, session별 activation wrapper와 runtime ignore를 하나의 Maintain 내부 관계로 설치·적응·제외하고, role 등록만으로 automatic lifecycle을 주장하지 않는다. Project 공통 Workspace id, active index나 대화 의미로 새 session을 자동 binding하지 않는다. Schema v1 설치를 올릴 때는 legacy session state를 보존하는 v2 adapter를 먼저 배치한 뒤 config를 v2로 바꾸며 runtime을 일괄 삭제·retarget하지 않는다. Project-local Codex hook은 target root의 Codex task에서 hook review/trust, 사용자가 선택한 session의 explicit activation과 같은 binding generation의 runtime event receipt가 확인되기 전까지 `activation_pending`으로 둔다. Unbound 새 session은 정상 no-op이다. 일부 또는 전체 adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
 - Reference sample의 제품·Workspace 내용과 과거 receipt는 payload에서 제외한다.
 
@@ -63,6 +63,8 @@ Root `README.md`는 세 책임 layer, 실제 내용 위치, 읽기 조건과 Own
 
 각 실제 내용 문서에서 읽기 조건, 현재 authority와 상세 Owner, 갱신 책임, stale·재검토 신호를 찾을 수 있어야 한다. 한 문서에 보조 설명이 함께 있을 수 있지만 주 책임과 경로를 흐리거나 수명과 갱신 Owner가 다른 내용을 합치지 않는다.
 
+내용의 보존·불확실성 표현·변경과 갱신 시점은 live [`Project context 계약`](../../../../reference-project/context/project/README.md)을 target README에 적응한다. 이식 검토에서는 미정 부분의 존재를 이유로 원자료가 뒷받침하는 제품 목적·domain 의미까지 빠지지 않았는지, 남은 판단이 현재 확정된 규칙으로 바뀌지 않았는지를 함께 대조한다. 이 기준을 관리 skill에만 설치하고 target Project 계약에서 빠뜨리지 않는다.
+
 구현 뒤 다음 순서로 내용 충족을 검토한다.
 
 1. Root README에서 `common/current/guidance`와 `decisions`의 책임, layer README와 실제 내용 위치를 찾는다.
@@ -94,7 +96,7 @@ Project 문서의 path·책임·authority를 새로 만들거나 크게 바꿀 �
 이 receipt는 atomic snapshot, ignored file inventory, 저자·변경 이유나 Git 밖의 과거를 증명하지 않는다. 따라서 다음을 추가로 수행한다.
 
 1. Dry-run payload의 exact path와 ancestor가 실제로 존재하는지 확인한다.
-2. `.agents/skills/create-context-workspace/`와 root instruction route의 기존 clean 파일을 helper receipt와 별도로 직접 확인한다.
+2. `.agents/skills/create-context-workspace/`, `.agents/skills/update-project-context/`와 같은 책임의 기존 skill, root instruction route의 clean 파일을 helper receipt와 별도로 직접 확인한다.
 3. Target ignore 규칙과 기존 clean canonical·설정 내용을 대조한다.
 4. Preflight 변경과 payload의 교집합을 계산한다.
 5. 교집합이 없으면 exact addition과 좁은 patch로 진행한다.
@@ -133,7 +135,7 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 | 변경 성격 | 최소 확인 | 확대 조건 |
 | --- | --- | --- |
 | 설명·링크·routing | 경로, link, 설정 parse, diff | 실행 의미나 discovery가 달라짐 |
-| Repo-local Workspace 생성 skill | frontmatter, canonical link, root routing, 기존 skill 보존 | 새 target-root session의 discovery·implicit invocation 확인 필요 |
+| Repo-local Workspace 생성·Project 맥락 갱신 skill | 각 frontmatter, canonical link, root routing, 기존 skill 보존 | 새 target-root session의 discovery·implicit invocation 확인 필요 |
 | Harness 코드·machine 계약·path 방어 | 관련 단위 테스트 | 공통 경계나 target 배치가 달라짐 |
 | Target Harness 적응 | 전체 Harness tests와 ephemeral validation | 실패, source 변경 또는 proof 공백 |
 | 상태 전환·인계 | Product Verify와 후속 Recover | Evidence closure나 runtime 불확실성 |
@@ -166,7 +168,7 @@ Target 사실로 다음을 답한다.
 2. Recover가 실제로 무엇을 읽고 무엇을 제외했는가.
 3. 어떤 live consumer를 확인했고 Project 선택·current·output을 reconcile, 전환 또는 deactivation했는가.
 4. Local link·semantic target·residue와 machine Owner 설명을 어디까지 확인했는가.
-5. Repo-local Workspace 생성 skill과 root routing이 설치·적응·제외 중 무엇이며, 실제 discovery는 어디까지 확인됐는가.
+5. Repo-local Workspace 생성·Project 맥락 갱신 skill 각각과 root routing이 설치·적응·제외 중 무엇이며, 실제 discovery는 어디까지 확인됐는가.
 6. Validation과 Product Verify가 어떤 실제 input closure·runtime에서 무엇을 확인했는가.
 7. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 default-unbound, session별 explicit activation, trust와 runtime receipt가 무엇으로 확인됐는가.
 8. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.

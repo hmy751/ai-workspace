@@ -34,7 +34,7 @@ python3 <skill-dir>/scripts/capture_target_state.py \
 ```
 
 4. Helper가 ignored 파일을 수집하지 않는다는 한계를 유지한다. Dry-run payload의 exact path와 ancestor는 실제 파일 존재 여부와 target ignore 규칙을 별도로 대조한다.
-5. Target의 repo-local skill discovery 지원과 기존 `.agents/skills/create-context-workspace/`의 모든 exact path, root instruction routing을 별도로 확인한다. Helper receipt가 clean skill 파일 전체를 수집한다고 가정하지 않는다.
+5. Target의 repo-local skill discovery 지원과 기존 `.agents/skills/create-context-workspace/`, `.agents/skills/update-project-context/`의 모든 exact path, root instruction routing을 별도로 확인한다. 이름이 달라도 같은 책임을 맡는 기존 skill이 있으면 중복 설치와 Owner 충돌을 판단한다. Helper receipt가 clean skill 파일 전체를 수집한다고 가정하지 않는다.
 6. Receipt에서 사용자 변경, 삭제, untracked 파일과 instruction·skill 충돌을 보호 목록으로 만든다. Receipt는 저자나 변경 주체를 증명하지 않는다.
 
 Dirty tree만으로 멈추지 않는다. Payload와 겹치거나 기존 canonical·설정·사용자 파일을 덮어쓸 가능성이 있을 때만 exact 충돌과 선택지를 제시한다.
@@ -47,7 +47,7 @@ Dirty tree만으로 멈추지 않는다. Payload와 겹치거나 기존 canonica
 - 첫 Workspace의 목표, 지속 memory, 빠른 state, 선택 source, goal output과 records Owner
 - 제품 검증의 실제 runtime, cwd, fresh-run 조건과 입력 범위
 - 기존 context 경로, package, instruction, ignore와 도구 설정의 충돌
-- Target의 repo-local skill discovery 경계, 기존 Workspace 생성 skill과 root routing Owner
+- Target의 repo-local skill discovery 경계, 기존 Workspace 생성·Project 맥락 갱신 skill과 root routing Owner
 - 자동 검증이 확인하지 못하는 외부 시스템과 사람 acceptance
 
 Project context는 live Reference의 `context/project/README.md`, `common/`, `current/`, `guidance/`, `decisions/` 물리 경계를 target에 구성하고 target 사실로 채운다. Root README는 layer와 실제 내용 위치를 찾는 안정된 routing anchor로 두며, 첫 Workspace는 README와 goal에 필요한 실제 layer 문서를 따로 선택한다. 기존 상세 canonical은 그대로 유지하고 layered context와 충돌하면 상세 Owner를 우선한다. Owner 자체의 이동은 별도 승인 없이는 수행하지 않는다.
@@ -59,6 +59,8 @@ Project context는 live Reference의 `context/project/README.md`, `common/`, `cu
 
 세 책임 layer 자체는 생략하거나 overview 하나로 합치지 않는다. 기존 Owner의 경로만 연결하지 말고 여러 Workspace의 판단에 필요한 사실을 선별해 다시 서술한다. 특정 layer에 README 외 실제 본문이 없을 수는 있지만, 그 경우 원자료에서 독립된 내용이 없다는 근거를 dry-run manifest와 적용 기록에 남긴다. 기존 flat Project context 파일을 자동 이동하지 않고, 보존할 상세 Owner인지 승인받아 옮길 Owner인지 먼저 분리한다.
 
+Live Project README의 내용 복원·변경·갱신 기준도 target 계약에 적응한다. 근거 있는 맥락의 보존과 미정·미확인·충돌 표현을 판단하는 기준은 그 계약에서 읽고, Project 맥락 갱신 skill 안에 두 번째 정본을 만들지 않는다.
+
 ## 3. Dry-run manifest를 먼저 제시한다
 
 쓰기 전에 다음을 사용자에게 한 번에 제시한다.
@@ -68,7 +70,7 @@ Project context는 live Reference의 `context/project/README.md`, `common/`, `cu
 - 새 파일, 수정 파일, 충돌 파일, 명시적 제외 파일
 - 기존 Owner의 어떤 사실을 `common/current/guidance`의 어느 파일·문단에 어떻게 다시 서술할지, README 외 본문이 없는 layer와 그 근거, Decision 배치, 첫 Workspace에 넣을 목표·제약·state·source·output 내용
 - Reference 책임별 `source Owner → target 배치 → 그대로 사용/적응/제외 → 이유` 매핑
-- Repo-local Workspace 생성 skill과 root routing의 `install/adapt/exclude`, exact 충돌과 fallback
+- Repo-local Workspace 생성·Project 맥락 갱신 skill 각각과 root routing의 `install/adapt/exclude`, exact 충돌과 fallback
 - Target instruction과 도구 설정에 추가할 routing, 수동 agent role, lifecycle hook, session별 explicit admission·activation 명령, wrapper, runtime ignore 또는 main fallback의 개별 설치·제외 판단
 - Target의 Recover·Verify 계약과 제품 검증 입력을 live Reference에서 적응한 결과
 - Project path·책임·authority 변경에 영향받는 live consumer 목록과 각 consumer의 reconcile·전환·deactivation 계획
@@ -85,6 +87,7 @@ Project context는 live Reference의 `context/project/README.md`, `common/`, `cu
 2. Project context의 root README와 `common/current/guidance` layer README를 만들고, 링크 목록이나 기존 문단 복사본이 아닌 target 사실을 해당 layer에 구성한다. 실제 내용 문서에서 읽기 조건, authority·상세 Owner, 갱신 책임, stale·재검토 신호를 찾을 수 있게 하고, [`application-contract.md`](references/application-contract.md)의 layer별 내용 충족 검사를 통과시킨다.
 3. Live Reference가 요구하는 Workspace 지속 층과 machine 계약을 첫 작업의 실제 목표·제약·source·output·검증으로 채운다. `recover.json`에는 Project root README와 goal에 필요한 `common/`, `current/`, `guidance/`, `decisions/` 문서만 이유와 함께 선택한다. 모든 layer를 자동 선택하거나 Sample 내용과 기존 Project 산출물을 복제하지 않는다.
 4. Reference의 repo-local `create-context-workspace` skill과 root routing을 target 도구가 지원하면 기존 skill·instruction을 보존하며 설치하거나 좁게 적응한다. 최초 이식 중 첫 Workspace를 만들기 위해 아직 설치되지 않은 이 skill을 중첩 호출하지 않는다. 같은 이름의 기존 skill을 덮어쓰지 않으며, 지원하지 않거나 충돌을 해소할 수 없으면 제외 이유와 생성·전환 canonical을 main이 적용하는 fallback을 남긴다.
+   `update-project-context`도 별도 운영 책임으로 설치·적응한다. 기존 Project 관리 skill이 있으면 이름보다 책임과 현재 계약을 대조해 한 경로로 연결하고, Workspace Maintain에 합치지 않는다. Target root에서 작업 중 Project-wide 변화와 명시적인 맥락 갱신·복원 요청이 이 skill로 이어지는지 확인한다. 설치할 수 없으면 Project README의 관리 기준을 main이 적용하는 fallback과 제외 이유를 남긴다.
 5. Harness runtime·계약·테스트는 승인된 source commit에서 가져오고, target package·경로·runtime과 충돌하는 부분만 좁게 적응한다. Reference 내부 계약을 skill 문장으로 재구현하지 않는다.
 6. Live Reference의 tool-specific Maintain 연결을 target에서 쓸 수 있으면 기존 설정과 role 이름을 보존하며 수동 role, [session binding·lifecycle canonical](../../../reference-project/context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md), lifecycle hook, schema v2 explicit admission config, session별 `status|activate|deactivate` wrapper와 ignored runtime을 하나의 Maintain 책임으로 설치·적응·제외한다. Project 공통 config, active index나 첫 prompt 의미를 새 session의 Workspace binding으로 사용하지 않는다. Schema v1 config와 runtime이 있으면 v2 adapter를 먼저 배치해 기존 session state를 generation 1로 읽게 하고 새 session 자동 binding은 즉시 중단한 뒤 config를 v2로 바꾼다. Existing runtime을 일괄 삭제·retarget하지 않는다. Role 발견 경로만 등록한 상태를 automatic Maintain 설치로 부르지 않는다. 설정 parse와 각 adapter path 해석은 확인하되 새 task의 실제 role·hook discovery와 lifecycle 장면을 실행하지 않았다면 증명했다고 쓰지 않는다. Project-local Codex hook은 이식 직후 기본 상태를 `activation_pending`으로 둔다. Target root의 Codex task에서 hook definition을 review/trust하고, 사용자가 Maintain을 원하는 session만 명시적으로 activate해 binding과 prompt/Stop runtime receipt를 확인한 뒤에만 `activated`라고 보고한다. Unbound 새 session은 정상 no-op이며 receipt를 만들지 않는다고 실패로 해석하지 않는다. 충돌하거나 discovery가 확인되지 않으면 덮어쓰지 않고 live Maintain 계약을 main이 수행하는 fallback과 미설치 범위를 기록한다.
 7. Preflight receipt는 Workspace가 생긴 뒤 보존 위치로 exact copy하고 임시본과 SHA-256이 같은지 확인한다.
@@ -111,7 +114,7 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 - 초기 이식 완료처럼 상태 전환·인계 증거가 필요한 경계에서만 live product Verify를 실행한다. 이후 Recover가 현재 machine result를 다시 연결하는지 확인한다. Ephemeral validation 결과, durable Harness test receipt와 Product Verify receipt를 서로 혼동하지 않는다.
 - Context 의미가 바뀌면 명시한 Workspace만 Maintain하고 main이 근거와 diff를 검토한다. Verify pass를 사람용 완료나 acceptance로 바꾸지 않는다.
 - Codex lifecycle hook 검증은 `installed`와 `activated`를 분리하고 live session lifecycle canonical의 runtime 저장 범위·권한 한계·actual-host proof ceiling을 함께 보존한다. `installed`는 target 파일, schema v2 설정 parse, wrapper import, unbound `status`와 bounded Recover가 통과한 상태다. `activated`는 target repo를 root로 하는 Codex task에서 project-local hook을 trust하고 사용자가 선택한 Workspace를 그 session에 명시적으로 activate한 뒤, persisted binding과 같은 generation의 prompt/Stop runtime receipt가 생긴 상태다. 현재 task가 target root가 아니거나 hook trust·explicit activation·event receipt 중 하나라도 없으면 activation을 완료로 쓰지 않는다. 다른 unbound session이 runtime이나 Workspace write를 만들지 않는지도 actual-host 격리 장면에서 확인한다.
-- Workspace 생성 skill은 target 파일·frontmatter·canonical link와 root routing을 확인해 `installed` 또는 `adapted`를 판정한다. 같은 이식 session의 파일 존재만으로 실제 skill discovery나 implicit invocation을 증명하지 않고, 새 target-root session에서 확인하지 못했으면 그 한계를 남긴다.
+- Workspace 생성·Project 맥락 갱신 skill은 각각 target 파일·frontmatter·canonical link와 root routing을 확인해 `installed` 또는 `adapted`를 판정한다. 같은 이식 session의 파일 존재만으로 실제 skill discovery나 implicit invocation을 증명하지 않고, 새 target-root session에서 확인하지 못했으면 그 한계를 남긴다.
 - Project context는 root README에서 세 물리 layer를 찾을 수 있는지 먼저 확인한다. 그 뒤 상세 Owner 링크를 열지 않고 `common/`의 지속 의미, `current/`의 현재 경계, `guidance/`의 적용 여부를 설명할 수 있는지 검토하고, 마지막에 상세 Owner를 열어 사실·범위·충돌 우선순위가 맞는지 대조한다. Project path·책임·authority가 바뀌면 [`application-contract.md`](references/application-contract.md)의 live consumer를 고정해 각 id의 explicit Recover와 active/default Recover를 실행하고, current·output의 machine Owner 설명과 실제 semantic target을 fresh reader가 대조한다.
 - 변경한 Markdown의 local link는 경로 존재·root 경계를 기계적으로 확인한 뒤 설명과 실제 Owner가 맞는지 별도로 판정한다. Source sample·Workspace id와 rename·제거 path의 residue 목록을 검사하고, archive·source·records의 의도한 provenance hit만 exact allowlist로 남긴다.
 - Product Verify를 실행할 때에는 argv가 읽는 tracked input closure를 먼저 구성한다. 완전히 선언할 수 없으면 argv를 좁히거나 claim과 proof ceiling을 낮추며, runtime freshness를 undeclared input 탐지로 해석하지 않는다.
@@ -127,7 +130,7 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 - Project path·책임·authority 변경에 영향받는 live consumer가 reconcile·전환·deactivation됐고 explicit 및 active/default Recover와 semantic target review가 끝났다.
 - Local link·residue·machine Owner 설명과 Product Verify input closure가 변경 범위에 맞게 판정됐으며, 자동으로 닫히지 않는 의미·외부 상태는 proof ceiling에 남아 있다.
 - 각 Reference 책임이 설치·적응됐거나 제외 이유와 fallback이 명시됐다.
-- Repo-local Workspace 생성 skill과 root routing이 설치·적응됐거나, 제외 이유와 canonical을 main이 적용하는 fallback이 명시됐다.
+- Repo-local Workspace 생성·Project 맥락 갱신 skill 각각과 root routing이 설치·적응됐거나, 제외 이유와 해당 canonical을 main이 적용하는 fallback이 명시됐다.
 - Project-local Maintain hook은 `installed`, `activation_pending`, `activated`, `excluded` 중 하나로 보고됐고, `activated`라고 쓰려면 target Codex task의 hook trust, session별 explicit activation과 같은 binding generation의 runtime event receipt가 확인됐다. 새 session이 기본 unbound라는 사실과 binding하지 않은 session의 무부작용을 별도로 보고한다.
 - 변경 위험에 맞는 검증 결과와 proof ceiling이 남아 있다.
 - Machine 결과, 사람용 Context, acceptance와 commit 권한이 분리돼 있다.
