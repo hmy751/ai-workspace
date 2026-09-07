@@ -1,6 +1,6 @@
 # Project·Work continuity integration memory
 
-마지막 갱신: `2026-09-06`
+마지막 갱신: `2026-09-07`
 
 ## 목표
 
@@ -11,7 +11,7 @@ TripProof 작업에서 관찰·분석한 판단 연속성 문제를 현재 `refe
 - 국소 근거가 넓은 완료로 승격되는 문제를 기존 Verify·Maintain과 책임 충돌 없이 어디까지 다룰 수 있는가.
 - 실제 적용 효과가 없는 설계 후보를 어떤 bounded replay와 live pilot 뒤에만 Reference 책임으로 채택할 것인가.
 
-물리 layer와 적용 acceptance는 `7bd5089`에 반영됐다. 후속 논의에서는 Project 맥락의 충분한 보존·구체적인 불확실성 표현과 `update-project-context`의 도입을 확정했다. 이 기준은 Project README가, skill은 적용 절차가 소유한다. 이번에는 문서·skill·호출·이식 경로를 보완하며 Workspace·Spec 관계와 Verify는 변경하지 않는다.
+물리 layer와 적용 acceptance는 `7bd5089`, Project 보존 기준·`update-project-context` 보완은 `5e45310`에 반영됐다. 이 기준은 Project README가, skill은 적용 절차가 소유한다. 2026-09-07 시작한 Spec·Ticket 공개 조사와 설계 세션은 이후 사용자의 요청으로 [Workspace 010](../../010-spec-ticket-workspace-design/README.md)에 분리했다. 초기 09·10 기록은 이곳에 보존하며, 최신 Spec·Ticket 방향·후보·스냅샷 조건·트레이드오프 판단은 010이 직접 소유한다.
 
 ## 계속 유지할 판단
 
@@ -28,7 +28,7 @@ TripProof 작업에서 관찰·분석한 판단 연속성 문제를 현재 `refe
 - `update-project-context`는 여러 Workspace에 계속 유효할 변화와 요청된 누락 복원을 기존 Project 문서에 반영한다. 작업 중 자연스러운 경계에서 사용하고 Workspace 종료에 묶지 않는다. Workspace Maintain과 합치지 않으며, 관리 기준은 Project README에서 읽는다.
 - Project context를 바꾼 뒤에는 producer만 보지 않는다. 영향을 받는 live consumer—active/default Recover consumer와 explicit session-bound Workspace—의 사람용 current·선택·output target을 reconcile하거나 successor로 전환하고 실제 Recover와 fresh-context 의미 검토로 확인한다.
 - 완료되어 소비 경로에서 내려온 역사 Workspace는 새 Project 구조에 역동기화하지 않는다. 아직 live consumer인 Workspace에는 이 예외를 적용하지 않는다.
-- Workspace·Spec 관계는 사용자가 다시 생각할 필요가 있지만 현재는 두자고 했다. 과거 문서의 독립 장기 Spec 대체 방향과 이후 Spec/Ticket·bounded brief 가설을 근거로 현재 Reference를 더 규칙화하지 않는다. Verify의 필수 여부·조건부 구성도 이번에는 변경하지 않는다.
+- Workspace·Spec 관계의 후속 설계는 010에서 계속한다. 009의 과거 보류나 초기 도입 권장 의견을 010의 현재 조건·구현 합의로 사용하지 않으며 두 Workspace의 current를 자동 동기화하지 않는다.
 - 제품·코드·국소 판단은 서로 다른 근거를 요구한다. 근거가 직접 관찰한 대상·범위·revision보다 넓은 완료를 닫아서는 안 된다는 제한 원칙은 기존 Verify의 proof ceiling과 정합적이다.
 - 판단 변경이 관련 기존 결과에 영향을 줄 수 있다는 방향은 유지하되, 영향 검색법과 결과 상태 분류는 아직 적용 전 설계다.
 - `claim-impact-review`, `direction-gap-review`, 정확한 trigger와 두-reviewer 구성은 Reference 채택안이 아니다. 먼저 report-only bounded replay에서 실제 선택·범위·완료와 기존 결과 지위가 달라지는지 확인한다.
@@ -50,7 +50,7 @@ TripProof 작업에서 관찰·분석한 판단 연속성 문제를 현재 `refe
 
 - 외부 입력의 기준 경로는 `/Users/hammyeong-yeon/Desktop/memory-harness-research/context/analysis/07-tripproof-spec-driven-continuity`다.
 - 최초 외부 intake는 `f9a397d75d99da9c42aa2eac0562eb6d7d204dda` 위 dirty working tree였다. 이번 재독 때 HEAD는 `d80f571`이며 지정한 01·02·03 문서는 최초 intake와 SHA-256이 같다. 시점별 근거는 source intake와 08 보완 기록을 함께 본다.
-- 지정 범위 밖의 다른 Desktop 저장소, private 대화 원문과 네트워크 자료로 근거를 확장하지 않는다.
+- 지정 범위 밖의 다른 Desktop 저장소와 private 대화 원문으로 근거를 확장하지 않는다. Spec·Ticket의 공개 외부 reference 조사는 2026-09-07 사용자의 명시적 요청으로 허용됐으며, 개발 영향의 실제 근거는 live Reference와 임시 fixture다.
 - 외부 자료의 수치와 장면은 보존된 내부 감사·분석으로만 사용하며 이번 작업에서 원 evidence를 독립 재검산했다고 말하지 않는다.
 - 실제 TripProof 적용은 `chore/archive-project-harness`의 clean HEAD `8b1418d6e67c7897e933af3c8eaf0c76547c5d9b`에서 읽었고 `main`보다 4 commits 앞선 미병합 상태다. 현재 적용 구조와 장기 유지·제품 효과를 구분한다.
 - 새 taxonomy·hook·runtime·reviewer는 이번 범위가 아니다. 도입이 확정된 Project 관리 skill은 책임·호출·비적용 경계를 보존해 이식하며, 실제 host invocation과 장기 효과를 정적 검사로 주장하지 않는다.

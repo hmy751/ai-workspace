@@ -1,6 +1,6 @@
 # Project·Work continuity integration output
 
-마지막 갱신: `2026-09-06`
+마지막 갱신: `2026-09-07`
 
 ## Workspace goal
 
@@ -8,6 +8,8 @@
 
 ## 현재 선택된 산출물
 
+- [`Spec 도입의 개발 영향 분석`](../records/2026-09-07-10-spec-development-impact.md): Recover·Maintain·Verify·생성·정본 관리·이식 접점과 당시 fixture·회귀 검사. 010으로 분리한 세션의 초기 근거이며 현재 설계나 구현 결과가 아니다.
+- [`Spec·Ticket과 current 비교`](../records/2026-09-07-09-spec-ticket-current-assessment.md): 당시 공개 문서·Reference 비교와 초기 미채택 의견. 후속 설계의 현재 진입점은 [010 output](../../010-spec-ticket-workspace-design/output/index.md)이다.
 - [`Project 맥락 보존·갱신 보완 기록`](../records/2026-09-06-08-project-context-update.md): 방어적 누락 실패의 근거, 사용자 합의, 관리 skill 도입과 이번 검증. 관리 skill을 pilot 후보로 남겼던 이전 판정보다 우선한다.
 - [`Project 맥락 갱신 skill`](../../../../reference-project/.agents/skills/update-project-context/SKILL.md): Project README의 보존·변경·관리 기준을 적용하는 실행 절차
 - [`1차 채택 판단`](../records/2026-09-04-02-adoption-assessment.md): 현재 Reference의 기존 책임과 후보를 대조한 정정 전 판단. 비물리 배치 판정은 현재 계약이 아니다.
@@ -23,7 +25,7 @@
 - [`source intake`](../records/2026-09-04-01-source-intake.md): 읽은 외부 working-tree snapshot, 범위와 근거 상한
 - [`bounded 재진입 검토`](../records/2026-09-04-03-bounded-reentry-review.md): 기본 진입점만으로 목표·판정·다음 행동을 복원하는지 확인한 최종 `PASS`
 
-물리 layer 반영은 `7bd5089`로 commit됐다. 후속 Project 보존 기준·관리 skill·호출·이식 경로 보완은 문서 검증을 마쳤고 사용자가 commit을 요청했다. 해당 revision은 새 skill의 Git 이력에서 확인한다. 역사 기록의 당시 PASS를 이번 skill의 실제 호출·행동 검증으로 사용하지 않는다.
+물리 layer 반영은 `7bd5089`, 후속 Project 보존 기준·관리 skill·호출·이식 경로 보완은 `5e45310`으로 commit됐다. 그 뒤 시작한 Spec·Ticket 설계 세션은 사용자 요청으로 010에 분리했다. 초기 기록은 이곳에 보존하며 역사 기록의 당시 PASS를 새 설계나 skill의 실제 호출·행동 검증으로 사용하지 않는다.
 
 ## 아직 없는 것
 

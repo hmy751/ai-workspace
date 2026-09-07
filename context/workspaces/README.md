@@ -4,7 +4,8 @@
 
 ## Active Workspace
 
-- active: [`009-project-work-continuity-integration`](./009-project-work-continuity-integration/)
+- active: [`010-spec-ticket-workspace-design`](./010-spec-ticket-workspace-design/)
+- prior Project context integration, follow-up checks pending: [`009-project-work-continuity-integration`](./009-project-work-continuity-integration/)
 - prior reference evolution, actual Codex host acceptance pending: [`008-workspace-transition-continuity`](./008-workspace-transition-continuity/)
 - completed reference maintain: [`007-maintain-clean-room-reimplementation`](./007-maintain-clean-room-reimplementation/)
 - stopped responsibility-allocation attempt: [`006-maintain-behavior-responsibility-allocation`](./006-maintain-behavior-responsibility-allocation/)

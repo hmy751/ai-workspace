@@ -2,7 +2,9 @@
 
 `memory-harness-research`의 TripProof spec-driven continuity 연구를 현재 `reference-project/`와 대조해, Project common context와 Work 운영에 어떤 의미를 가져오고 무엇은 먼저 시험하거나 보류할지 결정하는 작업이다.
 
-Project 물리 layer 반영은 `7bd5089`로 commit됐다. 현재는 **필요한 맥락의 방어적 누락을 막는 Project 관리 기준과 `update-project-context` skill의 후속 보완·문서 검증을 마쳤고, 사용자가 commit을 요청한 상태**다. `common/current/guidance`와 bounded Recover를 유지하며, 보존·표현·변경 기준은 Project README가, 실행 절차는 skill이 소유한다. Workspace·Spec 관계의 추가 규칙화는 보류하고 Verify는 현재 방식을 유지한다. 현재 기준과 근거는 [`08 보완 기록`](records/2026-09-06-08-project-context-update.md)을 우선한다.
+Project 물리 layer 반영은 `7bd5089`, Project 관리 기준과 `update-project-context` skill 보완은 `5e45310`으로 commit됐다. 실제 Project 관리 기준과 구현 근거는 [`08 보완 기록`](records/2026-09-06-08-project-context-update.md)이 소유한다. 실제 host 호출·외부 target 적용 등 남은 확인은 이 Workspace의 current와 output에서 구분하며 전체 완료로 표시하지 않는다.
+
+2026-09-07 사용자의 요청으로 **이번 세션의 Spec·Ticket 조사·설계 논의 전체를 [Workspace 010](../010-spec-ticket-workspace-design/README.md)으로 분리했다.** [`09 비교 기록`](records/2026-09-07-09-spec-ticket-current-assessment.md)과 [`10 개발 영향 분석`](records/2026-09-07-10-spec-development-impact.md)은 작성 당시 근거로 이곳에 보존한다. 이후 사용자 조건·후보의 지위·정정·제3 리뷰와 다음 설계 판단은 010이 소유하며, 이 두 초기 기록의 제안을 확정 방향으로 사용하지 않는다.
 
 ## 읽는 순서
 
@@ -26,4 +28,4 @@ Project 물리 layer 반영은 `7bd5089`로 commit됐다. 현재는 **필요한 
 - 현재 Reference에 이미 있는 Project/Work 분리, bounded Recover, `current/source/output/records`, Verify의 기계 증거와 acceptance 분리를 다시 만들지 않는다.
 - TripProof의 제품 이름, 수치와 사건을 Reference의 보편 trigger나 schema로 옮기지 않는다.
 - 새 장치를 1차 분석만으로 설치하지 않는다. Project 맥락 갱신 skill은 후속 원문 재독과 사용자 합의로 도입이 확정됐으며, 새 hook·reviewer·상태 schema와 제품 수렴·코드 성장 효과는 포함하지 않는다.
-- 물리 layer commit 뒤 이번에 합의한 보완을 반영했고 사용자가 commit을 요청했다. 정확한 revision은 Git 이력에서 확인한다. 외부 target 이식과 실제 host 검증은 수행하지 않았다.
+- 물리 layer commit 뒤 합의한 Project 관리 보완은 `5e45310`에 반영됐다. 이번 Spec·Ticket 공개 조사와 의견 제시는 별도 구현 합의가 아니다. 외부 target 이식과 실제 host 검증은 수행하지 않았다.

@@ -1,6 +1,14 @@
 # Project·Work continuity integration state
 
-마지막 갱신: `2026-09-06`
+마지막 갱신: `2026-09-07`
+
+## 작업 분리와 현재 책임
+
+사용자는 이번 세션의 첫 Spec·Ticket 조사 요청부터 이후 설계 논의 전체를 009와 분리해 기록하도록 요청했다. 현재 진행 중인 Spec·Ticket 설계와 다음 논의는 [010 state](../../010-spec-ticket-workspace-design/current/state.md)가 소유한다. 009는 기존 Project context 통합 결과와 그 작업의 미완료 검증을 유지한다. Workspace 전체를 완료로 전환한 것은 아니다.
+
+이관한 세션의 초기 [09 비교](../records/2026-09-07-09-spec-ticket-current-assessment.md)와 [10 개발 영향 분석](../records/2026-09-07-10-spec-development-impact.md)은 작성 당시 근거로 보존한다. 10의 임시 fixture·5개 회귀 검사는 당시 코드 범위를 확인한 결과이며, 이후 Spec 배치와 공유 관계에 관한 사용자 정정 및 제3 리뷰는 010의 종합 기록에서 읽는다.
+
+Project 갱신 skill의 앞선 변경은 실제 Git에서 `5e45310 feat: preserve project context and add update skill`로 확인했다. 아래 2026-09-06 구현·검증 결과와 이번 설계 의견은 구분한다.
 
 ## 현재 상태
 
@@ -14,7 +22,7 @@
 ## 유지·보류한 범위
 
 - `common/current/guidance` 물리 layer, bounded Project 선택과 Recover schema `6`은 유지한다.
-- Workspace·Spec 관계의 추가 규칙화는 보류한다. 기존 구조·표현과 Verify 계약·필수 여부를 이번에 바꾸지 않는다.
+- Workspace·Spec 관계의 구체적인 설계는 010으로 분리했다. 009의 당시 보류를 후속 설계를 금지하는 규칙으로 사용하지 않는다.
 - `decisions/` 기록 항목의 별도 보완은 이번에 확정하지 않았다.
 - 제품 코드·test, Work Harness runtime·hook·machine 계약·receipt·status, 외부 TripProof와 연구 저장소는 수정하지 않았다.
 - `claim-impact-review`, `direction-gap-review`, 제품 수렴·코드 평가 workflow와 실제 외부 target migration은 여전히 별도 작업이다.
@@ -28,4 +36,4 @@
 
 ## 바로 다음 행동
 
-이후 실제 Project 작업에서 관리 skill의 discovery·호출과 맥락 보존을 확인할 수 있다. 외부 target 적용과 후속 수정은 사용자 지시에 따른다. Workspace·Spec과 Verify의 보류 결정을 다시 구현 과제로 올리지 않는다.
+현재 세션의 Spec·Ticket 설계는 010에서 이어간다. 이 Workspace를 다시 작업 대상으로 선택할 때는 Project 관리 skill의 실제 discovery·호출·맥락 보존 확인, 외부 target 적용과 output에 남은 증명 범위 중 실제 요청된 항목을 고른다. 010 분리만으로 이 후속 확인을 실행하거나 완료한 것으로 기록하지 않는다.
