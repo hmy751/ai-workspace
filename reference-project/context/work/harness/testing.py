@@ -43,7 +43,8 @@ class WorkspaceFixture(unittest.TestCase):
         ):
             (self.project_root / directory).mkdir(parents=True, exist_ok=True)
         for directory in (
-            "workspaces/001-example/current/memory",
+            "workspaces/001-example/current/memory/spec",
+            "workspaces/001-example/current/memory/tickets",
             "workspaces/001-example/current/state",
             "workspaces/001-example/source",
             "workspaces/001-example/output",
@@ -51,6 +52,11 @@ class WorkspaceFixture(unittest.TestCase):
             "workspaces/001-example/records/receipts/verify",
         ):
             (self.work_root / directory).mkdir(parents=True, exist_ok=True)
+
+        shutil.copyfile(
+            HARNESS_SOURCE.parent / "workspaces" / "SPEC-AND-TICKETS.md",
+            self.work_root / "workspaces" / "SPEC-AND-TICKETS.md",
+        )
 
         (self.project_root / "context" / "project" / "README.md").write_text(
             "PROJECT_ROUTING_CONTEXT\n", encoding="utf-8"
@@ -209,13 +215,22 @@ class WorkspaceFixture(unittest.TestCase):
         (memory / "index.md").write_text(
             "WORKSPACE_MEMORY_INDEX\n", encoding="utf-8"
         )
-        (memory / "02-constraints.md").write_text(
-            "WORKSPACE_MEMORY_CONSTRAINTS\n", encoding="utf-8"
+        for name, content in (
+            ("01-problem-goal-scope.md", "WORKSPACE_SPEC_GOAL"),
+            ("02-behavior-and-cases.md", "WORKSPACE_SPEC_BEHAVIOR"),
+            ("03-concepts-and-contracts.md", "WORKSPACE_SPEC_CONTRACTS"),
+            ("04-quality-and-completion.md", "WORKSPACE_SPEC_QUALITY"),
+            ("05-constraints-design-assumptions.md", "WORKSPACE_SPEC_DESIGN"),
+        ):
+            (memory / "spec" / name).write_text(content + "\n", encoding="utf-8")
+        (memory / "tickets" / "index.md").write_text(
+            "WORKSPACE_TICKET_INDEX\n\n- [Example](001-example.md)\n",
+            encoding="utf-8",
         )
-        (memory / "01-goal.md").write_text(
-            "WORKSPACE_MEMORY_GOAL\n", encoding="utf-8"
+        (memory / "tickets" / "001-example.md").write_text(
+            "UNLOADED_TICKET_BODY\n", encoding="utf-8"
         )
-        (memory / "03-project-context.md").write_text(
+        (memory / "project-context.md").write_text(
             "WORKSPACE_MEMORY_PROJECT_CONTEXT\n", encoding="utf-8"
         )
         (memory / "notes.txt").write_text(

@@ -4,7 +4,7 @@
 
 ## 사람이 읽는 순서
 
-1. [`current/memory/index.md`](current/memory/index.md)에서 작업이 진행되는 동안 계속 유효한 맥락을 찾는다.
+1. [`current/memory/index.md`](current/memory/index.md)에서 Spec 다섯 파일·Project 맥락 선택·Ticket 색인을 읽는다. 필요한 Ticket 본문을 이어 읽는다.
 2. [`current/state/index.md`](current/state/index.md)에서 지금 확인할 문제와 상태의 의미를 읽는다.
 3. [`current/state/status.json`](current/state/status.json)에서 최근 검증의 기계 결과와 receipt cursor를 확인한다. 다음 행동은 바로 앞의 사람용 state에서 읽는다.
 4. [`output/index.md`](output/index.md)에서 이 goal을 위해 선택된 현재 산출물과 canonical 위치를 찾는다.
@@ -27,7 +27,7 @@ Machine 계약은 책임별로 분리되어 있다.
 
 ## Workspace가 소유하는 내용 층
 
-- [`current/`](current/): 지금도 유효하여 다음 행동에 필요한 목표, 제약, Project 선택 경계와 최근 상태
+- [`current/`](current/): memory의 Spec·Ticket·Project 선택과 state의 전체 상황·판단·다음 행동. 구성과 관리 의미는 [Spec과 Ticket](../SPEC-AND-TICKETS.md)을 따른다.
 - [`source/`](source/): 이 Workspace가 선택한 원문, 변경하지 않은 snapshot, provenance만 보존하는 층. 현재 판단, 분석, 결정, 실행·검증 기록은 두지 않는다.
 - [`output/`](output/): goal을 위해 선택된 현재 제품 구현의 canonical 위치를 보여 주는 산출물 지도. Project root의 실제 파일은 복제하지 않는다.
 - [`records/`](records/README.md): source와 실제 작업을 바탕으로 만든 분석, 결정, 실행·검증 기록. 분석 메모·후보·비교·탈락안·선택 근거는 바로 아래 날짜별 Markdown에, 기계 증거는 [`receipts/`](records/receipts/README.md) 아래 종류별로 남긴다.

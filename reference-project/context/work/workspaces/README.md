@@ -12,7 +12,7 @@
 - `workspace.json`: Workspace id와 schema를 가진 machine identity
 - `recover.json` schema `6`: Project-root 상대 경로로 Recover가 읽을 Project Markdown과 선택 이유. 안정된 routing anchor인 `context/project/README.md`를 포함하고, 나머지는 `common/`, `current/`, `guidance/`, `decisions/` 아래에서 현재 goal에 필요한 실제 문서만 선택한다. Root 평면 본문과 미허용 layer는 선택할 수 없으며 문서 순서는 Workspace가 정한다.
 - `verify.json` schema `2`: Verify가 연결할 구체적인 claim, 그 claim의 Project canonical basis, 고정 argv, evidence와 실행 제한. 사람의 다음 행동은 두지 않는다.
-- `current/`: 다음 작업자가 이어받을 현재 유효 context와 machine status. `current/memory/`는 `index.md`, `01-goal.md`, `02-constraints.md`, `03-project-context.md`를 최소 구성으로 가진다. 현재 status schema `3`은 최근 제품 검증의 기계 결과와 receipt cursor만 소유하며, 과거 schema `2`는 기존 기록 복구를 위해 읽기 호환한다.
+- `current/`: 다음 작업자가 이어받을 현재 유효 context와 machine status. `current/memory/`는 Spec 다섯 파일, Ticket 색인·본문, Project context 선택을 소유하고 `current/state/`는 Workspace 전체 상황과 다음 행동을 소유한다. 구성·내용·읽기·갱신 기준은 [Spec과 Ticket](SPEC-AND-TICKETS.md)이 정의한다. 현재 status schema `3`은 최근 제품 검증의 기계 결과와 receipt cursor만 소유하며, 과거 schema `2`는 기존 기록 복구를 위해 읽기 호환한다.
 - `source/`: 이 Workspace가 작업 입력으로 선택한 원문, 변경하지 않은 snapshot, provenance를 분리·보존하는 층. `source/index.md`를 최소 inventory로 두며 별도 원자료가 없으면 그 사실과 Project canonical을 복제하지 않은 경계를 적는다. 원자료의 저자와 정본 권위는 원래 출처에 남으며, Workspace는 선택 범위·사용 시점·무결성·재접근 경로를 관리한다. 현재 판단, 분석, 결정, 실행·검증 기록은 두지 않는다.
 - `output/`: Workspace goal을 위해 선택된 현재 산출물을 찾는 층. `output/index.md`를 최소 산출물 지도로 두고, 실제 산출물이 Project root의 코드·문서·테스트에 있으면 복제하지 않고 canonical 상대 경로를 연결한다. Workspace 안에서만 소유하는 goal 산출물은 이 폴더에 직접 둘 수 있다. 아직 선택된 산출물이 없으면 index에 없다고 명시한다.
 - `records/`: source와 실제 작업을 바탕으로 만든 분석·결정·실행·검증 기록의 누적층. 분석 메모·후보·비교·탈락안·선택 근거처럼 goal 산출물을 만들고 고른 사람이 읽는 기록은 이 폴더 바로 아래에 날짜와 내용을 드러내어 둔다.
@@ -36,6 +36,6 @@ Source 항목에는 가능한 범위에서 원래 위치나 URL, 확보 시각�
 
 `output/`은 `records/`에서 일부 파일을 자동 승격하거나 복제하는 archive가 아니다. 사람이 goal의 현재 결과로 선택한 산출물과 canonical 위치를 보여 주며, 선택 이유와 이전 후보는 `records/`에 남긴다. `output/`에 있다는 사실만으로 검증 통과, 사람의 수락, Workspace 완료가 되지 않는다. `recover`는 `output/index.md`만 기본 packet에 싣고 연결된 산출물 본문은 필요할 때 선택해서 읽게 한다.
 
-작업 중 반복 확인은 가능한 한 직접 test 명령으로 수행한다. Durable `verify` receipt는 Workspace 상태를 바꾸거나 다음 사람·세션에 검증 근거를 인계할 때 만든다. 작업 중 생긴 목표·판단·다음 행동의 의미 변화는 agent나 main의 Maintain 흐름이 사람용 current·records에 반영하고 main이 검토한다. 실행된 verify는 성공·실패 모두 사건이므로 자동 삭제하거나 같은 hash라는 이유로 합치지 않는다. 이 구분은 사람용 탐색과 불필요한 누적을 줄이는 운용 기준이며, retention 자동화는 아직 제공하지 않는다.
+작업 중 반복 확인은 가능한 한 직접 test 명령으로 수행한다. Durable `verify` receipt는 Workspace 상태를 바꾸거나 다음 사람·세션에 검증 근거를 인계할 때 만든다. 작업 중 생긴 목표·판단·다음 행동의 의미 변화는 기존처럼 Maintain이 대화와 결과를 이해해 Spec·Ticket·state와 필요한 records에 반영한다. Main은 작업을 조율하고 필요한 결과를 다음 판단에 연결한다. 실행된 verify는 성공·실패 모두 사건이므로 자동 삭제하거나 같은 hash라는 이유로 합치지 않는다. 이 구분은 사람용 탐색과 불필요한 누적을 줄이는 운용 기준이며, retention 자동화는 아직 제공하지 않는다.
 
 관리 장치의 책임별 목적·입력·출력은 [`Recover`](../harness/recover/), [`Maintain`](../harness/maintain/), [`Verify`](../harness/verify/)가 각각 정의한다. Harness 자체 회귀 검증은 [`Harness validation`](../harness/validation/)이 소유한다.

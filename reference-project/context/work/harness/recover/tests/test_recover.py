@@ -73,15 +73,31 @@ class RecoverTests(WorkspaceFixture):
                 },
                 {
                     "path_base": "work_root",
-                    "path": "workspaces/001-example/current/memory/01-goal.md",
+                    "path": "workspaces/001-example/current/memory/spec/01-problem-goal-scope.md",
                 },
                 {
                     "path_base": "work_root",
-                    "path": "workspaces/001-example/current/memory/02-constraints.md",
+                    "path": "workspaces/001-example/current/memory/spec/02-behavior-and-cases.md",
                 },
                 {
                     "path_base": "work_root",
-                    "path": "workspaces/001-example/current/memory/03-project-context.md",
+                    "path": "workspaces/001-example/current/memory/spec/03-concepts-and-contracts.md",
+                },
+                {
+                    "path_base": "work_root",
+                    "path": "workspaces/001-example/current/memory/spec/04-quality-and-completion.md",
+                },
+                {
+                    "path_base": "work_root",
+                    "path": "workspaces/001-example/current/memory/spec/05-constraints-design-assumptions.md",
+                },
+                {
+                    "path_base": "work_root",
+                    "path": "workspaces/001-example/current/memory/project-context.md",
+                },
+                {
+                    "path_base": "work_root",
+                    "path": "workspaces/001-example/current/memory/tickets/index.md",
                 },
                 {
                     "path_base": "work_root",
@@ -121,25 +137,39 @@ class RecoverTests(WorkspaceFixture):
             packet["memory"]["entries"],
             [
                 {
-                    "path": (
-                        "workspaces/001-example/current/memory/01-goal.md"
-                    ),
+                    "path": "workspaces/001-example/current/memory/spec/01-problem-goal-scope.md",
                     "path_base": "work_root",
-                    "content": "WORKSPACE_MEMORY_GOAL\n",
+                    "content": 'WORKSPACE_SPEC_GOAL\n',
                 },
                 {
-                    "path": (
-                        "workspaces/001-example/current/memory/02-constraints.md"
-                    ),
+                    "path": "workspaces/001-example/current/memory/spec/02-behavior-and-cases.md",
                     "path_base": "work_root",
-                    "content": "WORKSPACE_MEMORY_CONSTRAINTS\n",
+                    "content": 'WORKSPACE_SPEC_BEHAVIOR\n',
                 },
                 {
-                    "path": (
-                        "workspaces/001-example/current/memory/03-project-context.md"
-                    ),
+                    "path": "workspaces/001-example/current/memory/spec/03-concepts-and-contracts.md",
                     "path_base": "work_root",
-                    "content": "WORKSPACE_MEMORY_PROJECT_CONTEXT\n",
+                    "content": 'WORKSPACE_SPEC_CONTRACTS\n',
+                },
+                {
+                    "path": "workspaces/001-example/current/memory/spec/04-quality-and-completion.md",
+                    "path_base": "work_root",
+                    "content": 'WORKSPACE_SPEC_QUALITY\n',
+                },
+                {
+                    "path": "workspaces/001-example/current/memory/spec/05-constraints-design-assumptions.md",
+                    "path_base": "work_root",
+                    "content": 'WORKSPACE_SPEC_DESIGN\n',
+                },
+                {
+                    "path": "workspaces/001-example/current/memory/project-context.md",
+                    "path_base": "work_root",
+                    "content": 'WORKSPACE_MEMORY_PROJECT_CONTEXT\n',
+                },
+                {
+                    "path": "workspaces/001-example/current/memory/tickets/index.md",
+                    "path_base": "work_root",
+                    "content": 'WORKSPACE_TICKET_INDEX\n\n- [Example](001-example.md)\n',
                 },
             ],
         )
@@ -197,6 +227,7 @@ class RecoverTests(WorkspaceFixture):
         )
         self.assertNotIn("UNLOADED_MEMORY_NON_MARKDOWN_SECRET", completed.stdout)
         self.assertNotIn("UNLOADED_NESTED_MEMORY_SECRET", completed.stdout)
+        self.assertNotIn("UNLOADED_TICKET_BODY", completed.stdout)
 
     def test_explicit_workspace_does_not_require_or_read_active_index(
         self,
@@ -322,9 +353,13 @@ class RecoverTests(WorkspaceFixture):
         )
 
         for required_name in (
-            "01-goal.md",
-            "02-constraints.md",
-            "03-project-context.md",
+            'spec/01-problem-goal-scope.md',
+            'spec/02-behavior-and-cases.md',
+            'spec/03-concepts-and-contracts.md',
+            'spec/04-quality-and-completion.md',
+            'spec/05-constraints-design-assumptions.md',
+            'project-context.md',
+            'tickets/index.md',
         ):
             with self.subTest(required_name=required_name):
                 required_path = memory / required_name
@@ -337,6 +372,39 @@ class RecoverTests(WorkspaceFixture):
                     self.assertIn(required_name, completed.stderr)
                 finally:
                     required_path.write_text(content, encoding="utf-8")
+
+    def test_spec_and_ticket_entry_points_reject_symlinks(self) -> None:
+        memory = self.work_root / "workspaces/001-example/current/memory"
+        for relative in (
+            "spec", "tickets", "spec/03-concepts-and-contracts.md",
+            "tickets/index.md",
+        ):
+            with self.subTest(relative=relative):
+                target = memory / relative
+                moved = target.with_name(target.name + "-original")
+                target.rename(moved)
+                target.symlink_to(moved, target_is_directory=moved.is_dir())
+                try:
+                    completed = self.run_cli("recover", "--json")
+                    self.assertEqual(completed.returncode, 2)
+                    self.assertIn("symlink", completed.stderr)
+                finally:
+                    target.unlink()
+                    moved.rename(target)
+
+    def test_ticket_body_is_selected_later_and_not_required_by_packet(self) -> None:
+        body = self.work_root / (
+            "workspaces/001-example/current/memory/tickets/001-example.md"
+        )
+        body.unlink()
+        completed = self.run_cli("recover", "--json")
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        packet = json.loads(completed.stdout)
+        self.assertIn("001-example.md", packet["memory"]["entries"][-1]["content"])
+        self.assertNotIn(
+            body.relative_to(self.work_root).as_posix(),
+            [entry["path"] for entry in packet["loaded_context_paths"]],
+        )
 
     def test_does_not_require_or_inspect_workspace_source(self) -> None:
         source = (

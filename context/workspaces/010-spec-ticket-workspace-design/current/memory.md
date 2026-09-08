@@ -6,7 +6,7 @@
 
 스킬 작성·작업 분해·인계에서 Spec과 Ticket을 실제 개념과 용어로 사용할 수 있도록, Workspace/current와의 관계 및 관리 책임을 사용자와 정한다. 동시에 충분히 관리되는 Spec-driven 운영과 비교해 Project·Work를 별도로 두는 선택의 이득과 비용을 설명한다.
 
-정의와 운영 책임이 정리되고 사용자가 선택해야 할 중요한 지점이 구체화되는 것이 현재 설계 작업의 목적이다. Spec 구성요소·구성 이유·예시는 2026-09-08 채택했으며, Workspace/current와의 통합 및 Reference 구현은 아직 남아 있다.
+정의와 운영 책임을 구체화한 뒤, 사용자가 요청한 Reference 적용과 관련 검증까지 이어간다. Spec 구성요소·구성 이유·예시는 2026-09-08 채택했으며, Workspace/current와의 통합을 Reference에 적용했다. 적용·검증 범위와 남은 사항은 state가 소유한다.
 
 ## 사용자에게서 이어받는 조건
 
@@ -49,8 +49,8 @@ Spec은 memory에 둔다. 필요하면 수정·갱신할 수 있지만, 진행 �
 
 - 기존 `01-goal.md`의 목표·완료 기준과 `02-constraints.md`의 작업별 제약·결정은 Spec이 대체한다. 같은 정의를 별도 goal·constraints 파일에서 다시 관리하지 않는다.
 - 02에 있던 source·records·output 등의 공통 관리 규칙은 Workspace 운영 지침과 원래 책임 문서가 맡는다. 그 규칙을 Spec에 옮겨 반복하거나 02를 유지할 이유로 삼지 않는다.
-- 기존 `03-project-context.md`는 Spec의 책임이 아니므로 memory에서 유지한다.
-- Spec의 다섯 구성요소는 각각 Markdown 파일로 둔다. 이 결정은 설계에 반영했으며 Reference의 실제 파일은 아직 변경하지 않았다.
+- Project context 선택은 Spec의 책임이 아니므로 memory에서 유지한다. 기존 `03-project-context.md`는 나란히 있던 goal·constraints 파일이 없어져 번호의 의미가 사라졌으므로, 후속 사용자 요청에 따라 `project-context.md`로 바꿨다.
+- Spec의 다섯 구성요소는 각각 Markdown 파일로 둔다. Reference에 실제 파일을 구성했다. 파일명·진입·유지의 운영 기준은 Reference의 [Spec과 Ticket](../../../../reference-project/context/work/workspaces/SPEC-AND-TICKETS.md)이 소유한다.
 
 ## Ticket·state·records의 관계
 
@@ -74,7 +74,7 @@ Spec은 memory에 둔다. 필요하면 수정·갱신할 수 있지만, 진행 �
 
 사용자는 전체 Spec·Workspace를 맡는 주체가 Ticket을 읽고, 개별 Ticket 실행은 독립 에이전트나 세션이 맡을 것으로 구상했다. [읽기·결과 전달 구상](../records/2026-09-08-08-workspace-ticket-execution-direction.md)을 기준으로 전체 담당과 개별 실행자의 필요한 맥락을 구별해 논의를 이어간다. 이는 모든 Ticket 위임이나 매번 새 세션을 강제하는 규칙이 아니며 쓰기 권한·자동화 방식은 아직 정하지 않았다.
 
-후속 확인에서는 기존 Workspace 진입이 memory와 state의 현재 맥락을 함께 읽는다는 점을 기준으로, goal·constraints를 대체하는 Spec 전체도 기본 진입에 포함하는 방향으로 정리했다. 다만 사용자는 Ticket 실행자의 범위는 열어 두라고 했다. 앞선 실행자별 읽기·실행 설명은 구상이며, Spec 전체 또는 일부를 반드시 읽힌다는 정책이나 고정 실행 단위를 정하지 않는다. 실제 위임에 맞게 입력과 범위를 정할 수 있다. 현재 Recover는 하위 폴더를 자동으로 읽지 않으므로 Spec 폴더 지원은 실제 적용 단계의 변경이다.
+후속 확인에서는 기존 Workspace 진입이 memory와 state의 현재 맥락을 함께 읽는다는 점을 기준으로, goal·constraints를 대체하는 Spec 전체도 기본 진입에 포함하는 방향으로 정리했다. 다만 사용자는 Ticket 실행자의 범위는 열어 두라고 했다. 앞선 실행자별 읽기·실행 설명은 구상이며, Spec 전체 또는 일부를 반드시 읽힌다는 정책이나 고정 실행 단위를 정하지 않는다. 실제 위임에 맞게 입력과 범위를 정할 수 있다. Reference 적용에서는 Spec 전체와 Ticket 색인을 기본 packet에 싣고 필요한 Ticket 본문을 추가로 읽는 기본값을 선택했다. 이는 개별 실행자 입력을 고정하는 정책이 아니다.
 
 Ticket 구성은 Matt를 참고해 실제 작업에 맞춰 조정하며, 항목을 모두 확정하는 절차를 먼저 요구하지 않는다. 개수 제한이나 새 Workspace 생성 조건을 먼저 규칙으로 만들지 않는다. 모든 수정에 별도 불변 사본을 남기는 의무도 두지 않는다. 실제 적용의 남은 일은 [state](state.md)에서 이어간다.
 
@@ -90,4 +90,4 @@ Spec·Ticket 사용에는 요구 명시·실행 인계와 공통 용어 사용�
 
 [첫 세션 종합](../records/2026-09-07-01-session-synthesis.md)과 [구성요소 합의 기록](../records/2026-09-08-01-spec-components-decision.md)이 사용자 핵심 발췌, 제안·정정 과정, 조사 및 리뷰 근거를 연결한다. 초기 코드 조사는 Reference revision 5e45310 기준이다. 그때의 테스트 결과를 새 설계나 현재 제품 전체의 검증으로 사용하지 않는다.
 
-외부 연구는 사용자가 지정한 memory-harness-research의 관련 분석과 두 회고 원문을 선택해서 읽는다. 05의 archive와 연결된 private JSONL, 다른 Desktop 저장소로 조사 범위를 넓히지 않는다. 이번 문서 작성은 Reference·외부 연구 저장소·자동 Maintain 설정의 변경을 포함하지 않는다.
+외부 연구는 사용자가 지정한 memory-harness-research의 관련 분석과 두 회고 원문을 선택해서 읽는다. 05의 archive와 연결된 private JSONL, 다른 Desktop 저장소로 조사 범위를 넓히지 않는다. 사용자가 Reference 작업 시작을 요청해 Spec·Ticket 구조와 읽기·갱신을 적용했고, 후속 요청으로 파일명 정리와 적용 결과 커밋까지 범위를 열었다. 외부 연구 저장소·root 자동 Maintain 설정은 변경하지 않았다.

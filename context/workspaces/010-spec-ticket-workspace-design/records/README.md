@@ -4,6 +4,9 @@
 
 ## 현재 선택을 먼저 확인할 때
 
+- [Project context 파일명 정리와 적용 커밋](2026-09-08-13-project-context-filename-and-commit.md): 옛 `03` 번호 제거, 실제 경로·링크 대조와 후속 커밋 요청.
+- [Reference 적용과 검증](2026-09-08-12-reference-spec-ticket-implementation.md): 설계 기록 커밋 후 구조·Recover·Maintain·생성 경로 적용. 변경 전에도 재현되는 Verify 실패와 실제 host 미검증 범위를 구별한다.
+
 - [설계 합의와 적용 전 남은 작업](2026-09-08-11-design-status-and-remaining-work.md): 기록 정리 시점의 확정 내용·열린 부분·남은 실제 적용 작업을 모았다. 이후 상태는 current에서 이어간다.
 - [Spec 구성의 채택 근거](2026-09-08-01-spec-components-decision.md)와 [Spec 배치·기존 파일 대체](2026-09-08-02-workspace-spec-scope.md).
 - [Ticket 관리 선택](2026-09-08-07-memory-ticket-placement-decision.md)과 [기본 진입·실행자 구상](2026-09-08-08-workspace-ticket-execution-direction.md).

@@ -80,6 +80,7 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
         └── workspaces/
             ├── README.md         # 지속 Workspace collection 경계
             ├── CREATE-AND-TRANSITION.md # 생성·전환 end-to-end canonical
+            ├── SPEC-AND-TICKETS.md # Spec·Ticket 구성과 갱신 기준
             ├── index.json        # active Workspace 선택
             └── 001-default-timeout/
                 ├── README.md     # 사람용 Workspace 첫 화면
@@ -97,7 +98,7 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
                         └── verify/
 ```
 
-각 Workspace는 `current/`, `source/`, `output/`, `records/`를 형제로 둔다. `current/memory/`의 `01-goal.md`, `02-constraints.md`, `03-project-context.md`는 최소 재진입 context이고, `source/`에는 해당 Workspace가 선택한 원문·snapshot·provenance만 둔다. 분석 메모·후보·비교·탈락안·선택 근거를 포함한 과정은 `records/` 바로 아래 날짜별 기록이 맡고, 기계가 생성한 검증 증거는 `records/receipts/<종류>/`에 분리한다. Goal을 위해 선택된 현재 산출물은 [`output/index.md`](context/work/workspaces/001-default-timeout/output/index.md)에서 찾게 한다. 이 sample의 실제 제품 구현은 Project root의 canonical을 연결하며 Workspace 안에 복제하지 않는다.
+각 Workspace는 `current/`, `source/`, `output/`, `records/`를 형제로 둔다. `current/memory/`에는 [Spec 다섯 파일·Ticket·Project context 선택](context/work/workspaces/SPEC-AND-TICKETS.md)을 두고, state는 전체 상황·판단·다음 행동을 맡는다. `source/`에는 해당 Workspace가 선택한 원문·snapshot·provenance만 둔다. 분석 메모·후보·비교·탈락안·선택 근거를 포함한 과정은 `records/` 바로 아래 날짜별 기록이 맡고, 기계가 생성한 검증 증거는 `records/receipts/<종류>/`에 분리한다. Goal을 위해 선택된 현재 산출물은 [`output/index.md`](context/work/workspaces/001-default-timeout/output/index.md)에서 찾게 한다. 이 sample의 실제 제품 구현은 Project root의 canonical을 연결하며 Workspace 안에 복제하지 않는다.
 
 Project 문서 전체를 Workspace에 복사하지 않는다. 이 Workspace의 [`recover.json`](context/work/workspaces/001-default-timeout/recover.json)은 안정된 [`Project routing anchor`](context/project/README.md), goal에 지속해서 적용되는 [`제품 기준`](context/project/common/prd.md), 지금의 구현·검증 경계를 보여 주는 [`architecture`](context/project/current/architecture.md), 직접 적용할 [`default timeout 결정`](context/project/decisions/0001-default-timeout.md)을 이유와 함께 선택한다. 현재 적용할 별도 guidance가 없으므로 [`guidance` 진입점](context/project/guidance/README.md)은 구조에는 존재하지만 recovery context에는 선택하지 않는다. Workspace `source/`와 `records/` 전체, Workspace `output/index.md`가 연결한 산출물 본문도 기본 recovery context에 들어가지 않는다. README는 문서 위치를 찾게 할 뿐 실제 내용 선택을 대신하지 않는다.
 

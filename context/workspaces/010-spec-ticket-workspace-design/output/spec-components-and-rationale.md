@@ -86,6 +86,6 @@
 
 ## 후속 배치 결정과 남은 설계
 
-Spec은 memory에서 필요할 때 수정하며 Workspace와 함께 유지한다. 기존 `01-goal.md`와 `02-constraints.md`의 작업 정의를 대체하고, `03-project-context.md`는 별도로 유지한다. Workspace 공통 관리 규칙은 원래 운영 지침·책임 문서가 맡는다. 사용자 발화와 이유는 [후속 논의 기록](../records/2026-09-08-02-workspace-spec-scope.md)에 있다.
+Spec은 memory에서 필요할 때 수정하며 Workspace와 함께 유지한다. 기존 `01-goal.md`와 `02-constraints.md`의 작업 정의를 대체하고, `project-context.md`는 별도로 유지한다. Workspace 공통 관리 규칙은 원래 운영 지침·책임 문서가 맡는다. 사용자 발화와 이유는 [후속 논의 기록](../records/2026-09-08-02-workspace-spec-scope.md)에 있다.
 
-Ticket은 후속 논의에서 memory에 두고 정의·진행을 함께 관리하며 필요하면 records를 사용하기로 했다. 구성은 Matt의 Ticket을 기본으로 삼되 열어 둔다. [해당 결정](../records/2026-09-08-07-memory-ticket-placement-decision.md) 뒤에는 [기존 Maintain의 기록·갱신과 Main의 작업 조율을 유지](../records/2026-09-08-10-spec-ticket-authorship-independent-review.md)한다고 확인했다. 실제 구조·읽기·기록 대상의 적용은 [현재 state](../current/state.md)에서 이어간다. 이 설명 문서와 예시가 있는 output 경로는 연구 산출물의 위치이며, 아직 Reference에 실제 Spec 파일을 생성하거나 기존 goal·constraints를 제거하지 않았다.
+Ticket은 후속 논의에서 memory에 두고 정의·진행을 함께 관리하며 필요하면 records를 사용하기로 했다. 구성은 Matt의 Ticket을 기본으로 삼되 열어 둔다. [해당 결정](../records/2026-09-08-07-memory-ticket-placement-decision.md) 뒤에는 [기존 Maintain의 기록·갱신과 Main의 작업 조율을 유지](../records/2026-09-08-10-spec-ticket-authorship-independent-review.md)한다고 확인했다. 실제 구조·읽기·기록 대상은 Reference에 적용했으며 [현재 state](../current/state.md)에서 검증 범위와 남은 일을 이어간다. 이 설명 문서와 예시가 있는 output 경로는 연구 산출물의 위치이며, Reference는 별도로 기존 default-timeout의 실제 내용으로 다섯 Spec 파일을 구성해 goal·constraints를 대체했다.

@@ -8,7 +8,7 @@ config loader가 Project의 default-timeout 결정과 일치하는지 고정 검
 
 - 최근 검증 결과, receipt, 완료 시각의 기계 정본은 [`status.json`](status.json)이다.
 - 검증의 claim, stdout·stderr, canonical basis·evidence hash는 status가 가리키는 `records/receipts/verify/` receipt에서 확인한다. Recover는 현재 schema receipt의 선언된 snapshot이 지금도 같은지 `fresh` 또는 `stale`로 요약하고, 과거 schema receipt는 `unknown_legacy`로 표시한다.
-- 다음 행동과 사람의 해석은 이 문서가 소유하며 Harness가 자동으로 고치지 않는다.
+- 전체 상황·판단·다음 행동은 이 문서가 소유한다. Maintain은 대화와 결과를 이해해 이를 갱신하고, 제품 Verify는 machine status와 receipt만 갱신한다. Ticket별 정의·진행은 해당 Ticket 본문에서 확인한다.
 
 ## 해석 경계
 

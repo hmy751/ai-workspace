@@ -20,7 +20,7 @@
 
 - Recover contract의 필수 Project anchor를 `context/project/overview.md`에서 `context/project/README.md`로 바꾸고 의미 변경을 schema `4 → 5`로 표시했다. Recovery packet shape는 바뀌지 않아 schema `6`을 유지했다.
 - 공통 fixture는 README와 task-specific 실제 문서를 함께 선택하고, 존재하지만 선택하지 않은 overview가 packet에 들어오지 않는지 검사한다. Schema `4` 거부, README 필수·순서 비강제, overview 부재 허용 회귀 test를 추가했다.
-- Reference의 유일한 active/default consumer인 `001-default-timeout`은 [`recover.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/recover.json)과 사람용 [`03-project-context.md`](../../../../reference-project/context/work/workspaces/001-default-timeout/current/memory/03-project-context.md)를 함께 reconcile했다. README, 선택적 overview, normative Decision을 같은 이유로 가리키며 [`output/index.md`](../../../../reference-project/context/work/workspaces/001-default-timeout/output/index.md)는 실제 `src/config_loader.py`로 풀린다.
+- Reference의 유일한 active/default consumer인 `001-default-timeout`은 [`recover.json`](../../../../reference-project/context/work/workspaces/001-default-timeout/recover.json)과 사람용 [`03-project-context.md`](../../../../reference-project/context/work/workspaces/001-default-timeout/current/memory/project-context.md)를 함께 reconcile했다. README, 선택적 overview, normative Decision을 같은 이유로 가리키며 [`output/index.md`](../../../../reference-project/context/work/workspaces/001-default-timeout/output/index.md)는 실제 `src/config_loader.py`로 풀린다.
 - `.codex/maintain-runtime/`이 없어 current generation에 explicit session-bound된 Workspace는 발견되지 않았다. 따라서 이번 live consumer 집합은 active/default `001-default-timeout` 하나였다. Binding 확인을 위해 private `turns/`·`events/` payload를 열지 않았다.
 
 ### 적용 acceptance와 Verify 경계
