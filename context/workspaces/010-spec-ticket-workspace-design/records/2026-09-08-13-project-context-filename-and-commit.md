@@ -21,3 +21,9 @@ Recover의 필수 경로, 공통 테스트 fixture, Recover 기대 경로, 현�
 실제 샘플의 active/default Recover·explicit Recover와 Maintain bootstrap을 읽기 전용으로 확인해 모두 새 Project context 경로·Spec 다섯 파일·Ticket 색인을 포함함을 확인했다. `project-context.md` 본문은 변경 전 파일과 바이트 단위로 같았다. 변경·추가 Markdown의 로컬 링크 존재와 `git diff --check`도 확인했다.
 
 이 기록은 이름·참조·구조 적용의 확인이며 자동 Maintain의 실제 의미 판단이나 독립 Ticket 실행 운영을 입증하지 않는다.
+
+## 커밋 결과와 전달 문서
+
+요청한 변경은 `dcd3c6f` (`feat: integrate workspace spec and tickets`)로 커밋했다. 36개 파일의 변경이며 Project context 본문은 내용 변경 없이 이름만 바뀌었다. 커밋 직후 작업 트리에는 기존 무관한 `.DS_Store`만 남았다.
+
+이후 [연구 측 전달 문서](../output/research-feedback-spec-ticket-integration.md)를 작성했다. 연구의 문제의식, 사용자 선택, 실제 구현과 미검증을 구분하며 02의 기본 current 구성과 06의 Spec·Ticket 후보 관계가 이번 적용에서 달라진 점을 명시했다. 외부 연구 저장소와 다른 세션에 직접 반영한 결과는 아니다.

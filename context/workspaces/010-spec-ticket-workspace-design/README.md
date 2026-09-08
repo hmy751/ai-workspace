@@ -4,7 +4,7 @@ Spec·Ticket을 실제 개념과 용어로 사용하면서 기존 Workspace/curr
 
 2026-09-07 사용자가 이번 대화 처음부터의 작업을 009와 분리해 010에 기록하도록 요청했다. 이 Workspace의 범위는 최초 Spec·Ticket 외부 조사 요청부터 current와의 중복, 개발 영향 조사, 스냅샷 조건, memory/state 역사 검토, 배치 후보, 제3 리뷰와 개념 트레이드오프 재검토, 이후 합의한 설계의 Reference 적용까지다. 009의 선행 Project context 구현을 이번 세션의 성과로 포함하지 않는다.
 
-Spec의 다섯 구성요소와 memory의 Spec·Ticket 배치, 기존 goal·constraints 대체를 정하고 Reference에 적용했다. 기존처럼 Maintain은 기록·갱신을, Main은 작업 조율을 맡는다. 설계 기록은 `4fe8694`로 커밋했으며, 후속 사용자 요청에 따라 Project context 파일의 옛 번호를 제거하고 Reference 적용·검증 기록을 함께 커밋하는 단계다.
+Spec의 다섯 구성요소와 memory의 Spec·Ticket 배치, 기존 goal·constraints 대체를 정하고 Reference에 적용했다. 기존처럼 Maintain은 기록·갱신을, Main은 작업 조율을 맡는다. 설계 기록은 `4fe8694`, Reference 적용과 Project context 파일명 정리는 `dcd3c6f`로 커밋했다. 연구 측에 전달할 전체 맥락과 근거는 [종합 전달 문서](output/research-feedback-spec-ticket-integration.md)에 있다.
 
 ## 재진입
 

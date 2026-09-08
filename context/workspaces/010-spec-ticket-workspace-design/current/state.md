@@ -4,7 +4,7 @@
 
 ## 현재 단계
 
-**설계 기록은 `4fe8694`로 커밋했고, 합의한 Spec·Ticket 구조를 Reference에 적용했다.** 후속 사용자가 Project context 파일 번호 정리와 커밋을 요청했다. `03-project-context.md`를 `project-context.md`로 바꾸고 실제 읽기 경로·테스트를 맞췄으며, 적용 결과와 검증 기록을 함께 커밋하는 단계다.
+**설계 기록은 `4fe8694`로 커밋했고, 합의한 Spec·Ticket 구조를 Reference에 적용했다.** 후속 사용자가 Project context 파일 번호 정리와 커밋을 요청했다. `03-project-context.md`를 `project-context.md`로 바꾸고 실제 읽기 경로·테스트를 맞췄으며, 적용 결과와 검증 기록을 **`dcd3c6f`로 커밋했다.**
 
 유지할 합의는 [memory](memory.md), 실제 결과와 canonical 위치는 [output](../output/index.md), 구체적인 변경·판단·검증은 [Reference 적용 기록](../records/2026-09-08-12-reference-spec-ticket-implementation.md)에 있다.
 
@@ -27,4 +27,4 @@
 
 구현과 파일 구성을 검토하고 실제 작업에서 Ticket 작성·실행·결과 반영을 사용해 본다. 특히 Main이 받은 결과가 Maintain 입력과 실제 문서까지 이어지는지, 새 실행자에게 필요한 본문이 준비되는지를 확인한다. 개별 실행자의 입력·쓰기 범위는 작업에 맞게 열어 둔다.
 
-전체 회귀의 기존 Verify timeout 실패는 별도 후속 조사로 남아 있다. 파일명 정리 뒤 전체 124개 검사를 다시 실행해도 같은 한 건만 실패했다. 이번 Spec·Ticket 적용을 이유로 Verify 코드·시간 기준을 바꾸거나 실패 검사를 건너뛰지 않았다. 파일명 정리와 커밋 경계는 [후속 기록](../records/2026-09-08-13-project-context-filename-and-commit.md)에 남긴다. 이어 memory-harness-research가 배경·선택 이유·구현·검증 범위를 함께 인지할 전달 문서를 구성한다.
+전체 회귀의 기존 Verify timeout 실패는 별도 후속 조사로 남아 있다. 파일명 정리 뒤 전체 124개 검사를 다시 실행해도 같은 한 건만 실패했다. 이번 Spec·Ticket 적용을 이유로 Verify 코드·시간 기준을 바꾸거나 실패 검사를 건너뛰지 않았다. 파일명 정리와 커밋 경계는 [후속 기록](../records/2026-09-08-13-project-context-filename-and-commit.md)에 남긴다. [종합 전달 문서](../output/research-feedback-spec-ticket-integration.md)에 배경·선택 이유·구현·검증 범위와 연구 01~06에서 이어 볼 지점을 정리했다. 연구 측이 읽을 수 있는 산출물을 준비한 상태이며, 외부 저장소 수정·다른 세션의 실제 수신·이해·적용은 수행하지 않았다.
