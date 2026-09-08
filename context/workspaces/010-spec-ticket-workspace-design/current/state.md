@@ -8,6 +8,12 @@
 
 현재 산출물은 [구성요소와 구성 이유](../output/spec-components-and-rationale.md), [예시 Spec](../output/spec-example-travel-answer.md)이다. Spec 사용과 내용 구성에 대한 합의이며, 실제 Spec/Ticket 저장 체계나 Reference 구현 완료는 아니다.
 
+후속 논의는 **일단 Spec 하나가 생긴다는 전제**로 이어간다. 사용자는 이 가정을 개수 제한이나 새 Workspace 생성 의무처럼 타이트하게 정하지 말라고 했다. [관련 기록](../records/2026-09-08-02-workspace-spec-scope.md)에 원문을 남겼다.
+
+Spec은 memory에 두기로 했다. 필요하면 수정할 수 있지만 해당 Workspace의 기준으로 유지하고, Workspace와 함께 스냅샷처럼 남는 문서로 본다. 장기적으로 Project의 최신 상태를 계속 반영하는 문서로 관리하지 않는다.
+
+기존 `01-goal.md`와 `02-constraints.md`의 작업 정의는 Spec이 대체하고, `03-project-context.md`는 memory에서 유지하기로 했다. 02에 반복된 Workspace 공통 관리 규칙은 원래 운영 지침·책임 문서가 맡는다. Spec의 다섯 구성요소는 각각 Markdown 파일로 둔다.
+
 ## 확인한 조사와 판단
 
 - 앞선 공개 비교, current 중복·개발 영향, memory/state 역사, 독립 스냅샷과 개념 트레이드오프는 [첫 세션 종합](../records/2026-09-07-01-session-synthesis.md)에 보존돼 있다. 해당 기록 이후 010 분리 변경은 commit `6e12f10`으로 남겼다.
@@ -19,19 +25,18 @@
 
 ## 다음 논의
 
-합의한 구성요소를 기준으로 다음 통합 설계를 구체화한다. 우선 Spec과 Workspace의 범위 및 전체 목표의 위치를 정하면 기존 current와 중복되는 내용의 소유를 판단할 수 있다.
+Spec의 내용·위치·기존 goal/constraints 대체·파일 분할은 정했다. 다음 논의는 Ticket과 운영 방식이다.
 
-1. Spec이 Workspace 전체 목표를 정의하는지 일부 범위를 정의하는지, Workspace당 Spec 개수를 어떻게 다룰지.
-2. 기존 goal·constraints·지속 판단 중 Spec이 맡는 내용과 밖에 남기는 내용, memory/spec·tickets 후보의 실제 배치와 파일 분할.
-3. Ticket의 입력·실행 범위·완료 조건·의존 관계와 진행 정보의 책임.
-4. 새 세션·개별 실행자·관리 주체가 읽는 내용, 기준 변경의 갱신·전달과 이전 결과 재판정 책임.
+1. `memory/tickets/` 기본안에서 Ticket의 입력·실행 범위·완료 조건·의존 관계와 진행 상태를 정리한다. Ticket과 state가 각각 무엇을 맡을지 구체화한다.
+2. 새 세션·개별 실행자·관리 주체가 읽는 내용, Spec·Ticket 수정과 결과 반영의 책임을 정한다. 판단이 바뀌면 영향받는 기존 결과를 어떻게 다시 볼지도 다룬다.
+3. 설계를 기준으로 Recover·Maintain·Verify, Workspace 생성·이식과 기존 자료 전환을 실제로 변경하고 검증한다. 구현은 아직 시작하지 않았다.
 
 독립 스냅샷 조건은 유지한다. 구성요소 합의를 아직 정하지 않은 후보처럼 되돌리지 않는다. 외부 Spec-driven 대비 별도 Project·Work의 이득·비용에 관한 기존 판단도 이어간다. 추가 실험·리뷰·자동화를 필수 gate로 정한 것은 아니다.
 
 ## 적용과 확인 범위
 
-이번 변경은 010의 두 output 문서, 종합 record와 재진입 문서다. Reference·Recover·Maintain·Verify·schema·hook·이식 절차는 변경하지 않았다. 예시의 API·30초·평가 20개는 실제 환경에서 검증한 수치가 아니다.
+구성요소 저장과 이후 범위·memory 배치 논의는 010의 설계 문서에 반영했다. Reference·Recover·Maintain·Verify·schema·hook·이식 절차는 변경하지 않았다. 예시의 API·30초·평가 20개는 실제 환경에서 검증한 수치가 아니다.
 
 초기 Reference revision 5e45310의 임시 fixture·회귀 검사 결과는 당시 개발 영향 조사에 대한 근거다. 이번 설계 채택의 실제 운영 효과나 제품 테스트 결과로 사용하지 않는다. 이번 기록 작업에서 제품 테스트는 재실행하지 않았다.
 
-문서 링크·예시 JSON·Git diff 형식을 확인했고, 별도 읽기 전용 검토에서도 합의 범위를 넘기는 명백한 기록 문제를 찾지 못했다. 상세 확인 범위는 [구성요소 합의 기록](../records/2026-09-08-01-spec-components-decision.md)의 저장 후 확인에 남겼다.
+구성요소 저장 당시 문서 링크·예시 JSON·Git diff 형식을 확인했고, 별도 읽기 전용 검토에서도 합의 범위를 넘기는 명백한 기록 문제를 찾지 못했다. 당시 확인 범위는 [구성요소 합의 기록](../records/2026-09-08-01-spec-components-decision.md)의 저장 후 확인에 남겼다.

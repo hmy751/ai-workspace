@@ -4,7 +4,7 @@ Spec·Ticket을 실제 개념과 용어로 사용하면서 기존 Workspace/curr
 
 2026-09-07 사용자가 이번 대화 처음부터의 작업을 009와 분리해 010에 기록하도록 요청했다. 이 Workspace의 범위는 최초 Spec·Ticket 외부 조사 요청부터 current와의 중복, 개발 영향 조사, 스냅샷 조건, memory/state 역사 검토, 배치 후보, 제3 리뷰와 개념 트레이드오프 재검토까지다. 009의 선행 Project context 구현을 이번 세션의 성과로 포함하지 않는다.
 
-2026-09-08에는 원문과 외부 Spec-driven 자료, 독립 리뷰와 예시 수정을 거쳐 Spec의 다섯 구성요소·구성 이유·예시를 채택했다. [구성 설명](output/spec-components-and-rationale.md)과 [예시 Spec](output/spec-example-travel-answer.md)은 별도 산출물이며, 저장·읽기·갱신과 Reference 적용 설계는 후속으로 남아 있다.
+2026-09-08에는 원문과 외부 Spec-driven 자료, 독립 리뷰와 예시 수정을 거쳐 Spec의 다섯 구성요소·구성 이유·예시를 채택했다. [구성 설명](output/spec-components-and-rationale.md)과 [예시 Spec](output/spec-example-travel-answer.md)은 별도 산출물이다. 후속 논의에서는 memory/spec 아래 다섯 Markdown 파일, 기존 goal·작업별 constraints 대체와 project-context 유지를 정했다. Ticket과 읽기·갱신 책임, 실제 Reference 적용은 남아 있다.
 
 ## 재진입
 
@@ -19,7 +19,7 @@ Spec·Ticket을 실제 개념과 용어로 사용하면서 기존 Workspace/curr
 - 개념 사용의 방향과 구체적인 파일 배치·범위·갱신 방식의 결정을 구분한다.
 - Spec·Ticket 정의, 전체 목표, Workspace별 독립 스냅샷, 현재와 과거, 읽기와 갱신 책임을 함께 설계한다.
 - 초기 코드 영향 분석은 설계 자료다. 개념의 채택 이유를 기존 Recover·Maintain 수정 비용만으로 판단하지 않는다.
-- 현재는 Spec 내용 구성을 채택한 설계 단계다. Reference의 파일 구조·runtime·schema·hook을 변경하는 합의는 없다.
+- 현재는 Spec의 내용·배치·기존 파일과의 관계를 정한 설계 단계다. Reference의 실제 파일·runtime·schema·hook 변경은 아직 진행하지 않는다.
 - 기록과 산출물 정리는 승인됐으며, 이전의 Reference 구현 보류를 해제한 것으로 해석하지 않는다.
 
 ## 내부 책임과 009와의 관계
