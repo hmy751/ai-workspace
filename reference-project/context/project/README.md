@@ -48,7 +48,7 @@ context/project/
 
 - [`common/prd.md`](common/prd.md): 지속되는 제품 목적·사용자 장면·완료 기준·범위의 normative Owner
 - [`current/architecture.md`](current/architecture.md): 교체되는 현재 구현 구조·지원 경계·검증 경로의 지도
-- [`guidance/README.md`](guidance/README.md): 현재 별도 조건부 guidance가 없다는 명시적 상태와 추가 조건
+- [`guidance/README.md`](guidance/README.md): 조건부 지침의 적용·추가 기준과 현재 설명 스킬 세 개가 사용하는 [`설명과 근거 기준`](guidance/explanation-and-evidence-criteria.md)의 소비 관계
 - [`decisions/0001-default-timeout.md`](decisions/0001-default-timeout.md): 기본 timeout의 선택 이유이면서 해당 값의 명시적 normative Owner
 
 ## 내용 복원 완료 조건

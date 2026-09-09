@@ -1,6 +1,12 @@
 # Spec·Ticket 설계 output
 
-마지막 갱신: 2026-09-08
+마지막 갱신: 2026-09-09
+
+## 08 후속 합의와 네 스킬의 Reference 통합
+
+사용자가 재이식 분석 뒤 반영을 요청해 [Spec·Ticket 상위 기준](../../../../reference-project/context/work/workspaces/SPEC-AND-TICKETS.md), [설치된 여섯 스킬의 색인](../../../../reference-project/.agents/skills/README.md), [공통 설명 기준과 소비 관계](../../../../reference-project/context/project/guidance/README.md), 생성·이식 경로를 연결했다. 후속 합의의 Work당 Spec 하나, Ticket 네 구성과 실행 내부 설계의 위치를 적용했다. [통합 기록](../records/2026-09-08-15-skills-spec-ticket-reference-integration.md)에 입력 판본·변경·실행 검증·독립 리뷰와 제한 평가의 범위를 남겼다. 2026-09-09 사용자가 통합 변경의 커밋을 요청했다. 실제 host 운영 성공을 완료로 주장하지 않는다.
+
+[재이식 전 분석](../records/2026-09-08-14-skills-spec-ticket-reintegration-assessment.md)은 입력 `1e07f58`과 적용 전 Reference `9505bf3`의 차이·판단 근거다. 실제 산출물과 별도로 그 당시 비교를 records에 보존한다. 이 연구 작업대 root의 자동 Maintain은 계속 비활성이다.
 
 ## 채택한 현재 산출물
 
@@ -12,7 +18,7 @@
 
 후속 설계에서 Spec은 `memory/spec/` 아래 다섯 구성요소를 각각 Markdown 파일로 두기로 했다. 기존 goal·작업별 constraints는 Spec이 대체하고, project-context는 유지한다. 예시 본문은 구성을 보여 주는 연구 산출물로 그대로 두며, Reference에서는 기존 default-timeout 작업의 실제 내용으로 Spec을 구성했다.
 
-Ticket은 `memory/tickets/`에 두고 정의·진행을 같은 문서에 자연스럽게 남기기로 했다. 구성은 Matt의 Ticket을 기본으로 삼되 고정하지 않고 작업에 맞게 조정한다. state는 전체 상황·판단을 맡고, 기록 보존에 필요하면 records를 사용한다. 상세 상태 체계나 자동 이동 규칙은 정하지 않았다.
+Ticket은 `memory/tickets/`에 두고 정의·진행을 같은 문서에 자연스럽게 남긴다. 후속 08 합의에서 맡은 결과·범위, 실행 맥락·접근, 완료 조건·확인 방법, 현재 상태·실제 결과의 네 부분을 기본 구성으로 채택했다. 정확한 제목·순서·세부 필드는 작업에 맞게 조정한다. state는 전체 상황·판단을 맡고, 기록 보존에 필요하면 records를 사용한다. 상세 상태 체계나 자동 이동 규칙은 정하지 않았다.
 
 ## 논의 과정과 근거
 
@@ -28,7 +34,7 @@ Ticket은 `memory/tickets/`에 두고 정의·진행을 같은 문서에 자연�
 
 ## 실제 적용의 상태
 
-기존 Maintain의 기록·갱신과 Main의 작업 조율을 유지한다. 파일 구조·기본 읽기 순서, Recover·Maintain과 생성 경로를 적용했으며 검증 범위와 후속 작업은 [state](../current/state.md)에서 이어간다. Ticket 항목과 개별 실행자 범위를 모두 고정하는 것을 선행 조건으로 두지 않는다. Spec 하나라는 가정과 Workspace별 독립 스냅샷 조건도 유지한다.
+기존 Maintain의 기록·갱신과 Main의 작업 조율을 유지한다. 파일 구조·기본 읽기 순서, Recover·Maintain과 생성 경로에 이어 08의 후속 합의·네 스킬·공통 기준·이식 절차까지 반영했다. 검증 범위와 후속 작업은 [state](../current/state.md)에서 이어간다. Ticket의 세부 형식과 개별 실행자 범위를 모두 고정하는 것을 선행 조건으로 두지 않는다. Work당 Spec 하나와 Workspace별 독립 스냅샷 조건을 유지한다.
 
 ## 적용한 Reference 산출물
 

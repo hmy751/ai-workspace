@@ -114,7 +114,9 @@ Decision은 다음 의미를 갖는다.
 
 새 Main session의 unbound 기본값, explicit activation·rebind·deactivation, binding generation, prompt·response-end·late worker 귀속, hook·worker·notice lifecycle, 민감 runtime의 실제 저장 범위와 retention, config migration과 actual-host 증명 상한은 [`SESSION-BINDING-AND-LIFECYCLE.md`](SESSION-BINDING-AND-LIFECYCLE.md)가 소유한다.
 
-자동 lifecycle adapter가 없는 host에서도 Main은 이 README의 semantic 판단·guarded apply 책임을 수동으로 수행할 수 있다. 다만 수동 fallback은 모든 response-end 자동 점검, 같은 semantic identity 재사용이나 Main 비차단을 증명하지 않는다.
+자동 lifecycle adapter가 없는 host나 현재 자동 연결을 사용하지 않는 session에서도, 문서 반영이 허용된 작업이면 Main은 explicit Workspace의 bounded bootstrap과 이 README의 semantic 판단·guarded apply 책임을 수동으로 수행할 수 있다. 수동 처리는 자동 session binding을 만들지 않으며 unbound hook은 계속 정상 no-op이다. 자동 연결은 사용자의 명시적 Workspace 선택에 따라 별도로 수행한다. 스킬에 기록을 맡겼다는 설명만으로 문서 반영이나 activation을 완료했다고 하지 않는다.
+
+수동 fallback은 모든 response-end 자동 점검, 같은 semantic identity 재사용이나 Main 비차단을 증명하지 않는다. 자동으로 연결된 session에서는 같은 문서를 별도 수동 경로로 중복 수정하지 않고 기존 Maintain 흐름의 결과와 필요한 실제 반영을 확인한다.
 
 ## 소유하지 않는 것
 

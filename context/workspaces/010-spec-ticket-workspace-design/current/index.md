@@ -1,6 +1,8 @@
 # Spec·Ticket 설계 current
 
-마지막 갱신: 2026-09-08
+마지막 갱신: 2026-09-09
+
+외부 연구 08의 네 스킬·Spec·Ticket 후속 합의를 Reference에 반영했다. 2026-09-09 사용자가 커밋을 요청해 앞선 보류를 해제했다. 통합 변경과 검증 결과는 state 및 [통합 기록](../records/2026-09-08-15-skills-spec-ticket-reference-integration.md)에서 이어간다. 적용 전 비교는 [분석 기록](../records/2026-09-08-14-skills-spec-ticket-reintegration-assessment.md)에 보존한다.
 
 1. [memory.md](memory.md): 목적·조건, Spec 구성과 배치, Ticket·state·records 관계, 유지할 역할.
 2. [state.md](state.md): 현재 단계, 남은 실제 적용 작업과 확인 범위.

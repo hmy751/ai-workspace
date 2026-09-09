@@ -6,6 +6,8 @@ Spec·Ticket을 실제 개념과 용어로 사용하면서 기존 Workspace/curr
 
 Spec의 다섯 구성요소와 memory의 Spec·Ticket 배치, 기존 goal·constraints 대체를 정하고 Reference에 적용했다. 기존처럼 Maintain은 기록·갱신을, Main은 작업 조율을 맡는다. 설계 기록은 `4fe8694`, Reference 적용과 Project context 파일명 정리는 `dcd3c6f`로 커밋했다. 연구 측에 전달할 전체 맥락과 근거는 [종합 전달 문서](output/research-feedback-spec-ticket-integration.md)에 있다.
 
+후속으로 외부 연구 08의 최신 합의와 네 스킬을 다시 분석한 뒤, 사용자 요청에 따라 Reference에 반영했다. Work당 Spec 하나, Ticket 네 기본 구성과 실행 내부 설계의 위치를 상위 기준에 적용하고 스킬·공통 guidance·이식 경로를 연결했다. 최초 반영 때는 커밋을 보류했고 **2026-09-09 후속 요청으로 통합 변경의 커밋을 승인받았다.** [통합 기록](records/2026-09-08-15-skills-spec-ticket-reference-integration.md)과 current에서 실제 검증 결과·남은 host 확인을 이어간다.
+
 ## 재진입
 
 1. [current/index.md](current/index.md)에서 현재 읽기 순서를 확인한다.

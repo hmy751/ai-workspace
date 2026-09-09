@@ -16,6 +16,8 @@ Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Wor
 
 작업 중 얻은 Project-wide 맥락을 갱신하거나 누락된 기존 맥락을 복원할 때는 [Project 관리 기준](context/project/README.md)과 [Project 맥락 갱신 skill](.agents/skills/update-project-context/SKILL.md)을 사용한다. 이 skill은 Workspace Maintain과 별도로 해당 Project 문서를 갱신하며, 근거 있는 내용과 남은 판단을 함께 보존한다.
 
+Work를 구체화하거나 실제 결과에 따라 판단을 다시 보고, 작업물·앞선 설명을 이해할 때는 [Project skill 색인](.agents/skills/README.md)에서 해당 스킬을 찾는다. 네 스킬은 [Spec·Ticket 운영 기준](context/work/workspaces/SPEC-AND-TICKETS.md)을 읽기·판단·반영에 연결하며, 각 호출 조건에 따라 사용한다. 공통 [설명과 근거 기준](context/project/guidance/explanation-and-evidence-criteria.md)은 이해 지원 세 스킬이 필요한 때 읽는다.
+
 실제 명령은 `reference-project/` root에서 실행한다.
 
 ```bash
@@ -43,9 +45,16 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
 .
 ├── .agents/
 │   └── skills/
+│       ├── README.md                 # 설치 스킬의 역할·canonical·연결 색인
 │       ├── create-context-workspace/ # 설치 뒤 새 Workspace 생성·재진입 검토
-│       └── update-project-context/   # 지속 Project 맥락 갱신·누락 복원
+│       ├── update-project-context/   # 지속 Project 맥락 갱신·누락 복원
+│       ├── work-discussion/          # 명시 호출로 Work 구체화
+│       ├── reconsider-work/          # 실제 결과에 따른 재판단
+│       ├── work-artifact-briefing/    # 기존 작업물의 역할·상태·근거 설명
+│       └── explanation-recovery/     # 앞선 설명의 뜻·연결 복구
+├── .claude/skills/               # 공동 스킬 네 개의 상대 연결
 ├── .codex/
+│   ├── skills/                  # 같은 공동 스킬 원본으로 상대 연결
 │   ├── config.toml               # 수동 fallback용 Maintain agent 발견 경로
 │   ├── maintain.json             # session별 explicit admission mode
 │   ├── hooks.json                # Maintain lifecycle command routing
@@ -65,7 +74,8 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
     │   │   ├── README.md
     │   │   └── architecture.md
     │   ├── guidance/             # 조건부 Project-wide 판단 기준
-    │   │   └── README.md
+    │   │   ├── README.md
+    │   │   └── explanation-and-evidence-criteria.md
     │   └── decisions/            # 선택 이유와 재검토 신호
     │       ├── README.md
     │       └── 0001-default-timeout.md
@@ -100,7 +110,7 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
 
 각 Workspace는 `current/`, `source/`, `output/`, `records/`를 형제로 둔다. `current/memory/`에는 [Spec 다섯 파일·Ticket·Project context 선택](context/work/workspaces/SPEC-AND-TICKETS.md)을 두고, state는 전체 상황·판단·다음 행동을 맡는다. `source/`에는 해당 Workspace가 선택한 원문·snapshot·provenance만 둔다. 분석 메모·후보·비교·탈락안·선택 근거를 포함한 과정은 `records/` 바로 아래 날짜별 기록이 맡고, 기계가 생성한 검증 증거는 `records/receipts/<종류>/`에 분리한다. Goal을 위해 선택된 현재 산출물은 [`output/index.md`](context/work/workspaces/001-default-timeout/output/index.md)에서 찾게 한다. 이 sample의 실제 제품 구현은 Project root의 canonical을 연결하며 Workspace 안에 복제하지 않는다.
 
-Project 문서 전체를 Workspace에 복사하지 않는다. 이 Workspace의 [`recover.json`](context/work/workspaces/001-default-timeout/recover.json)은 안정된 [`Project routing anchor`](context/project/README.md), goal에 지속해서 적용되는 [`제품 기준`](context/project/common/prd.md), 지금의 구현·검증 경계를 보여 주는 [`architecture`](context/project/current/architecture.md), 직접 적용할 [`default timeout 결정`](context/project/decisions/0001-default-timeout.md)을 이유와 함께 선택한다. 현재 적용할 별도 guidance가 없으므로 [`guidance` 진입점](context/project/guidance/README.md)은 구조에는 존재하지만 recovery context에는 선택하지 않는다. Workspace `source/`와 `records/` 전체, Workspace `output/index.md`가 연결한 산출물 본문도 기본 recovery context에 들어가지 않는다. README는 문서 위치를 찾게 할 뿐 실제 내용 선택을 대신하지 않는다.
+Project 문서 전체를 Workspace에 복사하지 않는다. 이 Workspace의 [`recover.json`](context/work/workspaces/001-default-timeout/recover.json)은 안정된 [`Project routing anchor`](context/project/README.md), goal에 지속해서 적용되는 [`제품 기준`](context/project/common/prd.md), 지금의 구현·검증 경계를 보여 주는 [`architecture`](context/project/current/architecture.md), 직접 적용할 [`default timeout 결정`](context/project/decisions/0001-default-timeout.md)을 이유와 함께 선택한다. 현재 default-timeout 제품 작업은 설명 스킬의 공통 기준을 기본 입력으로 요구하지 않으므로 [`guidance`](context/project/guidance/README.md)를 recovery context에는 선택하지 않는다. Workspace `source/`와 `records/` 전체, Workspace `output/index.md`가 연결한 산출물 본문도 기본 recovery context에 들어가지 않는다. README는 문서 위치를 찾게 할 뿐 실제 내용 선택을 대신하지 않는다.
 
 ## 실제 실행 증거
 
@@ -125,3 +135,5 @@ reference 순환을 확인하기 위해 기본 timeout 구현을 의도적으로
 정적 연결과 unit test는 Maintain agent가 실제 변화에서 어떤 의미를 남겨야 하는지, 같은 agent session이 실제 host에서 유지되는지, 연결된 generation의 모든 사용자 대상 Main response-end가 관찰되는지, Main 비차단과 중요 보고·ambiguity 질문이 실제 UI에 도달하는지를 증명하지 않는다. 이 항목은 semantic eval과 actual Codex host acceptance가 필요하며, 그 전에는 role 등록을 automatic Maintain이라고 부르지 않는다. Workspace 생성 skill은 canonical을 적용해 새 Workspace를 구성하고 bounded 재진입을 검토하는 실행 장치를 제공하지만, 자동 skill 선택, deterministic generator와 자동 의미 선별·충분성 판정은 구현하거나 증명하지 않았다. Reference host adapter는 새 session의 default-unbound, session별 explicit activation과 same-session binding generation 전환을 구현하고 unit test하지만, 실제 host의 hook trust·event 전달·재개·UI 표면까지 acceptance하지는 않는다. `.codex/maintain.json` 변경만으로 session을 연결하거나 전환하지 않는다. Workspace acceptance·완료·보관, concurrent Verify 조정, 실제 네트워크 요청과 운영 서비스 효과도 아직 구현하거나 증명하지 않았다. POSIX Verify timeout은 같은 process group의 일반 descendant까지 다루지만 스스로 새 session으로 분리한 process와 비-POSIX descendant 전체 종료는 보장하지 않는다. Harness 계약은 저장소가 신뢰하는 입력이며 악의적인 검증 프로그램을 격리하는 sandbox가 아니다. Receipt와 status는 각각 atomic하게 쓰지만 하나의 transaction으로 묶이지 않는다.
 
 Project 맥락 갱신은 별도 `update-project-context` skill이 Project 계약을 적용하는 절차로 제공한다. Workspace 결과의 자동 승격이나 제품 결정·acceptance를 구현하지 않으며, 정적 설치만으로 새 session의 실제 discovery·invocation, 맥락 보존의 충분성과 장기 유지 효과를 증명하지 않는다.
+
+공동 스킬 네 개의 설치와 상대 연결도 실제 host의 발견·호출이나 Main 결과가 Maintain의 문서 갱신·다음 실행자 입력까지 이어지는 운영 효과를 증명하지 않는다. 새 session은 기존처럼 default-unbound이며, 자동 lifecycle을 사용하지 않는 경우의 허용된 문서 반영은 Maintain 수동 fallback을 따른다. Claude·Codex의 같은 스킬 원본 연결과 Codex 전용 Maintain adapter의 실행 지원 범위를 구별한다.
