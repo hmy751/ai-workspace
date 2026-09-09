@@ -2,6 +2,8 @@
 
 마지막 갱신: 2026-09-09
 
+현재는 `bc3d954` 통합 뒤 외부 연구 07 전체를 대조하고, 후속 사용자 요청으로 Decision의 생성·불확실성 보존 기준을 보완한 상태다. 사용자가 마무리 기록과 커밋을 요청했다. [전체 대조 기록](../records/2026-09-09-01-research-07-adoption-audit.md)과 state에서 반영 전 감사·후속 반영·실제 운영 미검증을 구분한다.
+
 외부 연구 08의 네 스킬·Spec·Ticket 후속 합의를 Reference에 반영했다. 2026-09-09 사용자가 커밋을 요청해 앞선 보류를 해제했다. 통합 변경과 검증 결과는 state 및 [통합 기록](../records/2026-09-08-15-skills-spec-ticket-reference-integration.md)에서 이어간다. 적용 전 비교는 [분석 기록](../records/2026-09-08-14-skills-spec-ticket-reintegration-assessment.md)에 보존한다.
 
 1. [memory.md](memory.md): 목적·조건, Spec 구성과 배치, Ticket·state·records 관계, 유지할 역할.

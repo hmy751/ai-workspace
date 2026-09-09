@@ -2,6 +2,14 @@
 
 마지막 갱신: 2026-09-09
 
+## 07 연구 전체의 반영 대조
+
+통합 커밋 `bc3d954` 뒤 사용자 요청으로 [전체 반영 대조](../records/2026-09-09-01-research-07-adoption-audit.md)를 작성했다. 02·03의 이전 정독·반영 이력과 04~06의 계승을 확인하고, 부분 반영인 Decision 기준, 미구체화된 고정 검증 없는 Workspace 생성, 실제 판단·관리 동작의 미검증을 구별한다. 이전 연구의 대체된 선택과 archive 스킬을 누락으로 세지 않았다. 이 분석은 현재 구현의 변경이나 새 운영 합의가 아니다.
+
+후속 사용자 요청으로 [Decision 계약](../../../../reference-project/context/project/decisions/README.md)에 별도 기록 생성 조건과 불확실성 보존 기준을 반영했다. 앞의 대조는 반영 전 상태이며 같은 기록 끝에 후속 요청·변경을 남겼다. 운영 검증과 고정 검증 없는 조사 Workspace의 생성 경계는 추가 이식 누락으로 세지 않는다.
+
+사용자가 마무리 기록과 커밋을 요청해 이 대조·보완을 종료했다. 새 운영 체계나 추가 이식은 수행하지 않았으며, 후속 검증은 current에서 별도 범위로 이어간다.
+
 ## 08 후속 합의와 네 스킬의 Reference 통합
 
 사용자가 재이식 분석 뒤 반영을 요청해 [Spec·Ticket 상위 기준](../../../../reference-project/context/work/workspaces/SPEC-AND-TICKETS.md), [설치된 여섯 스킬의 색인](../../../../reference-project/.agents/skills/README.md), [공통 설명 기준과 소비 관계](../../../../reference-project/context/project/guidance/README.md), 생성·이식 경로를 연결했다. 후속 합의의 Work당 Spec 하나, Ticket 네 구성과 실행 내부 설계의 위치를 적용했다. [통합 기록](../records/2026-09-08-15-skills-spec-ticket-reference-integration.md)에 입력 판본·변경·실행 검증·독립 리뷰와 제한 평가의 범위를 남겼다. 2026-09-09 사용자가 통합 변경의 커밋을 요청했다. 실제 host 운영 성공을 완료로 주장하지 않는다.

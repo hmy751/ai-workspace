@@ -8,6 +8,10 @@ Spec의 다섯 구성요소와 memory의 Spec·Ticket 배치, 기존 goal·const
 
 후속으로 외부 연구 08의 최신 합의와 네 스킬을 다시 분석한 뒤, 사용자 요청에 따라 Reference에 반영했다. Work당 Spec 하나, Ticket 네 기본 구성과 실행 내부 설계의 위치를 상위 기준에 적용하고 스킬·공통 guidance·이식 경로를 연결했다. 최초 반영 때는 커밋을 보류했고 **2026-09-09 후속 요청으로 통합 변경의 커밋을 승인받았다.** [통합 기록](records/2026-09-08-15-skills-spec-ticket-reference-integration.md)과 current에서 실제 검증 결과·남은 host 확인을 이어간다.
 
+통합은 `bc3d954`로 커밋했다. 이후 사용자 요청으로 외부 연구 07 폴더 전체의 현행 문서와 이전 반영 이력을 대조했다. [전체 반영 대조](records/2026-09-09-01-research-07-adoption-audit.md)에 02·03의 실제 채택 이력, 04~06의 계승, 남은 Decision 기준·조사 Workspace 생성 경계와 실제 운영 미검증을 구별해 기록했다. 이번 대조는 새 구현이나 기존 합의 변경이 아니다.
+
+대조 뒤 사용자가 Decision 기준 보완을 요청해 해당 Reference 계약에 생성 조건·불확실성 보존을 반영했다. 이어 “그래 마무리 기록하고 커밋하자”라고 요청해 전체 대조와 Decision 보완을 마무리했다. 위 기록의 후속 절과 current에서 결과·검증 범위를 확인하며, 해당 문서들을 함께 담은 Git 이력에서 판본을 찾는다.
+
 ## 재진입
 
 1. [current/index.md](current/index.md)에서 현재 읽기 순서를 확인한다.

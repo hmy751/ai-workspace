@@ -4,7 +4,8 @@
 
 ## 현재 선택을 먼저 확인할 때
 
-- [08 후속 합의와 네 스킬의 Reference 통합](2026-09-08-15-skills-spec-ticket-reference-integration.md): 사용자 반영 요청에 따른 미커밋 변경. 상위 계약·payload·guidance·이식 절차와 검증·제한 평가의 범위를 보존한다.
+- [연구 07 전체의 Reference 반영 대조](2026-09-09-01-research-07-adoption-audit.md): 02·03의 정독·채택 이력, 04~06의 계승과 07·08의 후속 변경을 대조한다. 끝의 후속 절에는 사용자 요청에 따른 Decision 기준 반영과 이식 누락·열린 생성 경계·운영 미검증의 구분을 남겼다.
+- [08 후속 합의와 네 스킬의 Reference 통합](2026-09-08-15-skills-spec-ticket-reference-integration.md): 반영 당시 미커밋 상태의 기록이며 이후 `bc3d954`로 커밋했다. 상위 계약·payload·guidance·이식 절차와 검증·제한 평가의 범위를 보존한다.
 - [Reference 재확인과 08 재이식 분석](2026-09-08-14-skills-spec-ticket-reintegration-assessment.md): 외부 연구의 후속 Spec·Ticket 합의와 네 스킬을 현재 Reference에 대조했다. 상위 계약·guidance·이식 절차의 변경 지점, Main·Maintain 연결과 실제 검증 상한을 정리했다. 설치 전 분석이다.
 - [Project context 파일명 정리와 적용 커밋](2026-09-08-13-project-context-filename-and-commit.md): 옛 `03` 번호 제거, 실제 경로·링크 대조와 후속 커밋 요청.
 - [Reference 적용과 검증](2026-09-08-12-reference-spec-ticket-implementation.md): 설계 기록 커밋 후 구조·Recover·Maintain·생성 경로 적용. 변경 전에도 재현되는 Verify 실패와 실제 host 미검증 범위를 구별한다.

@@ -4,6 +4,19 @@
 
 ## 현재 단계
 
+**통합은 `bc3d954`로 커밋했고, 외부 연구 07 전체 대조 뒤 사용자가 요청한 Decision 기준 보완을 반영했다.** 사용자가 02·03의 이전 반영 여부와 08 이전 내용까지 확인하도록 요청했다. [전체 대조 기록](../records/2026-09-09-01-research-07-adoption-audit.md)에 원문·현행 파일·커밋·기존 유보와 검증 상한, 후속 요청과 실제 반영을 연결했다.
+
+- 02·03은 이전에 읽고 `7bd5089`·`5e45310`에서 반영했다. 03은 당시 판본과 같고, 02는 07 후속 선택을 알리는 문단만 추가됐다. 04~06의 현행 재판단·이해 지원 의미는 08을 통해 반영됐으며 큰 묶음의 누락은 찾지 못했다.
+- 03의 Decision에 남았던 별도 기록 생성 조건과 중요한 불확실성 보존 기준은 후속 “1번은 반영하면 될거고” 요청에 따라 [Decision 계약](../../../../reference-project/context/project/decisions/README.md)에 반영했다. 단순 현재값 변경마다 생성하지 않으며 기존 이유·대안·재검토 신호·Owner·대체 관계를 이어간다. 과거 선택의 이유를 창작하거나 skill에 정책을 복제하지 않았다.
+- 고정 제품 검증이 없는 조사·판단 Workspace는 Recover·Maintain runtime상 `verify.json` 없이 읽을 수 있지만, 생성 계약의 Verify 생략·유예와 초기 machine 상태 의미는 미구체화다. 연구의 개별 적용을 Reference 공통 경로로 일반화할지는 열린 판단이다.
+- 현행 `reconsider-work`의 재판단·실제 반영·후속 실행, `update-project-context`의 대표 변경 수행, 실제 host 연결과 장기 효과는 검증되지 않았다. 최근 제한 모델 평가는 논의·설명 세 스킬이며 두 경로의 검증으로 확대하지 않는다.
+
+Decision 보완 외에 현행 채택 내용의 추가 이식 누락은 찾지 못했다. 고정 검증 없는 조사 Workspace는 일반화할 생성 경계에 관한 열린 사항이며 이번에 변경하지 않았다. 운영 검증은 이식 누락으로 세지 않는다. 새 runtime·고정 reviewer·강제 Ticket pipeline이나 과거 archive 스킬을 재도입할 근거는 확인하지 못했다.
+
+사용자가 “그래 마무리 기록하고 커밋하자”라고 요청해 이번 전체 대조와 Decision 보완을 마무리했다. 변경은 분석·재진입 기록과 Reference Decision 계약의 Markdown 8개다. Decision의 원문 대조와 기존 참조 경로를 별도로 검토했고, 로컬 링크 136개·diff 형식 검사에서 오류가 없었다. 문서 변경에 제품·Harness 테스트를 반복하지 않았으며 기존 운영 미검증을 완료 처리하지 않는다. 정확한 판본은 이 state·대조 기록과 Decision 계약을 함께 담은 Git 이력에서 확인한다.
+
+## 앞선 통합 결과
+
 **외부 연구 08의 후속 합의와 네 스킬을 Reference에 반영했다.** 사용자는 처음에는 커밋을 보류했으나 2026-09-09 “그럼 됐고 커밋 하자”라고 요청해 분석·통합 변경과 기록의 커밋을 승인했다. 적용 전 기준은 `9505bf3`이며, 통합 판본은 이 state 파일과 Reference 변경을 함께 담은 Git 이력에서 확인한다. 적용과 검증은 [통합 기록](../records/2026-09-08-15-skills-spec-ticket-reference-integration.md)에 있다.
 
 입력은 `memory-harness-research`의 08 준비본이며 분석 기준은 `1e07f58`이다. 이식 중 원본 HEAD가 `6bd06b5`로 바뀌었으나 가져온 스킬·호출 설정·공통 기준 본문·상대 연결은 분석 기준과 동일함을 확인했다. 후속 Work당 Spec 하나, Ticket 네 구성과 실행 내부 설계·공통 설계 구별을 상위 canonical과 생성 안내에 반영했다. 네 스킬·guidance·Reference 진입점과 바깥 이식 절차도 연결했다. 기계 schema·Python runtime·제품 코드·hook 설정은 변경하지 않았다.
@@ -33,6 +46,8 @@ Main 결과 전달과 실제 문서 준비 확인은 기존 책임이다. Mainta
 - 실제 host의 discovery·호출·비동기 Maintain 갱신과 새 실행자에게 문서가 준비되는 효과는 확인하지 않았다. 샘플에 실제 Ticket을 소급 생성하거나 이 연구 작업대 root의 Maintain을 활성화하지 않았다.
 
 ## 다음에 이어갈 일
+
+이번 연구 전체 대조와 요청받은 Decision 보완에는 남은 실행이 없다. 아래 항목은 별도 운영 검증·적용 범위이며 이식 누락으로 세지 않는다.
 
 통합 변경의 Git 이력과 [적용 기록](../records/2026-09-08-15-skills-spec-ticket-reference-integration.md)에서 이어간다. 이번 커밋 승인은 실제 host acceptance나 외부 제품 적용의 완료를 뜻하지 않는다. Reference 통합과 이 연구 작업대 root의 직접 사용은 별도 적용 범위다.
 
