@@ -4,7 +4,8 @@
 
 ## Active Workspace
 
-- active: [`010-spec-ticket-workspace-design`](./010-spec-ticket-workspace-design/)
+- active: [`011-noline-harness-upgrade`](./011-noline-harness-upgrade/)
+- completed reference integration, downstream evaluation pending: [`010-spec-ticket-workspace-design`](./010-spec-ticket-workspace-design/)
 - prior Project context integration, follow-up checks pending: [`009-project-work-continuity-integration`](./009-project-work-continuity-integration/)
 - prior reference evolution, actual Codex host acceptance pending: [`008-workspace-transition-continuity`](./008-workspace-transition-continuity/)
 - completed reference maintain: [`007-maintain-clean-room-reimplementation`](./007-maintain-clean-room-reimplementation/)

@@ -1,0 +1,7 @@
+{
+  ".agents/skills/update-project-context": "../../.claude/skills/update-project-context",
+  ".agents/skills/work-discussion": "../../.claude/skills/work-discussion",
+  ".agents/skills/reconsider-work": "../../.claude/skills/reconsider-work",
+  ".agents/skills/work-artifact-briefing": "../../.claude/skills/work-artifact-briefing",
+  ".agents/skills/explanation-recovery": "../../.claude/skills/explanation-recovery"
+}

@@ -53,7 +53,7 @@ Project agent role 등록만으로 automatic lifecycle·warm reuse·매 response
 - 한 책임만 사용하는 코드를 공유 영역으로 올리지 않는다.
 - Project 기준은 `../project/`, 제품 코드·테스트는 Project root의 `src/`와 `tests/`에 두고 Harness 아래로 옮기거나 복제하지 않는다.
 - `../project/README.md`는 `common/current/guidance` 물리 layer, 실제 내용과 Owner 우선순위를 찾는 안정된 routing anchor다. 각 Workspace는 이 anchor와 현재 goal에 필요한 layer 문서를 선택하며, README나 link 목록만으로 내용 충분성을 대신하지 않는다.
-- Project의 새 본문은 root 평면 파일이 아니라 주 책임에 맞는 `common/`, `current/`, `guidance/`에 두고, 선택 이유·재검토 신호는 `decisions/`에 둔다. 상세 제품 Owner, 코드나 채택 결정이 바뀌면 영향받는 Project content와 이를 선택하는 live consumer를 다시 대조한다.
+- Project의 제품·domain 본문은 root 평면 파일이 아니라 주 책임에 맞는 `common/`, `current/`, `guidance/`에 두고, 선택 이유·재검토 신호는 `decisions/`에 둔다. Context 자체의 작성·복원·갱신 기준은 [`../project/MAINTENANCE.md`](../project/MAINTENANCE.md)를 해당 관리 작업에서 직접 읽는다. 상세 제품 Owner, 코드나 채택 결정이 바뀌면 영향받는 Project content와 이를 선택하는 live consumer를 다시 대조한다.
 - Workspace `current/`, `source/`, `output/`, `records/`의 의미를 Harness가 독점 정의하지 않는다. 사람이 읽는 날짜별 records와 `records/receipts/<종류>/`의 기계 증거를 분리하고, Harness가 생성하더라도 receipt의 보존 Owner는 해당 Workspace로 유지한다.
 - 작업별 Project context 선택은 `recover.json`, 검증 claim·canonical basis·고정 argv·evidence·실행 제한은 `verify.json`에서 변경한다. 사람의 다음 행동은 machine 계약이 아니라 사람용 current가 소유한다. Recover가 선택하는 Project context는 root `context/project/README.md`와 `common/`, `current/`, `guidance/`, `decisions/` 아래 regular Markdown으로 제한한다.
 - Project 문서의 path·책임을 크게 바꿀 때에는 [`Workspace collection 계약`](workspaces/README.md)의 live consumer reconciliation을 적용한다. Active/default Recover consumer뿐 아니라 current generation에 explicit session-bound된 Workspace도 확인하고, 역사 Workspace 비동기화 원칙은 live consumer에서 내려온 뒤에만 적용한다.

@@ -1,0 +1,8 @@
+{
+  "protected_path_count": 602,
+  "mismatches": [],
+  "index_sha256": "6e6be44a38a1e6726ff851c973d9bf02ce58e215b8cb727357b0523dab951663",
+  "index_unchanged": true,
+  "source_matching_target_docs": true,
+  "semantic_review": "Noline actual layer and detailed Owner references retained; management criteria relocated; migration outcome remains in application records; existing skill bridge and management routing consistent."
+}

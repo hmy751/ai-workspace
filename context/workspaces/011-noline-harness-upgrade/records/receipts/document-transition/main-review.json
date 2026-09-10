@@ -1,0 +1,47 @@
+{
+  "target_root": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "head": "b4ed41f6e4bbae26fd45827b3b9063097a2c1ea4",
+  "branch": "feat/noline-context-harness",
+  "protected_path_count": 591,
+  "unexpected_changes": [],
+  "index_file_sha256_matches": true,
+  "same_loaded_context_paths": true,
+  "recover": {
+    "explicit": {
+      "loaded_context_count": 15,
+      "status": {
+        "finished_at": "2026-09-10T03:56:11.188Z",
+        "receipt": "workspaces/001-noline-context-harness-application/records/receipts/verify/verify-20260910T035611188866Z-b0ce311e32474001a7ec5423c0f58869.json",
+        "result": "pass",
+        "schema_version": 3,
+        "status": "verification_passed",
+        "workspace_id": "001-noline-context-harness-application"
+      },
+      "freshness": {
+        "status": "fresh",
+        "snapshot_file_count": 122,
+        "changed_file_count": 0,
+        "missing_file_count": 0,
+        "unavailable_file_count": 0
+      }
+    },
+    "default": {
+      "loaded_context_count": 15,
+      "status": {
+        "finished_at": "2026-09-10T03:56:11.188Z",
+        "receipt": "workspaces/001-noline-context-harness-application/records/receipts/verify/verify-20260910T035611188866Z-b0ce311e32474001a7ec5423c0f58869.json",
+        "result": "pass",
+        "schema_version": 3,
+        "status": "verification_passed",
+        "workspace_id": "001-noline-context-harness-application"
+      },
+      "freshness": {
+        "status": "fresh",
+        "snapshot_file_count": 122,
+        "changed_file_count": 0,
+        "missing_file_count": 0,
+        "unavailable_file_count": 0
+      }
+    }
+  }
+}

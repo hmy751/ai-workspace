@@ -44,15 +44,26 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 
 정적 설치 확인은 frontmatter·호출 설정·일반 파일·상대 연결·canonical과 공통 기준 접근점까지다. 실제 host가 skill을 발견하고 정해진 방식으로 호출했는지, 결과가 Main을 거쳐 유지 경로에 전달되고 문서 의존 실행 전에 반영됐는지는 별도 관찰이다. 하나의 성공을 다른 skill·도구·Maintain binding의 증명으로 확대하지 않는다.
 
+## 기존 문서의 전환
+
+이식 범위에 들어온 기존 문서는 현재 역할과 내용을 보고 처리한다. 계속 쓰는 제품 상세 정본과 이번 이식으로 대체되는 이전 요약·운영 문서를 같은 보존 대상으로 취급하지 않는다. 생성 주체나 파일 나이만으로 유지·제거를 결정하지 않으며, 사용자 변경과 남아 있는 고유한 의미를 먼저 대조한다.
+
+대체되는 문서의 유효한 내용은 현재 책임에 맞는 위치에 반영하고, 기존 파일의 이동·통합·제거와 영향받는 링크·소비 경로를 함께 처리한다. 승인된 이식 안에서 필요한 문서 전환은 이식의 일부다. 독립된 제품 정본의 이동, 사용자 변경과의 충돌 또는 승인 범위가 불명확한 선택만 따로 확인한다. 이 판단을 관련 없는 상세 문서 전체 정비로 확대하지 않는다.
+
+기존 경로를 유지하려면 계속 맡는 현재 책임이나 실제 호환 필요가 있어야 한다. 새 문서를 만든 뒤 원문에 과거 문서라는 안내만 붙여 같은 위치에 남기는 것은 전환 완료 근거가 아니다. 과거 원문은 다시 판단할 필요가 있을 때 적절한 source·record 또는 기존 Git 이력에 보존하며, 모든 대체 문서의 별도 복사본을 의무적으로 만들지 않는다.
+
+완료 검토는 새 문서뿐 아니라 전환 대상의 유효한 내용이 빠지지 않았는지, 기존 파일의 실제 배치와 남은 참조가 처리 이유에 맞는지도 대조한다. 내용 반영 없이 파일만 제거하거나, 새 구조와 대체된 구조를 이유 없이 함께 남기면 미완성이다.
+
 ## Layered Project context 내용 충족
 
-기존 README·STATUS·`docs/`와 코드·테스트는 상세 사실의 canonical로 유지한다. `context/project/`는 이를 이동하거나 문단째 복제하지 않고, 여러 Workspace가 반복해서 판단할 실제 Project 목적·현재 범위·구조·제약·채택 결정을 선별해 다시 서술한다. 상세 Owner 링크는 provenance와 재대조 경로이지 내용의 대체물이 아니다.
+계속 유효한 README·STATUS·`docs/`와 코드·테스트는 상세 사실의 canonical로 유지한다. `context/project/`는 여러 Workspace가 반복해서 판단할 실제 Project 목적·현재 범위·구조·제약·채택 결정을 선별해 다시 서술한다. 이번 이식으로 역할이 바뀌는 문서는 위 전환 기준을 따른다. 상세 Owner 링크는 provenance와 재대조 경로이지 내용의 대체물이 아니다.
 
 `context/project/`에는 다음 물리 경계를 만든다.
 
 ```text
 context/project/
 ├── README.md
+├── MAINTENANCE.md
 ├── common/
 │   └── README.md
 ├── current/
@@ -70,11 +81,11 @@ Root `README.md`는 세 책임 layer, 실제 내용 위치, 읽기 조건과 Own
 - `guidance/`에는 특정 종류의 Work에서만 실제 반복 행동을 바꾸는 조건부 판단 기준을 둔다. 각 항목은 적용·비적용·재검토·제거 조건을 밝힌다.
 - `decisions/`에는 중요한 선택의 이유·대안·재검토 신호를 둔다. 현재 세 layer의 답을 기본적으로 대신하지 않지만 문서가 현재 normative Owner임을 명시한 예외는 허용한다.
 
-`common/current/guidance` layer와 각 README는 생략하지 않는다. 특정 layer에 README 외 실제 본문이 없을 수는 있으며, 이때 README에 현재 없음, 확인한 상세 Owner와 새 항목을 만들 조건을 적는다. 파일 수를 줄이기 위해 독립된 내용을 overview나 다른 layer에 흡수하지 않는다. 기존 target의 flat Project context 문서는 상세 canonical로 보존할지, 승인받아 Owner를 이동할지 먼저 판정하고 자동 이동하지 않는다.
+`common/current/guidance` layer와 각 README는 생략하지 않는다. 특정 layer에 README 외 실제 본문이 없을 수는 있으며, 이때 README에 현재 없음, 확인한 상세 Owner와 새 항목을 만들 조건을 적는다. 파일 수를 줄이기 위해 독립된 내용을 overview나 다른 layer에 흡수하지 않는다. 기존 target의 flat Project context 문서도 현재 역할과 내용에 따라 전환하며, 평면 파일이라는 이유만으로 모두 이동하거나 보존하지 않는다.
 
 각 실제 내용 문서에서 읽기 조건, 현재 authority와 상세 Owner, 갱신 책임, stale·재검토 신호를 찾을 수 있어야 한다. 한 문서에 보조 설명이 함께 있을 수 있지만 주 책임과 경로를 흐리거나 수명과 갱신 Owner가 다른 내용을 합치지 않는다.
 
-내용의 보존·불확실성 표현·변경과 갱신 시점은 live [`Project context 계약`](../../../../reference-project/context/project/README.md)을 target README에 적응한다. 이식 검토에서는 미정 부분의 존재를 이유로 원자료가 뒷받침하는 제품 목적·domain 의미까지 빠지지 않았는지, 남은 판단이 현재 확정된 규칙으로 바뀌지 않았는지를 함께 대조한다. 이 기준을 관리 skill에만 설치하고 target Project 계약에서 빠뜨리지 않는다.
+내용의 보존·불확실성 표현·변경과 갱신 시점은 live [`Project 관리 계약`](../../../../reference-project/context/project/MAINTENANCE.md)을 읽고 target의 `context/project/MAINTENANCE.md`에 적응한다. Root README는 관리 계약의 역할과 읽는 시점을 연결한다. 관리 계약은 제품·domain 본문과 구분하며 이식·복원·갱신 주체가 직접 읽고, 일반 Recover 입력에는 추가하지 않는다. 이번 이식에서 무엇을 통합·이동·제거하고 어떻게 보존했는지는 적용 Workspace 기록이 소유한다. 이식 검토에서는 미정 부분의 존재를 이유로 원자료가 뒷받침하는 제품 목적·domain 의미까지 빠지지 않았는지, 남은 판단이 현재 확정된 규칙으로 바뀌지 않았는지를 함께 대조한다. 이 기준을 관리 skill에만 설치하고 target Project 계약에서 빠뜨리지 않는다.
 
 구현 뒤 다음 순서로 내용 충족을 검토한다.
 
@@ -113,7 +124,7 @@ Project 문서의 path·책임·authority를 새로 만들거나 크게 바꿀 �
 5. 교집합이 없으면 exact addition과 좁은 patch로 진행한다.
 6. 교집합이나 Owner 충돌이 있으면 additive routing 가능성을 확인하고 의미 선택을 사용자에게 돌려보낸다.
 
-기존 `context/`, instruction과 tool config는 빈 설치 자리가 아니다. Directory replace, broad recursive copy, 자동 이동·삭제와 broad staging을 하지 않는다. 임시 preflight receipt를 Workspace에 보존할 때는 바이트와 SHA-256을 유지한다.
+기존 `context/`, instruction과 tool config는 빈 설치 자리가 아니다. Directory replace, broad recursive copy, 역할·내용·사용자 변경을 대조하지 않은 일괄 이동·삭제와 broad staging을 하지 않는다. 임시 preflight receipt를 Workspace에 보존할 때는 바이트와 SHA-256을 유지한다.
 
 ## 적용 표면 검사
 

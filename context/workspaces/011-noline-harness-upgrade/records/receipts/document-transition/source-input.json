@@ -1,0 +1,16 @@
+{
+  "kind": "source-skill-input",
+  "source_commit": "87d21023f6acd8ae709322d48da9851594f9acb0",
+  "reference_changes": false,
+  "skill_changes_authorized_by": "2026-09-10 user request",
+  "files": [
+    {
+      "path": ".agents/skills/apply-context-harness/SKILL.md",
+      "sha256": "057a36d63e5427bb9a14655218fd1d24502c1bf46b48934bd1593a2f9038983f"
+    },
+    {
+      "path": ".agents/skills/apply-context-harness/references/application-contract.md",
+      "sha256": "5a40844257b15693b1adc37ba08e69563efedb6281d390c7d58ad6dda0e34c44"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Wor
 
 전체 context 관계는 [context README](context/README.md), 사람이 현재 작업을 볼 때는 [active Workspace README](context/work/workspaces/001-default-timeout/README.md)에서 시작한다. 새 Workspace를 만드는 사람은 [생성·전환 canonical](context/work/workspaces/CREATE-AND-TRANSITION.md), 실행하는 AI는 repo-local [Workspace 생성 skill](.agents/skills/create-context-workspace/SKILL.md)에서 시작한다. Work·Harness의 AI 운영 지침은 [Work AGENTS](context/work/AGENTS.md), Harness 책임과 workflow는 [Harness README](context/work/harness/README.md)에서 시작한다.
 
-작업 중 얻은 Project-wide 맥락을 갱신하거나 누락된 기존 맥락을 복원할 때는 [Project 관리 기준](context/project/README.md)과 [Project 맥락 갱신 skill](.agents/skills/update-project-context/SKILL.md)을 사용한다. 이 skill은 Workspace Maintain과 별도로 해당 Project 문서를 갱신하며, 근거 있는 내용과 남은 판단을 함께 보존한다.
+작업 중 얻은 Project-wide 맥락을 갱신하거나 누락된 기존 맥락을 복원할 때는 [Project 관리 기준](context/project/MAINTENANCE.md)과 [Project 맥락 갱신 skill](.agents/skills/update-project-context/SKILL.md)을 사용한다. 이 skill은 Workspace Maintain과 별도로 해당 Project 문서를 갱신하며, 근거 있는 내용과 남은 판단을 함께 보존한다.
 
 Work를 구체화하거나 실제 결과에 따라 판단을 다시 보고, 작업물·앞선 설명을 이해할 때는 [Project skill 색인](.agents/skills/README.md)에서 해당 스킬을 찾는다. 네 스킬은 [Spec·Ticket 운영 기준](context/work/workspaces/SPEC-AND-TICKETS.md)을 읽기·판단·반영에 연결하며, 각 호출 조건에 따라 사용한다. 공통 [설명과 근거 기준](context/project/guidance/explanation-and-evidence-criteria.md)은 이해 지원 세 스킬이 필요한 때 읽는다.
 

@@ -1,0 +1,60 @@
+{
+  "related_tests": {
+    "count": 63,
+    "result": "pass"
+  },
+  "first_full_tests": {
+    "count": 122,
+    "result": "fail",
+    "failures": 1,
+    "test": "test_timeout_covers_descendant_after_group_leader_exits",
+    "runtime": "sandbox direct execution"
+  },
+  "durable_full_tests": {
+    "count": 122,
+    "result": "pass",
+    "source_files": 27,
+    "receipt": "/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/harness-test-20260909T143128349049Z-ca581a4a12244cabba828fe6315ad037.json",
+    "runtime": "approved target receipt write execution"
+  },
+  "protected_unchanged": [
+    ".claude/sessions/2026-09-06-codebase-analysis.md",
+    ".claude/sessions/2026-09-06-codebase-analysis/architecture.md",
+    ".claude/sessions/2026-09-06-codebase-analysis/code-style.md",
+    ".claude/sessions/2026-09-06-codebase-analysis/components.md",
+    ".claude/sessions/2026-09-06-codebase-analysis/engine-data.md",
+    ".claude/sessions/2026-09-06-codebase-analysis/server-contracts.md",
+    ".claude/sessions/2026-09-06-codebase-analysis/verification.md",
+    "context/__pycache__/__init__.cpython-314.pyc",
+    "context/work/__pycache__/__init__.cpython-314.pyc",
+    "context/work/harness/__pycache__/__init__.cpython-314.pyc",
+    "context/work/harness/__pycache__/workspace_contract.cpython-314.pyc",
+    "context/work/harness/maintain/__pycache__/__init__.cpython-314.pyc",
+    "context/work/harness/maintain/__pycache__/claude_hook.cpython-314.pyc",
+    "context/work/harness/maintain/__pycache__/codex_session.cpython-314.pyc",
+    "context/work/harness/maintain/__pycache__/host_adapter.cpython-314.pyc",
+    "context/work/harness/maintain/__pycache__/operation.cpython-314.pyc",
+    "context/work/harness/recover/__pycache__/__init__.cpython-314.pyc",
+    "context/work/harness/recover/__pycache__/operation.cpython-314.pyc"
+  ],
+  "skill_count": 6,
+  "recover_loaded_paths": 15,
+  "content_closure_missing": [],
+  "maintain": "activation_pending",
+  "final_verify_receipt": "context/work/workspaces/001-noline-context-harness-application/records/receipts/verify/verify-20260909T143800753938Z-1253979b56b74e5b95144fb136861b08.json",
+  "final_verify": "pass",
+  "final_local_links": 320,
+  "final_local_link_errors": [],
+  "tracked_change_scope": "expected only",
+  "staged_changes": false,
+  "final_freshness": {
+    "status": "fresh",
+    "snapshot_file_count": 123,
+    "changed_file_count": 0,
+    "missing_file_count": 0,
+    "unavailable_file_count": 0
+  },
+  "independent_review": "context/workspaces/011-noline-harness-upgrade/records/review/2026-09-09-installed-independent-review.md",
+  "review_findings": "no unresolved P1/P2",
+  "protected_classification": "existing untracked 18 entries (7 session files and 11 cache files)"
+}

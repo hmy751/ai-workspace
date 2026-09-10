@@ -24,7 +24,7 @@
 
 새 goal에 필요한 의미를 선별하고 원자료와 상세 근거를 배치하며 bounded 재진입과 활성화 경계를 확인하는 전체 절차는 [`새 Workspace 생성과 전환`](CREATE-AND-TRANSITION.md)이 소유한다. Repo-local [`create-context-workspace` skill](../../../.agents/skills/create-context-workspace/SKILL.md)은 이 canonical을 실행하는 관리 장치이며 Workspace 의미의 Owner가 아니다.
 
-`source/`는 Project 전체가 공유하는 실제 맥락인 [`context/project/`](../../project/)를 복제하는 곳이 아니다. Project context의 `common/current/guidance` 물리 layer와 내용 계약은 [`context/project/README.md`](../../project/README.md)가 소유한다. Workspace는 root README와 goal에 필요한 실제 layer 문서만 선택하고, 원자료를 다시 확인해야 할 때 사람이 필요한 항목만 따로 읽는다. `recover`는 Project layer 전체, `source/` 전체나 inventory를 기본 recovery packet에 싣지 않는다.
+`source/`는 Project 전체가 공유하는 실제 맥락인 [`context/project/`](../../project/)를 복제하는 곳이 아니다. Project context의 `common/current/guidance` 물리 layer와 권위 관계는 [`context/project/README.md`](../../project/README.md)가 소유한다. 작성·복원·갱신 기준은 [`Project 관리 계약`](../../project/MAINTENANCE.md)을 해당 작업에서 직접 읽는다. Workspace는 root README와 goal에 필요한 실제 layer 문서만 선택하고, 원자료를 다시 확인해야 할 때 사람이 필요한 항목만 따로 읽는다. `recover`는 Project layer 전체, `source/` 전체나 inventory를 기본 recovery packet에 싣지 않는다.
 
 ## Project context 변경과 live consumer
 

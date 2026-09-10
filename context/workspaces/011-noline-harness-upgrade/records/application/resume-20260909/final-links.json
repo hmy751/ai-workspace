@@ -1,0 +1,1926 @@
+{
+  "count": 320,
+  "errors": [],
+  "links": [
+    {
+      "source": ".agents/skills/README.md",
+      "target": "../../.claude/skills/README.md",
+      "lexical": ".claude/skills/README.md",
+      "resolved": ".claude/skills/README.md"
+    },
+    {
+      "source": ".claude/decisions/2026-09-09-context-harness-upgrade.md",
+      "target": "../../context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../../CLAUDE.md",
+      "lexical": "CLAUDE.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../../context/README.md",
+      "lexical": "context/README.md",
+      "resolved": "context/README.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../README.md",
+      "lexical": ".claude/README.md",
+      "resolved": ".claude/README.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../rules/",
+      "lexical": ".claude/rules",
+      "resolved": ".claude/rules"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../guards/",
+      "lexical": ".claude/guards",
+      "resolved": ".claude/guards"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../runbooks/",
+      "lexical": ".claude/runbooks",
+      "resolved": ".claude/runbooks"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../context/",
+      "lexical": ".claude/context",
+      "resolved": ".claude/context"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../skills/noline-work/SKILL.md",
+      "lexical": ".claude/skills/noline-work/SKILL.md",
+      "resolved": ".claude/skills/noline-work/SKILL.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../agents/",
+      "lexical": ".claude/agents",
+      "resolved": ".claude/agents"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../../.codex/agents/",
+      "lexical": ".codex/agents",
+      "resolved": ".codex/agents"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../commands/",
+      "lexical": ".claude/commands",
+      "resolved": ".claude/commands"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../decisions/",
+      "lexical": ".claude/decisions",
+      "resolved": ".claude/decisions"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../audits/",
+      "lexical": ".claude/audits",
+      "resolved": ".claude/audits"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../sessions/",
+      "lexical": ".claude/sessions",
+      "resolved": ".claude/sessions"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../_archive/",
+      "lexical": ".claude/_archive",
+      "resolved": ".claude/_archive"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../context/",
+      "lexical": ".claude/context",
+      "resolved": ".claude/context"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../decisions/2026-05-06-workspace-guide-harness-contract.md",
+      "lexical": ".claude/decisions/2026-05-06-workspace-guide-harness-contract.md",
+      "resolved": ".claude/decisions/2026-05-06-workspace-guide-harness-contract.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../decisions/",
+      "lexical": ".claude/decisions",
+      "resolved": ".claude/decisions"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../decisions/2026-05-06-commit-message-convention.md",
+      "lexical": ".claude/decisions/2026-05-06-commit-message-convention.md",
+      "resolved": ".claude/decisions/2026-05-06-commit-message-convention.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../audits/2026-05-06-harness-execution-plan.md",
+      "lexical": ".claude/audits/2026-05-06-harness-execution-plan.md",
+      "resolved": ".claude/audits/2026-05-06-harness-execution-plan.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../../context/project/README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../../context/work/workspaces/SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../skills/README.md",
+      "lexical": ".claude/skills/README.md",
+      "resolved": ".claude/skills/README.md"
+    },
+    {
+      "source": ".claude/harness/README.md",
+      "target": "../decisions/2026-09-09-context-harness-upgrade.md",
+      "lexical": ".claude/decisions/2026-09-09-context-harness-upgrade.md",
+      "resolved": ".claude/decisions/2026-09-09-context-harness-upgrade.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "noline-work/SKILL.md",
+      "lexical": ".claude/skills/noline-work/SKILL.md",
+      "resolved": ".claude/skills/noline-work/SKILL.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "create-context-workspace/SKILL.md",
+      "lexical": ".claude/skills/create-context-workspace/SKILL.md",
+      "resolved": ".claude/skills/create-context-workspace/SKILL.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "../../context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "lexical": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "resolved": "context/work/workspaces/CREATE-AND-TRANSITION.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "update-project-context/SKILL.md",
+      "lexical": ".claude/skills/update-project-context/SKILL.md",
+      "resolved": ".claude/skills/update-project-context/SKILL.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "../../context/project/README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "work-discussion/SKILL.md",
+      "lexical": ".claude/skills/work-discussion/SKILL.md",
+      "resolved": ".claude/skills/work-discussion/SKILL.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "reconsider-work/SKILL.md",
+      "lexical": ".claude/skills/reconsider-work/SKILL.md",
+      "resolved": ".claude/skills/reconsider-work/SKILL.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "work-artifact-briefing/SKILL.md",
+      "lexical": ".claude/skills/work-artifact-briefing/SKILL.md",
+      "resolved": ".claude/skills/work-artifact-briefing/SKILL.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "explanation-recovery/SKILL.md",
+      "lexical": ".claude/skills/explanation-recovery/SKILL.md",
+      "resolved": ".claude/skills/explanation-recovery/SKILL.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "../../AGENTS.md",
+      "lexical": "AGENTS.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "../../context/work/workspaces/SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "../../context/project/guidance/explanation-and-evidence-criteria.md",
+      "lexical": "context/project/guidance/explanation-and-evidence-criteria.md",
+      "resolved": "context/project/guidance/explanation-and-evidence-criteria.md"
+    },
+    {
+      "source": ".claude/skills/README.md",
+      "target": "../../context/project/guidance/README.md",
+      "lexical": "context/project/guidance/README.md",
+      "resolved": "context/project/guidance/README.md"
+    },
+    {
+      "source": ".claude/skills/create-context-workspace/SKILL.md",
+      "target": "../../../context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "lexical": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "resolved": "context/work/workspaces/CREATE-AND-TRANSITION.md"
+    },
+    {
+      "source": ".claude/skills/create-context-workspace/SKILL.md",
+      "target": "../../../AGENTS.md",
+      "lexical": "AGENTS.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": ".claude/skills/create-context-workspace/SKILL.md",
+      "target": "../../../context/README.md",
+      "lexical": "context/README.md",
+      "resolved": "context/README.md"
+    },
+    {
+      "source": ".claude/skills/create-context-workspace/SKILL.md",
+      "target": "../../../context/project/README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": ".claude/skills/create-context-workspace/SKILL.md",
+      "target": "../../../context/work/README.md",
+      "lexical": "context/work/README.md",
+      "resolved": "context/work/README.md"
+    },
+    {
+      "source": ".claude/skills/create-context-workspace/SKILL.md",
+      "target": "../../../context/work/workspaces/README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": ".claude/skills/create-context-workspace/SKILL.md",
+      "target": "../../../context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    },
+    {
+      "source": ".claude/skills/explanation-recovery/SKILL.md",
+      "target": "../../../context/project/guidance/explanation-and-evidence-criteria.md",
+      "lexical": "context/project/guidance/explanation-and-evidence-criteria.md",
+      "resolved": "context/project/guidance/explanation-and-evidence-criteria.md"
+    },
+    {
+      "source": ".claude/skills/update-project-context/SKILL.md",
+      "target": "../../../context/project/README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": ".claude/skills/update-project-context/SKILL.md",
+      "target": "../../../AGENTS.md",
+      "lexical": "AGENTS.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": ".claude/skills/update-project-context/SKILL.md",
+      "target": "../../../context/work/AGENTS.md",
+      "lexical": "context/work/AGENTS.md",
+      "resolved": "context/work/AGENTS.md"
+    },
+    {
+      "source": ".claude/skills/work-artifact-briefing/SKILL.md",
+      "target": "../../../context/project/guidance/explanation-and-evidence-criteria.md",
+      "lexical": "context/project/guidance/explanation-and-evidence-criteria.md",
+      "resolved": "context/project/guidance/explanation-and-evidence-criteria.md"
+    },
+    {
+      "source": ".claude/skills/work-discussion/SKILL.md",
+      "target": "../../../context/project/guidance/explanation-and-evidence-criteria.md",
+      "lexical": "context/project/guidance/explanation-and-evidence-criteria.md",
+      "resolved": "context/project/guidance/explanation-and-evidence-criteria.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/README.md",
+      "lexical": ".claude/rules/README.md",
+      "resolved": ".claude/rules/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/guards/README.md",
+      "lexical": ".claude/guards/README.md",
+      "resolved": ".claude/guards/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/context/README.md",
+      "lexical": ".claude/context/README.md",
+      "resolved": ".claude/context/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./apps/client/CLAUDE.md",
+      "lexical": "apps/client/CLAUDE.md",
+      "resolved": "apps/client/CLAUDE.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./apps/server/CLAUDE.md",
+      "lexical": "apps/server/CLAUDE.md",
+      "resolved": "apps/server/CLAUDE.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./packages/schema/CLAUDE.md",
+      "lexical": "packages/schema/CLAUDE.md",
+      "resolved": "packages/schema/CLAUDE.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./packages/ui/CLAUDE.md",
+      "lexical": "packages/ui/CLAUDE.md",
+      "resolved": "packages/ui/CLAUDE.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/harness/README.md",
+      "lexical": ".claude/harness/README.md",
+      "resolved": ".claude/harness/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./context/README.md",
+      "lexical": "context/README.md",
+      "resolved": "context/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/context/README.md",
+      "lexical": ".claude/context/README.md",
+      "resolved": ".claude/context/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/README.md",
+      "lexical": ".claude/README.md",
+      "resolved": ".claude/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/harness/README.md",
+      "lexical": ".claude/harness/README.md",
+      "resolved": ".claude/harness/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./context/README.md",
+      "lexical": "context/README.md",
+      "resolved": "context/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/skills/noline-work/SKILL.md",
+      "lexical": ".claude/skills/noline-work/SKILL.md",
+      "resolved": ".claude/skills/noline-work/SKILL.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/README.md",
+      "lexical": ".claude/rules/README.md",
+      "resolved": ".claude/rules/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/guards/README.md",
+      "lexical": ".claude/guards/README.md",
+      "resolved": ".claude/guards/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/context/README.md",
+      "lexical": ".claude/context/README.md",
+      "resolved": ".claude/context/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/decisions/2026-05-06-harness-layer-model.md",
+      "lexical": ".claude/decisions/2026-05-06-harness-layer-model.md",
+      "resolved": ".claude/decisions/2026-05-06-harness-layer-model.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/audits/2026-05-06-harness-execution-plan.md",
+      "lexical": ".claude/audits/2026-05-06-harness-execution-plan.md",
+      "resolved": ".claude/audits/2026-05-06-harness-execution-plan.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/decisions/2026-03-21-terminology-unification.md",
+      "lexical": ".claude/decisions/2026-03-21-terminology-unification.md",
+      "resolved": ".claude/decisions/2026-03-21-terminology-unification.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/README.md",
+      "lexical": ".claude/rules/README.md",
+      "resolved": ".claude/rules/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/guards/README.md",
+      "lexical": ".claude/guards/README.md",
+      "resolved": ".claude/guards/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/activation-router.md",
+      "lexical": ".claude/rules/activation-router.md",
+      "resolved": ".claude/rules/activation-router.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/transaction-sync-queue.md",
+      "lexical": ".claude/rules/transaction-sync-queue.md",
+      "resolved": ".claude/rules/transaction-sync-queue.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/schema-first.md",
+      "lexical": ".claude/rules/schema-first.md",
+      "resolved": ".claude/rules/schema-first.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/client-side-id.md",
+      "lexical": ".claude/rules/client-side-id.md",
+      "resolved": ".claude/rules/client-side-id.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/iso-time.md",
+      "lexical": ".claude/rules/iso-time.md",
+      "resolved": ".claude/rules/iso-time.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/auth-user-scope.md",
+      "lexical": ".claude/rules/auth-user-scope.md",
+      "resolved": ".claude/rules/auth-user-scope.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/rules/policy-ui.md",
+      "lexical": ".claude/rules/policy-ui.md",
+      "resolved": ".claude/rules/policy-ui.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/context/README.md",
+      "lexical": ".claude/context/README.md",
+      "resolved": ".claude/context/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./apps/client/CLAUDE.md",
+      "lexical": "apps/client/CLAUDE.md",
+      "resolved": "apps/client/CLAUDE.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./apps/server/CLAUDE.md",
+      "lexical": "apps/server/CLAUDE.md",
+      "resolved": "apps/server/CLAUDE.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./packages/schema/CLAUDE.md",
+      "lexical": "packages/schema/CLAUDE.md",
+      "resolved": "packages/schema/CLAUDE.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./packages/ui/CLAUDE.md",
+      "lexical": "packages/ui/CLAUDE.md",
+      "resolved": "packages/ui/CLAUDE.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/README.md",
+      "lexical": ".claude/README.md",
+      "resolved": ".claude/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/decisions/",
+      "lexical": ".claude/decisions",
+      "resolved": ".claude/decisions"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "./.claude/commands/",
+      "lexical": ".claude/commands",
+      "resolved": ".claude/commands"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "context/work/AGENTS.md",
+      "lexical": "context/work/AGENTS.md",
+      "resolved": "context/work/AGENTS.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "context/project/README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": ".claude/skills/update-project-context/SKILL.md",
+      "lexical": ".claude/skills/update-project-context/SKILL.md",
+      "resolved": ".claude/skills/update-project-context/SKILL.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": ".claude/skills/README.md",
+      "lexical": ".claude/skills/README.md",
+      "resolved": ".claude/skills/README.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    },
+    {
+      "source": "context/README.md",
+      "target": "project/",
+      "lexical": "context/project",
+      "resolved": "context/project"
+    },
+    {
+      "source": "context/README.md",
+      "target": "work/",
+      "lexical": "context/work",
+      "resolved": "context/work"
+    },
+    {
+      "source": "context/README.md",
+      "target": "project/README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": "context/README.md",
+      "target": "work/README.md",
+      "lexical": "context/work/README.md",
+      "resolved": "context/work/README.md"
+    },
+    {
+      "source": "context/README.md",
+      "target": "../CLAUDE.md",
+      "lexical": "CLAUDE.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": "context/README.md",
+      "target": "../.claude/README.md",
+      "lexical": ".claude/README.md",
+      "resolved": ".claude/README.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "common/README.md",
+      "lexical": "context/project/common/README.md",
+      "resolved": "context/project/common/README.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "current/README.md",
+      "lexical": "context/project/current/README.md",
+      "resolved": "context/project/current/README.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "guidance/README.md",
+      "lexical": "context/project/guidance/README.md",
+      "resolved": "context/project/guidance/README.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "decisions/README.md",
+      "lexical": "context/project/decisions/README.md",
+      "resolved": "context/project/decisions/README.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "common/product.md",
+      "lexical": "context/project/common/product.md",
+      "resolved": "context/project/common/product.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "current/architecture.md",
+      "lexical": "context/project/current/architecture.md",
+      "resolved": "context/project/current/architecture.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "guidance/README.md",
+      "lexical": "context/project/guidance/README.md",
+      "resolved": "context/project/guidance/README.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "decisions/0001-selective-local-first.md",
+      "lexical": "context/project/decisions/0001-selective-local-first.md",
+      "resolved": "context/project/decisions/0001-selective-local-first.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../work/workspaces/",
+      "lexical": "context/work/workspaces",
+      "resolved": "context/work/workspaces"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../../CLAUDE.md",
+      "lexical": "CLAUDE.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../../.claude/context/",
+      "lexical": ".claude/context",
+      "resolved": ".claude/context"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../../.claude/rules/",
+      "lexical": ".claude/rules",
+      "resolved": ".claude/rules"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../../.claude/guards/",
+      "lexical": ".claude/guards",
+      "resolved": ".claude/guards"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../../.claude/runbooks/",
+      "lexical": ".claude/runbooks",
+      "resolved": ".claude/runbooks"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../../apps/",
+      "lexical": "apps",
+      "resolved": "apps"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../../packages/",
+      "lexical": "packages",
+      "resolved": "packages"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../../.agents/skills/update-project-context/SKILL.md",
+      "lexical": ".agents/skills/update-project-context/SKILL.md",
+      "resolved": ".claude/skills/update-project-context/SKILL.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "decisions/README.md",
+      "lexical": "context/project/decisions/README.md",
+      "resolved": "context/project/decisions/README.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../work/workspaces/README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": "context/project/README.md",
+      "target": "../../AGENTS.md",
+      "lexical": "AGENTS.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": "context/project/architecture.md",
+      "target": "README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": "context/project/architecture.md",
+      "target": "current/architecture.md",
+      "lexical": "context/project/current/architecture.md",
+      "resolved": "context/project/current/architecture.md"
+    },
+    {
+      "source": "context/project/architecture.md",
+      "target": "../../apps/client/",
+      "lexical": "apps/client",
+      "resolved": "apps/client"
+    },
+    {
+      "source": "context/project/architecture.md",
+      "target": "../../apps/server/",
+      "lexical": "apps/server",
+      "resolved": "apps/server"
+    },
+    {
+      "source": "context/project/architecture.md",
+      "target": "../../packages/schema/",
+      "lexical": "packages/schema",
+      "resolved": "packages/schema"
+    },
+    {
+      "source": "context/project/architecture.md",
+      "target": "../../packages/ui/",
+      "lexical": "packages/ui",
+      "resolved": "packages/ui"
+    },
+    {
+      "source": "context/project/architecture.md",
+      "target": "../../.claude/",
+      "lexical": ".claude",
+      "resolved": ".claude"
+    },
+    {
+      "source": "context/project/architecture.md",
+      "target": "../README.md",
+      "lexical": "context/README.md",
+      "resolved": "context/README.md"
+    },
+    {
+      "source": "context/project/architecture.md",
+      "target": "../../apps/client/CLAUDE.md",
+      "lexical": "apps/client/CLAUDE.md",
+      "resolved": "apps/client/CLAUDE.md"
+    },
+    {
+      "source": "context/project/common/README.md",
+      "target": "product.md",
+      "lexical": "context/project/common/product.md",
+      "resolved": "context/project/common/product.md"
+    },
+    {
+      "source": "context/project/common/README.md",
+      "target": "../current/README.md",
+      "lexical": "context/project/current/README.md",
+      "resolved": "context/project/current/README.md"
+    },
+    {
+      "source": "context/project/common/product.md",
+      "target": "../../../CLAUDE.md",
+      "lexical": "CLAUDE.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": "context/project/common/product.md",
+      "target": "../../../README.md",
+      "lexical": "README.md",
+      "resolved": "README.md"
+    },
+    {
+      "source": "context/project/common/product.md",
+      "target": "../../../.claude/context/selective-activation-architecture.md",
+      "lexical": ".claude/context/selective-activation-architecture.md",
+      "resolved": ".claude/context/selective-activation-architecture.md"
+    },
+    {
+      "source": "context/project/common/product.md",
+      "target": "../../../.claude/rules/README.md",
+      "lexical": ".claude/rules/README.md",
+      "resolved": ".claude/rules/README.md"
+    },
+    {
+      "source": "context/project/common/product.md",
+      "target": "../../../.claude/guards/README.md",
+      "lexical": ".claude/guards/README.md",
+      "resolved": ".claude/guards/README.md"
+    },
+    {
+      "source": "context/project/common/product.md",
+      "target": "../current/architecture.md",
+      "lexical": "context/project/current/architecture.md",
+      "resolved": "context/project/current/architecture.md"
+    },
+    {
+      "source": "context/project/common/product.md",
+      "target": "../decisions/0001-selective-local-first.md",
+      "lexical": "context/project/decisions/0001-selective-local-first.md",
+      "resolved": "context/project/decisions/0001-selective-local-first.md"
+    },
+    {
+      "source": "context/project/current/README.md",
+      "target": "architecture.md",
+      "lexical": "context/project/current/architecture.md",
+      "resolved": "context/project/current/architecture.md"
+    },
+    {
+      "source": "context/project/current/README.md",
+      "target": "../common/README.md",
+      "lexical": "context/project/common/README.md",
+      "resolved": "context/project/common/README.md"
+    },
+    {
+      "source": "context/project/current/README.md",
+      "target": "../guidance/README.md",
+      "lexical": "context/project/guidance/README.md",
+      "resolved": "context/project/guidance/README.md"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../apps/client/CLAUDE.md",
+      "lexical": "apps/client/CLAUDE.md",
+      "resolved": "apps/client/CLAUDE.md"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../apps/server/CLAUDE.md",
+      "lexical": "apps/server/CLAUDE.md",
+      "resolved": "apps/server/CLAUDE.md"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../packages/schema/CLAUDE.md",
+      "lexical": "packages/schema/CLAUDE.md",
+      "resolved": "packages/schema/CLAUDE.md"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../packages/ui/CLAUDE.md",
+      "lexical": "packages/ui/CLAUDE.md",
+      "resolved": "packages/ui/CLAUDE.md"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../.claude/rules/activation-router.md",
+      "lexical": ".claude/rules/activation-router.md",
+      "resolved": ".claude/rules/activation-router.md"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../apps/client/src/shared/services/sync/engine.ts",
+      "lexical": "apps/client/src/shared/services/sync/engine.ts",
+      "resolved": "apps/client/src/shared/services/sync/engine.ts"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../apps/client/src/shared/services/sync/queue.ts",
+      "lexical": "apps/client/src/shared/services/sync/queue.ts",
+      "resolved": "apps/client/src/shared/services/sync/queue.ts"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../apps/client/src/shared/services/sync/cleanup-job.ts",
+      "lexical": "apps/client/src/shared/services/sync/cleanup-job.ts",
+      "resolved": "apps/client/src/shared/services/sync/cleanup-job.ts"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../.claude/context/policy-architecture.md",
+      "lexical": ".claude/context/policy-architecture.md",
+      "resolved": ".claude/context/policy-architecture.md"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../README.md",
+      "lexical": "context/README.md",
+      "resolved": "context/README.md"
+    },
+    {
+      "source": "context/project/current/architecture.md",
+      "target": "../../../.claude/README.md",
+      "lexical": ".claude/README.md",
+      "resolved": ".claude/README.md"
+    },
+    {
+      "source": "context/project/decisions/0001-selective-local-first.md",
+      "target": "../../../CLAUDE.md",
+      "lexical": "CLAUDE.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": "context/project/decisions/0001-selective-local-first.md",
+      "target": "../../../.claude/context/selective-activation-architecture.md",
+      "lexical": ".claude/context/selective-activation-architecture.md",
+      "resolved": ".claude/context/selective-activation-architecture.md"
+    },
+    {
+      "source": "context/project/decisions/0001-selective-local-first.md",
+      "target": "../../../.claude/decisions/2025-11-20-data-service-separation.md",
+      "lexical": ".claude/decisions/2025-11-20-data-service-separation.md",
+      "resolved": ".claude/decisions/2025-11-20-data-service-separation.md"
+    },
+    {
+      "source": "context/project/decisions/0001-selective-local-first.md",
+      "target": "../../../.claude/decisions/2025-11-20-policy-layer-separation.md",
+      "lexical": ".claude/decisions/2025-11-20-policy-layer-separation.md",
+      "resolved": ".claude/decisions/2025-11-20-policy-layer-separation.md"
+    },
+    {
+      "source": "context/project/decisions/0001-selective-local-first.md",
+      "target": "../../../.claude/decisions/2026-03-21-terminology-unification.md",
+      "lexical": ".claude/decisions/2026-03-21-terminology-unification.md",
+      "resolved": ".claude/decisions/2026-03-21-terminology-unification.md"
+    },
+    {
+      "source": "context/project/decisions/0001-selective-local-first.md",
+      "target": "../common/product.md",
+      "lexical": "context/project/common/product.md",
+      "resolved": "context/project/common/product.md"
+    },
+    {
+      "source": "context/project/decisions/0001-selective-local-first.md",
+      "target": "../current/architecture.md",
+      "lexical": "context/project/current/architecture.md",
+      "resolved": "context/project/current/architecture.md"
+    },
+    {
+      "source": "context/project/decisions/README.md",
+      "target": "0001-selective-local-first.md",
+      "lexical": "context/project/decisions/0001-selective-local-first.md",
+      "resolved": "context/project/decisions/0001-selective-local-first.md"
+    },
+    {
+      "source": "context/project/decisions/README.md",
+      "target": "../../../.claude/decisions/",
+      "lexical": ".claude/decisions",
+      "resolved": ".claude/decisions"
+    },
+    {
+      "source": "context/project/guidance/README.md",
+      "target": "explanation-and-evidence-criteria.md",
+      "lexical": "context/project/guidance/explanation-and-evidence-criteria.md",
+      "resolved": "context/project/guidance/explanation-and-evidence-criteria.md"
+    },
+    {
+      "source": "context/project/guidance/README.md",
+      "target": "../../../.agents/skills/work-discussion/SKILL.md",
+      "lexical": ".agents/skills/work-discussion/SKILL.md",
+      "resolved": ".claude/skills/work-discussion/SKILL.md"
+    },
+    {
+      "source": "context/project/guidance/README.md",
+      "target": "../../../.agents/skills/work-artifact-briefing/SKILL.md",
+      "lexical": ".agents/skills/work-artifact-briefing/SKILL.md",
+      "resolved": ".claude/skills/work-artifact-briefing/SKILL.md"
+    },
+    {
+      "source": "context/project/guidance/README.md",
+      "target": "../../../.agents/skills/explanation-recovery/SKILL.md",
+      "lexical": ".agents/skills/explanation-recovery/SKILL.md",
+      "resolved": ".claude/skills/explanation-recovery/SKILL.md"
+    },
+    {
+      "source": "context/project/guidance/README.md",
+      "target": "../../../.agents/skills/reconsider-work/SKILL.md",
+      "lexical": ".agents/skills/reconsider-work/SKILL.md",
+      "resolved": ".claude/skills/reconsider-work/SKILL.md"
+    },
+    {
+      "source": "context/project/guidance/README.md",
+      "target": "../../../.claude/rules/README.md",
+      "lexical": ".claude/rules/README.md",
+      "resolved": ".claude/rules/README.md"
+    },
+    {
+      "source": "context/project/guidance/README.md",
+      "target": "../../../.claude/guards/README.md",
+      "lexical": ".claude/guards/README.md",
+      "resolved": ".claude/guards/README.md"
+    },
+    {
+      "source": "context/project/guidance/README.md",
+      "target": "../../../.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "context/project/guidance/explanation-and-evidence-criteria.md",
+      "target": "README.md",
+      "lexical": "context/project/guidance/README.md",
+      "resolved": "context/project/guidance/README.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "common/product.md",
+      "lexical": "context/project/common/product.md",
+      "resolved": "context/project/common/product.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "../../README.md",
+      "lexical": "README.md",
+      "resolved": "README.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "../../CLAUDE.md",
+      "lexical": "CLAUDE.md",
+      "resolved": "CLAUDE.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "../../.claude/context/README.md",
+      "lexical": ".claude/context/README.md",
+      "resolved": ".claude/context/README.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "../../.claude/rules/README.md",
+      "lexical": ".claude/rules/README.md",
+      "resolved": ".claude/rules/README.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "../../.claude/guards/README.md",
+      "lexical": ".claude/guards/README.md",
+      "resolved": ".claude/guards/README.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "../../.claude/runbooks/README.md",
+      "lexical": ".claude/runbooks/README.md",
+      "resolved": ".claude/runbooks/README.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "architecture.md",
+      "lexical": "context/project/architecture.md",
+      "resolved": "context/project/architecture.md"
+    },
+    {
+      "source": "context/project/overview.md",
+      "target": "decisions/0001-selective-local-first.md",
+      "lexical": "context/project/decisions/0001-selective-local-first.md",
+      "resolved": "context/project/decisions/0001-selective-local-first.md"
+    },
+    {
+      "source": "context/project/prd.md",
+      "target": "README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": "context/project/prd.md",
+      "target": "common/product.md",
+      "lexical": "context/project/common/product.md",
+      "resolved": "context/project/common/product.md"
+    },
+    {
+      "source": "context/project/prd.md",
+      "target": "architecture.md",
+      "lexical": "context/project/architecture.md",
+      "resolved": "context/project/architecture.md"
+    },
+    {
+      "source": "context/project/prd.md",
+      "target": "decisions/",
+      "lexical": "context/project/decisions",
+      "resolved": "context/project/decisions"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "README.md",
+      "lexical": "context/work/README.md",
+      "resolved": "context/work/README.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "workspaces/README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/README.md",
+      "lexical": "context/work/harness/README.md",
+      "resolved": "context/work/harness/README.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/recover/README.md",
+      "lexical": "context/work/harness/recover/README.md",
+      "resolved": "context/work/harness/recover/README.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/maintain/README.md",
+      "lexical": "context/work/harness/maintain/README.md",
+      "resolved": "context/work/harness/maintain/README.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/verify/README.md",
+      "lexical": "context/work/harness/verify/README.md",
+      "resolved": "context/work/harness/verify/README.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/validation/README.md",
+      "lexical": "context/work/harness/validation/README.md",
+      "resolved": "context/work/harness/validation/README.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "workspaces/README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "../../.agents/skills/create-context-workspace/SKILL.md",
+      "lexical": ".agents/skills/create-context-workspace/SKILL.md",
+      "resolved": ".claude/skills/create-context-workspace/SKILL.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "workspaces/CREATE-AND-TRANSITION.md",
+      "lexical": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "resolved": "context/work/workspaces/CREATE-AND-TRANSITION.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/maintain/workspace-context-maintainer.toml",
+      "lexical": "context/work/harness/maintain/workspace-context-maintainer.toml",
+      "resolved": "context/work/harness/maintain/workspace-context-maintainer.toml"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "../../.codex/config.toml",
+      "lexical": ".codex/config.toml",
+      "resolved": ".codex/config.toml"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "../../.codex/hooks.json",
+      "lexical": ".codex/hooks.json",
+      "resolved": ".codex/hooks.json"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/maintain/host_adapter.py",
+      "lexical": "context/work/harness/maintain/host_adapter.py",
+      "resolved": "context/work/harness/maintain/host_adapter.py"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    },
+    {
+      "source": "context/work/AGENTS.md",
+      "target": "workspaces/README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": "context/work/README.md",
+      "target": "../project/",
+      "lexical": "context/project",
+      "resolved": "context/project"
+    },
+    {
+      "source": "context/work/README.md",
+      "target": "workspaces/",
+      "lexical": "context/work/workspaces",
+      "resolved": "context/work/workspaces"
+    },
+    {
+      "source": "context/work/README.md",
+      "target": "harness/",
+      "lexical": "context/work/harness",
+      "resolved": "context/work/harness"
+    },
+    {
+      "source": "context/work/README.md",
+      "target": "AGENTS.md",
+      "lexical": "context/work/AGENTS.md",
+      "resolved": "context/work/AGENTS.md"
+    },
+    {
+      "source": "context/work/README.md",
+      "target": "workspaces/CREATE-AND-TRANSITION.md",
+      "lexical": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "resolved": "context/work/workspaces/CREATE-AND-TRANSITION.md"
+    },
+    {
+      "source": "context/work/README.md",
+      "target": "harness/README.md",
+      "lexical": "context/work/harness/README.md",
+      "resolved": "context/work/harness/README.md"
+    },
+    {
+      "source": "context/work/README.md",
+      "target": "workspaces/SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "../../README.md",
+      "lexical": "context/work/README.md",
+      "resolved": "context/work/README.md"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "../../workspaces/README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "workspace-context-maintainer.toml",
+      "lexical": "context/work/harness/maintain/workspace-context-maintainer.toml",
+      "resolved": "context/work/harness/maintain/workspace-context-maintainer.toml"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "../../../../.codex/config.toml",
+      "lexical": ".codex/config.toml",
+      "resolved": ".codex/config.toml"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "../../../../.claude/settings.json",
+      "lexical": ".claude/settings.json",
+      "resolved": ".claude/settings.json"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "workspace-context-maintainer.toml",
+      "lexical": "context/work/harness/maintain/workspace-context-maintainer.toml",
+      "resolved": "context/work/harness/maintain/workspace-context-maintainer.toml"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "codex_session.py",
+      "lexical": "context/work/harness/maintain/codex_session.py",
+      "resolved": "context/work/harness/maintain/codex_session.py"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "operation.py",
+      "lexical": "context/work/harness/maintain/operation.py",
+      "resolved": "context/work/harness/maintain/operation.py"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "../recover/",
+      "lexical": "context/work/harness/recover",
+      "resolved": "context/work/harness/recover"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "../../workspaces/CREATE-AND-TRANSITION.md",
+      "lexical": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "resolved": "context/work/workspaces/CREATE-AND-TRANSITION.md"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "../../workspaces/SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": "context/work/harness/maintain/README.md",
+      "target": "SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    },
+    {
+      "source": "context/work/harness/recover/README.md",
+      "target": "../../workspaces/CREATE-AND-TRANSITION.md",
+      "lexical": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "resolved": "context/work/workspaces/CREATE-AND-TRANSITION.md"
+    },
+    {
+      "source": "context/work/harness/recover/README.md",
+      "target": "../../workspaces/SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/README.md",
+      "target": "current/memory/index.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/README.md",
+      "target": "current/state/index.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/README.md",
+      "target": "output/index.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/output/index.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/README.md",
+      "target": "records/README.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/README.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/README.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/README.md",
+      "target": "source/index.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/source/index.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/source/index.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/README.md",
+      "target": "workspace.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/workspace.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/workspace.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/README.md",
+      "target": "recover.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/recover.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/recover.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/README.md",
+      "target": "verify.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/verify.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/verify.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "target": "../state/index.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "target": "../../../SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "target": "spec/01-problem-goal-scope.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/01-problem-goal-scope.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/01-problem-goal-scope.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "target": "spec/02-behavior-and-cases.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/02-behavior-and-cases.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/02-behavior-and-cases.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "target": "spec/03-concepts-and-contracts.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/03-concepts-and-contracts.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/03-concepts-and-contracts.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "target": "spec/04-quality-and-completion.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/04-quality-and-completion.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/04-quality-and-completion.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "target": "spec/05-constraints-design-assumptions.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/05-constraints-design-assumptions.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/05-constraints-design-assumptions.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "target": "project-context.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/memory/project-context.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/memory/project-context.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/index.md",
+      "target": "tickets/index.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/memory/tickets/index.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/memory/tickets/index.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/project-context.md",
+      "target": "../../../../../project/README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/project-context.md",
+      "target": "../../../../../project/common/product.md",
+      "lexical": "context/project/common/product.md",
+      "resolved": "context/project/common/product.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/project-context.md",
+      "target": "../../../../../project/current/architecture.md",
+      "lexical": "context/project/current/architecture.md",
+      "resolved": "context/project/current/architecture.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/project-context.md",
+      "target": "../../../../../project/decisions/0001-selective-local-first.md",
+      "lexical": "context/project/decisions/0001-selective-local-first.md",
+      "resolved": "context/project/decisions/0001-selective-local-first.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/project-context.md",
+      "target": "../../recover.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/recover.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/recover.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/03-concepts-and-contracts.md",
+      "target": "../../../../SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/spec/03-concepts-and-contracts.md",
+      "target": "../../../records/README.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/README.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/README.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/tickets/001-upgrade.md",
+      "target": "../../../records/2026-09-09-01-reference-upgrade.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/memory/tickets/index.md",
+      "target": "001-upgrade.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/memory/tickets/001-upgrade.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/memory/tickets/001-upgrade.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md",
+      "target": "../../records/2026-09-09-01-reference-upgrade.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md",
+      "target": "status.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/state/status.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/state/status.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md",
+      "target": "../../verify.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/verify.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/verify.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md",
+      "target": "../../recover.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/recover.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/recover.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md",
+      "target": "../../workspace.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/workspace.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/workspace.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../context/project/",
+      "lexical": "context/project",
+      "resolved": "context/project"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../context/work/",
+      "lexical": "context/work",
+      "resolved": "context/work"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../.claude/harness/README.md",
+      "lexical": ".claude/harness/README.md",
+      "resolved": ".claude/harness/README.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../.claude/skills/create-context-workspace/SKILL.md",
+      "lexical": ".claude/skills/create-context-workspace/SKILL.md",
+      "resolved": ".claude/skills/create-context-workspace/SKILL.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../.agents/skills/create-context-workspace",
+      "lexical": ".agents/skills/create-context-workspace",
+      "resolved": ".claude/skills/create-context-workspace"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../.codex/maintain.json",
+      "lexical": ".codex/maintain.json",
+      "resolved": ".codex/maintain.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../.codex/hooks.json",
+      "lexical": ".codex/hooks.json",
+      "resolved": ".codex/hooks.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../.claude/settings.json",
+      "lexical": ".claude/settings.json",
+      "resolved": ".claude/settings.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../.codex/hooks/maintain.py",
+      "lexical": ".codex/hooks/maintain.py",
+      "resolved": ".codex/hooks/maintain.py"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../.claude/hooks/maintain.py",
+      "lexical": ".claude/hooks/maintain.py",
+      "resolved": ".claude/hooks/maintain.py"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../../../../.claude/skills/README.md",
+      "lexical": ".claude/skills/README.md",
+      "resolved": ".claude/skills/README.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../../SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "target": "../records/2026-09-09-01-reference-upgrade.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "target": "../source/prior-memory/",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/source/prior-memory",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/source/prior-memory"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "target": "receipts/preflight/preflight-20260909T140507056185Z-f1caf35fc6894327a7d811ffd7622f3c.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/receipts/preflight/preflight-20260909T140507056185Z-f1caf35fc6894327a7d811ffd7622f3c.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/receipts/preflight/preflight-20260909T140507056185Z-f1caf35fc6894327a7d811ffd7622f3c.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "target": "receipts/harness-tests/",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "target": "receipts/application/input-closure-20260909.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/receipts/application/input-closure-20260909.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/receipts/application/input-closure-20260909.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "target": "../current/state/status.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/current/state/status.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/current/state/status.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/README.md",
+      "target": "2026-09-04-01-initial-application.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-04-01-initial-application.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-04-01-initial-application.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/README.md",
+      "target": "2026-09-04-02-validation.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-04-02-validation.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-04-02-validation.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/README.md",
+      "target": "receipts/README.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/receipts/README.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/receipts/README.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/README.md",
+      "target": "2026-09-09-01-reference-upgrade.md",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/2026-09-09-01-reference-upgrade.md"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/README.md",
+      "target": "2026-09-09-related-tests.log",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/2026-09-09-related-tests.log",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/2026-09-09-related-tests.log"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/README.md",
+      "target": "2026-09-09-first-full-run.log",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/2026-09-09-first-full-run.log",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/2026-09-09-first-full-run.log"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/README.md",
+      "target": "harness-test-20260909T143128349049Z-ca581a4a12244cabba828fe6315ad037.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/harness-test-20260909T143128349049Z-ca581a4a12244cabba828fe6315ad037.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/receipts/harness-tests/harness-test-20260909T143128349049Z-ca581a4a12244cabba828fe6315ad037.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/source/index.md",
+      "target": "../records/receipts/preflight/preflight-20260904T035945230719Z-b9ccb26968c24cd8b20f1de6e5413785.json",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/receipts/preflight/preflight-20260904T035945230719Z-b9ccb26968c24cd8b20f1de6e5413785.json",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/receipts/preflight/preflight-20260904T035945230719Z-b9ccb26968c24cd8b20f1de6e5413785.json"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/source/index.md",
+      "target": "prior-memory/01-goal.md.txt",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/source/prior-memory/01-goal.md.txt",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/source/prior-memory/01-goal.md.txt"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/source/index.md",
+      "target": "prior-memory/02-constraints.md.txt",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/source/prior-memory/02-constraints.md.txt",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/source/prior-memory/02-constraints.md.txt"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/source/index.md",
+      "target": "prior-memory/03-project-context.md.txt",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/source/prior-memory/03-project-context.md.txt",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/source/prior-memory/03-project-context.md.txt"
+    },
+    {
+      "source": "context/work/workspaces/001-noline-context-harness-application/source/index.md",
+      "target": "../records/receipts/preflight/",
+      "lexical": "context/work/workspaces/001-noline-context-harness-application/records/receipts/preflight",
+      "resolved": "context/work/workspaces/001-noline-context-harness-application/records/receipts/preflight"
+    },
+    {
+      "source": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "target": "README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "target": "../../../.agents/skills/create-context-workspace/SKILL.md",
+      "lexical": ".agents/skills/create-context-workspace/SKILL.md",
+      "resolved": ".claude/skills/create-context-workspace/SKILL.md"
+    },
+    {
+      "source": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "target": "SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "target": "README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "target": "../../project/README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "target": "README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "target": "../harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "../README.md",
+      "lexical": "context/work/README.md",
+      "resolved": "context/work/README.md"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "index.json",
+      "lexical": "context/work/workspaces/index.json",
+      "resolved": "context/work/workspaces/index.json"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "SPEC-AND-TICKETS.md",
+      "lexical": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "resolved": "context/work/workspaces/SPEC-AND-TICKETS.md"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "CREATE-AND-TRANSITION.md",
+      "lexical": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "resolved": "context/work/workspaces/CREATE-AND-TRANSITION.md"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "../../../.agents/skills/create-context-workspace/SKILL.md",
+      "lexical": ".agents/skills/create-context-workspace/SKILL.md",
+      "resolved": ".claude/skills/create-context-workspace/SKILL.md"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "../../project/",
+      "lexical": "context/project",
+      "resolved": "context/project"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "../../project/README.md",
+      "lexical": "context/project/README.md",
+      "resolved": "context/project/README.md"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "../harness/recover/",
+      "lexical": "context/work/harness/recover",
+      "resolved": "context/work/harness/recover"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "../harness/maintain/",
+      "lexical": "context/work/harness/maintain",
+      "resolved": "context/work/harness/maintain"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "../harness/verify/",
+      "lexical": "context/work/harness/verify",
+      "resolved": "context/work/harness/verify"
+    },
+    {
+      "source": "context/work/workspaces/README.md",
+      "target": "../harness/validation/",
+      "lexical": "context/work/harness/validation",
+      "resolved": "context/work/harness/validation"
+    },
+    {
+      "source": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "target": "README.md",
+      "lexical": "context/work/workspaces/README.md",
+      "resolved": "context/work/workspaces/README.md"
+    },
+    {
+      "source": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "target": "../harness/recover/README.md",
+      "lexical": "context/work/harness/recover/README.md",
+      "resolved": "context/work/harness/recover/README.md"
+    },
+    {
+      "source": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "target": "../harness/maintain/README.md",
+      "lexical": "context/work/harness/maintain/README.md",
+      "resolved": "context/work/harness/maintain/README.md"
+    },
+    {
+      "source": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "target": "CREATE-AND-TRANSITION.md",
+      "lexical": "context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "resolved": "context/work/workspaces/CREATE-AND-TRANSITION.md"
+    },
+    {
+      "source": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "target": "../harness/maintain/README.md",
+      "lexical": "context/work/harness/maintain/README.md",
+      "resolved": "context/work/harness/maintain/README.md"
+    },
+    {
+      "source": "context/work/workspaces/SPEC-AND-TICKETS.md",
+      "target": "../harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "lexical": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "resolved": "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md"
+    }
+  ]
+}

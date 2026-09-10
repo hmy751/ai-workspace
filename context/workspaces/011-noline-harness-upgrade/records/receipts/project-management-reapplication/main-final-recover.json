@@ -1,0 +1,150 @@
+{
+  "default": {
+    "returncode": 0,
+    "workspace_id": "001-noline-context-harness-application",
+    "loaded_context_paths": [
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/index.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/01-problem-goal-scope.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/02-behavior-and-cases.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/03-concepts-and-contracts.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/04-quality-and-completion.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/05-constraints-design-assumptions.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/project-context.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/tickets/index.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/state/index.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/state/status.json"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/output/index.md"
+      },
+      {
+        "path_base": "project_root",
+        "path": "context/project/README.md"
+      },
+      {
+        "path_base": "project_root",
+        "path": "context/project/common/product.md"
+      },
+      {
+        "path_base": "project_root",
+        "path": "context/project/current/architecture.md"
+      },
+      {
+        "path_base": "project_root",
+        "path": "context/project/decisions/0001-selective-local-first.md"
+      }
+    ],
+    "receipt": "workspaces/001-noline-context-harness-application/records/receipts/verify/verify-20260910T055624834459Z-835ff0c90b444b908d8943a3d23d2196.json",
+    "receipt_freshness": {
+      "status": "fresh",
+      "snapshot_file_count": 125,
+      "changed_file_count": 0,
+      "missing_file_count": 0,
+      "unavailable_file_count": 0
+    }
+  },
+  "explicit": {
+    "returncode": 0,
+    "workspace_id": "001-noline-context-harness-application",
+    "loaded_context_paths": [
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/index.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/01-problem-goal-scope.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/02-behavior-and-cases.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/03-concepts-and-contracts.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/04-quality-and-completion.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/spec/05-constraints-design-assumptions.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/project-context.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/memory/tickets/index.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/state/index.md"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/current/state/status.json"
+      },
+      {
+        "path_base": "work_root",
+        "path": "workspaces/001-noline-context-harness-application/output/index.md"
+      },
+      {
+        "path_base": "project_root",
+        "path": "context/project/README.md"
+      },
+      {
+        "path_base": "project_root",
+        "path": "context/project/common/product.md"
+      },
+      {
+        "path_base": "project_root",
+        "path": "context/project/current/architecture.md"
+      },
+      {
+        "path_base": "project_root",
+        "path": "context/project/decisions/0001-selective-local-first.md"
+      }
+    ],
+    "receipt": "workspaces/001-noline-context-harness-application/records/receipts/verify/verify-20260910T055624834459Z-835ff0c90b444b908d8943a3d23d2196.json",
+    "receipt_freshness": {
+      "status": "fresh",
+      "snapshot_file_count": 125,
+      "changed_file_count": 0,
+      "missing_file_count": 0,
+      "unavailable_file_count": 0
+    }
+  }
+}

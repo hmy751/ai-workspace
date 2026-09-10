@@ -47,6 +47,10 @@ Main 결과 전달과 실제 문서 준비 확인은 기존 책임이다. Mainta
 
 ## 다음에 이어갈 일
 
+2026-09-09 사용자 요청으로 Noline의 기존 이식본을 읽기 전용 조사했다. [현황 기록](../records/2026-09-09-02-noline-installed-state-assessment.md)에 `f0bada9` 기준의 flat Project context·구형 memory/Recover·누락 스킬, 보존할 Claude adapter·bridge, 직접 통과한 구조 검사·Recover와 증거 범위의 한계를 남겼다. 최신 이식 skill 안에서 차이 분석과 변경 manifest를 수행하면 보완할 수 있다는 판단이며, target 수정·subagent 실행·이식 Workspace 전환은 아직 요청받아 수행한 상태가 아니다.
+
+후속 사용자는 이식 뒤 리팩토링으로 개선안을 평가할 예정이라고 설명했다. 지정한 외부 `09-improvement-evaluation`의 평가 구조·방법·성과안을 읽고, 이식의 Project 구조와 실제 본문은 갖추되 리팩토링 판단에 필요한 맥락부터 확인하고 나머지 정비는 작업 중·이후로 나누자는 제안을 위 현황 기록에 추가했다. 정비 전후 상태와 초기 이해·정비 비용을 평가에 포함한다. 구체 리팩토링 범위와 이 제안의 수용은 아직 미정이며 실제 적용을 시작하지 않았다.
+
 이번 연구 전체 대조와 요청받은 Decision 보완에는 남은 실행이 없다. 아래 항목은 별도 운영 검증·적용 범위이며 이식 누락으로 세지 않는다.
 
 통합 변경의 Git 이력과 [적용 기록](../records/2026-09-08-15-skills-spec-ticket-reference-integration.md)에서 이어간다. 이번 커밋 승인은 실제 host acceptance나 외부 제품 적용의 완료를 뜻하지 않는다. Reference 통합과 이 연구 작업대 root의 직접 사용은 별도 적용 범위다.

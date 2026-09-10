@@ -5,11 +5,11 @@ description: 작업 중 여러 Workspace에 계속 유효할 제품·domain 의�
 
 # Update Project Context
 
-이 skill은 [`Project context README`](../../../context/project/README.md)의 내용 복원·변경·관리 계약을 적용하는 실행 절차다. 지속 기준과 책임은 그 README와 실제 내용 Owner가 소유한다.
+이 skill은 [`Project context 관리 계약`](../../../context/project/MAINTENANCE.md)을 적용하는 실행 절차다. [`Project context README`](../../../context/project/README.md)는 구조와 권위 관계를, 관리 계약은 내용 복원·변경·갱신 기준을 소유하며 실제 제품 의미는 각 내용 Owner에 남는다.
 
 ## 근거와 반영 범위 확인
 
-1. Project root의 [`AGENTS.md`](../../../AGENTS.md), Project context README와 관련 책임 층의 진입점·기존 문서를 읽는다. 현재 요청이 작업 중 변화 반영인지 기존 맥락 복원인지 확인한다.
+1. Project root의 [`AGENTS.md`](../../../AGENTS.md), Project context README, 관리 계약과 관련 책임 층의 진입점·기존 문서를 읽는다. 현재 요청이 작업 중 변화 반영인지 기존 맥락 복원인지 확인한다.
 2. 현재 Workspace와 요청 범위에 필요한 source·record·output, 제품·domain 문서와 code·test 등 직접 근거만 선택한다. Workspace를 읽을 때는 [`Work 지침`](../../../context/work/AGENTS.md)을 따른다. 다른 Workspace 전체나 archive를 기본 탐색하지 않는다.
 3. Project 계약에 따라 남길 내용의 근거, 현재 역할, 기존 Owner와 반영 위치를 찾는다. 기존 사용자 변경과 같은 위치의 충돌을 확인한다.
 

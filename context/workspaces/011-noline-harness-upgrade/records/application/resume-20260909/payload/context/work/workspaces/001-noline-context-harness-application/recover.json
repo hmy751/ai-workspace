@@ -1,0 +1,22 @@
+{
+  "schema_version": 6,
+  "workspace_id": "001-noline-context-harness-application",
+  "project_context": [
+    {
+      "path": "context/project/README.md",
+      "reason": "물리 layer와 authority, 내용 복원·갱신 계약을 찾는다."
+    },
+    {
+      "path": "context/project/common/product.md",
+      "reason": "Noline 사용자 장면과 데이터 관계·지원 경계를 이식에서 보존한다."
+    },
+    {
+      "path": "context/project/current/architecture.md",
+      "reason": "현재 제품·Harness Owner와 검증 상한을 구별한다."
+    },
+    {
+      "path": "context/project/decisions/0001-selective-local-first.md",
+      "reason": "기존 데이터·서비스 책임 선택의 이유를 확인한다."
+    }
+  ]
+}

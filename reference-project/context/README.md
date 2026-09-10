@@ -12,6 +12,7 @@ Project context는 기존 제품 문서의 복사본이나 링크 목록이 아�
 ## 사람이 시작하는 위치
 
 - 제품의 장기 기준을 확인하거나 바꿀 때: [`project/README.md`](project/README.md)에서 책임 layer를 고른 뒤 해당 `common/`, `current/`, `guidance/` 문서
+- Project context를 작성·복원·갱신할 때: [`project/MAINTENANCE.md`](project/MAINTENANCE.md)의 내용 충분성·변경·관리 기준
 - 현재 작업을 복구하거나 Work context 운영을 이해할 때: [`work/README.md`](work/README.md)
 - 실제 제품 구현을 볼 때: [`../src/`](../src/)
 
