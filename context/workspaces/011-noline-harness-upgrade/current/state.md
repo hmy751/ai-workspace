@@ -12,13 +12,13 @@ Maintainer 모델은 비교 시험 뒤 사용자가 선택한 Sol high로 설정
 
 작성 지침의 최초·후속 입력 단일 포함과 로컬 링크 검사를 마쳤으며, 모델 설정 반영 후 Maintain 테스트 67개와 전체 재실행 126개가 통과했다. 첫 전체 검사에서 Verify 시간 제한 테스트 한 건이 실패한 사실은 [모델 설정 기록](../records/2026-09-11-07-maintainer-model-settings.md)에 보존했다. 이후 작성 지침의 조건·사례·원문 보존 보완 뒤에도 입력 단일 포함과 Maintain 67개 검사를 다시 통과했다. 작성 기준의 책임 분리는 [분리 기록](../records/2026-09-11-06-workspace-document-writing-contract.md), Noline 수정본 대조와 후속 보완 이유는 [압축 기준 보완 기록](../records/2026-09-11-08-writing-conditions-examples-evidence.md)에서 찾는다.
 
-사용자가 이번 source 변경의 커밋과 Noline 반영을 요청했다. 커밋 전 재검사에서 Maintain 67개는 통과했다. 전체 126개 중 기존 Verify descendant timeout 시험 한 건이 다시 실패했고 단독 재실행은 통과했다. 해당 시험 코드는 바꾸지 않았다. Noline은 아직 적용 전이며, 진행 중인 Ticket 03 테스트 설정·문서와 `.pnpm-store/`를 보호하고 공통 지침·Maintainer 설정만 적용 대상으로 준비한다. `.DS_Store`는 source 커밋에서 제외한다.
+작성 지침·실행 설정·평가 기록은 source `5f6db35`로 커밋했고 Noline에는 `309b9e6`으로 적용·커밋했다. 공통 변경과 적용 기록 16개 파일만 포함했으며, 다른 session이 진행 중인 Ticket 03 코드·테스트·문서는 수정하거나 커밋하지 않았다. Noline Maintain 72개와 전체 Harness 재검사 124개, 구조·로컬 링크·명시/기본 Recover 검사가 통과했다. 기존 Verify timeout 시험의 최초 실패와 단독 재실행 통과도 보존했다. [적용 기록](../records/2026-09-11-13-noline-writing-and-settings-application.md)이 판본·기존 작업 분리·검증 한계를 소유한다. Source의 `.DS_Store`와 평가 Python 캐시는 커밋에서 제외했다.
 
 Ticket 03 논의의 사용자·Main 발화 전문 23개와 새 계약으로 독립 작성 시험을 수행했다. 기존 작성본은 제공하지 않았고 첫 초안도 수정하지 않았다. [최초 Terra high 평가](../records/2026-09-11-09-ticket03-blind-writing-evaluation.md)에서 확인한 내용 부족을 바탕으로, 사용자 요청에 따라 동일 prompt의 Terra xhigh와 Sol medium을 병렬 비교했다. 실제 시작·재개 로그의 모델·effort, 추가 도구 호출 없음과 Noline·Reference 보존을 확인했다.
 
 [두 후보 비교](../records/2026-09-11-10-ticket03-model-comparison.md)에서는 Sol medium의 일부 정확성 개선에도 공통적인 record 내용 부족이 남았다. 이어 사용자가 요청한 [Sol high 추가 시험](../records/2026-09-11-11-ticket03-sol-high-evaluation.md)에서는 Jest 설정 이유, mock·공용 설정의 서로 다른 도입 조건, 사용자 수락 발화와 원문 위치가 살아났다. 전체 표준 단가 환산은 Terra xhigh 약 6.39, Sol medium 약 11.72, Sol high 약 12.57크레딧이었다. 이 사례의 다음 모델 후보로는 Sol high를 우선 권하지만, 디렉터리 선택 비용 누락과 조건부 권장의 강화·전후 검사 기준 약화는 여전히 보완할 점이다.
 
-사용자의 후속 요청으로 Reference 기본값을 Sol high로 변경했다. 작성 지침에는 선택 비용·조건·결정 강도 보존과 문서 간 중복 제거 기준이 이미 있어 이번에는 본문을 더 수정하지 않았다. [채택 기록](../records/2026-09-11-12-maintainer-sol-high-adoption.md)에 변경·검증과 지침 유지 판단을 남겼다. 시험의 어느 초안도 Noline에 반영하지 않았고, 실제 Recover·Guard apply·Noline host 전체 흐름, 여러 문서 유형의 일반 효과와 반복 실행 안정성은 이번 시험 밖이다.
+사용자의 후속 요청으로 Reference 기본값을 Sol high로 변경했다. 작성 지침에는 선택 비용·조건·결정 강도 보존과 문서 간 중복 제거 기준이 이미 있어 이번에는 본문을 더 수정하지 않았다. [채택 기록](../records/2026-09-11-12-maintainer-sol-high-adoption.md)에 변경·검증과 지침 유지 판단을 남겼다. 시험의 어느 초안도 Noline에 반영하지 않았다. 설치 후 Noline의 읽기 전용 Recover는 확인했지만 실제 모델의 Guard apply·host 전체 흐름, 여러 문서 유형의 일반 효과와 반복 실행 안정성은 확인하지 않았다.
 
 Noline에는 앞선 자료 구분 보완 `dac4e60`과 문서 통합 편집 보완 `37c1fc5`가 적용돼 있다. 당시 source 기준과 적용·보호·검증은 [앞선 문서 편집 기록](../records/2026-09-11-04-maintainer-readable-editing-guidance.md)과 [Noline 적용 기록](../records/2026-09-11-05-noline-maintainer-readable-editing-application.md)에서 찾는다. 이전 시험의 상대 링크 Guard 실패와 실제 자동 host 흐름의 전체 검증은 별도 후속 판단으로 남긴다.
 

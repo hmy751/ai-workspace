@@ -4,6 +4,7 @@
 
 선행 현황 분석과 평가 전 정비 판단은 [010 기록](../../010-spec-ticket-workspace-design/records/2026-09-09-02-noline-installed-state-assessment.md)에 있다.
 
+- [2026-09-11 Noline 작성 지침·설정 적용](2026-09-11-13-noline-writing-and-settings-application.md): source 커밋과 Noline 적용·커밋, 동시 작업 분리와 직접 검사·독립 검토의 회수.
 - [2026-09-11 Maintainer Sol high 채택](2026-09-11-12-maintainer-sol-high-adoption.md): 사용자 선택에 따른 Reference 기본값 변경, 시작·재개 검증과 작성 지침 유지 판단.
 - [2026-09-11 Ticket 03 Sol high 추가 시험](2026-09-11-11-ticket03-sol-high-evaluation.md): 같은 입력에서 선택 이유·조건·원문 근거가 개선된 첫 초안, 남은 강도·내용 문제와 세 후보의 가성비 비교.
 - [2026-09-11 Ticket 03 모델 후보 병렬 비교](2026-09-11-10-ticket03-model-comparison.md): 같은 입력의 Terra xhigh·Sol medium 실제 실행, 원문 대조와 공통 누락, 시간·토큰·추정 비용 및 기본 설정 유지 판단.
