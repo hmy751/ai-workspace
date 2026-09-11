@@ -4,6 +4,8 @@
 
 2026-09-09 최신 Reference 설치·실행 검증을 회수했다. 2026-09-10 사용자 검토에 따라 이식 skill의 기존 문서 전환 기준을 보완하고 새 worker의 실제 적용·검증 결과도 회수했다. 이어 Reference의 Project 관리 기준 배치와 이식·갱신 skill을 고치고 Noline 재적용·검증까지 완료했다. 실제 host activation과 제품 리팩토링·효과 평가는 별도 후속 작업이다.
 
+- [Reference Workspace collection](../../../../reference-project/context/work/workspaces/README.md)과 [Maintain 계약](../../../../reference-project/context/work/harness/maintain/README.md): Workspace 사람용 문서 전반의 작성 기준과 Maintainer의 적용 책임을 소유한다.
+- [Maintainer 문서 통합 편집 기준 보완 기록](../records/2026-09-11-04-maintainer-readable-editing-guidance.md): 사용자 정정, source 변경 범위와 검증 상한.
 - [Maintainer 자료 구분 보완과 재적용](../records/2026-09-11-03-maintainer-material-classification-correction.md): 실제 002 사례의 재생·재진입으로 current·records 경계를 보완한 Source 결과.
 - [Noline 설치본의 Maintainer 보완 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/001-noline-context-harness-application/records/2026-09-11-01-maintainer-material-classification-correction.md): Noline 고유 문구와 기존 사용자 변경을 보존한 적용·단위 검증.
 - [문서 전환 기준과 재적용 기록](../records/2026-09-10-01-document-transition-reapplication.md): 수정한 이식 skill, 최소 위임 입력과 이번 적용 결과.
