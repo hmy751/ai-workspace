@@ -1,0 +1,15 @@
+{
+  "context_status": "no_change",
+  "workspace_id": "002-code-readability-refactoring",
+  "changed": [],
+  "importance": "none",
+  "summary": "Ticket 내부의 개선 관점과 전체 후보의 검토 범위를 함께 관리한다는 기존 기준을 설명했다. 새 실행 범위·단계·완료 판단의 변화는 없다.",
+  "evidence": [
+    "사용자는 현재 방식으로 분석 주제를 최대한 다룰 수 있는지 물었다.",
+    "Main은 Ticket 안에서 관련 관점을 바텀부터 검토하고, 전체 후보와 Ticket을 연결해 남은 범위를 확인한다고 설명했다. 이는 기존 Spec의 작업 단위·후보 누락 방지·개별 Ticket과 전체 완료 구분에 부합한다.",
+    "경계 확대나 공통 Ticket 추가는 문제가 드러날 경우의 가능성으로 제시됐으며, 구체적인 재분해 결정은 아니다.",
+    "개선·유지·별도 버그 수정·보류의 이유를 남긴다는 설명도 기존 후보별 판단 기준을 재진술한다."
+  ],
+  "unresolved": [],
+  "question": null
+}

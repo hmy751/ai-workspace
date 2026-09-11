@@ -1,0 +1,17 @@
+[
+  "/Applications/ChatGPT.app/Contents/Resources/codex",
+  "exec",
+  "--json",
+  "--sandbox",
+  "read-only",
+  "--ignore-user-config",
+  "-C",
+  "/private/tmp/maintainer-material-eval-20260911/run03-project",
+  "-c",
+  "features.hooks=false",
+  "--output-schema",
+  "/private/tmp/maintainer-material-eval-20260911/run03-project/context/work/harness/maintain/grounding.schema.json",
+  "--output-last-message",
+  "/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/maintain-codex-rx1tklts/last-message.json",
+  "-"
+]

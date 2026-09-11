@@ -1,0 +1,35 @@
+[
+  {
+    "phase": "06-adoption",
+    "kind": "actual_replay",
+    "outcome": "update",
+    "apply": "updated",
+    "changed": [
+      "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md",
+      "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+      "context/work/workspaces/002-code-readability-refactoring/current/state/index.md",
+      "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-03-agreed-ticket-workflow.md",
+      "context/work/workspaces/002-code-readability-refactoring/records/README.md"
+    ],
+    "summary": "채택된 코드 범위별 Ticket 진행 방식과 분석 주제별 검토 범위 관리 기준을 Spec에 반영하고, 현재 단계를 사용자 Ticket 검토 중으로 정리하는 변경안이다. 합의 근거는 Workspace 기록으로 보존한다."
+  },
+  {
+    "phase": "07-restatement",
+    "kind": "synthetic_control",
+    "outcome": "no_change",
+    "apply": "no_change",
+    "changed": [],
+    "summary": "기존 합의의 재설명이며 새 결정이나 진행 상태 변화가 없어 추가 반영이 필요하지 않다."
+  },
+  {
+    "phase": "08-progression",
+    "kind": "synthetic_lifecycle",
+    "outcome": "update",
+    "apply": "updated",
+    "changed": [
+      "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+      "context/work/workspaces/002-code-readability-refactoring/current/state/index.md"
+    ],
+    "summary": "사용자가 경비 합계 표시를 첫 실행 대상으로 선택했으므로 Ticket 01과 전체 상태를 변경 전 검사 준비 단계로 갱신한다."
+  }
+]

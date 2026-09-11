@@ -1,0 +1,100 @@
+{
+  "phases": [
+    {
+      "phase": "06-adoption",
+      "declared_matches_actual": true,
+      "changed_paths": [
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/state/index.md",
+        "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-03-agreed-ticket-workflow.md",
+        "context/work/workspaces/002-code-readability-refactoring/records/README.md"
+      ]
+    },
+    {
+      "phase": "07-restatement",
+      "declared_matches_actual": true,
+      "changed_paths": []
+    },
+    {
+      "phase": "08-progression",
+      "declared_matches_actual": true,
+      "changed_paths": [
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/state/index.md"
+      ]
+    }
+  ],
+  "changed_paths": [
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/state/index.md",
+    "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-03-agreed-ticket-workflow.md",
+    "context/work/workspaces/002-code-readability-refactoring/records/README.md"
+  ],
+  "all_changes_current_or_records_markdown_only": true,
+  "live_fixture_matches_final_guarded_state": true,
+  "exact_adoption_utterance_absent_from_current": true,
+  "exact_adoption_utterance_preserved_in_records": true,
+  "temporary_absolute_path_absent_from_current": true,
+  "state_utf8_bytes": {
+    "before_adoption": 8336,
+    "after_progression": 4254
+  },
+  "maintainer_turn_contexts": [
+    {
+      "turn_id": "01a08e63-c190-7101-8336-8a173c2f2310",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run03-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e64-0d0d-7f40-bdcb-149f4e08e869",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run03-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e67-71a3-7a02-82f3-901cbe60b117",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run03-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e67-9ec9-7693-820f-7bc55bdd7e58",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run03-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    }
+  ],
+  "reentry_thread_id": "01a08e69-28d2-7f81-b265-dadb09ca4a2c",
+  "reentry_turn_contexts": [
+    {
+      "turn_id": "01a08e69-2939-7491-99b7-e1e146760a80",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run03-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    }
+  ]
+}

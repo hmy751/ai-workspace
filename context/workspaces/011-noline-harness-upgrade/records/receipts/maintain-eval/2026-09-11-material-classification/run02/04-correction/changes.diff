@@ -1,0 +1,62 @@
+--- before/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md
++++ after/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md
+@@ -4,7 +4,9 @@
+ 
+ ## 작업 단위와 진행 방식
+ 
+-작업 단위는 파일 또는 함수 하나로 고정하지 않고 개선 효과와 동작 보존을 함께 확인할 수 있는 작은 범위로 정한다.
++Ticket은 관련된 개선들을 함께 수행하고 전후 결과와 개선 효과를 확인할 수 있는 작은 작업 범위다. 파일 또는 함수 하나로 고정하지 않는다. 이름·조건식·기본값·값 변환·타입·작은 함수·책임 분리는 그 범위의 코드를 살펴보는 개선 관점이다. 한 Ticket에 관련된 여러 관점이 함께 들어갈 수 있으며 모든 관점에서 반드시 수정할 것을 찾을 필요는 없다.
++
++예를 들어 경비 합계 표시는 첫 통화를 가리키는 이름, 강조·소수 자릿수 조건, 합산·표시 사이의 변환과 기본값, 반복 계산의 작은 함수와 책임을 함께 볼 작업 범위다. 그 안에서 바텀 요소부터 살펴보고 필요할 때 함수·내부 책임 정리로 이어간다. 관련 변경의 동작 보존과 개선 효과를 함께 확인할 수 있도록 경계를 정한다.
+ 
+ 1. 현재 문제, 보존할 계약, 개선 기대를 정한다.
+ 2. 영향을 받을 동작과 검증 방법을 고른다.
+--- before/context/work/workspaces/002-code-readability-refactoring/current/state/index.md
++++ after/context/work/workspaces/002-code-readability-refactoring/current/state/index.md
+@@ -1,10 +1,10 @@
+ # 현재 상태와 다음 행동
+ 
+-현재는 합의한 Spec을 바탕으로 추가 조사와 실행 전 Ticket 초안을 구성한 단계다. [다섯 Ticket](../memory/tickets/index.md)은 경비 합계 표시, 도시 검색, 저장 용량, 경비 API, 서버 일정 응답 변환을 다룬다. Main이 먼저 작업하기 좋은 일부를 구체화한 것이며 전체 주제를 포괄하는 Ticket 구성은 미완료다. 범위와 번호 순서는 Main 제안이며 강한 기술 의존성이 아니다. 사용자가 첫 구현 대상을 확정한 것은 아니다. Main 보고상 제품 코드·테스트·설정 수정과 제품 동작 테스트·새 Verify 실행은 없다.
++현재는 합의한 Spec을 바탕으로 추가 조사와 실행 전 Ticket 초안을 구성하고 Ticket 경계의 의미를 구체화한 단계다. [다섯 Ticket](../memory/tickets/index.md)은 경비 합계 표시, 도시 검색, 저장 용량, 경비 API, 서버 일정 응답 변환을 다룬다. 각 범위 안에서 이름·조건·변환·타입·작은 함수 등 관련 개선 관점을 함께 적용하며 바텀 요소부터 필요한 내부 책임 정리로 이어간다. 공통 기준은 [작업 단위와 진행 방식](../memory/spec/05-constraints-design-assumptions.md)이 소유한다.
+ 
+-Main이 밝힌 다음 행동은 [전체 후보](../memory/analysis-items.md)가 어느 Ticket에 들어가는지, 무엇은 동작 확인이 먼저 필요한지, 무엇은 변경할 필요가 없는지를 빠짐없이 정리한 뒤 실행 순서를 정하는 것이다. 폼 초기화·재진입, picker, 날짜 그룹, 저장 후 처리, 공통 데이터·경로·정리, 완료 상태와 설정 등은 아직 Ticket 경계에 모두 배치되지 않았다. 기존 다섯 초안은 이 전체 배치에서 함께 검토한다.
++다섯 초안의 범위와 번호 순서는 Main 제안이며 강한 기술 의존성이 아니다. 사용자가 첫 구현 대상을 확정한 것은 아니다. Main 보고상 제품 코드·테스트·설정 수정과 제품 동작 테스트·새 Verify 실행은 없다. 폼 초기화·재진입, picker, 날짜 그룹, 저장 후 처리, 공통 데이터·경로·정리, 완료 상태와 설정 등은 [전체 후보](../memory/analysis-items.md)에 후속 범위로 남아 있다.
+ 
+-실행 범위가 정해지면 필요한 현재 코드·계약을 대조해 변경 전 기준 검사를 준비한다. 처음 필요한 Ticket에서 최소 검사 방법을 마련해 재사용한다는 Main 제안이며 구체적인 runner는 미선택이다. 직접 걸리는 버그의 기대 동작·수정·선행 관계만 연결하며 버그 전체 해결을 기다리지는 않는다.
++다음 작업은 이 경계 기준으로 첫 실행 범위를 구체화하고 필요한 현재 코드·보존 계약·개선 기대·변경 전후 확인 방법을 정하는 것이다. 후보별 처리·변경 불필요·별도 동작 수정·보류 판단은 기존 품질 기준에 따라 이어간다. 처음 필요한 Ticket에서 최소 검사 방법을 마련해 재사용한다는 Main 제안이며 구체적인 runner는 미선택이다. 직접 걸리는 버그의 기대 동작·수정·선행 관계만 연결하며 버그 전체 해결을 기다리지는 않는다. 질문 해석과 그에 따른 다음 행동의 교정 근거는 [Ticket 경계 정정 기록](../../records/2026-09-11-02-ticket-boundary-correction.md)에 있다.
+ 
+ 2026-09-11 Main은 `refactor/codebase`, HEAD `a612ba4c49b92b1193e75e1d56bdefcdcd86bbda`에서 대표 구현과 사용처를 조사했고 시작·마지막 Git 확인에서 미커밋 파일은 이 state뿐이었다고 보고했다. 이는 당시 조사 보고이며 현재 저장소 상태나 전체 파일 정독·앱 동작을 보장하지 않는다. 제품 test/spec·runner 경로와 확인한 package scripts에서 제품 test 명령을 찾지 못했다는 보고도 해당 검색 범위의 결과다. 과거 타입·린트 실패는 재실행하지 않았다. 조사 선택 이유와 한계는 [추가 조사 기록](../../records/2026-09-11-01-additional-research.md)에 있다.
+ 
+--- before/context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-02-ticket-boundary-correction.md
++++ after/context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-02-ticket-boundary-correction.md
+@@ -0,0 +1,21 @@
++# Ticket 경계의 의미와 다음 행동 정정
++
++## 원문과 사건 범위
++
++앞선 turn `01a08de0-ce1d-7420-80c0-0e555e377266`에서 사용자는 “그럼 아까 주제들을 모두 포함하는 경계로 잡은거야?”라고 물었다. Main은 전체 후보가 Ticket으로 만들어졌는지를 묻는 것으로 해석하고, 전체 후보를 빠짐없이 배치한 뒤 실행 순서를 정해야 한다고 답했다. Maintain은 이를 state의 다음 행동에 반영하는 변경안을 반환했고, 이번에 읽은 state에는 그 문구가 있었다.
++
++정정 turn은 `01a08de1-da86-7883-a753-fdd082f333ff`다. 사용자는 “경비 합계 표시 이러니까 아까 주제 단위가 아니라 주제들을 포함하는 경계단위인것 같아서 그게 티켓 경계같고”라고 질문 의도를 밝혔다. 이는 분석의 개선 관점들과 실제 작업 범위의 관계를 묻는 설명이다.
++
++Main은 “제가 앞선 질문을 ‘전체 후보가 모두 티켓으로 만들어졌느냐’로 잘못 이해했어요”라고 정정했다. 또 “한 가지 개선 목적”이라는 앞선 설명이 좁았으며 정확한 뜻은 “관련된 개선들을 함께 수행하고 전후 결과를 확인할 수 있는 작업 범위”라고 설명했다.
++
++## 교정 판단과 영향
++
++이름·조건식·기본값·값 변환·타입·작은 함수·책임 분리는 코드를 살펴보는 관점이고, 경비 합계 표시는 관련 관점들을 함께 적용할 작업 범위다. 한 Ticket에서 바텀 요소부터 필요한 함수·책임 정리까지 이어갈 수 있으며 모든 관점마다 변경을 만들 의무는 없다.
++
++앞선 답에서 나온 전체 후보 배치 완료 후 실행 순서 결정은 사용자 질문의 의미에서 도출되지 않는다. 그 오해를 실행 전 필수 단계로 유지하지 않도록 state를 교정한다. Ticket의 공통 경계 설명은 Spec의 작업 단위 기준에 반영한다.
++
++기존 다섯 초안의 구체적 범위·보존 조건·검증 계획은 이번 정정과 양립한다. 후속 후보가 남아 있다는 사실과 후보별 판단을 누락하지 않는 품질 기준도 유지한다. 전체 후보를 변경 불필요로 판정하거나 분해 완료로 전환한 사건이 아니다. 첫 구현 대상·실행 순서의 사용자 확정, 제품 구현·검증 결과도 새로 제공되지 않았다.
++
++## 확인 범위
++
++Maintain은 선택된 Workspace의 관련 current 문구를 제한적으로 검색하고 state·Spec 접근 문서의 실제 내용을 확인했다. 제품 코드·테스트·다른 Workspace는 조사하지 않았다. 현재 유효한 기준은 [Spec](../current/memory/spec/05-constraints-design-assumptions.md), 진행과 다음 행동은 [state](../current/state/index.md)가 소유한다.
+--- before/context/work/workspaces/002-code-readability-refactoring/records/README.md
++++ after/context/work/workspaces/002-code-readability-refactoring/records/README.md
+@@ -7,5 +7,6 @@
+ 
+ - [분석 보존 검증](2026-09-10-04-analysis-preservation-validation.md): 원문 일치·링크 외 본문 일치와 원래 경로 없는 재진입 확인.
+ - [추가 코드 조사와 Ticket 초안의 근거](2026-09-11-01-additional-research.md): 추가 후보의 선택·후순위·기각 이유, 조사·검증의 한계와 함께 전달된 사후 보존 보고.
++- [Ticket 경계의 의미와 다음 행동 정정](2026-09-11-02-ticket-boundary-correction.md): 개선 관점과 작업 범위의 구분, 질문 오해가 다음 행동에 미친 영향과 교정 근거.
+ 
+ 후속 분석·결정·실행 기록은 이 디렉터리에 날짜별로 남긴다. 원문·변경하지 않은 snapshot은 [source](../source/index.md), 현재 기준과 진행은 [current](../current/memory/index.md)가 소유한다.

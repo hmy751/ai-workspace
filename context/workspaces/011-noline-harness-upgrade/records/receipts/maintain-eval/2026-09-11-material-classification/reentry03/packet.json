@@ -1,0 +1,187 @@
+{
+  "schema_version": 6,
+  "workspace_id": "002-code-readability-refactoring",
+  "workspace": {
+    "path_base": "work_root",
+    "path": "workspaces/002-code-readability-refactoring"
+  },
+  "recover_contract": {
+    "path_base": "work_root",
+    "path": "workspaces/002-code-readability-refactoring/recover.json"
+  },
+  "control_paths": [
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/workspace.json"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/recover.json"
+    }
+  ],
+  "loaded_context_paths": [
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/memory/index.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/memory/spec/02-behavior-and-cases.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/memory/spec/03-concepts-and-contracts.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/memory/analysis-items.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/memory/project-context.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/memory/tickets/index.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/state/index.md"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/state/status.json"
+    },
+    {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/output/index.md"
+    },
+    {
+      "path_base": "project_root",
+      "path": "context/project/README.md"
+    },
+    {
+      "path_base": "project_root",
+      "path": "context/project/common/product.md"
+    },
+    {
+      "path_base": "project_root",
+      "path": "context/project/current/architecture.md"
+    }
+  ],
+  "memory": {
+    "index": {
+      "path": "workspaces/002-code-readability-refactoring/current/memory/index.md",
+      "path_base": "work_root",
+      "content": "# 코드 가독성 리팩토링의 현재 작업 정의\n\n이 Work의 Spec은 다음 다섯 파일 전체다. 후보 목록은 조사 범위와 판단 경계를, Ticket은 실행 범위·확인 방법·실제 결과를 소유한다.\n\n- [문제·목표·범위](spec/01-problem-goal-scope.md)\n- [요구 동작과 대표 사례](spec/02-behavior-and-cases.md)\n- [핵심 개념·입출력 계약](spec/03-concepts-and-contracts.md)\n- [품질·완료 판단](spec/04-quality-and-completion.md)\n- [제약·현재 설계·가정](spec/05-constraints-design-assumptions.md)\n- [기존 분석과 추가 조사에서 이어받은 후보](analysis-items.md)\n- [선택한 Project context](project-context.md)\n- [Ticket 색인](tickets/index.md)\n- [전체 상태와 다음 행동](../state/index.md)\n\n원문과 상세 재현 근거는 [source](../../source/index.md), 분석·구성 검토는 [records](../../records/README.md), 실제 제품 산출물은 [output](../../output/index.md)에서 찾는다.\n"
+    },
+    "entries": [
+      {
+        "path": "workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md",
+        "path_base": "work_root",
+        "content": "# 문제·목표·범위\n\n현재 제품은 일반적인 화면·feature·data·repository 역할 분리와 재사용 기반을 갖추고 있다. 한편 작은 처리 주변에 반복 주석·로그·catch가 붙고, 비슷한 처리 방식이 다르거나 이름·설정·주석과 실행 의미가 어긋나 독자가 값·조건·타입과 설계 이유를 다시 추적해야 하는 부분이 있다. 폼과 저장 후 처리에도 비슷한 책임이 서로 다른 위치에 놓여 있다.\n\n목표는 기존 기능과 유효한 역할 분리를 유지하면서 코드를 이해하고 수정하는 부담을 줄이는 것이다. 비슷한 처리는 공통된 방식으로 이해할 수 있게 하고 필요한 차이는 이유가 드러나게 한다. 이름·주석·타입·설정은 실제 동작과 책임을 설명해야 한다.\n\n사용자가 선택한 방향은 **리팩토링 우선, 큰 구조보다 바텀 요소부터**다. 바텀은 이름·조건식·기본값·값 변환·작은 함수·타입 등 가까운 코드 요소를 먼저 본다는 뜻이다. 작은 요소에서 반복 패턴을 확인하고 근거가 있을 때 필요한 내부 책임 정리로 이어간다. 특정 디렉터리의 전수 개편, 전면 통일이나 큰 구조 개편을 목표로 추가하지 않는다.\n\n포함 범위는 client·server·schema·UI의 코드 표현, 함수 내부 흐름, 기존 계약을 유지하는 타입·검증 정리, 의미가 같은 중복, 폼·컴포넌트·hook의 내부 책임이다. [전체 후보](../analysis-items.md)에 기존 분석과 추가 관찰을 유지한다. 후보는 채택 시 원자료와 현재 코드를 대조하며 무조건 변경할 목록이 아니다.\n\nREADME 개선, 신규 기능, 폴더·계층 재편 자체, 버그 수정, 하네스 개편은 이 Work의 목표에 포함하지 않는다. 공개 동작·오류 계약을 바꾸어야 하는 후보는 동작 확인과 수정 범위를 분리한다. 알려진 결함은 잘못된 동작을 영구 보존할 근거가 아니라 직접 관련된 범위의 선행 조건 또는 제외 경계다.\n\n최초 방향의 원문은 [사용자 발췌](../../../source/user-direction.md), 목표 보강에 사용한 분석은 [보존본](../../../source/codebase-analysis/README.md)에 있다. 사용자는 source를 읽어 배경을 보강하되 무조건 따르지는 말라고 했고, 보강된 목표를 수용했다. 현재 목표와 변경 판단은 이 Spec을 기준으로 한다。 실행 범위와 결과는 [Ticket](../tickets/index.md), 전체 진행과 다음 행동은 [state](../../state/index.md)가 소유한다.\n"
+      },
+      {
+        "path": "workspaces/002-code-readability-refactoring/current/memory/spec/02-behavior-and-cases.md",
+        "path_base": "work_root",
+        "content": "# 보존할 동작과 대표 사례\n\n리팩토링 결과는 [보존 계약](03-concepts-and-contracts.md)을 유지하면서 읽기 부담을 줄여야 한다. 정상뿐 아니라 변경에 관련된 실패·취소·재진입·늦은 응답·경계값을 골라 확인한다. 모든 작업에 전체 앱 시나리오를 의무화하지 않는다. 알려진 버그를 바르게 보이도록 이름만 바꾸거나 검증 조건을 지워서는 안 된다.\n\n- API 함수가 요청·응답 검증·반환을 수행할 때, 반복적인 로그와 재전파 catch를 정리해도 실패가 호출부로 전달되고 필요한 오류 기록 책임이 남는다. 후속 처리나 오류 종류를 바꾸는 catch는 단순 중복으로 지우지 않는다.\n- 조건이 통화 강조나 금액 소수 자릿수를 정하면, 이름만으로 판단 의미가 읽히게 하되 통화별 값·표시·정렬 결과를 유지한다. Main이 확인한 경비 화면 사례에서는 첫 통화가 항상 여행 기본 통화인 것은 아니므로 `isBaseCurrency`처럼 실제보다 강한 의미를 붙이지 않는다. 후보 채택 시 현재 코드와 입력을 다시 대조한다.\n- 이미 number인 값을 문자열로 바꿨다가 다시 숫자로 만드는 표현은 입력 계약을 확인해 단순화한다. `0`과 누락을 구분하도록 결과를 바꾸는 수정은 좌표 버그 범위로 따로 다룬다.\n- 폼에서 새 항목 열기, 같은 항목 재열기, 취소, 다른 항목으로 전환, 늦은 조회 결과 도착을 구별한다. 초기값 보존·초기화의 의도를 먼저 확인하고, 기존 UX의 잘못 여부가 미정이면 값을 임의로 리셋하지 않는다.\n- picker의 선택과 닫기, 저장 완료와 화면 이동·경로 준비는 각각 의미와 호출 주체가 드러나야 한다. 반환값이 같아도 화면이 먼저 닫히거나 경로 준비가 두 번 실행되면 동작이 달라질 수 있다. 연결된 부작용의 횟수와 필요한 실행 순서·완료 범위도 확인한다. 타이머 제거·실패 표시 변경처럼 실제 결과가 달라지는 부분은 먼저 기대 동작과 증거를 확보한다.\n- 중복된 경로 다운로드·local upsert·cleanup은 기존 경로 유무, 변경 좌표, 미전송 작업 보존 조건이 서로 다를 수 있다. 중간 실패 시 남는 데이터와 작업도 비교하고, 같은 의미에 한해 공통화한다.\n\n활성 여행은 Local SQLite, 비활성 여행은 Server API라는 기존 기준, 클라이언트 생성 ID, 공유 schema, ISO 시간, 인증·소유권·soft delete와 데이터 보존 정책을 유지한다. 실기기·외부 API 확인이 없는 코드 비교를 제품 전체 동작 보존 증거로 확대하지 않는다.\n"
+      },
+      {
+        "path": "workspaces/002-code-readability-refactoring/current/memory/spec/03-concepts-and-contracts.md",
+        "path_base": "work_root",
+        "content": "# 코드 개선에서 함께 사용할 개념과 계약\n\n리팩토링은 관찰 가능한 동작과 계약을 유지하며 표현·중복·내부 책임을 개선하는 변경이다. 버그 확인·수정은 기대 동작과 현재 결과의 차이를 판별하고 고치는 변경이다. 한 파일에도 두 종류가 함께 있을 수 있으므로 파일 이름만으로 분류하지 않는다.\n\n보존 계약은 함수 입력·반환값뿐 아니라 오류 전달, 저장 내용, 화면 변화, 관련 부작용의 횟수와 필요한 실행 순서·완료 범위를 포함한다. 변경 범위에 관련된 계약과 관찰 조건을 선택하며 기존 구현의 모든 내부 단계를 고정하지 않는다. 변경 전 버그나 불명확한 동작은 자동으로 정답이 되지 않는다. 직접 걸리는 부분은 기대 동작을 먼저 판단하거나 별도 버그 Work와 구분한다.\n\n타입과 입력의 원천은 `@repo/schema`다. `any`, `as never[]`, non-null assertion의 제거는 이미 검증한 데이터 형태·허용 수정 필드·조회 결과의 존재가 이후 처리까지 전달되는 방식으로 해결한다. 검사를 통과시키기 위한 새 단언이나 실패를 숨기는 기본값으로 대체하지 않는다.\n\n저장 요청, 저장된 결과, React Query 캐시 반영, 화면 이동, 지도·경로 준비는 서로 다른 완료 시점이다. 함수의 이름·인자·반환값·callback은 실제 소유한 책임을 드러내야 한다. 단순히 모든 기능을 같은 모양으로 만들기 위해 이동이나 후속 처리를 한 곳으로 강제하지 않는다.\n\n조회 정책·권한·오류 응답은 외부에서 관찰하는 계약이다. 내부 변환 책임을 정리할 수 있지만 공개 오류 형태나 재시도 가능 여부를 바꾸는 결정을 리팩토링 안에 숨기지 않는다. 폼 값 선택과 닫기·취소의 의미 역시 기존 UX와 함께 확인한다.\n\nlocal upsert·cleanup·경로 다운로드의 공통화는 동일한 입력·출력뿐 아니라 실패·중복·최신성 조건도 같은지 확인한 뒤 결정한다. 제품 구현은 `apps/`·`packages/`의 기존 Owner에 두고 Workspace에는 계획·판단·증거 위치를 남긴다.\n"
+      },
+      {
+        "path": "workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md",
+        "path_base": "work_root",
+        "content": "# 품질·완료 판단\n\n각 실행 범위의 완료에는 동작 보존 근거와 실제 코드 개선 근거가 모두 필요하다. 테스트 통과는 개선 효과의 증거를 대신하지 않는다. 줄 수·함수 분리 개수·테스트 개수·coverage 숫자만으로 가독성 개선을 판정하지 않는다.\n\n## 동작 보존 확인\n\n리팩토링 전 코드에서 기존 테스트를 활용하고 필요한 테스트를 추가·실행하여 기준 결과를 확인한다. 수정 후에는 같은 테스트와 관찰 조건으로 비교한다. 테스트는 확인된 계약과 결과에 기대값을 두며 구현을 복제하지 않는다. 보존 계약을 깨뜨리는 변경에는 실패하면서 내부 함수 분리나 이름 변경만으로 불필요하게 깨지지 않도록 구성한다.\n\n실패하면 구현과 테스트 중 원인을 확인하고 통과를 위해 기대값부터 바꾸지 않는다. 변경 전 버그나 불명확한 동작을 정답으로 고정하지 않으며 [보존 계약](03-concepts-and-contracts.md)의 경계에 따라 처리한다.\n\n검증 범위는 변경의 영향에 맞게 고른다.\n\n- 단순 이름·주석·저위험 표현은 전후 diff·사용처·관련 타입/린트로 확인할 수 있다. 구현을 따라 쓰는 새 테스트를 만들지 않는다.\n- 조건·변환·검증·계산은 결과를 갈라놓는 관련 입력과 경계값으로 확인한다.\n- 폼·비동기·저장 후 처리는 관련 상태 변화와 연결된 부작용까지 확인한다.\n- 저장·동기화·정리는 관련 데이터와 부작용을 확인할 통합 검증을 선택하고, 중간 실패나 미전송 데이터가 관련되면 그 조건을 포함한다.\n\nmock이나 함수 반환값 확인만으로 실제 연결이나 데이터 보존을 증명했다고 말하지 않는다. 자동화하기 어려운 부분은 재현 조건과 관찰 결과를 남기는 수동 검증을 사용하고 미확인을 밝힌다. 구체적인 사례·도구·실행 방법은 Ticket 또는 실행 범위에서 정한다.\n\n## 개선 효과 확인\n\n수정 전에 무엇을 해석하거나 추적해야 했으며 무엇이 명확해져야 하는지 정하고, 수정 후 그 기준으로 코드를 비교한다. 사후 소감만으로 개선을 주장하지 않는다.\n\n- 값·조건·함수의 실제 의미와 책임을 이름·타입·가까운 코드로 이해할 수 있다.\n- 반복 해석·불필요한 우회·함께 맞춰 수정할 위치가 줄어든다.\n- 유사 처리의 공통점과 필요한 차이가 읽히고 차이의 이유가 숨겨지지 않는다.\n- 간접 호출이나 범용 옵션을 늘려 읽기·수정 부담을 다른 위치로 옮긴 결과를 자동으로 개선으로 보지 않는다.\n\n예를 들어 같은 통화 강조 조건을 두 곳에서 해석해야 했다면, 변경 후 조건의 의미가 정확한 이름으로 드러나고 두 사용처가 그 판단을 함께 쓰는지 확인한다. 이름만 추가하고 더 많은 함수를 따라가게 됐다면 개선 여부를 다시 판단한다.\n\n## 결과와 전체 완료\n\n각 범위에는 실제 실행 조건과 결과, 동작 보존 및 개선 효과의 근거, 기존 실패와 새 회귀의 구분, 남은 문제와 미확인을 남긴다. 부족하면 보완한다.\n\n[전체 후보](../analysis-items.md)는 관련 Ticket과 연결해 주제별로 확인·개선한 코드 범위와 남은 범위를 구별한다. 검토한 범위에는 실제 개선, 변경 없이 유지할 이유, 별도 버그 수정으로 분리한 부분, 보류와 미확인을 근거와 함께 남긴다. 한 Ticket에서 이름이나 조건을 개선한 결과를 해당 분석 주제 전체의 검토 완료로 확대하지 않는다.\n\n채택한 개선을 실제 수행해야 하며 작은 예시 개선이나 후보 분류만으로 전체 완료가 아니다. 중요한 가독성 문제를 그대로 둔 채 분류만 끝낸 것을 완료로 보지 않는다. 개별 Ticket·검사 통과나 서면 기준의 작성은 전체 목표 달성이나 사람의 수락을 대신하지 않는다.\n\n## 기존 검사와 증명 범위\n\nclient 타입 오류 3건, server 타입 오류 1건, ESLint/Prettier 호환 오류로 린트 미완료였다는 것은 이전 검사 결과다. 상세 진단과 설치 상태의 한계는 [구성 기록](../../../records/2026-09-10-01-workspace-setup.md)에 있다. 실행 시 필요한 기준선을 다시 확인한다. 검사를 가능하게 하는 준비는 공통 지원 작업이며 제품 가독성 개선 자체와 구별한다. 기존 오류를 숨겨 통과시키지 않는다.\n\n초기 `verify.json`은 client noEmit 타입 검사만 선언한다. 구성 당시 TypeScript가 읽은 로컬 소스·설정·생성 선언 파일과 package/lockfile을 evidence로 선택했다. node_modules의 설치 내용, 이후 추가 파일·resolution 변화까지 고정한 재현 환경은 아니다. 실행 직전에 입력 구성을 다시 확인한다. server·schema·UI 변경에는 해당 검사와 필요한 동작 검증을 추가로 고른다. 초기 Verify 하나로 이 Work 전체를 완료 처리하지 않는다.\n\n이번 Spec 구체화에서 새 제품 테스트나 Verify를 실행하지 않았다는 Main 보고를 유지한다. 제공된 상태의 `status.json`은 receipt·result·finished_at이 null이고 `ready_for_verification`은 schema의 미실행 값이다. 이 문서 반영으로 Verify receipt나 machine status를 변경하지 않는다. 가독성 판단·다음 행동·사람의 수락은 machine status와 분리한다.\n"
+      },
+      {
+        "path": "workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+        "path_base": "work_root",
+        "content": "# 제약·현재 접근·열린 판단\n\n채택된 방향은 코드에 집중하고 리팩토링부터 하며 작은 요소에서 시작하는 것이다. 이름·조건·기본값·변환·로그·타입·작은 함수를 보고 반복 패턴의 근거가 있을 때 필요한 폼·컴포넌트 내부 책임으로 이어간다. 큰 구조를 먼저 설계하거나 모든 중복을 제거하는 목표를 추가하지 않는다. 특정 첫 파일이나 '일정 생성부터 시작'은 채택된 계획이 아니다.\n\n## 작업 단위와 진행 방식\n\nTicket은 관련된 여러 개선 주제를 함께 다루고 그 범위의 동작 보존과 개선 효과를 확인할 수 있는 실제 코드 작업 범위다. 파일 또는 함수 하나로 고정하지 않는다. 이름·조건식·기본값·값 변환·타입·작은 함수·책임 분리는 그 범위의 코드를 살펴보는 개선 관점이다. 한 Ticket에 관련된 여러 관점이 함께 들어갈 수 있으며 모든 관점에서 반드시 수정할 것을 찾을 필요는 없다.\n\n예를 들어 경비 합계 표시는 첫 통화를 가리키는 이름, 강조·소수 자릿수 조건, 합산·표시 사이의 변환과 기본값, 반복 계산의 작은 함수와 책임을 함께 볼 작업 범위다. 그 안에서 바텀 요소부터 살펴보고 필요할 때 함수·내부 책임 정리로 이어간다. 관련 변경의 동작 보존과 개선 효과를 함께 확인할 수 있도록 경계를 정한다.\n\n1. 현재 문제, 보존할 계약, 개선 기대를 정한다.\n2. 영향을 받을 동작과 검증 방법을 고른다.\n3. 변경 전 코드에서 기존 테스트를 활용하고 필요한 테스트를 추가·실행하여 기준 결과를 확인한다. 저위험 표현이나 자동화하기 어려운 부분은 [품질 기준](04-quality-and-completion.md)에 따라 검증 방법을 선택한다.\n4. 정한 범위를 리팩토링한다。 새로 발견한 개선을 포함할 때는 해당 범위의 보존 계약·개선 기준과 필요한 확인 방법을 먼저 보완한다.\n5. 같은 테스트와 관찰 조건으로 동작 보존을 검증하고, 별도로 사전에 정한 개선 목표에 대해 코드를 비교한다.\n6. 부족하면 보완하고 실제 결과와 미확인을 남긴 뒤 다음 범위를 선택한다.\n\n범위별 Ticket 수행과 함께 [전체 후보](../analysis-items.md)를 Ticket에 연결해 분석 주제별로 확인·개선한 코드 범위와 남은 범위를 관리한다. 전체 분석 주제를 최대한 다루되 무조건 공통화하거나 전면 변경하지 않는다. 여러 코드 범위에 걸친 중복이나 계약 문제가 드러나면 근거에 따라 관련 Ticket 경계를 조정하거나 공통 부분을 맡는 Ticket을 추가한다. 주제별 결과와 전체 완료의 판단은 [품질 기준](04-quality-and-completion.md)을 따른다.\n\n사용자는 변경 전후 동작 보존 검증과 위 코드 범위별 진행 방식을 채택했다. 상세 테스트 사례와 구현 방법은 Ticket 또는 실행 범위에서 정한다. 내부 구조를 미리 전부 고정하지 않으며 특정 테스트 도구·파일 구성·coverage 수치는 아직 채택하지 않았다. 후보를 다루는 세부 순서는 실행 중 근거로 조정할 수 있다. 채택 범위와 원문 근거는 [진행 방식 합의 기록](../../../records/2026-09-11-03-agreed-ticket-workflow.md)에 있다.\n\n## 알려진 경계와 열린 판단\n\n트랜잭션과 여행별 미전송 작업 조회는 분리 실험에서 결함이 재현됐다고 기존 자료에 기록되어 있다. 큐 상태 보존, 오래된 좌표를 사용하는 경로 계산, 비활성 여행의 로컬 선행 조회, 서버 소유권·응답 계약, 초기화·동기화 실패는 별도의 동작 확인·수정 범위다. 이 부근의 표현을 정리할 때 결함을 더 숨기거나 재현 근거를 없애지 않는다. 버그 전체 완료는 이 Work의 일괄 선행 조건이 아니며 직접 걸리는 부분만 연결한다.\n\n기존 분석의 실행 검증 필요 항목은 장애가 실제 발생했다는 사실로 승격하지 않는다. 폼의 취소·재진입, 활성화 완료·지도 준비·경로 준비, 오류 표시의 기대 UX는 아직 선택이 필요한 부분이 있다. 변경 전 버그나 불명확한 동작을 보존 테스트의 정답으로 고정하지 않는다. 공통 기준을 정하기 위한 추가 선택은 남아 있지 않지만, 실행 범위에서 실제 결과를 바꾸는 선택이 드러나면 사용자에게 확인한다.\n\n## 자료와 작업 경계\n\nWorkspace 구성 당시 기준은 `refactor/codebase`, commit `aa2314cd9c1400420ea8d22f5ea39f9d76ceca21`였다. 기존 분석의 코드 기준은 `b4ed41f6e4bbae26fd45827b3b9063097a2c1ea4`다. 이는 과거 기준이며 현재 HEAD를 뜻하지 않는다. Main이 읽은 보존 분석의 관찰은 2026-09-06 기준으로 전달됐으며 전 파일 정독이나 앱 전체 실행의 증거가 아니다. 후보 채택 시 현재 코드를 다시 확인한다.\n\n원래 분석 경로는 과거 출처이며 영구 파일 보존 제약이나 실행 의존성이 아니다. [Workspace 안의 분석 보존본](../../../source/codebase-analysis/README.md)과 [출처·무결성 설명](../../../source/index.md)을 기준으로 읽는다. 원문 사본을 유지하며 읽기용 문서는 링크 위치와 사용자가 요청한 배경 표현만 다듬었다는 기존 보존 기록을 따른다. 편집 내역은 출처 정보에 남기고 기술 관찰·확인 수준을 유지한다. 원래 경로의 향후 삭제 계획은 있었으나 구성·보존 당시에는 삭제하지 않았다.\n\n기존 미커밋 변경을 보존하고 사용자 요청 없이 stage·commit·push하지 않는다. 다른 작업의 하네스·hook 변경을 이 제품 Work의 결과로 포함하지 않는다.\n\n초기 생성 요청은 두 Workspace 문서 구성이었으며 당시 active 기본값과 session binding을 변경하지 않았다. 이는 생성 당시 사실이며 이후 작업을 막는 고정 제약이 아니다. 현재 작업 단계는 [state](../../state/index.md)가 소유한다. 실행·유지 연결은 [Work 지침](../../../../../AGENTS.md)과 [session binding 계약](../../../../../harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md)에 따라 명시적으로 선택한 Workspace에만 적용한다.\n"
+      },
+      {
+        "path": "workspaces/002-code-readability-refactoring/current/memory/analysis-items.md",
+        "path_base": "work_root",
+        "content": "# 리팩토링 후보 전체\n\n기존 분석의 코드 표현·처리 방식 관찰에 추가로 확인한 폼·저장 결과·공통 구현의 조건을 합쳤다. 작은 요소부터 선택하며, 실제 결과가 바뀌는 부분은 버그 확인·수정과 구별한다.\n\n아래는 실행 Ticket 목록이나 모든 항목을 무조건 변경하라는 결정이 아니다. 원래 관찰·현재 근거·검증 필요 여부를 보존한 후보이며, 채택할 때 해당 원문과 현재 코드를 직접 확인한다.\n\n## 이름·주석·로그·catch\n\n단순 API 처리에 조회 로그·오류 출력 후 재전파·코드 내용을 반복하는 주석이 겹친다. 함수 의도가 보이게 정리하고 기록할 오류의 책임을 확인한다. DELETE payload의 tripId처럼 이유를 설명하는 주석은 보존한다.\n\n근거 수준과 경계: 기존 분석·추가 코드 확인. 오류 전달과 표시 변화는 별도 판정.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/code-style.md), [대표 코드](../../../../../../apps/client/src/entities/expense/api/expenses.ts).\n\n## 조건식과 표시 규칙\n\n경비 화면의 첫 통화 비교와 소수 자릿수 규칙이 JSX 안에 반복된다. 의미 있는 이름과 작은 계산으로 의도를 드러낸다. outsideTripRange/insideTripRange는 보존할 기존 예시다.\n\n근거 수준과 경계: 기존 분석·추가 코드 확인. 통화별 금액·정렬·표시 결과 보존.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/code-style.md), [대표 코드](../../../../../../apps/client/src/screens/ExpensesScreen.tsx).\n\n## 불필요한 값 변환과 기본값\n\nnumber를 String 후 parseFloat로 되돌리는 표현, 미전달·null·빈 문자열의 의미를 흐리는 기본값을 확인한다. 좌표 0이 사라지는 동작 수정은 버그 Work에 분리한다.\n\n근거 수준과 경계: 기존 분석·추가 코드 확인. ||를 일괄 교체하지 않는다.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/code-style.md), [대표 코드](../../../../../../apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts).\n\n## 타입으로 이어지는 검증 결과\n\nnormalizedTrips as never[], updateData: any, return updated!의 근거를 드러낸다. DB·API 경계에서 형태, 수정 가능 필드, 결과 존재를 확인한 사실을 이후 처리까지 전달한다.\n\n근거 수준과 경계: 기존 분석·추가 코드 확인. 단언 제거만 완료 기준으로 삼지 않는다.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/code-style.md), [대표 코드](../../../../../../apps/client/src/shared/services/sync/engine.ts).\n\n## 중복 검증과 도달하지 않는 분기\n\n목록의 entity를 검증한 뒤 같은 배열 응답을 다시 검증하는 처리, null을 허용하지 않는 여행 수정 schema 뒤의 null 분기를 검토한다. 요청과 응답 각각의 검증은 다른 경계다.\n\n근거 수준과 경계: 기존 분석. 허용 입력·오류 계약을 유지하는 정리와 계약 변경을 구별.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/code-style.md), [대표 코드](../../../../../../apps/server/src/routes/trips.ts).\n\n## 목록 계산과 useMemo\n\n일정·경비 화면의 dateRange 배열이 매 렌더 새로 생성돼 useMemo가 계산을 재사용하지 못한다. 날짜별 그룹 계산과 반복되는 범위 생성을 읽기 쉽게 정리한다.\n\n근거 수준과 경계: 기존 분석·추가 코드 확인. 성능 장애나 최적화 효과를 측정한 것은 아니다.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/code-style.md), [대표 코드](../../../../../../apps/client/src/screens/ScheduleScreen.tsx).\n\n## 폼 초기값·reset·값 변경 흐름\n\n렌더 중 setValue, 장소 선택을 effect로 복사, 수정 Drawer의 ID 기준 초기화가 흩어져 있다. 취소·재열기·다른 항목·늦게 도착한 trip 데이터에 따른 기본 통화를 추적하기 쉽게 한다.\n\n근거 수준과 경계: 기존 분석 + 비동기 기본 통화·동일 ID 재진입 추가 관찰. 의도 UX와 실제 영향 확인이 필요.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/components.md), [대표 코드](../../../../../../apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts).\n\n## picker callback 의미\n\n선택 후 onClose 호출, onClose에 선택 handler 연결로 값 저장·검증·닫기가 겹친다. 각각의 책임과 이름을 맞춘다.\n\n근거 수준과 경계: 기존 분석·추가 코드 확인. 닫기·취소 결과가 달라지면 버그 확인 대상으로 분리.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/components.md), [대표 코드](../../../../../../apps/client/src/shared/components/TimePicker/TimePicker.tsx).\n\n## 저장 성공 이후 처리\n\n여행·경비·일정 생성의 이동 책임과 일정 수정의 후속 경로 준비가 다르다. 저장 결과, 캐시 반영, 이동, 백그라운드 준비의 책임을 읽을 수 있게 한다. 500ms 타이머의 필요는 먼저 확인한다.\n\n근거 수준과 경계: 기존 분석 + 저장된 결과 활용·오래된 좌표 확인. 타이머·좌표 결과 변경은 동작 수정.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/components.md), [대표 코드](../../../../../../apps/client/src/features/schedule/update-schedule/UpdateScheduleDrawer.tsx).\n\n## 생성·수정 컴포넌트의 반복과 차이\n\n수정 Drawer에 조회·입력·저장·알림이 모여 있다. 경비의 연결 일정 선택, 공용 Input과 원시 TextInput 스타일, 날짜 그룹·메뉴 상태를 비교한다. 의도 UX는 보존하며 실제 공유 의미만 묶는다.\n\n근거 수준과 경계: 기존 분석·추가 코드 확인. 조회 정책·오류·loading 차이의 실제 영향은 버그 후보에도 남긴다.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/components.md), [대표 코드](../../../../../../apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx).\n\n## 공통 데이터·경로·정리 구현\n\n활성화와 일정 변경의 경로 다운로드, 활성화와 sync의 upsert, 즉시 비활성화와 지연 cleanup을 비교한다. 같은 생명주기 규칙을 수정할 위치를 줄이되 기존 경로 판별과 미전송 보존 조건의 차이를 먼저 해소한다.\n\n근거 수준과 경계: 기존 분석 + 일정 ID/이동 수단만 보는 routeExists의 재계산 위험. 함수 호출로 단순 통일하면 안 된다.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/engine-data.md), [대표 코드](../../../../../../apps/client/src/shared/services/directions/route-downloader.ts).\n\n## 완료 상태와 조율 책임 표현\n\n활성화 hook의 서버·여러 테이블·이전 활성 해제·지도·경로·캐시 조율, online이라는 비활성 상태 이름, 지도만 보는 ready를 구별한다. 동기화 실행 종료·전체 반영·정리 가능 상태도 이름과 반환 의미를 분명히 한다.\n\n근거 수준과 경계: 기존 분석·추가 코드 확인. 완료/실패 의미 자체를 바꾸는 수정은 버그 Work.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/engine-data.md), [대표 코드](../../../../../../apps/client/src/shared/services/offline-prep/metadata.ts).\n\n## 설정과 실제 사용처\n\npolicy syncStrategy의 선언과 동기화 실행 사용처가 이어지는지 판단한다. 공통 함수가 두 곳에서 사용된다는 주석도 실제 호출과 대조한다. 미사용 설정을 실제 기능 보장처럼 남기지 않는다.\n\n근거 수준과 경계: 기존 분석. 미사용이라는 이유만으로 계획 기능 구현이나 삭제를 자동 결정하지 않는다.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/engine-data.md), [대표 코드](../../../../../../apps/client/src/shared/policy/constants.ts).\n\n## 서버 변환·오류 처리 책임\n\nCRUD·활성화·sync의 데이터 변환과 auth·helper·middleware의 오류 변환 위치를 읽기 쉽게 한다. 좌표·날짜·불리언과 오류 형태의 공유 계약은 실제 소비자와 확인한다.\n\n근거 수준과 경계: 기존 분석·추가 코드 확인. 누락 필드·소유권·응답 불일치는 버그 Work, 공개 오류 계약 변경은 별도 기대 동작 확인.\n\n출처: [보존한 분석의 해당 영역](../../source/codebase-analysis/server-contracts.md), [대표 코드](../../../../../../apps/server/src/utils/http-errors.ts).\n\n## 추가 조사에서 구체화한 후보와 경계\n\n아래는 2026-09-11 Main의 코드·사용처 조사 보고다. 제품 동작 테스트 결과가 아니다. 조사 기준·선택 이유·재접근 경로는 [추가 조사 기록](../../records/2026-09-11-01-additional-research.md)에 보존한다.\n\n- 도시 검색: 요청과 응답 필터에 반복되는 허용 도시 코드, 인구 기준과 수도 예외를 드러낸다. 외부 문자열 좌표 변환·응답 순서·실패 시 빈 배열을 보존한다. 실행 범위는 [Ticket 02](tickets/02-city-search.md)가 소유한다.\n- 프로필 저장 용량: 성공·실패의 같은 표시 조립을 정리한다. 파일 조회 중간 실패의 부분 집계와 개별 지도 팩 실패 후 계속 여부를 보존한다. 실행 범위는 [Ticket 03](tickets/03-storage-stats.md)가 소유한다.\n- 대표 여행 선택: `apps/client/src/entities/trip/utils/selectMainTrip.ts`의 반복 Date 변환과 날짜 존재 단언을 검토한다. 우선순위는 이미 잘 드러나므로 간접 호출을 늘릴 가치가 있는지 먼저 판단한다. 고정된 오늘·시간대에서 진행 중·미래·과거·동률·빈 목록·입력 배열 순서 불변을 확인하고 날짜 없는 입력의 schema 허용 여부와 fallback 의미를 먼저 대조한다.\n- 경비 카테고리 표시: `apps/client/src/screens/ExpenseDetailScreen.tsx`의 배경·글자색 두 표를 한 쌍으로 다룰 여지가 있다. entity Card의 색상·`체험` 취급과 실제 사용 중인 shared Card가 다르므로 일괄 병합·색상 통일은 정하지 않았다. 앱 호출을 찾지 못한 export도 검색 결과만으로 삭제하지 않는다.\n- 인증·sync 재시도: `apps/client/src/shared/services/sync/api.ts`는 최대 3회, 2/4/8초 재시도 설명과 `_retry` 조건이 충돌하는 경로가 보고됐다. 실제 Axios config 전달과 요청 횟수를 확인할 동작 후보다. 런타임 재현된 결함은 아니며 기대 재시도 계약에 맞추는 수정은 별도 버그 경계다. `auth-interceptor.ts`의 sync helper도 토큰 갱신 설명과 401 처리 본문이 다르고 실제 setup 호출을 찾지 못했다는 보고를 함께 대조한다.\n- 로그아웃·계정 삭제: `apps/client/src/shared/services/auth/logout-service.ts`의 로컬 정리 단계가 반복되지만 서버 실패 뒤 계속 여부가 다르다. 같은 로컬 책임만 묶을 수 있는지 단계 순서·부분 실패·미전송 보존 조건을 확인한다. pending/inProgress와 failed의 구분을 보존한다.\n- 날짜·통화 설명: `apps/client/src/shared/lib/datetime.ts`의 Date 입력 변경·UTC 반환과 예제, 미래 상대 날짜 예제를 대조한다. 설명 정정과 날짜 동작 변경은 분리한다. `currency.ts`의 “가장 많이 사용된 통화” 설명과 명목 금액 정렬도 확인하되 빈도 정렬·환산을 추가하지 않는다.\n\n## Ticket과 후속 범위의 관계\n\n[Ticket 01](tickets/01-expense-summary.md)은 조건·표시 규칙, [Ticket 04](tickets/04-expense-api.md)는 경비 API의 로그·catch·요청 흐름, [Ticket 05](tickets/05-schedule-response.md)는 서버 일정 응답 변환을 구체화한다. Ticket 05는 sync 단언·mutation 타입 전반이나 중복 검증을 해결하는 범위가 아니다. 화면의 `toFixed`와 통화 helper의 천 단위 구분자 차이는 Ticket 01에서 보존한다.\n\n일정 form의 number 왕복·기본값, 중복 검증, 날짜 범위·그룹/useMemo, 폼 취소·재열기·늦은 기본값, picker 선택·닫기·취소, 저장 후 캐시·이동·경로 준비, 생성·수정 컴포넌트, route/upsert/cleanup, 완료 상태 표현, policy 설정, 서버의 다른 변환·오류 책임은 후속 범위로 유지한다. 각 후보의 처리·변경 불필요·별도 동작 수정·보류 판정은 실행 근거로 남긴다.\n\n경비·일정 mutation은 캐시 갱신 범위가 다르고 일정 삭제는 경비 캐시도 갱신한다. UI primitive는 짧고 명확하다는 Main 관찰이 있으며, schema의 생성·수정은 필수성·허용 필드가 다르다. 공통 mutation hook·범용 primitive wrapper·생성 schema의 단순 partial 전환은 현재 조사로 개선 근거가 확보되지 않았다. RadioGroup의 `as any`는 사용처와 prop 계약 확인 뒤 판단한다. 후보 분류나 다섯 Ticket만으로 전체 개선 완료를 판단하지 않는다.\n"
+      },
+      {
+        "path": "workspaces/002-code-readability-refactoring/current/memory/project-context.md",
+        "path_base": "work_root",
+        "content": "# 이 Work가 선택한 Project context\n\n[Project README](../../../../../project/README.md)는 물리 layer와 authority를 찾는 진입점이다. 실제 판단 내용은 [제품 의미와 공통 기준](../../../../../project/common/product.md)과 [현재 구현·검증 지도](../../../../../project/current/architecture.md)를 함께 읽는다. Recover는 이 세 문서를 선택한다.\n\n활성 여행의 SQLite 기준, 비활성 여행의 Server API 기준, Data Entity와 지도·검색·경로 Service의 분리, 미전송 사용자 입력의 보존이 이번 코드 작업의 제약이다. Project의 원자성 설명은 지켜야 할 기준이며 현재 helper가 실제로 보장한다는 검증 결과가 아니다. 현재 코드의 결함과 증명 상한은 이 Work의 Spec·후보가 별도로 소유한다.\n\n실제 변경 대상을 고를 때 [client guide](../../../../../../apps/client/CLAUDE.md), [server guide](../../../../../../apps/server/CLAUDE.md), [schema guide](../../../../../../packages/schema/CLAUDE.md), [UI guide](../../../../../../packages/ui/CLAUDE.md) 중 해당 경로를 읽는다. 데이터·동기화 변경 전에는 [Activation Router](../../../../../../.claude/rules/activation-router.md), [Transaction + Sync Queue](../../../../../../.claude/rules/transaction-sync-queue.md), [Schema First](../../../../../../.claude/rules/schema-first.md), [Auth/User Scope](../../../../../../.claude/rules/auth-user-scope.md)와 [Guard Map](../../../../../../.claude/guards/README.md)을 직접 대조한다. 폼·날짜·통화·UI의 세부 기준은 [Runbooks](../../../../../../.claude/runbooks/README.md)에서 해당 항목으로 들어간다.\n\n설명 방식 guidance는 제품 작업의 기본 입력으로 선택하지 않았다. 과거 Context Harness 이식 Work의 완료 상태·receipt·진행 이력은 이번 제품 작업의 증거로 이어받지 않는다. `noline-work`는 deprecated이며 호출하지 않는다.\n"
+      },
+      {
+        "path": "workspaces/002-code-readability-refactoring/current/memory/tickets/index.md",
+        "path_base": "work_root",
+        "content": "# Ticket\n\n각 본문이 실행 범위·접근·완료 조건·현재 상태와 실제 결과를 소유한다. 전체 상황과 다음 행동은 [state](../../state/index.md), 조사 범위는 [후보 목록](../analysis-items.md)에서 찾는다.\n\n- [01 — 경비 합계의 강조·소수 자릿수 규칙](01-expense-summary.md): 통화 합계의 판단과 표시 규칙을 읽기 쉽게 한다.\n- [02 — 도시 검색의 선별 조건과 변환](02-city-search.md): 요청 도시 코드와 응답 필터·변환의 의미를 정리한다.\n- [03 — 저장 용량의 집계·부분 실패·표시](03-storage-stats.md): 부분 결과를 보존하며 표시 조립의 중복을 줄인다.\n- [04 — 경비 API의 요청·검증·반환 흐름](04-expense-api.md): 오류 책임을 유지하며 부수 코드가 가리는 흐름을 드러낸다.\n- [05 — 서버 일정 응답의 날짜 변환](05-schedule-response.md): 동일한 DB row의 응답 날짜 변환을 한 의미로 관리한다.\n"
+      }
+    ]
+  },
+  "state": {
+    "index": {
+      "path": "workspaces/002-code-readability-refactoring/current/state/index.md",
+      "path_base": "work_root",
+      "content": "# 현재 상태와 다음 행동\n\n사용자가 Ticket 검토를 마치고 [Ticket 01 — 경비 합계 표시](../memory/tickets/01-expense-summary.md)를 첫 실행 대상으로 선택했다. 현재는 해당 Ticket의 보존 조건과 개선 목표를 바탕으로 변경 전 검사를 준비하는 단계다. 다음 작업은 현재 코드와 검사 대상을 대조하고 구체적인 runner와 최소 검사 방법을 정해 변경 전 결과를 확인하는 것이다.\n\n도시 검색, 저장 용량, 경비 API, 서버 일정 응답 변환의 다른 초안은 [Ticket 색인](../memory/tickets/index.md)에 유지한다. 후속 실행 순서는 아직 정하지 않았다. 코드 범위별 진행 방식은 [Spec](../memory/spec/05-constraints-design-assumptions.md), 분석 주제별 확인·잔여 범위와 전체 완료 판단은 [품질 기준](../memory/spec/04-quality-and-completion.md)이 소유한다.\n\nMain 보고상 제품 코드·테스트·설정 수정과 제품 동작 테스트·새 Verify 실행은 없다. [output](../../output/index.md)에도 제품 산출물이 없는 상태로 기록되어 있다. 폼 초기화·재진입, picker, 날짜 그룹, 저장 후 처리, 공통 데이터·경로·정리, 완료 상태와 설정 등은 [전체 후보](../memory/analysis-items.md)에 후속 범위로 남아 있다. 직접 걸리는 버그의 기대 동작·수정·선행 관계를 해당 실행 범위와 연결한다.\n\n## 실행 전 확인할 근거와 한계\n\n후보와 Ticket의 조사 근거는 Main의 대표 구현·사용처 확인 보고다. 전체 파일 정독이나 앱 동작 검증 결과는 아니다. 해당 검색 범위에서 제품 test 명령을 찾지 못했다는 보고가 있으며, 과거 타입·린트 실패는 재실행하지 않았다. 실행 시 현재 코드와 필요한 검사 기준선을 확인한다. 조사 기준과 선택 이유는 [추가 조사 기록](../../records/2026-09-11-01-additional-research.md), 과거 검사·설치 한계는 [구성 기록](../../records/2026-09-10-01-workspace-setup.md)에 있다. 과거 HEAD와 작업 트리 보고는 현재 저장소 상태를 보장하지 않는다.\n\n사용자는 source 배경을 보강한 목표, 변경 전후 동작 보존 검증, 코드 범위별 진행 방식과 전체 분석 주제의 검토 범위 관리를 채택했다. 질문 해석의 교정은 [Ticket 경계 정정 기록](../../records/2026-09-11-02-ticket-boundary-correction.md), 진행 방식의 채택 범위와 원문 근거는 [합의 기록](../../records/2026-09-11-03-agreed-ticket-workflow.md)에 있다. 문서 준비와 제품 개선 완료는 구별한다.\n\n## 대화 반영과 자동 동작의 확인 범위\n\n기존 Main 보고에는 이 Workspace의 generation 1 active 상태, 일부 요청의 자동 Maintain 접수와 Evidence 수집 완료, 앞선 대화의 수동 전달·사후 보존이 있다. 수동 전달, 문서 반영, 사후 보존과 자동 hook 동작은 각각 다른 확인 범위다. 사후 보존의 출처와 한계는 [추가 조사 기록](../../records/2026-09-11-01-additional-research.md)에 연결되어 있다.\n\n자동 응답 종료 처리의 완료와 과거 미동작 원인 해소, 사후 보존 본문·해시·대화 재현 범위는 이 판단에서 독립 확인되지 않았다. 남은 운영 확인은 Main이 별도로 맡으며 제품 리팩토링의 목표·완료 기준에 포함하지 않는다. 연결과 동작 확인은 [session binding 계약](../../../../harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md)을 따른다. 제공된 `status.json`의 receipt·result·finished_at은 null이며 제품 Verify 결과가 없다.\n\n## 분석 원자료\n\n후보 판단에는 [Workspace 안의 분석 보존본](../../source/codebase-analysis/README.md)과 [source 색인](../../source/index.md)을 사용한다. 최초 방향의 원문은 [사용자 발췌](../../source/user-direction.md)에 있다. 원래 분석 경로의 향후 삭제에 대비해 보존했으며 당시 원래 파일은 삭제하지 않았다. 원문 일치와 재진입 확인의 기존 증명 범위는 [분석 보존 검증](../../records/2026-09-10-04-analysis-preservation-validation.md)에 있고 제품 동작 검증과는 구별한다.\n"
+    },
+    "status": {
+      "path_base": "work_root",
+      "path": "workspaces/002-code-readability-refactoring/current/state/status.json",
+      "receipt_path_base": "work_root",
+      "receipt_freshness": {
+        "status": "not_applicable",
+        "snapshot_file_count": 0,
+        "changed_file_count": 0,
+        "missing_file_count": 0,
+        "unavailable_file_count": 0
+      },
+      "value": {
+        "schema_version": 3,
+        "workspace_id": "002-code-readability-refactoring",
+        "status": "ready_for_verification",
+        "result": null,
+        "receipt": null,
+        "finished_at": null
+      }
+    }
+  },
+  "output": {
+    "index": {
+      "path": "workspaces/002-code-readability-refactoring/output/index.md",
+      "path_base": "work_root",
+      "content": "# 현재 제품 산출물\n\n아직 이 Work에서 만든 제품 코드·테스트 산출물은 없다. Workspace 문서 구성은 작업 준비 상태이며 제품 개선 완료를 뜻하지 않는다.\n\n이후 선택된 산출물은 실제 Project root의 `apps/`·`packages/` 등 canonical 위치를 여기에 연결한다. 코드를 이 폴더에 복제하지 않는다. 작업 정의는 [현재 Spec](../current/memory/index.md)이 소유한다.\n"
+    }
+  },
+  "project_context": [
+    {
+      "path": "context/project/README.md",
+      "path_base": "project_root",
+      "reason": "Project의 내용 층과 상세 Owner 우선순위, 필요한 자료의 진입점을 찾는다.",
+      "content": "# Noline Project context\n\n이 디렉터리는 여러 Workspace가 공유하는 실제 Project-wide 판단 context를 소유한다. 기존 제품 문서의 복사본이나 링크 목록이 아니라, 다음 관련 작업이 제품 목적·사용자 문제·현재 현실과 관련 판단 기준을 다시 추론하지 않게 하는 내용 층이다.\n\n## 물리 구조\n\n```text\ncontext/project/\n├── README.md               # 구조·읽기 경로·권위 관계\n├── MAINTENANCE.md          # Project context 작성·복원·갱신 기준\n├── common/                 # 여러 Work에 지속되는 제품·domain 의미\n├── current/                # 교체되는 현재 구현·지원·proof 경계\n├── guidance/               # 관련 작업에서만 적용하는 조건부 판단 기준\n└── decisions/              # 중요한 선택의 이유와 재검토 신호\n```\n\n`common/`, `current/`, `guidance/`는 설명용 profile이 아니라 Project context의 필수 탐색 경계다. 각 폴더의 `README.md`는 그 층의 책임과 현재 문서 위치를 소유하며, 실제 본문 수는 Project에 맞게 달라질 수 있다. 적용할 guidance가 없어도 `guidance/README.md`에 그 사실과 추가 조건을 남겨 세 책임의 존재 여부를 다시 추측하게 하지 않는다.\n\n`decisions/`는 네 번째 현재 책임 층이 아니다. 현재 답 자체보다 중요한 선택의 이유·기각안·재검토 신호를 보존하는 보조 경계다. 제품·domain 본문은 root에 평면 파일로 만들지 않고 주 책임에 맞는 폴더에 둔다. Root `README.md`는 전체 구조와 권위 관계를, `MAINTENANCE.md`는 이 경계의 관리 계약을 소유한다.\n\n## 읽는 경로\n\n- 제품 목적·사용자 문제·domain 의미·Project-wide 제약은 [`common/README.md`](common/README.md)에서 찾는다.\n- 지금 구현·지원되는 범위, 상세 Owner와 검증의 증명 상한은 [`current/README.md`](current/README.md)에서 찾는다.\n- 특정 종류의 작업에만 적용할 반복 판단 기준은 [`guidance/README.md`](guidance/README.md)에서 찾는다.\n- 현재 답보다 선택 이유와 재검토 신호가 필요하면 [`decisions/README.md`](decisions/README.md)에서 찾는다.\n- Project context를 작성·복원·재구성·갱신할 때는 [`MAINTENANCE.md`](MAINTENANCE.md)를 읽는다. 제품 작업의 조건부 판단 기준은 `guidance/`, 이 context 자체의 관리 기준은 `MAINTENANCE.md`가 맡는다.\n\n모든 Workspace의 `recover.json`은 이 root `README.md`를 안정된 routing anchor로 선택한다. README만으로 작업에 필요한 내용이 충분하다고 보지 않으며, 현재 goal의 판단을 바꾸는 `common/`, `current/`, `guidance/`, `decisions/`의 실제 문서만 이유와 함께 추가 선택한다. Project context 전체나 모든 층을 자동으로 읽지 않는다.\n\n## 층별 책임\n\n### `common/`\n\n작업이 바뀌어도 계속 필요한 제품 목적, 사용자 장면, domain 관계·불변성, 제품 기준과 Project-wide 제약을 둔다. 구현 현황이나 한 Workspace의 목표를 섞지 않는다. 제품 의미를 바꾸는 주체가 갱신하며, 기존 상세 canonical을 옮기지 않은 경우에는 그 Owner와 충돌 우선순위를 함께 밝힌다.\n\n### `current/`\n\n현재 구현·지원·미지원 범위, 연결 구조, 위험과 proof boundary처럼 상세 Owner 변화에 맞춰 교체해야 하는 Project-level 지도를 둔다. 마지막 대조 시점·대상, 상세 코드·테스트 Owner, stale 신호와 갱신 책임을 찾을 수 있어야 한다. 현재 지도가 실제 Owner와 충돌하면 실제 Owner를 기준으로 claim 범위를 좁히고 이 층을 갱신한다.\n\n### `guidance/`\n\n특정 종류의 Work에서만 반복해서 판단이나 행동을 바꾸는 Project-wide 지침을 둔다. 각 지침은 적용 조건, 비적용 조건, 재검토 신호와 제거 조건을 밝힌다. 단지 유용해 보이는 조언이나 모든 작업이 이미 지키는 공통 의미를 guidance로 승격하지 않는다.\n\n### `decisions/`\n\n중요한 선택이 왜 만들어졌고 어떤 조건에서 다시 열어야 하는지 보존한다. 기본적으로 `common/`, `current/`, `guidance/`의 현재 답을 대신하지 않는다. 문서가 특정 현재 값의 normative Owner임을 명시한 경우에만 그 범위의 현재 답을 소유한다.\n\n## Noline의 현재 배치\n\n- [`common/product.md`](common/product.md): 여행 중 일정·경비를 이어갈 사용자 목적, 활성화된 여행의 데이터 관계와 공통 제약\n- [`current/architecture.md`](current/architecture.md): client·server·schema·UI의 현재 책임, 지원 경계와 검증 경로\n- [`guidance/README.md`](guidance/README.md): 기존 Noline rule·guard·runbook Owner와 조건부 설명 기준의 소비 관계\n- [`decisions/0001-selective-local-first.md`](decisions/0001-selective-local-first.md): Selective Local-First 선택의 근거 요약. 상세 결정은 `.claude/decisions/`가 유지한다.\n\n## Authority와 작업 경계\n\n기존 README·STATUS·docs가 상세 제품 사실을 소유하는 Project에서는 그 문서를 domain canonical로 유지한다. Project context는 여러 Workspace의 판단에 필요한 의미를 실제 내용으로 다시 서술하되 원문을 문단째 복제하거나 Owner를 이동하지 않는다.\n\n한 Workspace에만 해당하는 목표·현재 상태·분석·후보·검증 이력은 이 층으로 올리지 않는다. 첫 Workspace의 작업 장면도 상세 Owner가 Project 전체에 적용됨을 뒷받침할 때만 Project context로 일반화한다.\n\nNoline의 상세 의미는 root [`CLAUDE.md`](../../CLAUDE.md), [`.claude/context/`](../../.claude/context/), [rules](../../.claude/rules/), [guards](../../.claude/guards/), [runbooks](../../.claude/runbooks/)가 소유한다. 제품 코드와 테스트는 [`apps/`](../../apps/)·[`packages/`](../../packages/)가 소유하며, 충돌 시 상세 Owner와 실제 코드를 대조해 이 층을 갱신한다. Harness와 skill은 이 계약을 선택·적용·검사하는 교체 가능한 관리 장치이며 Project 의미나 사람의 acceptance를 소유하지 않는다.\n\n## 관리 경로\n\n여러 Workspace에 계속 유효할 변화가 명확해지거나 누락된 Project 맥락의 복원이 필요하면 [`MAINTENANCE.md`](MAINTENANCE.md)의 기준을 적용한다. [`update-project-context`](../../.agents/skills/update-project-context/SKILL.md)는 그 기준을 실행하는 절차다. Workspace Maintain은 Project 문서의 갱신을 맡지 않는다.\n\n관리 기준은 작성·복원·갱신을 수행하는 주체가 해당 작업에서 직접 읽으며, 일반 Recover의 기본 입력에 추가하지 않는다.\n"
+    },
+    {
+      "path": "context/project/common/product.md",
+      "path_base": "project_root",
+      "reason": "활성 여행의 오프라인 입력 보존, 데이터와 서비스의 책임, 기존 제품 제약을 작업에서 유지한다.",
+      "content": "# 여행 중 일정과 경비를 이어가는 제품 기준\n\n새 Work의 목적·보존할 동작·데이터 경계를 판단할 때 읽는다. Root [CLAUDE.md](../../../CLAUDE.md)의 불변식과 [README](../../../README.md)의 제품 장면, [Selective Activation](../../../.claude/context/selective-activation-architecture.md)이 상세 Owner다. 이 본문은 여러 작업이 필요한 의미를 재서술하며 충돌 시 상세 Owner를 대조한다.\n\n## 사용자 장면과 성공 기준\n\nNoline은 여행 중 연결이 끊겨도 일정 확인·기록과 경비 관리를 이어가기 위한 여행 관리 앱이다. 사용자는 필요한 여행 하나를 활성화하여 오프라인 데이터를 준비한다. 모든 여행을 로컬에 쌓기보다 활성 여행에 저장과 동기화 책임을 집중한다. 제품 성공의 기준은 네트워크가 불안정해도 핵심 입력을 잃지 않고, 복구 뒤 변경을 서버와 맞출 수 있는 것이다. 기능이나 이식 검사 통과만으로 실제 서비스가 이 기준을 달성했다고 판단하지 않는다.\n\nTrip은 여행 단위이며 Schedule과 Expense가 그 여행의 일정·경비를 나타낸다. 활성 여행의 데이터는 Local SQLite를 기준으로 읽고 쓰며 비활성 여행은 Server API가 기준이다. Activation Router가 Data Entity의 Local/Remote 선택을 맡는다. 지도·검색·길찾기는 사용자가 소유한 sync data가 아니므로 Policy Layer의 네트워크 사용·제한 판단을 따른다. 온라인에서는 Network-First로 최신 서비스를 우선하며, 여행 활성화가 온라인 서비스 사용까지 막는 조건은 아니다.\n\n오프라인 활성 여행은 제목·날짜·금액 같은 핵심 내용을 입력하고, 좌표 등 온라인 보강이 필요한 정보는 복구 뒤 보완하는 장면을 지원 목표로 둔다. 비활성 여행의 오프라인 편집과 오프라인 여행 생성은 이 모델의 지원 범위가 아니다. 통화는 자동 환산 합계로 섞지 않고 통화별로 관리한다. 현재 배포 대상은 iOS이며 Android 설정의 존재를 동등한 배포·검증으로 보지 않는다.\n\n## 함께 지킬 데이터 관계\n\n로컬 변경과 `sync_queue` 기록은 같은 transaction에 둬 한쪽만 남는 상태를 막는다. Entity ID는 클라이언트의 `generateId()`로 만들고 서버가 수용한다. `@repo/schema`의 Zod 계약에서 client/server 타입을 추론한다. 시간은 timezone을 포함한 ISO 8601 datetime으로 저장·전송하고, 서버는 인증과 사용자 소유권을 확인한다.\n\n삭제·비활성화는 pending sync와 soft delete·cleanup 조건을 지켜 아직 서버에 반영하지 않은 입력을 보존한다. 정책상 제한은 기존 `useAppPolicy`, `PolicyErrorDisplay`, `NetworkStatusIndicator`를 통해 사용자에게 설명한다. 상세 규칙은 [rules](../../../.claude/rules/README.md)와 [guards](../../../.claude/guards/README.md)가 유지한다.\n\n## 범위와 갱신\n\n특정 릴리스의 완성, 실제 동기화 성공, 외부 지도·OAuth·DB의 운영 상태와 사람 acceptance는 이 문서가 보장하지 않는다. 현재 구조·확인 범위는 [구현 지도](../current/architecture.md), 선택 이유는 [Decision](../decisions/0001-selective-local-first.md)에 있다.\n\n제품·domain 의미를 바꾸는 책임자가 관련 자료와 함께 갱신한다. 위 지원 경계나 불변식이 바뀌거나 상세 Owner와 충돌하면 재검토한다. 2026-09-09 원자료 대조를 바탕으로 2026-09-10 이전 요약과의 내용 귀속을 확인했다. 작업별 이식·검증 상태는 각 Workspace가 소유한다.\n"
+    },
+    {
+      "path": "context/project/current/architecture.md",
+      "path_base": "project_root",
+      "reason": "제품 코드의 현재 책임과 지원 경계, 제품 검사와 Harness 검사의 증명 범위를 구별한다.",
+      "content": "# 현재 구현과 검증 경계\n\n작업 범위와 영향을 받을 책임, 실제로 확인할 명령을 정할 때 읽는다. 2026-09-09 `b4ed41f6`의 제품 tree, root guide·package 구성과 아래 상세 Owner를 대조했다. 이 지도는 해당 구현과 문서의 대조 범위를 설명하며 앱 전체 동작을 재실행한 증거는 아니다.\n\n## 구성과 흐름\n\n[client](../../../apps/client/CLAUDE.md)는 React Native·Expo 화면, FSD entity/data/repository 구조, SQLite와 활성화·정책 UI를 맡는다. [server](../../../apps/server/CLAUDE.md)는 Express route, 인증·user scope, PostgreSQL/Drizzle와 sync endpoint를 맡는다. [schema](../../../packages/schema/CLAUDE.md)는 Zod entity/request/response/sync 계약을, [UI](../../../packages/ui/CLAUDE.md)는 domain logic과 분리된 공유 primitive를 맡는다. pnpm workspace가 각 package의 개발·검증 명령을 연결한다.\n\nTrip·Schedule·Expense의 data hook은 repository를 호출하고 repository의 Activation Router가 local/remote 구현을 고른다. Trip 자체 query와 child entity query는 활성 판단 단위가 다르므로 실제 변경에서는 [Activation Router rule](../../../.claude/rules/activation-router.md)을 확인한다. 활성화된 여행은 SQLite와 queue를 사용하고, Sync Engine은 queue에 남은 변경을 서버로 보낸다. Router의 데이터 위치 선택과 Sync Engine의 동기화 수행은 다른 책임이다.\n\n실제 sync source는 [engine](../../../apps/client/src/shared/services/sync/engine.ts), [queue](../../../apps/client/src/shared/services/sync/queue.ts), [cleanup job](../../../apps/client/src/shared/services/sync/cleanup-job.ts)에서 찾는다. 비활성화 시 pending task가 있으면 cleanup을 미루는 모델을 따른다. 지도·검색·길찾기는 [Policy 설명](../../../.claude/context/policy-architecture.md)을 따르며 Data Router를 확대 적용하지 않는다.\n\n## 지원 경계와 확인 방법\n\n제품 문서는 iOS 중심 배포, 활성 여행의 오프라인 핵심 입력, 온라인 보강과 통화별 관리를 설명한다. Android 동등 지원, 외부 공급자·운영 DB 상태, 실제 네트워크 전환·동시 sync의 성공은 이 지도에 사용한 source 대조만으로 확인되지 않는다. 기능별 현재 여부는 해당 source와 실제 환경에서 다시 판정한다.\n\n제품 변경은 해당 app/package guide에서 검증을 선택한다. `pnpm schema build`, `pnpm server typecheck`, `pnpm server build`는 package 수준 확인이며 iOS 실기기나 외부 서비스 acceptance를 대신하지 않는다. `pnpm harness:check`는 AI 지침의 bridge·링크·expected surface·whitespace를 확인한다. Python Harness tests는 Recover·Maintain·Verify 계약을 임시 fixture에서 확인한다. 어느 쪽도 여행 기능의 동작 테스트가 아니다.\n\nRoot [Context Harness](../../README.md)는 Project layer와 Workspace Spec·Ticket·state를 연결한다. Noline의 `.claude/skills/` 원본은 `.agents/skills/` bridge로 공유한다. Codex·Claude lifecycle wrapper가 설치돼 있지만 새 session은 unbound이며 hook trust·사용자 explicit activation·실제 event receipt 전에는 `activation_pending`이다. Claude adapter의 semantic runner는 기존 Codex 구현을 재사용한다.\n\n상세 Owner와 코드·테스트·runtime이 바뀌면 변경 책임자가 관련 부분을 갱신한다. [기존 Noline 문서 지도](../../../.claude/README.md)와 실제 source가 이 요약에 우선하며 전체 상세 문서 최신화 여부를 이 지도만으로 주장하지 않는다.\n"
+    }
+  ]
+}

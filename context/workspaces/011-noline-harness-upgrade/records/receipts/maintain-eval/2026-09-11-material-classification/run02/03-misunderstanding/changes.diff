@@ -1,0 +1,15 @@
+--- before/context/work/workspaces/002-code-readability-refactoring/current/state/index.md
++++ after/context/work/workspaces/002-code-readability-refactoring/current/state/index.md
+@@ -1,8 +1,10 @@
+ # 현재 상태와 다음 행동
+ 
+-현재는 합의한 Spec을 바탕으로 추가 조사와 실행 전 Ticket 초안을 구성한 단계다. [다섯 Ticket](../memory/tickets/index.md)은 경비 합계 표시, 도시 검색, 저장 용량, 경비 API, 서버 일정 응답 변환을 다룬다. 범위와 번호 순서는 Main 제안이며 강한 기술 의존성이 아니다. 경비 합계가 Main의 첫 추천이지만 사용자가 첫 구현 대상을 확정한 것은 아니다. Main 보고상 제품 코드·테스트·설정 수정과 제품 동작 테스트·새 Verify 실행은 없다.
++현재는 합의한 Spec을 바탕으로 추가 조사와 실행 전 Ticket 초안을 구성한 단계다. [다섯 Ticket](../memory/tickets/index.md)은 경비 합계 표시, 도시 검색, 저장 용량, 경비 API, 서버 일정 응답 변환을 다룬다. Main이 먼저 작업하기 좋은 일부를 구체화한 것이며 전체 주제를 포괄하는 Ticket 구성은 미완료다. 범위와 번호 순서는 Main 제안이며 강한 기술 의존성이 아니다. 사용자가 첫 구현 대상을 확정한 것은 아니다. Main 보고상 제품 코드·테스트·설정 수정과 제품 동작 테스트·새 Verify 실행은 없다.
+ 
+-다음 행동은 Ticket 초안과 [전체 후보](../memory/analysis-items.md)를 바탕으로 첫 실행 범위를 정하고, 필요한 현재 코드·계약을 대조해 변경 전 기준 검사를 준비하는 것이다. 처음 필요한 Ticket에서 최소 검사 방법을 마련해 재사용한다는 Main 제안이며 구체적인 runner는 미선택이다. 직접 걸리는 버그의 기대 동작·수정·선행 관계만 연결하며 버그 전체 해결을 기다리지는 않는다. 추가 폼·picker·날짜 그룹·저장 후 처리와 다른 후보도 후속 범위로 남아 있다.
++Main이 밝힌 다음 행동은 [전체 후보](../memory/analysis-items.md)가 어느 Ticket에 들어가는지, 무엇은 동작 확인이 먼저 필요한지, 무엇은 변경할 필요가 없는지를 빠짐없이 정리한 뒤 실행 순서를 정하는 것이다. 폼 초기화·재진입, picker, 날짜 그룹, 저장 후 처리, 공통 데이터·경로·정리, 완료 상태와 설정 등은 아직 Ticket 경계에 모두 배치되지 않았다. 기존 다섯 초안은 이 전체 배치에서 함께 검토한다.
++
++실행 범위가 정해지면 필요한 현재 코드·계약을 대조해 변경 전 기준 검사를 준비한다. 처음 필요한 Ticket에서 최소 검사 방법을 마련해 재사용한다는 Main 제안이며 구체적인 runner는 미선택이다. 직접 걸리는 버그의 기대 동작·수정·선행 관계만 연결하며 버그 전체 해결을 기다리지는 않는다.
+ 
+ 2026-09-11 Main은 `refactor/codebase`, HEAD `a612ba4c49b92b1193e75e1d56bdefcdcd86bbda`에서 대표 구현과 사용처를 조사했고 시작·마지막 Git 확인에서 미커밋 파일은 이 state뿐이었다고 보고했다. 이는 당시 조사 보고이며 현재 저장소 상태나 전체 파일 정독·앱 동작을 보장하지 않는다. 제품 test/spec·runner 경로와 확인한 package scripts에서 제품 test 명령을 찾지 못했다는 보고도 해당 검색 범위의 결과다. 과거 타입·린트 실패는 재실행하지 않았다. 조사 선택 이유와 한계는 [추가 조사 기록](../../records/2026-09-11-01-additional-research.md)에 있다.
+ 

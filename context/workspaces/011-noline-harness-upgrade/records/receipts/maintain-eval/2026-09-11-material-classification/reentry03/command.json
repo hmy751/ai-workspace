@@ -1,0 +1,17 @@
+[
+  "/Applications/ChatGPT.app/Contents/Resources/codex",
+  "exec",
+  "--json",
+  "--sandbox",
+  "read-only",
+  "--ignore-user-config",
+  "-C",
+  "/private/tmp/maintainer-material-eval-20260911/run03-project",
+  "-c",
+  "features.hooks=false",
+  "--output-schema",
+  "/Users/hammyeong-yeon/Desktop/context-harness/context/workspaces/011-noline-harness-upgrade/records/receipts/maintain-eval/2026-09-11-material-classification/reentry03/schema.json",
+  "--output-last-message",
+  "/Users/hammyeong-yeon/Desktop/context-harness/context/workspaces/011-noline-harness-upgrade/records/receipts/maintain-eval/2026-09-11-material-classification/reentry03/answers.json",
+  "-"
+]

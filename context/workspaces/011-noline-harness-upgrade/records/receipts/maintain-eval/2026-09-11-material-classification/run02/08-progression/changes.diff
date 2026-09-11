@@ -1,0 +1,28 @@
+--- before/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md
++++ after/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md
+@@ -18,4 +18,6 @@
+ 
+ ## 현재 상태와 실제 결과
+ 
+-Main이 제안한 실행 전 초안이며 첫 작업 추천이다. 사용자가 첫 구현 대상으로 확정한 것은 아니다. Main 보고상 소스와 사용처를 확인했고 제품 코드·테스트는 수정하지 않았으며 실행 결과는 없다. 위 검증은 계획이다. 구체적인 runner는 미선택이며, 처음 필요한 실행에서 변경 전 제품 코드를 검사할 최소 방법을 준비해 재사용한다.
++사용자가 Ticket 검토를 마치고 “경비 합계 표시부터 진행해. 합의한 방식대로 변경 전 검사부터 시작하자”라고 첫 실행 대상으로 선택했다. 현재는 위 보존 조건과 개선 목표를 바탕으로 변경 전 검사를 준비하는 단계다.
++
++Main 보고상 소스와 사용처를 확인했으며 제품 코드 수정이나 테스트 실행은 아직 없다. 위 검증 사례는 계획이고 기준 결과는 확보되지 않았다. 구체적인 runner는 다음 작업에서 정하며, 변경 전 제품 코드를 검사할 최소 방법을 준비해 재사용한다.
+--- before/context/work/workspaces/002-code-readability-refactoring/current/state/index.md
++++ after/context/work/workspaces/002-code-readability-refactoring/current/state/index.md
+@@ -1,12 +1,12 @@
+ # 현재 상태와 다음 행동
+ 
+-현재는 사용자가 진행 방식을 채택하고 [다섯 Ticket 초안](../memory/tickets/index.md)을 검토하는 단계다. 사용자는 기록을 요청하며 Ticket을 확인하겠다고 했고, Main은 구현을 검토 뒤 이어가겠다고 밝혔다. 개별 Ticket 범위·첫 구현 대상·추천 순서의 최종 확정은 아직 없다. Main 보고상 제품 코드·테스트·설정 수정과 제품 동작 테스트·새 Verify 실행은 없다.
++사용자는 Ticket 검토를 마치고 [경비 합계 표시 Ticket](../memory/tickets/01-expense-summary.md)을 첫 실행 대상으로 선택했다. 합의한 방식대로 변경 전 검사부터 시작하라는 요청에 따라 현재는 해당 Ticket의 보존 조건과 개선 목표를 바탕으로 검사를 준비하는 단계다. Main 보고상 제품 코드 수정이나 테스트 실행은 아직 없으며 새 Verify 결과도 제공되지 않았다.
+ 
+ 합의한 방식은 관련 개선 관점들을 함께 다룰 코드 범위로 Ticket을 구성하고, 각 범위에서 바텀부터 개선하며 변경 전후 동작과 개선 효과를 확인하는 것이다. 전체 분석 주제의 확인한 범위와 남은 범위도 함께 관리한다. 공통 기준은 [작업 단위와 진행 방식](../memory/spec/05-constraints-design-assumptions.md)이 소유한다.
+ 
+-다섯 초안은 경비 합계 표시, 도시 검색, 저장 용량, 경비 API, 서버 일정 응답 변환을 다룬다. 범위와 번호 순서는 Main 제안이며 강한 기술 의존성이 아니다. 폼 초기화·재진입, picker, 날짜 그룹, 저장 후 처리, 공통 데이터·경로·정리, 완료 상태와 설정 등은 [전체 후보](../memory/analysis-items.md)에 후속 범위로 남아 있다.
++[Ticket 목록](../memory/tickets/index.md)의 도시 검색, 저장 용량, 경비 API, 서버 일정 응답 변환은 다른 초안으로 유지한다. 후속 실행 순서는 확정하지 않았으며 번호는 강한 기술 의존성을 뜻하지 않는다. 폼 초기화·재진입, picker, 날짜 그룹, 저장 후 처리, 공통 데이터·경로·정리, 완료 상태와 설정 등은 [전체 후보](../memory/analysis-items.md)에 후속 범위로 남아 있다.
+ 
+-다음 행동은 사용자의 Ticket 검토 결과를 받아 필요한 범위·보존 계약·개선 기대·변경 전후 확인 방법을 구체화한 뒤 구현을 이어가는 것이다. 현재 Main은 구현을 시작하지 않는다. 후보별 처리·변경 불필요·별도 동작 수정·보류 판단은 기존 품질 기준에 따라 이어간다. 처음 필요한 Ticket에서 최소 검사 방법을 마련해 재사용한다는 Main 제안이며 구체적인 runner는 미선택이다. 직접 걸리는 버그의 기대 동작·수정·선행 관계만 연결하며 버그 전체 해결을 기다리지는 않는다. 질문 해석과 그에 따른 다음 행동의 교정 근거는 [Ticket 경계 정정 기록](../../records/2026-09-11-02-ticket-boundary-correction.md)에 있다.
++다음 행동은 경비 합계 표시의 변경 전 검사를 위한 runner와 최소 실행 방법을 정하고, 현재 코드·보존 계약·개선 목표를 대조해 기준 결과를 확인하는 것이다. 검사 준비와 실제 실행 결과를 구별한다. 이후 같은 조건의 변경 후 검사와 개선 효과 비교로 이어간다. 후보별 처리·변경 불필요·별도 동작 수정·보류 판단은 기존 품질 기준에 따라 유지한다. 직접 걸리는 버그의 기대 동작·수정·선행 관계만 연결하며 버그 전체 해결을 기다리지는 않는다. 질문 해석과 그에 따른 다음 행동의 교정 근거는 [Ticket 경계 정정 기록](../../records/2026-09-11-02-ticket-boundary-correction.md)에 있다.
+ 
+ 2026-09-11 Main은 `refactor/codebase`, HEAD `a612ba4c49b92b1193e75e1d56bdefcdcd86bbda`에서 대표 구현과 사용처를 조사했고 시작·마지막 Git 확인에서 미커밋 파일은 이 state뿐이었다고 보고했다. 이는 당시 조사 보고이며 현재 저장소 상태나 전체 파일 정독·앱 동작을 보장하지 않는다. 제품 test/spec·runner 경로와 확인한 package scripts에서 제품 test 명령을 찾지 못했다는 보고도 해당 검색 범위의 결과다. 과거 타입·린트 실패는 재실행하지 않았다. 조사 선택 이유와 한계는 [추가 조사 기록](../../records/2026-09-11-01-additional-research.md)에 있다.
+ 

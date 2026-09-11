@@ -1,0 +1,15 @@
+[
+  "/Applications/ChatGPT.app/Contents/Resources/codex",
+  "exec",
+  "resume",
+  "01a08e25-2d26-7f32-bfd2-544667ef4c79",
+  "--json",
+  "--ignore-user-config",
+  "-c",
+  "features.hooks=false",
+  "--output-schema",
+  "/private/tmp/maintainer-material-eval-20260911/run01-project/context/work/harness/maintain/decision.schema.json",
+  "--output-last-message",
+  "/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/maintain-codex-p5jt7k1o/last-message.json",
+  "-"
+]

@@ -1,0 +1,23 @@
+{
+  "context_status": "updated",
+  "workspace_id": "002-code-readability-refactoring",
+  "changed": [
+    {
+      "path": "current/state/index.md",
+      "reason": "기존 state의 첫 실행 범위 선택·검사 준비보다 전체 후보의 Ticket 배치와 판단 정리가 먼저라는 Main의 다음 행동을 반영한다. 기존 Ticket 정의나 Spec 목표는 변경하지 않는다."
+    }
+  ],
+  "importance": "quiet",
+  "summary": "전체 Ticket 구성이 미완료임을 명확히 하고, 다음 행동을 전체 후보의 배치·선행 확인·변경 필요성 정리 후 실행 순서 결정으로 갱신한다.",
+  "evidence": [
+    "사용자는 기존 주제 전체가 Ticket 경계에 포함됐는지 물었다.",
+    "Main은 다섯 Ticket이 먼저 작업하기 좋은 일부이며 전체 Ticket 구성은 아직 끝나지 않았다고 명시했다.",
+    "Main은 전체 후보의 Ticket 귀속·동작 확인 선행 필요·변경 불필요 여부를 정리한 다음 실행 순서를 정해야 한다고 밝혔다.",
+    "현재 state 본문과 SHA-256을 확인했다. 관련 memory 색인·Ticket 색인·Spec 목표 파일은 진행 상태를 state로 연결하며 이번 다음 행동과 충돌하는 실행 지시를 반복하지 않았다."
+  ],
+  "unresolved": [
+    "전체 후보의 Ticket 배치와 동작 확인 선행·변경 불필요 판정은 아직 수행 결과가 제공되지 않았다.",
+    "첫 구현 대상과 실행 순서는 확정되지 않았다."
+  ],
+  "question": null
+}

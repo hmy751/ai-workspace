@@ -1,0 +1,62 @@
+{
+  "context_status": "updated",
+  "workspace_id": "002-code-readability-refactoring",
+  "changed": [
+    {
+      "path": "current/memory/index.md",
+      "reason": "새 Ticket 본문으로 진입할 수 있게 하고 Ticket 부재라는 이전 설명을 바로잡는다."
+    },
+    {
+      "path": "current/memory/spec/01-problem-goal-scope.md",
+      "reason": "목표·범위는 유지하면서 현재 단계와 Ticket 부재에 관한 낡은 문장만 갱신한다."
+    },
+    {
+      "path": "current/memory/tickets/index.md",
+      "reason": "구체적인 결과·보존 기준을 갖춘 다섯 초안을 개별 Owner로 연결하고 제안과 실행 확정을 구별한다."
+    },
+    {
+      "path": "current/memory/tickets/01-expense-summary.md",
+      "reason": "첫 항목 의미와 금액 문자열 차이를 보존하는 구체적인 리팩토링 범위를 초안 Ticket으로 유지한다."
+    },
+    {
+      "path": "current/memory/tickets/02-city-search.md",
+      "reason": "새 도시 검색 후보를 입력 경계·실패 계약·개선 효과까지 판단 가능한 실행 전 단위로 보존한다."
+    },
+    {
+      "path": "current/memory/tickets/03-storage-stats.md",
+      "reason": "집계 중간 실패와 개별 팩 실패의 차이를 잃지 않도록 새 후보의 실행·완료 기준을 보존한다."
+    },
+    {
+      "path": "current/memory/tickets/04-expense-api.md",
+      "reason": "기존 catch·로그 후보를 오류 전달과 검증 경계를 보존하는 구체적 Ticket으로 정의한다."
+    },
+    {
+      "path": "current/memory/tickets/05-schedule-response.md",
+      "reason": "서버 변환 후보를 공개 응답과 오류 계약을 보존하는 좁은 결과 단위로 구체화한다."
+    },
+    {
+      "path": "current/memory/analysis-items.md",
+      "reason": "새 후보, 동작 확인 경계, 채택하지 않은 통합과 기존 후보의 후속 연결을 원래 후보 Owner에 보존한다."
+    },
+    {
+      "path": "current/state/index.md",
+      "reason": "추가 조사와 다섯 초안 이후의 현재 단계·다음 행동을 연결하고, 보고된 조사 한계와 Evidence 사후 보존 경로를 출처 수준에 맞게 보완한다."
+    }
+  ],
+  "importance": "important",
+  "summary": "추가 조사 결과와 실행 전 Ticket 초안 5개를 기존 후보·색인·현재 상태에 반영하는 안이다. 순서는 Main 추천으로 유지하며 사용자 확정, 제품 구현·검증 완료로 기록하지 않는다.",
+  "evidence": [
+    "사용자 turn 01a08bdb-bab9-7580-a482-9451a899870b: 합의한 기준으로 기존 후보 밖을 추가 조사해 달라고 요청했다. 첫 구현 대상의 확정이나 제품 구현 착수 요청은 아니다.",
+    "Main response-end: 새 후보와 1차 다섯 Ticket을 제안하고 조사 초안 경로를 명시했다. 코드·사용처 확인 단계이며 제품 수정·동작 테스트는 미실행이라고 보고했다.",
+    "명시된 eval-inputs/noline-002-additional-research-and-ticket-drafts-2026-09-11.md를 직접 읽었다. 다섯 Ticket의 범위·접근·검증 계획·개선 기준, 후속 후보, 제안 순서와 증명 한계를 확인했다. 제품 코드 관찰은 이 문서에 담긴 Main 보고로만 보존한다.",
+    "해당 Workspace의 memory 색인, Spec 01, Ticket 색인, 후보 목록, state의 현재 내용과 SHA-256을 읽었다. Ticket 폴더에는 index.md만 있어 제안한 새 본문이 없음을 확인했다.",
+    "조사 문서의 추가 Main 보고는 자동 수집 전 대화 60개의 사후 메모 경로와 당시 bytes/hash 일치 확인을 연결한다. 사후 메모 본문·실제 해시·원문 재현 범위를 이번에 독립 확인하지 않았다."
+  ],
+  "unresolved": [
+    "첫 구현 대상과 실행 순서는 아직 사용자 확정 사항이 아니다. 초안 생성은 실행 착수·사용자 수락·전체 완료를 뜻하지 않는다.",
+    "변경 전 검사 실행 방법과 runner는 미선택이며 제품 테스트·실기기·외부 API·DB 검증 결과는 없다.",
+    "sync 재시도 조건 충돌은 정적 관찰에 따른 동작 확인 후보다. 실제 요청 횟수와 기대 재시도 계약은 미확인이다.",
+    "자동 Maintain의 남은 동작 확인과 과거 미동작 원인은 별도 운영 문제로 남는다. 사후 Evidence 보존을 자동 수집의 소급 성공으로 해석하지 않는다."
+  ],
+  "question": null
+}

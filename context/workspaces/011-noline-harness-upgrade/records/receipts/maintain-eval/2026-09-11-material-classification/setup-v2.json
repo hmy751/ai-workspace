@@ -1,0 +1,47 @@
+{
+  "project": "/private/tmp/maintainer-material-eval-20260911/run02-project",
+  "workspace_id": "002-code-readability-refactoring",
+  "target_commit": "a612ba4c49b92b1193e75e1d56bdefcdcd86bbda",
+  "baseline_archive_sha256": "7bd0ce5fcfbc0951bbfacdc8e1c7e09c082cd44ae43d6d87a72d04c3e6d3562e",
+  "preapply": {
+    "context_status": "updated",
+    "workspace_id": "002-code-readability-refactoring",
+    "changed": [
+      {
+        "path": "current/state/index.md",
+        "reason": "미수행으로 남아 있던 사후 보존과 문서 반영 상태를 최신 Main 보고에 맞추고, 커밋·Evidence·제품 검증의 범위를 구별한다."
+      }
+    ],
+    "importance": "quiet",
+    "summary": "누락 대화의 사후 보존과 Spec·관련 문서 커밋 완료를 Main 보고로 state에 반영한다. 제품 구현·검증 완료로 확대하지 않는다.",
+    "evidence": [
+      "사용자는 '그래 일단 거기까지 되면 커밋해놔'라고 요청했다.",
+      "Main은 누락 대화를 Evidence의 사후 메모로 보존하고 본문·해시를 확인했다고 보고했다. 정확한 메모 위치와 해시값은 제공되지 않았다.",
+      "Main은 Spec·관련 문서 7개를 검증 후 a612ba4로 커밋했고 당시 작업 트리가 깨끗하다고 보고했다. Git 상태와 검증 로그는 독립 확인하지 않았다.",
+      "기존 current/state/index.md의 내용과 SHA-256을 읽어 사후 보존 미수행 서술 및 현재 preimage를 확인했다."
+    ],
+    "unresolved": [
+      "Evidence 사후 메모의 정확한 재접근 위치·식별자와 원문 보존 범위는 입력에 제공되지 않았다.",
+      "문서 검증의 구체적 방법·결과는 제공되지 않았으며 제품 테스트나 Verify 완료로 해석하지 않는다."
+    ],
+    "question": null
+  },
+  "baseline_state_matches_historical_next_preimage": true,
+  "path_relocations": {
+    "/Users/hammyeong-yeon/Desktop/10_work/noline": "/private/tmp/maintainer-material-eval-20260911/run02-project",
+    "/private/tmp/noline-002-additional-research-and-ticket-drafts-2026-09-11.md": "/private/tmp/maintainer-material-eval-20260911/run02-project/eval-inputs/noline-002-additional-research-and-ticket-drafts-2026-09-11.md",
+    "/private/tmp/noline-002-agreed-ticket-workflow-2026-09-11.md": "/private/tmp/maintainer-material-eval-20260911/run02-project/eval-inputs/noline-002-agreed-ticket-workflow-2026-09-11.md"
+  },
+  "caveats": [
+    "Fresh grounding at historical current; the original Maintainer warm history before research is not replayed.",
+    "Six exact historical response-end inputs plus two explicitly synthetic cases.",
+    "Inputs from later records-location hints and later fixes are excluded.",
+    "The immutable historical context contains past operating issues; no actual Noline hook or worker is invoked."
+  ],
+  "revised_reference_overlays": {
+    "context/work/harness/maintain/README.md": "4be66311f26c5dd1d50b9c03871d9d7387685603f135f508f78fbde0d8519689",
+    "context/work/harness/maintain/workspace-context-maintainer.toml": "db7c70211c5d996f606819854d5456a2a51b67bad26e52aa655c1259743011d4",
+    "context/work/harness/maintain/codex_session.py": "de50b26df95069f483f8655a8ee93db44d1859d61d8ccaec74b6d780149f927b"
+  },
+  "comparison_run": "run01"
+}

@@ -1,0 +1,26 @@
+{
+  "context_status": "updated",
+  "workspace_id": "002-code-readability-refactoring",
+  "changed": [
+    {
+      "path": "current/memory/tickets/01-expense-summary.md",
+      "reason": "첫 추천·미확정 상태를 사용자의 첫 실행 대상 선택과 변경 전 검사 준비 상태로 교체한다. 기존 범위와 검증 계획은 유지한다."
+    },
+    {
+      "path": "current/state/index.md",
+      "reason": "사용자 검토 대기와 첫 대상 미확정 상태를 교체하고, 선택된 Ticket의 변경 전 검사 준비를 다음 행동으로 반영한다. 다른 초안과 후속 후보는 유지한다."
+    }
+  ],
+  "importance": "quiet",
+  "summary": "경비 합계 표시를 첫 실행 대상으로 선택한 사용자 결정과 변경 전 검사 준비 단계를 Ticket·state에 반영한다. 검사 실행이나 제품 수정 완료로 기록하지 않는다.",
+  "evidence": [
+    "사용자는 Ticket 검토를 마쳤다고 밝히고 경비 합계 표시부터 변경 전 검사로 시작하라고 명시했다.",
+    "Main은 첫 실행 범위 선택과 검사 준비 단계 전환을 보고했다. 제품 코드 수정·테스트 실행은 아직 없고 runner는 다음 작업에서 정한다고 밝혔다.",
+    "Ticket 01과 state의 실제 내용 및 SHA-256을 확인했다. 선택된 Workspace current/에서 검토 대기·첫 대상 미확정 문구를 제한적으로 검색했다."
+  ],
+  "unresolved": [
+    "구체적인 테스트 runner와 변경 전 기준 검사 결과는 아직 없다.",
+    "다른 Ticket의 실행 순서와 후속 후보의 구체적 분해는 미확정이다."
+  ],
+  "question": null
+}

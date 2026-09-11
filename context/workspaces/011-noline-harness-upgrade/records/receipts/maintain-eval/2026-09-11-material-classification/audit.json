@@ -1,0 +1,204 @@
+{
+  "phases": [
+    {
+      "phase": "01-research",
+      "outcome": "update",
+      "changed_paths": [
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/analysis-items.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/index.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/02-city-search.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/03-storage-stats.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/04-expense-api.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/05-schedule-response.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/index.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/state/index.md"
+      ],
+      "declared_matches_actual": true,
+      "elapsed_seconds": 386.727
+    },
+    {
+      "phase": "02-boundary-explanation",
+      "outcome": "no_change",
+      "changed_paths": [],
+      "declared_matches_actual": true,
+      "elapsed_seconds": 13.085
+    },
+    {
+      "phase": "03-misunderstanding",
+      "outcome": "update",
+      "changed_paths": [
+        "context/work/workspaces/002-code-readability-refactoring/current/state/index.md"
+      ],
+      "declared_matches_actual": true,
+      "elapsed_seconds": 101.135
+    },
+    {
+      "phase": "04-correction",
+      "outcome": "update",
+      "changed_paths": [
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/state/index.md"
+      ],
+      "declared_matches_actual": true,
+      "elapsed_seconds": 157.567
+    },
+    {
+      "phase": "05-coverage-explanation",
+      "outcome": "no_change",
+      "changed_paths": [],
+      "declared_matches_actual": true,
+      "elapsed_seconds": 14.557
+    },
+    {
+      "phase": "06-adoption",
+      "outcome": "update",
+      "changed_paths": [
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/state/index.md"
+      ],
+      "declared_matches_actual": true,
+      "elapsed_seconds": 176.647
+    },
+    {
+      "phase": "07-restatement",
+      "outcome": "no_change",
+      "changed_paths": [],
+      "declared_matches_actual": true,
+      "elapsed_seconds": 12.899
+    },
+    {
+      "phase": "08-progression",
+      "outcome": "update",
+      "changed_paths": [
+        "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+        "context/work/workspaces/002-code-readability-refactoring/current/state/index.md"
+      ],
+      "declared_matches_actual": true,
+      "elapsed_seconds": 140.593
+    }
+  ],
+  "changed_paths": [
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/analysis-items.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/index.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/02-city-search.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/03-storage-stats.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/04-expense-api.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/05-schedule-response.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/index.md",
+    "context/work/workspaces/002-code-readability-refactoring/current/state/index.md"
+  ],
+  "initial_scanned_file_paths": 685,
+  "final_scanned_file_paths": 690,
+  "scan_scope": "Like run.py: readable file paths including symlink targets, excluding .git",
+  "records_changed": [],
+  "all_changes_current_markdown_only": true,
+  "original_source_product_machine_files_unchanged": true,
+  "live_fixture_matches_final_guarded_state": true,
+  "sizes": {
+    "current/state/index.md": {
+      "before_utf8_bytes": 7016,
+      "after_utf8_bytes": 12303
+    },
+    "current/memory/analysis-items.md": {
+      "before_utf8_bytes": 8783,
+      "after_utf8_bytes": 15366
+    }
+  },
+  "maintainer_turn_contexts": [
+    {
+      "turn_id": "01a08e25-2d8d-7fb3-a05e-4a8aef5b8ef1",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run01-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e25-7c18-7b00-9693-91ac8b417754",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run01-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e2d-8640-7b41-9d55-02bcdaa32d9b",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run01-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e2d-b96e-7802-ac5b-95526dcca792",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run01-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e2f-4510-7993-ade3-67b74a37d844",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run01-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e31-ad25-7b21-aa9e-ef932a035025",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run01-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e31-e666-74f1-a531-69fb0d9ac43b",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run01-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e34-98f9-74e0-9eff-96f7cd5424d8",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run01-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    },
+    {
+      "turn_id": "01a08e34-cbd3-7422-844a-0c8453806373",
+      "cwd": "/private/tmp/maintainer-material-eval-20260911/run01-project",
+      "model": "gpt-6-astra",
+      "effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "read-only"
+      }
+    }
+  ]
+}

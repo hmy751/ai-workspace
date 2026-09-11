@@ -1,0 +1,114 @@
+{
+  "answers": [
+    {
+      "question": "1. 지금 첫 실행 범위와 다음 행동은 무엇이며, 현재까지 실제 구현·검사는 어디까지 이루어졌나요?",
+      "answer": "첫 실행 대상은 사용자가 선택한 Ticket 01 ‘경비 합계의 강조·소수 자릿수 규칙’입니다. ExpensesScreen.tsx의 통화 합계와 currency.ts의 관련 규칙을 다루며 날짜 그룹·폼·카드 전체·환율 계산은 제외합니다. 다음 행동은 검사 runner와 최소 실행 방법을 정하고, 현재 코드·보존 계약·개선 목표를 대조하여 변경 전 기준 결과를 확보하는 것입니다. 기본 통화 유무, 통화별 합산·정렬, 금액 경계값, 표시 문자열과 첫 항목 강조를 확인한 뒤 변경 후 같은 조건으로 비교합니다. 화면과 helper의 표시 차이는 보존하며 helper 검사만으로 화면까지 검증했다고 판단하지 않습니다.\n현재는 검사 준비 단계입니다. Main의 소스·사용처 조사와 Spec·Ticket 작성은 보고됐지만 제품 코드 수정·테스트 실행·새 Verify 결과는 없습니다. 과거 검사에서 client 타입 오류 3건, server 타입 오류 1건과 린트 도구 호환 오류가 보고됐으나 이번에 재실행한 결과가 아닙니다. status의 ready_for_verification도 검사 통과를 뜻하지 않습니다. 후속 네 Ticket은 초안이며 실행 순서는 미확정입니다.",
+      "evidence": [
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+          "excerpt": "첫 항목 강조와 소수 자릿수 판단을 반복 해석하는 부담을 줄인다. 날짜 그룹·폼·카드 전체·환율 계산은 제외한다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+          "excerpt": "위 검증 사례는 계획이고 기준 결과는 확보되지 않았다. 구체적인 runner는 다음 작업에서 정하며"
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/state/index.md",
+          "excerpt": "다음 행동은 경비 합계 표시의 변경 전 검사를 위한 runner와 최소 실행 방법을 정하고, 현재 코드·보존 계약·개선 목표를 대조해 기준 결과를 확인하는 것이다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/output/index.md",
+          "excerpt": "아직 이 Work에서 만든 제품 코드·테스트 산출물은 없다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/records/2026-09-10-01-workspace-setup.md",
+          "excerpt": "이번 Workspace 생성에서 제품 타입·린트·실기기 검사를 새로 실행한 것은 아니다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md",
+          "excerpt": "receipt·result·finished_at이 null이고 `ready_for_verification`은 schema의 미실행 값이다."
+        }
+      ],
+      "unresolved": [
+        "구체적인 runner·실행 명령, 변경 전 기준 결과와 변경 후 개선·동작 보존 결과는 미확인입니다.",
+        "현재 코드·설치 상태에서 과거 타입·린트 오류가 그대로 발생하는지는 미확인입니다."
+      ]
+    },
+    {
+      "question": "2. 이 작업에서 Ticket의 코드 범위와 이름·조건식·변환·타입 같은 분석 주제는 어떤 관계인가요? 그 관계를 정하면서 어떤 이해를 바로잡았고, 현재 작업에 어떤 영향이 있나요?",
+      "answer": "Ticket은 관련 개선들을 함께 수행하고 전후 동작·개선 효과를 확인할 수 있는 코드 작업 범위입니다. 이름·조건식·기본값·변환·타입 등은 그 범위를 살펴보는 관점입니다. 한 Ticket에 여러 관점이 들어갈 수 있고, 각 관점에서 반드시 변경을 만들 필요는 없습니다. 파일이나 함수 하나로도 고정하지 않습니다. 경비 합계 표시에서는 이름·강조 조건·소수 자릿수·변환·반복 계산을 함께 살펴볼 수 있습니다.\nMain은 사용자의 질문을 ‘전체 후보가 모두 Ticket으로 만들어졌는가’로 오해했습니다. 실제 질문은 ‘Ticket이 여러 분석 주제를 포함하는 코드 경계인가’였습니다. ‘한 가지 개선 목적’이라는 설명도 너무 좁다고 바로잡았습니다. 이에 전체 후보 배치를 끝내야 실행 순서를 정할 수 있다는 불필요한 선행 단계를 제거했습니다. 기존 다섯 초안과 보존·검증 계획은 유지했고, 후속 후보를 누락하지 않을 책임도 유지했습니다. 정정 기록 자체는 첫 실행 대상을 확정하지 않았지만, 이후 현재 state와 Ticket 01에는 사용자의 경비 합계 표시 선택이 반영되어 있습니다. 따라서 지금은 전체 후보의 Ticket화를 기다리지 않고 선택된 범위의 변경 전 검사를 준비합니다.",
+      "evidence": [
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+          "excerpt": "Ticket은 관련된 개선들을 함께 수행하고 전후 결과와 개선 효과를 확인할 수 있는 작은 작업 범위다. 파일 또는 함수 하나로 고정하지 않는다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+          "excerpt": "한 Ticket에 관련된 여러 관점이 함께 들어갈 수 있으며 모든 관점에서 반드시 수정할 것을 찾을 필요는 없다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-02-ticket-boundary-correction.md",
+          "excerpt": "제가 앞선 질문을 ‘전체 후보가 모두 티켓으로 만들어졌느냐’로 잘못 이해했어요"
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-02-ticket-boundary-correction.md",
+          "excerpt": "앞선 답에서 나온 전체 후보 배치 완료 후 실행 순서 결정은 사용자 질문의 의미에서 도출되지 않는다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-02-ticket-boundary-correction.md",
+          "excerpt": "기존 다섯 초안의 구체적 범위·보존 조건·검증 계획은 이번 정정과 양립한다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+          "excerpt": "경비 합계 표시부터 진행해. 합의한 방식대로 변경 전 검사부터 시작하자"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "question": "3. 현재 후보에 관해 코드 조사로 보고된 사실과 실제 동작 검사로 확인된 사실을 어떻게 구별할 수 있나요? 한 Ticket의 완료로 전체 Work를 끝냈다고 판단할 수 있나요?",
+      "answer": "출처의 확인 수준과 실제 실행 조건·결과 유무로 구별해야 합니다. 추가 조사 기록은 제품 코드의 독립 검증이나 동작 테스트가 아니라 Main의 소스·사용처 조사 보고입니다. 예를 들어 기본 통화가 없으면 다른 통화가 첫 항목이라는 설명, 저장 용량의 부분 실패 처리, 재시도 설명과 _retry 조건의 충돌은 코드 조사로 보고된 내용입니다. 재시도는 실제 Axios config 전달과 요청 횟수를 확인해야 하므로 런타임 결함으로 확정할 수 없습니다. useMemo 후보도 성능 장애나 개선 효과를 측정한 결과가 아닙니다. Ticket의 입력 사례와 검증 방법은 실행 계획이며 통과 기록이 아닙니다.\n문서에는 과거 타입·린트 도구 실행 결과와 별도 분리 실험에서 트랜잭션·여행별 미전송 조회 결함이 재현됐다는 기록이 있습니다. 그러나 이것을 현재 Ticket의 동작 검사나 앱 전체 보존 증거로 확대할 수 없습니다. 이번 확인에서도 제품 실행이나 원래 실험을 독립 재검증하지 않았습니다.\n한 Ticket 완료로 전체 Work를 완료할 수 없습니다. Ticket마다 동작 보존 근거와 사전에 정한 개선 효과를 모두 확인해야 합니다. 전체 후보에는 처리·변경 불필요·별도 동작 수정·보류의 이유를 남기고 채택한 개선을 실제 수행해야 합니다. 한 범위에서 이름이나 조건을 개선해도 해당 주제 전체 검토가 끝나는 것은 아닙니다. 다섯 Ticket의 완료나 초기 client 타입 Verify 통과도 전체 목표 달성·사람의 수락을 대신하지 않습니다.",
+      "evidence": [
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/source/codebase-analysis/README.md",
+          "excerpt": "실행 검증 필요: 코드상 조건은 확인했지만, 실제 사용자 상황에서의 영향은 재현하지 않았다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-01-additional-research.md",
+          "excerpt": "제품 코드를 독립 확인하거나 검사를 실행한 결과가 아니라 Main의 조사 보고다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-01-additional-research.md",
+          "excerpt": "같은 config 재실패가 이후 재시도를 막을 가능성을 실제 Axios config·요청 횟수로 확인해야 한다. 런타임 재현 결함으로 승격하지 않았고"
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/analysis-items.md",
+          "excerpt": "성능 장애나 최적화 효과를 측정한 것은 아니다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+          "excerpt": "트랜잭션과 여행별 미전송 작업 조회는 분리 실험에서 결함이 재현됐다고 기존 자료에 기록되어 있다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md",
+          "excerpt": "각 실행 범위의 완료에는 동작 보존 근거와 실제 코드 개선 근거가 모두 필요하다."
+        },
+        {
+          "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md",
+          "excerpt": "개별 Ticket·검사 통과나 서면 기준의 작성은 전체 목표 달성이나 사람의 수락을 대신하지 않는다."
+        }
+      ],
+      "unresolved": [
+        "현재 후보의 실제 사용자 상황에서의 영향, 재시도 횟수, 폼 재진입·부분 실패 등의 런타임 결과는 미확인입니다.",
+        "과거 분리 실험의 구체적인 실행 조건과 현재 코드에서의 재현 여부는 이번에 확인하지 않았습니다."
+      ]
+    }
+  ],
+  "additional_files_read": [
+    "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/01-expense-summary.md",
+    "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-02-ticket-boundary-correction.md",
+    "context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-01-additional-research.md",
+    "context/work/workspaces/002-code-readability-refactoring/records/2026-09-10-01-workspace-setup.md",
+    "context/work/workspaces/002-code-readability-refactoring/source/codebase-analysis/README.md"
+  ]
+}

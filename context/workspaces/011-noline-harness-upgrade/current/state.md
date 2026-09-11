@@ -1,6 +1,14 @@
 # 현재 상태
 
-마지막 갱신: 2026-09-10
+마지막 갱신: 2026-09-11
+
+## Maintainer의 자료 구분 보완과 Noline 재적용 완료
+
+사용자가 지정한 Noline의 `002 작업 현황 파악`으로 기존 Maintainer를 실제 시험하고, 확인된 자료 구분 결함을 Reference 계약과 Noline 설치본에 보완했다. 기존 시험의 판정은 [평가 기록](../records/2026-09-11-02-maintainer-material-classification-evaluation.md), 수정 범위·재시험·적용 결과는 [보완 기록](../records/2026-09-11-03-maintainer-material-classification-correction.md)이 소유한다.
+
+Maintain은 current에 현재 유효한 의미를 정규화하고, 이후에도 필요한 조사·선택·정정·실패 근거는 records로 분리한다. 정정·단계 변화가 직접 의존한 current를 선택된 Workspace 안에서 확인하고, 색인에 변동 상태를 복제하지 않으며, state 갱신 때 끝난 진행 경위와 일회성 보고를 압축한다. 채택 발화·날짜·turn은 지속 근거일 때 records에 보존하고 `기록해 달라`는 말만으로 current에 옮기지 않는다.
+
+같은 여덟 입력의 수정 계약 재시험은 Main 보조 없이 끝났고 조사·정정 records와 안정된 색인을 만들었다. 남은 채택 원문·state 누적 문제를 좁혀 세 단계를 다시 실행하자 정확한 발화는 records에만 남고 state는 8,336에서 4,254 bytes로 줄었다. fresh reader는 records를 선택해 현재 범위·정정 의미·조사와 실행 증거·전체 완료 상한을 복구했다. Reference와 Noline의 Maintain 단위 테스트 22개가 각각 통과했고 Noline 적용분은 `dac4e60`으로 커밋했다. 첫 기존 계약 실행의 상대 링크 Guard 실패는 별도 집행 문제로 남기며 이번 변경에서 자동 재시도를 추가하지 않았다. 실제 host activation과 Noline 002 current의 일괄 재작성은 수행하지 않았다.
 
 ## 커밋과 제외 범위
 

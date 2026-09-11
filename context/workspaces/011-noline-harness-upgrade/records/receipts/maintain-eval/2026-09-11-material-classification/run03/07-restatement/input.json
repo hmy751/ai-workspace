@@ -1,0 +1,10 @@
+{
+  "phase": "07-restatement",
+  "kind": "synthetic_control",
+  "delta": {
+    "workspace_id": "002-code-readability-refactoring",
+    "turn_id": "eval-restatement",
+    "user_prompt": "방금 합의한 진행 방식을 다시 설명만 해줘. 결정이나 진행 상태는 그대로야.",
+    "main_response": "Ticket은 관련된 여러 개선 관점을 적용할 코드 범위로 구성합니다. 각 범위에서 바텀부터 살피며 변경 전후 동작과 개선 효과를 확인하고, 전체 분석 주제의 확인한 범위와 남은 범위를 함께 관리합니다. 사용자는 여전히 Ticket을 검토 중이며 새 결정이나 상태 변화는 없습니다."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "original_guard_zero_writes": true,
+  "old": "../../../../../eval-inputs/noline-002-additional-research-and-ticket-drafts-2026-09-11.md",
+  "new": "../../../../../../eval-inputs/noline-002-additional-research-and-ticket-drafts-2026-09-11.md",
+  "changed_fields": [
+    [
+      "current/state/index.md",
+      "content"
+    ]
+  ],
+  "meaning_or_owner_hints_added_to_model": false
+}

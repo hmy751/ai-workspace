@@ -1,0 +1,36 @@
+{
+  "context_status": "updated",
+  "workspace_id": "002-code-readability-refactoring",
+  "changed": [
+    {
+      "path": "current/memory/spec/05-constraints-design-assumptions.md",
+      "reason": "사용자가 구별한 개선 관점과 작업 범위의 관계를 공통 작업 단위 기준에 반영한다. 여러 관점을 함께 다루되 모든 관점의 수정을 의무화하지 않는다."
+    },
+    {
+      "path": "current/state/index.md",
+      "reason": "오해에 의존한 전체 후보 배치 우선 단계를 제거한다. 실제 후속 후보와 미확정 실행 상태는 유지하며 기존 작업 진행 방식에 맞게 현재 의미를 정규화한다."
+    },
+    {
+      "path": "records/2026-09-11-02-ticket-boundary-correction.md",
+      "reason": "질문 오해가 실제 다음 행동 문구로 전파된 경위와 철회 이유를 최소 원문과 함께 보존한다."
+    },
+    {
+      "path": "records/README.md",
+      "reason": "새 정정 기록을 기존 records 진입점에 연결한다."
+    }
+  ],
+  "importance": "important",
+  "summary": "Ticket은 관련 개선 관점을 함께 적용하고 전후 결과를 확인할 작업 범위라는 뜻을 Spec에 반영한다. 질문 오해에서 나온 전체 후보 배치 우선 단계를 state에서 교정하고 그 경위를 기록에 보존한다.",
+  "evidence": [
+    "사용자는 분석의 바텀 개선 주제들을 포함하는 코드 범위가 Ticket 경계인지 물었다고 명시적으로 정정했다.",
+    "Main은 전체 후보의 Ticket화 여부로 질문을 오해했다고 인정하고, Ticket을 관련 개선들을 함께 수행하고 전후 결과를 확인할 작업 범위로 설명했다.",
+    "현재 state에는 앞선 오해에 따른 전체 후보 배치 후 실행 순서 결정 문구가 실제로 남아 있었다. 내용과 SHA-256을 확인했다.",
+    "선택된 Workspace current/에서 관련 전제를 제한적으로 검색했다. 기존 후보 누락 방지 품질 기준은 이번 정정과 양립하므로 유지한다.",
+    "Spec 접근 문서와 records 색인의 실제 preimage를 확인했고 새 정정 record 경로는 존재하지 않았다."
+  ],
+  "unresolved": [
+    "첫 구현 대상과 실행 순서는 확정되지 않았으며 이번 정정은 제품 실행을 뜻하지 않는다.",
+    "후속 후보의 구체적 분해와 실제 동작·개선 효과 검증은 남아 있다."
+  ],
+  "question": null
+}

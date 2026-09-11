@@ -1,0 +1,27 @@
+{
+  "context_status": "updated",
+  "workspace_id": "002-code-readability-refactoring",
+  "changed": [
+    {
+      "path": "current/memory/spec/05-constraints-design-assumptions.md",
+      "reason": "여러 Ticket에 공통으로 적용할 분해 의미를 사용자 정정에 맞게 명확히 하며, 바텀 요소 우선과 동작 보존 기준을 유지한다."
+    },
+    {
+      "path": "current/state/index.md",
+      "reason": "사용자가 바로잡은 질문의 뜻을 보존하고, 잘못된 해석에 의존했던 전체 후보 배치 우선 계획이 후속 실행을 제한하지 않도록 정정한다."
+    }
+  ],
+  "importance": "important",
+  "summary": "티켓은 여러 개선 관점을 함께 적용할 작업 범위라는 정정을 Spec에 반영한다. 앞선 오해에서 나온 전체 후보 배치 우선 계획은 현재 state에서 해제한다.",
+  "evidence": [
+    "사용자 turn 01a08de1-da86-7883-a753-fdd082f333ff: 경비 합계 표시가 분석의 여러 개선 주제를 포함하는 작업 경계인지를 물었다고 정정했다.",
+    "Main은 앞선 질문을 전체 후보의 Ticket 작성 여부로 오해했다고 인정하고, Ticket을 관련 개선들을 함께 수행하며 전후 결과를 확인할 범위로 설명했다.",
+    "Main은 한 Ticket에 여러 개선 관점이 들어갈 수 있고 모든 관점에서 수정을 찾아야 하는 것은 아니라고 명시했다.",
+    "현재 Spec 05와 state의 내용·SHA-256을 직접 확인했다. state에는 앞선 오해에서 나온 전체 후보 배치 후 실행 순서 결정이 다음 행동으로 남아 있었다."
+  ],
+  "unresolved": [
+    "기존 다섯 Ticket은 초안이며 첫 구현 대상·실행 순서·제품 착수는 이번 정정으로 확정되지 않았다.",
+    "후속 후보의 분해는 남아 있지만 전체 배치 완료를 실행의 필수 선행 조건으로 삼을 근거는 이번 정정에서 해소됐다."
+  ],
+  "question": null
+}
