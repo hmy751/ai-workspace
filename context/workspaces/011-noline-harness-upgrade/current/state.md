@@ -2,13 +2,25 @@
 
 마지막 갱신: 2026-09-11
 
-## Maintainer의 자료 구분과 문서 통합 편집 보완
+## Workspace 문서 작성 기준 보완과 Maintainer 설정
 
-Maintain은 current에 현재 유효한 의미를 정규화하고, 이후에도 필요한 조사·선택·정정·실패 근거는 records로 분리한다. 사람용 문서를 만들거나 갱신할 때는 Workspace collection의 일반 기준에 따라 각 층의 Owner와 기존 구성·내용 관계 안에서 새 의미를 조직한다. 이 기준은 current뿐 아니라 source·output 색인과 records의 사람용 문서에도 적용하며, 중복·대체된 서술과 반복 단서를 정리한다.
+Reference의 사람용 Workspace 문서 작성 기준을 [DOCUMENT-WRITING.md](../../../../reference-project/context/work/workspaces/DOCUMENT-WRITING.md)로 분리했다. Workspace README는 층의 의미·Owner·보존 경계와 기준의 읽기 경로를, 새 문서는 내용 충분성·이유와 조건의 보존·구성·편집 판단을 소유한다. 서로 다른 판단 조건을 압축해 합치지 않는 기준, 이해·판별에 필요한 구체 사례와 결정 범위의 최소 원문 보존 기준도 기존 문단에 통합했다. Spec·Ticket과 생성·전환 기준, Work 운영 진입점과 Maintainer의 소비 경로는 유지한다.
 
-자료 구분 보완은 같은 입력의 semantic 재생과 fresh-reader 확인을 거쳐 Noline에 `dac4e60`으로 적용됐다. 사람용 문서 편집 보완은 Reference source `def91c2`와 Noline 설치본 `37c1fc5`에 각각 커밋했으며, Noline의 기존 제품 코드와 Workspace 002 변경은 preflight hash 그대로 유지했다. Source 판단은 [문서 편집 기록](../records/2026-09-11-04-maintainer-readable-editing-guidance.md), 실제 적용·보호·검증 결과는 [Noline 적용 기록](../records/2026-09-11-05-noline-maintainer-readable-editing-application.md)이 소유한다.
+Noline 03 Ticket 기록을 대조하며 Main의 수동 요약에서 선택 이유가 빠진 사실과 기록의 설명 비중·내용 충분성 문제를 구별했다. 이번 보완은 그 기록 자체를 고치는 작업이 아니라 Reference의 작성 기준을 정비한 것이다. 자동 Maintainer는 정본 파일에서 읽은 본문을 입력으로 받고 같은 파일을 도구로 재독하지 않으며, 본문이 제공되지 않는 수동 경로에서는 직접 읽는다. 현재 구현의 매 응답 계약 본문 주입은 유지한다.
 
-첫 기존 계약 실행의 상대 링크 Guard 실패는 별도 집행 문제로 남아 있다. 문서 편집 기준의 실제 효과는 semantic 재생으로 확인해야 하며, 실제 host activation과 기존 문서의 자동 재분류도 미확인이다.
+Maintainer 모델은 비교 시험 뒤 사용자가 선택한 Sol high로 설정했다. [역할 설정](../../../../reference-project/context/work/harness/maintain/workspace-context-maintainer.toml)이 모델·추론 수준을 소유하고 자동 bridge도 시작·재개마다 같은 값을 명시한다. 기존 thread identity와 read-only·guarded apply 경계는 유지한다. 자동 bridge는 설정을 읽기 위해 Python 3.11 이상이 필요하다.
+
+작성 지침의 최초·후속 입력 단일 포함과 로컬 링크 검사를 마쳤으며, 모델 설정 반영 후 Maintain 테스트 67개와 전체 재실행 126개가 통과했다. 첫 전체 검사에서 Verify 시간 제한 테스트 한 건이 실패한 사실은 [모델 설정 기록](../records/2026-09-11-07-maintainer-model-settings.md)에 보존했다. 이후 작성 지침의 조건·사례·원문 보존 보완 뒤에도 입력 단일 포함과 Maintain 67개 검사를 다시 통과했다. 작성 기준의 책임 분리는 [분리 기록](../records/2026-09-11-06-workspace-document-writing-contract.md), Noline 수정본 대조와 후속 보완 이유는 [압축 기준 보완 기록](../records/2026-09-11-08-writing-conditions-examples-evidence.md)에서 찾는다.
+
+사용자가 이번 source 변경의 커밋과 Noline 반영을 요청했다. 커밋 전 재검사에서 Maintain 67개는 통과했다. 전체 126개 중 기존 Verify descendant timeout 시험 한 건이 다시 실패했고 단독 재실행은 통과했다. 해당 시험 코드는 바꾸지 않았다. Noline은 아직 적용 전이며, 진행 중인 Ticket 03 테스트 설정·문서와 `.pnpm-store/`를 보호하고 공통 지침·Maintainer 설정만 적용 대상으로 준비한다. `.DS_Store`는 source 커밋에서 제외한다.
+
+Ticket 03 논의의 사용자·Main 발화 전문 23개와 새 계약으로 독립 작성 시험을 수행했다. 기존 작성본은 제공하지 않았고 첫 초안도 수정하지 않았다. [최초 Terra high 평가](../records/2026-09-11-09-ticket03-blind-writing-evaluation.md)에서 확인한 내용 부족을 바탕으로, 사용자 요청에 따라 동일 prompt의 Terra xhigh와 Sol medium을 병렬 비교했다. 실제 시작·재개 로그의 모델·effort, 추가 도구 호출 없음과 Noline·Reference 보존을 확인했다.
+
+[두 후보 비교](../records/2026-09-11-10-ticket03-model-comparison.md)에서는 Sol medium의 일부 정확성 개선에도 공통적인 record 내용 부족이 남았다. 이어 사용자가 요청한 [Sol high 추가 시험](../records/2026-09-11-11-ticket03-sol-high-evaluation.md)에서는 Jest 설정 이유, mock·공용 설정의 서로 다른 도입 조건, 사용자 수락 발화와 원문 위치가 살아났다. 전체 표준 단가 환산은 Terra xhigh 약 6.39, Sol medium 약 11.72, Sol high 약 12.57크레딧이었다. 이 사례의 다음 모델 후보로는 Sol high를 우선 권하지만, 디렉터리 선택 비용 누락과 조건부 권장의 강화·전후 검사 기준 약화는 여전히 보완할 점이다.
+
+사용자의 후속 요청으로 Reference 기본값을 Sol high로 변경했다. 작성 지침에는 선택 비용·조건·결정 강도 보존과 문서 간 중복 제거 기준이 이미 있어 이번에는 본문을 더 수정하지 않았다. [채택 기록](../records/2026-09-11-12-maintainer-sol-high-adoption.md)에 변경·검증과 지침 유지 판단을 남겼다. 시험의 어느 초안도 Noline에 반영하지 않았고, 실제 Recover·Guard apply·Noline host 전체 흐름, 여러 문서 유형의 일반 효과와 반복 실행 안정성은 이번 시험 밖이다.
+
+Noline에는 앞선 자료 구분 보완 `dac4e60`과 문서 통합 편집 보완 `37c1fc5`가 적용돼 있다. 당시 source 기준과 적용·보호·검증은 [앞선 문서 편집 기록](../records/2026-09-11-04-maintainer-readable-editing-guidance.md)과 [Noline 적용 기록](../records/2026-09-11-05-noline-maintainer-readable-editing-application.md)에서 찾는다. 이전 시험의 상대 링크 Guard 실패와 실제 자동 host 흐름의 전체 검증은 별도 후속 판단으로 남긴다.
 
 ## 커밋과 제외 범위
 

@@ -1,0 +1,125 @@
+{
+  "sol-high": {
+    "thread_id": "01a09077-eccf-7cb1-a502-2485806bc383",
+    "rollout": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T21-36-13-01a09077-eccf-7cb1-a502-2485806bc383.jsonl",
+    "turn_contexts": [
+      {
+        "line": 8,
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "cwd": "/private/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/ticket03-sol-high-opmdzgu0",
+        "sandbox_policy": {
+          "type": "read-only"
+        }
+      },
+      {
+        "line": 23,
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "cwd": "/Users/hammyeong-yeon/Desktop/context-harness",
+        "sandbox_policy": {
+          "type": "read-only"
+        }
+      }
+    ],
+    "model_effort_verified": true,
+    "tool_calls": [],
+    "calls": [
+      {
+        "call": "01",
+        "usage": {
+          "input_tokens": 31789,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 278,
+          "reasoning_output_tokens": 58
+        },
+        "standard_rate_credit_estimate": 3.3179,
+        "prompt_equals_baseline": true,
+        "actual_prompt_confirmed": true,
+        "returncode": 0,
+        "started_at": "2026-09-11T12:36:13.609577+00:00",
+        "finished_at": "2026-09-11T12:36:26.298085+00:00",
+        "elapsed_seconds": 12.68837533399983
+      },
+      {
+        "call": "02",
+        "usage": {
+          "input_tokens": 63606,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5777,
+          "reasoning_output_tokens": 1034
+        },
+        "standard_rate_credit_estimate": 9.2491,
+        "prompt_equals_baseline": true,
+        "actual_prompt_confirmed": true,
+        "returncode": 0,
+        "started_at": "2026-09-11T12:36:26.300136+00:00",
+        "finished_at": "2026-09-11T12:38:54.595035+00:00",
+        "elapsed_seconds": 148.29497974999958
+      }
+    ],
+    "changes": [
+      {
+        "path": "current/memory/tickets/03-storage-stats.md",
+        "allowed": true,
+        "preimage_matches": true,
+        "preview_exact": true,
+        "eof_newline": true,
+        "lines": 44,
+        "characters": 2731,
+        "trailing_whitespace_lines": []
+      },
+      {
+        "path": "records/2026-09-11-02-storage-stats-test-strategy.md",
+        "allowed": true,
+        "preimage_matches": true,
+        "preview_exact": true,
+        "eof_newline": true,
+        "lines": 108,
+        "characters": 5999,
+        "trailing_whitespace_lines": []
+      },
+      {
+        "path": "records/README.md",
+        "allowed": true,
+        "preimage_matches": true,
+        "preview_exact": true,
+        "eof_newline": true,
+        "lines": 3,
+        "characters": 177,
+        "trailing_whitespace_lines": []
+      }
+    ],
+    "links": [
+      {
+        "source": "current/memory/tickets/03-storage-stats.md",
+        "line": 22,
+        "target": "../../../records/2026-09-11-02-storage-stats-test-strategy.md",
+        "exists": true
+      },
+      {
+        "source": "records/2026-09-11-02-storage-stats-test-strategy.md",
+        "line": 5,
+        "target": "../current/memory/tickets/03-storage-stats.md",
+        "exists": true
+      },
+      {
+        "source": "records/README.md",
+        "line": 3,
+        "target": "2026-09-11-02-storage-stats-test-strategy.md",
+        "exists": true
+      }
+    ],
+    "total_standard_rate_credit_estimate": 12.567,
+    "outcome": "update",
+    "unresolved": [
+      "Expo SDK 51과 현재 client 구성에 맞는 테스트 package의 정확한 버전은 설치 전 확인이 필요하다.",
+      "pnpm 환경의 `transformIgnorePatterns` 필요 여부와 `@rnmapbox/maps`의 실제 최소 mock 형태는 최초 테스트 실행으로 확정해야 한다.",
+      "제품 코드, 현재 package 설정과 공식 문서의 도구 원출력이 제공되지 않았으므로 Main의 코드·호환성 관찰을 독립적으로 검증하지 않았다.",
+      "기준 테스트, 리팩터링 후 테스트, lint·format·typecheck, development build smoke test는 실행되지 않았으며 플랫폼도 정해지지 않았다."
+    ]
+  },
+  "source_still_matches_baseline": true
+}

@@ -1,0 +1,61 @@
+{
+  "adapter_command": [
+    "/Applications/ChatGPT.app/Contents/Resources/codex",
+    "exec",
+    "resume",
+    "01a09072-1218-7272-beb3-8145ce50d7f0",
+    "--json",
+    "--ignore-user-config",
+    "--model",
+    "gpt-5.6-terra",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "-c",
+    "features.hooks=false",
+    "--output-schema",
+    "/Users/hammyeong-yeon/Desktop/context-harness/reference-project/context/work/harness/maintain/decision.schema.json",
+    "--output-last-message",
+    "/Users/hammyeong-yeon/Desktop/context-harness/context/workspaces/011-noline-harness-upgrade/records/receipts/maintain-writing-eval/2026-09-11-ticket03-model-comparison/terra-xhigh/02-decision.json",
+    "-"
+  ],
+  "effective_command": [
+    "/Applications/ChatGPT.app/Contents/Resources/codex",
+    "exec",
+    "resume",
+    "01a09072-1218-7272-beb3-8145ce50d7f0",
+    "--json",
+    "--ignore-user-config",
+    "--model",
+    "gpt-5.6-terra",
+    "-c",
+    "model_reasoning_effort=\"xhigh\"",
+    "-c",
+    "features.hooks=false",
+    "--output-schema",
+    "/Users/hammyeong-yeon/Desktop/context-harness/reference-project/context/work/harness/maintain/decision.schema.json",
+    "--output-last-message",
+    "/Users/hammyeong-yeon/Desktop/context-harness/context/workspaces/011-noline-harness-upgrade/records/receipts/maintain-writing-eval/2026-09-11-ticket03-model-comparison/terra-xhigh/02-decision.json",
+    "--skip-git-repo-check",
+    "-c",
+    "project_doc_max_bytes=0",
+    "-c",
+    "features.shell_tool=false",
+    "-c",
+    "web_search=\"disabled\"",
+    "-"
+  ],
+  "experiment_model_override": {
+    "model": "gpt-5.6-terra",
+    "effort": "xhigh",
+    "project_root": "/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/ticket03-terra-xhigh-z0v2e8_1"
+  },
+  "experiment_isolation_options": [
+    "--skip-git-repo-check",
+    "-c",
+    "project_doc_max_bytes=0",
+    "-c",
+    "features.shell_tool=false",
+    "-c",
+    "web_search=\"disabled\""
+  ]
+}

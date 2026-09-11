@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "candidate": "terra-xhigh",
+      "thread_id": "01a09072-1218-7272-beb3-8145ce50d7f0",
+      "outcome": "update",
+      "paths": [
+        "current/memory/tickets/03-storage-stats.md",
+        "records/2026-09-11-02-storage-stats-test-strategy.md",
+        "records/README.md"
+      ]
+    },
+    {
+      "candidate": "sol-medium",
+      "thread_id": "01a09072-1218-7982-987d-da102502d4f3",
+      "outcome": "update",
+      "paths": [
+        "current/memory/tickets/03-storage-stats.md",
+        "records/2026-09-11-02-storage-stats-test-strategy.md",
+        "records/README.md"
+      ]
+    }
+  ],
+  "target_after": {
+    "current/memory/tickets/03-storage-stats.md": "8d70241f031df2bcf5c9f2c2abf554756a77cc6660558a93f5d22406a1c785df",
+    "records/2026-09-11-02-storage-stats-test-strategy.md": "8a1058244f2c240b5244b869331b027f93e24eb58543a1116502a7ce4f85e0a5",
+    "records/README.md": "251d8b0d5e73da670b056b3a5d0b0efd63b9ae76c5afaf0ce1098fba268e7549"
+  },
+  "target_unchanged": true,
+  "guard_applied": false
+}

@@ -1,0 +1,33 @@
+{
+  "candidates": {
+    "terra-xhigh": {
+      "model": "gpt-5.6-terra",
+      "effort": "xhigh",
+      "project_root": "/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/ticket03-terra-xhigh-z0v2e8_1"
+    },
+    "sol-medium": {
+      "model": "gpt-5.6-sol",
+      "effort": "medium",
+      "project_root": "/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/ticket03-sol-medium-4z252n8m"
+    }
+  },
+  "baseline": "/Users/hammyeong-yeon/Desktop/context-harness/context/workspaces/011-noline-harness-upgrade/records/receipts/maintain-writing-eval/2026-09-11-ticket03",
+  "inputs_sha256": "664a0cf8d672d679f898f252c9c4dbbc1897d1fe9de6a68aba3e8354e972c733",
+  "source_snapshot_sha256": "e8c4aefd03b657c1ad593c5dd026b06a478915435b3fefd6b4b54df8b6ec124f",
+  "source_matches_baseline": {
+    "context/work/harness/maintain/codex_session.py": true,
+    "context/work/harness/maintain/workspace-context-maintainer.toml": true,
+    "context/work/harness/maintain/README.md": true,
+    "context/work/workspaces/README.md": true,
+    "context/work/workspaces/DOCUMENT-WRITING.md": true,
+    "context/work/workspaces/SPEC-AND-TICKETS.md": true,
+    "context/work/harness/maintain/grounding.schema.json": true,
+    "context/work/harness/maintain/decision.schema.json": true
+  },
+  "target_before": {
+    "current/memory/tickets/03-storage-stats.md": "8d70241f031df2bcf5c9f2c2abf554756a77cc6660558a93f5d22406a1c785df",
+    "records/2026-09-11-02-storage-stats-test-strategy.md": "8a1058244f2c240b5244b869331b027f93e24eb58543a1116502a7ce4f85e0a5",
+    "records/README.md": "251d8b0d5e73da670b056b3a5d0b0efd63b9ae76c5afaf0ce1098fba268e7549"
+  },
+  "method": "Fresh session per candidate, identical baseline user prompts, two parallel start/resume sequences, one draft each, no retry or repair, no Guard apply."
+}

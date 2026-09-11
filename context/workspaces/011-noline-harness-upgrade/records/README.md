@@ -4,6 +4,13 @@
 
 선행 현황 분석과 평가 전 정비 판단은 [010 기록](../../010-spec-ticket-workspace-design/records/2026-09-09-02-noline-installed-state-assessment.md)에 있다.
 
+- [2026-09-11 Maintainer Sol high 채택](2026-09-11-12-maintainer-sol-high-adoption.md): 사용자 선택에 따른 Reference 기본값 변경, 시작·재개 검증과 작성 지침 유지 판단.
+- [2026-09-11 Ticket 03 Sol high 추가 시험](2026-09-11-11-ticket03-sol-high-evaluation.md): 같은 입력에서 선택 이유·조건·원문 근거가 개선된 첫 초안, 남은 강도·내용 문제와 세 후보의 가성비 비교.
+- [2026-09-11 Ticket 03 모델 후보 병렬 비교](2026-09-11-10-ticket03-model-comparison.md): 같은 입력의 Terra xhigh·Sol medium 실제 실행, 원문 대조와 공통 누락, 시간·토큰·추정 비용 및 기본 설정 유지 판단.
+- [2026-09-11 Ticket 03 원문 독립 작성 시험](2026-09-11-09-ticket03-blind-writing-evaluation.md): Terra high 실제 시작·재개 확인, 기존 작성본을 주지 않은 첫 초안과 원문·Main 수정본 대조, 남은 내용·연결 결함.
+- [2026-09-11 문서 압축의 조건·사례·원문 보존 보완](2026-09-11-08-writing-conditions-examples-evidence.md): Main이 수정한 Noline 03 문서와 원대화를 대조해 작성 지침의 기존 문단을 구체화한 이유와 검사 범위.
+- [2026-09-11 Maintainer 모델·추론 수준 명시](2026-09-11-07-maintainer-model-settings.md): Terra high 선택 이유, 역할 설정과 자동 시작·재개의 단일 원천 연결, 검사 결과와 실행 검증의 한계.
+- [2026-09-11 문서 작성 기준 분리와 내용 충분성 보완](2026-09-11-06-workspace-document-writing-contract.md): 별도 작성 지침의 책임, README·Spec/Ticket·생성·Maintainer 연결, 중복 읽기 구분과 검증 결과.
 - [2026-09-11 Maintainer 문서 통합 편집 기준 보완](2026-09-11-04-maintainer-readable-editing-guidance.md): Workspace 사람용 문서 전반에서 각 Owner와 기존 구성을 따라 새 의미를 조직하도록 Reference 기준과 Maintainer prompt를 보완했다.
 - [2026-09-11 Noline Maintainer 문서 통합 편집 적용](2026-09-11-05-noline-maintainer-readable-editing-application.md): Reference `def91c2`를 Noline에 적응하고 기존 dirty 변경을 보존한 적용·커밋·검증 결과.
 - [2026-09-11 Maintainer 자료 구분 보완과 재적용](2026-09-11-03-maintainer-material-classification-correction.md): current·records 의미 경계와 정정 영향 범위 보완, 같은 사례 재시험, Noline 설치본 적용과 검증.

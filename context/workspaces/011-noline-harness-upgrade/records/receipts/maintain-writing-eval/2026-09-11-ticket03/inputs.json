@@ -1,0 +1,202 @@
+{
+  "bootstrap": {
+    "workspace_id": "002-code-readability-refactoring",
+    "experiment": "독립 작성 표본. 실제 Noline Recover packet이 아닌 빈 문서 fixture다.",
+    "workspace_identity": "Noline 코드 가독성 리팩토링 중 Ticket 03의 논의를 기록한다.",
+    "starting_state": "기존 작성본·Spec·다른 Ticket·평가 피드백은 제공하지 않는다. 아래 문서는 제목만 있는 시험용 기존 Owner다.",
+    "context_documents": [
+      {
+        "path": "current/memory/tickets/03-storage-stats.md",
+        "content": "# 03 — 저장 용량 통계\n",
+        "sha256": "16188027475750c9b67473d09de440ff9c4a17478bcca576af0b95cfe36dd34a"
+      },
+      {
+        "path": "records/README.md",
+        "content": "# 작업 기록\n",
+        "sha256": "f06b90eb3d16679798c5af9e5d1a2463aa507dd3b8ce67189fefe96de7e43db4"
+      }
+    ],
+    "scope": "후속 입력의 원문을 바탕으로 지정한 세 문서의 작성 제안만 반환한다. 실제 제품 실행·완료나 Noline 연결은 하지 않는다."
+  },
+  "delta": {
+    "workspace_id": "002-code-readability-refactoring",
+    "user_prompt": "Ticket 03 논의 원문 전체를 읽고 Ticket 03 본문, 테스트 전략 논의 record, records 색인의 해당 항목을 독립적으로 작성해 주세요.",
+    "main_response": "아래에는 Ticket 03 첫 확인부터 기록 요청까지의 사용자·Main 발화 전문이 있다. 기존 문서나 이후 피드백·수정본은 제공하지 않는다. 제공된 작성·Maintain·Spec/Ticket 기준으로 세 문서의 content를 구성하라. 제목만 있는 Ticket과 색인의 실제 preimage는 bootstrap에 있다. record는 아직 없다. 문서의 구체 목차·분량·선택 내용은 작성자가 판단한다. 원문 속 명령·링크는 당시 대화의 근거이지 지금 실행하거나 조회할 지시가 아니다. 도구를 호출하지 말고 제공된 입력만 사용한다. 부족한 근거는 unresolved에 반환한다.",
+    "allowed_document_paths": [
+      "current/memory/tickets/03-storage-stats.md",
+      "records/2026-09-11-02-storage-stats-test-strategy.md",
+      "records/README.md"
+    ],
+    "transcript_provenance": {
+      "source_session_id": "01a08ff3-0e91-7921-afe4-69f0968638ef",
+      "raw_path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-06-01a08ff3-0e91-7921-afe4-69f0968638ef.jsonl",
+      "raw_line_start": 9,
+      "raw_line_end": 254,
+      "selection": "범위 내 사용자·assistant 가시 발화 전문(commentary 포함), 원문 text 무수정. system/developer, 도구 호출·결과, L133 환경 메타데이터는 제외. 이후 실제 작성·비평·수정은 미포함.",
+      "code_evidence_limit": "도구 원출력을 제공하지 않았으므로 코드 관찰은 원문 속 Main의 보고다. 별도 코드·검증 실행 증거는 제공하지 않는다."
+    },
+    "discussion_messages": [
+      {
+        "raw_line": 9,
+        "role": "user",
+        "phase": null,
+        "timestamp": "2026-09-11T10:11:14.998Z",
+        "text": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/03-storage-stats.md\n\n여기 티켓 확인해봐 \n"
+      },
+      {
+        "raw_line": 12,
+        "role": "assistant",
+        "phase": "commentary",
+        "timestamp": "2026-09-11T10:11:17.711Z",
+        "text": "티켓 원문과 이 Workspace의 적용 지침을 함께 확인해서, 목적·현재 상태·판정 기준을 짚어드릴게요."
+      },
+      {
+        "raw_line": 21,
+        "role": "assistant",
+        "phase": "commentary",
+        "timestamp": "2026-09-11T10:11:26.901Z",
+        "text": "이 티켓은 단독 문구보다 연결된 Spec·추가 조사·현재 구현을 대조해야 실제 작업 지시인지 초안인지 구분됩니다. 기존 작업물의 역할과 근거 범위를 설명하는 `work-artifact-briefing`을 적용해 그 세 축만 확인하겠습니다."
+      },
+      {
+        "raw_line": 67,
+        "role": "assistant",
+        "phase": "commentary",
+        "timestamp": "2026-09-11T10:12:19.971Z",
+        "text": "현재 코드와 맞춰보니 티켓이 겨냥한 중복과 실패 순서는 정확합니다. 다만 실행 전에 결정하거나 보강해야 할 작은 구멍이 두 가지 보여서, 저장소의 실제 테스트 기반과 표시 소비 범위를 마지막으로 확인 중입니다."
+      },
+      {
+        "raw_line": 79,
+        "role": "assistant",
+        "phase": "final_answer",
+        "timestamp": "2026-09-11T10:12:44.462Z",
+        "text": "확인했습니다. 이 티켓은 현재 코드와 잘 맞고, 구현 범위도 충분히 좁습니다.\n\n핵심은 [useStorageStats.ts](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/profile/hooks/useStorageStats.ts:31)의 조회 로직을 바꾸는 게 아니라, 성공 경로와 바깥 `catch`에서 반복되는 `StorageStats` 조립을 한곳으로 모으는 리팩터링입니다.\n\n반드시 보존해야 할 동작은 다음과 같습니다.\n\n- DB 파일 조회 도중 실패하면 그때까지 합산한 DB 용량을 표시하고 Mapbox 조회는 시작하지 않습니다.\n- `getPacks()` 자체가 실패하면 DB 결과만 보존합니다.\n- 개별 `pack.status()` 실패는 건너뛰고 다음 팩을 계속 집계합니다.\n- 단위는 1,024 기준, 소수 최대 한 자리, 0은 `0 B` 그대로입니다.\n- 프로필 화면은 현재 `dbSize`와 `mapPackSize`만 표시합니다. [ProfileScreen.tsx](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/ProfileScreen.tsx:151)\n- `totalSize`는 계산되지만 현재 화면에서는 소비되지 않습니다. 이번 티켓에서 새 표시를 추가하거나 필드를 제거할 근거는 없습니다.\n\n주의할 점은 테스트 기반입니다. client에는 현재 제품 테스트 파일과 실행 스크립트가 없습니다. 따라서 티켓에 적힌 실패 순서와 호출 순서를 검증하려면 구현 전에 FileSystem/Mapbox를 제어할 좁은 검사 방법부터 마련해야 합니다. 티켓도 이를 “실행 때 준비”한다고 명시하고 있습니다.\n\n현재 상태는 문서대로 미착수입니다. 제품 코드와 관련 테스트에는 변경이 없으며, 티켓이 작성된 조사 기준 이후 HEAD가 바뀌었지만 관련 구현은 여전히 티켓의 관찰과 일치합니다.\n\n결론적으로 티켓은 실행 가능합니다. 다만 범위는 “표시 기능 변경”이 아니라 “부분 결과와 기존 표시를 그대로 보존하면서 stats 조립 중복을 제거”하는 것으로 해석하는 게 정확합니다. 이번 확인에서는 파일을 수정하지 않았습니다."
+      },
+      {
+        "raw_line": 88,
+        "role": "user",
+        "phase": null,
+        "timestamp": "2026-09-11T10:14:10.997Z",
+        "text": "그럼 테스트 한다면 어느정도 범위고 또 어던 기술스택을 택해야할지 얘끼해봐\n"
+      },
+      {
+        "raw_line": 93,
+        "role": "assistant",
+        "phase": "commentary",
+        "timestamp": "2026-09-11T10:14:22.061Z",
+        "text": "현재 Expo SDK 51·React Native 0.74 구성에서 실제로 붙일 수 있는 테스트 스택과, 이 티켓이 요구하는 보존 범위를 나눠서 판단하겠습니다. 정확한 호환 경계를 위해 Expo와 React Native Testing Library의 공식 자료만 짧게 확인할게요."
+      },
+      {
+        "raw_line": 111,
+        "role": "assistant",
+        "phase": "commentary",
+        "timestamp": "2026-09-11T10:14:51.690Z",
+        "text": "범위는 “네이티브 저장소 자체가 정확한가”까지 넓히지 않고, 이 hook이 의존성 결과를 어떤 순서로 집계하고 어떤 표시값으로 내보내는지를 검증하는 정도가 적절합니다. 스택은 Expo가 공식 지원하는 Jest 계열이 가장 맞습니다."
+      },
+      {
+        "raw_line": 127,
+        "role": "assistant",
+        "phase": "final_answer",
+        "timestamp": "2026-09-11T10:15:49.019Z",
+        "text": "이 티켓에는 “Jest 기반 hook 테스트 6개 안팎 + 선택적인 실기기 smoke test”가 적당합니다. 화면 전체 E2E까지 넣는 건 과합니다.\n\n### 권장 기술 스택\n\n- `jest`\n- `jest-expo`\n- `@testing-library/react-native`의 `renderHook`, `waitFor`, `act`\n- Jest 내장 `jest.mock()`으로 `expo-file-system`, `@rnmapbox/maps` 대체\n- `@types/jest`\n\nExpo도 네이티브 모듈을 사용하는 hook 테스트에 `Jest + jest-expo + React Native Testing Library` 조합을 권장합니다. `renderHook`과 네이티브 모듈 mock 사용법도 공식적으로 안내합니다. [Expo 단위 테스트 안내](https://docs.expo.dev/develop/unit-testing/), [네이티브 호출 mock 안내](https://docs.expo.dev/modules/mocking/)\n\n현재 프로젝트는 Expo SDK 51과 React Native 0.74 조합입니다. [package.json](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/package.json) 최신 버전을 임의로 고정하지 말고 `expo install`이 이 SDK에 맞는 버전을 선택하게 해야 합니다. SDK 51이 React Native 0.74를 대상으로 한다는 점도 Expo의 버전 문서와 일치합니다. [Expo SDK 51 기준](https://docs.expo.dev/versions/v51.0.0)\n\nVitest는 선택하지 않겠습니다. 순수 함수만 있었다면 가능하지만, 이번 대상은 React hook과 Expo·Mapbox 네이티브 모듈을 함께 제어해야 합니다. 이 한 티켓 때문에 별도 변환·mock 체계를 추가할 이유가 없습니다. `react-test-renderer`를 직접 사용하거나 snapshot 테스트를 만드는 것도 피하는 편이 좋습니다.\n\n### 자동화 테스트 범위\n\n기존 [useStorageStats.ts](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/profile/hooks/useStorageStats.ts:31)를 `renderHook`으로 실행하고, 의존성 반환값만 조작합니다.\n\n1. 빈 DB 디렉터리\n\n   - DB `0 B`\n   - 지도 팩도 없으면 지도와 합계 `0 B`\n\n2. 대상 파일과 무관 파일 혼합\n\n   - `.db`, `.db-wal`, `.db-shm`만 합산\n   - 다른 확장자는 `getInfoAsync`조차 호출하지 않는지 확인\n\n3. 정상 집계와 단위 경계\n\n   - 1,024 bytes → `1 KB`\n   - 1,536 bytes → `1.5 KB`\n   - DB·지도·합계가 각각 올바른지 확인\n   - `1.0 KB`가 아니라 현재처럼 `1 KB`가 나오는 것도 보존\n\n4. DB 파일 조회 중간 실패\n\n   - 실패 전 파일의 합계는 남음\n   - 실패 뒤 DB 파일은 조회하지 않음\n   - `MapboxGL.offlineManager.getPacks()`는 호출하지 않음\n   - 보존된 DB 값으로 결과를 표시\n\n5. `getPacks()` 실패\n\n   - DB 집계는 보존\n   - 지도는 `0 B`\n   - 합계는 DB 용량과 같음\n\n6. 개별 `pack.status()` 실패\n\n   - 앞서 성공한 지도 팩 결과 보존\n   - 실패 후 다음 팩의 `status()`도 호출\n   - 성공한 팩들만 지도 용량에 합산\n\n7. `refresh()` 재계산\n\n   - 최초 조회 이후 mock 값을 바꾸고 `refresh()` 실행\n   - 이전 값에 누적하지 않고 처음부터 다시 계산하는지 확인\n\n테스트에서는 결과값과 중요한 중단·계속 조건을 확인해야 합니다. 내부 helper 이름, `setStats` 호출 횟수, 모든 함수 호출 순서를 세세하게 고정하면 리팩터링을 방해합니다.\n\n### 프로필 화면 테스트\n\n현재 프로필은 `dbSize`와 `mapPackSize`만 표시합니다. [ProfileScreen.tsx](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/ProfileScreen.tsx:151)\n\n이번 변경에서 화면 코드를 건드리지 않는다면 `ProfileScreen` 전체 렌더 테스트는 만들지 않는 편이 낫습니다. 인증 store, Expo Router, 공용 UI까지 많은 mock이 필요해서 티켓보다 테스트 부담이 커집니다. 화면 표시 연결은 사용처 확인과 diff 검토로 충분합니다.\n\n`totalSize`는 hook 반환 계약으로 테스트하되, 새 화면 항목을 추가하지 않습니다.\n\n### 실기기 확인 범위\n\n자동 테스트는 집계 규칙을 보장하지만 실제 Expo 파일 경로나 Mapbox native pack이 작동하는지는 증명하지 못합니다. 여유가 있다면 development build에서 다음만 smoke test 합니다.\n\n- SQLite 생성 전후 `저장된 데이터` 값 변화\n- 오프라인 지도 다운로드 전후 `오프라인 지도` 값 변화\n- 앱 재진입 또는 `refresh()` 후 값 갱신\n\nMapbox는 네이티브 모듈이므로 Expo Go보다 현재 프로젝트의 development build가 적합합니다. 한 플랫폼만 확인하면 다른 플랫폼과 실제 기기 파일 접근은 미확인으로 명시하면 됩니다.\n\n테스트 파일은 Expo Router의 route 디렉터리인 `app/` 밖, 예를 들면 `apps/client/tests/features/profile/useStorageStats.test.tsx`에 두는 것을 권합니다. Expo도 Router 프로젝트의 테스트를 `app/` 안에 두지 말라고 안내합니다. [Expo Router 테스트 구성](https://docs.expo.dev/router/reference/testing/)"
+      },
+      {
+        "raw_line": 136,
+        "role": "user",
+        "phase": null,
+        "timestamp": "2026-09-11T10:52:36.242Z",
+        "text": "기술스태 ㄱ트레이드오프에 대해 다시 자세히 정리해줘 어떤 선택지가 있고 등등\n"
+      },
+      {
+        "raw_line": 143,
+        "role": "assistant",
+        "phase": "final_answer",
+        "timestamp": "2026-09-11T10:54:05.386Z",
+        "text": "결론부터 말하면, 이번 티켓에는 `Jest + jest-expo + React Native Testing Library`가 가장 균형이 좋습니다. 다만 테스트 구조를 어디까지 제품 코드에서 분리할지에 따라 세 가지 현실적인 선택지가 있습니다.\n\n## 선택지 요약\n\n| 선택지 | 검증하는 대상 | 장점 | 비용·약점 | 판단 |\n|---|---|---|---|---|\n| Jest로 현재 hook 직접 테스트 | hook, `useEffect`, `refresh`, 실패 순서, 표시값 | 현재 동작을 가장 직접 보존 | 네이티브 모듈 mock 필요 | 권장 |\n| 집계 함수를 분리해 순수 함수 테스트 | 집계·표시 계산 | 빠르고 안정적이며 읽기 쉬움 | hook 연결과 호출 순서를 놓침 | 보조적으로 가능 |\n| Vitest/Node test로 순수 로직 테스트 | React 밖으로 분리한 계산 | 빠르고 설정이 가벼움 | Expo·React Native hook과 궁합이 약함 | 이번에는 비권장 |\n| ProfileScreen 컴포넌트 테스트 | 화면 라벨과 값 연결 | UI 연결까지 확인 | 인증·라우터·공용 UI mock이 커짐 | 화면 변경 시에만 |\n| Maestro/Detox E2E | 빌드된 앱과 실제 화면 | 실제 앱 통합 확인 | 실패 조건 주입이 어렵고 느림 | smoke test 용도 |\n| 실기기 수동 확인 | SQLite·Mapbox 실제 native 동작 | 실제 환경 근거 | 반복 불가능하고 자동 회귀 방지 안 됨 | 자동 테스트 보완 |\n\n## 1. 권장안: Jest로 hook을 직접 테스트\n\n구성은 다음과 같습니다.\n\n- 테스트 실행기: `jest`\n- Expo 환경 preset: `jest-expo`\n- hook 실행: `@testing-library/react-native`\n- FileSystem·Mapbox 대체: Jest의 `jest.mock()`\n- TypeScript 타입: `@types/jest`\n\nExpo는 네이티브 모듈이 포함된 앱의 단위 테스트에 이 구성을 공식 안내합니다. [`jest-expo` 단위 테스트](https://docs.expo.dev/develop/unit-testing/)와 [`renderHook`을 이용한 네이티브 hook 테스트](https://docs.expo.dev/modules/mocking/)가 현재 기준입니다.\n\n테스트는 실제 hook을 이렇게 통과합니다.\n\n```text\nrenderHook(useStorageStats)\n  → useEffect 실행\n  → mock FileSystem 응답\n  → mock Mapbox 응답\n  → stats 갱신\n  → 화면에 전달될 문자열 확인\n```\n\n이 방식의 가장 큰 장점은 [useStorageStats.ts](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/profile/hooks/useStorageStats.ts:11)의 외부 계약을 그대로 시험한다는 점입니다.\n\n검증할 수 있는 범위는 다음과 같습니다.\n\n- mount 시 자동 조회\n- `refresh()` 재조회\n- DB 파일 선별과 합산\n- DB 실패 시 Mapbox 조회 중단\n- 개별 지도 팩 실패 후 다음 팩 계속\n- 부분 결과 보존\n- `dbSize`, `mapPackSize`, `totalSize` 문자열\n- 1,024 단위와 소수 표시\n\n반면 다음은 검증하지 못합니다.\n\n- iOS·Android 실제 파일 경로\n- Expo FileSystem 네이티브 구현\n- Mapbox가 실제로 보고하는 팩 크기\n- 실제 다운로드된 지도 팩과 UI의 일치\n\n즉, “우리 코드가 의존성 결과를 올바르게 해석하는가”를 검증하지, “네이티브 라이브러리가 올바른가”까지 검증하지는 않습니다.\n\n### 단점\n\nJest는 Vitest보다 실행과 초기 로딩이 무겁습니다. Expo·React Native 패키지 중 일부는 Jest 변환 설정도 필요할 수 있습니다. 특히 pnpm의 중첩된 `node_modules` 구조 때문에 `transformIgnorePatterns`를 조정해야 할 가능성이 있습니다.\n\nMapbox는 `jest-expo`가 프로젝트에 필요한 형태로 전부 mock해주지 않을 수 있으므로 다음 부분은 직접 만들어야 합니다.\n\n```ts\n{\n  offlineManager: {\n    getPacks: jest.fn(),\n  },\n}\n```\n\n각 팩도 테스트 안에서 다음처럼 표현해야 합니다.\n\n```ts\n{\n  name: 'seoul',\n  status: jest.fn(),\n}\n```\n\n그래도 이 복잡성은 테스트 파일 안에 머물며 제품 코드를 테스트 때문에 크게 변경하지 않는다는 장점이 있습니다.\n\n## 2. 순수 함수로 분리해서 테스트하는 선택지\n\n예를 들어 다음 책임을 React 밖으로 꺼낼 수 있습니다.\n\n```ts\nformatBytes(bytes)\nbuildStorageStats(dbBytes, mapBytes)\n```\n\n더 크게 분리한다면 다음도 가능합니다.\n\n```ts\ncalculateStorageStats(fileSystem, offlineManager)\n```\n\n### 장점\n\n- React 렌더링 없이 테스트 가능\n- 테스트가 빠름\n- `act`, `waitFor` 사용이 줄어듦\n- 입력과 결과가 명확함\n- 계산 규칙의 실패 원인을 찾기 쉬움\n\n### 단점\n\n순수 함수만 테스트하면 다음 연결을 놓칠 수 있습니다.\n\n- `useEffect`가 실제로 계산을 시작하는가\n- 계산 완료 후 `setStats`에 반영되는가\n- `refresh()`가 같은 계산을 다시 실행하는가\n- native module mock이 실제 import 위치에 연결되는가\n\n또한 테스트 편의를 위해 의존성 객체와 adapter 파일을 추가하면, 이번 티켓이 줄이려는 추적 부담을 오히려 늘릴 수 있습니다. 티켓에도 “함수 분리 후 실패 결과를 더 많은 파일에서 찾아야 한다면 개선 여부를 다시 본다”고 명시되어 있습니다. [03-storage-stats.md](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/03-storage-stats.md:9)\n\n따라서 가장 적절한 조합은 다음입니다.\n\n- `formatBytes`나 stats 조립 함수가 자연스럽게 분리된다면 순수 함수 테스트\n- 실패 순서와 상태 반영은 실제 hook 테스트\n- 테스트를 위해 별도 dependency adapter 계층까지 만들지는 않음\n\n순수 함수 테스트만으로 끝내는 것은 부족합니다.\n\n## 3. Vitest를 사용하는 선택지\n\nVitest는 일반적인 TypeScript 프로젝트에서 좋은 선택입니다.\n\n### 장점\n\n- 실행이 빠름\n- watch mode가 빠름\n- ESM과 TypeScript 경험이 좋음\n- Jest와 유사한 mock·assertion API\n- 순수 함수 테스트에 적합\n\n### 단점\n\n이 프로젝트에서는 핵심 대상이 Expo React Native hook입니다.\n\nVitest를 사용하려면 다음을 별도로 해결해야 합니다.\n\n- React Native 모듈 변환\n- Expo 모듈 mock\n- JSX 변환\n- React Native용 hook renderer 연결\n- Metro/Babel과 Vite 변환 차이\n- `@rnmapbox/maps` import 처리\n\n결국 제품은 Expo/Babel/Metro 체계인데 테스트만 Vite 체계를 하나 더 갖게 됩니다. 다른 패키지가 이미 Vitest를 사용하는 것도 아닙니다.\n\n향후 `packages/schema`나 순수 TypeScript 라이브러리 전체가 Vitest를 채택한다면 다시 고려할 수 있지만, 이번 client hook 하나를 위해 도입할 선택은 아닙니다.\n\n## 4. Node 내장 테스트 실행기\n\nNode의 `node:test`를 사용하면 별도 테스트 실행기 의존성을 줄일 수 있습니다.\n\n### 장점\n\n- 외부 runner 의존성이 없음\n- 순수 JavaScript 테스트가 빠름\n- 작은 유틸리티에 적합\n\n### 단점\n\n- TypeScript 실행 방법을 따로 준비해야 함\n- JSX와 React Native 렌더링을 지원하지 않음\n- Expo native module 처리를 직접 구성해야 함\n- module mocking이 Jest 생태계보다 불편함\n- 실제 hook을 테스트하기 어려움\n\n`formatBytes` 같은 순수 함수 하나만 검증한다면 가능하지만, 이번 티켓의 중요한 부분은 부분 실패와 hook 상태 갱신입니다. 적합하지 않습니다.\n\n## 5. ProfileScreen 컴포넌트 테스트\n\n`ProfileScreen`을 렌더해서 다음을 확인할 수도 있습니다.\n\n- `저장된 데이터` 옆에 `stats.dbSize` 표시\n- `오프라인 지도` 옆에 `stats.mapPackSize` 표시\n\n하지만 현재 화면에는 함께 연결된 요소가 많습니다.\n\n- 인증 store\n- 로그아웃·계정 삭제 서비스\n- Expo Router\n- Expo Constants\n- 공용 UI 컴포넌트\n- 여러 아이콘과 NativeWind 스타일\n\n두 줄의 연결을 확인하기 위해 이 전부를 mock하면 테스트가 실제 관심사보다 훨씬 커집니다. UI 구조가 조금만 바뀌어도 실패할 수 있습니다.\n\n현재 프로필 연결은 매우 단순합니다. [ProfileScreen.tsx](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/ProfileScreen.tsx:151)\n\n```ts\n{ label: '저장된 데이터', value: stats.dbSize },\n{ label: '오프라인 지도', value: stats.mapPackSize },\n```\n\n따라서 이번 리팩터링에서 이 화면을 수정하지 않는다면 컴포넌트 테스트를 추가하지 않는 편이 낫습니다. 화면 표시 구조를 실제로 바꾸는 경우에만 추가하는 것이 적절합니다.\n\n## 6. E2E와 실기기 테스트\n\n### Maestro\n\nMaestro는 사용자가 앱을 조작하는 흐름을 YAML로 자동화하는 도구입니다.\n\n잘하는 것:\n\n- 앱 실행\n- 프로필 이동\n- 텍스트 표시 확인\n- 다운로드 전후 UI 확인\n\n잘하지 못하는 것:\n\n- 세 번째 DB 파일 조회에서만 오류 발생\n- 첫 지도 팩은 성공하고 두 번째만 실패\n- `getPacks()`만 실패\n- 정확한 native 반환 크기 주입\n\n따라서 이번 티켓의 실패 분기를 검증하는 주 테스트가 될 수 없습니다. 이미 앱 차원의 E2E 기반이 있거나 프로필 저장공간 표시가 핵심 사용자 기능으로 커졌을 때 추가할 만합니다.\n\n### Detox\n\nDetox는 React Native 앱의 더 깊은 E2E 제어에 적합하지만 설치와 빌드 구성이 무겁습니다.\n\n- iOS·Android 테스트 빌드 구성\n- simulator/emulator 관리\n- native 프로젝트 설정\n- CI 구성\n- selector 안정화\n\n현재 저장소에는 E2E 기반이 없으므로 이번 티켓 하나 때문에 도입할 수준은 아닙니다.\n\n### 수동 development build 확인\n\n실제 SQLite와 Mapbox를 확인할 수 있는 가장 작은 방법입니다.\n\n- DB가 없는 상태에서 프로필 확인\n- 데이터를 생성한 뒤 DB 용량 변화 확인\n- 오프라인 지도 다운로드 전후 값 확인\n- 앱 재시작 후 값 유지 확인\n\n이는 네이티브 연결을 확인할 수 있지만 반복 가능한 회귀 테스트가 아닙니다. 자동 hook 테스트를 대체하지 않고 보완합니다.\n\n## Mock 구성 선택지\n\nJest를 고른 뒤에도 mock 구조는 선택할 수 있습니다.\n\n### 테스트 파일 내부 `jest.mock()`\n\n가장 작은 방법입니다.\n\n```ts\njest.mock('expo-file-system', () => ({\n  documentDirectory: 'file:///documents/',\n  getInfoAsync: jest.fn(),\n  readDirectoryAsync: jest.fn(),\n}));\n\njest.mock('@rnmapbox/maps', () => ({\n  offlineManager: {\n    getPacks: jest.fn(),\n  },\n}));\n```\n\n장점:\n\n- 이번 테스트에 필요한 동작이 가까이 있음\n- 공용 mock 계약을 관리할 필요가 없음\n- 제품 파일 추가가 없음\n\n단점:\n\n- 같은 mock이 여러 테스트에서 반복될 수 있음\n\n현재는 이 방식을 권장합니다.\n\n### `__mocks__` 공용 mock\n\n예를 들어 프로젝트에 다음 파일을 만들 수 있습니다.\n\n```text\napps/client/__mocks__/\n├── expo-file-system.ts\n└── @rnmapbox/maps.ts\n```\n\n장점:\n\n- 여러 테스트가 같은 native 모듈을 사용할 때 재사용 가능\n- 기본 mock 동작을 중앙에서 관리\n\n단점:\n\n- 어떤 테스트가 어떤 기본값에 의존하는지 숨겨질 수 있음\n- 아직 하나뿐인 테스트를 위해 새 공용 계층이 생김\n- 테스트별 부분 실패를 표현하려면 다시 mock을 재설정해야 함\n\n두 번째 소비자가 생길 때 공용화하는 편이 낫습니다.\n\n### 제품 코드에 dependency injection 추가\n\n다음처럼 의존성을 인자로 받을 수도 있습니다.\n\n```ts\ncalculateStorage({\n  fileSystem,\n  offlineManager,\n});\n```\n\n장점:\n\n- mock이 단순해짐\n- 비동기 순서 테스트가 명확해짐\n- 순수한 orchestration 함수로 만들기 쉬움\n\n단점:\n\n- 테스트를 위해 제품 API가 바뀔 수 있음\n- 의존성 타입과 기본 provider가 추가됨\n- 실제 코드 독자가 따라갈 위치가 늘어남\n- 이번 작은 hook에는 과한 구조가 될 가능성이 큼\n\n이번에는 module mock으로 충분합니다. 향후 여러 저장공간 기능이 같은 계산기를 사용하게 될 때 injection이나 adapter를 검토하는 편이 맞습니다.\n\n## 테스트 파일 위치 선택\n\n### `src` 안에 colocate\n\n```text\nsrc/features/profile/hooks/__tests__/useStorageStats.test.tsx\n```\n\n장점:\n\n- 구현과 테스트가 가까움\n- 파일을 찾기 쉬움\n\n단점:\n\n- 현재 client `tsconfig.json`이 `src` 전체를 포함하므로 Jest 타입이 제품 typecheck에도 들어옴\n- production source와 test source가 같은 TypeScript 범위가 됨\n\n### 별도 `tests` 디렉터리\n\n```text\napps/client/tests/features/profile/useStorageStats.test.tsx\n```\n\n장점:\n\n- 현재 제품 TypeScript 범위와 분리 가능\n- 테스트 전용 타입·설정을 별도로 둘 수 있음\n- Expo Router의 `app/` route 검색에 들어가지 않음\n\n단점:\n\n- 구현과 테스트가 물리적으로 떨어짐\n- 경로가 조금 길어짐\n\n현재 저장소에는 별도 테스트 기반이 없기 때문에 `apps/client/tests/`를 권장합니다. 특히 Expo Router는 `app/` 안에 테스트를 두지 말라고 안내합니다. [Expo Router 테스트 구성](https://docs.expo.dev/router/reference/testing/)\n\n## 테스트 설정을 어디까지 도입할지\n\n가장 작은 재사용 가능한 기반은 이 정도입니다.\n\n```text\napps/client/\n├── jest.config.cjs\n├── tests/\n│   └── features/profile/useStorageStats.test.tsx\n└── package.json\n```\n\n필요한 변경:\n\n- client devDependencies 추가\n- `test`와 `test:run` 스크립트 추가\n- `jest-expo` preset 설정\n- pnpm용 `transformIgnorePatterns`가 실제로 필요할 때만 추가\n- 테스트 파일에서 FileSystem·Mapbox mock\n\n`jest.setup.ts`, 공용 mock 폴더, coverage threshold, CI 설정은 처음부터 넣지 않는 편이 좋습니다. 실제 두 번째 요구가 생길 때 확장하면 됩니다.\n\n테스트 도구 설치 자체는 저장 용량 리팩터링과 구별해야 합니다. 테스트 기반은 다른 client 작업에서도 재사용할 수 있는 지원 변경이고, 제품 개선 효과는 실제 hook 리팩터링에서 따로 판단해야 합니다.\n\n## 최종 추천\n\n제가 실행한다면 다음 순서와 구성을 택합니다.\n\n1. Expo SDK 51 호환 버전으로 `Jest`, `jest-expo`, React Native Testing Library 설치\n2. 별도 `apps/client/tests/` 구성\n3. 현재 코드에 대해 hook 계약 테스트를 먼저 작성\n4. 현재 코드에서 테스트를 실행해 기준 결과 확보\n5. stats 조립 중복 리팩터링\n6. 같은 테스트를 다시 실행\n7. 변경 파일 lint·format·typecheck\n8. 가능하면 development build에서 한 플랫폼 smoke test\n9. 다른 플랫폼과 실제 지도 팩을 확인하지 않았다면 미확인으로 기록\n\n이 조합은 부분 실패 순서를 충분히 보호하면서도, 테스트를 위해 제품 구조를 과도하게 바꾸지 않는 선택입니다."
+      },
+      {
+        "raw_line": 150,
+        "role": "user",
+        "phase": null,
+        "timestamp": "2026-09-11T10:58:24.723Z",
+        "text": "티켓에도 “함수 분리 후 실패 결과를 더 많은 파일에서 찾아야 한다면 개선 여부를 다시 본다”고 명시\n\n무슨 말이지?\n\n그리고 이해는 됐어 선택지에 대해 근데 설정 구성이랑 디렉토리 관리는 더 논의좀 하자 \n"
+      },
+      {
+        "raw_line": 155,
+        "role": "assistant",
+        "phase": "commentary",
+        "timestamp": "2026-09-11T10:58:29.198Z",
+        "text": "제가 인용한 문장의 뜻부터 정확히 복구하겠습니다. `explanation-recovery`를 적용해 “더 많은 파일에서 찾아야 한다”가 무엇을 가리키는지 현재 코드 예로 풀고, 설정·디렉터리는 아직 결정하지 않은 쟁점으로 분리해 이어가겠습니다."
+      },
+      {
+        "raw_line": 174,
+        "role": "assistant",
+        "phase": "final_answer",
+        "timestamp": "2026-09-11T11:00:06.679Z",
+        "text": "그 문장은 간단히 말하면:\n\n> 중복 코드는 줄였지만, 오류가 났을 때 어떤 값이 남는지 이해하려고 여러 파일을 돌아다녀야 한다면 가독성이 좋아진 게 아닐 수 있다는 뜻입니다.\n\n현재는 [useStorageStats.ts](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/profile/hooks/useStorageStats.ts:31) 한 파일에서 다음을 연속해서 볼 수 있습니다.\n\n```text\nDB 집계\n→ 실패하면 지도 조회 중단\n→ 지금까지의 DB 값 보존\n\n지도 팩 집계\n→ 팩 하나가 실패해도 다음 팩 계속\n\n마지막으로 DB·지도·합계 표시\n```\n\n좋지 않은 분리는 이런 형태입니다.\n\n```text\nuseStorageStats.ts\n  → calculateStorage.ts\n    → collectDatabaseSize.ts\n    → collectMapPackSize.ts\n    → handleStorageFailure.ts\n    → createStorageDisplay.ts\n```\n\n중복은 없어졌지만, “DB 파일 하나가 실패하면 지도 조회를 하는가?”, “어디까지 합산한 값이 남는가?”를 알려면 여러 파일의 `catch`와 반환 타입을 따라가야 합니다.\n\n반대로 같은 파일 안에서 다음처럼 정리하는 것은 괜찮습니다.\n\n```ts\nlet dbSizeBytes = 0;\nlet mapSizeBytes = 0;\n\ntry {\n  // DB와 지도 집계\n} catch (error) {\n  console.warn(...);\n}\n\nsetStats(createStorageStats(dbSizeBytes, mapSizeBytes));\n```\n\n성공과 실패가 모두 마지막의 동일한 stats 조립을 사용하면서, 조회 중단 위치와 부분 결과는 같은 함수에서 보입니다.\n\n따라서 티켓은 “함수를 분리하지 말라”가 아닙니다.\n\n- 표시값 조립처럼 하나의 분명한 책임은 추출해도 됨\n- DB 실패와 지도 팩 실패의 차이는 가까운 코드에서 보여야 함\n- 작은 중복을 없애려고 파일과 추상 계층을 늘리지 말 것\n\n제가 앞서 말한 dependency adapter 분리가 이번 티켓에는 과할 수 있다고 본 이유도 이것입니다.\n\n## 설정 구성에서 결정할 항목\n\n기술 스택을 Jest로 정해도 구성 방식은 별도로 선택해야 합니다.\n\n### Jest 설정: `package.json` 내부 또는 별도 파일\n\n간단한 구성은 [apps/client/package.json](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/package.json)에 바로 넣을 수 있습니다.\n\n```json\n{\n  \"jest\": {\n    \"preset\": \"jest-expo\"\n  }\n}\n```\n\n장점은 파일이 하나 늘지 않는다는 점입니다. 하지만 이 프로젝트에서는 곧 다음 설정이 필요할 수 있습니다.\n\n- `@/` 경로 별칭\n- pnpm용 module transform\n- 테스트 파일 위치\n- setup 파일\n- coverage 대상\n\n그러면 `package.json`이 금방 복잡해집니다. 따라서 별도 [jest.config.cjs](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/jest.config.cjs)를 두는 편이 낫습니다.\n\n초기 구성은 이 정도면 충분합니다.\n\n```js\nmodule.exports = {\n  preset: 'jest-expo',\n  testMatch: ['<rootDir>/tests/**/*.test.[jt]s?(x)'],\n  moduleNameMapper: {\n    '^@/(.*)$': '<rootDir>/src/$1',\n  },\n  clearMocks: true,\n};\n```\n\n`transformIgnorePatterns`는 미리 큰 정규식을 넣기보다 실제 Expo·Mapbox 변환 오류가 발생할 때 추가하는 편이 좋습니다. 필요한 이유가 확인되지 않은 설정은 나중에 제거하기 어렵습니다.\n\n## 테스트 디렉터리 선택\n\n### 선택 A: 구현 옆에 배치\n\n```text\napps/client/src/features/profile/hooks/\n├── useStorageStats.ts\n└── __tests__/\n    └── useStorageStats.test.ts\n```\n\n장점:\n\n- 구현과 테스트를 함께 찾기 쉬움\n- feature를 이동할 때 테스트도 같이 이동하기 쉬움\n- 해당 기능의 소유 관계가 분명함\n\n단점:\n\n- 현재 client `tsconfig.json`이 `src` 전체를 포함함\n- Jest 타입과 테스트 코드가 제품 typecheck 범위에 들어감\n- 테스트 파일 제외 또는 별도 TypeScript 설정이 필요할 수 있음\n\n보통의 장기 프로젝트에서는 이 방식도 좋습니다. 하지만 지금처럼 테스트 기반을 처음 만드는 상황에서는 설정 영향이 조금 큽니다.\n\n### 선택 B: `tests/`에 분리\n\n```text\napps/client/\n├── src/\n│   └── features/profile/hooks/useStorageStats.ts\n└── tests/\n    └── features/profile/hooks/useStorageStats.test.ts\n```\n\n장점:\n\n- 현재 제품 `tsconfig.json` 범위를 건드리지 않아도 됨\n- 테스트 설정과 제품 설정을 구분하기 쉬움\n- Expo Router의 `app/` 경로와 확실히 분리됨\n- 앞으로 integration test와 helper를 모으기 쉬움\n\n단점:\n\n- 구현과 테스트가 물리적으로 떨어짐\n- source 구조를 `tests/` 아래에 한 번 더 반영해야 함\n- 구조를 제대로 관리하지 않으면 테스트 파일이 한 폴더에 쌓일 수 있음\n\n현재는 선택 B가 더 안전합니다. 다만 `tests/` 아래를 평면으로 쓰지 않고 `src`의 소유 구조를 반영해야 합니다.\n\n```text\ntests/\n└── features/\n    └── profile/\n        └── hooks/\n            └── useStorageStats.test.ts\n```\n\n## 테스트 전용 TypeScript 설정\n\nJest는 Babel로 TypeScript를 변환하기 때문에 테스트를 실행한다고 타입 검사까지 되는 것은 아닙니다.\n\n선택지는 두 가지입니다.\n\n### 가벼운 시작\n\n- Jest 실행만 구성\n- 제품 코드는 기존 client typecheck로 검사\n- 테스트 파일 자체의 별도 typecheck는 나중에 추가\n\n설정은 적지만 테스트 코드의 타입 오류가 실행 때까지 드러나지 않을 수 있습니다.\n\n### 테스트용 `tsconfig` 추가\n\n```text\napps/client/\n├── tsconfig.json\n├── tsconfig.test.json\n└── tests/\n```\n\n예시는 다음과 같습니다.\n\n```json\n{\n  \"extends\": \"./tsconfig.json\",\n  \"compilerOptions\": {\n    \"composite\": false,\n    \"noEmit\": true,\n    \"types\": [\"jest\", \"node\"]\n  },\n  \"include\": [\"tests/**/*.ts\", \"tests/**/*.tsx\"]\n}\n```\n\n장점:\n\n- 제품 타입 설정과 테스트 타입 설정이 섞이지 않음\n- Jest mock과 fixture도 정적으로 검사 가능\n- 장기적으로 테스트가 늘어날 때 안정적\n\n단점:\n\n- 실행 스크립트와 설정 파일 하나가 더 필요함\n- 프로젝트 설정이 아직 작은 단계에서는 다소 무거울 수 있음\n\n이 테스트를 일회성 검증이 아니라 앞으로 유지할 회귀 테스트로 본다면 `tsconfig.test.json`까지 만드는 편을 권합니다.\n\n## mock 파일 관리\n\n처음부터 전역 `__mocks__` 디렉터리를 만들지는 않는 게 좋습니다.\n\n이번 테스트는 상황마다 FileSystem과 Mapbox가 전혀 다르게 동작해야 합니다.\n\n- 빈 디렉터리\n- DB 파일 중간 실패\n- `getPacks()` 실패\n- 특정 `pack.status()`만 실패\n\n따라서 처음에는 테스트 파일 안에 mock을 두는 편이 명확합니다.\n\n```ts\njest.mock('expo-file-system', () => ({\n  documentDirectory: 'file:///documents/',\n  getInfoAsync: jest.fn(),\n  readDirectoryAsync: jest.fn(),\n}));\n```\n\n반복이 커지면 다음 순서로 이동하면 됩니다.\n\n1. 같은 테스트 파일 안의 작은 builder 함수\n2. 같은 feature 테스트 폴더의 helper\n3. 여러 feature가 공유할 때만 `tests/helpers` 또는 공용 `__mocks__`\n\n처음부터 공용 mock을 만들면 각 테스트가 암묵적인 기본값에 의존하기 쉬워집니다.\n\n## 제가 현재 권하는 구조\n\n```text\napps/client/\n├── jest.config.cjs\n├── package.json\n├── tsconfig.json\n├── tsconfig.test.json\n├── src/\n│   └── features/\n│       └── profile/\n│           └── hooks/\n│               └── useStorageStats.ts\n└── tests/\n    └── features/\n        └── profile/\n            └── hooks/\n                └── useStorageStats.test.ts\n```\n\n초기에는 만들지 않을 것:\n\n- `jest.setup.ts`\n- 전역 `__mocks__/`\n- 별도 `fixtures/`\n- snapshot 폴더\n- coverage threshold\n- E2E 디렉터리\n\n필요해진 책임만 추가하는 구조입니다. 제품 테스트가 여러 feature로 늘어나면 그때 colocated 방식과 중앙 `tests/` 방식 중 어느 쪽이 실제 탐색에 더 나은지 다시 판단할 수 있습니다.\n\n아직 설정이나 디렉터리는 변경하지 않았습니다."
+      },
+      {
+        "raw_line": 181,
+        "role": "user",
+        "phase": null,
+        "timestamp": "2026-09-11T11:10:27.685Z",
+        "text": "전반적으로 다 좋아 근데 packages 나 이런건 괜찮을까? \n"
+      },
+      {
+        "raw_line": 186,
+        "role": "assistant",
+        "phase": "commentary",
+        "timestamp": "2026-09-11T11:10:34.942Z",
+        "text": "좋은 지점입니다. `apps/client`만 놓고는 제안 구조가 괜찮지만, monorepo 전체에서 `packages/*` 테스트가 생길 때 설정을 어디까지 공유할지가 별도 문제입니다. 현재 각 package의 스크립트와 TypeScript 경계를 확인한 뒤 확장 가능한 배치를 정리하겠습니다."
+      },
+      {
+        "raw_line": 202,
+        "role": "assistant",
+        "phase": "final_answer",
+        "timestamp": "2026-09-11T11:11:43.463Z",
+        "text": "괜찮습니다. 다만 `apps/client`의 Jest 설정을 monorepo 전체 공통 설정처럼 만들면 문제가 생길 수 있습니다. 지금은 “각 workspace가 자기 실행 환경에 맞는 테스트를 소유한다”가 맞습니다.\n\n```text\nnoline\n├── apps/client       React Native + Expo 테스트\n├── apps/server       Node 서버 테스트\n├── packages/schema   순수 TypeScript/Zod 테스트\n└── packages/ui       React Native UI 테스트\n```\n\n이 네 영역은 실행 환경이 다르기 때문에 하나의 Jest preset으로 통일할 이유가 없습니다.\n\n## client에만 설치해도 되는가\n\n네. 이번 의존성은 [apps/client/package.json](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/package.json)에만 들어가는 게 맞습니다.\n\n```json\n{\n  \"devDependencies\": {\n    \"jest\": \"...\",\n    \"jest-expo\": \"...\",\n    \"@types/jest\": \"...\",\n    \"@testing-library/react-native\": \"...\"\n  }\n}\n```\n\npnpm은 실제 패키지를 공용 저장소에서 효율적으로 관리하지만, 의존성 선언은 `@apps/client` 소유로 남습니다. 따라서 다른 package가 Jest를 사용할 수 있게 암묵적으로 기대해서는 안 됩니다.\n\n변화는 두 군데에 생깁니다.\n\n- `apps/client/package.json`: client가 테스트 도구를 사용한다는 선언\n- 루트 `pnpm-lock.yaml`: monorepo 전체 설치 결과 기록\n\nlockfile이 루트에서 바뀌는 것은 정상입니다.\n\n## root에 테스트 의존성을 두면 안 되는 이유\n\n루트에 Jest를 설치하면 다음 문제가 생깁니다.\n\n- 어느 workspace가 Jest를 실제 사용하는지 불분명해짐\n- package 하나를 독립적으로 다룰 때 필요한 도구가 자체 manifest에 없음\n- Expo 전용 `jest-expo`가 schema와 server에도 공통 기반처럼 보임\n- 다른 package가 루트의 우연한 의존성에 기대기 쉬움\n\n루트 [package.json](/Users/hammyeong-yeon/Desktop/10_work/noline/package.json)은 나중에 테스트를 모아서 실행하는 명령만 소유하면 됩니다. 구체적인 runner와 preset은 각 workspace가 소유하는 편이 좋습니다.\n\n## packages/schema는 별도 성격\n\n[packages/schema/package.json](/Users/hammyeong-yeon/Desktop/10_work/noline/packages/schema/package.json)은 Zod와 순수 TypeScript를 사용하는 package입니다. Expo나 React Native 환경이 필요 없습니다.\n\n향후 schema 테스트를 만든다면 선택지는 다음과 같습니다.\n\n- Jest + `testEnvironment: 'node'`\n- Vitest\n- Node 내장 test runner\n\n여기에는 `jest-expo`나 React Native Testing Library를 붙이지 않아야 합니다.\n\n현재 schema에는 다음 placeholder가 있습니다.\n\n```json\n\"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n```\n\n그래서 지금 루트에서 `pnpm -r test` 같은 명령을 추가하면 schema가 의도적으로 실패합니다. client 테스트를 도입하더라도 당장은 다음처럼 client만 실행해야 합니다.\n\n```bash\npnpm --filter @apps/client test\n```\n\n모든 workspace 테스트를 묶는 루트 명령은 각 package의 테스트 계약을 정리한 뒤 도입하는 편이 안전합니다.\n\n## packages/ui는 client와 비슷하지만 같지는 않음\n\n[packages/ui/package.json](/Users/hammyeong-yeon/Desktop/10_work/noline/packages/ui/package.json)은 React Native 컴포넌트를 소유합니다. 따라서 테스트가 생기면 `jest-expo + @testing-library/react-native`를 사용할 가능성이 큽니다.\n\n하지만 client 설정을 그대로 공유하기에는 차이가 있습니다.\n\n- client에는 Expo Router와 앱 전용 native module이 있음\n- client에는 `@/` 경로 별칭이 있음\n- UI package에는 Router가 없음\n- UI package는 독립 컴포넌트와 스타일 contract를 검사함\n- transform 대상과 mock 대상이 다를 수 있음\n\n따라서 처음부터 `packages/test-config` 같은 공용 설정 package를 만들지 않는 편이 낫습니다.\n\nclient와 UI 양쪽에서 실제 테스트가 생기고 공통 설정이 반복될 때 다음 정도만 공유할 수 있습니다.\n\n```text\npackages/test-config/\n└── react-native-jest.cjs\n```\n\n공유할 수 있는 것:\n\n- `jest-expo` preset\n- 공통 React Native transform 규칙\n- 일반적인 파일 확장자\n\n공유하지 않을 것:\n\n- client의 `@/` alias\n- Mapbox mock\n- Expo Router 설정\n- feature별 setup\n- UI package 전용 스타일 mock\n\n지금 공용 설정 package를 만들면 실제 반복가 하나뿐인데 추상화부터 생기는 상황이 됩니다.\n\n## 테스트 디렉터리는 workspace 내부에 둔다\n\n루트에 하나의 `tests/`를 두고 모든 테스트를 모으는 방식은 권장하지 않습니다.\n\n```text\nnoline/\n└── tests/\n    ├── client/\n    ├── server/\n    ├── schema/\n    └── ui/\n```\n\n이 구조는 소유 package와 테스트가 떨어지고, 어느 `package.json`, `tsconfig`, runtime을 사용하는지 흐려집니다.\n\n각 workspace가 테스트를 소유하는 편이 낫습니다.\n\n```text\napps/client/\n└── tests/\n\napps/server/\n└── tests/\n\npackages/schema/\n└── tests/\n\npackages/ui/\n└── tests/\n```\n\n루트 `tests/`가 필요한 경우는 여러 workspace를 실제 배포 형태로 연결하는 통합 테스트뿐입니다. 예를 들면 다음과 같은 경우입니다.\n\n- schema를 빌드한 뒤 client와 server가 같은 contract를 소비하는지 확인\n- 실제 server API 응답을 client parser가 받아들이는지 확인\n- package export와 빌드 결과를 검증\n\n이번 저장공간 hook 테스트는 client 내부 책임이므로 `apps/client/tests/`가 정확합니다.\n\n## `@repo/schema`와 `@repo/ui` import는 어떻게 처리할까\n\nclient 테스트가 나중에 workspace package를 import할 때 중요한 원칙이 있습니다.\n\n### `@/`만 client source로 mapping\n\n```js\nmoduleNameMapper: {\n  '^@/(.*)$': '<rootDir>/src/$1',\n}\n```\n\n이 alias는 client 내부 source 경로이므로 Jest 설정에서 연결해도 됩니다.\n\n### `@repo/*`를 무조건 source로 mapping하지 않기\n\n다음과 같은 전역 mapping은 피하는 편이 좋습니다.\n\n```js\n'^@repo/schema$': '<rootDir>/../../packages/schema/src/index.ts'\n```\n\n이렇게 하면 실제 package export와 빌드 결과를 우회합니다. 테스트는 통과하지만 소비자가 사용하는 `dist`, `exports`, ESM/CommonJS 구성이 깨진 상태를 놓칠 수 있습니다.\n\n현재 package 계약을 그대로 따르는 것이 좋습니다.\n\n- `@repo/schema`: package export가 가리키는 `dist`\n- `@repo/ui`: 현재 package export가 가리키는 `src/index.tsx`\n\n다만 `@repo/schema`를 사용하는 client 테스트는 테스트 전에 schema build가 필요한지 확인해야 합니다. 이번 `useStorageStats`는 `@repo/schema`나 `@repo/ui`를 import하지 않으므로 이 문제와 무관합니다.\n\n## 추천하는 monorepo 구조\n\n현재 단계에서는 이렇게 두겠습니다.\n\n```text\nnoline/\n├── package.json\n│   └── 테스트 도구를 설치하지 않음\n│\n├── apps/\n│   └── client/\n│       ├── package.json\n│       ├── jest.config.cjs\n│       ├── tsconfig.json\n│       ├── tsconfig.test.json\n│       └── tests/\n│           └── features/profile/hooks/\n│               └── useStorageStats.test.ts\n│\n└── packages/\n    ├── schema/\n    │   └── 현재 테스트 설정 변경 없음\n    ├── ui/\n    │   └── 현재 테스트 설정 변경 없음\n    ├── eslint-config/\n    └── typescript-config/\n```\n\n이 구조의 핵심은 다음과 같습니다.\n\n- 테스트 도구는 사용하는 workspace에 설치\n- 테스트 파일도 해당 workspace 내부에 배치\n- Expo 설정을 Node package에 퍼뜨리지 않음\n- 아직 존재하지 않는 공통점을 위해 test-config package를 만들지 않음\n- 루트는 나중에 실행 조율만 담당\n\n## 나중에 전체 테스트를 묶는 방법\n\n각 workspace에 테스트가 생기면 스크립트 이름을 맞출 수 있습니다.\n\n```json\n{\n  \"scripts\": {\n    \"test:run\": \"jest\",\n    \"test:watch\": \"jest --watch\",\n    \"test:typecheck\": \"tsc -p tsconfig.test.json\"\n  }\n}\n```\n\n루트에서는 구현이 존재하는 workspace만 실행합니다.\n\n```json\n{\n  \"scripts\": {\n    \"test\": \"pnpm -r --if-present test:run\"\n  }\n}\n```\n\n`test` 대신 `test:run`을 집계 대상으로 삼으면 현재 schema의 실패 placeholder에 걸리지 않고, 실제 테스트 구성을 가진 package만 실행할 수 있습니다.\n\n지금 단계에서는 루트 집계 명령까지 만들 필요가 없습니다. client 테스트가 실제로 자리 잡은 뒤 두 번째 workspace에 테스트가 생길 때 공통 명명과 실행 방식을 정해도 늦지 않습니다."
+      },
+      {
+        "raw_line": 209,
+        "role": "user",
+        "phase": null,
+        "timestamp": "2026-09-11T11:12:16.005Z",
+        "text": "그래 좋아 그럼 결정사항들 논의 기록하려면 어디에 남기는게 좋을까?\n"
+      },
+      {
+        "raw_line": 214,
+        "role": "assistant",
+        "phase": "commentary",
+        "timestamp": "2026-09-11T11:12:24.671Z",
+        "text": "이번 논의는 “티켓 실행을 위한 선택 근거”와 “앞으로 모든 package에 적용할 공통 정책”이 섞일 수 있어서, 둘을 같은 문서에 올리면 과도한 정본이 됩니다. 현재 Workspace의 기록 관례와 기존 합의 기록 형식을 확인해 가장 가까운 Owner를 제안하겠습니다."
+      },
+      {
+        "raw_line": 235,
+        "role": "assistant",
+        "phase": "final_answer",
+        "timestamp": "2026-09-11T11:13:10.183Z",
+        "text": "가장 적합한 1차 위치는 이 Workspace의 `records/`입니다.\n\n추천 파일은:\n\n[2026-09-11-02-storage-stats-test-strategy.md](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-02-storage-stats-test-strategy.md)\n\n입니다.\n\n여기에는 단순 결론만이 아니라 다음 내용을 남기는 게 좋습니다.\n\n- 왜 Ticket 03에 자동 테스트가 필요한지\n- 검증할 동작 범위와 제외 범위\n- 검토한 기술 선택지\n- Jest·`jest-expo`·React Native Testing Library를 선택한 이유\n- Vitest, Node test, ProfileScreen 전체 테스트, E2E를 채택하지 않은 이유\n- client가 테스트 설정을 소유하고 다른 package에는 퍼뜨리지 않는다는 판단\n- `apps/client/tests/`와 별도 Jest·TypeScript 설정을 제안한 이유\n- 아직 실행해서 확인하지 않은 항목\n  - Expo SDK 51과 실제 설치 버전\n  - `transformIgnorePatterns` 필요 여부\n  - Mapbox mock 형태\n  - 실기기 smoke test 플랫폼\n\n중요한 건 “결정된 것”과 “실행하며 확인할 것”을 구분하는 것입니다.\n\n## 같이 갱신할 위치\n\n기록을 실제 작업 지침으로 연결하려면 세 위치가 적절합니다.\n\n### 1. 상세 근거: 새 record\n\n새 record가 논의 과정과 선택 이유를 소유합니다.\n\n```text\nrecords/\n└── 2026-09-11-02-storage-stats-test-strategy.md\n```\n\n기존 record는 append-only이므로 [Ticket 경계 합의 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/records/2026-09-11-01-ticket-boundary-agreement.md)을 다시 수정하지 않습니다.\n\n### 2. 실제 실행 기준: Ticket 03\n\n[03-storage-stats.md](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/03-storage-stats.md)의 다음 문장은 이제 구체화할 수 있습니다.\n\n> hook 검사 방법은 실행 때 준비한다.\n\n이를 대략 다음 의미로 갱신하는 게 좋습니다.\n\n- `apps/client`가 Jest 설정과 의존성을 소유한다.\n- `jest-expo`와 React Native Testing Library로 현재 hook을 직접 검사한다.\n- FileSystem과 Mapbox는 테스트별 module mock으로 제어한다.\n- 테스트는 `apps/client/tests/features/profile/hooks/`에 둔다.\n- package별 실행 환경을 유지하며 root 공용 Jest 설정은 만들지 않는다.\n- 설치 호환성과 transform 설정은 최초 실행 결과로 확정한다.\n- 상세 선택 근거는 새 record를 연결한다.\n\nTicket에는 실행자가 반드시 알아야 할 현재 기준만 압축해서 두고, 긴 비교 내용은 record에 남깁니다.\n\n### 3. 기록 색인\n\n[records/README.md](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/records/README.md)에 새 기록을 한 줄로 연결합니다.\n\n예를 들면:\n\n```md\n- [저장 용량 테스트 전략](2026-09-11-02-storage-stats-test-strategy.md):\n  Ticket 03의 자동 검증 범위, Expo 테스트 스택과 monorepo별 설정 소유 판단.\n```\n\n## 지금 갱신하지 않을 위치\n\n다음 위치에는 아직 넣지 않는 게 좋습니다.\n\n- `context/project/`: 아직 여러 Workspace에 계속 적용하기로 확정한 Project 공통 정책이 아님\n- 루트 `CLAUDE.md`: 프로젝트 전체 불변식이나 탐색 진입점이 아님\n- `packages/typescript-config`: 테스트 TypeScript 설정을 공유하기로 결정하지 않음\n- 새 `packages/test-config`: 실제로 반복되는 설정이 아직 없음\n- Workspace `output/`: 논의 기록은 선택된 제품 산출물이 아님\n- `status.json`: 테스트나 Verify를 실행한 것이 아님\n- `current/state/index.md`: Ticket 03을 다음 실행 대상으로 확정한 경우에만 갱신\n\n즉, 지금 기록한다면 범위는 세 파일입니다.\n\n```text\nrecords/2026-09-11-02-storage-stats-test-strategy.md  새로 작성\nrecords/README.md                                    색인 추가\ncurrent/memory/tickets/03-storage-stats.md           실행 기준 압축 반영\n```\n\n이 배치가 논의 근거와 실제 티켓 지침을 분리하면서도, 다음 작업자가 둘을 바로 연결해 읽을 수 있는 구조입니다."
+      },
+      {
+        "raw_line": 242,
+        "role": "user",
+        "phase": null,
+        "timestamp": "2026-09-11T11:13:20.815Z",
+        "text": "좋아 \n"
+      },
+      {
+        "raw_line": 247,
+        "role": "assistant",
+        "phase": "final_answer",
+        "timestamp": "2026-09-11T11:13:26.490Z",
+        "text": "좋습니다. 기록 요청을 주시면 제안한 세 위치에 결정사항과 미확정 항목을 구분해 반영하겠습니다."
+      },
+      {
+        "raw_line": 254,
+        "role": "user",
+        "phase": null,
+        "timestamp": "2026-09-11T11:13:53.529Z",
+        "text": "아 그전에 mainter evidence 연결시키고 대화들보고 기록할거 하라 하고 그리고 저 문서도 기록하자\n"
+      }
+    ]
+  }
+}

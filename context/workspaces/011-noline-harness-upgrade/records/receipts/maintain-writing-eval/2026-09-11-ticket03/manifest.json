@@ -1,0 +1,45 @@
+{
+  "project_root": "/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/ticket03-blind-writing-ds1v0tlb",
+  "workspace_id": "002-code-readability-refactoring",
+  "source_raw_sha256": "89b2531bea52f3b6bf40fd0250911861d55e1810305c2a49782adb0b8f6a11f3",
+  "messages": 23,
+  "message_lines": [
+    9,
+    12,
+    21,
+    67,
+    79,
+    88,
+    93,
+    111,
+    127,
+    136,
+    143,
+    150,
+    155,
+    174,
+    181,
+    186,
+    202,
+    209,
+    214,
+    235,
+    242,
+    247,
+    254
+  ],
+  "target_before_sha256": {
+    "records/2026-09-11-02-storage-stats-test-strategy.md": "8a1058244f2c240b5244b869331b027f93e24eb58543a1116502a7ce4f85e0a5",
+    "current/memory/tickets/03-storage-stats.md": "8d70241f031df2bcf5c9f2c2abf554756a77cc6660558a93f5d22406a1c785df",
+    "records/README.md": "251d8b0d5e73da670b056b3a5d0b0efd63b9ae76c5afaf0ce1098fba268e7549"
+  },
+  "source_head": "93fa519a217aeacefc94b21bb0cea3a0d9b6286f",
+  "mode": "one sample; actual adapter start + resume; no target apply; no draft repair",
+  "review_not_given_to_writer": [
+    "原文 의미·채택 강도",
+    "선택 이유·비용·조건",
+    "문서 역할과 가독성",
+    "기존본 비노출·모델 설정",
+    "실행·검증 주장 상한"
+  ]
+}

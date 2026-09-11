@@ -1,0 +1,13 @@
+{
+  "source_url": "https://learn.chatgpt.com/docs/pricing#token-rates",
+  "access_date": "2026-09-11",
+  "source_excerpt": "The token rates below are quoted in credits per million input tokens, cached input tokens, and output tokens.",
+  "unit": "credits per 1000000 tokens, standard rate",
+  "gpt-5.6-terra": {"input": 50, "cached_input": 5, "output": 300},
+  "gpt-5.6-sol": {"input": 100, "cached_input": 10, "output": 500},
+  "sol_pricing_limit": "공식 페이지는 Sol의 프로모션 단가가 적어도 2026-11-21까지 유효하다고 명시한다.",
+  "calculation": "((input_tokens - cached_input_tokens) * input_rate + cached_input_tokens * cached_rate + output_tokens * output_rate) / 1000000",
+  "reasoning_tokens": "output_tokens 안에 포함된 reasoning_output_tokens는 다시 더하지 않는다.",
+  "cache_write": "이번 네 호출에서 cache_write_input_tokens는 모두 0이다.",
+  "limitation": "실행 로그 usage를 표준 단가로 환산한 추정치다. 계정의 실제 청구·플랜 사용량 차감·별도 계약 단가·fast mode 청구를 확인한 값은 아니다."
+}

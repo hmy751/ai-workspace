@@ -1,0 +1,233 @@
+{
+  "terra-xhigh": {
+    "thread_id": "01a09072-1218-7272-beb3-8145ce50d7f0",
+    "rollout": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T21-29-49-01a09072-1218-7272-beb3-8145ce50d7f0.jsonl",
+    "turn_contexts": [
+      {
+        "line": 8,
+        "model": "gpt-5.6-terra",
+        "effort": "xhigh",
+        "cwd": "/private/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/ticket03-terra-xhigh-z0v2e8_1",
+        "sandbox_policy": {
+          "type": "read-only"
+        }
+      },
+      {
+        "line": 23,
+        "model": "gpt-5.6-terra",
+        "effort": "xhigh",
+        "cwd": "/Users/hammyeong-yeon/Desktop/context-harness",
+        "sandbox_policy": {
+          "type": "read-only"
+        }
+      }
+    ],
+    "model_effort_verified": true,
+    "tool_calls": [],
+    "calls": [
+      {
+        "call": "01",
+        "usage": {
+          "input_tokens": 31799,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 193,
+          "reasoning_output_tokens": 61
+        },
+        "standard_rate_credit_estimate": 1.64785,
+        "prompt_equals_baseline": true,
+        "actual_prompt_confirmed": true,
+        "returncode": 0,
+        "started_at": "2026-09-11T12:29:49.936831+00:00",
+        "finished_at": "2026-09-11T12:29:57.829042+00:00",
+        "elapsed_seconds": 7.892129749999185
+      },
+      {
+        "call": "02",
+        "usage": {
+          "input_tokens": 63531,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5231,
+          "reasoning_output_tokens": 2045
+        },
+        "standard_rate_credit_estimate": 4.74585,
+        "prompt_equals_baseline": true,
+        "actual_prompt_confirmed": true,
+        "returncode": 0,
+        "started_at": "2026-09-11T12:29:57.830539+00:00",
+        "finished_at": "2026-09-11T12:31:35.651116+00:00",
+        "elapsed_seconds": 97.82067241699951
+      }
+    ],
+    "changes": [
+      {
+        "path": "current/memory/tickets/03-storage-stats.md",
+        "allowed": true,
+        "preimage_matches": true,
+        "preview_exact": true,
+        "eof_newline": true,
+        "lines": 57,
+        "characters": 2457,
+        "trailing_whitespace_lines": []
+      },
+      {
+        "path": "records/2026-09-11-02-storage-stats-test-strategy.md",
+        "allowed": true,
+        "preimage_matches": true,
+        "preview_exact": true,
+        "eof_newline": true,
+        "lines": 72,
+        "characters": 3249,
+        "trailing_whitespace_lines": []
+      },
+      {
+        "path": "records/README.md",
+        "allowed": true,
+        "preimage_matches": true,
+        "preview_exact": true,
+        "eof_newline": true,
+        "lines": 3,
+        "characters": 144,
+        "trailing_whitespace_lines": []
+      }
+    ],
+    "links": [
+      {
+        "source": "current/memory/tickets/03-storage-stats.md",
+        "line": 37,
+        "target": "../../../../records/2026-09-11-02-storage-stats-test-strategy.md",
+        "exists": false
+      },
+      {
+        "source": "records/README.md",
+        "line": 3,
+        "target": "2026-09-11-02-storage-stats-test-strategy.md",
+        "exists": true
+      }
+    ],
+    "total_standard_rate_credit_estimate": 6.3937,
+    "outcome": "update",
+    "unresolved": [
+      "실제 client manifest와 SDK 호환 의존성 버전, Mapbox/FileSystem mock 형상, pnpm transform 설정은 아직 실행으로 확인되지 않았다.",
+      "development build smoke test의 대상 플랫폼과 다른 플랫폼의 실제 네이티브 동작은 아직 확인되지 않았다."
+    ]
+  },
+  "sol-medium": {
+    "thread_id": "01a09072-1218-7982-987d-da102502d4f3",
+    "rollout": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T21-29-49-01a09072-1218-7982-987d-da102502d4f3.jsonl",
+    "turn_contexts": [
+      {
+        "line": 8,
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "cwd": "/private/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/ticket03-sol-medium-4z252n8m",
+        "sandbox_policy": {
+          "type": "read-only"
+        }
+      },
+      {
+        "line": 23,
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "cwd": "/Users/hammyeong-yeon/Desktop/context-harness",
+        "sandbox_policy": {
+          "type": "read-only"
+        }
+      }
+    ],
+    "model_effort_verified": true,
+    "tool_calls": [],
+    "calls": [
+      {
+        "call": "01",
+        "usage": {
+          "input_tokens": 31793,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 321,
+          "reasoning_output_tokens": 40
+        },
+        "standard_rate_credit_estimate": 3.3398,
+        "prompt_equals_baseline": true,
+        "actual_prompt_confirmed": true,
+        "returncode": 0,
+        "started_at": "2026-09-11T12:29:49.938120+00:00",
+        "finished_at": "2026-09-11T12:30:02.495510+00:00",
+        "elapsed_seconds": 12.557432874999904
+      },
+      {
+        "call": "02",
+        "usage": {
+          "input_tokens": 63653,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4032,
+          "reasoning_output_tokens": 438
+        },
+        "standard_rate_credit_estimate": 8.3813,
+        "prompt_equals_baseline": true,
+        "actual_prompt_confirmed": true,
+        "returncode": 0,
+        "started_at": "2026-09-11T12:30:02.499257+00:00",
+        "finished_at": "2026-09-11T12:31:47.471864+00:00",
+        "elapsed_seconds": 104.97264325000015
+      }
+    ],
+    "changes": [
+      {
+        "path": "current/memory/tickets/03-storage-stats.md",
+        "allowed": true,
+        "preimage_matches": true,
+        "preview_exact": true,
+        "eof_newline": true,
+        "lines": 52,
+        "characters": 2688,
+        "trailing_whitespace_lines": []
+      },
+      {
+        "path": "records/2026-09-11-02-storage-stats-test-strategy.md",
+        "allowed": true,
+        "preimage_matches": true,
+        "preview_exact": true,
+        "eof_newline": true,
+        "lines": 63,
+        "characters": 3534,
+        "trailing_whitespace_lines": []
+      },
+      {
+        "path": "records/README.md",
+        "allowed": true,
+        "preimage_matches": true,
+        "preview_exact": true,
+        "eof_newline": true,
+        "lines": 3,
+        "characters": 169,
+        "trailing_whitespace_lines": []
+      }
+    ],
+    "links": [
+      {
+        "source": "current/memory/tickets/03-storage-stats.md",
+        "line": 30,
+        "target": "../../../records/2026-09-11-02-storage-stats-test-strategy.md",
+        "exists": true
+      },
+      {
+        "source": "records/README.md",
+        "line": 3,
+        "target": "2026-09-11-02-storage-stats-test-strategy.md",
+        "exists": true
+      }
+    ],
+    "total_standard_rate_credit_estimate": 11.7211,
+    "outcome": "update",
+    "unresolved": [
+      "실제 코드·package manifest·기존 Spec·다른 Ticket의 원문은 제공되지 않아, 제품 구조와 의존성 상태에 관한 내용은 Main의 보고 범위를 넘어 독립 확인되지 않았다.",
+      "Expo SDK 51 호환 설치 버전, pnpm 환경의 transformIgnorePatterns 필요 여부와 정확한 Mapbox mock 형태는 최초 설치·실행으로 확인해야 한다.",
+      "자동 테스트나 제품 검증은 실행되지 않았으며 리팩터링의 구현 결과와 동작 보존 여부는 아직 확인되지 않았다.",
+      "development build smoke test의 수행 여부와 대상 플랫폼은 정해지지 않았다."
+    ]
+  },
+  "source_still_matches_baseline": true
+}

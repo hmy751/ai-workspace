@@ -4,7 +4,9 @@
 
 2026-09-09 최신 Reference 설치·실행 검증을 회수했다. 2026-09-10 사용자 검토에 따라 이식 skill의 기존 문서 전환 기준을 보완하고 새 worker의 실제 적용·검증 결과도 회수했다. 이어 Reference의 Project 관리 기준 배치와 이식·갱신 skill을 고치고 Noline 재적용·검증까지 완료했다. 실제 host activation과 제품 리팩토링·효과 평가는 별도 후속 작업이다.
 
-- [Reference Workspace collection](../../../../reference-project/context/work/workspaces/README.md)과 [Maintain 계약](../../../../reference-project/context/work/harness/maintain/README.md): Workspace 사람용 문서 전반의 작성 기준과 Maintainer의 적용 책임을 소유한다.
+- [Reference 문서 작성과 갱신](../../../../reference-project/context/work/workspaces/DOCUMENT-WRITING.md): Workspace 사람용 문서 전반의 내용 충분성·구성·편집 기준. [Workspace collection](../../../../reference-project/context/work/workspaces/README.md)은 층의 의미와 기준의 진입점을, [Maintain 계약](../../../../reference-project/context/work/harness/maintain/README.md)은 agent의 적용 책임을 소유한다.
+- [Reference Maintainer 역할 설정](../../../../reference-project/context/work/harness/maintain/workspace-context-maintainer.toml): 수동 role과 자동 bridge가 함께 사용하는 모델·추론 수준 설정. [최초 설정 기록](../records/2026-09-11-07-maintainer-model-settings.md), [작성·비용 평가](../records/2026-09-11-11-ticket03-sol-high-evaluation.md), [Sol high 채택 기록](../records/2026-09-11-12-maintainer-sol-high-adoption.md)에서 설정 경로와 선택·검증 근거를 찾는다.
+- [문서 작성 기준 분리와 내용 충분성 보완](../records/2026-09-11-06-workspace-document-writing-contract.md): Noline 03 사례의 입력·문서 문제를 구별한 판단, Reference 책임 분리와 연결·검증 결과. 이 판본은 아직 Noline에 재적용하지 않았다.
 - [Maintainer 문서 통합 편집 기준 보완 기록](../records/2026-09-11-04-maintainer-readable-editing-guidance.md): 사용자 정정, source 변경 범위와 검증 상한.
 - [Noline Maintainer 문서 통합 편집 적용 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/001-noline-context-harness-application/records/2026-09-11-02-maintainer-readable-editing-guidance.md): Noline 설치본의 적용·기존 변경 보호·검증 결과.
 - [Maintainer 자료 구분 보완과 재적용](../records/2026-09-11-03-maintainer-material-classification-correction.md): 실제 002 사례의 재생·재진입으로 current·records 경계를 보완한 Source 결과.

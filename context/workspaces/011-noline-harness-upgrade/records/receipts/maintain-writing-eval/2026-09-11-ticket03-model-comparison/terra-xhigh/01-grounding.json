@@ -1,0 +1,1 @@
+{"schema_version":1,"workspace_id":"002-code-readability-refactoring","status":"grounded","starting_state":"제공된 bounded bootstrap 기준으로, Workspace는 Noline 코드 가독성 리팩토링의 Ticket 03 논의를 기록하는 범위다. 확인 가능한 기존 Owner는 제목만 있는 `current/memory/tickets/03-storage-stats.md`와 `records/README.md` 두 문서이며, 그 밖의 기존 작성본·Spec·다른 Ticket·평가 피드백은 제공되지 않았다.","unresolved":[],"question":null}

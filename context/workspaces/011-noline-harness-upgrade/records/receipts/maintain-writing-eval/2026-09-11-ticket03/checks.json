@@ -1,0 +1,108 @@
+{
+  "rollout": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T21-17-34-01a09066-daf2-7c80-8a89-fdb608275d7a.jsonl",
+  "thread_id": "01a09066-daf2-7c80-8a89-fdb608275d7a",
+  "turn_contexts": [
+    {
+      "raw_line": 8,
+      "model": "gpt-5.6-terra",
+      "effort": "high",
+      "cwd": "/private/var/folders/df/dlyxvlhx4x91t37033q2_5s80000gn/T/ticket03-blind-writing-ds1v0tlb",
+      "sandbox_policy": {
+        "type": "read-only"
+      },
+      "collaboration_mode": {
+        "mode": "default",
+        "settings": {
+          "model": "gpt-5.6-terra",
+          "reasoning_effort": "high",
+          "developer_instructions": null
+        }
+      }
+    },
+    {
+      "raw_line": 24,
+      "model": "gpt-5.6-terra",
+      "effort": "high",
+      "cwd": "/Users/hammyeong-yeon/Desktop/context-harness",
+      "sandbox_policy": {
+        "type": "read-only"
+      },
+      "collaboration_mode": {
+        "mode": "default",
+        "settings": {
+          "model": "gpt-5.6-terra",
+          "reasoning_effort": "high",
+          "developer_instructions": null
+        }
+      }
+    }
+  ],
+  "terra_high_both_turns": true,
+  "tool_calls": [],
+  "source_messages": 23,
+  "all_source_text_exact": true,
+  "prompts": [
+    {
+      "call": "01",
+      "writing_contract_count": 1,
+      "prompt_present_in_actual_user_message": true,
+      "sha256": "020bbc2733609398a95f43ff90cc58178ef6b1ff5545dcb40cd413b9583d92da"
+    },
+    {
+      "call": "02",
+      "writing_contract_count": 1,
+      "prompt_present_in_actual_user_message": true,
+      "sha256": "d0de7fc81705964349d426818a62a30bd896fb2ccb48ca9ee1a27e6856cd858f"
+    }
+  ],
+  "changes": [
+    {
+      "path": "current/memory/tickets/03-storage-stats.md",
+      "allowed": true,
+      "preimage_matches": true,
+      "preview_exact": true,
+      "eof_newline": true,
+      "trailing_whitespace_lines": [],
+      "lines": 28,
+      "characters": 1360
+    },
+    {
+      "path": "records/2026-09-11-02-storage-stats-test-strategy.md",
+      "allowed": true,
+      "preimage_matches": true,
+      "preview_exact": true,
+      "eof_newline": true,
+      "trailing_whitespace_lines": [],
+      "lines": 33,
+      "characters": 2406
+    },
+    {
+      "path": "records/README.md",
+      "allowed": true,
+      "preimage_matches": true,
+      "preview_exact": true,
+      "eof_newline": true,
+      "trailing_whitespace_lines": [],
+      "lines": 3,
+      "characters": 137
+    }
+  ],
+  "local_links": [
+    {
+      "source": "current/memory/tickets/03-storage-stats.md",
+      "line": 15,
+      "target": "../../../../records/2026-09-11-02-storage-stats-test-strategy.md",
+      "resolved": "/Users/hammyeong-yeon/Desktop/context-harness/context/workspaces/011-noline-harness-upgrade/records/receipts/maintain-writing-eval/2026-09-11-ticket03/records/2026-09-11-02-storage-stats-test-strategy.md",
+      "exists": false
+    },
+    {
+      "source": "records/README.md",
+      "line": 3,
+      "target": "2026-09-11-02-storage-stats-test-strategy.md",
+      "resolved": "/Users/hammyeong-yeon/Desktop/context-harness/context/workspaces/011-noline-harness-upgrade/records/receipts/maintain-writing-eval/2026-09-11-ticket03/preview/records/2026-09-11-02-storage-stats-test-strategy.md",
+      "exists": true
+    }
+  ],
+  "guard_applied": false,
+  "isolation_limit": "재개 cwd는 parent 저장소였다. project_doc_max_bytes=0, shell/web 비활성, 고정 입력과 실제 도구 호출 0을 확인했다. OS 파일 읽기 격리를 시험한 것은 아니다."
+}
