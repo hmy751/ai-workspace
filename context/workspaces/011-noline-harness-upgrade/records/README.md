@@ -5,6 +5,7 @@
 선행 현황 분석과 평가 전 정비 판단은 [010 기록](../../010-spec-ticket-workspace-design/records/2026-09-09-02-noline-installed-state-assessment.md)에 있다.
 
 - [2026-09-11 Maintainer 문서 통합 편집 기준 보완](2026-09-11-04-maintainer-readable-editing-guidance.md): Workspace 사람용 문서 전반에서 각 Owner와 기존 구성을 따라 새 의미를 조직하도록 Reference 기준과 Maintainer prompt를 보완했다.
+- [2026-09-11 Noline Maintainer 문서 통합 편집 적용](2026-09-11-05-noline-maintainer-readable-editing-application.md): Reference `def91c2`를 Noline에 적응하고 기존 dirty 변경을 보존한 적용·커밋·검증 결과.
 - [2026-09-11 Maintainer 자료 구분 보완과 재적용](2026-09-11-03-maintainer-material-classification-correction.md): current·records 의미 경계와 정정 영향 범위 보완, 같은 사례 재시험, Noline 설치본 적용과 검증.
 - [2026-09-11 Maintainer 자료 구분 실제 시험 결과](2026-09-11-02-maintainer-material-classification-evaluation.md): 여덟 입력과 새 세션 재진입 완료. 의미 복구·정정 반영은 확인됐고 current의 과정 누적·오래된 색인 상태가 남았다. 최초 Guard 실패와 링크 한 곳의 수동 보조를 구분했다.
 - [2026-09-11 Maintainer 자료 구분 관찰과 시험안](2026-09-11-01-maintainer-material-classification-test-design.md): 지정된 `002 작업 현황 파악`의 원문·당시 decision을 대조한 실행 전 관찰과 설계.

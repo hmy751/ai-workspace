@@ -6,9 +6,9 @@
 
 Maintain은 current에 현재 유효한 의미를 정규화하고, 이후에도 필요한 조사·선택·정정·실패 근거는 records로 분리한다. 사람용 문서를 만들거나 갱신할 때는 Workspace collection의 일반 기준에 따라 각 층의 Owner와 기존 구성·내용 관계 안에서 새 의미를 조직한다. 이 기준은 current뿐 아니라 source·output 색인과 records의 사람용 문서에도 적용하며, 중복·대체된 서술과 반복 단서를 정리한다.
 
-자료 구분 보완은 같은 입력의 semantic 재생과 fresh-reader 확인을 거쳐 Noline에 `dac4e60`으로 적용됐다. 사람용 문서 편집 보완은 Reference source에만 반영했으며 Noline 설치본과 사례 Ticket은 수정하지 않았다. Reference Maintain 단위 테스트와 TOML parse, prompt 연결 검사를 실행했지만 실제 semantic 재생과 host activation은 미실행이다. 각각의 근거와 검증 상한은 [자료 구분 기록](../records/2026-09-11-03-maintainer-material-classification-correction.md)과 [문서 편집 기록](../records/2026-09-11-04-maintainer-readable-editing-guidance.md)이 소유한다.
+자료 구분 보완은 같은 입력의 semantic 재생과 fresh-reader 확인을 거쳐 Noline에 `dac4e60`으로 적용됐다. 사람용 문서 편집 보완은 Reference source `def91c2`와 Noline 설치본 `37c1fc5`에 각각 커밋했으며, Noline의 기존 제품 코드와 Workspace 002 변경은 preflight hash 그대로 유지했다. Source 판단은 [문서 편집 기록](../records/2026-09-11-04-maintainer-readable-editing-guidance.md), 실제 적용·보호·검증 결과는 [Noline 적용 기록](../records/2026-09-11-05-noline-maintainer-readable-editing-application.md)이 소유한다.
 
-첫 기존 계약 실행의 상대 링크 Guard 실패는 별도 집행 문제로 남아 있다. 문서 편집 기준의 실제 효과는 semantic 재생으로 확인해야 하며, Noline 재적용 여부도 아직 정하지 않았다.
+첫 기존 계약 실행의 상대 링크 Guard 실패는 별도 집행 문제로 남아 있다. 문서 편집 기준의 실제 효과는 semantic 재생으로 확인해야 하며, 실제 host activation과 기존 문서의 자동 재분류도 미확인이다.
 
 ## 커밋과 제외 범위
 

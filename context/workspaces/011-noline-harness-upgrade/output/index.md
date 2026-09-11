@@ -6,6 +6,7 @@
 
 - [Reference Workspace collection](../../../../reference-project/context/work/workspaces/README.md)과 [Maintain 계약](../../../../reference-project/context/work/harness/maintain/README.md): Workspace 사람용 문서 전반의 작성 기준과 Maintainer의 적용 책임을 소유한다.
 - [Maintainer 문서 통합 편집 기준 보완 기록](../records/2026-09-11-04-maintainer-readable-editing-guidance.md): 사용자 정정, source 변경 범위와 검증 상한.
+- [Noline Maintainer 문서 통합 편집 적용 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/001-noline-context-harness-application/records/2026-09-11-02-maintainer-readable-editing-guidance.md): Noline 설치본의 적용·기존 변경 보호·검증 결과.
 - [Maintainer 자료 구분 보완과 재적용](../records/2026-09-11-03-maintainer-material-classification-correction.md): 실제 002 사례의 재생·재진입으로 current·records 경계를 보완한 Source 결과.
 - [Noline 설치본의 Maintainer 보완 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/001-noline-context-harness-application/records/2026-09-11-01-maintainer-material-classification-correction.md): Noline 고유 문구와 기존 사용자 변경을 보존한 적용·단위 검증.
 - [문서 전환 기준과 재적용 기록](../records/2026-09-10-01-document-transition-reapplication.md): 수정한 이식 skill, 최소 위임 입력과 이번 적용 결과.
