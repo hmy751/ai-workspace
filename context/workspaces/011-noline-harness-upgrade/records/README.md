@@ -4,6 +4,8 @@
 
 선행 현황 분석과 평가 전 정비 판단은 [010 기록](../../010-spec-ticket-workspace-design/records/2026-09-09-02-noline-installed-state-assessment.md)에 있다.
 
+- [2026-09-12 Noline Spec·Ticket 실행 기준의 Reference 역반영](2026-09-12-01-noline-spec-ticket-execution-criteria-integration.md): 지정 커밋의 제품 사례·fresh-Main 검토·일반화 근거를 대조해 공통 실행 기준과 문서 책임, Maintainer 입력·회귀 검사를 Reference에 반영한 결과.
+- [2026-09-12 Noline Spec·Ticket 변경 근거의 내부 snapshot](../../../../reference-project/context/work/workspaces/spec-and-tickets/2026-09-12-NOLINE-EVIDENCE.md): 외부 Noline 저장소가 없어져도 공통 기준의 선택을 재검토할 수 있도록 최초 완료·사용자 정정의 최소 원문, 원출처 blob, 후보 판본과 검토 결과·한계를 Reference 폴더 안에 보존한다.
 - [2026-09-11 Noline 작성 지침·설정 적용](2026-09-11-13-noline-writing-and-settings-application.md): source 커밋과 Noline 적용·커밋, 동시 작업 분리와 직접 검사·독립 검토의 회수.
 - [2026-09-11 Maintainer Sol high 채택](2026-09-11-12-maintainer-sol-high-adoption.md): 사용자 선택에 따른 Reference 기본값 변경, 시작·재개 검증과 작성 지침 유지 판단.
 - [2026-09-11 Ticket 03 Sol high 추가 시험](2026-09-11-11-ticket03-sol-high-evaluation.md): 같은 입력에서 선택 이유·조건·원문 근거가 개선된 첫 초안, 남은 강도·내용 문제와 세 후보의 가성비 비교.

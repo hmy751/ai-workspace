@@ -12,6 +12,8 @@
 - 기존 상세 문서 전체 정비와 제품 리팩토링은 이번에 하지 않는다.
 - 기존 사용자 작업과 Noline 고유 연결을 보존한다.
 - 사용자 정정으로 확인한 이식 기준의 허점은 source의 이식 skill과 Reference 원본에서도 보완한다. Source 변경과 target에 실제 적용한 판본을 구분한다.
+- Noline 후속 작업에서 검증된 공통 Harness 개선은 제품별 Workspace 상태와 분리해 Reference에 역반영하고, 원래 근거와 새 검증의 입증 범위를 구별한다.
+- 외부 target의 commit이나 파일이 공통 판단의 핵심 근거라면 링크만 남기지 않는다. target의 현재 canonical 전체를 복제하지 않으면서, 판단 재검토에 필요한 최소 원문·판본 식별자·검토 결과와 한계를 source-side 기록에 함께 보존한다.
 
 파일 구성·전환 방식·조사·검증은 live skill과 worker의 판단에 맡긴다. Main의 초기 세부 brief는 구현 정답이나 추가 gate가 아니며, 별도 문서·확인 절차를 불필요하게 늘리지 않는다. 후속 정정을 worker에게 전달했다.
 

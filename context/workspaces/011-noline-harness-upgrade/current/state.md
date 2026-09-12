@@ -1,6 +1,16 @@
 # 현재 상태
 
-마지막 갱신: 2026-09-11
+마지막 갱신: 2026-09-12
+
+## Noline Spec·Ticket 실행 기준의 Reference 역반영
+
+사용자가 지정한 Noline 커밋 `d7223b7b6622f625e26f7e7457f6eb1373cf91d9`의 diff, 부모 판본, Ticket 03 최초 범위 재확인과 일반화 후보·fresh-Main 계획 검토를 대조했다. 핵심은 Spec 이름이나 Ticket 크기를 바꾸는 것이 아니라, 결과 달성을 맡긴 Ticket에서 필요한 일을 발견하고 수정 목록이 아니라 실제 결과와 근거로 완료하도록 실행 기준을 보강한 것이다.
+
+Reference의 기존 단일 Spec·Ticket 계약은 Noline 부모와 같은 blob이어서 공통 후속 구조를 적용했다. [새 Spec·Ticket 진입 문서](../../../../reference-project/context/work/workspaces/spec-and-tickets/README.md)가 실행·Spec·Ticket·갱신·이력의 관계를 소유하고, 기존 파일은 호환 안내로 남는다. Root·Work·Workspace·skill 링크, Recover, Maintainer role·자동 grounding, fixture와 회귀 검사를 새 경로에 맞췄다. Noline의 제품별 `002` Workspace 내용과 receipt는 가져오지 않았다.
+
+첫 전체 검사에서는 기존 descendant timeout timing 시험 한 건이 실패했고 단독 재실행은 통과했다. 이후 전체 126개가 통과했으며 명시/기본 Recover와 Reference Markdown 57개의 local link 검사도 통과했다. 실제 제품 Ticket 실행 품질과 host Maintain apply는 아직 이 Reference 반영으로 새로 입증하지 않았다. [반영 기록](../records/2026-09-12-01-noline-spec-ticket-execution-criteria-integration.md)이 근거·범위·검증 상한을 소유한다.
+
+사용자 정정에 따라 Noline commit과 외부 파일명을 유일한 상세 근거 경로로 두지 않도록 바꿨다. Ticket 03 최초 완료·사용자 정정의 최소 원문, 다섯 원기록의 blob, 중간 후보 해시, 일반화 후보의 fresh-Main 계획 검토와 입증 한계를 Reference 폴더의 [내부 근거 snapshot](../../../../reference-project/context/work/workspaces/spec-and-tickets/2026-09-12-NOLINE-EVIDENCE.md)에 보존하고 HISTORY와 output 진입점을 그 기록에 연결했다. Noline의 제품별 현재 상태·전체 Ticket·receipt는 공통 판단 근거와 구별해 복제하지 않았다.
 
 ## Workspace 문서 작성 기준 보완과 Maintainer 설정
 
@@ -66,6 +76,6 @@ Source는 `main @ 87d21023f6acd8ae709322d48da9851594f9acb0`이며 Reference와 �
 
 ## 다음 행동
 
-승인된 Noline 관리 기준 배치 재적용과 실제 diff·검증·기존 작업 보존의 회수를 마쳤다. 이후 사용자가 요청한 Python cache 제외도 Noline `.gitignore`의 `__pycache__/`·`*.py[cod]` 규칙으로 반영했고, 기존 캐시가 Git 변경 목록에 나타나지 않음을 확인했다. 캐시 파일 자체는 삭제하지 않았으며 이 후속 변경 뒤 구조 Verify를 다시 실행하지 않았다. 사용자가 함께 지적했던 Project 본문 전반의 내용 충분성과 Workspace 생성 skill 설명은 별도 판단 대상으로 남는다. 이번 보완을 그 문제들 전체의 해결로 보고하지 않는다. 상세 문서 전체 정비, 제품 리팩토링과 실제 host activation을 자동으로 추가하지 않는다.
+지정한 Noline Spec·Ticket 커밋의 공통 기준 분석과 Reference 역반영은 완료했다. 승인된 Noline 관리 기준 배치 재적용과 실제 diff·검증·기존 작업 보존의 회수도 마쳤다. 이후 사용자가 요청한 Python cache 제외도 Noline `.gitignore`의 `__pycache__/`·`*.py[cod]` 규칙으로 반영했고, 기존 캐시가 Git 변경 목록에 나타나지 않음을 확인했다. 캐시 파일 자체는 삭제하지 않았으며 이 후속 변경 뒤 구조 Verify를 다시 실행하지 않았다. 사용자가 함께 지적했던 Project 본문 전반의 내용 충분성과 Workspace 생성 skill 설명은 별도 판단 대상으로 남는다. 이번 보완을 그 문제들 전체의 해결로 보고하지 않는다. 상세 문서 전체 정비, 제품 리팩토링과 실제 host activation을 자동으로 추가하지 않는다.
 
 실제 skill 호출·Maintain 문서 유지 흐름, 제품 acceptance, 리팩토링 효과 평가와 target Workspace 완료는 아직 확인하거나 수행한 결과가 아니다.

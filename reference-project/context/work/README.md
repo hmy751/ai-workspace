@@ -27,3 +27,5 @@ python3 -m context.work.harness verify
 ```
 
 Project context와 Work context의 상위 관계는 [`../README.md`](../README.md), 개별 Workspace collection의 계약은 [`workspaces/README.md`](workspaces/README.md), 새 Workspace 생성·전환은 [`workspaces/CREATE-AND-TRANSITION.md`](workspaces/CREATE-AND-TRANSITION.md), Harness 내부 책임은 [`harness/README.md`](harness/README.md)에서 시작한다.
+
+Workspace의 Work당 Spec 하나, 실행할 Ticket과 Main·Maintain의 유지 관계는 [Spec·Ticket 계약](workspaces/spec-and-tickets/README.md)을 따른다.

@@ -16,7 +16,7 @@ Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Wor
 
 작업 중 얻은 Project-wide 맥락을 갱신하거나 누락된 기존 맥락을 복원할 때는 [Project 관리 기준](context/project/MAINTENANCE.md)과 [Project 맥락 갱신 skill](.agents/skills/update-project-context/SKILL.md)을 사용한다. 이 skill은 Workspace Maintain과 별도로 해당 Project 문서를 갱신하며, 근거 있는 내용과 남은 판단을 함께 보존한다.
 
-Work를 구체화하거나 실제 결과에 따라 판단을 다시 보고, 작업물·앞선 설명을 이해할 때는 [Project skill 색인](.agents/skills/README.md)에서 해당 스킬을 찾는다. 네 스킬은 [Spec·Ticket 운영 기준](context/work/workspaces/SPEC-AND-TICKETS.md)을 읽기·판단·반영에 연결하며, 각 호출 조건에 따라 사용한다. 공통 [설명과 근거 기준](context/project/guidance/explanation-and-evidence-criteria.md)은 이해 지원 세 스킬이 필요한 때 읽는다.
+Work를 구체화하거나 실제 결과에 따라 판단을 다시 보고, 작업물·앞선 설명을 이해할 때는 [Project skill 색인](.agents/skills/README.md)에서 해당 스킬을 찾는다. 네 스킬은 [Spec·Ticket 운영 기준](context/work/workspaces/spec-and-tickets/README.md)을 읽기·판단·반영에 연결하며, 각 호출 조건에 따라 사용한다. 공통 [설명과 근거 기준](context/project/guidance/explanation-and-evidence-criteria.md)은 이해 지원 세 스킬이 필요한 때 읽는다.
 
 실제 명령은 `reference-project/` root에서 실행한다.
 
@@ -90,7 +90,8 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
         └── workspaces/
             ├── README.md         # 지속 Workspace collection 경계
             ├── CREATE-AND-TRANSITION.md # 생성·전환 end-to-end canonical
-            ├── SPEC-AND-TICKETS.md # Spec·Ticket 구성과 갱신 기준
+            ├── SPEC-AND-TICKETS.md # 이전 링크를 새 canonical로 연결하는 안내
+            ├── spec-and-tickets/   # 실행·Spec·Ticket·갱신 기준과 선택 이력
             ├── index.json        # active Workspace 선택
             └── 001-default-timeout/
                 ├── README.md     # 사람용 Workspace 첫 화면
@@ -108,7 +109,7 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
                         └── verify/
 ```
 
-각 Workspace는 `current/`, `source/`, `output/`, `records/`를 형제로 둔다. `current/memory/`에는 [Spec 다섯 파일·Ticket·Project context 선택](context/work/workspaces/SPEC-AND-TICKETS.md)을 두고, state는 전체 상황·판단·다음 행동을 맡는다. `source/`에는 해당 Workspace가 선택한 원문·snapshot·provenance만 둔다. 분석 메모·후보·비교·탈락안·선택 근거를 포함한 과정은 `records/` 바로 아래 날짜별 기록이 맡고, 기계가 생성한 검증 증거는 `records/receipts/<종류>/`에 분리한다. Goal을 위해 선택된 현재 산출물은 [`output/index.md`](context/work/workspaces/001-default-timeout/output/index.md)에서 찾게 한다. 이 sample의 실제 제품 구현은 Project root의 canonical을 연결하며 Workspace 안에 복제하지 않는다.
+각 Workspace는 `current/`, `source/`, `output/`, `records/`를 형제로 둔다. `current/memory/`에는 [Spec 다섯 파일·Ticket·Project context 선택](context/work/workspaces/spec-and-tickets/README.md)을 두고, state는 전체 상황·판단·다음 행동을 맡는다. `source/`에는 해당 Workspace가 선택한 원문·snapshot·provenance만 둔다. 분석 메모·후보·비교·탈락안·선택 근거를 포함한 과정은 `records/` 바로 아래 날짜별 기록이 맡고, 기계가 생성한 검증 증거는 `records/receipts/<종류>/`에 분리한다. Goal을 위해 선택된 현재 산출물은 [`output/index.md`](context/work/workspaces/001-default-timeout/output/index.md)에서 찾게 한다. 이 sample의 실제 제품 구현은 Project root의 canonical을 연결하며 Workspace 안에 복제하지 않는다.
 
 Project 문서 전체를 Workspace에 복사하지 않는다. 이 Workspace의 [`recover.json`](context/work/workspaces/001-default-timeout/recover.json)은 안정된 [`Project routing anchor`](context/project/README.md), goal에 지속해서 적용되는 [`제품 기준`](context/project/common/prd.md), 지금의 구현·검증 경계를 보여 주는 [`architecture`](context/project/current/architecture.md), 직접 적용할 [`default timeout 결정`](context/project/decisions/0001-default-timeout.md)을 이유와 함께 선택한다. 현재 default-timeout 제품 작업은 설명 스킬의 공통 기준을 기본 입력으로 요구하지 않으므로 [`guidance`](context/project/guidance/README.md)를 recovery context에는 선택하지 않는다. Workspace `source/`와 `records/` 전체, Workspace `output/index.md`가 연결한 산출물 본문도 기본 recovery context에 들어가지 않는다. README는 문서 위치를 찾게 할 뿐 실제 내용 선택을 대신하지 않는다.
 
