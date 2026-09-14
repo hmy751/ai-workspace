@@ -16,7 +16,7 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 ### Project와 Work Owner
 
 - 여러 Workspace가 공유할 Project 목적·구조·제약·채택 결정의 상세 Owner는 어디인가.
-- Live Reference가 요구하는 root routing과 `common/current/guidance` 물리 layer를 기존 Owner를 옮기지 않고 어떻게 구성할 것인가.
+- Live Reference가 요구하는 root routing과 `common/current/guidance` 물리 layer를 구성할 때 어떤 주제는 기존 Owner에 남기고, 어떤 주제는 승인된 범위 안에서 Project context로 옮길 것인가.
 - 기존 context·package·instruction·도구 설정과 어떤 물리·의미 충돌이 있는가.
 
 ### 첫 Workspace
@@ -54,9 +54,20 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 
 완료 검토는 새 문서뿐 아니라 전환 대상의 유효한 내용이 빠지지 않았는지, 기존 파일의 실제 배치와 남은 참조가 처리 이유에 맞는지도 대조한다. 내용 반영 없이 파일만 제거하거나, 새 구조와 대체된 구조를 이유 없이 함께 남기면 미완성이다.
 
+### 승인된 주제별 Owner 이동
+
+사용자가 특정 주제의 Owner를 Project context로 옮기도록 승인했다면 그 범위는 이식 또는 후속 갱신의 실제 전환 대상이다. 이미 받은 승인을 다시 묻지 않으며, 다른 상세 문서 전체의 이동으로 확대하지 않는다.
+
+- Ticket, Workspace, 회의나 source 묶음은 근거 경계이지 문서 책임이 아니다. 다음 작업이 찾을 지속 주제, 판단 질문, 수명과 갱신 Owner를 기준으로 본문을 구성한다.
+- 지속 의미는 `common/`, 교체되는 구현·지원·proof 경계는 `current/`, 조건부 판단은 `guidance/`, 현재 답과 별도로 남길 중요한 선택 이유는 `decisions/`에 둔다. 서로 다른 책임·수명·갱신 Owner를 같은 근거 묶음이라는 이유로 합치지 않는다.
+- 이동한 범위의 Project 문서는 현재 의미의 canonical임을 밝히고, 링크 없이도 그 의미와 경계를 설명한다. 링크는 구현 상세·원문·검증의 재대조 경로로 사용한다.
+- 이전 canonical의 유효한 의미를 통합한 뒤 남은 역할을 구현 상세, 근거·역사 또는 호환 routing으로 좁히거나 target 규칙에 따라 이동·제거한다. 같은 현재 답의 active canonical을 둘 이상 남기지 않는다.
+- 미정인 제품 선택은 열어 두고 확인된 나머지를 이동한다. Owner 이동을 새로운 제품 결정을 확정하는 것으로 바꾸지 않는다.
+- Root와 layer index, 영향받는 live consumer를 새 authority에 맞춘다. 과거 Workspace 전체를 역동기화하지 않는다.
+
 ## Layered Project context 내용 충족
 
-계속 유효한 README·STATUS·`docs/`와 코드·테스트는 상세 사실의 canonical로 유지한다. `context/project/`는 여러 Workspace가 반복해서 판단할 실제 Project 목적·현재 범위·구조·제약·채택 결정을 선별해 다시 서술한다. 이번 이식으로 역할이 바뀌는 문서는 위 전환 기준을 따른다. 상세 Owner 링크는 provenance와 재대조 경로이지 내용의 대체물이 아니다.
+Owner 이동이 승인되지 않은 README·STATUS·`docs/`와 코드·테스트는 기존 상세 사실의 canonical로 유지한다. `context/project/`는 여러 Workspace가 반복해서 판단할 실제 Project 목적·현재 범위·구조·제약·채택 결정을 선별해 다시 서술한다. 승인된 주제별 이동과 이번 이식으로 역할이 바뀌는 문서는 위 전환 기준을 따른다. 상세 Owner 링크는 provenance와 재대조 경로이지 내용의 대체물이 아니다.
 
 `context/project/`에는 다음 물리 경계를 만든다.
 
@@ -83,7 +94,7 @@ Root `README.md`는 세 책임 layer, 실제 내용 위치, 읽기 조건과 Own
 
 `common/current/guidance` layer와 각 README는 생략하지 않는다. 특정 layer에 README 외 실제 본문이 없을 수는 있으며, 이때 README에 현재 없음, 확인한 상세 Owner와 새 항목을 만들 조건을 적는다. 파일 수를 줄이기 위해 독립된 내용을 overview나 다른 layer에 흡수하지 않는다. 기존 target의 flat Project context 문서도 현재 역할과 내용에 따라 전환하며, 평면 파일이라는 이유만으로 모두 이동하거나 보존하지 않는다.
 
-각 실제 내용 문서에서 읽기 조건, 현재 authority와 상세 Owner, 갱신 책임, stale·재검토 신호를 찾을 수 있어야 한다. 한 문서에 보조 설명이 함께 있을 수 있지만 주 책임과 경로를 흐리거나 수명과 갱신 Owner가 다른 내용을 합치지 않는다.
+각 실제 내용 문서에서 읽기 조건, 소유하는 주제 범위와 현재 authority, 구현·검증 상세 Owner, 갱신 책임, stale·재검토 신호를 찾을 수 있어야 한다. 한 문서에 보조 설명이 함께 있을 수 있지만 주 책임과 경로를 흐리거나 수명과 갱신 Owner가 다른 내용을 합치지 않는다.
 
 내용의 보존·불확실성 표현·변경과 갱신 시점은 live [`Project 관리 계약`](../../../../reference-project/context/project/MAINTENANCE.md)을 읽고 target의 `context/project/MAINTENANCE.md`에 적응한다. Root README는 관리 계약의 역할과 읽는 시점을 연결한다. 관리 계약은 제품·domain 본문과 구분하며 이식·복원·갱신 주체가 직접 읽고, 일반 Recover 입력에는 추가하지 않는다. 이번 이식에서 무엇을 통합·이동·제거하고 어떻게 보존했는지는 적용 Workspace 기록이 소유한다. 이식 검토에서는 미정 부분의 존재를 이유로 원자료가 뒷받침하는 제품 목적·domain 의미까지 빠지지 않았는지, 남은 판단이 현재 확정된 규칙으로 바뀌지 않았는지를 함께 대조한다. 이 기준을 관리 skill에만 설치하고 target Project 계약에서 빠뜨리지 않는다.
 
@@ -91,11 +102,11 @@ Root `README.md`는 세 책임 layer, 실제 내용 위치, 읽기 조건과 Own
 
 1. Root README에서 `common/current/guidance`와 `decisions`의 책임, layer README와 실제 내용 위치를 찾는다.
 2. 상세 Owner 링크를 열지 않고 `common/`의 사용자 장면·목적·domain 의미·성공 기준과 범위 밖, `current/`의 현재 구현·지원·미지원 범위·실행 흐름·proof boundary, `guidance/`의 적용 여부와 관련 Decision을 설명한다.
-3. 선택 문서가 맡은 질문에 답하지 못하고 상세 Owner 경로만 가리키면 미완성으로 판정한다.
+3. 선택 문서가 맡은 질문에 답하지 못하고 상세 Owner 경로만 가리키거나, Ticket·기록 묶음의 목차만 재현하면 미완성으로 판정한다.
 4. 그 뒤 상세 Owner를 열어 재서술한 사실이 원자료에 지지되고 현재·목표·미구현 상태를 섞지 않았는지 대조한다.
 5. 첫 Workspace의 목표·검증 범위·빠른 상태가 Project 전체 사실로 승격되지 않았는지 확인한다.
 6. 각 layer에 원자료가 지지하는 실제 내용이 있거나, README 외 본문이 없는 이유와 새 항목을 만들 조건이 명시됐는지 확인한다.
-7. 첫 Workspace의 explicit Recover packet에 root README와 goal에 필요한 실제 layer 문서가 함께 선택됐는지 확인한다. Fresh reader가 선택 문서만으로 사용자 장면·목적, 현재·목표·미구현 차이, domain 관계, 지원·미지원 경계, proof ceiling과 적용할 판단 기준을 설명하지 못하면 미완성이다.
+7. 첫 Workspace의 explicit Recover packet에 root README와 goal에 필요한 실제 layer 문서가 함께 선택됐는지 확인한다. Fresh reader가 선택 문서만으로 사용자 장면·목적, 현재·목표·미구현 차이, domain 관계, 지원·미지원 경계, proof ceiling과 적용할 판단 기준뿐 아니라 이동한 주제의 현재 canonical과 이전 문서의 남은 역할을 설명하지 못하면 미완성이다.
 
 이 검토는 문서 길이나 링크 수로 자동 판정하지 않는다. 짧아도 공통 판단을 닫으면 충분하고, 길어도 출처 안내와 Workspace 전용 내용뿐이면 불충분하다.
 

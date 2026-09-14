@@ -4,6 +4,7 @@
 
 선행 현황 분석과 평가 전 정비 판단은 [010 기록](../../010-spec-ticket-workspace-design/records/2026-09-09-02-noline-installed-state-assessment.md)에 있다.
 
+- [2026-09-14 Project 주제별 Owner 이동 계약 보완](2026-09-14-01-project-topic-owner-migration.md): Noline 002의 완료 Ticket 자료 반영에서 드러난 Ticket 묶음 중심 구성·링크 대체·authority 미전환 문제를 source 계약 공백과 적용 누락으로 나누고, 승인된 범위의 점진적 Owner 이동 절차를 Reference와 관련 skill에 반영한 결과.
 - [2026-09-12 Noline Spec·Ticket 실행 기준의 Reference 역반영](2026-09-12-01-noline-spec-ticket-execution-criteria-integration.md): 지정 커밋의 제품 사례·fresh-Main 검토·일반화 근거를 대조해 공통 실행 기준과 문서 책임, Maintainer 입력·회귀 검사를 Reference에 반영한 결과.
 - [2026-09-12 Noline Spec·Ticket 변경 근거의 내부 snapshot](../../../../reference-project/context/work/workspaces/spec-and-tickets/2026-09-12-NOLINE-EVIDENCE.md): 외부 Noline 저장소가 없어져도 공통 기준의 선택을 재검토할 수 있도록 최초 완료·사용자 정정의 최소 원문, 원출처 blob, 후보 판본과 검토 결과·한계를 Reference 폴더 안에 보존한다.
 - [2026-09-11 Noline 작성 지침·설정 적용](2026-09-11-13-noline-writing-and-settings-application.md): source 커밋과 Noline 적용·커밋, 동시 작업 분리와 직접 검사·독립 검토의 회수.

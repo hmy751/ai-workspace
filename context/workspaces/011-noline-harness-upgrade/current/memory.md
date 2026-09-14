@@ -13,6 +13,8 @@
 - 기존 사용자 작업과 Noline 고유 연결을 보존한다.
 - 사용자 정정으로 확인한 이식 기준의 허점은 source의 이식 skill과 Reference 원본에서도 보완한다. Source 변경과 target에 실제 적용한 판본을 구분한다.
 - Noline 후속 작업에서 검증된 공통 Harness 개선은 제품별 Workspace 상태와 분리해 Reference에 역반영하고, 원래 근거와 새 검증의 입증 범위를 구별한다.
+- Noline 적용 결과의 결함을 곧바로 제품별 수정안으로 복제하지 않는다. 기존 Reference 계약의 실행 누락과 원천 계약의 실제 공백을 구별하고, 공통 공백만 source 계약에 역반영한다.
+- 사용자가 한정한 주제의 Project Owner 이동은 해당 범위에서 끝까지 수행할 수 있어야 한다. Ticket·Workspace·evidence 묶음은 근거이지 문서 책임이 아니며, Project 문서는 지속 주제·판단 질문·수명·갱신 Owner로 구성하고 이전 canonical과 live consumer의 관계까지 닫는다.
 - 외부 target의 commit이나 파일이 공통 판단의 핵심 근거라면 링크만 남기지 않는다. target의 현재 canonical 전체를 복제하지 않으면서, 판단 재검토에 필요한 최소 원문·판본 식별자·검토 결과와 한계를 source-side 기록에 함께 보존한다.
 
 파일 구성·전환 방식·조사·검증은 live skill과 worker의 판단에 맡긴다. Main의 초기 세부 brief는 구현 정답이나 추가 gate가 아니며, 별도 문서·확인 절차를 불필요하게 늘리지 않는다. 후속 정정을 worker에게 전달했다.

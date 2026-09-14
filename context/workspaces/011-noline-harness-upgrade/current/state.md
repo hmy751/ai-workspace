@@ -1,6 +1,14 @@
 # 현재 상태
 
-마지막 갱신: 2026-09-12
+마지막 갱신: 2026-09-14
+
+## Project 주제별 Owner 이동 계약 보완
+
+Noline `002-code-readability-refactoring`의 완료 Ticket 01~05 자료를 Project context에 반영한 결과를 다시 검토했다. 새 `current` 문서가 Ticket 근거 묶음을 한 파일에 나열하고 상세 문서 링크에 의미 설명을 맡겨, 공통 계약으로 재사용하기 어렵고 주제별 routing·authority도 닫히지 않았다. 이는 기존 계약을 충분히 따르지 않은 적용 문제와, 설치 후 승인된 일부 주제의 Owner를 점진적으로 옮기는 절차가 원천 계약에 명시되지 않은 문제를 함께 드러냈다.
+
+Reference Project README·MAINTENANCE에는 각 내용 문서의 주제별 authority와 승인된 Owner 이동 절차를 추가했다. `update-project-context`와 이식 skill·application contract는 Ticket·Workspace·evidence 묶음이 아니라 지속 주제·판단 질문·수명·갱신 Owner로 문서를 구성하고, `common/current/guidance/decisions`에 나누며, 이전 canonical과 live consumer까지 전환하도록 맞췄다. 확인되지 않은 제품 선택은 계속 열린 판단으로 남기고, 승인 범위 밖 상세 문서 전체 이동은 하지 않는다.
+
+이번 단계는 source 계약과 Workspace 011 기록만 갱신한다. Noline 설치본의 Project 문서 재구성과 Recover 선택·live consumer reconciliation은 아직 수행하지 않았으며 후속 적용에서 현재 Noline 변경과 대조해야 한다. 상세 판단과 검증 상한은 [반영 기록](../records/2026-09-14-01-project-topic-owner-migration.md)이 소유한다.
 
 ## Noline Spec·Ticket 실행 기준의 Reference 역반영
 
@@ -76,6 +84,6 @@ Source는 `main @ 87d21023f6acd8ae709322d48da9851594f9acb0`이며 Reference와 �
 
 ## 다음 행동
 
-지정한 Noline Spec·Ticket 커밋의 공통 기준 분석과 Reference 역반영은 완료했다. 승인된 Noline 관리 기준 배치 재적용과 실제 diff·검증·기존 작업 보존의 회수도 마쳤다. 이후 사용자가 요청한 Python cache 제외도 Noline `.gitignore`의 `__pycache__/`·`*.py[cod]` 규칙으로 반영했고, 기존 캐시가 Git 변경 목록에 나타나지 않음을 확인했다. 캐시 파일 자체는 삭제하지 않았으며 이 후속 변경 뒤 구조 Verify를 다시 실행하지 않았다. 사용자가 함께 지적했던 Project 본문 전반의 내용 충분성과 Workspace 생성 skill 설명은 별도 판단 대상으로 남는다. 이번 보완을 그 문제들 전체의 해결로 보고하지 않는다. 상세 문서 전체 정비, 제품 리팩토링과 실제 host activation을 자동으로 추가하지 않는다.
+지정한 Noline Spec·Ticket 커밋의 공통 기준 분석과 Reference 역반영은 완료했다. 승인된 Noline 관리 기준 배치 재적용과 실제 diff·검증·기존 작업 보존의 회수도 마쳤다. 이후 사용자가 요청한 Python cache 제외도 Noline `.gitignore`의 `__pycache__/`·`*.py[cod]` 규칙으로 반영했고, 기존 캐시가 Git 변경 목록에 나타나지 않음을 확인했다. 캐시 파일 자체는 삭제하지 않았으며 이 후속 변경 뒤 구조 Verify를 다시 실행하지 않았다. Project 본문 전반 중 이번에 확인한 주제별 Owner 이동·내용 충분성·routing 문제는 source 계약에 반영했지만 Noline 설치본에는 아직 재적용하지 않았다. Workspace 생성 skill 설명은 별도 판단 대상으로 남는다. 이번 보완을 Project 본문 전체나 그 문제 전체의 해결로 보고하지 않는다. 상세 문서 전체 정비, 제품 리팩토링과 실제 host activation을 자동으로 추가하지 않는다.
 
 실제 skill 호출·Maintain 문서 유지 흐름, 제품 acceptance, 리팩토링 효과 평가와 target Workspace 완료는 아직 확인하거나 수행한 결과가 아니다.
