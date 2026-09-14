@@ -8,7 +8,17 @@ Noline `002-code-readability-refactoring`의 완료 Ticket 01~05 자료를 Proje
 
 Reference Project README·MAINTENANCE에는 각 내용 문서의 주제별 authority와 승인된 Owner 이동 절차를 추가했다. `update-project-context`와 이식 skill·application contract는 Ticket·Workspace·evidence 묶음이 아니라 지속 주제·판단 질문·수명·갱신 Owner로 문서를 구성하고, `common/current/guidance/decisions`에 나누며, 이전 canonical과 live consumer까지 전환하도록 맞췄다. 확인되지 않은 제품 선택은 계속 열린 판단으로 남기고, 승인 범위 밖 상세 문서 전체 이동은 하지 않는다.
 
-이번 단계는 source 계약과 Workspace 011 기록만 갱신한다. Noline 설치본의 Project 문서 재구성과 Recover 선택·live consumer reconciliation은 아직 수행하지 않았으며 후속 적용에서 현재 Noline 변경과 대조해야 한다. 상세 판단과 검증 상한은 [반영 기록](../records/2026-09-14-01-project-topic-owner-migration.md)이 소유한다.
+이 문단은 source `7040d1c` 시점의 앞선 단계다. 이후 Noline은 설치본 재적용에 그치지 않고 주제별 구성·읽기 기준과 제품 본문을 여러 차례 수정했다. 후속 commit range와 원천 재반영 결과는 아래 새 상태와 [후속 반영 기록](../records/2026-09-14-02-project-composition-and-reading-integration.md)이 소유한다.
+
+## Project 본문 구성·읽기 계약의 후속 역반영
+
+Source `7040d1c` 이후 Noline commit `26350d6`부터 `30deac5`까지의 문서·기록을 대조했다. 최종적으로 확인된 공통 변화는 물리적인 `common/current/guidance` 경계를 유지하면서도 작업·주제에서 본문을 찾게 하는 routing, guidance를 계약·이유·적용·검증을 포함한 작업 가이드로 보는 책임, 본문 구성과 읽기 기준의 분리, 읽기 전용 `read-project-context`, 갱신 전 의미·사실·진입점 대조와 갱신 후 의미·범위·routing 검증이다.
+
+Reference Project에는 `context/project/REFERENCE/`와 읽기 스킬을 추가하고, Project README·MAINTENANCE·층별 README·갱신 스킬·root routing을 같은 계약으로 맞췄다. 이식 skill과 application contract도 target에서 이 책임들을 함께 설치·적응하고 producer 본문과 consumer route를 일관된 변경 단위로 처리하도록 보완했다. Noline의 통화·날짜·API·도시 검색 같은 제품 내용과 Workspace 002·004의 상태는 가져오지 않았다.
+
+Noline의 첫 독립 재시험에서는 기존 의미 누락·사실 범위 확대·기존 진입점 누락·판단 효용 없는 current 실행 이력이 개선됐다. 그러나 뒤의 별도 실제 구성에서도 같은 네 종류의 문제가 다시 드러나 Main이 최종 문서를 고쳤으므로, 새 계약의 독립 실행 효과는 아직 잠정적이다. 구조·skill·Recover·회귀 검증과 실제 새 target 적용 효과를 구별한다.
+
+변경 Markdown 24개의 local link 258개, 관련 skill 네 개의 YAML shape, 기본·명시 Recover와 전체 Reference 테스트 126개가 최종 통과했다. 첫 전체 테스트에서 기존 descendant timeout timing 시험 한 건이 실패했으나 단독 재실행과 뒤의 전체 재실행 두 번은 통과했다. 공식 skill 검사기는 PyYAML 부재로 시작하지 못해 같은 조건을 Ruby YAML로 대체 확인했다. 실제 host skill 호출과 새 target 이식 효과는 확인하지 않았다.
 
 ## Noline Spec·Ticket 실행 기준의 Reference 역반영
 
@@ -84,6 +94,6 @@ Source는 `main @ 87d21023f6acd8ae709322d48da9851594f9acb0`이며 Reference와 �
 
 ## 다음 행동
 
-지정한 Noline Spec·Ticket 커밋의 공통 기준 분석과 Reference 역반영은 완료했다. 승인된 Noline 관리 기준 배치 재적용과 실제 diff·검증·기존 작업 보존의 회수도 마쳤다. 이후 사용자가 요청한 Python cache 제외도 Noline `.gitignore`의 `__pycache__/`·`*.py[cod]` 규칙으로 반영했고, 기존 캐시가 Git 변경 목록에 나타나지 않음을 확인했다. 캐시 파일 자체는 삭제하지 않았으며 이 후속 변경 뒤 구조 Verify를 다시 실행하지 않았다. Project 본문 전반 중 이번에 확인한 주제별 Owner 이동·내용 충분성·routing 문제는 source 계약에 반영했지만 Noline 설치본에는 아직 재적용하지 않았다. Workspace 생성 skill 설명은 별도 판단 대상으로 남는다. 이번 보완을 Project 본문 전체나 그 문제 전체의 해결로 보고하지 않는다. 상세 문서 전체 정비, 제품 리팩토링과 실제 host activation을 자동으로 추가하지 않는다.
+지정한 Noline Spec·Ticket 실행 기준과 Project 주제별 Owner 이동·구성·읽기·검증 기준의 Reference 역반영은 완료했다. Workspace 생성 계약과 sample consumer의 Project 선택 설명도 새 읽기 기준과 충돌하지 않게 맞췄다. 새 Reference 판본을 다른 target에 실제 이식해 본 효과와 새 session의 `read-project-context` 발견·호출·본문 적용은 아직 확인하지 않았다. Noline 최종 제품 문서는 Noline이 소유하며 source sample에 복제하지 않는다. 이번 보완을 Project 본문 전체나 제품 문제 전체의 해결로 보고하지 않으며, 제품 리팩토링과 실제 host activation을 자동으로 추가하지 않는다.
 
 실제 skill 호출·Maintain 문서 유지 흐름, 제품 acceptance, 리팩토링 효과 평가와 target Workspace 완료는 아직 확인하거나 수행한 결과가 아니다.

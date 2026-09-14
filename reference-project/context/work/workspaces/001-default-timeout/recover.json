@@ -4,7 +4,7 @@
   "project_context": [
     {
       "path": "context/project/README.md",
-      "reason": "Project 물리 layer, 실제 문서 위치, Owner 우선순위와 선택적 읽기 계약을 확인하기 위해 선택했다."
+      "reason": "Request policy config 작업의 주제별 진입, 물리 layer와 Owner 우선순위를 확인하기 위해 선택했다."
     },
     {
       "path": "context/project/common/prd.md",

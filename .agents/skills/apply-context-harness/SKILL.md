@@ -17,7 +17,7 @@ Sample Project 내용은 복제하지 않는다. 호출 시점에 commit과 clea
 2. [`references/application-contract.md`](references/application-contract.md)를 끝까지 읽는다.
 3. `git -C <skill-dir> rev-parse --show-toplevel`로 source root를 구하고 `reference-project/`의 존재를 확인한다. 상대 경로 단계 수로 추측하지 않는다.
 4. Source commit과 `reference-project/`의 clean/dirty 상태를 확인한다. Dirty bytes를 쓰려면 path별 diff와 SHA-256을 먼저 제시해 승인을 받는다. 승인되지 않은 dirty Reference는 이식하지 않는다.
-5. Live `reference-project/README.md`와 root `AGENTS.md`에서 시작해 Project·Work·Workspace·Harness canonical과 [Reference skill 색인](../../../reference-project/.agents/skills/README.md)을 읽는다. Target에 이식할 파일과 규칙, skill별 canonical·공통 기준·도구별 연결은 이 live source에서 결정한다.
+5. Live `reference-project/README.md`와 root `AGENTS.md`에서 시작해 Project·Work·Workspace·Harness canonical과 [Project 작성·읽기 기준](../../../reference-project/context/project/REFERENCE/README.md), [Reference skill 색인](../../../reference-project/.agents/skills/README.md)을 읽는다. Target에 이식할 파일과 규칙, skill별 canonical·공통 기준·도구별 연결은 이 live source에서 결정한다.
 
 ## 1. 변경 전 target을 고정한다
 
@@ -50,16 +50,16 @@ Dirty tree만으로 멈추지 않는다. Payload와 겹치거나 기존 canonica
 - Target의 repo-local skill discovery 경계, 기존 관리·논의·재판단·설명 skill, 공통 guidance와 root routing Owner
 - 자동 검증이 확인하지 못하는 외부 시스템과 사람 acceptance
 
-Project context는 live Reference의 `context/project/README.md`, `common/`, `current/`, `guidance/`, `decisions/` 물리 경계를 target에 구성하고 target 사실로 채운다. Root README는 layer와 실제 내용 위치를 찾는 안정된 routing anchor로 두며, 첫 Workspace는 README와 goal에 필요한 실제 layer 문서를 따로 선택한다. Owner 이동이 승인되지 않은 target 상세 canonical은 유지하고 layered context와 충돌하면 상세 Owner를 대조한다. 사용자가 한정해 승인한 주제는 Project 내용 문서가 현재 의미의 canonical이 되도록 전환하되, 그 범위를 다른 상세 문서 전체로 넓히지 않는다.
+Project context는 live Reference의 `context/project/README.md`, `MAINTENANCE.md`, `REFERENCE/`, `common/`, `current/`, `guidance/`, `decisions/` 물리 경계를 target에 구성하고 target 사실로 채운다. Root README는 작업·주제에서 실제 본문과 layer 책임을 찾는 안정된 routing anchor로 두며, 첫 Workspace는 README와 goal에 필요한 실제 본문을 따로 선택한다. Owner 이동이 승인되지 않은 target 상세 canonical은 유지하고 layered context와 충돌하면 상세 Owner를 대조한다. 사용자가 한정해 승인한 주제는 Project 내용 문서가 현재 의미의 canonical이 되도록 전환하되, 그 범위를 다른 상세 문서 전체로 넓히지 않는다.
 
 - `common/`: 여러 Workspace에 지속되는 제품·사용자·domain 의미와 Project-wide 제약을 실제 내용으로 구성한다.
-- `current/`: 현재 구현·지원·미지원 범위, 상세 Owner와 proof boundary를 교체형 지도로 구성한다.
-- `guidance/`: 조건에 따라 반복 판단을 바꾸는 Project-wide 기준만 둔다. 실제 항목이 없으면 `README.md`에 현재 없음과 추가·재검토·제거 조건을 명시한다.
+- `current/`: 현재 구현·지원·미지원 범위, 상세 Owner와 proof boundary를 다음 판단에 유용한 교체형 맥락으로 구성한다.
+- `guidance/`: 관련 작업의 구체적인 계약·이유·적용·변경 판단·검증을 둔다. 조언이나 실행 순서에 한정하지 않는다.
 - `decisions/`: 중요한 선택의 이유와 재검토 신호를 보존하며 현재 layer의 답을 기본적으로 대신하지 않는다.
 
-세 책임 layer 자체는 생략하거나 overview 하나로 합치지 않는다. 기존 Owner의 경로만 연결하지 말고 여러 Workspace의 판단에 필요한 사실을 선별해 다시 서술한다. Ticket·Workspace·evidence 묶음은 조사 근거이지 문서 책임이 아니므로, 주제·판단 질문·수명·갱신 Owner가 다른 내용은 알맞은 layer와 문서로 나눈다. 특정 layer에 README 외 실제 본문이 없을 수는 있지만, 그 경우 원자료에서 독립된 내용이 없다는 근거를 dry-run manifest와 적용 기록에 남긴다. 이식 범위의 기존 문서는 [기존 문서의 전환 기준](references/application-contract.md#기존-문서의-전환)에 따라 현재 역할을 판단하고, 내용의 귀속과 기존 파일의 처리를 함께 결정한다.
+세 책임 layer 자체는 생략하거나 overview 하나로 합치지 않는다. 기존 Owner의 경로만 연결하지 말고 여러 Workspace의 판단에 필요한 의미를 선별해 다시 서술한다. Ticket·Workspace·evidence 묶음은 조사 근거이지 문서 책임이 아니다. 다음 작업의 질문과 온전한 의미를 먼저 구성하고 주 책임 layer를 고르며, 원자료 수나 layer 수대로 문서를 쪼개지 않는다. 특정 layer에 README 외 실제 본문이 없을 수는 있지만, 그 경우 원자료에서 독립된 내용이 없다는 근거를 dry-run manifest와 적용 기록에 남긴다. 이식 범위의 기존 문서는 [기존 문서의 전환 기준](references/application-contract.md#기존-문서의-전환)에 따라 현재 역할을 판단하고, 내용의 귀속과 기존 파일의 처리를 함께 결정한다.
 
-Live [`Project 관리 계약`](../../../reference-project/context/project/MAINTENANCE.md)을 읽고 target의 `context/project/MAINTENANCE.md`에 적응한다. Root README는 구조·권위 관계와 관리 계약을 읽을 시점을 연결하고, 상세 복원·변경·갱신 기준은 관리 계약이 맡는다. 이식·갱신 주체가 해당 작업에서 직접 읽도록 연결하며 일반 Recover 입력으로 추가하지 않는다. 기준을 README나 관리 skill에 중복 정의하지 않고, 이번 이식에서 수행한 문서 전환·보존 결과는 적용 Workspace 기록에 남긴다.
+Live [`Project 관리 계약`](../../../reference-project/context/project/MAINTENANCE.md)과 [`REFERENCE`](../../../reference-project/context/project/REFERENCE/README.md)를 읽고 target의 같은 책임 위치에 적응한다. Root README는 주제별 진입과 권위 관계, 관리·작성·읽기 기준을 읽을 시점을 연결한다. 이식·갱신·읽기 주체가 필요한 작업에서 직접 읽도록 연결하며 일반 Recover 입력으로 추가하지 않는다. 기준을 README나 관리 skill에 중복 정의하지 않고, 이번 이식에서 수행한 문서 전환·보존 결과는 적용 Workspace 기록에 남긴다.
 
 ## 3. Dry-run manifest를 먼저 제시한다
 
@@ -68,9 +68,9 @@ Live [`Project 관리 계약`](../../../reference-project/context/project/MAINTE
 - Source commit, Reference clean/dirty 상태와 읽은 canonical 진입점
 - Target baseline receipt, 기존 Owner 지도와 보호 대상
 - 새 파일, 수정·이동·제거할 파일, 충돌 파일과 명시적 제외 파일. 대체되는 문서는 유효한 내용의 반영 위치와 기존 경로의 처리 이유를 함께 제시한다.
-- 기존 Owner의 어떤 주제를 유지하거나 승인된 범위에서 이동할지, `common/current/guidance`의 어느 파일·문단에 어떻게 다시 서술할지, 이전 canonical의 남은 역할과 처리, README 외 본문이 없는 layer와 그 근거, Decision 배치, 첫 Workspace에 넣을 목표·제약·state·source·output 내용
+- 기존 Owner의 어떤 주제를 유지하거나 승인된 범위에서 이동할지, 다음 작업의 어떤 질문으로 내용을 구성하고 주 책임 layer·본문을 고를지, 이전 canonical의 남은 역할과 처리, README 외 본문이 없는 layer와 그 근거, Decision 배치, 첫 Workspace에 넣을 목표·제약·state·source·output 내용
 - Reference 책임별 `source Owner → target 배치 → 그대로 사용/적응/제외 → 이유` 매핑
-- Live Reference의 각 repo-local skill, 공통 기준·guidance 색인과 도구별 연결·root routing의 `install/adapt/exclude`, exact 충돌과 fallback
+- Live Reference의 각 repo-local skill, Project `REFERENCE`, 공통 기준·guidance 색인과 도구별 연결·root routing의 `install/adapt/exclude`, exact 충돌과 fallback
 - Target instruction과 도구 설정에 추가할 routing, 수동 agent role, lifecycle hook, session별 explicit admission·activation 명령, wrapper, runtime ignore 또는 main fallback의 개별 설치·제외 판단
 - Target의 Recover·Verify 계약과 제품 검증 입력을 live Reference에서 적응한 결과
 - Project path·책임·authority 변경에 영향받는 live consumer 목록과 각 consumer의 reconcile·전환·deactivation 계획
@@ -84,7 +84,7 @@ Live [`Project 관리 계약`](../../../reference-project/context/project/MAINTE
 ## 4. 책임 단위로 이식한다
 
 1. 일반 진입점에 layered Project context와 Work context의 Owner routing을 additive하게 연결한다. 기존 instruction과 설정을 교체하지 않는다.
-2. Project context의 root README, `MAINTENANCE.md`와 `common/current/guidance` layer README를 구성한다. Target의 실제 의미는 해당 layer에 다시 서술하고, 관리 기준과 이번 적용 기록은 각 책임 위치에 둔다. 승인된 주제별 Owner 이동과 대체되는 기존 문서의 전환도 함께 수행한다. 실제 내용 문서에서 읽기 조건, 소유 주제와 authority·구현/검증 상세 Owner, 갱신 책임, stale·재검토 신호를 찾을 수 있게 하고, [`application-contract.md`](references/application-contract.md)의 문서 전환과 layer별 내용 충족 검사를 통과시킨다.
+2. Project context의 root README, `MAINTENANCE.md`, `REFERENCE/`와 `common/current/guidance` layer README를 구성한다. Target의 실제 의미는 작성 기준에 따라 온전한 주제 본문으로 다시 서술하고, 관리 기준과 이번 적용 기록은 각 책임 위치에 둔다. 승인된 주제별 Owner 이동과 대체되는 기존 문서의 전환도 같은 변경 단위에서 수행한다. 각 본문에서 맡은 질문과 읽을 조건을 찾을 수 있게 하되 공통 목차나 모든 문서의 동일 메타데이터를 강제하지 않고, [`application-contract.md`](references/application-contract.md)의 문서 전환과 내용 충족 검사를 통과시킨다.
 3. Live Reference가 요구하는 Workspace 지속 층과 machine 계약을 첫 작업의 실제 목표·제약·source·output·검증으로 채운다. `recover.json`에는 Project root README와 goal에 필요한 `common/`, `current/`, `guidance/`, `decisions/` 문서만 이유와 함께 선택한다. 모든 layer를 자동 선택하거나 Sample 내용과 기존 Project 산출물을 복제하지 않는다.
 4. [Reference skill 색인](../../../reference-project/.agents/skills/README.md)의 각 skill과 공통 기준을 [`application-contract.md`의 적용 기준](references/application-contract.md#repo-local-skills와-공통-기준)에 따라 설치·적응·제외한다. 기존 skill·guidance·instruction과 도구별 연결을 보존하고, 상세 호출·내용·유지 계약은 target의 실제 Owner로 이어지게 한다. 첫 Workspace는 이식 책임이 직접 만들며 아직 설치되지 않은 생성 skill을 중첩 호출하지 않는다. Skill 설치와 Maintain session 연결·문서 갱신 준비는 별도로 확인한다.
 5. Harness runtime·계약·테스트는 승인된 source commit에서 가져오고, target package·경로·runtime과 충돌하는 부분만 좁게 적응한다. Reference 내부 계약을 skill 문장으로 재구현하지 않는다.
@@ -113,8 +113,8 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 - 초기 이식 완료처럼 상태 전환·인계 증거가 필요한 경계에서만 live product Verify를 실행한다. 이후 Recover가 현재 machine result를 다시 연결하는지 확인한다. Ephemeral validation 결과, durable Harness test receipt와 Product Verify receipt를 서로 혼동하지 않는다.
 - Context 의미가 바뀌면 명시한 Workspace만 Maintain하고 main이 근거와 diff를 검토한다. Verify pass를 사람용 완료나 acceptance로 바꾸지 않는다.
 - Codex lifecycle hook 검증은 `installed`와 `activated`를 분리하고 live session lifecycle canonical의 runtime 저장 범위·권한 한계·actual-host proof ceiling을 함께 보존한다. `installed`는 target 파일, schema v2 설정 parse, wrapper import, unbound `status`와 bounded Recover가 통과한 상태다. `activated`는 target repo를 root로 하는 Codex task에서 project-local hook을 trust하고 사용자가 선택한 Workspace를 그 session에 명시적으로 activate한 뒤, persisted binding과 같은 generation의 prompt/Stop runtime receipt가 생긴 상태다. 현재 task가 target root가 아니거나 hook trust·explicit activation·event receipt 중 하나라도 없으면 activation을 완료로 쓰지 않는다. 다른 unbound session이 runtime이나 Workspace write를 만들지 않는지도 actual-host 격리 장면에서 확인한다.
-- Repo-local skill은 각각 target 파일·frontmatter·호출 설정, canonical·공통 기준 링크와 도구별 상대 연결·root routing을 확인해 `installed` 또는 `adapted`를 판정한다. 공통 기준의 조건부 consumer와 기존 guidance 색인이 보존됐는지 함께 확인한다. 실제 discovery·각 skill의 호출 방식, Main 결과 전달·Maintain 갱신·문서 의존 실행은 파일 존재나 형식 검사로 증명하지 않으며 새 target-root session에서 관찰한 범위만 보고한다.
-- Project context는 root README에서 세 물리 layer를 찾을 수 있는지 먼저 확인한다. 그 뒤 상세 Owner 링크를 열지 않고 `common/`의 지속 의미, `current/`의 현재 경계, `guidance/`의 적용 여부를 설명할 수 있는지 검토하고, 마지막에 상세 Owner를 열어 사실·범위·충돌 우선순위가 맞는지 대조한다. Project path·책임·authority가 바뀌면 [`application-contract.md`](references/application-contract.md)의 live consumer를 고정해 각 id의 explicit Recover와 active/default Recover를 실행하고, current·output의 machine Owner 설명과 실제 semantic target을 fresh reader가 대조한다.
+- Repo-local skill은 각각 target 파일·frontmatter·호출 설정, canonical·Project `REFERENCE`·공통 기준 링크와 도구별 상대 연결·root routing을 확인해 `installed` 또는 `adapted`를 판정한다. 공통 기준의 조건부 consumer와 기존 guidance 색인이 보존됐는지 함께 확인한다. 실제 discovery·각 skill의 호출 방식, 본문 읽기·적용, Main 결과 전달·Maintain 갱신은 파일 존재나 형식 검사로 증명하지 않으며 새 target-root session에서 관찰한 범위만 보고한다.
+- Project context는 root README에서 주제별 진입과 세 물리 layer를 찾을 수 있는지 먼저 확인한다. 대표 관련 작업에서 필요한 본문을 선택하고, 상세 Owner나 작성자의 기억 없이 그 본문이 맡은 의미·계약·현재 차이와 열린 판단을 설명할 수 있는지 검토한다. 이어 실제 코드·상세 Owner를 열어 사실 범위와 authority를 대조한다. Project path·책임·authority가 바뀌면 [`application-contract.md`](references/application-contract.md)의 live consumer를 고정해 각 id의 explicit Recover와 active/default Recover를 실행하고, Project README와 대표 기존 진입점이 같은 semantic Owner에 도달하는지 fresh reader가 대조한다.
 - 변경한 Markdown의 local link는 경로 존재·root 경계를 기계적으로 확인한 뒤 설명과 실제 Owner가 맞는지 별도로 판정한다. Source sample·Workspace id와 rename·제거 path의 residue 목록을 검사하고, archive·source·records의 의도한 provenance hit만 exact allowlist로 남긴다.
 - Product Verify를 실행할 때에는 argv가 읽는 tracked input closure를 먼저 구성한다. 완전히 선언할 수 없으면 argv를 좁히거나 claim과 proof ceiling을 낮추며, runtime freshness를 undeclared input 탐지로 해석하지 않는다.
 - 신규 이식, 사용자 파일 충돌 또는 실행·안전 계약 변경은 구현자가 아닌 reviewer가 raw source, target 원자료, preflight와 실제 증거를 직접 대조한다. 낮은 위험의 설명·routing 변경은 main의 좁은 확인으로 끝낼 수 있다.
@@ -124,9 +124,9 @@ python3 <skill-dir>/scripts/record_harness_tests.py \
 
 - 사용한 Reference commit과 책임별 target 매핑이 남아 있다.
 - 계속 유효한 canonical과 사용자 변경이 보존되고 충돌 선택이 승인됐다. 승인되어 이동한 주제는 Project 문서가 현재 의미의 canonical을 맡고 이전 문서와 경쟁하지 않는다. 이식으로 대체된 문서는 유효한 내용의 귀속과 기존 파일 처리가 끝났으며, 원래 경로에 남긴 문서에는 현재 역할이나 호환 필요가 있다.
-- Project root README와 `common/current/guidance` 물리 layer가 존재하고, 첫 Workspace가 target 사실을 담으며 실제 산출물을 복제하지 않는다. Project README와 goal에 필요한 실제 layer 문서가 Recover에 함께 선택되고 각 선택 문서는 링크 없이도 맡은 책임을 설명한다.
-- Target Owner에서 확인한 지속 의미·현재 현실·조건부 기준은 대응하는 layer가 맡는다. README 외 본문이 없는 layer에는 독립된 내용이 없다는 근거와 새 항목의 추가·재검토 조건이 남아 있다.
-- Project 관리 계약이 target의 `MAINTENANCE.md`에 있으며 README와 이식·갱신 절차에서 필요한 시점에 읽도록 연결됐다. 이번 적용 결과는 Workspace 기록에서 찾는다.
+- Project root README, `MAINTENANCE.md`, `REFERENCE/`와 `common/current/guidance` 물리 layer가 존재하고, 첫 Workspace가 target 사실을 담으며 실제 산출물을 복제하지 않는다. Project README와 goal에 필요한 실제 본문이 Recover에 함께 선택되고 각 선택 문서는 링크 없이도 맡은 책임을 설명한다.
+- Target Owner에서 확인한 지속 의미·현재 현실·작업 기준은 대응하는 layer가 맡는다. README 외 본문이 없는 layer에는 독립된 내용이 없다는 근거와 새 항목을 만들 조건이 남아 있다.
+- Project 관리·구성·읽기 기준이 target의 대응 위치에 있으며 README와 이식·갱신·읽기 절차에서 필요한 시점에 연결됐다. 이번 적용 결과는 Workspace 기록에서 찾는다.
 - Project path·책임·authority 변경에 영향받는 live consumer가 reconcile·전환·deactivation됐고 explicit 및 active/default Recover와 semantic target review가 끝났다.
 - Local link·residue·machine Owner 설명과 Product Verify input closure가 변경 범위에 맞게 판정됐으며, 자동으로 닫히지 않는 의미·외부 상태는 proof ceiling에 남아 있다.
 - 각 Reference 책임이 설치·적응됐거나 제외 이유와 fallback이 명시됐다.

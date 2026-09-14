@@ -35,11 +35,11 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 
 ## Repo-local skills와 공통 기준
 
-현재 Reference skill 색인은 `create-context-workspace`, `update-project-context`, `work-discussion`, `reconsider-work`, `work-artifact-briefing`, `explanation-recovery`를 안내한다. 이 목록을 고정 payload로 삼지 않고 호출 시점의 색인과 각 `SKILL.md`·호출 설정에서 실제 책임·입력·연결을 확인한다. Spec·Ticket의 내용과 유지 방식은 live Workspace canonical이, 생성·Project 맥락 갱신은 각각의 canonical이 소유한다. 이식 절차에서 네 Ticket 구성이나 skill별 호출 규칙을 다시 정의하지 않는다.
+현재 Reference skill 색인은 `create-context-workspace`, `read-project-context`, `update-project-context`, `work-discussion`, `reconsider-work`, `work-artifact-briefing`, `explanation-recovery`를 안내한다. 이 목록을 고정 payload로 삼지 않고 호출 시점의 색인과 각 `SKILL.md`·호출 설정에서 실제 책임·입력·연결을 확인한다. Spec·Ticket의 내용과 유지 방식은 live Workspace canonical이, Project 본문 구성·읽기는 `context/project/REFERENCE/`가, 생성·Project 맥락 갱신은 각각의 canonical이 소유한다. 이식 절차에서 skill별 호출 규칙을 다시 정의하지 않는다.
 
-- **대상별 선택:** 각 skill의 원본·지원 파일·호출 설정, 공통 `context/project/guidance/explanation-and-evidence-criteria.md`, guidance 색인, tool별 discovery 연결과 root routing을 dry-run manifest에 `install/adapt/exclude`로 구분한다. 이름이 달라도 같은 책임을 맡는 target Owner와 비교하고, 제외할 때는 그 이유와 필요한 기존 canonical·fallback을 남긴다.
+- **대상별 선택:** 각 skill의 원본·지원 파일·호출 설정, `context/project/REFERENCE/`, 공통 `context/project/guidance/explanation-and-evidence-criteria.md`, guidance 색인, tool별 discovery 연결과 root routing을 dry-run manifest에 `install/adapt/exclude`로 구분한다. 이름이 달라도 같은 책임을 맡는 target Owner와 비교하고, 제외할 때는 그 이유와 필요한 기존 canonical·fallback을 남긴다.
 - **충돌 보호와 연결:** `.agents/skills/<name>/`의 전체 파일, target이 사용하는 `.claude/skills/<name>`·`.codex/skills/<name>` 같은 연결 경로, 공통 기준과 색인을 exact path로 확인한다. Clean·ignored 파일과 ancestor의 kind, 기존 symlink 목적지도 직접 확인하며 동명 경로를 통째로 덮어쓰지 않는다. Live source의 원본 관계와 호출 설정을 보존하되 도구별 상대 연결은 target 배치에서 해석해 같은 원본으로 이어지는지 확인한다. 도구가 지원하지 않는 연결을 기계적으로 설치하지 않는다.
-- **공통 기준의 병합:** 기존 guidance README의 경계와 다른 항목을 유지하며 필요한 본문·consumer 링크를 좁게 병합한다. Reference의 색인으로 target 색인 전체를 교체하지 않는다. 적용·비적용·재검토·제거 조건과 실제 consumer는 live 기준을 따르며 모든 응답·Recover의 기본 입력으로 확대하지 않는다. 기준 경로를 적응하거나 skill을 제외하면 남는 consumer와 색인을 함께 맞춘다.
+- **공통 기준의 병합:** 기존 guidance README의 경계와 다른 항목을 유지하며 필요한 본문·consumer 링크를 좁게 병합한다. Reference의 색인으로 target 색인 전체를 교체하지 않는다. 적용 범위·중요 예외·실제 consumer는 각 live 본문에 맞추며 모든 가이드에 같은 고정 목차를 강제하거나 모든 응답·Recover의 기본 입력으로 확대하지 않는다. 기준 경로를 적응하거나 skill을 제외하면 남는 consumer와 색인을 함께 맞춘다.
 - **실제 유지 경로:** 설치한 skill에서 target의 Spec·Ticket·Main·Maintain 계약을 찾을 수 있게 연결한다. Workspace 생성과 Project-wide 문서 관리는 각각의 Owner에 남긴다. Bound·unbound·수동 fallback에서 누가 문서를 실제로 갱신하는지는 target Maintain 계약을 따르며, skill 설치를 session activation이나 문서 전달 완료로 취급하지 않는다.
 
 정적 설치 확인은 frontmatter·호출 설정·일반 파일·상대 연결·canonical과 공통 기준 접근점까지다. 실제 host가 skill을 발견하고 정해진 방식으로 호출했는지, 결과가 Main을 거쳐 유지 경로에 전달되고 문서 의존 실행 전에 반영됐는지는 별도 관찰이다. 하나의 성공을 다른 skill·도구·Maintain binding의 증명으로 확대하지 않는다.
@@ -58,12 +58,12 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 
 사용자가 특정 주제의 Owner를 Project context로 옮기도록 승인했다면 그 범위는 이식 또는 후속 갱신의 실제 전환 대상이다. 이미 받은 승인을 다시 묻지 않으며, 다른 상세 문서 전체의 이동으로 확대하지 않는다.
 
-- Ticket, Workspace, 회의나 source 묶음은 근거 경계이지 문서 책임이 아니다. 다음 작업이 찾을 지속 주제, 판단 질문, 수명과 갱신 Owner를 기준으로 본문을 구성한다.
-- 지속 의미는 `common/`, 교체되는 구현·지원·proof 경계는 `current/`, 조건부 판단은 `guidance/`, 현재 답과 별도로 남길 중요한 선택 이유는 `decisions/`에 둔다. 서로 다른 책임·수명·갱신 Owner를 같은 근거 묶음이라는 이유로 합치지 않는다.
+- Ticket, Workspace, 회의나 source 묶음은 근거 경계이지 문서 책임이 아니다. 다음 작업이 찾을 지속 주제와 판단 질문을 먼저 구성하고, 수명과 갱신 Owner는 분리 필요성을 판단하는 근거로 사용한다.
+- 지속 의미는 `common/`, 교체되는 구현·지원·proof 경계는 `current/`, 관련 작업의 계약·적용·검증은 `guidance/`, 현재 답과 별도로 남길 중요한 선택 이유는 `decisions/`에 둔다. 한 질문을 이해하는 데 필요한 의미를 층 구분 때문에 흩뜨리거나 모든 주제에 세 문서를 만들지 않는다.
 - 이동한 범위의 Project 문서는 현재 의미의 canonical임을 밝히고, 링크 없이도 그 의미와 경계를 설명한다. 링크는 구현 상세·원문·검증의 재대조 경로로 사용한다.
 - 이전 canonical의 유효한 의미를 통합한 뒤 남은 역할을 구현 상세, 근거·역사 또는 호환 routing으로 좁히거나 target 규칙에 따라 이동·제거한다. 같은 현재 답의 active canonical을 둘 이상 남기지 않는다.
 - 미정인 제품 선택은 열어 두고 확인된 나머지를 이동한다. Owner 이동을 새로운 제품 결정을 확정하는 것으로 바꾸지 않는다.
-- Root와 layer index, 영향받는 live consumer를 새 authority에 맞춘다. 과거 Workspace 전체를 역동기화하지 않는다.
+- Root의 주제별 진입과 layer index, 영향받는 실제 작업 진입점과 live consumer를 새 authority에 맞춘다. producer 본문이 존재하기 전에 consumer만 새 경로를 참조하는 중간 상태를 완성으로 남기지 않는다. 과거 Workspace 전체를 역동기화하지 않는다.
 
 ## Layered Project context 내용 충족
 
@@ -75,6 +75,10 @@ Owner 이동이 승인되지 않은 README·STATUS·`docs/`와 코드·테스트
 context/project/
 ├── README.md
 ├── MAINTENANCE.md
+├── REFERENCE/
+│   ├── README.md
+│   ├── composition.md
+│   └── reading.md
 ├── common/
 │   └── README.md
 ├── current/
@@ -85,28 +89,29 @@ context/project/
     └── README.md
 ```
 
-Root `README.md`는 세 책임 layer, 실제 내용 위치, 읽기 조건과 Owner 우선순위를 찾는 안정된 routing anchor다. Project 본문을 root의 평면 overview로 합치지 않는다. 첫 Workspace의 `recover.json`은 root README와 현재 goal의 판단을 바꾸는 실제 layer 문서를 이유와 함께 별도로 선택하며, 모든 layer를 자동으로 읽지 않는다.
+Root `README.md`는 작업·주제에서 실제 본문, 세 책임 layer와 Owner 우선순위를 찾는 안정된 routing anchor다. 독자가 layer를 먼저 분류해야만 내용에 들어갈 수 있게 하지 않고 Project 본문을 root의 평면 overview로 합치지 않는다. 첫 Workspace의 `recover.json`은 root README와 현재 goal의 판단을 바꾸는 실제 본문을 이유와 함께 별도로 선택하며, 모든 layer나 관리·작성·읽기 기준을 자동으로 읽지 않는다.
 
 - `common/`에는 여러 Work에 지속되는 제품·사용자·domain 의미와 Project-wide 제약을 둔다.
-- `current/`에는 상세 Owner 변화에 맞춰 교체되는 현재 구현·지원·미지원 범위, 연결 구조와 proof boundary를 둔다.
-- `guidance/`에는 특정 종류의 Work에서만 실제 반복 행동을 바꾸는 조건부 판단 기준을 둔다. 각 항목은 적용·비적용·재검토·제거 조건을 밝힌다.
+- `current/`에는 상세 Owner 변화에 맞춰 교체되는 현재 구현·지원·미지원 범위, 연결 구조와 proof boundary 중 다음 관련 판단을 바꾸는 맥락을 둔다.
+- `guidance/`에는 관련 작업의 구체적인 계약·이유·적용·변경 판단·검증을 둔다. 조언이나 순서에 한정하지 않고, 적용할 작업과 중요한 예외를 본문에서 이해할 수 있게 한다.
 - `decisions/`에는 중요한 선택의 이유·대안·재검토 신호를 둔다. 현재 세 layer의 답을 기본적으로 대신하지 않지만 문서가 현재 normative Owner임을 명시한 예외는 허용한다.
 
-`common/current/guidance` layer와 각 README는 생략하지 않는다. 특정 layer에 README 외 실제 본문이 없을 수는 있으며, 이때 README에 현재 없음, 확인한 상세 Owner와 새 항목을 만들 조건을 적는다. 파일 수를 줄이기 위해 독립된 내용을 overview나 다른 layer에 흡수하지 않는다. 기존 target의 flat Project context 문서도 현재 역할과 내용에 따라 전환하며, 평면 파일이라는 이유만으로 모두 이동하거나 보존하지 않는다.
+`common/current/guidance` layer와 각 README는 생략하지 않는다. 특정 layer에 README 외 실제 본문이 없을 수는 있으며, 이때 README에 현재 없음, 확인한 상세 Owner와 새 항목을 만들 조건을 적는다. 반대로 layer가 존재한다는 이유로 모든 주제에 본문을 하나씩 만들지 않는다. 파일 수를 줄이거나 늘리는 것을 목표로 독립된 내용을 합치거나 한 질문의 의미를 흩뜨리지 않는다. 기존 target의 flat Project context 문서도 현재 역할과 내용에 따라 전환하며, 평면 파일이라는 이유만으로 모두 이동하거나 보존하지 않는다.
 
-각 실제 내용 문서에서 읽기 조건, 소유하는 주제 범위와 현재 authority, 구현·검증 상세 Owner, 갱신 책임, stale·재검토 신호를 찾을 수 있어야 한다. 한 문서에 보조 설명이 함께 있을 수 있지만 주 책임과 경로를 흐리거나 수명과 갱신 Owner가 다른 내용을 합치지 않는다.
+각 실제 내용 문서에서 맡은 질문과 읽을 조건을 이해할 수 있어야 한다. 현재 authority, 구현·검증 상세 Owner, 갱신 책임과 재확인 신호는 그 문서의 판단에 실제로 필요한 범위에서 밝힌다. 모든 문서에 같은 메타데이터나 목차를 강제하지 않는다. 한 문서에 다른 층의 짧은 전제 설명이 있을 수 있지만 독립 정책을 두 곳에서 관리하게 만들지는 않는다.
 
-내용의 보존·불확실성 표현·변경과 갱신 시점은 live [`Project 관리 계약`](../../../../reference-project/context/project/MAINTENANCE.md)을 읽고 target의 `context/project/MAINTENANCE.md`에 적응한다. Root README는 관리 계약의 역할과 읽는 시점을 연결한다. 관리 계약은 제품·domain 본문과 구분하며 이식·복원·갱신 주체가 직접 읽고, 일반 Recover 입력에는 추가하지 않는다. 이번 이식에서 무엇을 통합·이동·제거하고 어떻게 보존했는지는 적용 Workspace 기록이 소유한다. 이식 검토에서는 미정 부분의 존재를 이유로 원자료가 뒷받침하는 제품 목적·domain 의미까지 빠지지 않았는지, 남은 판단이 현재 확정된 규칙으로 바뀌지 않았는지를 함께 대조한다. 이 기준을 관리 skill에만 설치하고 target Project 계약에서 빠뜨리지 않는다.
+내용의 보존·불확실성 표현·변경과 갱신 시점은 live [`Project 관리 계약`](../../../../reference-project/context/project/MAINTENANCE.md), 선별·구성·읽기는 live [`Project REFERENCE`](../../../../reference-project/context/project/REFERENCE/README.md)를 읽고 target의 대응 위치에 적응한다. Root README는 각 기준의 역할과 읽는 시점을 연결한다. 이 기준은 제품·domain 본문과 구분하며 이식·복원·갱신·읽기 주체가 필요한 작업에서 직접 읽고, 일반 Recover 입력에는 추가하지 않는다. 이번 이식에서 무엇을 통합·이동·제거하고 어떻게 보존했는지는 적용 Workspace 기록이 소유한다. 이식 검토에서는 미정 부분의 존재를 이유로 원자료가 뒷받침하는 제품 목적·domain 의미까지 빠지지 않았는지, 남은 판단이 현재 확정된 규칙으로 바뀌지 않았는지를 함께 대조한다. 이 기준을 skill에만 설치하고 target Project 계약에서 빠뜨리지 않는다.
 
-구현 뒤 다음 순서로 내용 충족을 검토한다.
+구현 뒤에는 다음 독자가 맡을 대표 관련 작업을 정하고 [읽기 기준](../../../../reference-project/context/project/REFERENCE/reading.md)으로 내용 충족을 검토한다.
 
-1. Root README에서 `common/current/guidance`와 `decisions`의 책임, layer README와 실제 내용 위치를 찾는다.
-2. 상세 Owner 링크를 열지 않고 `common/`의 사용자 장면·목적·domain 의미·성공 기준과 범위 밖, `current/`의 현재 구현·지원·미지원 범위·실행 흐름·proof boundary, `guidance/`의 적용 여부와 관련 Decision을 설명한다.
-3. 선택 문서가 맡은 질문에 답하지 못하고 상세 Owner 경로만 가리키거나, Ticket·기록 묶음의 목차만 재현하면 미완성으로 판정한다.
-4. 그 뒤 상세 Owner를 열어 재서술한 사실이 원자료에 지지되고 현재·목표·미구현 상태를 섞지 않았는지 대조한다.
-5. 첫 Workspace의 목표·검증 범위·빠른 상태가 Project 전체 사실로 승격되지 않았는지 확인한다.
-6. 각 layer에 원자료가 지지하는 실제 내용이 있거나, README 외 본문이 없는 이유와 새 항목을 만들 조건이 명시됐는지 확인한다.
-7. 첫 Workspace의 explicit Recover packet에 root README와 goal에 필요한 실제 layer 문서가 함께 선택됐는지 확인한다. Fresh reader가 선택 문서만으로 사용자 장면·목적, 현재·목표·미구현 차이, domain 관계, 지원·미지원 경계, proof ceiling과 적용할 판단 기준뿐 아니라 이동한 주제의 현재 canonical과 이전 문서의 남은 역할을 설명하지 못하면 미완성이다.
+1. Root README의 주제별 진입에서 대표 작업에 필요한 실제 본문과 그 책임을 찾는다.
+2. 작성 중 읽은 원자료나 대화 기억 없이 선택 본문만으로 그 작업이 요구하는 제품 의미·계약·이유·현재 차이·열린 판단을 설명하고 구현 확인으로 내려간다.
+3. 선택 문서가 맡은 질문에 답하지 못하고 상세 Owner 경로만 가리키거나 Ticket·기록 묶음의 목차만 재현하면 미완성으로 판정한다.
+4. 그 뒤 상세 Owner와 실제 코드·테스트를 열어 재서술한 사실과 문장의 범위, 현재 authority와 proof boundary가 맞는지 대조한다. 일부 경로만 확인했다면 Project 전체 사실로 일반화하지 않는다.
+5. Owner 이동이면 기존 Owner의 유효한 의미가 새 본문에 보존됐는지, Project README와 대표 기존 작업 진입점이 같은 현재 Owner에 도달하는지 각각 확인한다.
+6. 첫 Workspace의 목표·검증 수치·환경 오류·미실행 항목이 다음 판단과 재확인 조건 없이 Project 현재 사실로 승격되지 않았는지 확인한다.
+7. 각 layer에 원자료가 지지하는 실제 내용이 있거나 README 외 본문이 없는 이유와 새 항목을 만들 조건이 명시됐는지 확인한다.
+8. 첫 Workspace의 explicit Recover packet에 root README와 goal에 필요한 실제 본문이 함께 선택되고, `MAINTENANCE.md`와 `REFERENCE/`가 기본 입력으로 잘못 추가되지 않았는지 확인한다.
 
 이 검토는 문서 길이나 링크 수로 자동 판정하지 않는다. 짧아도 공통 판단을 닫으면 충분하고, 길어도 출처 안내와 Workspace 전용 내용뿐이면 불충분하다.
 
@@ -168,7 +173,7 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 | 변경 성격 | 최소 확인 | 확대 조건 |
 | --- | --- | --- |
 | 설명·링크·routing | 경로, link, 설정 parse, diff | 실행 의미나 discovery가 달라짐 |
-| Repo-local skill·공통 기준 | 각 frontmatter·호출 설정, canonical·조건부 consumer link, 도구별 상대 연결·root routing, 기존 skill·guidance 보존 | 새 target-root session의 실제 발견·정해진 호출 방식·문서 유지 흐름 확인 필요 |
+| Repo-local skill·Project REFERENCE·공통 기준 | 각 frontmatter·호출 설정, canonical·consumer link, 도구별 상대 연결·root routing, 기존 skill·guidance 보존 | 새 target-root session의 실제 발견·호출·본문 적용·문서 유지 흐름 확인 필요 |
 | Harness 코드·machine 계약·path 방어 | 관련 단위 테스트 | 공통 경계나 target 배치가 달라짐 |
 | Target Harness 적응 | 전체 Harness tests와 ephemeral validation | 실패, source 변경 또는 proof 공백 |
 | 상태 전환·인계 | Product Verify와 후속 Recover | Evidence closure나 runtime 불확실성 |
@@ -201,7 +206,7 @@ Target 사실로 다음을 답한다.
 2. Recover가 실제로 무엇을 읽고 무엇을 제외했는가.
 3. 어떤 live consumer를 확인했고 Project 선택·current·output을 reconcile, 전환 또는 deactivation했는가.
 4. Local link·semantic target·residue와 machine Owner 설명을 어디까지 확인했는가.
-5. 각 repo-local skill·공통 기준·guidance 색인·도구별 연결과 root routing이 설치·적응·제외 중 무엇이며, 실제 발견·호출·문서 유지 흐름은 어디까지 확인됐는가.
+5. 각 repo-local skill·Project REFERENCE·공통 기준·guidance 색인·도구별 연결과 root routing이 설치·적응·제외 중 무엇이며, 실제 발견·호출·본문 적용·문서 유지 흐름은 어디까지 확인됐는가.
 6. Validation과 Product Verify가 어떤 실제 input closure·runtime에서 무엇을 확인했는가.
 7. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 default-unbound, session별 explicit activation, trust와 runtime receipt가 무엇으로 확인됐는가.
 8. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.

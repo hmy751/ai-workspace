@@ -4,7 +4,7 @@
 
 이 reference는 Project context와 Work context를 상위 경계로 두고, 실제 제품과 관리 장치의 관계를 함께 보여 준다.
 
-- **Project context**: [`context/project/`](context/project/)가 여러 작업이 공유하는 의미, 교체되는 현재 현실과 조건부 판단 기준을 `common/current/guidance` 물리 layer로 나눠 소유한다.
+- **Project context**: [`context/project/`](context/project/)가 여러 작업이 공유하는 의미, 교체되는 현재 현실과 관련 작업의 계약·판단 기준을 `common/current/guidance` 물리 layer로 나눠 소유한다. `REFERENCE/`는 본문 구성·읽기 기준을 소유한다.
 - **Work context**: [`context/work/`](context/work/)가 여러 Workspace와 공용 Harness의 운영 관계를 소유한다.
 - **제품**: [`src/`](src/)와 [`tests/test_config_loader.py`](tests/test_config_loader.py)가 실제 구현과 제품 검증을 소유한다.
 
@@ -14,9 +14,9 @@ Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Wor
 
 전체 context 관계는 [context README](context/README.md), 사람이 현재 작업을 볼 때는 [active Workspace README](context/work/workspaces/001-default-timeout/README.md)에서 시작한다. 새 Workspace를 만드는 사람은 [생성·전환 canonical](context/work/workspaces/CREATE-AND-TRANSITION.md), 실행하는 AI는 repo-local [Workspace 생성 skill](.agents/skills/create-context-workspace/SKILL.md)에서 시작한다. Work·Harness의 AI 운영 지침은 [Work AGENTS](context/work/AGENTS.md), Harness 책임과 workflow는 [Harness README](context/work/harness/README.md)에서 시작한다.
 
-작업 중 얻은 Project-wide 맥락을 갱신하거나 누락된 기존 맥락을 복원할 때는 [Project 관리 기준](context/project/MAINTENANCE.md)과 [Project 맥락 갱신 skill](.agents/skills/update-project-context/SKILL.md)을 사용한다. 이 skill은 Workspace Maintain과 별도로 해당 Project 문서를 갱신하며, 근거 있는 내용과 남은 판단을 함께 보존한다.
+관련 작업에 적용할 Project 본문이 아직 선택되지 않았거나 기존 선택으로 새 질문을 다루기 어려우면 [Project 읽기 기준](context/project/REFERENCE/reading.md)과 [Project 맥락 읽기 skill](.agents/skills/read-project-context/SKILL.md)을 사용한다. 작업 중 얻은 Project-wide 맥락을 갱신하거나 누락된 기존 맥락을 복원할 때는 [Project 관리 기준](context/project/MAINTENANCE.md), [구성 기준](context/project/REFERENCE/composition.md)과 [Project 맥락 갱신 skill](.agents/skills/update-project-context/SKILL.md)을 사용한다. 읽기와 갱신은 Workspace Maintain과 별개다.
 
-Work를 구체화하거나 실제 결과에 따라 판단을 다시 보고, 작업물·앞선 설명을 이해할 때는 [Project skill 색인](.agents/skills/README.md)에서 해당 스킬을 찾는다. 네 스킬은 [Spec·Ticket 운영 기준](context/work/workspaces/spec-and-tickets/README.md)을 읽기·판단·반영에 연결하며, 각 호출 조건에 따라 사용한다. 공통 [설명과 근거 기준](context/project/guidance/explanation-and-evidence-criteria.md)은 이해 지원 세 스킬이 필요한 때 읽는다.
+Work를 구체화하거나 실제 결과에 따라 판단을 다시 보고, 작업물·앞선 설명을 이해할 때는 [Project skill 색인](.agents/skills/README.md)에서 해당 스킬을 찾는다. 네 Work 스킬은 [Spec·Ticket 운영 기준](context/work/workspaces/spec-and-tickets/README.md)을 읽기·판단·반영에 연결하며, 각 호출 조건에 따라 사용한다. 공통 [설명과 근거 기준](context/project/guidance/explanation-and-evidence-criteria.md)은 이해 지원 세 스킬이 필요한 때 읽는다.
 
 실제 명령은 `reference-project/` root에서 실행한다.
 
@@ -47,14 +47,15 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
 │   └── skills/
 │       ├── README.md                 # 설치 스킬의 역할·canonical·연결 색인
 │       ├── create-context-workspace/ # 설치 뒤 새 Workspace 생성·재진입 검토
+│       ├── read-project-context/     # 관련 Project 본문 선택·적용
 │       ├── update-project-context/   # 지속 Project 맥락 갱신·누락 복원
 │       ├── work-discussion/          # 명시 호출로 Work 구체화
 │       ├── reconsider-work/          # 실제 결과에 따른 재판단
 │       ├── work-artifact-briefing/    # 기존 작업물의 역할·상태·근거 설명
 │       └── explanation-recovery/     # 앞선 설명의 뜻·연결 복구
-├── .claude/skills/               # 공동 스킬 네 개의 상대 연결
+├── .claude/skills/               # 읽기·이해 지원 스킬 다섯 개의 상대 연결
 ├── .codex/
-│   ├── skills/                  # 같은 공동 스킬 원본으로 상대 연결
+│   ├── skills/                  # 같은 읽기·이해 지원 스킬 원본으로 상대 연결
 │   ├── config.toml               # 수동 fallback용 Maintain agent 발견 경로
 │   ├── maintain.json             # session별 explicit admission mode
 │   ├── hooks.json                # Maintain lifecycle command routing
@@ -67,6 +68,7 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
     ├── README.md                 # Project context와 Work context의 관계
     ├── project/                  # 실제 Project-wide 판단 context
     │   ├── README.md             # 물리 layer·Owner routing anchor
+    │   ├── REFERENCE/            # 본문 구성·읽기 판단 기준
     │   ├── common/               # 지속되는 제품·domain 의미
     │   │   ├── README.md
     │   │   └── prd.md
@@ -137,4 +139,4 @@ reference 순환을 확인하기 위해 기본 timeout 구현을 의도적으로
 
 Project 맥락 갱신은 별도 `update-project-context` skill이 Project 계약을 적용하는 절차로 제공한다. Workspace 결과의 자동 승격이나 제품 결정·acceptance를 구현하지 않으며, 정적 설치만으로 새 session의 실제 discovery·invocation, 맥락 보존의 충분성과 장기 유지 효과를 증명하지 않는다.
 
-공동 스킬 네 개의 설치와 상대 연결도 실제 host의 발견·호출이나 Main 결과가 Maintain의 문서 갱신·다음 실행자 입력까지 이어지는 운영 효과를 증명하지 않는다. 새 session은 기존처럼 default-unbound이며, 자동 lifecycle을 사용하지 않는 경우의 허용된 문서 반영은 Maintain 수동 fallback을 따른다. Claude·Codex의 같은 스킬 원본 연결과 Codex 전용 Maintain adapter의 실행 지원 범위를 구별한다.
+읽기·이해 지원 스킬 다섯 개의 설치와 상대 연결도 실제 host의 발견·호출·본문 적용이나 Main 결과가 Maintain의 문서 갱신·다음 실행자 입력까지 이어지는 운영 효과를 증명하지 않는다. 새 session은 기존처럼 default-unbound이며, 자동 lifecycle을 사용하지 않는 경우의 허용된 문서 반영은 Maintain 수동 fallback을 따른다. Claude·Codex의 같은 스킬 원본 연결과 Codex 전용 Maintain adapter의 실행 지원 범위를 구별한다.
