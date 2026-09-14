@@ -1,6 +1,6 @@
 # Repo-local skills
 
-이 디렉터리는 `context-harness` 저장소에서 반복할 작업 절차를 Codex가 명시 호출하거나 설명 기반으로 선택할 수 있게 하는 repo-local skill 경계다.
+이 디렉터리는 `ai-workspace` 저장소에서 반복할 작업 절차를 Codex가 명시 호출하거나 설명 기반으로 선택할 수 있게 하는 repo-local skill 경계다.
 
 - [`apply-context-harness/`](apply-context-harness/): 호출 시점의 live `reference-project/`가 소유한 Project·Workspace·Harness 책임을 대상 Project의 기존 canonical과 사용자 변경을 보존하며 적응하고, 변경 위험에 맞춰 검증한다.
 

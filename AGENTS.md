@@ -1,4 +1,4 @@
-# context-harness local instructions
+# ai-workspace local instructions
 
 ## Context contract
 

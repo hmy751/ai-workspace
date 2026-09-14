@@ -1,10 +1,11 @@
 # Workspaces
 
-이 디렉터리는 `context-harness` 저장소에서 서로 다른 작업의 현재 상태, goal 산출물, 누적 기록을 분리한다. Workspace마다 자기 `README.md`, `current/`, `output/`, `records/`를 소유하며 다른 Workspace의 상태를 이어 쓰지 않는다.
+이 디렉터리는 `ai-workspace` 저장소에서 서로 다른 작업의 현재 상태, goal 산출물, 누적 기록을 분리한다. Workspace마다 자기 `README.md`, `current/`, `output/`, `records/`를 소유하며 다른 Workspace의 상태를 이어 쓰지 않는다.
 
 ## Active Workspace
 
-- active: [`011-noline-harness-upgrade`](./011-noline-harness-upgrade/)
+- active: [`012-ai-workspace-publication`](./012-ai-workspace-publication/)
+- prior Noline integration and reference feedback: [`011-noline-harness-upgrade`](./011-noline-harness-upgrade/)
 - completed reference integration, downstream evaluation pending: [`010-spec-ticket-workspace-design`](./010-spec-ticket-workspace-design/)
 - prior Project context integration, follow-up checks pending: [`009-project-work-continuity-integration`](./009-project-work-continuity-integration/)
 - prior reference evolution, actual Codex host acceptance pending: [`008-workspace-transition-continuity`](./008-workspace-transition-continuity/)
