@@ -2,7 +2,7 @@
 
 AI 에이전트와 실제 소프트웨어를 개발하면서 반복해 사용하는 작업 방식과 도구를 모은 저장소다.
 
-개발 목표를 실행 가능한 Spec과 Ticket으로 구체화하고, Project와 진행 중인 Work의 맥락을 구분해 유지하며, 세션이 바뀌어도 필요한 판단과 검증 결과를 이어서 사용할 수 있게 한다. 실제 프로젝트에 적응할 수 있는 repo-local skill과 Python Harness, 동작을 확인하는 Reference Project를 함께 제공한다.
+개발 목표를 실행 가능한 Spec과 Ticket으로 구체화하고, Project와 진행 중인 Work의 맥락을 구분해 유지하며, 세션이 바뀌어도 필요한 판단과 검증 결과를 이어서 사용할 수 있게 한다. 이 흐름을 실행하는 repo-local skill과 Python Harness, 동작을 확인하는 Reference Project를 함께 제공한다.
 
 ## 제공하는 개발 흐름
 
@@ -16,8 +16,7 @@ AI 에이전트와 실제 소프트웨어를 개발하면서 반복해 사용하
 ## 저장소 구성
 
 - [`reference-project/`](./reference-project/): Project context, Workspace, Skills와 Harness가 함께 동작하는 실행 가능한 기준 Project
-- [`.agents/skills/apply-context-harness/`](./.agents/skills/apply-context-harness/): 현재 Reference의 책임을 기존 Project에 맞게 이식하고 검증하는 절차
-- [`context/workspaces/`](./context/workspaces/): 이 도구를 만들고 실제 Project에 적용하며 얻은 현재 상태와 검증 기록
+- [`context/workspaces/`](./context/workspaces/): 이 도구를 만들고 검증하며 쌓은 작업 상태와 기록
 - [`context/source/`](./context/source/): 설계와 재검토에 사용한 원자료와 provenance
 
 ## Reference Project 실행
@@ -40,13 +39,3 @@ python3 -m context.work.harness verify 001-default-timeout
 ```
 
 각 명령의 책임과 사용 조건은 [Reference Project README](./reference-project/README.md)와 [Workspace Harness](./reference-project/context/work/harness/README.md)에서 확인한다. `verify`는 실제 Workspace의 receipt와 machine status를 갱신하므로 상태 전환이나 인계 증거가 필요할 때 실행한다.
-
-## 다른 Project에 적용
-
-이 저장소를 AI 개발 세션에서 열고 대상 Project 경로와 함께 `apply-context-harness`를 요청한다. 이식 skill은 대상의 기존 문서·설정·사용자 변경을 먼저 조사하고, 쓰기 전 변경 manifest를 제시한 뒤 승인된 범위만 적용한다.
-
-현재 자동 Maintain adapter는 Codex 환경을 기준으로 구현되어 있다. 다른 환경에서는 같은 Context 계약을 유지하면서 수동 Maintain 또는 별도로 검증한 adapter를 사용할 수 있다.
-
-## 현재 상태
-
-Reference Project의 Recover, Maintain, Verify와 Harness validation은 테스트로 검증되어 있다. 실제 Project 적용에서 발견한 문제를 다시 Reference와 이식 절차에 반영하며 개발하고 있다. 도구별 skill 발견, hook 신뢰, session activation처럼 host가 관여하는 동작은 각 적용 기록에 확인한 범위와 남은 한계를 구분해 둔다.
