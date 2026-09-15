@@ -5,6 +5,7 @@
 ## Active Workspace
 
 - active: [`012-ai-workspace-publication`](./012-ai-workspace-publication/)
+- prepared, inactive Maintain context-efficiency work: [`013-maintain-context-efficiency`](./013-maintain-context-efficiency/)
 - prior Noline integration and reference feedback: [`011-noline-harness-upgrade`](./011-noline-harness-upgrade/)
 - completed reference integration, downstream evaluation pending: [`010-spec-ticket-workspace-design`](./010-spec-ticket-workspace-design/)
 - prior Project context integration, follow-up checks pending: [`009-project-work-continuity-integration`](./009-project-work-continuity-integration/)
