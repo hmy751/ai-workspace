@@ -1,6 +1,6 @@
 # Reference Project instruction router
 
-이 파일은 Project root에서 Codex를 시작할 때 하위 책임의 운영 지침을 발견하게 하는 최소 라우터다. Reference 전체 관계는 [`README.md`](README.md)와 [`context/README.md`](context/README.md)에서 시작한다.
+이 파일은 Project root에서 Codex나 Claude Code를 시작할 때 하위 책임의 운영 지침을 발견하게 하는 최소 라우터다. `CLAUDE.md`는 이 파일의 symlink로, 두 tool이 같은 내용을 읽는다. Reference 전체 관계는 [`README.md`](README.md)와 [`context/README.md`](context/README.md)에서 시작한다.
 
 ## 범위별 지침
 
