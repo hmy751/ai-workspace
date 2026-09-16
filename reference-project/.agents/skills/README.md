@@ -22,7 +22,7 @@
 
 ## 도구 연결과 이식
 
-`read-project-context`와 작업 이해를 돕는 네 스킬은 `.claude/skills/`와 `.codex/skills/`에서 이 `.agents/skills/`의 같은 원본으로 상대 연결한다. 연결과 호출 설정의 존재는 실제 host의 발견·호출·본문 적용·Maintain 동작을 증명하지 않는다. 현재 자동 Maintain adapter는 Codex용이며, 다른 host의 문서 유지는 해당 Maintain 계약의 수동 fallback 또는 검증된 적응을 사용한다.
+`read-project-context`와 작업 이해를 돕는 네 스킬은 `.claude/skills/`와 `.codex/skills/`에서 이 `.agents/skills/`의 같은 원본으로 상대 연결한다. 연결과 호출 설정의 존재는 실제 host의 발견·호출·본문 적용·Maintain 동작을 증명하지 않는다. Maintain은 Codex·Claude 연결 코드를 제공하며 지원 범위와 실제 host 검증 상한은 [구현 안내](../../context/work/harness/maintain/STRUCTURE.md)가 설명한다. Hook이 실제 연결되지 않은 host의 문서 유지는 Maintain 계약의 수동 fallback을 사용한다.
 
 다른 Project에 이식할 때는 이 목록과 실제 디렉터리·호출 설정·연결·공통 기준을 함께 확인한다. 기존 동명 또는 같은 책임의 스킬과 비교해 설치·적응·제외를 정하고, 기존 guidance 색인을 병합한다. 이 색인과 스킬 본문이 다른 Project의 현재 제품 맥락을 소유하지 않는다.
 

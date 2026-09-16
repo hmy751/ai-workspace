@@ -29,6 +29,7 @@ Maintain의 agent는 Context 의미 정합성을 판단하고 guarded apply는 �
 - [`workspace_contract.py`](workspace_contract.py): active/id 선택, identity-only `workspace.json`, Work root 내부의 안전한 파일 접근, `status.json`과 receipt 연결 필드의 최소 공통 계약
 - [`recover/`](recover/): `recover.json`, current context 선택·로딩, 연결 receipt header와 선언된 snapshot freshness 확인, receipt 본문을 노출하지 않는 recovery packet과 사람용 출력
 - [`maintain/`](maintain/): 전체 Maintain 계약과 내부 책임 관계, [`session binding·lifecycle canonical`](maintain/SESSION-BINDING-AND-LIFECYCLE.md), bounded bootstrap, persisted semantic thread, guarded decision apply, host adapter, 책임별 test와 교체 가능한 Codex agent 정의
+- Maintain 코드 수정과 테스트 실행 위치는 [`구현 안내`](maintain/STRUCTURE.md)에서 찾는다. Codex·Claude 연결이 같은 runtime과 apply를 사용하며 도구별 설정·runtime은 분리한다.
 - [`verify/`](verify/): `verify.json`, evidence 선확보, 제한 실행, Workspace `records/receipts/verify/`의 append-only receipt, atomic status 갱신
 - [`validation/`](validation/): 임시 Workspace 순환과 checked-in 제품 machine state 보존 검사
 - [`testing.py`](testing.py): Recover·Verify·validation 테스트가 함께 사용하는 최소 fixture 기반

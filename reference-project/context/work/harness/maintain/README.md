@@ -13,10 +13,12 @@ Codex에서 main이 수동 fallback으로 부를 의미 판단 role은 [`workspa
 Maintain 전체의 목적과 비소유 범위는 이 README가 canonical이다. 내부의 서로 다른 판단과 집행 경계는 다음 진입점에서 이어진다.
 
 - **Session binding과 lifecycle**: 사람·Main의 explicit Workspace 선택을 session별 generation으로 commit하고 prompt·response-end·worker·notice를 정확한 Workspace와 semantic thread에 귀속한다. 상세 계약은 [`SESSION-BINDING-AND-LIFECYCLE.md`](SESSION-BINDING-AND-LIFECYCLE.md)가 소유한다.
-- **Semantic 판단**: [`workspace-context-maintainer.toml`](workspace-context-maintainer.toml)과 [`codex_session.py`](codex_session.py)가 bounded grounding과 같은 thread의 response-end 판단을 연결한다. Agent는 durable 변화·기존 의미 Owner·ambiguity·보고 중요도를 판단하지만 Workspace 선택과 사람 acceptance를 대신하지 않는다.
-- **Guarded apply**: [`operation.py`](operation.py)와 decision schema가 agent의 structured decision에 새 의미를 더하지 않고 exact Workspace·허용 Owner·preimage·경로·outcome별 side effect를 검사한다.
+- **Semantic 판단**: [`semantic/prompt.py`](semantic/prompt.py)가 공통 판단 입력을 구성하고 [`adapters/codex_session.py`](adapters/codex_session.py)가 기존 role 설정으로 bounded grounding과 같은 thread의 response-end 판단을 실행한다. Agent는 durable 변화·기존 의미 Owner·ambiguity·보고 중요도를 판단하지만 Workspace 선택과 사람 acceptance를 대신하지 않는다.
+- **Guarded apply**: [`contracts/`](contracts/)와 [`apply/`](apply/)가 agent의 structured decision에 새 의미를 더하지 않고 exact Workspace·허용 Owner·preimage·경로·outcome별 side effect를 검사한다.
 
 이 세 경계는 Maintain 안에서 함께 한 response-end 책임을 완성한다. Session binding을 Main session 전체의 일반 Workspace 선택 canonical이나 Recover·Maintain·Verify의 새 peer로 사용하지 않는다.
+
+공통 실행은 [`runtime/engine.py`](runtime/engine.py), Codex·Claude 연결은 [`adapters/`](adapters/)가 소유한다. 두 호스트의 기존 의미 판단은 Codex 실행을 사용한다. 파일별 책임, 테스트 실행법, 도구 설정과 지원 범위는 [`구현과 테스트 찾기`](STRUCTURE.md)에서 이어진다. 기존 `host_adapter.py`, `codex_session.py`, `operation.py` 공개 경로는 호환 진입점으로 유지한다.
 
 ## 사용자에게 보여야 하는 동작
 

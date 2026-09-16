@@ -1,4 +1,4 @@
-"""Workspace context maintenance responsibility."""
+"""Workspace Context의 Maintain 공개 API."""
 
 from .codex_session import CodexMaintainSession
 from .operation import (
@@ -7,6 +7,7 @@ from .operation import (
     bootstrap_workspace,
     validate_maintain_decision,
 )
+
 
 __all__ = [
     "CodexMaintainSession",

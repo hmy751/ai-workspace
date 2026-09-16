@@ -2,7 +2,7 @@
 
 이 문서는 Maintain 내부에서 하나의 Main session을 explicit Workspace와 semantic thread에 연결하고, Codex host event를 그 연결의 정확한 generation에 귀속하며, 비동기 처리와 사용자 전달 상태를 보존하는 상세 계약의 canonical이다. 새로운 Harness 책임이나 Recover·Maintain·Verify의 peer를 만들지 않는다. Maintain 전체의 정체성, 의미 판단과 Context 반영 경계는 [`Maintain`](README.md)이 계속 소유하고, 새 Workspace를 왜·언제 만들고 successor로 전환할지는 [`새 Workspace 생성·전환 canonical`](../../workspaces/CREATE-AND-TRANSITION.md)이 소유한다.
 
-이 경계의 교체 가능한 Reference 구현은 [`host_adapter.py`](host_adapter.py)와 [`codex_session.py`](codex_session.py)다. 구현 파일과 ignored runtime은 이 계약을 집행하는 장치이지 Workspace 의미의 Owner가 아니다.
+이 경계의 교체 가능한 Reference 구현은 공통 [`runtime/`](runtime/)과 도구별 [`adapters/`](adapters/)다. 기존 `host_adapter.py`와 `codex_session.py`는 공개 경로를 보존한다. 구현 파일과 ignored runtime은 이 계약을 집행하는 장치이지 Workspace 의미의 Owner가 아니다. Claude 연결의 환경변수·turn pairing·별도 설정은 [구현 안내](STRUCTURE.md#codex와-claude-연결)를 따른다. 아래 Codex의 실제 hook 동작과 권한에 대한 증명 상한은 Claude 지원으로 해소되지 않는다.
 
 ## 책임과 결정권
 

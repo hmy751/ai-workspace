@@ -108,7 +108,7 @@ class CodexMaintainSessionTests(unittest.TestCase):
         self.assertEqual(result, grounding())
         self.assertEqual(session.thread_id, THREAD_ID)
         command, options = runner.calls[0]
-        module_root = Path(__file__).resolve().parents[1]
+        module_root = Path(__file__).resolve().parents[2]
         self.assertEqual(
             command,
             [
@@ -200,7 +200,7 @@ class CodexMaintainSessionTests(unittest.TestCase):
 
         self.assertEqual(result, no_change_decision())
         command, options = runner.calls[1]
-        module_root = Path(__file__).resolve().parents[1]
+        module_root = Path(__file__).resolve().parents[2]
         self.assertEqual(
             command,
             [

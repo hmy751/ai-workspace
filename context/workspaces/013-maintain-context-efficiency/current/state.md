@@ -1,13 +1,19 @@
 # 현재 상태
 
-마지막 갱신: `2026-09-15`
+마지막 갱신: `2026-09-16`
 
-## 준비 상태
+## 현재 구현과 검증
 
-- Workspace 013을 새로 만들고 범위·근거·설계·검증 계획을 기록했다.
-- 루트 Workspace 색인에는 `prepared, inactive`로만 연결했다. active는 계속 `012-ai-workspace-publication`이다.
-- Reference·Noline Maintain 코드, hook, binding, runtime과 모델 설정은 수정하지 않았다.
-- AI-native moment reviewer의 Codex·Claude 상태 파일은 문서 작성 직전 모두 `enabled: false`였다. 설정을 쓰거나 자동 재활성화하는 작업은 하지 않았다.
+- Reference Maintain을 `runtime/`, `semantic/`, `contracts/`, `apply/`, `adapters/`로 분리했다. 기존 세 모듈은 공개 경로를 보존하는 연결 파일이다. 구현 위치는 [STRUCTURE](../../../../reference-project/context/work/harness/maintain/STRUCTURE.md)에서 찾는다.
+- 기존 Maintain 테스트 67개를 보존하고 Claude 연결·도구 격리·CLI/worker·입력 경계 검사를 추가했다. Maintain 82개 테스트는 Python 3.14.3과 3.11.15에서 통과했다.
+- Python 3.14 전체 141개 중 140개가 통과했다. Verify의 `test_timeout_covers_descendant_after_group_leader_exits`는 변경 전 전체 126개 실행에서도 실패했고 변경 뒤 단독 실행에서는 통과했다. 이 시간 민감 실패 때문에 전체 green을 주장하지 않는다.
+- Noline의 기존 Claude hook을 Reference 공통 runtime에 적응했다. Claude 설정과 runtime은 `.claude` 아래에서 독립하고 기존 Codex 판단 실행은 유지한다. Reference Claude wrapper와 admission 설정은 제공하되 실제 hook은 등록·활성화하지 않았다.
+- Recover·Verify 구현과 제품 코드, Noline 적용본, 실제 binding·runtime, 모델 설정은 변경하지 않았다. 비용 개선·semantic replay·actual host acceptance는 아직 수행하지 않았다.
+- 자동 Maintain과 AI-native moment reviewer를 활성화하지 않았다. active 표기는 계속 `012-ai-workspace-publication`이며 이 작업의 선택과 실제 hook activation은 별개다.
+- 구현 diff는 아직 커밋하지 않았다. 상세 근거와 테스트 명령은 [리팩터링 기록](../records/2026-09-16-01-maintain-refactoring.md)에 남겼다.
+- 대화에서 합의한 코드 기준을 루트 [CODE-QUALITY](../../../../CODE-QUALITY.md)에 정의하고 루트 AGENTS와 같은 본문을 읽는 CLAUDE에서 연결했다. 적용 범위와 연결 근거는 [루트 지침 기록](../records/2026-09-16-02-root-code-quality-rules.md)에서 찾는다.
+- 후속 요청에 따라 Maintain의 import·간격·긴 표현을 정리하고 영문 LLM 프롬프트·hook 안내문 아래 한국어 번역 주석을 붙였다. 실행 구문과 전달 문자열은 동일하다. Maintain은 두 Python 버전에서 82개씩 통과했고 전체 회귀는 같은 Verify 실패 한 건이 남았다. [가독성 검증 기록](../records/2026-09-16-03-maintain-readability.md)에서 확인한다.
+- 루트 코드 기준을 전역 AI 지침 명확성 레퍼런스와 대조해 목적·적용 조건·행동·예외와 조사·출력의 관계를 정리했다. AGENTS의 적용 대상도 맞췄다. 대표 요청의 문서 검토만 수행했으며 실제 AI 수행 개선은 검증하지 않았다. [지침 정리 기록](../records/2026-09-16-04-code-quality-instruction-clarity.md)에서 확인한다.
 
 ## 확인된 문제
 
@@ -27,12 +33,10 @@ Maintain의 같은 semantic thread는 이전 의미뿐 아니라 전역 instruct
 
 ## 다음 행동
 
-1. Source와 Noline의 현재 Maintain 코드를 대조하고 이번 범위의 preimage와 target-specific 차이를 고정한다.
-2. 기존 effect와 원자료에서 replay fixture를 만들고 비용·정확성 baseline을 다시 산출한다.
-3. Source에 사용량 receipt와 instruction isolation을 먼저 넣어 고정비를 측정한다.
-4. batched Owner read와 response-end당 최대 2 model cycle을 구현한다.
-5. 검증 가능한 semantic checkpoint와 bounded rollover를 구현하고 automatic compact 전후와 비교한다.
-6. Reference 회귀·replay가 통과하면 이식 절차로 Noline에 적응하고 Noline host lifecycle을 별도로 검증한다.
-7. 구조 개선 뒤에만 Sol high와 더 낮은 reasoning effort를 같은 fixture로 비교한다.
+1. 책임 분리 diff와 [구현 안내](../../../../reference-project/context/work/harness/maintain/STRUCTURE.md)를 검토한다. 실제 hook 활성화와 Noline 적용은 이 소스 리팩터링의 자동 후속 동작이 아니다.
+2. 다음 비용 개선 단계에서는 기존 effect와 원자료로 replay fixture와 비용·정확성 baseline을 만든다.
+3. 사용량 receipt·instruction isolation, batched Owner read와 모델 cycle 상한, semantic checkpoint·bounded rollover를 순서대로 검증한다.
+4. Reference 회귀·replay 뒤에 Noline 설치본의 차이를 다시 대조해 별도 이식하고 실제 host lifecycle을 검증한다.
+5. 구조·비용 개선 뒤에만 reasoning effort 비교를 진행한다. Recover·Verify 내부 리팩터링은 별도 후속 범위다.
 
 구현을 시작하기 전에는 Workspace를 활성화하지 않는다. 이후에도 activation은 구현·검증과 별개의 명시적 사용자 선택으로 남긴다.

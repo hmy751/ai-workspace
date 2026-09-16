@@ -1,5 +1,11 @@
 # ai-workspace local instructions
 
+## Code work
+
+이 저장소 안의 코드 구현·수정·리팩터링·분석·진단·리뷰를 시작할 때 루트 [`CODE-QUALITY.md`](CODE-QUALITY.md)를 읽고, 그 문서의 적용 범위와 판단 기준을 따른다. 코드 작업 기준은 이 공통 문서가 소유하며 여기에는 중복 정의하지 않는다.
+
+루트 `CLAUDE.md`는 이 `AGENTS.md`의 symlink이므로 Claude와 Codex는 같은 진입점과 코드 기준을 사용한다.
+
 ## Context contract
 
 context 층의 canonical 역할은 `context/README.md`가 소유한다.

@@ -1,1 +1,1 @@
-"""Maintain operation tests."""
+"""Maintain의 동작과 부작용 경계 검증."""

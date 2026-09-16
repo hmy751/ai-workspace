@@ -139,4 +139,4 @@ reference 순환을 확인하기 위해 기본 timeout 구현을 의도적으로
 
 Project 맥락 갱신은 별도 `update-project-context` skill이 Project 계약을 적용하는 절차로 제공한다. Workspace 결과의 자동 승격이나 제품 결정·acceptance를 구현하지 않으며, 정적 설치만으로 새 session의 실제 discovery·invocation, 맥락 보존의 충분성과 장기 유지 효과를 증명하지 않는다.
 
-읽기·이해 지원 스킬 다섯 개의 설치와 상대 연결도 실제 host의 발견·호출·본문 적용이나 Main 결과가 Maintain의 문서 갱신·다음 실행자 입력까지 이어지는 운영 효과를 증명하지 않는다. 새 session은 기존처럼 default-unbound이며, 자동 lifecycle을 사용하지 않는 경우의 허용된 문서 반영은 Maintain 수동 fallback을 따른다. Claude·Codex의 같은 스킬 원본 연결과 Codex 전용 Maintain adapter의 실행 지원 범위를 구별한다.
+읽기·이해 지원 스킬 다섯 개의 설치와 상대 연결도 실제 host의 발견·호출·본문 적용이나 Main 결과가 Maintain의 문서 갱신·다음 실행자 입력까지 이어지는 운영 효과를 증명하지 않는다. 새 session은 기존처럼 default-unbound이며, 자동 lifecycle을 사용하지 않는 경우의 허용된 문서 반영은 Maintain 수동 fallback을 따른다. Codex·Claude Maintain 연결 코드와 책임별 테스트는 [구현 안내](context/work/harness/maintain/STRUCTURE.md)에서 찾는다. 두 호스트의 의미 판단은 기존 Codex 실행을 사용하며, Claude hook의 실제 등록·활성화·사용자 UI 전달은 별도 확인이 필요하다.

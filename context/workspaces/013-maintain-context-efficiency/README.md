@@ -2,7 +2,7 @@
 
 Maintain이 이전 대화의 의미를 이어 가는 목적은 보존하면서, 같은 semantic thread에 전체 transcript와 도구 출력을 계속 누적해 매 판단마다 다시 처리하는 비용을 제한하는 작업이다. `ai-workspace`의 Reference 구현에서 공통 구조를 먼저 개선하고, 검증된 변경을 Noline 설치본에 적응해 적용하는 두 대상을 한 작업 경계에서 관리한다.
 
-상태는 **Workspace 준비 완료 / 비활성 / 구현 미착수**다. 이 Workspace를 만들면서 active Workspace, Maintain binding·hook·runtime, Noline 설정, AI-native moment reviewer 설정은 변경하지 않았다.
+현재는 **Reference Maintain 책임·테스트·도구 연결 리팩터링 구현 / 비용 개선 미착수 / 자동 Maintain 비활성** 단계다. 사용자는 비용 개선 전에 기존 기능을 유지하면서 코드와 테스트의 가독성·응집도 및 Codex·Claude 연결 의존성을 정리하도록 결정했다. active Workspace, 실제 Maintain binding·hook·runtime, Noline 설정, AI-native moment reviewer 설정은 변경하지 않았다.
 
 ## 재진입
 
@@ -10,8 +10,9 @@ Maintain이 이전 대화의 의미를 이어 가는 목적은 보존하면서, 
 2. [`current/memory.md`](current/memory.md)
 3. [`current/state.md`](current/state.md)
 4. [`output/index.md`](output/index.md)
-5. [`records/2026-09-15-01-scope-correction-and-runtime-evidence.md`](records/2026-09-15-01-scope-correction-and-runtime-evidence.md)
-6. [`records/2026-09-15-02-improvement-design-and-validation-plan.md`](records/2026-09-15-02-improvement-design-and-validation-plan.md)
+5. [`책임 분리와 검증 기록`](records/2026-09-16-01-maintain-refactoring.md)
+6. [`records/2026-09-15-01-scope-correction-and-runtime-evidence.md`](records/2026-09-15-01-scope-correction-and-runtime-evidence.md)
+7. [`records/2026-09-15-02-improvement-design-and-validation-plan.md`](records/2026-09-15-02-improvement-design-and-validation-plan.md)
 
 ## 책임 경계
 

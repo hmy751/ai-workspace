@@ -1,4 +1,4 @@
-"""Minimal isolated Project/Workspace support shared by Harness tests."""
+"""Harness가 공유하는 임시 Project·Workspace와 선택적 검증 시나리오."""
 
 from __future__ import annotations
 
@@ -16,8 +16,17 @@ HARNESS_SOURCE = Path(__file__).resolve().parent
 
 class WorkspaceFixture(unittest.TestCase):
     maxDiff = None
+    include_verification_scenarios = True
 
     def setUp(self) -> None:
+        self._create_project_tree()
+        if self.include_verification_scenarios:
+            self._create_verification_scenarios()
+        self._create_workspace_sources()
+        self._create_workspace_contracts()
+        self._create_workspace_current()
+
+    def _create_project_tree(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()
         self.project_root = Path(self.temporary_directory.name)
         self.work_root = self.project_root / "context" / "work"
@@ -100,6 +109,8 @@ class WorkspaceFixture(unittest.TestCase):
             "        )\n",
             encoding="utf-8",
         )
+
+    def _create_verification_scenarios(self) -> None:
         (self.project_root / "tests" / "test_delete_evidence.py").write_text(
             "from pathlib import Path\n"
             "import unittest\n\n"
@@ -129,6 +140,7 @@ class WorkspaceFixture(unittest.TestCase):
             encoding="utf-8",
         )
 
+    def _create_workspace_sources(self) -> None:
         records = self.work_root / "workspaces" / "001-example" / "records"
         (records / "old.json").write_text(
             '{"secret": "UNLOADED_RECORD_SECRET"}\n', encoding="utf-8"
@@ -152,6 +164,7 @@ class WorkspaceFixture(unittest.TestCase):
             "UNLOADED_OUTPUT_ARTIFACT_SECRET\n", encoding="utf-8"
         )
 
+    def _create_workspace_contracts(self) -> None:
         self.index = {
             "schema_version": 1,
             "active_workspace_id": "001-example",
@@ -205,6 +218,7 @@ class WorkspaceFixture(unittest.TestCase):
             "workspaces/001-example/verify.json", self.verify_contract
         )
 
+    def _create_workspace_current(self) -> None:
         memory = (
             self.work_root
             / "workspaces"
