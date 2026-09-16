@@ -13,9 +13,7 @@ from context.work.harness.testing import WorkspaceFixture
 
 class VerifyTests(WorkspaceFixture):
     def test_runs_when_recover_contract_is_invalid(self) -> None:
-        recover_path = (
-            self.work_root / "workspaces" / "001-example" / "recover.json"
-        )
+        recover_path = self.work_root / "workspaces" / "001-example" / "recover.json"
         recover_path.write_text(
             '{"project_context": "INVALID_RECOVER_CONTRACT_SECRET"\n',
             encoding="utf-8",
@@ -42,30 +40,20 @@ class VerifyTests(WorkspaceFixture):
         )
         contract = copy.deepcopy(self.verify_contract)
         contract["canonical_basis"] = ["PRODUCT.md"]
-        self.write_work_json(
-            "workspaces/001-example/verify.json", contract
-        )
+        self.write_work_json("workspaces/001-example/verify.json", contract)
 
         completed = self.run_cli("verify")
 
-        self.assertEqual(
-            completed.returncode, 0, completed.stdout + completed.stderr
-        )
-        receipt = json.loads(
-            self.receipt_files()[0].read_text(encoding="utf-8")
-        )
-        self.assertEqual(
-            receipt["canonical_basis_files"][0]["path"], "PRODUCT.md"
-        )
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+        receipt = json.loads(self.receipt_files()[0].read_text(encoding="utf-8"))
+        self.assertEqual(receipt["canonical_basis_files"][0]["path"], "PRODUCT.md")
 
     def test_uses_project_root_for_evidence_and_command_cwd(self) -> None:
         decoy_src = self.work_root / "src"
         decoy_tests = self.work_root / "tests"
         decoy_src.mkdir()
         decoy_tests.mkdir()
-        (decoy_src / "value.txt").write_text(
-            "expected\n", encoding="utf-8"
-        )
+        (decoy_src / "value.txt").write_text("expected\n", encoding="utf-8")
         (decoy_tests / "__init__.py").write_text("", encoding="utf-8")
         (decoy_tests / "test_behavior.py").write_text(
             "from pathlib import Path\n"
@@ -162,36 +150,25 @@ class VerifyTests(WorkspaceFixture):
     def test_rejects_verify_contract_schema_id_and_symlinked_evidence(self) -> None:
         wrong_schema = copy.deepcopy(self.verify_contract)
         wrong_schema["schema_version"] = 1
-        self.write_work_json(
-            "workspaces/001-example/verify.json", wrong_schema
-        )
+        self.write_work_json("workspaces/001-example/verify.json", wrong_schema)
         completed = self.run_cli("verify")
         self.assertEqual(completed.returncode, 2)
         self.assertIn("schema_version", completed.stderr)
 
         wrong_id = copy.deepcopy(self.verify_contract)
         wrong_id["workspace_id"] = "002-other"
-        self.write_work_json(
-            "workspaces/001-example/verify.json", wrong_id
-        )
+        self.write_work_json("workspaces/001-example/verify.json", wrong_id)
         completed = self.run_cli("verify")
         self.assertEqual(completed.returncode, 2)
         self.assertIn("does not match", completed.stderr)
 
-        outside = (
-            self.project_root
-            / "context"
-            / "project"
-            / "outside-evidence.txt"
-        )
+        outside = self.project_root / "context" / "project" / "outside-evidence.txt"
         outside.write_text("outside\n", encoding="utf-8")
         evidence = self.project_root / "src" / "linked-evidence.txt"
         evidence.symlink_to(outside)
         linked = copy.deepcopy(self.verify_contract)
         linked["verification"]["evidence_paths"] = ["src/linked-evidence.txt"]
-        self.write_work_json(
-            "workspaces/001-example/verify.json", linked
-        )
+        self.write_work_json("workspaces/001-example/verify.json", linked)
         completed = self.run_cli("verify")
         self.assertEqual(completed.returncode, 2)
         self.assertIn("symlink", completed.stderr)
@@ -200,12 +177,8 @@ class VerifyTests(WorkspaceFixture):
         basis = self.project_root / "context" / "project" / "linked-basis.md"
         basis.symlink_to(outside)
         linked_basis = copy.deepcopy(self.verify_contract)
-        linked_basis["canonical_basis"] = [
-            "context/project/linked-basis.md"
-        ]
-        self.write_work_json(
-            "workspaces/001-example/verify.json", linked_basis
-        )
+        linked_basis["canonical_basis"] = ["context/project/linked-basis.md"]
+        self.write_work_json("workspaces/001-example/verify.json", linked_basis)
         completed = self.run_cli("verify")
         self.assertEqual(completed.returncode, 2)
         self.assertIn("symlink", completed.stderr)
@@ -228,9 +201,7 @@ class VerifyTests(WorkspaceFixture):
         self.assertIn("not valid JSON", completed.stderr)
         self.assertEqual(self.receipt_files(), [])
         self.assertEqual(
-            (self.project_root / "src" / "value.txt").read_text(
-                encoding="utf-8"
-            ),
+            (self.project_root / "src" / "value.txt").read_text(encoding="utf-8"),
             "wrong\n",
         )
 
@@ -247,9 +218,7 @@ class VerifyTests(WorkspaceFixture):
         self.assertIn("product Verify receipt", wrong_receipt_type.stderr)
         self.assertEqual(self.receipt_files(), [])
         self.assertEqual(
-            (self.project_root / "src" / "value.txt").read_text(
-                encoding="utf-8"
-            ),
+            (self.project_root / "src" / "value.txt").read_text(encoding="utf-8"),
             "wrong\n",
         )
 
@@ -292,16 +261,12 @@ class VerifyTests(WorkspaceFixture):
             "tests.test_delete_evidence",
             "-v",
         ]
-        self.write_work_json(
-            "workspaces/001-example/verify.json", contract
-        )
+        self.write_work_json("workspaces/001-example/verify.json", contract)
 
         completed = self.run_cli("verify")
 
         self.assertEqual(completed.returncode, 2)
-        self.assertIn(
-            "verify receipts directory does not exist", completed.stderr
-        )
+        self.assertIn("verify receipts directory does not exist", completed.stderr)
         self.assertTrue((self.project_root / "src" / "value.txt").exists())
 
     def test_rejects_symlinked_verify_receipts_directory_before_command(self) -> None:
@@ -325,9 +290,7 @@ class VerifyTests(WorkspaceFixture):
             "tests.test_delete_evidence",
             "-v",
         ]
-        self.write_work_json(
-            "workspaces/001-example/verify.json", contract
-        )
+        self.write_work_json("workspaces/001-example/verify.json", contract)
 
         completed = self.run_cli("verify")
 
@@ -348,11 +311,7 @@ class VerifyTests(WorkspaceFixture):
         status_path = state_index_path.parent / "status.json"
         original_state_index = state_index_path.read_bytes()
         old_record = (
-            self.work_root
-            / "workspaces"
-            / "001-example"
-            / "records"
-            / "old.json"
+            self.work_root / "workspaces" / "001-example" / "records" / "old.json"
         )
         original_old_record = old_record.read_bytes()
 
@@ -381,12 +340,8 @@ class VerifyTests(WorkspaceFixture):
         self.assertIsInstance(failed_receipt["finished_at"], str)
         self.assertIsInstance(failed_receipt["stdout"], str)
         self.assertIsInstance(failed_receipt["stderr"], str)
-        self.assertEqual(
-            failed_receipt["evidence_capture"], "before_verification"
-        )
-        self.assertEqual(
-            failed_status["finished_at"], failed_receipt["finished_at"]
-        )
+        self.assertEqual(failed_receipt["evidence_capture"], "before_verification")
+        self.assertEqual(failed_status["finished_at"], failed_receipt["finished_at"])
         self.assertEqual(
             failed_receipt["argv"], self.verify_contract["verification"]["argv"]
         )
@@ -415,9 +370,7 @@ class VerifyTests(WorkspaceFixture):
         self.assertEqual(runtime["verification_receipt_schema_version"], 2)
         expected_snapshot = json.dumps(
             {
-                "canonical_basis_files": failed_receipt[
-                    "canonical_basis_files"
-                ],
+                "canonical_basis_files": failed_receipt["canonical_basis_files"],
                 "evidence_files": failed_receipt["evidence_files"],
             },
             ensure_ascii=False,
@@ -484,9 +437,7 @@ class VerifyTests(WorkspaceFixture):
             "tests.test_delete_evidence",
             "-v",
         ]
-        self.write_work_json(
-            "workspaces/001-example/verify.json", contract
-        )
+        self.write_work_json("workspaces/001-example/verify.json", contract)
         expected_bytes = b"wrong\n"
 
         completed = self.run_cli("verify")
@@ -494,9 +445,7 @@ class VerifyTests(WorkspaceFixture):
         self.assertEqual(completed.returncode, 1, completed.stdout + completed.stderr)
         summary = json.loads(completed.stdout)
         self.assertEqual(summary["status"], "verification_failed")
-        self.assertFalse(
-            (self.project_root / "src" / "value.txt").exists()
-        )
+        self.assertFalse((self.project_root / "src" / "value.txt").exists())
         receipt_files = self.receipt_files()
         self.assertEqual(len(receipt_files), 1)
         receipt = json.loads(receipt_files[0].read_text(encoding="utf-8"))
@@ -517,11 +466,7 @@ class VerifyTests(WorkspaceFixture):
 
     def test_captures_canonical_basis_before_command_deletes_it(self) -> None:
         basis_path = (
-            self.project_root
-            / "context"
-            / "project"
-            / "common"
-            / "task-context.md"
+            self.project_root / "context" / "project" / "common" / "task-context.md"
         )
         expected_bytes = basis_path.read_bytes()
         delete_basis_test = self.project_root / "tests" / "test_delete_basis.py"
@@ -542,17 +487,13 @@ class VerifyTests(WorkspaceFixture):
             "tests.test_delete_basis",
             "-v",
         ]
-        self.write_work_json(
-            "workspaces/001-example/verify.json", contract
-        )
+        self.write_work_json("workspaces/001-example/verify.json", contract)
 
         completed = self.run_cli("verify")
 
         self.assertEqual(completed.returncode, 1, completed.stdout + completed.stderr)
         self.assertFalse(basis_path.exists())
-        receipt = json.loads(
-            self.receipt_files()[0].read_text(encoding="utf-8")
-        )
+        receipt = json.loads(self.receipt_files()[0].read_text(encoding="utf-8"))
         basis_snapshot = receipt["canonical_basis_files"][0]
         self.assertEqual(
             basis_snapshot["path"],
@@ -578,9 +519,7 @@ class VerifyTests(WorkspaceFixture):
                 "max_output_chars": 1000,
             }
         )
-        self.write_work_json(
-            "workspaces/001-example/verify.json", contract
-        )
+        self.write_work_json("workspaces/001-example/verify.json", contract)
 
         completed = self.run_cli("verify")
 
@@ -608,10 +547,7 @@ class VerifyTests(WorkspaceFixture):
         launcher = self.project_root / "tests" / "spawn-descendant"
         descendant_pid_path = self.project_root / "descendant.pid"
         launcher.write_text(
-            "#!/bin/sh\n"
-            "sleep 30 &\n"
-            "echo \"$!\" > descendant.pid\n"
-            "exit 0\n",
+            "#!/bin/sh\n" "sleep 30 &\n" 'echo "$!" > descendant.pid\n' "exit 0\n",
             encoding="utf-8",
         )
         launcher.chmod(0o700)
@@ -623,17 +559,13 @@ class VerifyTests(WorkspaceFixture):
                 "max_output_chars": 1000,
             }
         )
-        self.write_work_json(
-            "workspaces/001-example/verify.json", contract
-        )
+        self.write_work_json("workspaces/001-example/verify.json", contract)
 
         started = time.monotonic()
         completed = self.run_cli("verify")
         elapsed = time.monotonic() - started
 
-        self.assertEqual(
-            completed.returncode, 124, completed.stdout + completed.stderr
-        )
+        self.assertEqual(completed.returncode, 124, completed.stdout + completed.stderr)
         self.assertLess(elapsed, 2.0)
         self.assertTrue(
             descendant_pid_path.is_file(), completed.stdout + completed.stderr
@@ -661,9 +593,7 @@ class VerifyTests(WorkspaceFixture):
 
         summary = json.loads(completed.stdout)
         self.assertTrue(summary["timed_out"])
-        receipt = json.loads(
-            self.receipt_files()[0].read_text(encoding="utf-8")
-        )
+        receipt = json.loads(self.receipt_files()[0].read_text(encoding="utf-8"))
         self.assertEqual(receipt["process_returncode"], 0)
         self.assertEqual(receipt["exit_code"], 124)
         self.assertEqual(receipt["result"], "fail")
@@ -685,9 +615,7 @@ class VerifyTests(WorkspaceFixture):
                 "max_output_chars": 120,
             }
         )
-        self.write_work_json(
-            "workspaces/001-example/verify.json", contract
-        )
+        self.write_work_json("workspaces/001-example/verify.json", contract)
 
         completed = self.run_cli("verify")
 
@@ -707,12 +635,8 @@ class VerifyTests(WorkspaceFixture):
         self.assertGreater(capture["stderr"]["observed_chars"], 120)
         self.assertTrue(capture["stdout"]["truncated"])
         self.assertTrue(capture["stderr"]["truncated"])
-        self.assertEqual(
-            capture["stdout"]["persisted_chars"], len(receipt["stdout"])
-        )
-        self.assertEqual(
-            capture["stderr"]["persisted_chars"], len(receipt["stderr"])
-        )
+        self.assertEqual(capture["stdout"]["persisted_chars"], len(receipt["stdout"]))
+        self.assertEqual(capture["stderr"]["persisted_chars"], len(receipt["stderr"]))
         normalization = receipt["normalization"]
         self.assertEqual(normalization["output_root_token"], "<OUTPUT_ROOT>")
         self.assertGreaterEqual(normalization["stdout_replacements"], 1)

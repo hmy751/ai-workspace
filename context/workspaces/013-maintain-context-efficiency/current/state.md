@@ -8,12 +8,13 @@
 - 기존 Maintain 테스트 67개를 보존하고 Claude 연결·도구 격리·CLI/worker·입력 경계 검사를 추가했다. Maintain 82개 테스트는 Python 3.14.3과 3.11.15에서 통과했다.
 - Python 3.14 전체 141개 중 140개가 통과했다. Verify의 `test_timeout_covers_descendant_after_group_leader_exits`는 변경 전 전체 126개 실행에서도 실패했고 변경 뒤 단독 실행에서는 통과했다. 이 시간 민감 실패 때문에 전체 green을 주장하지 않는다.
 - Noline의 기존 Claude hook을 Reference 공통 runtime에 적응했다. Claude 설정과 runtime은 `.claude` 아래에서 독립하고 기존 Codex 판단 실행은 유지한다. Reference Claude wrapper와 admission 설정은 제공하되 실제 hook은 등록·활성화하지 않았다.
-- Recover·Verify 구현과 제품 코드, Noline 적용본, 실제 binding·runtime, 모델 설정은 변경하지 않았다. 비용 개선·semantic replay·actual host acceptance는 아직 수행하지 않았다.
+- Recover·Verify·제품·설치 helper 코드에는 후속 전체 Black 요청에 따라 포맷만 적용했다. 내부 리팩터링이나 동작 변경은 하지 않았다. Noline 적용본, 실제 binding·runtime, 모델 설정은 변경하지 않았고 비용 개선·semantic replay·actual host acceptance는 아직 수행하지 않았다.
 - 자동 Maintain과 AI-native moment reviewer를 활성화하지 않았다. active 표기는 계속 `012-ai-workspace-publication`이며 이 작업의 선택과 실제 hook activation은 별개다.
-- 구현 diff는 아직 커밋하지 않았다. 상세 근거와 테스트 명령은 [리팩터링 기록](../records/2026-09-16-01-maintain-refactoring.md)에 남겼다.
+- 책임·테스트·도구 연결 리팩터링과 루트 코드 지침은 `3b588e3`에 커밋했다. 이후 Black 설정·전체 포맷 변경은 별도 후속 커밋 단위로 분리한다. 구조 변경의 상세 근거와 테스트 명령은 [리팩터링 기록](../records/2026-09-16-01-maintain-refactoring.md)에 남겼다.
 - 대화에서 합의한 코드 기준을 루트 [CODE-QUALITY](../../../../CODE-QUALITY.md)에 정의하고 루트 AGENTS와 같은 본문을 읽는 CLAUDE에서 연결했다. 적용 범위와 연결 근거는 [루트 지침 기록](../records/2026-09-16-02-root-code-quality-rules.md)에서 찾는다.
 - 후속 요청에 따라 Maintain의 import·간격·긴 표현을 정리하고 영문 LLM 프롬프트·hook 안내문 아래 한국어 번역 주석을 붙였다. 실행 구문과 전달 문자열은 동일하다. Maintain은 두 Python 버전에서 82개씩 통과했고 전체 회귀는 같은 Verify 실패 한 건이 남았다. [가독성 검증 기록](../records/2026-09-16-03-maintain-readability.md)에서 확인한다.
 - 루트 코드 기준을 전역 AI 지침 명확성 레퍼런스와 대조해 목적·적용 조건·행동·예외와 조사·출력의 관계를 정리했다. AGENTS의 적용 대상도 맞췄다. 대표 요청의 문서 검토만 수행했으며 실제 AI 수행 개선은 검증하지 않았다. [지침 정리 기록](../records/2026-09-16-04-code-quality-instruction-clarity.md)에서 확인한다.
+- 저장소 루트에 Black 공통 설정과 개발용 의존성을 추가하고 현재 Python 코드에 적용했다. 86개 대상의 포맷 검사가 통과했고 변경한 52개 파일은 커밋의 AST와 동일하다. helper 7개·Maintain Python 3.11 검사 82개는 통과했고 Reference 전체 141개에서는 기존 Verify 실패 한 건이 남았다. [Black 적용 기록](../records/2026-09-16-05-repo-black.md)에서 확인한다.
 
 ## 확인된 문제
 

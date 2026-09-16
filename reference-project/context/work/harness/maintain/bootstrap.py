@@ -25,8 +25,7 @@ def bootstrap_workspace(
     if packet["workspace_id"] != explicit_workspace_id:
         fail("Maintain bootstrap Workspace binding changed during recovery")
     if any(
-        entry["path_base"] == "work_root"
-        and entry["path"] == "workspaces/index.json"
+        entry["path_base"] == "work_root" and entry["path"] == "workspaces/index.json"
         for entry in packet["control_paths"]
     ):
         fail("Maintain bootstrap must not use the active Workspace index")

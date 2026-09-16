@@ -84,9 +84,7 @@ class TestTransaction(MaintainApplyFixture):
         with self.assertRaisesRegex(HarnessError, "stale"):
             self.apply(decision)
 
-        self.assertEqual(
-            target.read_text(encoding="utf-8"), "# concurrent change\n"
-        )
+        self.assertEqual(target.read_text(encoding="utf-8"), "# concurrent change\n")
 
     def test_new_file_requires_null_and_existing_file_requires_digest(self) -> None:
         new_memory = self.decision(

@@ -24,7 +24,6 @@ from ..runtime.storage_io import (
 from .codex_session import CodexMaintainSession
 from .events import _hook_output
 
-
 _HOOK_EVENTS = {
     "session-start": "SessionStart",
     "user-prompt": "UserPromptSubmit",
@@ -90,9 +89,7 @@ class ClaudeHookAdapter:
         agent_id = payload.get("agent_id")
         return isinstance(agent_id, str) and bool(agent_id.strip())
 
-    def _base_payload(
-        self, payload: Mapping[str, Any], command: str
-    ) -> dict[str, Any]:
+    def _base_payload(self, payload: Mapping[str, Any], command: str) -> dict[str, Any]:
         actual = payload.get("hook_event_name")
         expected = _HOOK_EVENTS[command]
         if actual != expected:
@@ -241,7 +238,8 @@ class ClaudeHookAdapter:
         if command not in _CONTROL_COMMANDS:
             fail(f"unsupported Claude Maintain control command: {command}")
         selected_session_id = (
-            session_id if session_id is not None
+            session_id
+            if session_id is not None
             else self.environ.get(_CLAUDE_SESSION_ENV)
         )
         selected_session_id = expect_nonempty_string(
@@ -335,7 +333,9 @@ def main(
                 "session-end": adapter.session_end,
             }
             output = handlers[arguments.command](payload)
-        print(json.dumps(output, ensure_ascii=False, sort_keys=True), file=output_stream)
+        print(
+            json.dumps(output, ensure_ascii=False, sort_keys=True), file=output_stream
+        )
         return 0
     except (HarnessError, OSError, ValueError) as exc:
         if arguments.command in {*_CONTROL_COMMANDS, "drain"}:

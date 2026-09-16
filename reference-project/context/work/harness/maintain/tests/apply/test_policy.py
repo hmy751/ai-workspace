@@ -77,9 +77,7 @@ class TestPolicy(MaintainApplyFixture):
             "content": "# First Maintain result\n\nDurable analysis.\n",
             "reason": "Preserve reusable analysis.",
         }
-        with self.assertRaisesRegex(
-            HarnessError, "requires.*records/README.md"
-        ):
+        with self.assertRaisesRegex(HarnessError, "requires.*records/README.md"):
             self.apply(self.decision("update", changes=[new_record]))
 
         decision = self.decision(

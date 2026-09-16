@@ -16,9 +16,7 @@ class MaintainCliTests(WorkspaceFixture):
             "not-json\n", encoding="utf-8"
         )
 
-        completed = self.run_cli(
-            "maintain", "bootstrap", "001-example", "--json"
-        )
+        completed = self.run_cli("maintain", "bootstrap", "001-example", "--json")
 
         self.assertEqual(completed.returncode, 0, completed.stderr)
         packet = json.loads(completed.stdout)
@@ -43,9 +41,7 @@ class MaintainCliTests(WorkspaceFixture):
             "changes": [
                 {
                     "path": "current/state/index.md",
-                    "expected_sha256": hashlib.sha256(
-                        target.read_bytes()
-                    ).hexdigest(),
+                    "expected_sha256": hashlib.sha256(target.read_bytes()).hexdigest(),
                     "content": "# state\n\nupdated current description\n",
                     "reason": "The current problem changed.",
                 }
@@ -59,9 +55,7 @@ class MaintainCliTests(WorkspaceFixture):
             json.dumps(decision, ensure_ascii=False), encoding="utf-8"
         )
 
-        completed = self.run_cli(
-            "maintain", "apply", "001-example", str(decision_path)
-        )
+        completed = self.run_cli("maintain", "apply", "001-example", str(decision_path))
 
         self.assertEqual(completed.returncode, 0, completed.stderr)
         result = json.loads(completed.stdout)
@@ -84,9 +78,7 @@ class MaintainCliTests(WorkspaceFixture):
         decision_path = self.project_root / "invalid-decision.json"
         decision_path.write_text("{bad\n", encoding="utf-8")
 
-        completed = self.run_cli(
-            "maintain", "apply", "001-example", str(decision_path)
-        )
+        completed = self.run_cli("maintain", "apply", "001-example", str(decision_path))
 
         self.assertEqual(completed.returncode, 2)
         self.assertIn("not valid JSON", completed.stderr)

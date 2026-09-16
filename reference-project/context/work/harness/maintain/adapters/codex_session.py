@@ -24,7 +24,6 @@ from ...workspace_contract import (
     validate_workspace_id,
 )
 
-
 CommandRunner = Callable[..., subprocess.CompletedProcess[str]]
 _THREAD_ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]*$")
 
@@ -149,7 +148,9 @@ class CodexMaintainSession:
         if self._thread_id is None:
             fail("Codex Maintain session must be grounded before resume")
         thread_id = self._thread_id
-        prompt = PromptBuilder(self.workspace_id)._decision_prompt(bounded_response_delta)
+        prompt = PromptBuilder(self.workspace_id)._decision_prompt(
+            bounded_response_delta
+        )
         schema_path = self._resource_path("decision.schema.json")
         with self._last_message_path(output_path) as last_message_path:
             command = [
@@ -214,9 +215,7 @@ class CodexMaintainSession:
         return path
 
     @contextmanager
-    def _last_message_path(
-        self, output_path: Path | None
-    ) -> Iterator[Path]:
+    def _last_message_path(self, output_path: Path | None) -> Iterator[Path]:
         if output_path is not None:
             path = Path(output_path)
             if path.exists():
@@ -251,9 +250,7 @@ class CodexMaintainSession:
             stderr = (completed.stderr or "").strip()
             detail = f": {stderr}" if stderr else ""
             fail(f"Codex command failed with exit {completed.returncode}{detail}")
-        thread_id = self._parse_thread_id(
-            completed.stdout or "", expected_thread_id
-        )
+        thread_id = self._parse_thread_id(completed.stdout or "", expected_thread_id)
         try:
             raw_last_message = last_message_path.read_text(encoding="utf-8")
         except (OSError, UnicodeError) as exc:
@@ -271,9 +268,7 @@ class CodexMaintainSession:
         return thread_id, value
 
     @staticmethod
-    def _parse_thread_id(
-        stdout: str, expected_thread_id: str | None
-    ) -> str:
+    def _parse_thread_id(stdout: str, expected_thread_id: str | None) -> str:
         thread_ids: list[str] = []
         for line_number, raw_line in enumerate(stdout.splitlines(), start=1):
             if not raw_line.strip():
@@ -282,8 +277,7 @@ class CodexMaintainSession:
                 event = json.loads(raw_line)
             except json.JSONDecodeError as exc:
                 raise HarnessError(
-                    "Codex JSONL contains invalid JSON at line "
-                    f"{line_number}: {exc}"
+                    "Codex JSONL contains invalid JSON at line " f"{line_number}: {exc}"
                 ) from exc
             if not isinstance(event, dict):
                 fail(f"Codex JSONL event at line {line_number} is not an object")

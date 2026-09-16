@@ -127,9 +127,7 @@ class MaintainHostHookLifecycleTests(MaintainHostAdapterFixture):
         )
 
         self.assertEqual(state_path.read_text(encoding="utf-8"), new_content)
-        important_context = important_output["hookSpecificOutput"][
-            "additionalContext"
-        ]
+        important_context = important_output["hookSpecificOutput"]["additionalContext"]
         self.assertIn("updated Workspace", important_context)
         self.assertIn("current/state/index.md", important_context)
 
@@ -149,11 +147,7 @@ class MaintainHostHookLifecycleTests(MaintainHostAdapterFixture):
         command, options = self.popen.calls[0]
         self.assertIn("drain", command)
         self.assertTrue(options["start_new_session"])
-        event_directory = (
-            self.runtime_root
-            / self.session_key(session_id)
-            / "events"
-        )
+        event_directory = self.runtime_root / self.session_key(session_id) / "events"
         self.assertEqual(len(list(event_directory.glob("*.json"))), 1)
 
     def test_next_prompt_exposes_prior_prompt_without_response_end_once(self) -> None:
@@ -173,11 +167,7 @@ class MaintainHostHookLifecycleTests(MaintainHostAdapterFixture):
         notification = output["hookSpecificOutput"]["additionalContext"]
         self.assertIn("without a matching response-end", notification)
         self.assertNotIn("hookSpecificOutput", repeated)
-        effect_directory = (
-            self.runtime_root
-            / self.session_key(session_id)
-            / "effects"
-        )
+        effect_directory = self.runtime_root / self.session_key(session_id) / "effects"
         effects = [
             json.loads(path.read_text(encoding="utf-8"))
             for path in effect_directory.glob("*.json")
@@ -209,9 +199,7 @@ class MaintainHostHookLifecycleTests(MaintainHostAdapterFixture):
         self.assertIn("1 prompt(s) missing", output["systemMessage"])
         session_end = json.loads(
             (
-                self.runtime_root
-                / self.session_key(session_id)
-                / "session-end.json"
+                self.runtime_root / self.session_key(session_id) / "session-end.json"
             ).read_text(encoding="utf-8")
         )
         self.assertEqual(len(session_end["orphan_prompt_keys"]), 1)

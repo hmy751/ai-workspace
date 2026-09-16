@@ -74,10 +74,7 @@ def _control_session_id(explicit_session_id: str | None) -> str:
         else os.environ.get("CODEX_SESSION_ID")
     )
     if candidate is None:
-        fail(
-            "Maintain control command requires --session-id or "
-            "CODEX_SESSION_ID"
-        )
+        fail("Maintain control command requires --session-id or " "CODEX_SESSION_ID")
     return expect_nonempty_string(candidate, "Codex session id")
 
 
@@ -137,9 +134,7 @@ def main(argv: list[str] | None = None) -> int:
                 or arguments.workspace_id
             ):
                 fail("deactivate accepts only session selection options")
-            output = adapter.deactivate(
-                _control_session_id(arguments.session_id)
-            )
+            output = adapter.deactivate(_control_session_id(arguments.session_id))
         elif arguments.command == "status":
             if (
                 arguments.control_value

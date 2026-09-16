@@ -28,8 +28,7 @@ class MaintainHostAdapterFixture(WorkspaceFixture):
         codex_directory = self.project_root / ".codex"
         codex_directory.mkdir()
         (codex_directory / "maintain.json").write_text(
-            json.dumps({"schema_version": 2, "mode": "explicit"})
-            + "\n",
+            json.dumps({"schema_version": 2, "mode": "explicit"}) + "\n",
             encoding="utf-8",
         )
         self.runtime_root = codex_directory / "test-maintain-runtime"
@@ -77,9 +76,7 @@ class MaintainHostAdapterFixture(WorkspaceFixture):
         }
 
     @staticmethod
-    def prompt_payload(
-        session_id: str, turn_id: str, prompt: str
-    ) -> dict[str, object]:
+    def prompt_payload(session_id: str, turn_id: str, prompt: str) -> dict[str, object]:
         return {
             "hook_event_name": "UserPromptSubmit",
             "session_id": session_id,
@@ -88,9 +85,7 @@ class MaintainHostAdapterFixture(WorkspaceFixture):
         }
 
     @staticmethod
-    def stop_payload(
-        session_id: str, turn_id: str, response: str
-    ) -> dict[str, object]:
+    def stop_payload(session_id: str, turn_id: str, response: str) -> dict[str, object]:
         return {
             "hook_event_name": "Stop",
             "session_id": session_id,
@@ -136,9 +131,7 @@ class MaintainHostAdapterFixture(WorkspaceFixture):
                 encoding="utf-8",
             )
 
-    def workspace_bytes(
-        self, workspace_id: str = "001-example"
-    ) -> dict[str, bytes]:
+    def workspace_bytes(self, workspace_id: str = "001-example") -> dict[str, bytes]:
         workspace = self.work_root / "workspaces" / workspace_id
         return {
             path.relative_to(workspace).as_posix(): path.read_bytes()

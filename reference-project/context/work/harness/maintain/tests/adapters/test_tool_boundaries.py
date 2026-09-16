@@ -93,12 +93,17 @@ class ToolBoundaryTests(WorkspaceFixture):
             with self.subTest(value=value):
                 output = io.StringIO()
                 result = main(
-                    ["user-prompt"], project_root=self.project_root,
-                    stdin=io.StringIO(json.dumps(value)), stdout=output, environ={},
+                    ["user-prompt"],
+                    project_root=self.project_root,
+                    stdin=io.StringIO(json.dumps(value)),
+                    stdout=output,
+                    environ={},
                 )
                 self.assertEqual(result, 0)
                 self.assertIn("failed", json.loads(output.getvalue())["systemMessage"])
-                self.assertFalse((self.project_root / ".claude" / "maintain-runtime").exists())
+                self.assertFalse(
+                    (self.project_root / ".claude" / "maintain-runtime").exists()
+                )
 
     def test_detached_claude_worker_uses_claude_config_in_new_process(self) -> None:
         runtime = self.claude_runtime()
@@ -110,17 +115,33 @@ class ToolBoundaryTests(WorkspaceFixture):
             "invalid", encoding="utf-8"
         )
         completed = subprocess.run(
-            command, cwd=self.project_root, capture_output=True, text=True,
-            timeout=10, check=False,
+            command,
+            cwd=self.project_root,
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=False,
         )
         self.assertEqual(completed.returncode, 0, completed.stderr)
         self.assertEqual(json.loads(completed.stdout)["processed"], 0)
 
     def test_codex_legacy_module_cli_is_executable(self) -> None:
         completed = subprocess.run(
-            [sys.executable, "-B", "-m", "context.work.harness.maintain.host_adapter",
-             "status", "--project-root", str(self.project_root), "--session-id", "same-id"],
-            cwd=self.project_root, capture_output=True, text=True, timeout=10,
+            [
+                sys.executable,
+                "-B",
+                "-m",
+                "context.work.harness.maintain.host_adapter",
+                "status",
+                "--project-root",
+                str(self.project_root),
+                "--session-id",
+                "same-id",
+            ],
+            cwd=self.project_root,
+            capture_output=True,
+            text=True,
+            timeout=10,
             check=False,
         )
         self.assertEqual(completed.returncode, 0, completed.stderr)
@@ -133,9 +154,15 @@ class ToolBoundaryTests(WorkspaceFixture):
     def test_invalid_claude_config_cannot_change_codex_binding(self) -> None:
         codex = MaintainHostAdapter(self.project_root, session_type=self.session_type)
         codex.activate("same-id", "001-example")
-        (self.project_root / ".claude" / "maintain.json").write_text("invalid", encoding="utf-8")
+        (self.project_root / ".claude" / "maintain.json").write_text(
+            "invalid", encoding="utf-8"
+        )
         with redirect_stderr(io.StringIO()):
             self.assertEqual(
-                main(["status", "--session-id", "same-id"], project_root=self.project_root), 2
+                main(
+                    ["status", "--session-id", "same-id"],
+                    project_root=self.project_root,
+                ),
+                2,
             )
         self.assertEqual(codex.status("same-id")["status"], "active")

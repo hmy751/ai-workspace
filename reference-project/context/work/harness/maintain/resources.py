@@ -2,5 +2,4 @@
 
 from pathlib import Path
 
-
 MAINTAIN_ROOT = Path(__file__).resolve().parent

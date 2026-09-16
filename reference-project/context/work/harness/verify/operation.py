@@ -36,7 +36,6 @@ from ..workspace_contract import (
     validate_workspace_id,
 )
 
-
 VERIFY_CONTRACT_SCHEMA_VERSION = 2
 DEFAULT_TIMEOUT_SECONDS = 30.0
 MAX_TIMEOUT_SECONDS = 300.0
@@ -161,9 +160,7 @@ def _load_verify_contract(
     _expect_verification_keys(verification)
     argv = _validate_argv(verification["argv"])
 
-    timeout_seconds = verification.get(
-        "timeout_seconds", DEFAULT_TIMEOUT_SECONDS
-    )
+    timeout_seconds = verification.get("timeout_seconds", DEFAULT_TIMEOUT_SECONDS)
     if (
         isinstance(timeout_seconds, bool)
         or not isinstance(timeout_seconds, (int, float))
@@ -177,9 +174,7 @@ def _load_verify_contract(
         )
     timeout_seconds = float(timeout_seconds)
 
-    max_output_chars = verification.get(
-        "max_output_chars", DEFAULT_MAX_OUTPUT_CHARS
-    )
+    max_output_chars = verification.get("max_output_chars", DEFAULT_MAX_OUTPUT_CHARS)
     if (
         isinstance(max_output_chars, bool)
         or not isinstance(max_output_chars, int)
@@ -270,9 +265,7 @@ def _runtime_environment() -> dict[str, Any]:
         "python_implementation": platform.python_implementation(),
         "python_version": platform.python_version(),
         "verify_contract_schema_version": VERIFY_CONTRACT_SCHEMA_VERSION,
-        "verification_receipt_schema_version": (
-            VERIFICATION_RECEIPT_SCHEMA_VERSION
-        ),
+        "verification_receipt_schema_version": (VERIFICATION_RECEIPT_SCHEMA_VERSION),
     }
 
 
@@ -318,9 +311,7 @@ class _BoundedStreamCapture:
     def add(self, value: str) -> None:
         self.observed_chars += len(value)
         data = self.pending + value
-        safe_start_limit = max(
-            0, len(data) - len(self.project_root_prefix) + 1
-        )
+        safe_start_limit = max(0, len(data) - len(self.project_root_prefix) + 1)
         cursor = 0
         while cursor < safe_start_limit:
             match = data.find(self.project_root_prefix, cursor)
@@ -338,9 +329,7 @@ class _BoundedStreamCapture:
         if not self.pending:
             return
         self.root_replacements += self.pending.count(self.project_root_prefix)
-        self._emit(
-            self.pending.replace(self.project_root_prefix, PROJECT_ROOT_TOKEN)
-        )
+        self._emit(self.pending.replace(self.project_root_prefix, PROJECT_ROOT_TOKEN))
         self.pending = ""
 
     def drain(self, stream: Any) -> None:
@@ -372,9 +361,7 @@ def _capture_result(
         "persisted_chars": len(persisted),
         "truncated": capture.normalized_chars > capture.max_chars,
         "read_error": (
-            capture.read_error.replace(
-                capture.project_root_prefix, PROJECT_ROOT_TOKEN
-            )
+            capture.read_error.replace(capture.project_root_prefix, PROJECT_ROOT_TOKEN)
             if capture.read_error is not None
             else None
         ),
@@ -454,12 +441,8 @@ def _run_bounded_verification(
     max_output_chars: int,
 ) -> dict[str, Any]:
     project_root_prefix = str(project_root.resolve(strict=True))
-    stdout_capture = _BoundedStreamCapture(
-        max_output_chars, project_root_prefix
-    )
-    stderr_capture = _BoundedStreamCapture(
-        max_output_chars, project_root_prefix
-    )
+    stdout_capture = _BoundedStreamCapture(max_output_chars, project_root_prefix)
+    stderr_capture = _BoundedStreamCapture(max_output_chars, project_root_prefix)
     timed_out = False
     process_returncode: int | None = None
 
@@ -548,9 +531,7 @@ def _resolve_verify_receipts_directory(
     work_root: Path,
     identity: WorkspaceIdentity,
 ) -> tuple[str, Path]:
-    receipts_relative = (
-        f"{identity.workspace_path}/records/receipts/verify"
-    )
+    receipts_relative = f"{identity.workspace_path}/records/receipts/verify"
     receipts_dir = resolve_directory_without_symlinks(
         work_root,
         receipts_relative,
@@ -564,9 +545,7 @@ def _write_receipt(
     receipts_dir: Path,
     receipt: dict[str, Any],
 ) -> str:
-    content = json.dumps(
-        receipt, ensure_ascii=False, indent=2, sort_keys=True
-    ) + "\n"
+    content = json.dumps(receipt, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
     descriptor, temporary_name = tempfile.mkstemp(
         prefix=".verify-receipt-", suffix=".tmp", dir=receipts_dir
     )
@@ -631,9 +610,7 @@ def verify_workspace(
         verification["evidence_paths"],
         "verification.evidence_paths",
     )
-    snapshot_sha256 = _snapshot_sha256(
-        canonical_basis_files, evidence_files
-    )
+    snapshot_sha256 = _snapshot_sha256(canonical_basis_files, evidence_files)
     runtime_environment = _runtime_environment()
     started_at = _utc_now()
     execution = _run_bounded_verification(
@@ -672,17 +649,13 @@ def verify_workspace(
         "evidence_capture": "before_verification",
         "evidence_files": evidence_files,
     }
-    receipt_relative = _write_receipt(
-        receipts_relative, receipts_dir, receipt
-    )
+    receipt_relative = _write_receipt(receipts_relative, receipts_dir, receipt)
 
     state_status = {
         "schema_version": STATE_STATUS_SCHEMA_VERSION,
         "workspace_id": identity.workspace_id,
         "status": (
-            "verification_passed"
-            if result == "pass"
-            else "verification_failed"
+            "verification_passed" if result == "pass" else "verification_failed"
         ),
         "result": result,
         "receipt": receipt_relative,
@@ -690,8 +663,7 @@ def verify_workspace(
     }
     _atomic_write_status(
         status_path,
-        json.dumps(state_status, ensure_ascii=False, indent=2, sort_keys=True)
-        + "\n",
+        json.dumps(state_status, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
     )
 
     return exit_code, {

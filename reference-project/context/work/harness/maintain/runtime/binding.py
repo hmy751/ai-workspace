@@ -115,10 +115,13 @@ class BindingService:
                 )
                 raise HarnessError(message)
 
-            generation = max(
-                (binding["generation"] for binding in state["bindings"]),
-                default=0,
-            ) + 1
+            generation = (
+                max(
+                    (binding["generation"] for binding in state["bindings"]),
+                    default=0,
+                )
+                + 1
+            )
             binding = {
                 "generation": generation,
                 "workspace_id": workspace_id,

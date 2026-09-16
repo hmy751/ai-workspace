@@ -93,13 +93,10 @@ class DrainWorker:
                 effect_path = self.store._effect_path(session_directory, turn_key)
                 if effect_path.exists():
                     summary["already_resolved"] += 1
-                    effect = _read_json_object(
-                        effect_path, "Maintain runtime effect"
-                    )
-                    if (
-                        effect.get("status") == "failed"
-                        and self.store._effect_blocks_later_events(effect)
-                    ):
+                    effect = _read_json_object(effect_path, "Maintain runtime effect")
+                    if effect.get(
+                        "status"
+                    ) == "failed" and self.store._effect_blocks_later_events(effect):
                         blocked_generations.add(generation)
                     continue
                 if generation in blocked_generations:

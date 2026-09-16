@@ -13,9 +13,7 @@ from ..support.apply import MaintainApplyFixture
 class TestDecision(MaintainApplyFixture):
     def test_decision_schema_and_outcome_combinations_are_exact(self) -> None:
         valid_no_change = self.decision("no_change")
-        validated = validate_maintain_decision(
-            valid_no_change, "001-example"
-        )
+        validated = validate_maintain_decision(valid_no_change, "001-example")
         self.assertEqual(validated["outcome"], "no_change")
 
         cases: list[dict[str, object]] = []

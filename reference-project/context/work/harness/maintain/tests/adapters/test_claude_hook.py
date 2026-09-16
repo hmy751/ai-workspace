@@ -145,14 +145,14 @@ class ClaudeHookAdapterTests(WorkspaceFixture):
         subagent = {"agent_id": "subagent-1"}
 
         self.assertEqual(
-            hook.session_start(
-                self.payload("SessionStart", session_id, **subagent)
-            ),
+            hook.session_start(self.payload("SessionStart", session_id, **subagent)),
             {"continue": True},
         )
         self.assertEqual(
             hook.user_prompt(
-                self.payload("UserPromptSubmit", session_id, prompt="sub work", **subagent)
+                self.payload(
+                    "UserPromptSubmit", session_id, prompt="sub work", **subagent
+                )
             ),
             {"continue": True},
         )
@@ -200,7 +200,9 @@ class ClaudeHookAdapterTests(WorkspaceFixture):
             )
 
         self.assertFalse(
-            (outside / self.session_key(session_id) / "claude-hook-turn-state.json").exists()
+            (
+                outside / self.session_key(session_id) / "claude-hook-turn-state.json"
+            ).exists()
         )
 
 

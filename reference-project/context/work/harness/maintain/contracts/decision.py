@@ -15,7 +15,6 @@ from ...workspace_contract import (
     validate_workspace_id,
 )
 
-
 MAINTAIN_DECISION_SCHEMA_VERSION = 1
 
 _DECISION_KEYS = {
@@ -108,36 +107,28 @@ def validate_maintain_decision(
         "important",
     }:
         fail(f"invalid Maintain decision importance: {importance!r}")
-    summary = expect_nonempty_string(
-        value["summary"], "Maintain decision summary"
-    )
+    summary = expect_nonempty_string(value["summary"], "Maintain decision summary")
     raw_changes = value["changes"]
     if not isinstance(raw_changes, list):
         fail("Maintain decision changes must be a JSON array")
     changes = [
-        _validate_change(change, index)
-        for index, change in enumerate(raw_changes)
+        _validate_change(change, index) for index, change in enumerate(raw_changes)
     ]
     paths = [change["path"] for change in changes]
     if len(paths) != len(set(paths)):
         fail("Maintain decision changes must not contain duplicate paths")
-    evidence = _validate_string_list(
-        value["evidence"], "Maintain decision evidence"
-    )
+    evidence = _validate_string_list(value["evidence"], "Maintain decision evidence")
     unresolved = _validate_string_list(
         value["unresolved"], "Maintain decision unresolved"
     )
     question = value["question"]
     if question is not None:
-        question = expect_nonempty_string(
-            question, "Maintain decision question"
-        )
+        question = expect_nonempty_string(question, "Maintain decision question")
 
     if outcome == "no_change":
         if importance != "none" or changes or question is not None:
             fail(
-                "no_change requires importance='none', no changes, and "
-                "question=null"
+                "no_change requires importance='none', no changes, and " "question=null"
             )
     elif outcome == "update":
         if importance not in {"quiet", "important"}:

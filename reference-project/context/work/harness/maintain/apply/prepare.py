@@ -55,9 +55,7 @@ def _resolve_project_and_workspace(
     try:
         resolved_work_root.relative_to(resolved_project_root)
     except ValueError as exc:
-        raise HarnessError(
-            "Maintain Work root must be inside Project root"
-        ) from exc
+        raise HarnessError("Maintain Work root must be inside Project root") from exc
     identity = select_workspace(resolved_work_root, workspace_id)
     workspace_root = resolve_directory_without_symlinks(
         resolved_work_root,
@@ -74,8 +72,7 @@ def _prepare_changes(
 ) -> list[_PreparedChange]:
     prepared: list[_PreparedChange] = []
     planned_targets = {
-        (workspace_root / change["path"]).resolve(strict=False)
-        for change in changes
+        (workspace_root / change["path"]).resolve(strict=False) for change in changes
     }
 
     for index, change in enumerate(changes):
@@ -97,9 +94,7 @@ def _prepare_changes(
             fail(f"{label}.path must not use symlink components")
         exists = target.exists()
         if relative_path == "records/README.md" and not exists:
-            fail(
-                f"{label}.path must identify the existing records entry point"
-            )
+            fail(f"{label}.path must identify the existing records entry point")
         expected_sha256 = change["expected_sha256"]
         current_mode: int | None = None
         current_content: bytes | None = None
@@ -110,10 +105,7 @@ def _prepare_changes(
             if append_only_record:
                 fail(f"{label}.path identifies an existing append-only record")
             if expected_sha256 is None:
-                fail(
-                    f"{label}.expected_sha256 is required for an existing "
-                    "file"
-                )
+                fail(f"{label}.expected_sha256 is required for an existing " "file")
             try:
                 current_content = target.read_bytes()
                 current_mode = stat.S_IMODE(target.stat().st_mode)
@@ -153,8 +145,7 @@ def _prepare_changes(
         change
         for change in prepared
         if not change.exists
-        and PurePosixPath(change.relative_path).parts[:2]
-        == ("current", "memory")
+        and PurePosixPath(change.relative_path).parts[:2] == ("current", "memory")
         and change.relative_path != "current/memory/index.md"
     ]
     # Ticket 본문은 ticket 색인에서 찾고, Spec과 다른 memory 주제는
@@ -169,11 +160,7 @@ def _prepare_changes(
         topics_by_index.setdefault(index_path, []).append(change)
     for index_path, indexed_topics in topics_by_index.items():
         memory_index = next(
-            (
-                change
-                for change in prepared
-                if change.relative_path == index_path
-            ),
+            (change for change in prepared if change.relative_path == index_path),
             None,
         )
         if memory_index is None:
@@ -200,8 +187,7 @@ def _prepare_changes(
     new_records = [
         change
         for change in prepared
-        if not change.exists
-        and _is_allowed_change_path(change.relative_path)[1]
+        if not change.exists and _is_allowed_change_path(change.relative_path)[1]
     ]
     if new_records:
         records_index = next(

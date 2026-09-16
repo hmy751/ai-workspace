@@ -11,14 +11,11 @@ class SemanticSession(Protocol):
     """한 Workspace에 초기 맥락을 구성하고 같은 이해로 후속 판단을 수행한다."""
 
     @property
-    def thread_id(self) -> str | None:
-        ...
+    def thread_id(self) -> str | None: ...
 
-    def start(self, bounded_bootstrap: Mapping[str, Any]) -> dict[str, Any]:
-        ...
+    def start(self, bounded_bootstrap: Mapping[str, Any]) -> dict[str, Any]: ...
 
-    def resume(self, bounded_response_delta: Mapping[str, Any]) -> dict[str, Any]:
-        ...
+    def resume(self, bounded_response_delta: Mapping[str, Any]) -> dict[str, Any]: ...
 
 
 class SemanticSessionFactory(Protocol):
@@ -26,8 +23,7 @@ class SemanticSessionFactory(Protocol):
 
     def __call__(
         self, project_root: Path, workspace_id: str, *, runner: Callable[..., Any]
-    ) -> SemanticSession:
-        ...
+    ) -> SemanticSession: ...
 
     def restore(
         self,
@@ -36,5 +32,4 @@ class SemanticSessionFactory(Protocol):
         *,
         thread_id: str,
         runner: Callable[..., Any],
-    ) -> SemanticSession:
-        ...
+    ) -> SemanticSession: ...

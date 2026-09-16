@@ -22,6 +22,7 @@ Maintain이 이전 대화에서 형성한 목표·결정·열린 문제를 이�
 - 공통 fixture는 Maintain 개선에 필요한 부분까지만 정리하고, 호출부·문서의 필요한 변경을 포함한다. Recover·Verify 내부 리팩터링은 후속 작업이며 기존 테스트로 회귀 영향만 확인한다.
 - Codex와 Claude는 같은 Maintain 흐름을 사용하고 hook·명령·설정·세션 연결의 실제 차이만 도구별 코드에 둔다. 호스트·판단 실행기의 자유로운 조합 선택 시스템을 만들지 않는다. 현재 두 호스트의 의미 판단은 기존 Codex 실행을 사용한다.
 - Reference 코드의 검증, 실제 host hook 활성화·acceptance, Noline 이식은 각각 별도 단계다. 테스트 통과만으로 실제 host 지원 완료를 주장하지 않는다.
+- 이 저장소의 현재 Python 코드는 루트 Black 공통 설정을 사용한다. 원자료 snapshot과 과거 기록은 제외한다. 전체 포맷 적용은 Recover·Verify 내부 리팩터링을 후속으로 둔 결정과 구별한다.
 
 - 연속성의 정본은 전체 대화 transcript가 아니라 Workspace Context와 검증 가능한 semantic checkpoint다.
 - Codex 자동 compact는 context window 소진을 막는 fallback이다. 비용 최적화의 주 장치로 채택하지 않는다.

@@ -16,9 +16,7 @@ class TestOwnerLinks(MaintainApplyFixture):
             "content": "# New memory\n\nDurable constraint.\n",
             "reason": "Preserve a new durable constraint.",
         }
-        with self.assertRaisesRegex(
-            HarnessError, "requires.*current/memory/index.md"
-        ):
+        with self.assertRaisesRegex(HarnessError, "requires.*current/memory/index.md"):
             self.apply(self.decision("update", changes=[new_topic]))
 
         memory_index = self.relative("current/memory/index.md")
@@ -43,9 +41,7 @@ class TestOwnerLinks(MaintainApplyFixture):
 
         self.assertEqual(result["context_status"], "updated")
         self.assertEqual(
-            self.relative("current/memory/04-new.md").read_text(
-                encoding="utf-8"
-            ),
+            self.relative("current/memory/04-new.md").read_text(encoding="utf-8"),
             new_topic["content"],
         )
         self.assertIn("(04-new.md)", memory_index.read_text(encoding="utf-8"))
@@ -61,12 +57,20 @@ class TestOwnerLinks(MaintainApplyFixture):
         # memory 색인 연결만으로 누락된 Ticket 색인을 대신할 수 없다.
         parent_index = self.relative("current/memory/index.md")
         with self.assertRaisesRegex(HarnessError, "requires.*tickets/index.md"):
-            self.apply(self.decision("update", changes=[ticket, {
-                "path": "current/memory/index.md",
-                "expected_sha256": self.digest(parent_index),
-                "content": "# Memory\n\n[Ticket](tickets/002-policy.md)\n",
-                "reason": "Wrong entry point for a new Ticket.",
-            }]))
+            self.apply(
+                self.decision(
+                    "update",
+                    changes=[
+                        ticket,
+                        {
+                            "path": "current/memory/index.md",
+                            "expected_sha256": self.digest(parent_index),
+                            "content": "# Memory\n\n[Ticket](tickets/002-policy.md)\n",
+                            "reason": "Wrong entry point for a new Ticket.",
+                        },
+                    ],
+                )
+            )
         self.assertEqual(self.workspace_bytes(), before)
 
         index = self.relative("current/memory/tickets/index.md")
@@ -104,21 +108,29 @@ class TestOwnerLinks(MaintainApplyFixture):
         path = "current/memory/spec/03-concepts-and-contracts.md"
         self.relative(path).unlink()
         change = {
-            "path": path, "expected_sha256": None,
+            "path": path,
+            "expected_sha256": None,
             "content": "# Contracts\n\nRestored contract meaning.\n",
             "reason": "Document the agreed contract.",
         }
         with self.assertRaisesRegex(HarnessError, "requires.*memory/index.md"):
             self.apply(self.decision("update", changes=[change]))
         index = self.relative("current/memory/index.md")
-        result = self.apply(self.decision("update", changes=[change, {
-            "path": "current/memory/index.md",
-            "expected_sha256": self.digest(index),
-            "content": index.read_text() + (
-                "\n- [Contracts](spec/03-concepts-and-contracts.md)\n"
-            ),
-            "reason": "Keep the Spec reachable.",
-        }]))
+        result = self.apply(
+            self.decision(
+                "update",
+                changes=[
+                    change,
+                    {
+                        "path": "current/memory/index.md",
+                        "expected_sha256": self.digest(index),
+                        "content": index.read_text()
+                        + ("\n- [Contracts](spec/03-concepts-and-contracts.md)\n"),
+                        "reason": "Keep the Spec reachable.",
+                    },
+                ],
+            )
+        )
         self.assertEqual(result["context_status"], "updated")
         packet = bootstrap_workspace(self.project_root, self.work_root, "001-example")
         self.assertIn("Restored contract meaning.", repr(packet))
@@ -137,12 +149,19 @@ class TestOwnerLinks(MaintainApplyFixture):
                 before = target.read_bytes()
                 try:
                     with self.assertRaisesRegex(HarnessError, "symlink"):
-                        self.apply(self.decision("update", changes=[{
-                            "path": f"current/memory/{directory}/{filename}",
-                            "expected_sha256": self.digest(target),
-                            "content": "# Rejected\n",
-                            "reason": "Must not follow a symlink.",
-                        }]))
+                        self.apply(
+                            self.decision(
+                                "update",
+                                changes=[
+                                    {
+                                        "path": f"current/memory/{directory}/{filename}",
+                                        "expected_sha256": self.digest(target),
+                                        "content": "# Rejected\n",
+                                        "reason": "Must not follow a symlink.",
+                                    }
+                                ],
+                            )
+                        )
                     self.assertEqual(target.read_bytes(), before)
                 finally:
                     parent.unlink()

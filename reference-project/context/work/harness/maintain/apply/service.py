@@ -37,8 +37,8 @@ def apply_maintain_decision(
     """명시적 Workspace와 변경 전 조건이 검증된 결정만 반영한다."""
 
     validated = validate_maintain_decision(decision, workspace_id)
-    resolved_project_root, workspace_root, identity = (
-        _resolve_project_and_workspace(project_root, work_root, workspace_id)
+    resolved_project_root, workspace_root, identity = _resolve_project_and_workspace(
+        project_root, work_root, workspace_id
     )
     if identity.workspace_id != validated["workspace_id"]:
         fail("Maintain decision Workspace binding changed before apply")

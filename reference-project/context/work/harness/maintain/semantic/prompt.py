@@ -35,9 +35,7 @@ class PromptBuilder:
             payload=bounded_bootstrap,
         )
 
-    def _decision_prompt(
-        self, bounded_response_delta: Mapping[str, Any]
-    ) -> str:
+    def _decision_prompt(self, bounded_response_delta: Mapping[str, Any]) -> str:
         return self._prompt(
             purpose=(
                 "Evaluate this one user-facing Main response-end. Reuse the "
@@ -98,13 +96,10 @@ class PromptBuilder:
         workspaces_root = MAINTAIN_ROOT.parents[1] / "workspaces"
         workspace_collection_path = workspaces_root / "README.md"
         try:
-            workspace_collection = workspace_collection_path.read_text(
-                encoding="utf-8"
-            )
+            workspace_collection = workspace_collection_path.read_text(encoding="utf-8")
         except (OSError, UnicodeError) as exc:
             raise HarnessError(
-                "Workspace collection contract is not readable UTF-8 text: "
-                f"{exc}"
+                "Workspace collection contract is not readable UTF-8 text: " f"{exc}"
             ) from exc
         try:
             workspace_rules = "\n\n".join(

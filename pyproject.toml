@@ -1,0 +1,17 @@
+[tool.black]
+line-length = 88
+target-version = ["py311", "py312", "py313", "py314"]
+required-version = "26.5.1"
+include = '\.pyi?$'
+
+# 원자료·과거 증거는 명시적인 파일 입력에서도 포맷하지 않는다.
+force-exclude = '''
+(
+    /(\.venv|\.git|__pycache__)/
+    # skill 원천은 .agents/skills이며 도구별 symlink를 중복 처리하지 않는다.
+    | /(\.claude|\.codex)/skills/
+    | /context/source/
+    | /context/workspaces/[^/]+/records/
+    | /reference-project/context/work/workspaces/[^/]+/(source|records)/
+)
+'''

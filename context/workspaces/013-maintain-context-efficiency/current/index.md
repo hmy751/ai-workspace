@@ -13,3 +13,5 @@
 개행·간격과 영문 LLM 문자열의 한국어 번역 주석 후속 정리는 [가독성 기록](../records/2026-09-16-03-maintain-readability.md)에서 찾는다.
 
 루트 코드 기준의 프롬프트 명확성 검토와 적용 범위 정리는 [지침 기록](../records/2026-09-16-04-code-quality-instruction-clarity.md)에서 찾는다.
+
+기존 작업의 커밋과 저장소 전체 Black 설정·포맷 검증은 [Black 기록](../records/2026-09-16-05-repo-black.md)에서 찾는다.

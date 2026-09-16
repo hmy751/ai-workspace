@@ -10,7 +10,6 @@ import sys
 import tempfile
 import unittest
 
-
 HARNESS_SOURCE = Path(__file__).resolve().parent
 
 
@@ -95,9 +94,7 @@ class WorkspaceFixture(unittest.TestCase):
         (self.project_root / "src" / "value.txt").write_text(
             "wrong\n", encoding="utf-8"
         )
-        (self.project_root / "tests" / "__init__.py").write_text(
-            "", encoding="utf-8"
-        )
+        (self.project_root / "tests" / "__init__.py").write_text("", encoding="utf-8")
         (self.project_root / "tests" / "test_behavior.py").write_text(
             "from pathlib import Path\n"
             "import unittest\n\n"
@@ -208,27 +205,15 @@ class WorkspaceFixture(unittest.TestCase):
             },
         }
         self.write_work_json("workspaces/index.json", self.index)
-        self.write_work_json(
-            "workspaces/001-example/workspace.json", self.identity
-        )
+        self.write_work_json("workspaces/001-example/workspace.json", self.identity)
         self.write_work_json(
             "workspaces/001-example/recover.json", self.recover_contract
         )
-        self.write_work_json(
-            "workspaces/001-example/verify.json", self.verify_contract
-        )
+        self.write_work_json("workspaces/001-example/verify.json", self.verify_contract)
 
     def _create_workspace_current(self) -> None:
-        memory = (
-            self.work_root
-            / "workspaces"
-            / "001-example"
-            / "current"
-            / "memory"
-        )
-        (memory / "index.md").write_text(
-            "WORKSPACE_MEMORY_INDEX\n", encoding="utf-8"
-        )
+        memory = self.work_root / "workspaces" / "001-example" / "current" / "memory"
+        (memory / "index.md").write_text("WORKSPACE_MEMORY_INDEX\n", encoding="utf-8")
         for name, content in (
             ("01-problem-goal-scope.md", "WORKSPACE_SPEC_GOAL"),
             ("02-behavior-and-cases.md", "WORKSPACE_SPEC_BEHAVIOR"),
@@ -254,13 +239,7 @@ class WorkspaceFixture(unittest.TestCase):
         (memory / "nested" / "archived.md").write_text(
             "UNLOADED_NESTED_MEMORY_SECRET\n", encoding="utf-8"
         )
-        state = (
-            self.work_root
-            / "workspaces"
-            / "001-example"
-            / "current"
-            / "state"
-        )
+        state = self.work_root / "workspaces" / "001-example" / "current" / "state"
         (state / "index.md").write_text(
             "# state\n\nhuman-owned current description\n", encoding="utf-8"
         )
@@ -336,9 +315,7 @@ class WorkspaceFixture(unittest.TestCase):
             "schema_version": 3,
             "workspace_id": "001-example",
             "status": (
-                "verification_passed"
-                if result == "pass"
-                else "verification_failed"
+                "verification_passed" if result == "pass" else "verification_failed"
             ),
             "result": result,
             "receipt": receipt,

@@ -46,9 +46,7 @@ class RuntimeContext:
         if schema_version == _LEGACY_HOST_CONFIG_SCHEMA_VERSION:
             # v1 설정은 기존 연결의 이관을 위해 읽기만 지원한다.
             # 기존 workspace_id로 새 session을 자동 연결하지 않는다.
-            expect_exact_keys(
-                value, _CONFIG_V1_KEYS, "Maintain host configuration"
-            )
+            expect_exact_keys(value, _CONFIG_V1_KEYS, "Maintain host configuration")
             expect_schema_version(
                 schema_version,
                 _LEGACY_HOST_CONFIG_SCHEMA_VERSION,
@@ -62,8 +60,6 @@ class RuntimeContext:
             MAINTAIN_HOST_CONFIG_SCHEMA_VERSION,
             "Maintain host configuration",
         )
-        mode = expect_nonempty_string(
-            value["mode"], "Maintain host configuration mode"
-        )
+        mode = expect_nonempty_string(value["mode"], "Maintain host configuration mode")
         if mode != "explicit":
             fail("Maintain host configuration mode must be 'explicit'")

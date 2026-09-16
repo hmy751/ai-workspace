@@ -28,7 +28,6 @@ from ..workspace_contract import (
     validate_workspace_id,
 )
 
-
 RECOVER_CONTRACT_SCHEMA_VERSION = 6
 RECOVERY_PACKET_SCHEMA_VERSION = 6
 PROJECT_CONTEXT_ROOT = "context/project"
@@ -85,17 +84,11 @@ def _load_recover_contract(
     for index, entry in enumerate(project_context):
         if not isinstance(entry, dict):
             fail(f"project_context[{index}] must be a JSON object")
-        expect_exact_keys(
-            entry, {"path", "reason"}, f"project_context[{index}]"
-        )
-        path = validate_relative_path(
-            entry["path"], f"project_context[{index}].path"
-        )
+        expect_exact_keys(entry, {"path", "reason"}, f"project_context[{index}]")
+        path = validate_relative_path(entry["path"], f"project_context[{index}].path")
         parts = PurePosixPath(path.replace("\\", "/")).parts
         if parts[:2] != ("context", "project"):
-            fail(
-                "Project context path must be selected from context/project/"
-            )
+            fail("Project context path must be selected from context/project/")
         if path != REQUIRED_PROJECT_CONTEXT_PATH and (
             len(parts) < 4 or parts[2] not in PROJECT_CONTEXT_CONTENT_LAYERS
         ):
@@ -124,9 +117,7 @@ def _load_recover_contract(
         validated_context.append({"path": path, "reason": reason})
 
     if REQUIRED_PROJECT_CONTEXT_PATH not in seen_paths:
-        fail(
-            "project_context must select context/project/README.md"
-        )
+        fail("project_context must select context/project/README.md")
 
     return {
         "schema_version": RECOVER_CONTRACT_SCHEMA_VERSION,
@@ -158,14 +149,11 @@ def _load_memory(
     }
 
     missing_required = [
-        name
-        for name in REQUIRED_MEMORY_FILES
-        if not (directory / name).is_file()
+        name for name in REQUIRED_MEMORY_FILES if not (directory / name).is_file()
     ]
     if missing_required:
         fail(
-            "Workspace memory is missing required files: "
-            + ", ".join(missing_required)
+            "Workspace memory is missing required files: " + ", ".join(missing_required)
         )
 
     entries: list[dict[str, str]] = []
@@ -198,9 +186,7 @@ def _load_memory(
     return memory_index, entries
 
 
-def _load_output_index(
-    work_root: Path, identity: WorkspaceIdentity
-) -> dict[str, str]:
+def _load_output_index(work_root: Path, identity: WorkspaceIdentity) -> dict[str, str]:
     """Load only the Workspace goal-output map, never artifact bodies."""
 
     directory_relative = f"{identity.workspace_path}/output"
@@ -308,8 +294,7 @@ def _receipt_freshness(
         "verification receipt snapshot_sha256",
     )
     if len(snapshot_sha256) != 64 or any(
-        character not in "0123456789abcdef"
-        for character in snapshot_sha256
+        character not in "0123456789abcdef" for character in snapshot_sha256
     ):
         fail(
             "verification receipt snapshot_sha256 must be a lowercase "
@@ -372,9 +357,7 @@ def _validate_linked_receipt(
     records_dir = resolve_directory_without_symlinks(
         work_root, records_relative, "Workspace records directory"
     )
-    reject_symlink_components(
-        work_root, receipt_relative, "state status receipt"
-    )
+    reject_symlink_components(work_root, receipt_relative, "state status receipt")
     receipt_path = resolve_inside_root(
         work_root, receipt_relative, "state status receipt"
     )
@@ -396,8 +379,7 @@ def _validate_linked_receipt(
     receipt_schema_version = receipt["schema_version"]
     if (
         type(receipt_schema_version) is not int
-        or receipt_schema_version
-        not in SUPPORTED_VERIFICATION_RECEIPT_SCHEMA_VERSIONS
+        or receipt_schema_version not in SUPPORTED_VERIFICATION_RECEIPT_SCHEMA_VERSIONS
     ):
         fail(
             "unsupported verification receipt schema_version: "
@@ -444,12 +426,9 @@ def build_recovery_packet(
     output_index = _load_output_index(work_root, identity)
 
     selected_context: list[dict[str, str]] = []
-    loaded_paths = [
-        {"path_base": "work_root", "path": memory_index["path"]}
-    ]
+    loaded_paths = [{"path_base": "work_root", "path": memory_index["path"]}]
     loaded_paths.extend(
-        {"path_base": "work_root", "path": entry["path"]}
-        for entry in memory_entries
+        {"path_base": "work_root", "path": entry["path"]} for entry in memory_entries
     )
     loaded_paths.extend(
         [
@@ -471,22 +450,16 @@ def build_recovery_packet(
                 ),
             }
         )
-        loaded_paths.append(
-            {"path_base": "project_root", "path": entry["path"]}
-        )
+        loaded_paths.append({"path_base": "project_root", "path": entry["path"]})
 
     control_paths = [
         {"path_base": "work_root", "path": identity.identity_path},
         {"path_base": "work_root", "path": recover_contract_path},
     ]
     if identity.index_path is not None:
-        control_paths.insert(
-            0, {"path_base": "work_root", "path": identity.index_path}
-        )
+        control_paths.insert(0, {"path_base": "work_root", "path": identity.index_path})
     if linked_receipt is not None:
-        control_paths.append(
-            {"path_base": "work_root", "path": linked_receipt}
-        )
+        control_paths.append({"path_base": "work_root", "path": linked_receipt})
 
     return {
         "schema_version": RECOVERY_PACKET_SCHEMA_VERSION,
@@ -536,8 +509,7 @@ def render_recovery_packet(packet: dict[str, Any]) -> str:
         "Control paths read to select the Workspace and validate handoff:",
     ]
     lines.extend(
-        f"- [{entry['path_base']}] {entry['path']}"
-        for entry in packet["control_paths"]
+        f"- [{entry['path_base']}] {entry['path']}" for entry in packet["control_paths"]
     )
     lines.extend(["", "Loaded context paths (in recovery order):"])
     lines.extend(
@@ -546,26 +518,19 @@ def render_recovery_packet(packet: dict[str, Any]) -> str:
     )
 
     memory = packet["memory"]
-    lines.extend(
-        ["", "## memory/index.md", "", memory["index"]["content"].rstrip()]
-    )
+    lines.extend(["", "## memory/index.md", "", memory["index"]["content"].rstrip()])
     for entry in memory["entries"]:
         lines.extend(
             [
                 "",
-                (
-                    "## Memory context: "
-                    f"[{entry['path_base']}] {entry['path']}"
-                ),
+                ("## Memory context: " f"[{entry['path_base']}] {entry['path']}"),
                 "",
                 entry["content"].rstrip(),
             ]
         )
 
     state = packet["state"]
-    lines.extend(
-        ["", "## state/index.md", "", state["index"]["content"].rstrip()]
-    )
+    lines.extend(["", "## state/index.md", "", state["index"]["content"].rstrip()])
     lines.extend(["", "## state/status.json", ""])
     status_fields = ["status", "result", "finished_at", "receipt"]
     if "next_action" in state["status"]["value"]:
@@ -591,18 +556,13 @@ def render_recovery_packet(packet: dict[str, Any]) -> str:
         )
 
     output = packet["output"]
-    lines.extend(
-        ["", "## output/index.md", "", output["index"]["content"].rstrip()]
-    )
+    lines.extend(["", "## output/index.md", "", output["index"]["content"].rstrip()])
 
     for entry in packet["project_context"]:
         lines.extend(
             [
                 "",
-                (
-                    "## Project context: "
-                    f"[{entry['path_base']}] {entry['path']}"
-                ),
+                ("## Project context: " f"[{entry['path_base']}] {entry['path']}"),
                 "",
                 f"Selection reason: {entry['reason']}",
                 "",

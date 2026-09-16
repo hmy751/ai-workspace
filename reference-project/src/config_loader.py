@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-
 DEFAULT_REQUEST_TIMEOUT_MS = 5000
 _ALLOWED_KEYS = frozenset({"request_timeout_ms"})
 
@@ -32,12 +31,8 @@ def load_request_policy(config: dict[str, object]) -> RequestPolicy:
         unknown = ", ".join(sorted(str(key) for key in unknown_keys))
         raise ValueError(f"unknown request policy key(s): {unknown}")
 
-    request_timeout_ms = config.get(
-        "request_timeout_ms", DEFAULT_REQUEST_TIMEOUT_MS
-    )
-    if isinstance(request_timeout_ms, bool) or not isinstance(
-        request_timeout_ms, int
-    ):
+    request_timeout_ms = config.get("request_timeout_ms", DEFAULT_REQUEST_TIMEOUT_MS)
+    if isinstance(request_timeout_ms, bool) or not isinstance(request_timeout_ms, int):
         raise TypeError("request_timeout_ms must be an integer")
     if request_timeout_ms <= 0:
         raise ValueError("request_timeout_ms must be greater than zero")

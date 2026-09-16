@@ -17,9 +17,7 @@ class EphemeralWorkspaceStatePreservationTests(WorkspaceFixture):
             )
         )
         workspace_root = (
-            reference_work_root
-            / "workspaces"
-            / index["active_workspace_id"]
+            reference_work_root / "workspaces" / index["active_workspace_id"]
         )
         machine_paths = [workspace_root / "current" / "state" / "status.json"]
         receipts_root = workspace_root / "records" / "receipts"
@@ -44,9 +42,7 @@ class EphemeralWorkspaceStatePreservationTests(WorkspaceFixture):
         )
         first_packet = json.loads(first_recover.stdout)
         self.assertEqual(first_packet["workspace_id"], "001-example")
-        self.assertEqual(
-            first_packet["state"]["status"]["value"], initial_status
-        )
+        self.assertEqual(first_packet["state"]["status"]["value"], initial_status)
 
         (self.project_root / "src" / "value.txt").write_text(
             "expected\n", encoding="utf-8"
@@ -67,16 +63,12 @@ class EphemeralWorkspaceStatePreservationTests(WorkspaceFixture):
         status = self.read_status()
         self.assertEqual(status["status"], "verification_passed")
         self.assertEqual(status["result"], "pass")
-        self.assertEqual(
-            second_packet["state"]["status"]["value"], status
-        )
+        self.assertEqual(second_packet["state"]["status"]["value"], status)
         self.assertIn(
             {"path_base": "work_root", "path": status["receipt"]},
             second_packet["control_paths"],
         )
-        self.assertEqual(
-            self._checked_in_workspace_machine_state(), checked_in_before
-        )
+        self.assertEqual(self._checked_in_workspace_machine_state(), checked_in_before)
 
 
 if __name__ == "__main__":

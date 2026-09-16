@@ -86,13 +86,9 @@ class MaintainHostBindingTests(MaintainHostAdapterFixture):
             clock=self.clock,
         )
 
-        with self.assertRaisesRegex(
-            HarnessError, "Which source is authoritative?"
-        ):
+        with self.assertRaisesRegex(HarnessError, "Which source is authoritative?"):
             adapter.activate("host-session-ambiguous", "001-example")
-        session_directory = runtime_root / self.session_key(
-            "host-session-ambiguous"
-        )
+        session_directory = runtime_root / self.session_key("host-session-ambiguous")
         self.assertFalse((session_directory / "session.json").exists())
 
     def test_drain_reuses_exact_grounded_thread_for_later_turns(self) -> None:
@@ -171,9 +167,7 @@ class MaintainHostBindingTests(MaintainHostAdapterFixture):
         self.adapter.user_prompt(
             self.prompt_payload(session_id, "turn-duplicate", "prompt")
         )
-        payload = self.stop_payload(
-            session_id, "turn-duplicate", "same response"
-        )
+        payload = self.stop_payload(session_id, "turn-duplicate", "same response")
         self.adapter.response_end(payload)
         self.adapter.response_end(payload)
 
@@ -211,9 +205,7 @@ class MaintainHostBindingTests(MaintainHostAdapterFixture):
             },
         )
         runtime_directories = {
-            path.name
-            for path in self.runtime_root.iterdir()
-            if path.is_dir()
+            path.name for path in self.runtime_root.iterdir() if path.is_dir()
         }
         self.assertEqual(
             runtime_directories,
@@ -236,9 +228,7 @@ class MaintainHostBindingTests(MaintainHostAdapterFixture):
         self.adapter.user_prompt(self.prompt_payload(left, "left", "prompt A"))
         self.adapter.response_end(self.stop_payload(left, "left", "response A"))
         self.adapter.user_prompt(self.prompt_payload(right, "right", "prompt B"))
-        self.adapter.response_end(
-            self.stop_payload(right, "right", "response B")
-        )
+        self.adapter.response_end(self.stop_payload(right, "right", "response B"))
         self.adapter.user_prompt(
             self.prompt_payload(unrelated, "none", "unrelated prompt")
         )
@@ -259,9 +249,7 @@ class MaintainHostBindingTests(MaintainHostAdapterFixture):
         self.assertEqual(self.adapter.status(left)["status"], "active")
         self.assertEqual(self.adapter.status(right)["status"], "active")
         self.assertEqual(self.adapter.status(unrelated)["status"], "unbound")
-        self.assertFalse(
-            (self.runtime_root / self.session_key(unrelated)).exists()
-        )
+        self.assertFalse((self.runtime_root / self.session_key(unrelated)).exists())
 
     def test_same_session_rebind_keeps_current_turn_on_a_and_next_turn_on_b(
         self,
@@ -315,9 +303,7 @@ class MaintainHostBindingTests(MaintainHostAdapterFixture):
 
         status = self.adapter.status(session_id)
         self.assertEqual(status["status"], "active")
-        self.assertEqual(
-            status["current_binding"]["workspace_id"], "001-example"
-        )
+        self.assertEqual(status["current_binding"]["workspace_id"], "001-example")
         self.assertEqual(status["current_binding"]["binding_generation"], 1)
         self.assertEqual(len(status["bindings"]), 1)
 
@@ -362,9 +348,7 @@ class MaintainHostBindingTests(MaintainHostAdapterFixture):
         runtime_status = self.adapter.status(session_id)["runtime"]
 
         self.activate_session(session_id, "002-other")
-        self.adapter.user_prompt(
-            self.prompt_payload(session_id, "b-valid", "prompt B")
-        )
+        self.adapter.user_prompt(self.prompt_payload(session_id, "b-valid", "prompt B"))
         self.adapter.response_end(
             self.stop_payload(session_id, "b-valid", "response B")
         )

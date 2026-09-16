@@ -14,9 +14,7 @@ class TestBootstrap(MaintainApplyFixture):
             "not valid json\n", encoding="utf-8"
         )
 
-        packet = bootstrap_workspace(
-            self.project_root, self.work_root, "001-example"
-        )
+        packet = bootstrap_workspace(self.project_root, self.work_root, "001-example")
 
         self.assertEqual(packet["workspace_id"], "001-example")
         self.assertNotIn(

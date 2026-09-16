@@ -13,7 +13,6 @@ from ...workspace_contract import (
     validate_workspace_id,
 )
 
-
 MAINTAIN_HOST_CONFIG_SCHEMA_VERSION = 2
 MAINTAIN_HOST_STATE_SCHEMA_VERSION = 2
 
@@ -86,9 +85,7 @@ def _binding_for_generation(
     for binding in state["bindings"]:
         if binding["generation"] == generation:
             return dict(binding)
-    fail(
-        f"Maintain runtime event names unknown binding generation {generation}"
-    )
+    fail(f"Maintain runtime event names unknown binding generation {generation}")
 
 
 def _current_binding(state: Mapping[str, Any]) -> dict[str, Any] | None:
@@ -116,10 +113,7 @@ def _binding_snapshot(
     binding = _binding_for_generation(state, generation)
     workspace_id = validate_workspace_id(value["workspace_id"])
     thread_id = expect_nonempty_string(value["thread_id"], f"{label} thread_id")
-    if (
-        workspace_id != binding["workspace_id"]
-        or thread_id != binding["thread_id"]
-    ):
+    if workspace_id != binding["workspace_id"] or thread_id != binding["thread_id"]:
         fail(f"{label} binding snapshot changed")
     return binding
 

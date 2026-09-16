@@ -35,12 +35,16 @@ def compact_utc(value: datetime) -> str:
     return value.strftime("%Y%m%dT%H%M%S%fZ")
 
 
-def safe_relative_path(raw: str, label: str, *, allow_root: bool = False) -> PurePosixPath:
+def safe_relative_path(
+    raw: str, label: str, *, allow_root: bool = False
+) -> PurePosixPath:
     path = PurePosixPath(raw)
     if allow_root and raw == ".":
         return path
     if path.is_absolute() or not path.parts or ".." in path.parts:
-        raise ReceiptError(f"{label} must be a project-root relative path without '..': {raw}")
+        raise ReceiptError(
+            f"{label} must be a project-root relative path without '..': {raw}"
+        )
     return path
 
 
@@ -67,9 +71,13 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def capture_python_sources(project_root: Path, source_root: Path) -> list[dict[str, Any]]:
+def capture_python_sources(
+    project_root: Path, source_root: Path
+) -> list[dict[str, Any]]:
     entries: list[dict[str, Any]] = []
-    for current, directories, filenames in os.walk(source_root, topdown=True, followlinks=False):
+    for current, directories, filenames in os.walk(
+        source_root, topdown=True, followlinks=False
+    ):
         current_path = Path(current)
         clean_directories = []
         for directory in sorted(directories):
@@ -77,7 +85,9 @@ def capture_python_sources(project_root: Path, source_root: Path) -> list[dict[s
             if directory == "__pycache__":
                 continue
             if directory_path.is_symlink():
-                raise ReceiptError(f"Harness source directory must not be a symlink: {directory_path}")
+                raise ReceiptError(
+                    f"Harness source directory must not be a symlink: {directory_path}"
+                )
             clean_directories.append(directory)
         directories[:] = clean_directories
         for filename in sorted(filenames):
@@ -85,7 +95,9 @@ def capture_python_sources(project_root: Path, source_root: Path) -> list[dict[s
                 continue
             path = current_path / filename
             if path.is_symlink() or not path.is_file():
-                raise ReceiptError(f"Harness source must be a regular file, not a symlink: {path}")
+                raise ReceiptError(
+                    f"Harness source must be a regular file, not a symlink: {path}"
+                )
             stat = path.stat()
             entries.append(
                 {
@@ -169,7 +181,9 @@ def run_unittest(
         execution_error = str(error)
     else:
         if process.stdout is None or process.stderr is None:
-            raise ReceiptError("unittest process did not expose stdout and stderr pipes")
+            raise ReceiptError(
+                "unittest process did not expose stdout and stderr pipes"
+            )
         stdout_thread = threading.Thread(
             target=stdout_capture.drain, args=(process.stdout,), daemon=True
         )
@@ -221,7 +235,9 @@ def run_unittest(
         "timeout": {
             "seconds": timeout_seconds,
             "timed_out": timed_out,
-            "termination_scope": "process_group" if os.name == "posix" else "direct_process",
+            "termination_scope": (
+                "process_group" if os.name == "posix" else "direct_process"
+            ),
         },
         "stdout": stdout,
         "stderr": stderr,
@@ -252,7 +268,9 @@ def write_receipt(receipt: dict[str, Any], records_dir: Path) -> Path:
         try:
             os.link(temporary, destination)
         except FileExistsError as error:
-            raise ReceiptError(f"refusing to overwrite receipt: {destination}") from error
+            raise ReceiptError(
+                f"refusing to overwrite receipt: {destination}"
+            ) from error
         temporary.unlink()
     except BaseException:
         temporary.unlink(missing_ok=True)
@@ -289,14 +307,20 @@ def main(argv: list[str] | None = None) -> int:
 
         source_relative = safe_relative_path(args.source_root, "source root")
         tests_relative = safe_relative_path(args.tests_start, "tests start")
-        top_level_relative = safe_relative_path(args.top_level, "top level", allow_root=True)
+        top_level_relative = safe_relative_path(
+            args.top_level, "top level", allow_root=True
+        )
         records_relative = safe_relative_path(args.records_dir, "records dir")
         source_root = resolve_inside(project_root, source_relative, "source root")
         tests_start = resolve_inside(project_root, tests_relative, "tests start")
         top_level = resolve_inside(project_root, top_level_relative, "top level")
         records_dir = resolve_inside(project_root, records_relative, "records dir")
-        if not all(path.is_dir() for path in (source_root, tests_start, top_level, records_dir)):
-            raise ReceiptError("source root, tests start, top level, and records dir must be directories")
+        if not all(
+            path.is_dir() for path in (source_root, tests_start, top_level, records_dir)
+        ):
+            raise ReceiptError(
+                "source root, tests start, top level, and records dir must be directories"
+            )
         try:
             tests_start.relative_to(source_root)
         except ValueError as error:

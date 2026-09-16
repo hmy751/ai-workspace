@@ -139,37 +139,37 @@ class RecoverTests(WorkspaceFixture):
                 {
                     "path": "workspaces/001-example/current/memory/spec/01-problem-goal-scope.md",
                     "path_base": "work_root",
-                    "content": 'WORKSPACE_SPEC_GOAL\n',
+                    "content": "WORKSPACE_SPEC_GOAL\n",
                 },
                 {
                     "path": "workspaces/001-example/current/memory/spec/02-behavior-and-cases.md",
                     "path_base": "work_root",
-                    "content": 'WORKSPACE_SPEC_BEHAVIOR\n',
+                    "content": "WORKSPACE_SPEC_BEHAVIOR\n",
                 },
                 {
                     "path": "workspaces/001-example/current/memory/spec/03-concepts-and-contracts.md",
                     "path_base": "work_root",
-                    "content": 'WORKSPACE_SPEC_CONTRACTS\n',
+                    "content": "WORKSPACE_SPEC_CONTRACTS\n",
                 },
                 {
                     "path": "workspaces/001-example/current/memory/spec/04-quality-and-completion.md",
                     "path_base": "work_root",
-                    "content": 'WORKSPACE_SPEC_QUALITY\n',
+                    "content": "WORKSPACE_SPEC_QUALITY\n",
                 },
                 {
                     "path": "workspaces/001-example/current/memory/spec/05-constraints-design-assumptions.md",
                     "path_base": "work_root",
-                    "content": 'WORKSPACE_SPEC_DESIGN\n',
+                    "content": "WORKSPACE_SPEC_DESIGN\n",
                 },
                 {
                     "path": "workspaces/001-example/current/memory/project-context.md",
                     "path_base": "work_root",
-                    "content": 'WORKSPACE_MEMORY_PROJECT_CONTEXT\n',
+                    "content": "WORKSPACE_MEMORY_PROJECT_CONTEXT\n",
                 },
                 {
                     "path": "workspaces/001-example/current/memory/tickets/index.md",
                     "path_base": "work_root",
-                    "content": 'WORKSPACE_TICKET_INDEX\n\n- [Example](001-example.md)\n',
+                    "content": "WORKSPACE_TICKET_INDEX\n\n- [Example](001-example.md)\n",
                 },
             ],
         )
@@ -177,18 +177,13 @@ class RecoverTests(WorkspaceFixture):
             packet["state"]["index"]["content"],
             "# state\n\nhuman-owned current description\n",
         )
-        self.assertEqual(
-            packet["state"]["status"]["value"], self.initial_status()
-        )
+        self.assertEqual(packet["state"]["status"]["value"], self.initial_status())
         self.assertEqual(
             packet["output"]["index"],
             {
                 "path": "workspaces/001-example/output/index.md",
                 "path_base": "work_root",
-                "content": (
-                    "WORKSPACE_OUTPUT_INDEX\n\n"
-                    "- [analysis](analysis.md)\n"
-                ),
+                "content": ("WORKSPACE_OUTPUT_INDEX\n\n" "- [analysis](analysis.md)\n"),
             },
         )
         self.assertEqual(
@@ -220,9 +215,7 @@ class RecoverTests(WorkspaceFixture):
         self.assertFalse(
             any(
                 entry["path"].startswith("workspaces/001-example/source/")
-                for entry in (
-                    packet["control_paths"] + packet["loaded_context_paths"]
-                )
+                for entry in (packet["control_paths"] + packet["loaded_context_paths"])
             )
         )
         self.assertNotIn("UNLOADED_MEMORY_NON_MARKDOWN_SECRET", completed.stdout)
@@ -263,11 +256,7 @@ class RecoverTests(WorkspaceFixture):
 
     def test_requires_workspace_output_index(self) -> None:
         output_index = (
-            self.work_root
-            / "workspaces"
-            / "001-example"
-            / "output"
-            / "index.md"
+            self.work_root / "workspaces" / "001-example" / "output" / "index.md"
         )
         content = output_index.read_text(encoding="utf-8")
         output_index.unlink()
@@ -281,11 +270,7 @@ class RecoverTests(WorkspaceFixture):
 
     def test_does_not_require_or_inspect_workspace_output_artifacts(self) -> None:
         artifact = (
-            self.work_root
-            / "workspaces"
-            / "001-example"
-            / "output"
-            / "analysis.md"
+            self.work_root / "workspaces" / "001-example" / "output" / "analysis.md"
         )
         content = artifact.read_text(encoding="utf-8")
         artifact.unlink()
@@ -300,17 +285,11 @@ class RecoverTests(WorkspaceFixture):
 
     def test_rejects_symlinked_workspace_output_index(self) -> None:
         output_index = (
-            self.work_root
-            / "workspaces"
-            / "001-example"
-            / "output"
-            / "index.md"
+            self.work_root / "workspaces" / "001-example" / "output" / "index.md"
         )
         content = output_index.read_text(encoding="utf-8")
         outside = self.project_root / "output-index.md"
-        outside.write_text(
-            "LINKED_OUTPUT_INDEX_MUST_NOT_LOAD\n", encoding="utf-8"
-        )
+        outside.write_text("LINKED_OUTPUT_INDEX_MUST_NOT_LOAD\n", encoding="utf-8")
         output_index.unlink()
         output_index.symlink_to(outside)
         try:
@@ -325,11 +304,7 @@ class RecoverTests(WorkspaceFixture):
 
     def test_rejects_non_regular_workspace_output_index(self) -> None:
         output_index = (
-            self.work_root
-            / "workspaces"
-            / "001-example"
-            / "output"
-            / "index.md"
+            self.work_root / "workspaces" / "001-example" / "output" / "index.md"
         )
         content = output_index.read_text(encoding="utf-8")
         output_index.unlink()
@@ -344,22 +319,16 @@ class RecoverTests(WorkspaceFixture):
         self.assertIn("must be a regular file", completed.stderr)
 
     def test_requires_minimum_memory_files(self) -> None:
-        memory = (
-            self.work_root
-            / "workspaces"
-            / "001-example"
-            / "current"
-            / "memory"
-        )
+        memory = self.work_root / "workspaces" / "001-example" / "current" / "memory"
 
         for required_name in (
-            'spec/01-problem-goal-scope.md',
-            'spec/02-behavior-and-cases.md',
-            'spec/03-concepts-and-contracts.md',
-            'spec/04-quality-and-completion.md',
-            'spec/05-constraints-design-assumptions.md',
-            'project-context.md',
-            'tickets/index.md',
+            "spec/01-problem-goal-scope.md",
+            "spec/02-behavior-and-cases.md",
+            "spec/03-concepts-and-contracts.md",
+            "spec/04-quality-and-completion.md",
+            "spec/05-constraints-design-assumptions.md",
+            "project-context.md",
+            "tickets/index.md",
         ):
             with self.subTest(required_name=required_name):
                 required_path = memory / required_name
@@ -376,7 +345,9 @@ class RecoverTests(WorkspaceFixture):
     def test_spec_and_ticket_entry_points_reject_symlinks(self) -> None:
         memory = self.work_root / "workspaces/001-example/current/memory"
         for relative in (
-            "spec", "tickets", "spec/03-concepts-and-contracts.md",
+            "spec",
+            "tickets",
+            "spec/03-concepts-and-contracts.md",
             "tickets/index.md",
         ):
             with self.subTest(relative=relative):
@@ -407,9 +378,7 @@ class RecoverTests(WorkspaceFixture):
         )
 
     def test_does_not_require_or_inspect_workspace_source(self) -> None:
-        source = (
-            self.work_root / "workspaces" / "001-example" / "source"
-        )
+        source = self.work_root / "workspaces" / "001-example" / "source"
         unavailable_source = source.with_name("source-unavailable")
         source.rename(unavailable_source)
         try:
@@ -422,9 +391,7 @@ class RecoverTests(WorkspaceFixture):
         self.assertNotIn("UNLOADED_SOURCE_RAW_SECRET", completed.stdout)
 
     def test_succeeds_when_verify_contract_is_invalid(self) -> None:
-        (
-            self.work_root / "workspaces" / "001-example" / "verify.json"
-        ).write_text(
+        (self.work_root / "workspaces" / "001-example" / "verify.json").write_text(
             '{"verification": "INVALID_VERIFY_CONTRACT_SECRET"\n',
             encoding="utf-8",
         )
@@ -519,9 +486,7 @@ class RecoverTests(WorkspaceFixture):
 
         previous_reference_schema = copy.deepcopy(self.recover_contract)
         previous_reference_schema["schema_version"] = 2
-        invalid_contracts.append(
-            (previous_reference_schema, "schema_version")
-        )
+        invalid_contracts.append((previous_reference_schema, "schema_version"))
 
         previous_target_schema = copy.deepcopy(self.recover_contract)
         previous_target_schema["schema_version"] = 3
@@ -529,15 +494,11 @@ class RecoverTests(WorkspaceFixture):
 
         previous_overview_anchor_schema = copy.deepcopy(self.recover_contract)
         previous_overview_anchor_schema["schema_version"] = 4
-        invalid_contracts.append(
-            (previous_overview_anchor_schema, "schema_version")
-        )
+        invalid_contracts.append((previous_overview_anchor_schema, "schema_version"))
 
         previous_flat_path_schema = copy.deepcopy(self.recover_contract)
         previous_flat_path_schema["schema_version"] = 5
-        invalid_contracts.append(
-            (previous_flat_path_schema, "schema_version")
-        )
+        invalid_contracts.append((previous_flat_path_schema, "schema_version"))
 
         wrong_id = copy.deepcopy(self.recover_contract)
         wrong_id["workspace_id"] = "002-other"
@@ -555,36 +516,24 @@ class RecoverTests(WorkspaceFixture):
     def test_rejects_project_context_outside_boundary_and_symlinks(self) -> None:
         outside_context = copy.deepcopy(self.recover_contract)
         outside_context["project_context"][0]["path"] = "src/value.txt"
-        self.write_work_json(
-            "workspaces/001-example/recover.json", outside_context
-        )
+        self.write_work_json("workspaces/001-example/recover.json", outside_context)
 
         lexical_outside = self.run_cli("recover")
         self.assertEqual(lexical_outside.returncode, 2)
         self.assertIn("selected from context/project", lexical_outside.stderr)
 
         record_path = (
-            self.work_root
-            / "workspaces"
-            / "001-example"
-            / "records"
-            / "old.json"
+            self.work_root / "workspaces" / "001-example" / "records" / "old.json"
         )
         link_path = (
-            self.project_root
-            / "context"
-            / "project"
-            / "common"
-            / "record-link.md"
+            self.project_root / "context" / "project" / "common" / "record-link.md"
         )
         link_path.symlink_to(record_path)
         linked_record = copy.deepcopy(self.recover_contract)
-        linked_record["project_context"][0]["path"] = (
-            "context/project/common/record-link.md"
-        )
-        self.write_work_json(
-            "workspaces/001-example/recover.json", linked_record
-        )
+        linked_record["project_context"][0][
+            "path"
+        ] = "context/project/common/record-link.md"
+        self.write_work_json("workspaces/001-example/recover.json", linked_record)
 
         linked = self.run_cli("recover")
         self.assertEqual(linked.returncode, 2)
@@ -593,11 +542,7 @@ class RecoverTests(WorkspaceFixture):
 
     def test_requires_each_selected_project_context_file_to_exist(self) -> None:
         task_context = (
-            self.project_root
-            / "context"
-            / "project"
-            / "common"
-            / "task-context.md"
+            self.project_root / "context" / "project" / "common" / "task-context.md"
         )
         content = task_context.read_text(encoding="utf-8")
         task_context.unlink()
@@ -626,9 +571,7 @@ class RecoverTests(WorkspaceFixture):
             readme_second["project_context"][0],
             readme_second["project_context"][1],
         ]
-        self.write_work_json(
-            "workspaces/001-example/recover.json", readme_second
-        )
+        self.write_work_json("workspaces/001-example/recover.json", readme_second)
 
         misplaced = self.run_cli("recover", "--json")
 
@@ -645,19 +588,13 @@ class RecoverTests(WorkspaceFixture):
 
     def test_requires_project_readme_selection_but_not_first(self) -> None:
         without_readme = copy.deepcopy(self.recover_contract)
-        without_readme["project_context"] = without_readme[
-            "project_context"
-        ][1:]
-        self.write_work_json(
-            "workspaces/001-example/recover.json", without_readme
-        )
+        without_readme["project_context"] = without_readme["project_context"][1:]
+        self.write_work_json("workspaces/001-example/recover.json", without_readme)
 
         rejected = self.run_cli("recover", "--json")
 
         self.assertEqual(rejected.returncode, 2)
-        self.assertIn(
-            "must select context/project/README.md", rejected.stderr
-        )
+        self.assertIn("must select context/project/README.md", rejected.stderr)
         self.assertNotIn("PROJECT_COMMON_CONTEXT", rejected.stdout)
 
     def test_accepts_nested_markdown_from_each_project_layer(self) -> None:
@@ -671,14 +608,10 @@ class RecoverTests(WorkspaceFixture):
                 f"SELECTED_{layer.upper()}_NESTED_CONTEXT\n",
                 encoding="utf-8",
             )
-            entries.append(
-                {"path": path, "reason": f"{layer} layer 선택 검증"}
-            )
+            entries.append({"path": path, "reason": f"{layer} layer 선택 검증"})
         contract = copy.deepcopy(self.recover_contract)
         contract["project_context"] = entries
-        self.write_work_json(
-            "workspaces/001-example/recover.json", contract
-        )
+        self.write_work_json("workspaces/001-example/recover.json", contract)
 
         completed = self.run_cli("recover", "--json")
 
@@ -707,9 +640,7 @@ class RecoverTests(WorkspaceFixture):
             with self.subTest(path=invalid_path):
                 contract = copy.deepcopy(self.recover_contract)
                 contract["project_context"][1]["path"] = invalid_path
-                self.write_work_json(
-                    "workspaces/001-example/recover.json", contract
-                )
+                self.write_work_json("workspaces/001-example/recover.json", contract)
 
                 completed = self.run_cli("recover", "--json")
 
@@ -719,23 +650,15 @@ class RecoverTests(WorkspaceFixture):
 
     def test_rejects_non_markdown_project_context(self) -> None:
         non_markdown = (
-            self.project_root
-            / "context"
-            / "project"
-            / "common"
-            / "selected.txt"
+            self.project_root / "context" / "project" / "common" / "selected.txt"
         )
         non_markdown.write_text(
             "NON_MARKDOWN_PROJECT_CONTEXT_MUST_NOT_LOAD\n",
             encoding="utf-8",
         )
         contract = copy.deepcopy(self.recover_contract)
-        contract["project_context"][0]["path"] = (
-            "context/project/common/selected.txt"
-        )
-        self.write_work_json(
-            "workspaces/001-example/recover.json", contract
-        )
+        contract["project_context"][0]["path"] = "context/project/common/selected.txt"
+        self.write_work_json("workspaces/001-example/recover.json", contract)
 
         completed = self.run_cli("recover", "--json")
 
@@ -749,9 +672,7 @@ class RecoverTests(WorkspaceFixture):
     def test_rejects_workspace_identity_extra_responsibility(self) -> None:
         identity = copy.deepcopy(self.identity)
         identity["project_context"] = []
-        self.write_work_json(
-            "workspaces/001-example/workspace.json", identity
-        )
+        self.write_work_json("workspaces/001-example/workspace.json", identity)
 
         completed = self.run_cli("recover")
 
@@ -835,21 +756,15 @@ class RecoverTests(WorkspaceFixture):
         self.assertIn("not valid JSON", malformed.stderr)
 
         status_path.unlink()
-        outside_status = (
-            self.project_root / "context" / "project" / "status.json"
-        )
-        outside_status.write_text(
-            json.dumps(self.initial_status()), encoding="utf-8"
-        )
+        outside_status = self.project_root / "context" / "project" / "status.json"
+        outside_status.write_text(json.dumps(self.initial_status()), encoding="utf-8")
         status_path.symlink_to(outside_status)
         linked = self.run_cli("recover")
         self.assertEqual(linked.returncode, 2)
         self.assertIn("symlink", linked.stderr)
 
     def test_rejects_symlinked_memory_topic_and_current_directories(self) -> None:
-        source = (
-            self.project_root / "context" / "project" / "linked-memory.md"
-        )
+        source = self.project_root / "context" / "project" / "linked-memory.md"
         source.write_text("LINKED_MEMORY_MUST_NOT_LOAD\n", encoding="utf-8")
         link = (
             self.work_root
@@ -926,8 +841,7 @@ class RecoverTests(WorkspaceFixture):
 
     def test_accepts_nested_verify_receipt_path(self) -> None:
         receipt_relative = (
-            "workspaces/001-example/records/receipts/verify/"
-            "verify-existing.json"
+            "workspaces/001-example/records/receipts/verify/" "verify-existing.json"
         )
         status = self.verified_status(receipt_relative)
         self.write_work_json(
@@ -960,22 +874,10 @@ class RecoverTests(WorkspaceFixture):
                 "workspaces/001-example/records/receipts/preflight/"
                 "verify-preflight.json"
             ),
-            (
-                "workspaces/001-example/records/receipts/other/"
-                "verify-other.json"
-            ),
-            (
-                "workspaces/001-example/records/receipts/verify/"
-                "harness-result.json"
-            ),
-            (
-                "workspaces/001-example/records/receipts/verify/"
-                "verify-.json"
-            ),
-            (
-                "workspaces/001-example/records/receipts/verify/"
-                "verify-result.txt"
-            ),
+            ("workspaces/001-example/records/receipts/other/" "verify-other.json"),
+            ("workspaces/001-example/records/receipts/verify/" "harness-result.json"),
+            ("workspaces/001-example/records/receipts/verify/" "verify-.json"),
+            ("workspaces/001-example/records/receipts/verify/" "verify-result.txt"),
             (
                 "workspaces/001-example/records/receipts/verify/archive/"
                 "verify-result.json"
@@ -1002,8 +904,7 @@ class RecoverTests(WorkspaceFixture):
 
     def test_accepts_current_status_and_receipt_schemas(self) -> None:
         receipt_relative = (
-            "workspaces/001-example/records/receipts/verify/"
-            "verify-current.json"
+            "workspaces/001-example/records/receipts/verify/" "verify-current.json"
         )
         finished_at = "2026-08-14T00:00:00.000Z"
         canonical_basis_files = [
@@ -1044,9 +945,7 @@ class RecoverTests(WorkspaceFixture):
             packet["state"]["status"]["value"]["status"],
             "verification_passed",
         )
-        self.assertNotIn(
-            "next_action", packet["state"]["status"]["value"]
-        )
+        self.assertNotIn("next_action", packet["state"]["status"]["value"])
         self.assertEqual(
             packet["state"]["status"]["receipt_freshness"]["status"],
             "fresh",
@@ -1056,8 +955,7 @@ class RecoverTests(WorkspaceFixture):
         self,
     ) -> None:
         receipt_relative = (
-            "workspaces/001-example/records/receipts/verify/"
-            "verify-freshness.json"
+            "workspaces/001-example/records/receipts/verify/" "verify-freshness.json"
         )
         finished_at = "2026-08-14T00:00:00.000Z"
         canonical_basis_files = [
@@ -1093,9 +991,7 @@ class RecoverTests(WorkspaceFixture):
         changed = self.run_cli("recover", "--json")
 
         self.assertEqual(changed.returncode, 0, changed.stderr)
-        freshness = json.loads(changed.stdout)["state"]["status"][
-            "receipt_freshness"
-        ]
+        freshness = json.loads(changed.stdout)["state"]["status"]["receipt_freshness"]
         self.assertEqual(freshness["status"], "stale")
         self.assertEqual(freshness["changed_file_count"], 1)
         self.assertEqual(freshness["missing_file_count"], 0)
@@ -1105,9 +1001,7 @@ class RecoverTests(WorkspaceFixture):
         missing = self.run_cli("recover", "--json")
 
         self.assertEqual(missing.returncode, 0, missing.stderr)
-        freshness = json.loads(missing.stdout)["state"]["status"][
-            "receipt_freshness"
-        ]
+        freshness = json.loads(missing.stdout)["state"]["status"]["receipt_freshness"]
         self.assertEqual(freshness["status"], "stale")
         self.assertEqual(freshness["changed_file_count"], 0)
         self.assertEqual(freshness["missing_file_count"], 1)
@@ -1169,9 +1063,7 @@ class RecoverTests(WorkspaceFixture):
         self.assertIn("symlink", symlink.stderr)
 
     def test_rejects_receipt_symlink(self) -> None:
-        outside_receipt = (
-            self.project_root / "context" / "project" / "receipt.json"
-        )
+        outside_receipt = self.project_root / "context" / "project" / "receipt.json"
         outside_receipt.write_text(
             json.dumps(
                 {

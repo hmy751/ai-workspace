@@ -80,9 +80,7 @@ class MaintainHostCompatibilityTests(MaintainHostAdapterFixture):
                 "response after deactivation",
             )
         )
-        turns_directory = (
-            self.runtime_root / self.session_key(session_id) / "turns"
-        )
+        turns_directory = self.runtime_root / self.session_key(session_id) / "turns"
         before_turn_count = len(list(turns_directory.glob("*.json")))
         next_prompt = self.adapter.user_prompt(
             self.prompt_payload(session_id, "turn-after-off", "unbound prompt")
@@ -102,10 +100,7 @@ class MaintainHostCompatibilityTests(MaintainHostAdapterFixture):
 
     def test_v1_project_config_never_auto_binds_a_new_session(self) -> None:
         (self.project_root / ".codex" / "maintain.json").write_text(
-            json.dumps(
-                {"schema_version": 1, "workspace_id": "001-example"}
-            )
-            + "\n",
+            json.dumps({"schema_version": 1, "workspace_id": "001-example"}) + "\n",
             encoding="utf-8",
         )
         session_id = "host-session-v1-config-unbound"
@@ -113,9 +108,7 @@ class MaintainHostCompatibilityTests(MaintainHostAdapterFixture):
         output = self.adapter.session_start(self.session_start_payload(session_id))
 
         self.assertEqual(output, {"continue": True})
-        self.assertFalse(
-            (self.runtime_root / self.session_key(session_id)).exists()
-        )
+        self.assertFalse((self.runtime_root / self.session_key(session_id)).exists())
         self.assertEqual(self.semantic_session_type.starts, [])
 
     def test_status_retries_when_activation_adds_a_generation_mid_scan(
@@ -139,9 +132,7 @@ class MaintainHostCompatibilityTests(MaintainHostAdapterFixture):
                     self.prompt_payload(session_id, "turn-b-race", "prompt B")
                 )
                 self.adapter.response_end(
-                    self.stop_payload(
-                        session_id, "turn-b-race", "response B"
-                    )
+                    self.stop_payload(session_id, "turn-b-race", "response B")
                 )
             return original_runtime_status(session_directory, state)
 

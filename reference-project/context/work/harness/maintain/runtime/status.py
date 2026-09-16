@@ -137,16 +137,10 @@ class StatusReader:
                 failed_effect_generations[turn_key] = event_generations[turn_key]
                 continue
             effect_path = self.store._effect_path(session_directory, turn_key)
-            effect = _read_json_object(
-                effect_path, "Maintain runtime effect"
-            )
-            snapshot_present = [
-                key in effect for key in _BINDING_SNAPSHOT_KEYS
-            ]
+            effect = _read_json_object(effect_path, "Maintain runtime effect")
+            snapshot_present = [key in effect for key in _BINDING_SNAPSHOT_KEYS]
             if any(snapshot_present):
-                binding = _binding_snapshot(
-                    effect, state, "Maintain runtime effect"
-                )
+                binding = _binding_snapshot(effect, state, "Maintain runtime effect")
                 failed_effect_generations[turn_key] = binding["generation"]
                 continue
             turn_path = self.store._turn_path(session_directory, turn_key)
@@ -173,9 +167,7 @@ class StatusReader:
                     continue
                 if self.store._effect_path(session_directory, turn_key).exists():
                     continue
-                turn = _read_json_object(
-                    path, "Maintain runtime user-prompt event"
-                )
+                turn = _read_json_object(path, "Maintain runtime user-prompt event")
                 binding = _binding_snapshot(
                     turn, state, "Maintain runtime user-prompt event"
                 )
@@ -227,9 +219,7 @@ class StatusReader:
             "runnable_event_keys": runnable_event_keys,
             "failed_effect_count": len(failed_effect_keys),
             "failed_effect_keys": failed_effect_keys,
-            "unassigned_failed_effect_count": len(
-                unassigned_failed_effect_keys
-            ),
+            "unassigned_failed_effect_count": len(unassigned_failed_effect_keys),
             "unassigned_failed_effect_keys": unassigned_failed_effect_keys,
             "blocking_failure_count": len(blocking_failure_keys),
             "blocking_failure_keys": blocking_failure_keys,

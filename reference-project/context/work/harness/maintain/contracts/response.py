@@ -13,7 +13,6 @@ from ...workspace_contract import (
     validate_workspace_id,
 )
 
-
 _SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 
 _GROUNDING_KEYS = {
@@ -92,9 +91,7 @@ class ResponseValidator:
                 )
             if not isinstance(change["content"], str):
                 fail(f"Maintain change {index} content must be a string")
-            expect_nonempty_string(
-                change["reason"], f"Maintain change {index} reason"
-            )
+            expect_nonempty_string(change["reason"], f"Maintain change {index} reason")
         self._expect_string_list(value["evidence"], "decision evidence")
         self._expect_string_list(value["unresolved"], "decision unresolved")
         question = value["question"]
@@ -108,9 +105,7 @@ class ResponseValidator:
                 fail("update requires changes and question=null")
         else:
             if importance != "important" or changes:
-                fail(
-                    "needs_user_decision requires importance=important and no changes"
-                )
+                fail("needs_user_decision requires importance=important and no changes")
             if not isinstance(question, str) or not question.strip():
                 fail("needs_user_decision requires a non-empty question")
 

@@ -15,7 +15,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-
 IGNORED_WALK_DIRS = {
     ".git",
     ".hg",
@@ -46,7 +45,9 @@ def compact_utc(value: datetime) -> str:
     return value.strftime("%Y%m%dT%H%M%S%fZ")
 
 
-def run_git(root: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess[bytes]:
+def run_git(
+    root: Path, *args: str, check: bool = True
+) -> subprocess.CompletedProcess[bytes]:
     process = subprocess.run(
         ["git", "-C", str(root), *args],
         stdout=subprocess.PIPE,
@@ -95,7 +96,9 @@ def git_index_oid(root: Path, relative_path: str) -> str | None:
     return parts[1].decode("ascii") if len(parts) >= 2 else None
 
 
-def snapshot_path(root: Path, relative_path: str, *, head_exists: bool) -> dict[str, Any]:
+def snapshot_path(
+    root: Path, relative_path: str, *, head_exists: bool
+) -> dict[str, Any]:
     path = root / relative_path
     entry: dict[str, Any] = {
         "path": relative_path,
@@ -134,9 +137,13 @@ def snapshot_path(root: Path, relative_path: str, *, head_exists: bool) -> dict[
     return entry
 
 
-def discover_instruction_files(root: Path, *, head_exists: bool) -> list[dict[str, Any]]:
+def discover_instruction_files(
+    root: Path, *, head_exists: bool
+) -> list[dict[str, Any]]:
     entries: list[dict[str, Any]] = []
-    for current, directories, filenames in os.walk(root, topdown=True, followlinks=False):
+    for current, directories, filenames in os.walk(
+        root, topdown=True, followlinks=False
+    ):
         directories[:] = sorted(
             directory
             for directory in directories
@@ -157,9 +164,11 @@ def build_receipt(project_root: Path) -> dict[str, Any]:
     if not requested_root.is_dir():
         raise CaptureError(f"project root is not a directory: {requested_root}")
 
-    actual_root_text = run_git(requested_root, "rev-parse", "--show-toplevel").stdout.decode(
-        "utf-8", errors="strict"
-    ).strip()
+    actual_root_text = (
+        run_git(requested_root, "rev-parse", "--show-toplevel")
+        .stdout.decode("utf-8", errors="strict")
+        .strip()
+    )
     actual_root = Path(actual_root_text).resolve(strict=True)
     if requested_root != actual_root:
         raise CaptureError(
@@ -167,17 +176,27 @@ def build_receipt(project_root: Path) -> dict[str, Any]:
         )
 
     head_result = run_git(actual_root, "rev-parse", "--verify", "HEAD", check=False)
-    head = head_result.stdout.decode("ascii").strip() if head_result.returncode == 0 else None
-    branch_result = run_git(actual_root, "symbolic-ref", "--quiet", "--short", "HEAD", check=False)
+    head = (
+        head_result.stdout.decode("ascii").strip()
+        if head_result.returncode == 0
+        else None
+    )
+    branch_result = run_git(
+        actual_root, "symbolic-ref", "--quiet", "--short", "HEAD", check=False
+    )
     branch = branch_result.stdout.decode("utf-8", errors="replace").strip() or None
 
     groups = {
-        "worktree": decode_paths(run_git(actual_root, "diff", "--name-only", "-z", "--").stdout),
+        "worktree": decode_paths(
+            run_git(actual_root, "diff", "--name-only", "-z", "--").stdout
+        ),
         "index": decode_paths(
             run_git(actual_root, "diff", "--cached", "--name-only", "-z", "--").stdout
         ),
         "untracked": decode_paths(
-            run_git(actual_root, "ls-files", "--others", "--exclude-standard", "-z").stdout
+            run_git(
+                actual_root, "ls-files", "--others", "--exclude-standard", "-z"
+            ).stdout
         ),
     }
     path_states: dict[str, list[str]] = {}
@@ -207,7 +226,9 @@ def build_receipt(project_root: Path) -> dict[str, Any]:
             "status_porcelain_v1": porcelain,
             "dirty_entries": dirty_entries,
         },
-        "instruction_files": discover_instruction_files(actual_root, head_exists=head is not None),
+        "instruction_files": discover_instruction_files(
+            actual_root, head_exists=head is not None
+        ),
         "proof_ceiling": (
             "This receipt captures observed paths and bytes during one local capture pass. "
             "It is not an atomic snapshot; concurrent changes may make fields internally "
@@ -243,7 +264,9 @@ def write_receipt(receipt: dict[str, Any], output_dir: Path) -> Path:
         try:
             os.link(temporary, destination)
         except FileExistsError as error:
-            raise CaptureError(f"refusing to overwrite receipt: {destination}") from error
+            raise CaptureError(
+                f"refusing to overwrite receipt: {destination}"
+            ) from error
         temporary.unlink()
     except BaseException:
         temporary.unlink(missing_ok=True)

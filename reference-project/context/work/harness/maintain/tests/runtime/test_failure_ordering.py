@@ -35,11 +35,9 @@ class MaintainHostFailureOrderingTests(MaintainHostAdapterFixture):
         self.assertEqual(second["already_resolved"], 1)
         self.assertEqual(len(self.semantic_session_type.deltas), 1)
         effect_files = list(
-            (
-                self.runtime_root
-                / self.session_key(session_id)
-                / "effects"
-            ).glob("*.json")
+            (self.runtime_root / self.session_key(session_id) / "effects").glob(
+                "*.json"
+            )
         )
         self.assertEqual(len(effect_files), 1)
         effect = json.loads(effect_files[0].read_text(encoding="utf-8"))
@@ -87,17 +85,11 @@ class MaintainHostFailureOrderingTests(MaintainHostAdapterFixture):
         self.assertEqual(self.workspace_bytes(), before)
         self.assertEqual(len(self.popen.calls), popen_count)
 
-        effects_directory = (
-            self.runtime_root
-            / self.session_key(session_id)
-            / "effects"
-        )
+        effects_directory = self.runtime_root / self.session_key(session_id) / "effects"
         failed_key = self.session_key("turn-failure")
         later_key = self.session_key("turn-later")
         failed_effect = json.loads(
-            (effects_directory / f"{failed_key}.json").read_text(
-                encoding="utf-8"
-            )
+            (effects_directory / f"{failed_key}.json").read_text(encoding="utf-8")
         )
         self.assertIs(failed_effect["blocks_later_events"], True)
         self.assertFalse((effects_directory / f"{later_key}.json").exists())
@@ -184,9 +176,7 @@ class MaintainHostFailureOrderingTests(MaintainHostAdapterFixture):
         )
         legacy_effect = json.loads(effect_path.read_text(encoding="utf-8"))
         del legacy_effect["blocks_later_events"]
-        effect_path.write_text(
-            json.dumps(legacy_effect) + "\n", encoding="utf-8"
-        )
+        effect_path.write_text(json.dumps(legacy_effect) + "\n", encoding="utf-8")
 
         popen_count = len(self.popen.calls)
         attention = self.adapter.user_prompt(
@@ -242,9 +232,7 @@ class MaintainHostFailureOrderingTests(MaintainHostAdapterFixture):
         self.assertEqual(summary["processed"], 1)
         self.assertEqual(summary["blocked"], 0)
         self.assertEqual(len(self.semantic_session_type.deltas), 1)
-        self.assertEqual(
-            self.semantic_session_type.deltas[0]["turn_id"], "turn-valid"
-        )
+        self.assertEqual(self.semantic_session_type.deltas[0]["turn_id"], "turn-valid")
         failed_effect = json.loads(
             (
                 self.runtime_root

@@ -8,7 +8,6 @@ from .operation import (
     validate_maintain_decision,
 )
 
-
 __all__ = [
     "CodexMaintainSession",
     "MAINTAIN_DECISION_SCHEMA_VERSION",

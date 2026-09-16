@@ -112,9 +112,7 @@ class EventIntake:
                     or existing.get("prompt") != prompt
                 ):
                     fail("duplicate Maintain turn_id has different prompt content")
-                _binding_snapshot(
-                    existing, state, "Maintain runtime user-prompt event"
-                )
+                _binding_snapshot(existing, state, "Maintain runtime user-prompt event")
             else:
                 if event_path.exists():
                     event = _read_json_object(
@@ -406,9 +404,7 @@ class EventIntake:
             effect_path = self.store._effect_path(session_directory, turn_key)
             if effect_path.exists():
                 continue
-            turn = _read_json_object(
-                turn_path, "Maintain runtime user-prompt event"
-            )
+            turn = _read_json_object(turn_path, "Maintain runtime user-prompt event")
             binding = _binding_snapshot(
                 turn, state, "Maintain runtime user-prompt event"
             )

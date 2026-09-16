@@ -8,7 +8,6 @@ from pathlib import Path, PurePosixPath, PureWindowsPath
 import re
 from typing import Any, NoReturn
 
-
 WORKSPACE_INDEX_SCHEMA_VERSION = 1
 WORKSPACE_IDENTITY_SCHEMA_VERSION = 1
 LEGACY_STATE_STATUS_SCHEMA_VERSION = 2
@@ -58,9 +57,7 @@ def fail(message: str) -> NoReturn:
     raise HarnessError(message)
 
 
-def expect_exact_keys(
-    value: dict[str, Any], expected: set[str], label: str
-) -> None:
+def expect_exact_keys(value: dict[str, Any], expected: set[str], label: str) -> None:
     actual = set(value)
     if actual == expected:
         return
@@ -99,9 +96,7 @@ def validate_workspace_id(value: Any) -> str:
     return workspace_id
 
 
-def validate_verification_receipt_path(
-    value: Any, workspace_id: str
-) -> str:
+def validate_verification_receipt_path(value: Any, workspace_id: str) -> str:
     """Accept only product Verify receipt locations owned by a Workspace."""
 
     receipt = validate_relative_path(value, "state status receipt")
@@ -162,15 +157,11 @@ def resolve_inside_root(
     try:
         candidate.relative_to(resolved_root)
     except ValueError as exc:
-        raise HarnessError(
-            f"{label} resolves outside its declared path base"
-        ) from exc
+        raise HarnessError(f"{label} resolves outside its declared path base") from exc
     return candidate
 
 
-def reject_symlink_components(
-    base_root: Path, relative_path: str, label: str
-) -> None:
+def reject_symlink_components(base_root: Path, relative_path: str, label: str) -> None:
     safe_relative = validate_relative_path(relative_path, label)
     current = base_root.resolve(strict=True)
     for part in PurePosixPath(safe_relative.replace("\\", "/")).parts:
@@ -199,12 +190,8 @@ def resolve_regular_file_without_symlinks(
     return path
 
 
-def read_text_without_symlinks(
-    base_root: Path, relative_path: str, label: str
-) -> str:
-    path = resolve_regular_file_without_symlinks(
-        base_root, relative_path, label
-    )
+def read_text_without_symlinks(base_root: Path, relative_path: str, label: str) -> str:
+    path = resolve_regular_file_without_symlinks(base_root, relative_path, label)
     try:
         return path.read_text(encoding="utf-8")
     except (OSError, UnicodeError) as exc:
@@ -241,9 +228,7 @@ def _load_workspace_index(work_root: Path) -> dict[str, Any]:
         WORKSPACE_INDEX_SCHEMA_VERSION,
         "Workspace index",
     )
-    index["active_workspace_id"] = validate_workspace_id(
-        index["active_workspace_id"]
-    )
+    index["active_workspace_id"] = validate_workspace_id(index["active_workspace_id"])
     return index
 
 
@@ -254,9 +239,7 @@ def select_workspace(
 
     if explicit_workspace_id is None:
         index_path: str | None = "workspaces/index.json"
-        workspace_id = _load_workspace_index(work_root)[
-            "active_workspace_id"
-        ]
+        workspace_id = _load_workspace_index(work_root)["active_workspace_id"]
     else:
         index_path = None
         workspace_id = validate_workspace_id(explicit_workspace_id)
@@ -283,17 +266,14 @@ def select_workspace(
     )
 
 
-def validate_state_status(
-    status: dict[str, Any], workspace_id: str
-) -> dict[str, Any]:
+def validate_state_status(status: dict[str, Any], workspace_id: str) -> dict[str, Any]:
     schema_version = status.get("schema_version")
     if (
         type(schema_version) is not int
         or schema_version not in SUPPORTED_STATE_STATUS_SCHEMA_VERSIONS
     ):
         fail(
-            "unsupported Workspace state status schema_version: "
-            f"{schema_version!r}"
+            "unsupported Workspace state status schema_version: " f"{schema_version!r}"
         )
     expected_keys = {
         "schema_version",
@@ -327,9 +307,7 @@ def validate_state_status(
         if status[field] is not None and not isinstance(status[field], str):
             fail(f"state status {field} must be a string or null")
     if schema_version == LEGACY_STATE_STATUS_SCHEMA_VERSION:
-        expect_nonempty_string(
-            status["next_action"], "state status next_action"
-        )
+        expect_nonempty_string(status["next_action"], "state status next_action")
 
     expected_result = expected_results[status["status"]]
     if status["result"] != expected_result:
@@ -351,9 +329,7 @@ def state_status_path(identity: WorkspaceIdentity) -> str:
     return f"{identity.workspace_path}/current/state/status.json"
 
 
-def load_state_status(
-    work_root: Path, identity: WorkspaceIdentity
-) -> dict[str, Any]:
+def load_state_status(work_root: Path, identity: WorkspaceIdentity) -> dict[str, Any]:
     status = read_json_without_symlinks(
         work_root, state_status_path(identity), "Workspace state status"
     )

@@ -9,7 +9,6 @@ import time
 import unittest
 from pathlib import Path
 
-
 SCRIPTS_DIR = Path(__file__).resolve().parents[1]
 CAPTURE_SCRIPT = SCRIPTS_DIR / "capture_target_state.py"
 HARNESS_SCRIPT = SCRIPTS_DIR / "record_harness_tests.py"
@@ -75,7 +74,9 @@ class CaptureTargetStateTest(unittest.TestCase):
             )
             self.assertEqual(result.returncode, 0, result.stderr)
             summary = json.loads(result.stdout)
-            receipt = json.loads(Path(summary["receipt_path"]).read_text(encoding="utf-8"))
+            receipt = json.loads(
+                Path(summary["receipt_path"]).read_text(encoding="utf-8")
+            )
 
             dirty = {entry["path"]: entry for entry in receipt["git"]["dirty_entries"]}
             self.assertEqual(set(dirty), {"new.txt", "tracked.txt"})
@@ -121,8 +122,7 @@ class RecordHarnessTestsTest(unittest.TestCase):
         source = project / "context/work/harness"
         tests = source / "tests"
         records = (
-            project
-            / "context/work/workspaces/001-demo/records/receipts/harness-tests"
+            project / "context/work/workspaces/001-demo/records/receipts/harness-tests"
         )
         tests.mkdir(parents=True)
         records.mkdir(parents=True)
@@ -167,7 +167,9 @@ class RecordHarnessTestsTest(unittest.TestCase):
             result = run(*self.helper_args(project))
             self.assertEqual(result.returncode, 0, result.stderr)
             summary = json.loads(result.stdout)
-            receipt = json.loads(Path(summary["receipt_path"]).read_text(encoding="utf-8"))
+            receipt = json.loads(
+                Path(summary["receipt_path"]).read_text(encoding="utf-8")
+            )
             self.assertEqual(receipt["result"], "pass")
             self.assertEqual(receipt["test_count"], 1)
             self.assertEqual(receipt["test_framework"], "python_unittest_discover")
@@ -188,7 +190,9 @@ class RecordHarnessTestsTest(unittest.TestCase):
             result = run(*self.helper_args(project))
             self.assertEqual(result.returncode, 1, result.stderr)
             summary = json.loads(result.stdout)
-            receipt = json.loads(Path(summary["receipt_path"]).read_text(encoding="utf-8"))
+            receipt = json.loads(
+                Path(summary["receipt_path"]).read_text(encoding="utf-8")
+            )
             self.assertEqual(receipt["result"], "fail")
             self.assertEqual(receipt["exit_code"], 1)
 
@@ -200,7 +204,9 @@ class RecordHarnessTestsTest(unittest.TestCase):
             result = run(*args)
             self.assertEqual(result.returncode, 5, result.stderr)
             summary = json.loads(result.stdout)
-            receipt = json.loads(Path(summary["receipt_path"]).read_text(encoding="utf-8"))
+            receipt = json.loads(
+                Path(summary["receipt_path"]).read_text(encoding="utf-8")
+            )
             self.assertEqual(receipt["result"], "fail")
             self.assertEqual(receipt["exit_code"], 5)
             self.assertEqual(receipt["test_count"], 0)
@@ -219,12 +225,16 @@ class RecordHarnessTestsTest(unittest.TestCase):
             result = run(*self.helper_args(project), "--max-output-bytes", "128")
             self.assertEqual(result.returncode, 1, result.stderr)
             summary = json.loads(result.stdout)
-            receipt = json.loads(Path(summary["receipt_path"]).read_text(encoding="utf-8"))
+            receipt = json.loads(
+                Path(summary["receipt_path"]).read_text(encoding="utf-8")
+            )
             self.assertTrue(receipt["stdout"]["truncated"])
             self.assertEqual(receipt["stdout"]["captured_bytes"], 128)
             self.assertGreater(receipt["stdout"]["original_bytes"], 128)
 
-    @unittest.skipUnless(hasattr(__import__("os"), "killpg"), "requires POSIX process groups")
+    @unittest.skipUnless(
+        hasattr(__import__("os"), "killpg"), "requires POSIX process groups"
+    )
     def test_timeout_kills_unittest_process_group(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             project = self.prepare_project(Path(temporary))
@@ -248,7 +258,9 @@ class RecordHarnessTestsTest(unittest.TestCase):
             result = run(*self.helper_args(project), "--timeout-seconds", "0.3")
             self.assertEqual(result.returncode, 124, result.stderr)
             summary = json.loads(result.stdout)
-            receipt = json.loads(Path(summary["receipt_path"]).read_text(encoding="utf-8"))
+            receipt = json.loads(
+                Path(summary["receipt_path"]).read_text(encoding="utf-8")
+            )
             self.assertTrue(receipt["timeout"]["timed_out"])
             self.assertEqual(receipt["timeout"]["termination_scope"], "process_group")
             time.sleep(1.2)

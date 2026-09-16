@@ -9,7 +9,6 @@ from urllib.parse import unquote
 
 from ...workspace_contract import HarnessError, fail
 
-
 _RECORD_PATTERN = re.compile(
     r"^(?P<year>[0-9]{4})-(?P<month>[0-9]{2})-"
     r"(?P<day>[0-9]{2})-(?P<sequence>[0-9]{2})-"
@@ -27,10 +26,7 @@ def _is_allowed_change_path(relative_path: str) -> tuple[bool, bool]:
     parts = PurePosixPath(relative_path).parts
     if (
         parts[:2] == ("current", "memory")
-        and (
-            len(parts) == 3
-            or (len(parts) == 4 and parts[2] in {"spec", "tickets"})
-        )
+        and (len(parts) == 3 or (len(parts) == 4 and parts[2] in {"spec", "tickets"}))
         and parts[-1].endswith(".md")
         and parts[-1] not in {".md", "..md"}
     ):
@@ -104,10 +100,7 @@ def _validate_local_markdown_links(
                 f"{candidate}"
             ) from exc
         if candidate not in planned_targets and not candidate.exists():
-            fail(
-                f"{label} local Markdown link target does not exist: "
-                f"{candidate}"
-            )
+            fail(f"{label} local Markdown link target does not exist: " f"{candidate}")
 
 
 def _local_markdown_targets(

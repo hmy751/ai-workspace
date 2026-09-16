@@ -2,7 +2,6 @@
 
 from .adapters.claude import ClaudeHookAdapter, main
 
-
 __all__ = ["ClaudeHookAdapter", "main"]
 if __name__ == "__main__":
     raise SystemExit(main())

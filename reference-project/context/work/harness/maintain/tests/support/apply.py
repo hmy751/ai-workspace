@@ -39,9 +39,7 @@ class MaintainApplyFixture(WorkspaceFixture):
         }
 
     def relative(self, relative_path: str) -> Path:
-        return (
-            self.work_root / "workspaces" / "001-example" / relative_path
-        )
+        return self.work_root / "workspaces" / "001-example" / relative_path
 
     def digest(self, path: Path) -> str:
         return hashlib.sha256(path.read_bytes()).hexdigest()

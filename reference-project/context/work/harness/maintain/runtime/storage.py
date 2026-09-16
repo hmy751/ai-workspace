@@ -126,9 +126,7 @@ class RuntimeStore:
         value = _read_json_object(path, "Maintain runtime session state")
         schema_version = value.get("schema_version")
         if schema_version == _LEGACY_HOST_STATE_SCHEMA_VERSION:
-            expect_exact_keys(
-                value, _SESSION_V1_KEYS, "Maintain runtime session state"
-            )
+            expect_exact_keys(value, _SESSION_V1_KEYS, "Maintain runtime session state")
             expect_schema_version(
                 schema_version,
                 _LEGACY_HOST_STATE_SCHEMA_VERSION,
@@ -149,9 +147,7 @@ class RuntimeStore:
                 "legacy": True,
             }
 
-        expect_exact_keys(
-            value, _SESSION_V2_KEYS, "Maintain runtime session state"
-        )
+        expect_exact_keys(value, _SESSION_V2_KEYS, "Maintain runtime session state")
         expect_schema_version(
             schema_version,
             MAINTAIN_HOST_STATE_SCHEMA_VERSION,
@@ -168,8 +164,7 @@ class RuntimeStore:
             fail("Maintain runtime bindings must be ordered by generation")
         current_generation = value["current_generation"]
         if current_generation is not None and (
-            type(current_generation) is not int
-            or current_generation not in generations
+            type(current_generation) is not int or current_generation not in generations
         ):
             fail(
                 "Maintain runtime current_generation must name a persisted "
@@ -261,12 +256,9 @@ class RuntimeStore:
             effect_path = self._effect_path(session_directory, turn_key)
             if not effect_path.exists():
                 continue
-            effect = _read_json_object(
-                effect_path, "Maintain runtime effect"
-            )
-            if (
-                effect.get("status") == "failed"
-                and self._effect_blocks_later_events(effect)
+            effect = _read_json_object(effect_path, "Maintain runtime effect")
+            if effect.get("status") == "failed" and self._effect_blocks_later_events(
+                effect
             ):
                 blocking.append(turn_key)
         return blocking
@@ -281,12 +273,9 @@ class RuntimeStore:
             effect_path = self._effect_path(session_directory, turn_key)
             if not effect_path.exists():
                 continue
-            effect = _read_json_object(
-                effect_path, "Maintain runtime effect"
-            )
-            if (
-                effect.get("status") == "failed"
-                and self._effect_blocks_later_events(effect)
+            effect = _read_json_object(effect_path, "Maintain runtime effect")
+            if effect.get("status") == "failed" and self._effect_blocks_later_events(
+                effect
             ):
                 binding = _binding_snapshot(
                     event, state, "Maintain runtime response-end event"
@@ -299,9 +288,7 @@ class RuntimeStore:
         session_directory: Path,
         state: Mapping[str, Any],
     ) -> list[str]:
-        blocked_generations = self._blocking_generations(
-            session_directory, state
-        )
+        blocked_generations = self._blocking_generations(session_directory, state)
         runnable: list[str] = []
         for turn_key, event in self._events(session_directory):
             if self._effect_path(session_directory, turn_key).exists():

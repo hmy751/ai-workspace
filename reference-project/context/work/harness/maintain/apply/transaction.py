@@ -40,9 +40,7 @@ def _stage_change(change: _PreparedChange) -> Path:
     return staged_path
 
 
-def _precondition_still_holds(
-    workspace_root: Path, change: _PreparedChange
-) -> None:
+def _precondition_still_holds(workspace_root: Path, change: _PreparedChange) -> None:
     reject_symlink_components(
         workspace_root, change.relative_path, "Maintain write target"
     )
@@ -55,9 +53,7 @@ def _precondition_still_holds(
         try:
             current = target.read_bytes()
         except OSError as exc:
-            raise HarnessError(
-                f"Maintain write target is unreadable: {exc}"
-            ) from exc
+            raise HarnessError(f"Maintain write target is unreadable: {exc}") from exc
         if _sha256(current) != change.expected_sha256:
             fail(f"Maintain write target became stale: {change.relative_path}")
     elif change.target.exists():
@@ -96,9 +92,7 @@ def _commit_prepared_changes(
                         "Maintain applied content does not match the decision: "
                         f"{change.relative_path}"
                     )
-                applied.append(
-                    {"path": change.relative_path, "reason": change.reason}
-                )
+                applied.append({"path": change.relative_path, "reason": change.reason})
             except (OSError, HarnessError) as exc:
                 changed = [entry["path"] for entry in applied]
                 detail = f"; files already changed: {changed}" if changed else ""

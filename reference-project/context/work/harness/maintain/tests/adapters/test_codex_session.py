@@ -10,7 +10,6 @@ from unittest import mock
 from context.work.harness.maintain.codex_session import CodexMaintainSession
 from context.work.harness.workspace_contract import HarnessError
 
-
 THREAD_ID = "0198-maintain-thread"
 
 
@@ -53,9 +52,7 @@ class ScriptedRunner:
         script = self.scripts.pop(0)
         output = script.get("last_message")
         if output is not None:
-            output_path = Path(
-                command[command.index("--output-last-message") + 1]
-            )
+            output_path = Path(command[command.index("--output-last-message") + 1])
             raw = output if isinstance(output, str) else json.dumps(output)
             output_path.write_text(raw, encoding="utf-8")
         return subprocess.CompletedProcess(
@@ -149,8 +146,12 @@ class CodexMaintainSessionTests(unittest.TestCase):
         ):
             with self.subTest(contract=name):
                 self.assertIn(
-                    (module_root.parents[1] / "workspaces" / "spec-and-tickets" / name)
-                    .read_text(encoding="utf-8"),
+                    (
+                        module_root.parents[1]
+                        / "workspaces"
+                        / "spec-and-tickets"
+                        / name
+                    ).read_text(encoding="utf-8"),
                     prompt,
                 )
         self.assertIn(
@@ -161,8 +162,9 @@ class CodexMaintainSessionTests(unittest.TestCase):
         )
         self.assertIn("BOUNDED_BOOTSTRAP_MARKER", prompt)
         self.assertIn(
-            (module_root.parents[1] / "workspaces" / "DOCUMENT-WRITING.md")
-            .read_text(encoding="utf-8"),
+            (module_root.parents[1] / "workspaces" / "DOCUMENT-WRITING.md").read_text(
+                encoding="utf-8"
+            ),
             prompt,
         )
         self.assertIn("Do not call tools", prompt)
@@ -194,9 +196,7 @@ class CodexMaintainSessionTests(unittest.TestCase):
             "evidence": [],
         }
 
-        result = session.resume(
-            delta, output_path=self.temp_root / "decision.json"
-        )
+        result = session.resume(delta, output_path=self.temp_root / "decision.json")
 
         self.assertEqual(result, no_change_decision())
         command, options = runner.calls[1]
@@ -225,9 +225,7 @@ class CodexMaintainSessionTests(unittest.TestCase):
         )
         prompt = str(options["input"])
         self.assertIn("Explicit workspace_id: 007-clean-room", prompt)
-        self.assertIn(
-            (module_root / "README.md").read_text(encoding="utf-8"), prompt
-        )
+        self.assertIn((module_root / "README.md").read_text(encoding="utf-8"), prompt)
         self.assertIn("RESPONSE_DELTA_MARKER", prompt)
         for name in (
             "README.md",
@@ -238,17 +236,24 @@ class CodexMaintainSessionTests(unittest.TestCase):
         ):
             with self.subTest(contract=name):
                 self.assertIn(
-                    (module_root.parents[1] / "workspaces" / "spec-and-tickets" / name)
-                    .read_text(encoding="utf-8"),
+                    (
+                        module_root.parents[1]
+                        / "workspaces"
+                        / "spec-and-tickets"
+                        / name
+                    ).read_text(encoding="utf-8"),
                     prompt,
                 )
         self.assertIn("read-only local inspection", prompt)
         self.assertIn("relevant existing Context Owner", prompt)
         self.assertIn("current/ for documents that directly repeat", prompt)
-        self.assertIn("`기록해 달라`는 요청만으로 그 원문을 current에 옮기지 않는다", prompt)
         self.assertIn(
-            (module_root.parents[1] / "workspaces" / "DOCUMENT-WRITING.md")
-            .read_text(encoding="utf-8"),
+            "`기록해 달라`는 요청만으로 그 원문을 current에 옮기지 않는다", prompt
+        )
+        self.assertIn(
+            (module_root.parents[1] / "workspaces" / "DOCUMENT-WRITING.md").read_text(
+                encoding="utf-8"
+            ),
             prompt,
         )
         self.assertIn("Do not explore other Workspaces", prompt)
@@ -315,7 +320,8 @@ class CodexMaintainSessionTests(unittest.TestCase):
                             runner=runner,
                             codex_executable="fixture-codex",
                         )
-                        if restored else self.new_session(runner)
+                        if restored
+                        else self.new_session(runner)
                     )
                     config_path = self.temp_root / f"role-{index}.toml"
                     if content is not None:
@@ -327,9 +333,12 @@ class CodexMaintainSessionTests(unittest.TestCase):
                             return config_path
                         return resource_path(filename)
 
-                    with mock.patch.object(
-                        session, "_resource_path", side_effect=resource
-                    ), self.assertRaisesRegex(HarnessError, error):
+                    with (
+                        mock.patch.object(
+                            session, "_resource_path", side_effect=resource
+                        ),
+                        self.assertRaisesRegex(HarnessError, error),
+                    ):
                         if restored:
                             session.resume({"main_response": "delta"})
                         else:
@@ -362,9 +371,7 @@ class CodexMaintainSessionTests(unittest.TestCase):
             output_path=self.temp_root / "resolved.json",
         )
 
-        self.assertEqual(
-            Path(runner.calls[0][0][0]).resolve(), real_codex.resolve()
-        )
+        self.assertEqual(Path(runner.calls[0][0][0]).resolve(), real_codex.resolve())
 
     def test_command_and_untrusted_output_fail_closed(self) -> None:
         scripts_and_errors = [
