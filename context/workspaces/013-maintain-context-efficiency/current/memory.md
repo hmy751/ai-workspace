@@ -19,10 +19,10 @@ Maintain이 이전 대화에서 형성한 목표·결정·열린 문제를 이�
 ## 유지할 결정
 
 - 비용 개선 전에 Maintain의 구현·디렉터리·테스트를 책임별로 정리한다. 기존 공개 호출 경로와 binding·generation·파일 반영 동작을 보존하고 설명용 주석은 한국어로 작성한다.
-- 공통 fixture는 Maintain 개선에 필요한 부분까지만 정리하고, 호출부·문서의 필요한 변경을 포함한다. Recover·Verify 내부 리팩터링은 후속 작업이며 기존 테스트로 회귀 영향만 확인한다.
+- 처음에는 Recover·Verify 내부 리팩터링을 미뤘으나 후속 사용자 요청으로 전체 Harness 코드 정리를 범위에 포함했다. Recover·Verify·공통 Workspace 계약·CLI·validation의 기능과 공개 경로·저장 형식·부작용 순서는 유지하고, 코드·테스트·진입 문서를 같은 가독성·응집도 기준으로 정리한다. Verify 전용 subprocess 시나리오는 공통 fixture가 아닌 Verify tests가 소유한다.
 - Codex와 Claude는 같은 Maintain 흐름을 사용하고 hook·명령·설정·세션 연결의 실제 차이만 도구별 코드에 둔다. 호스트·판단 실행기의 자유로운 조합 선택 시스템을 만들지 않는다. 현재 두 호스트의 의미 판단은 기존 Codex 실행을 사용한다.
 - Reference 코드의 검증, 실제 host hook 활성화·acceptance, Noline 이식은 각각 별도 단계다. 테스트 통과만으로 실제 host 지원 완료를 주장하지 않는다.
-- 이 저장소의 현재 Python 코드는 루트 Black 공통 설정을 사용한다. 원자료 snapshot과 과거 기록은 제외한다. 전체 포맷 적용은 Recover·Verify 내부 리팩터링을 후속으로 둔 결정과 구별한다.
+- 이 저장소의 현재 Python 코드는 루트 Black 공통 설정을 사용한다. 원자료 snapshot과 과거 기록은 제외한다. 전체 포맷 적용과 이후 명시적으로 요청한 Recover·Verify 내부 리팩터링은 각각의 변경·검증으로 구별한다.
 
 - 연속성의 정본은 전체 대화 transcript가 아니라 Workspace Context와 검증 가능한 semantic checkpoint다.
 - Codex 자동 compact는 context window 소진을 막는 fallback이다. 비용 최적화의 주 장치로 채택하지 않는다.

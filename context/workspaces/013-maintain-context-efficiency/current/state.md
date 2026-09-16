@@ -4,17 +4,17 @@
 
 ## 현재 구현과 검증
 
-- Reference Maintain을 `runtime/`, `semantic/`, `contracts/`, `apply/`, `adapters/`로 분리했다. 기존 세 모듈은 공개 경로를 보존하는 연결 파일이다. 구현 위치는 [STRUCTURE](../../../../reference-project/context/work/harness/maintain/STRUCTURE.md)에서 찾는다.
-- 기존 Maintain 테스트 67개를 보존하고 Claude 연결·도구 격리·CLI/worker·입력 경계 검사를 추가했다. Maintain 82개 테스트는 Python 3.14.3과 3.11.15에서 통과했다.
-- Python 3.14 전체 141개 중 140개가 통과했다. Verify의 `test_timeout_covers_descendant_after_group_leader_exits`는 변경 전 전체 126개 실행에서도 실패했고 변경 뒤 단독 실행에서는 통과했다. 이 시간 민감 실패 때문에 전체 green을 주장하지 않는다.
-- Noline의 기존 Claude hook을 Reference 공통 runtime에 적응했다. Claude 설정과 runtime은 `.claude` 아래에서 독립하고 기존 Codex 판단 실행은 유지한다. Reference Claude wrapper와 admission 설정은 제공하되 실제 hook은 등록·활성화하지 않았다.
-- Recover·Verify·제품·설치 helper 코드에는 후속 전체 Black 요청에 따라 포맷만 적용했다. 내부 리팩터링이나 동작 변경은 하지 않았다. Noline 적용본, 실제 binding·runtime, 모델 설정은 변경하지 않았고 비용 개선·semantic replay·actual host acceptance는 아직 수행하지 않았다.
-- 자동 Maintain과 AI-native moment reviewer를 활성화하지 않았다. active 표기는 계속 `012-ai-workspace-publication`이며 이 작업의 선택과 실제 hook activation은 별개다.
-- 책임·테스트·도구 연결 리팩터링과 루트 코드 지침은 `3b588e3`에 커밋했다. 이후 Black 설정·전체 포맷 변경은 별도 후속 커밋 단위로 분리한다. 구조 변경의 상세 근거와 테스트 명령은 [리팩터링 기록](../records/2026-09-16-01-maintain-refactoring.md)에 남겼다.
-- 대화에서 합의한 코드 기준을 루트 [CODE-QUALITY](../../../../CODE-QUALITY.md)에 정의하고 루트 AGENTS와 같은 본문을 읽는 CLAUDE에서 연결했다. 적용 범위와 연결 근거는 [루트 지침 기록](../records/2026-09-16-02-root-code-quality-rules.md)에서 찾는다.
-- 후속 요청에 따라 Maintain의 import·간격·긴 표현을 정리하고 영문 LLM 프롬프트·hook 안내문 아래 한국어 번역 주석을 붙였다. 실행 구문과 전달 문자열은 동일하다. Maintain은 두 Python 버전에서 82개씩 통과했고 전체 회귀는 같은 Verify 실패 한 건이 남았다. [가독성 검증 기록](../records/2026-09-16-03-maintain-readability.md)에서 확인한다.
-- 루트 코드 기준을 전역 AI 지침 명확성 레퍼런스와 대조해 목적·적용 조건·행동·예외와 조사·출력의 관계를 정리했다. AGENTS의 적용 대상도 맞췄다. 대표 요청의 문서 검토만 수행했으며 실제 AI 수행 개선은 검증하지 않았다. [지침 정리 기록](../records/2026-09-16-04-code-quality-instruction-clarity.md)에서 확인한다.
-- 저장소 루트에 Black 공통 설정과 개발용 의존성을 추가하고 현재 Python 코드에 적용했다. 86개 대상의 포맷 검사가 통과했고 변경한 52개 파일은 커밋의 AST와 동일하다. helper 7개·Maintain Python 3.11 검사 82개는 통과했고 Reference 전체 141개에서는 기존 Verify 실패 한 건이 남았다. [Black 적용 기록](../records/2026-09-16-05-repo-black.md)에서 확인한다.
+- Reference Maintain의 책임·테스트·Codex/Claude 연결 리팩터링과 루트 코드 지침은 `3b588e3`, 저장소 전체 Black 설정·포맷 변경은 `e99965d`에 커밋했다. [Maintain 구현 안내](../../../../reference-project/context/work/harness/maintain/STRUCTURE.md)와 [Black 기록](../records/2026-09-16-05-repo-black.md)에서 앞선 변경을 찾는다.
+- 후속 사용자 요청으로 Recover·Verify 내부, 공통 Workspace 계약·fixture, CLI·validation을 같은 기준으로 리팩터링했다. 사용자 커밋 요청에 따라 이 후속 코드와 검증 기록을 하나의 별도 커밋 단위로 관리한다. [전체 Harness 기록](../records/2026-09-16-06-harness-refactoring.md)과 [Harness 진입점](../../../../reference-project/context/work/harness/README.md)에서 구현·검증 위치를 찾는다.
+- Recover는 계약·Context 읽기·연결 receipt 검사·packet 조립·출력으로, Verify는 계약·evidence·출력 수집·process 범위·실행·저장·실행 조정으로 나눴다. 공통 `workspace/`는 값·경로·identity·status만 소유한다. 기존 공개 함수·import 경로, 명령과 저장 schema, 제한값과 부작용 순서를 유지했다.
+- 기존 Recover·Verify 테스트 메서드 51개는 누락·중복 없이 옮겼다. 50개는 AST가 같고 descendant fixture를 개선한 한 메서드도 기존 assertion은 그대로다. 공통·Verify·CLI 경계 검사 38개를 추가했다.
+- Verify 전용 subprocess 시나리오는 `verify/tests/support.py`가 소유하고 필요한 테스트 묶음만 준비한다. 공통 fixture는 최소 기반을 유지하며 실패 시 임시 환경 cleanup을 등록한다. 설명 주석·docstring은 한국어로 정리했고 영문 Recover 안내 아래 번역 주석을 붙였다.
+- 최종 Python 3.14.3과 3.11.15 전체 검사에서 각각 179개가 통과했다. 구성은 Recover 35개·Maintain 82개·Verify 33개·공통 Workspace 15개·validation 7개·제품 7개다. 이식 helper 7개, Black 전체 대상 126개와 `git diff --check`도 통과했다.
+- 이전에 간헐적으로 실패하던 Verify descendant 검사는 시작 지연이 섞이는 shell launcher를 Python launcher로 바꾸고 assertion 전에 cleanup을 등록했다. 제품 deadline/종료 알고리즘은 그대로이며 0.3초, leader exit 0, timeout exit 124, descendant 종료와 receipt 검증을 유지했다. Python 3.11의 10회 연속 실행과 최종 두 버전 전체 실행에서 통과했다. 모든 OS·부하의 안정성을 입증한 것은 아니다.
+- 변경 전 Recover와 새 구현은 미검증·과거 receipt·fresh·변경·누락 5개 상태에서 packet과 렌더 문자열이 같았다. 조립 변경 2개와 receipt의 불필요한 try 제거를 제외한 함수/클래스 47개는 docstring·경계 이름 변경 외 AST가 동일하다. AST 대조는 동작 검사와 함께 사용하며 의미 판단 품질의 보증으로 보지 않는다.
+- 루트 [CODE-QUALITY](../../../../CODE-QUALITY.md)가 대화에서 합의한 코드 기준을 소유한다. AGENTS와 같은 본문을 읽는 CLAUDE에서 연결한다. [지침 명확성 검토](../records/2026-09-16-04-code-quality-instruction-clarity.md)는 대표 요청의 문서 대조이며 실제 AI 수행 개선의 평가가 아니다.
+- 현재 Codex·Claude의 연결 코드는 같은 Maintain runtime과 apply를 사용하며 도구별 설정·runtime을 분리한다. 두 host의 의미 판단은 기존 Codex 실행을 유지한다. 실제 host acceptance와 hook activation은 소스·테스트 제공과 구별한다.
+- Noline 적용본과 실제 binding·runtime·모델 설정, active index는 변경하지 않았다. 비용 개선·semantic replay·actual host acceptance는 미착수다. 자동 Maintain과 AI-native moment reviewer는 비활성이며 active 표기는 계속 `012-ai-workspace-publication`이다.
 
 ## 확인된 문제
 
@@ -34,10 +34,10 @@ Maintain의 같은 semantic thread는 이전 의미뿐 아니라 전역 instruct
 
 ## 다음 행동
 
-1. 책임 분리 diff와 [구현 안내](../../../../reference-project/context/work/harness/maintain/STRUCTURE.md)를 검토한다. 실제 hook 활성화와 Noline 적용은 이 소스 리팩터링의 자동 후속 동작이 아니다.
+1. 전체 Harness 책임 분리 diff와 [진입점](../../../../reference-project/context/work/harness/README.md)을 바탕으로 후속 비용 개선 범위를 확인한다. 실제 hook 활성화와 Noline 적용은 이 소스 리팩터링의 자동 후속 동작이 아니다.
 2. 다음 비용 개선 단계에서는 기존 effect와 원자료로 replay fixture와 비용·정확성 baseline을 만든다.
 3. 사용량 receipt·instruction isolation, batched Owner read와 모델 cycle 상한, semantic checkpoint·bounded rollover를 순서대로 검증한다.
 4. Reference 회귀·replay 뒤에 Noline 설치본의 차이를 다시 대조해 별도 이식하고 실제 host lifecycle을 검증한다.
-5. 구조·비용 개선 뒤에만 reasoning effort 비교를 진행한다. Recover·Verify 내부 리팩터링은 별도 후속 범위다.
+5. 구조·비용 개선 뒤에만 reasoning effort 비교를 진행한다. Recover·Verify·공통 코드의 후속 내부 리팩터링은 이번 요청에 따라 구현·회귀 검증했다.
 
-구현을 시작하기 전에는 Workspace를 활성화하지 않는다. 이후에도 activation은 구현·검증과 별개의 명시적 사용자 선택으로 남긴다.
+Workspace의 대화상 선택, active index 변경, 실제 Maintain activation은 서로 별개다. 이번 소스 구현·검증으로 어느 활성 상태도 변경하지 않았으며 activation은 별도의 명시적 사용자 선택으로 남긴다.

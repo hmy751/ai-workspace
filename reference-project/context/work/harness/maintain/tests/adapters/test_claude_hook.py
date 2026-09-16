@@ -15,7 +15,6 @@ from context.work.harness.testing import WorkspaceFixture
 
 
 class ClaudeHookAdapterTests(WorkspaceFixture):
-    include_verification_scenarios = False
 
     def setUp(self) -> None:
         super().setUp()

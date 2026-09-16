@@ -10,7 +10,6 @@ from context.work.harness.testing import WorkspaceFixture
 
 
 class MaintainApplyFixture(WorkspaceFixture):
-    include_verification_scenarios = False
 
     def decision(
         self,

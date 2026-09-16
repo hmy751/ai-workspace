@@ -1,4 +1,4 @@
-"""Harness가 공유하는 임시 Project·Workspace와 선택적 검증 시나리오."""
+"""Harness가 공유하는 최소 임시 Project·Workspace 환경."""
 
 from __future__ import annotations
 
@@ -15,26 +15,24 @@ HARNESS_SOURCE = Path(__file__).resolve().parent
 
 class WorkspaceFixture(unittest.TestCase):
     maxDiff = None
-    include_verification_scenarios = True
 
     def setUp(self) -> None:
         self._create_project_tree()
-        if self.include_verification_scenarios:
-            self._create_verification_scenarios()
         self._create_workspace_sources()
         self._create_workspace_contracts()
         self._create_workspace_current()
 
     def _create_project_tree(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary_directory.cleanup)
         self.project_root = Path(self.temporary_directory.name)
         self.work_root = self.project_root / "context" / "work"
         self.work_root.mkdir(parents=True)
         (self.project_root / "context" / "__init__.py").write_text(
-            '"""Fixture context package."""\n', encoding="utf-8"
+            '"""임시 Project context 패키지."""\n', encoding="utf-8"
         )
         (self.work_root / "__init__.py").write_text(
-            '"""Fixture work context package."""\n', encoding="utf-8"
+            '"""임시 Work context 패키지."""\n', encoding="utf-8"
         )
         shutil.copytree(
             HARNESS_SOURCE,
@@ -104,36 +102,6 @@ class WorkspaceFixture(unittest.TestCase):
             "            Path('src/value.txt').read_text(encoding='utf-8'),\n"
             "            'expected\\n',\n"
             "        )\n",
-            encoding="utf-8",
-        )
-
-    def _create_verification_scenarios(self) -> None:
-        (self.project_root / "tests" / "test_delete_evidence.py").write_text(
-            "from pathlib import Path\n"
-            "import unittest\n\n"
-            "class DeleteEvidenceTests(unittest.TestCase):\n"
-            "    def test_delete_then_fail(self):\n"
-            "        Path('src/value.txt').unlink()\n"
-            "        self.fail('intentional failure after evidence deletion')\n",
-            encoding="utf-8",
-        )
-        (self.project_root / "tests" / "test_slow.py").write_text(
-            "import time\n"
-            "import unittest\n\n"
-            "class SlowTests(unittest.TestCase):\n"
-            "    def test_slow(self):\n"
-            "        time.sleep(2)\n",
-            encoding="utf-8",
-        )
-        (self.project_root / "tests" / "test_noisy.py").write_text(
-            "from pathlib import Path\n"
-            "import sys\n"
-            "import unittest\n\n"
-            "class NoisyTests(unittest.TestCase):\n"
-            "    def test_noisy(self):\n"
-            "        roots = str(Path.cwd()) * 50\n"
-            "        print(roots + 'X' * 2000)\n"
-            "        print(roots + 'Y' * 2000, file=sys.stderr)\n",
             encoding="utf-8",
         )
 
@@ -244,9 +212,6 @@ class WorkspaceFixture(unittest.TestCase):
             "# state\n\nhuman-owned current description\n", encoding="utf-8"
         )
         self.write_status()
-
-    def tearDown(self) -> None:
-        self.temporary_directory.cleanup()
 
     def write_work_json(self, relative_path: str, value: object) -> None:
         (self.work_root / relative_path).write_text(

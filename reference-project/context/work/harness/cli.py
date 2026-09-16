@@ -1,4 +1,4 @@
-"""Command-line routing for deterministic Workspace Harness boundaries."""
+"""세 Harness 책임의 CLI 입력을 해석하고 해당 공개 동작으로 연결한다."""
 
 from __future__ import annotations
 
@@ -6,11 +6,12 @@ import argparse
 import json
 from pathlib import Path
 import sys
+from typing import Any
 
 from .maintain import apply_maintain_decision, bootstrap_workspace
 from .recover import build_recovery_packet, render_recovery_packet
 from .verify import verify_workspace
-from .workspace_contract import HarnessError
+from .workspace.validation import HarnessError
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -60,59 +61,62 @@ def _build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def _print_packet(packet: dict[str, Any], *, as_json: bool) -> None:
+    if as_json:
+        print(json.dumps(packet, ensure_ascii=False, indent=2))
+    else:
+        print(render_recovery_packet(packet), end="")
+
+
+def _read_maintain_decision(source: str) -> Any:
+    """CLI가 받은 파일 또는 stdin만 읽고, 적용 가능성은 Maintain에 맡긴다."""
+
+    if source == "-":
+        raw_decision = sys.stdin.read()
+        label = "stdin Maintain decision"
+    else:
+        path = Path(source)
+        label = f"Maintain decision {path}"
+        try:
+            raw_decision = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeError) as exc:
+            raise HarnessError(f"{label} is not readable UTF-8 JSON: {exc}") from exc
+    try:
+        return json.loads(raw_decision)
+    except json.JSONDecodeError as exc:
+        raise HarnessError(f"{label} is not valid JSON: {exc}") from exc
+
+
+def _run_maintain(
+    arguments: argparse.Namespace, project_root: Path, work_root: Path
+) -> int:
+    if arguments.maintain_action == "bootstrap":
+        packet = bootstrap_workspace(project_root, work_root, arguments.workspace_id)
+        _print_packet(packet, as_json=arguments.as_json)
+    else:
+        decision = _read_maintain_decision(arguments.decision)
+        result = apply_maintain_decision(
+            project_root, work_root, arguments.workspace_id, decision
+        )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     arguments = _build_parser().parse_args(argv)
-    harness_root = Path(__file__).resolve().parent
-    work_root = harness_root.parent
+    work_root = Path(__file__).resolve().parent.parent
     project_root = work_root.parent.parent
+
     try:
         if arguments.command == "recover":
             packet = build_recovery_packet(
                 project_root, work_root, arguments.workspace_id
             )
-            if arguments.as_json:
-                print(json.dumps(packet, ensure_ascii=False, indent=2))
-            else:
-                print(render_recovery_packet(packet), end="")
+            _print_packet(packet, as_json=arguments.as_json)
             return 0
 
         if arguments.command == "maintain":
-            if arguments.maintain_action == "bootstrap":
-                packet = bootstrap_workspace(
-                    project_root, work_root, arguments.workspace_id
-                )
-                if arguments.as_json:
-                    print(json.dumps(packet, ensure_ascii=False, indent=2))
-                else:
-                    print(render_recovery_packet(packet), end="")
-                return 0
-
-            if arguments.decision == "-":
-                raw_decision = sys.stdin.read()
-                decision_label = "stdin Maintain decision"
-            else:
-                decision_path = Path(arguments.decision)
-                decision_label = f"Maintain decision {decision_path}"
-                try:
-                    raw_decision = decision_path.read_text(encoding="utf-8")
-                except (OSError, UnicodeError) as exc:
-                    raise HarnessError(
-                        f"{decision_label} is not readable UTF-8 JSON: {exc}"
-                    ) from exc
-            try:
-                decision = json.loads(raw_decision)
-            except json.JSONDecodeError as exc:
-                raise HarnessError(
-                    f"{decision_label} is not valid JSON: {exc}"
-                ) from exc
-            result = apply_maintain_decision(
-                project_root,
-                work_root,
-                arguments.workspace_id,
-                decision,
-            )
-            print(json.dumps(result, ensure_ascii=False, indent=2))
-            return 0
+            return _run_maintain(arguments, project_root, work_root)
 
         exit_code, summary = verify_workspace(
             project_root, work_root, arguments.workspace_id

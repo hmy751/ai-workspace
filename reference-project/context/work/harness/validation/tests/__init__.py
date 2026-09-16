@@ -1,1 +1,1 @@
-"""Validation tests for ephemeral Harness responsibility checks."""
+"""임시 Workspace에서 Harness 책임 연결을 검증한다."""

@@ -29,3 +29,46 @@ Verify runtime은 arbitrary argv가 선언 밖에서 읽는 파일을 자동 발
 `verify`는 상태 전환이나 인계에서 다시 확인할 필요가 있는 실행 사실을 durable evidence로 남길 때 사용한다. 단순 반복 개발 확인은 직접 test 명령을 사용한다. 실행한 receipt는 결과가 같아도 자동으로 덮거나 합치지 않는다.
 
 과거 schema v1 receipt와 schema v2 status는 연결된 기록을 복구하기 위해 계속 읽을 수 있고, 이전 flat `records/verify-*.json` receipt 경로도 유지한다. 다른 receipt 종류나 임의의 `records/*.json`을 제품 Verify 결과로 연결하지 않는다. 역사 파일은 새 schema로 다시 쓰지 않는다. `next_actions`를 포함하던 `verify.json` schema v1은 실행 책임이 달라졌으므로 schema v2로 명시적으로 이관해야 한다.
+
+## 코드와 테스트를 읽는 순서
+
+공개 동작은 `verify_workspace`다. [service.py](service.py)는 아래 순서를
+조정하고, 각 단계의 구현은 해당 모듈이 소유한다. `operation.py`는 기존
+import 경로만 보존한다.
+
+```text
+service.py
+  ├─ contract.py: claim · argv · evidence 경로 · 실행 한도 검사
+  ├─ 공통 status 계약 · storage.py의 저장 디렉터리 검사
+  ├─ evidence.py: 실행 전 기준 · evidence snapshot 확보
+  ├─ execution.py: 명령 실행
+  │    ├─ process_scope.py: process · POSIX group deadline
+  │    └─ output.py: stream 비우기 · root 정규화 · 보존 한도
+  ├─ storage.py: append-only receipt 추가
+  └─ storage.py: receipt 추가 성공 뒤 atomic status 교체
+```
+
+| 수정할 책임 | 구현 | 검증 |
+| --- | --- | --- |
+| 전용 입력 계약 | [contract.py](contract.py) | [test_contract.py](tests/test_contract.py) |
+| 실행 전 evidence·snapshot 식별 | [evidence.py](evidence.py) | [test_evidence.py](tests/test_evidence.py) |
+| 시작 실패·실행 결과 | [execution.py](execution.py) | [test_execution.py](tests/test_execution.py) |
+| Deadline·descendant 제한 | [process_scope.py](process_scope.py) | [test_process_scope.py](tests/test_process_scope.py), [실제 프로세스 검사](tests/test_process.py) |
+| Chunk 경계·문자 수·읽기 오류 | [output.py](output.py) | [test_stream_capture.py](tests/test_stream_capture.py), [출력 통합 검사](tests/test_output.py) |
+| Append-only·atomic 저장 | [storage.py](storage.py) | [test_storage.py](tests/test_storage.py), [receipt 통합 검사](tests/test_receipts.py) |
+| 선행 검사·실패 시 후속 부작용 차단 | [service.py](service.py) | [test_preflight.py](tests/test_preflight.py), [test_failure_ordering.py](tests/test_failure_ordering.py) |
+
+공통 Workspace·안전한 접근·status 계약은 [상위 workspace 경계](../workspace/README.md)가
+소유한다. [tests/support.py](tests/support.py)의 `VerifyFixture`는 삭제·지연·대량
+출력 subprocess 시나리오를 필요한 테스트 묶음에서만 준비한다. 다른 책임의
+공통 fixture에는 Verify 전용 실행물을 만들지 않는다.
+
+Project root에서 Verify 검사만 실행한다.
+
+```bash
+python3 -B -m unittest discover -s context/work/harness/verify/tests -t . -p 'test_*.py'
+```
+
+실제 프로세스 검사는 POSIX group과 시간 제한을 확인하고, 제어된 시간·프로세스
+상태를 사용하는 단위 검사는 deadline 판단을 별도로 확인한다. 비-POSIX
+fallback의 단위 검사 통과를 해당 운영체제에서 실제 실행한 결과로 간주하지 않는다.

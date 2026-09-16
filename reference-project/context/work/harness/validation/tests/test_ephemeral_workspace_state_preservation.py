@@ -1,4 +1,4 @@
-"""Validate the Recover/Verify cycle without mutating product state."""
+"""제품 상태를 바꾸지 않고 임시 Workspace의 Recover·Verify 연결을 검증한다."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from context.work.harness.testing import HARNESS_SOURCE, WorkspaceFixture
 
 class EphemeralWorkspaceStatePreservationTests(WorkspaceFixture):
     def _checked_in_workspace_machine_state(self) -> dict[str, bytes]:
-        """Snapshot active product status/receipts without writing to them."""
+        """Checked-in active Workspace의 status와 receipt를 읽기 전용 비교한다."""
         reference_work_root = HARNESS_SOURCE.parent
         index = json.loads(
             (reference_work_root / "workspaces" / "index.json").read_text(

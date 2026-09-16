@@ -18,7 +18,6 @@ from ..support.semantic import FakeSemanticSession, RecordingPopen
 
 
 class ToolBoundaryTests(WorkspaceFixture):
-    include_verification_scenarios = False
 
     def setUp(self) -> None:
         super().setUp()

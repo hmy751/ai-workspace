@@ -19,7 +19,6 @@ from .semantic import FakeSemanticSession, RecordingPopen, IncrementingClock
 
 
 class MaintainHostAdapterFixture(WorkspaceFixture):
-    include_verification_scenarios = False
 
     def setUp(self) -> None:
         super().setUp()

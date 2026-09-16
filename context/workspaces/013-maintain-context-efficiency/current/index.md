@@ -15,3 +15,5 @@
 루트 코드 기준의 프롬프트 명확성 검토와 적용 범위 정리는 [지침 기록](../records/2026-09-16-04-code-quality-instruction-clarity.md)에서 찾는다.
 
 기존 작업의 커밋과 저장소 전체 Black 설정·포맷 검증은 [Black 기록](../records/2026-09-16-05-repo-black.md)에서 찾는다.
+
+Recover·Verify·공통 계약·CLI·validation으로 넓힌 후속 구조 변경, 테스트 보강과 시간 민감 fixture 개선은 [전체 Harness 기록](../records/2026-09-16-06-harness-refactoring.md)에서 찾는다.

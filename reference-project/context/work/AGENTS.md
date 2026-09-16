@@ -49,8 +49,8 @@ Project agent role 등록만으로 automatic lifecycle·warm reuse·매 response
 - Recover 전용 규칙·구현·검증은 `harness/recover/`에서 함께 변경한다.
 - Maintain 전체 계약·semantic 판단·guarded boundary·test와 Codex agent 정의는 `harness/maintain/`에서 함께 변경한다. Session admission·binding·host lifecycle의 상세 Owner는 같은 경계의 `SESSION-BINDING-AND-LIFECYCLE.md`다. `.codex/config.toml`은 role 발견, `.codex/maintain.json`은 explicit admission mode, `.codex/hooks.json`은 lifecycle command routing만 소유하며 Maintain 의미 규칙이나 Workspace 선택을 복제하지 않는다.
 - Verify 전용 규칙·구현·검증은 `harness/verify/`에서 함께 변경한다.
-- Harness 자체 회귀 검증은 `harness/validation/`에서 변경한다. 공통 test fixture는 `harness/testing.py`에만 둔다.
-- Recover와 Verify에서 실제로 같은 의미로 사용하는 Workspace 식별·안전한 접근·status 인계 계약만 `harness/workspace_contract.py`에 둔다.
+- Harness 자체 회귀 검증은 `harness/validation/`에서 변경한다. 최소 공통 test fixture는 `harness/testing.py`에 두고 책임 전용 시나리오는 해당 책임의 tests에서 유지한다.
+- 실제로 같은 의미로 사용하는 Workspace 식별·안전한 접근·status 인계 계약만 [`harness/workspace/`](harness/workspace/README.md)에 둔다. `harness/workspace_contract.py`는 기존 공개 import 경로만 보존한다.
 - 한 책임만 사용하는 코드를 공유 영역으로 올리지 않는다.
 - Project 기준은 `../project/`, 제품 코드·테스트는 Project root의 `src/`와 `tests/`에 두고 Harness 아래로 옮기거나 복제하지 않는다.
 - `../project/README.md`는 `common/current/guidance` 물리 layer, 실제 내용과 Owner 우선순위를 찾는 안정된 routing anchor다. 각 Workspace는 이 anchor와 현재 goal에 필요한 layer 문서를 선택하며, README나 link 목록만으로 내용 충분성을 대신하지 않는다.

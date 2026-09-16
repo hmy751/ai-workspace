@@ -27,3 +27,39 @@ python3 -m context.work.harness recover 001-default-timeout --json
 JSON packet schema는 `6`이다. Schema `5`에 status-linked receipt의 bounded `receipt_freshness` 요약을 추가했다. Workspace 자료가 Work root 상대이고 Project context가 Project root 상대라는 `path_base`를 각 경로에 명시하며, 제어용 경로와 실제로 읽은 context 경로를 구분해 공개한다. `control_paths`에는 실제 읽은 선택 근거만 들어가므로 id 없는 active 선택에는 `workspaces/index.json`이 포함되고, explicit 선택에는 포함되지 않는다.
 
 Spec·Ticket 적용은 기존 `memory.entries`와 `loaded_context_paths`에 경로·본문을 싣는 구조를 유지하므로 packet schema `6`과 Project 선택용 recover contract schema `6`을 바꾸지 않는다. 기존 goal·constraints만 있는 Workspace는 현재 읽기 구성에 맞게 전환한 뒤 사용한다. 과거 records·receipt를 자동 수정하는 migration이나 이전 정의와 새 Spec의 이중 관리는 제공하지 않는다.
+
+## 코드와 테스트를 읽는 순서
+
+공개 동작은 `build_recovery_packet`과 `render_recovery_packet`이다. 실행 흐름은
+[`packet.py`](packet.py)에서 시작한다. `operation.py`는 기존 import 경로만
+보존하며 실제 구현을 소유하지 않는다.
+
+```text
+packet.py
+  ├─ 공통 Workspace 선택
+  ├─ contract.py: Project 선택 계약 검사
+  ├─ context.py: memory · state · output 색인 읽기
+  ├─ receipts.py: 연결 receipt 정합성 · 선언된 파일 최신성 검사
+  └─ context.py: 선택한 Project 본문 읽기
+render.py: 완성된 packet의 텍스트 출력
+```
+
+| 수정할 책임 | 구현 | 검증 |
+| --- | --- | --- |
+| Project 선택·전용 schema | [contract.py](contract.py) | [test_contract.py](tests/test_contract.py) |
+| Workspace 읽기 범위·순서 | [context.py](context.py) | [test_context.py](tests/test_context.py) |
+| Receipt header·freshness·본문 비노출 | [receipts.py](receipts.py) | [test_receipts.py](tests/test_receipts.py) |
+| Packet 형식·root 분리 | [packet.py](packet.py) | [test_packet.py](tests/test_packet.py) |
+| 텍스트 출력·과거 status 표시 | [render.py](render.py) | [test_render.py](tests/test_render.py) |
+
+Workspace 선택과 status의 공통 계약은 [상위 workspace 경계](../workspace/README.md)가
+소유한다. [선택 통합 검사](tests/test_selection.py)와
+[status 통합 검사](tests/test_status.py)는 그 계약이 Recover 진입점에서도
+적용되는지 확인한다. [support.py](tests/support.py)는 receipt 테스트의 독립된
+snapshot 기대값만 준비하고, 제품 구현의 hash 함수를 기대값 계산에 재사용하지 않는다.
+
+Project root에서 Recover 검사만 실행한다.
+
+```bash
+python3 -B -m unittest discover -s context/work/harness/recover/tests -t . -p 'test_*.py'
+```

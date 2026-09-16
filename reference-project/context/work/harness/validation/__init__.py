@@ -1,1 +1,1 @@
-"""Harness self-validation boundary."""
+"""Harness 자체의 회귀 검증 경계."""

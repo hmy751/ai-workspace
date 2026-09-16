@@ -1,1 +1,1 @@
-"""Verify responsibility tests."""
+"""Verify 계약·선확보·실행·저장 검증."""

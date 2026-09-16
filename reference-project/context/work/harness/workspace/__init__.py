@@ -1,0 +1,71 @@
+"""Workspace 식별·안전한 읽기·status 인계의 공통 공개 계약."""
+
+from .identity import (
+    WORKSPACE_IDENTITY_SCHEMA_VERSION,
+    WORKSPACE_ID_PATTERN,
+    WORKSPACE_INDEX_SCHEMA_VERSION,
+    WorkspaceIdentity,
+    select_workspace,
+    validate_workspace_id,
+)
+from .paths import (
+    read_json_without_symlinks,
+    read_text_without_symlinks,
+    reject_symlink_components,
+    resolve_directory_without_symlinks,
+    resolve_inside_root,
+    resolve_regular_file_without_symlinks,
+    validate_relative_path,
+)
+from .status import (
+    LEGACY_STATE_STATUS_SCHEMA_VERSION,
+    LEGACY_VERIFICATION_RECEIPT_SCHEMA_VERSION,
+    STATE_STATUSES_BY_SCHEMA_VERSION,
+    STATE_STATUS_SCHEMA_VERSION,
+    SUPPORTED_STATE_STATUS_SCHEMA_VERSIONS,
+    SUPPORTED_VERIFICATION_RECEIPT_SCHEMA_VERSIONS,
+    VERIFICATION_RECEIPT_SCHEMA_VERSION,
+    load_state_status,
+    state_status_path,
+    validate_state_status,
+    validate_verification_receipt_path,
+)
+from .validation import (
+    HarnessError,
+    expect_exact_keys,
+    expect_nonempty_string,
+    expect_schema_version,
+    fail,
+)
+
+__all__ = [
+    "WORKSPACE_INDEX_SCHEMA_VERSION",
+    "WORKSPACE_IDENTITY_SCHEMA_VERSION",
+    "LEGACY_STATE_STATUS_SCHEMA_VERSION",
+    "STATE_STATUS_SCHEMA_VERSION",
+    "SUPPORTED_STATE_STATUS_SCHEMA_VERSIONS",
+    "LEGACY_VERIFICATION_RECEIPT_SCHEMA_VERSION",
+    "VERIFICATION_RECEIPT_SCHEMA_VERSION",
+    "SUPPORTED_VERIFICATION_RECEIPT_SCHEMA_VERSIONS",
+    "WORKSPACE_ID_PATTERN",
+    "STATE_STATUSES_BY_SCHEMA_VERSION",
+    "HarnessError",
+    "WorkspaceIdentity",
+    "fail",
+    "expect_exact_keys",
+    "expect_schema_version",
+    "expect_nonempty_string",
+    "validate_workspace_id",
+    "validate_verification_receipt_path",
+    "validate_relative_path",
+    "resolve_inside_root",
+    "reject_symlink_components",
+    "resolve_directory_without_symlinks",
+    "resolve_regular_file_without_symlinks",
+    "read_text_without_symlinks",
+    "read_json_without_symlinks",
+    "select_workspace",
+    "validate_state_status",
+    "state_status_path",
+    "load_state_status",
+]

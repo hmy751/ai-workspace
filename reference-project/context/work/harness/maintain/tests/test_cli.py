@@ -7,7 +7,6 @@ from context.work.harness.testing import WorkspaceFixture
 
 
 class MaintainCliTests(WorkspaceFixture):
-    include_verification_scenarios = False
 
     def test_bootstrap_requires_explicit_workspace_and_ignores_active_index(
         self,
