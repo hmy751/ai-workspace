@@ -18,4 +18,18 @@
 
 - [11 세션 마무리와 다음 시작점](2026-10-12-11-session-close.md): 다른 세션에서 구체화를 이어가는 사용자 선택, 최종 기록 점검과 커밋 범위.
 
-정확한 원문은 [이번 대화](../source/discussion/conversation.md)와 [근거 사본](../source/README.md)에 있다. 다음 해석이 바뀌면 당시 기록을 현재 결론으로 덮어쓰지 않고 새 기록과 current에 이어 준다.
+- [12 개발 진행의 첫 비교](2026-10-12-12-development-flow-first-comparison.md): 조회 복구 사례의 직접 근거, 세 진행 방식, 우선 제안과 비용·후속 과제. 미채택 초안.
+
+- [13 구현·품질 검토·실제 검증의 워크플로 비교](2026-10-12-13-implementation-review-verification-workflows.md): 강연·Vercel·현행 구성으로 세 안을 만들고 가상 작업과 과거 사례로 대조한 미채택 설계안.
+
+- [14 검토자 직접 수정과 구현자 수정의 상황별 비교](2026-10-12-14-reviewer-editing-scenarios.md): C 기본 추천의 가정과 한계, B/C의 같은 조건 비교와 남은 판단.
+
+- [15 B 방향 선택과 시작점](2026-10-12-15-reviewer-editing-choice-and-start.md): 검토자 직접 수정의 사용자 선택, Main의 Spec·Ticket 작업 정의와 구현 이후 흐름의 연결.
+
+- [16 B의 인수·수정·최종 검증 상세 초안](2026-10-12-16-b-execution-review-verification-contract.md): 구현자 입력, 검토 기준·수정 범위, 최종 실제 검증과 실패 반환·완료 책임의 제안.
+
+- [17 워크플로의 반영 근거와 연결 설계 제안](2026-10-12-17-workflow-basis-and-connected-design.md): 검토자 최종 실제 확인으로 제안 변경, 자료별 반영과 공백, 같은 장면에서 관련 Ticket을 함께 구체화하는 방법.
+
+- [18 01-02 자료 논의와 기록 체크포인트](2026-10-12-18-quality-materials-next-step.md): 여러 Ticket 동시 구체화 제안에 대한 정정, 01-02 전에 자료를 더 구체적으로 논의하자는 선택과 커밋 범위.
+
+이전 대화의 보존 범위는 [대화 사본](../source/discussion/conversation.md)과 [자료 안내](../source/README.md)에서 확인한다. 그 뒤 설계 논의의 선택·정정에 필요한 발화는 기록 12~18에 직접 인용했으며, 최신 대화 전체를 source에 다시 저장한 것은 아니다. 다음 해석이 바뀌면 당시 기록을 현재 결론으로 덮어쓰지 않고 새 기록과 current에 이어 준다.
