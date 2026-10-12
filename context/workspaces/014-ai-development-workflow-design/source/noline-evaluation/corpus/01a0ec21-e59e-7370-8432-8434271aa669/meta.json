@@ -1,0 +1,85 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/29/rollout-2026-09-29T16-47-19-01a0ec21-e59e-7370-8432-8434271aa669.jsonl",
+  "id": "01a0ec21-e59e-7370-8432-8434271aa669",
+  "time": "2026-09-29T07:47:19.605Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 21955192,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "9f6df322184a78c975c2ff733cd383b1f4604a6e6a11b44a99b216949617037d",
+  "classification": "conversation",
+  "messages": 211,
+  "characters": 80640,
+  "user_messages": 59,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md\n\n티켓6작업중이야 관련 기록 보고 논의를 이어가자 \n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 1642,
+    "response_item": 1220,
+    "world_state": 14,
+    "turn_context": 56,
+    "token_usage_record": 374,
+    "inter_agent_communication_metadata": 19,
+    "compacted": 6
+  },
+  "excluded": {
+    "runtime_wrapper": 6
+  },
+  "tool_events": 636,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 145,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 795,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1636,
+      "settings": {
+        "model": "gpt-6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2006,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 3297,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 51111810,
+    "cached_input_tokens": 49181440,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 215994,
+    "reasoning_output_tokens": 57379,
+    "total_tokens": 51327804
+  },
+  "first_time": "2026-09-29T07:47:22.184Z",
+  "last_time": "2026-09-29T14:04:24.451Z"
+}

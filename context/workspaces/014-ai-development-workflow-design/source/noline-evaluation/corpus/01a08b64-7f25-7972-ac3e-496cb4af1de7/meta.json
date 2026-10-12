@@ -1,0 +1,71 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/10/rollout-2026-09-10T21-56-54-01a08b64-7f25-7972-ac3e-496cb4af1de7.jsonl",
+  "id": "01a08b64-7f25-7972-ac3e-496cb4af1de7",
+  "time": "2026-09-10T12:56:54.347Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 11589699,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "c78bc01527d0423ed4ee040b6b22aef456afe5e8896b4f3b57856b746673edce",
+  "classification": "conversation",
+  "messages": 121,
+  "characters": 26649,
+  "user_messages": 37,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring\n\n여기서 작업 시작할거야 일단 혀황 잘 파악해봐\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 861,
+    "response_item": 712,
+    "world_state": 11,
+    "turn_context": 30,
+    "token_usage_record": 215,
+    "inter_agent_communication_metadata": 3,
+    "compacted": 3
+  },
+  "excluded": {
+    "runtime_wrapper": 5
+  },
+  "tool_events": 368,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "ultra"
+      }
+    },
+    {
+      "line": 117,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 881,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 1138,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 7552400,
+    "cached_input_tokens": 7249664,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 31172,
+    "reasoning_output_tokens": 14636,
+    "total_tokens": 7583572
+  },
+  "first_time": "2026-09-10T12:56:56.659Z",
+  "last_time": "2026-09-11T01:07:03.284Z"
+}

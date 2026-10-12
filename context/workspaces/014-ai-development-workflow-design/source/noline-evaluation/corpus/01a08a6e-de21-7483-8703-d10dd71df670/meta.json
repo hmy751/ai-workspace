@@ -1,0 +1,64 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/10/rollout-2026-09-10T17-28-36-01a08a6e-de21-7483-8703-d10dd71df670.jsonl",
+  "id": "01a08a6e-de21-7483-8703-d10dd71df670",
+  "time": "2026-09-10T08:28:36.794Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 6863406,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "c19c561e61413231a6ad3131259a7d0a2fe8eb513822d264a4fe67f1a2d8dae5",
+  "classification": "conversation",
+  "messages": 73,
+  "characters": 22081,
+  "user_messages": 23,
+  "first_prompt": "지금 프로젝트 이식작업을 했어 이거 main에 병합하고 새 브랜치 따자 아마 지금 changed에 있는 문서 보면 알겠지만 리팩토링 작업을 할예정이거든 일단 이 문서는 커밋 하지말고 냅두고\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 475,
+    "response_item": 357,
+    "world_state": 4,
+    "turn_context": 20,
+    "token_usage_record": 103,
+    "compacted": 1,
+    "inter_agent_communication_metadata": 1
+  },
+  "excluded": {
+    "runtime_wrapper": 3
+  },
+  "tool_events": 170,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 71,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 930,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 6435497,
+    "cached_input_tokens": 6041984,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 50392,
+    "reasoning_output_tokens": 13291,
+    "total_tokens": 6485889
+  },
+  "first_time": "2026-09-10T08:29:08.660Z",
+  "last_time": "2026-09-10T12:56:46.667Z"
+}

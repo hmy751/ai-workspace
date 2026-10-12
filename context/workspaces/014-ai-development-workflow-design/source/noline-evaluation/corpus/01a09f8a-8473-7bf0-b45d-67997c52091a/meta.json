@@ -1,0 +1,49 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T19-50-50-01a09f8a-8473-7bf0-b45d-67997c52091a.jsonl",
+  "id": "01a09f8a-8473-7bf0-b45d-67997c52091a",
+  "time": "2026-09-14T10:50:50.382Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 6184458,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "bd0f7cad4ad709a72658d88557418b56bedb79b58c68246a58539f7c812fdae7",
+  "classification": "conversation",
+  "messages": 18,
+  "characters": 8971,
+  "user_messages": 1,
+  "first_prompt": "/Users/hammyeong-yeon/Desktop/10\\_work/noline 저장소에서 Project context 갱신 작업을 해줘.\n\n목표는 Workspace 002의 완료된 작업과 관련된 기존 자료를 통합해, 다음 관련 작업이 참고하고 적용할 수 있는 Project 기준 본문을 구성하는 것이야.\n\n범위와 자료:\n\n- context/work/workspaces/002-code-readability-refactoring의 Ticket 01\\~05와 관련 Spec·records를 근거로 사용해줘.\n- 같은 주제의 기존 .claude 활성 context·정책·runbook도 확인해 유효한 의미를 통합해줘. archive는 조사 대상에서 제외해줘.\n- 실제 구현이나 검증 범위를 판단하는 데 필요한 코드·schema·test를 대조해줘.\n- Ticket 06 이후는 이번 편입 대상이 아니야. 직접 연결된 구현을 확인할 수는 있지만 후속 작업 전체 조사나 완료 판정으로 확대하지 마.\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 343,
+    "response_item": 250,
+    "world_state": 2,
+    "turn_context": 2,
+    "token_usage_record": 72,
+    "compacted": 1
+  },
+  "excluded": {
+    "runtime_wrapper": 1
+  },
+  "tool_events": 140,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 9238373,
+    "cached_input_tokens": 8913664,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 50803,
+    "reasoning_output_tokens": 17134,
+    "total_tokens": 9289176
+  },
+  "first_time": "2026-09-14T10:50:55.667Z",
+  "last_time": "2026-09-14T11:17:47.169Z"
+}

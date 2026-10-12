@@ -1,0 +1,71 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/13/rollout-2026-09-13T14-51-02-01a09951-b008-7603-a220-f9c0fc808c93.jsonl",
+  "id": "01a09951-b008-7603-a220-f9c0fc808c93",
+  "time": "2026-09-13T05:51:02.713Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 12736427,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "90ef2d1ee762ce0753bdddeaac3f47fc9f8bb91e0cd753e49dde5bbbabd6335b",
+  "classification": "conversation",
+  "messages": 53,
+  "characters": 17501,
+  "user_messages": 13,
+  "first_prompt": "context/work/workspaces/003-bug-investigation-and-fixes.&#x20;\n\n여길 파악하면 알겠지만 버그 개선 인데 음 일단 파악해줘\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 550,
+    "response_item": 389,
+    "world_state": 7,
+    "turn_context": 12,
+    "token_usage_record": 121,
+    "compacted": 3,
+    "inter_agent_communication_metadata": 1
+  },
+  "excluded": {
+    "runtime_wrapper": 2
+  },
+  "tool_events": 216,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 123,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 999,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 1050,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "medium"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 14772342,
+    "cached_input_tokens": 13802368,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 96068,
+    "reasoning_output_tokens": 21508,
+    "total_tokens": 14868410
+  },
+  "first_time": "2026-09-13T05:53:16.221Z",
+  "last_time": "2026-09-14T01:05:41.981Z"
+}

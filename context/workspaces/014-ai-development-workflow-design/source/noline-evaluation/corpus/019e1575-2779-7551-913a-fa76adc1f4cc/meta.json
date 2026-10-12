@@ -1,0 +1,55 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/05/11/rollout-2026-05-11T14-14-19-019e1575-2779-7551-913a-fa76adc1f4cc.jsonl",
+  "id": "019e1575-2779-7551-913a-fa76adc1f4cc",
+  "time": "2026-05-11T05:14:19.897Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": null,
+  "parent": null,
+  "bytes": 2778163,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "8209deaeffc001dff43cac4c591b9a3624fc139dd2f1b1ac02bdf8be66ed2da0",
+  "classification": "conversation",
+  "messages": 10,
+  "characters": 2766,
+  "user_messages": 4,
+  "first_prompt": "지금 브랜치 작업 너가 한거야?\n",
+  "type_counts": {
+    "event_msg": 39,
+    "response_item": 33,
+    "world_state": 2,
+    "turn_context": 3,
+    "token_usage_record": 8,
+    "compacted": 1
+  },
+  "excluded": {
+    "runtime_wrapper": 3
+  },
+  "tool_events": 10,
+  "model_settings": [
+    {
+      "line": 700,
+      "settings": {
+        "model": "gpt-5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 717,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 8337774,
+    "cached_input_tokens": 7867520,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 35974,
+    "reasoning_output_tokens": 13567,
+    "total_tokens": 8373748
+  },
+  "first_time": "2026-09-04T02:34:45.645Z",
+  "last_time": "2026-09-04T02:41:13.289Z"
+}

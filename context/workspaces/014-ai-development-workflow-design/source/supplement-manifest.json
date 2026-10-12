@@ -1,0 +1,1184 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-12T16:45:22.886638+09:00",
+  "timezone": "Asia/Seoul (KST, UTC+09:00)",
+  "scope": "Workspace014 후속 비교에서 직접 참조한 연구 원문, Project worktree 문서의 현재 관찰판, 지정 줄의 공개 메시지와 도구 호출/출력만 보존. 기존 evidence-manifest.json과 808 사본을 변경하지 않음.",
+  "original_evidence_manifest": {
+    "destination_relative_to_workspace": "source/evidence-manifest.json",
+    "sha256_at_supplement_capture": "3f670b44d37d284d356d2f4e1051d306ae18b0fe3c95413053326243bb577e27",
+    "unchanged_verified": true
+  },
+  "source_repositories": [
+    {
+      "source_repository_root": "/Users/hammyeong-yeon/Desktop/memory-harness-research",
+      "git_head": "40a9f4ef6d087ddbb1d0ace21549ee92a8cf3b1f",
+      "git_branch": "main",
+      "dirty": false,
+      "git_status_porcelain": []
+    },
+    {
+      "source_repository_root": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline",
+      "git_head": "759cba3485b0e907c34fbd3a2c2cd136943c8716",
+      "git_branch": "refactor/project-context-update",
+      "dirty": true,
+      "git_status_porcelain": [
+        " M .claude/context/README.md",
+        " M .claude/context/activation-system.md",
+        " M .claude/context/api-data.md",
+        " M .claude/context/architecture.md",
+        " M .claude/context/error-handling.md",
+        " M .claude/context/form.md",
+        " M .claude/context/manual-input.md",
+        " M .claude/context/policy-architecture.md",
+        " M .claude/context/selective-activation-architecture.md",
+        " M .claude/decisions/2025-11-20-deactivation-sync-queue-safety.md",
+        " M .claude/decisions/2025-12-23-auth-axios-factory.md",
+        " M .claude/decisions/2026-09-18-app-startup-failure-recovery.md",
+        " M .claude/decisions/2026-09-18-device-session-and-local-access.md",
+        " M .claude/guards/README.md",
+        " M .claude/rules/activation-router.md",
+        " M .claude/rules/auth-user-scope.md",
+        " M .claude/rules/policy-ui.md",
+        " M .claude/rules/transaction-sync-queue.md",
+        " M .claude/runbooks/README.md",
+        " M CLAUDE.md",
+        " M apps/client/CLAUDE.md",
+        " M context/project/README.md",
+        " M context/project/common/README.md",
+        " M context/project/common/currency.md",
+        " M context/project/common/date-and-time.md",
+        " M context/project/common/product.md",
+        " M context/project/current/README.md",
+        " M context/project/current/architecture.md",
+        " M context/project/current/city-search.md",
+        " M context/project/current/storage-statistics.md",
+        " M context/project/decisions/0001-selective-local-first.md",
+        " M context/project/decisions/README.md",
+        " M context/project/guidance/README.md",
+        " M context/project/guidance/api-contracts.md",
+        " M context/project/guidance/behavior-preserving-refactoring.md",
+        " M context/work/workspaces/002-code-readability-refactoring/current/memory/project-context.md",
+        " M context/work/workspaces/002-code-readability-refactoring/current/memory/spec/02-behavior-and-cases.md",
+        " M context/work/workspaces/002-code-readability-refactoring/current/memory/spec/03-concepts-and-contracts.md",
+        " M context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md",
+        " M context/work/workspaces/002-code-readability-refactoring/current/state/index.md",
+        " M context/work/workspaces/002-code-readability-refactoring/output/index.md",
+        " M context/work/workspaces/002-code-readability-refactoring/records/README.md",
+        " M context/work/workspaces/002-code-readability-refactoring/recover.json",
+        "?? context/project/common/device-session.md",
+        "?? context/project/common/local-data-preservation.md",
+        "?? context/project/common/travel-access.md",
+        "?? context/project/current/network-and-screen-access.md",
+        "?? context/project/current/session-and-local-data.md",
+        "?? context/project/current/sync-and-cleanup.md",
+        "?? context/project/decisions/0002-network-uncertainty-and-recovery.md",
+        "?? context/project/decisions/0003-device-session-and-local-continuity.md",
+        "?? context/project/decisions/0004-startup-failure-and-retry.md",
+        "?? context/project/guidance/app-startup.md",
+        "?? context/project/guidance/authentication-and-session.md",
+        "?? context/project/guidance/code-readability.md",
+        "?? context/project/guidance/local-data-and-sync.md",
+        "?? context/project/guidance/network-and-policy.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-22-03-project-common-candidates.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-22-04-project-current-candidates.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-22-05-project-guidance-candidates.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-22-06-project-decisions-candidates.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-22-07-project-candidate-collection.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-23-01-project-context-composition-proposal.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-25-01-project-context-integration.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-28-01-project-context-branch-separation.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-10-01-01-project-context-readability.md",
+        "?? context/work/workspaces/002-code-readability-refactoring/records/2026-10-01-02-existing-project-documents-readability.md"
+      ]
+    }
+  ],
+  "worktree_snapshot_limit": "project-context-update worktree의 수집 당시 현재 문서판이다. 현재 Git HEAD/status와 바이트 사본을 보존했으며, 2026-10-01 당시 동일한 문서판이었다는 사실을 증명하지 않는다.",
+  "files": [
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/memory-harness-research/context/source/07-tripproof-spec-driven-continuity/original/spec-driven-retro-chronological.md",
+      "destination_relative_to_workspace": "source/supplement/research-original/07-tripproof-spec-driven-continuity/original/spec-driven-retro-chronological.md",
+      "category": "research-original",
+      "preservation": "exact-byte-copy",
+      "sha256": "4f3d66cc6892b903091b0517fbb7a402cd8575392db53baacbbc505ab5480327",
+      "bytes": 20320
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/memory-harness-research/context/source/07-tripproof-spec-driven-continuity/original/spec-driven-retro-conceptual.md",
+      "destination_relative_to_workspace": "source/supplement/research-original/07-tripproof-spec-driven-continuity/original/spec-driven-retro-conceptual.md",
+      "category": "research-original",
+      "preservation": "exact-byte-copy",
+      "sha256": "e83f201606b8324671b3064dd613da71c551d9575b0c5da8021a46962fd3e9c0",
+      "bytes": 19120
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/memory-harness-research/context/source/05-tripproof-harness-retro/original/analysis-2.md",
+      "destination_relative_to_workspace": "source/supplement/research-original/05-tripproof-harness-retro/original/analysis-2.md",
+      "category": "research-original",
+      "preservation": "exact-byte-copy",
+      "sha256": "da748add13ec125e48f7195302d2c682f9458d5e27b0168566657b3a103e2c90",
+      "bytes": 41636
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/memory-harness-research/context/source/05-tripproof-harness-retro/original/analysis.md",
+      "destination_relative_to_workspace": "source/supplement/research-original/05-tripproof-harness-retro/original/analysis.md",
+      "category": "research-original",
+      "preservation": "exact-byte-copy",
+      "sha256": "67e9d4b3188ec193a746d1caf772f32ae78198c316ef7382c5a51b1c9cd5c982",
+      "bytes": 28099
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/memory-harness-research/context/source/05-tripproof-harness-retro/original/insight-memo.md",
+      "destination_relative_to_workspace": "source/supplement/research-original/05-tripproof-harness-retro/original/insight-memo.md",
+      "category": "research-original",
+      "preservation": "exact-byte-copy",
+      "sha256": "db92aeef109984303a4aa3fab2235322f01585939efd527921fa1e4cc32e0a99",
+      "bytes": 7443
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/memory-harness-research/context/source/05-tripproof-harness-retro/original/judgment/r2-adversarial-verdicts.md",
+      "destination_relative_to_workspace": "source/supplement/research-original/05-tripproof-harness-retro/original/judgment/r2-adversarial-verdicts.md",
+      "category": "research-original",
+      "preservation": "exact-byte-copy",
+      "sha256": "c19a10e5d485d27c3dfa911db8a750239e852ba2338cacfb0155faeb36813d94",
+      "bytes": 59572
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/memory-harness-research/context/source/05-tripproof-harness-retro/original/method.md",
+      "destination_relative_to_workspace": "source/supplement/research-original/05-tripproof-harness-retro/original/method.md",
+      "category": "research-original",
+      "preservation": "exact-byte-copy",
+      "sha256": "fdb618582743a7e6b80dc364e76347ca52ebce835a4e9b989dbd3280797b3d77",
+      "bytes": 6392
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/MAINTENANCE.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/MAINTENANCE.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "a17f60aaa671e234a31ef8240e27d2aa8f2acb833a83f68273ffa8ffc97f0b7e",
+      "bytes": 12001
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/README.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/README.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "46e95ea6d81c73c49c6c40585059270fa5fa51c57a8d3cd065569763cf7669d4",
+      "bytes": 9882
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/REFERENCE/README.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/REFERENCE/README.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "a1058dd19a625b473b06259f4e6aeb11bd37a23133842dfea87d520cf818c7a7",
+      "bytes": 3075
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/REFERENCE/composition.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/REFERENCE/composition.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "990359603694b94cb6505bdf59745526eea448f7e0b24877853d997e2866aab6",
+      "bytes": 11939
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/REFERENCE/reading.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/REFERENCE/reading.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "387b8edabf7563116d252fa7c3e6ea485e30898162672d4f16fb44c3d2187069",
+      "bytes": 5630
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/common/README.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/common/README.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "eb85cf524f2baac477ab03afa9bf51025e9fc492a9cb10abf2c6f4d42e68061a",
+      "bytes": 2225
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/common/currency.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/common/currency.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "d8753d0608780dce06990b71375e9d7d46529738de70bb1fb60e0cccc763b837",
+      "bytes": 4783
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/common/date-and-time.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/common/date-and-time.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "ca7bbf44b12908e4bbc96b929d0269fd353bde32472b59f5e915b1edca968aaa",
+      "bytes": 5555
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/common/device-session.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/common/device-session.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "198000ddaa7f04ad1b39112dc338a630e824d90c2c68a6325657c34b236abb4f",
+      "bytes": 12022
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/common/local-data-preservation.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/common/local-data-preservation.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "6a4310bb993d890f1f5cee1c2bf74774866898b4a50aa3b3b43a713fa5116a72",
+      "bytes": 10842
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/common/product.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/common/product.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "546cbe40b643e91b24fcdc215a969606d0485d383a307986231c9e74b28f57b2",
+      "bytes": 5537
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/common/travel-access.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/common/travel-access.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "0ad64ebc1d1148130553e0970f03fd5686e4228e5dbe437ca14568d5a451ea82",
+      "bytes": 9884
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/current/README.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/current/README.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "2e98a4d39b46b2f94d60f18944e36c8c06df98ffd9a4e8d009e459532e18bd04",
+      "bytes": 2191
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/current/architecture.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/current/architecture.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "d488c1a67095367211b372ce63e70d2db1396b0bbf9e6cf4cde7b95bf86c813a",
+      "bytes": 6920
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/current/city-search.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/current/city-search.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "5fb35976bf9a53e810e80d73015f87ad223ab80e84a959f56ad8b7eb23e6d7f8",
+      "bytes": 2461
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/current/network-and-screen-access.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/current/network-and-screen-access.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "c58dc9d3779b84fa9a22235f186c4afdafec5a8dce20b72f14b6b67fb8284277",
+      "bytes": 10015
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/current/session-and-local-data.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/current/session-and-local-data.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "4bf0032229f6639913aad4eae9601727c5f489d465cf6532d906b62b13266e8a",
+      "bytes": 9302
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/current/storage-statistics.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/current/storage-statistics.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "9d7d3e815932e42cfb90b4774394e6c06a21c0b6748e0f615a9beea2e821ad6a",
+      "bytes": 3569
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/current/sync-and-cleanup.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/current/sync-and-cleanup.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "b48ef8a6e6377ac708e307d422b11a146a472e037f9aed15222203813710dcbb",
+      "bytes": 10075
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/decisions/0001-selective-local-first.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/decisions/0001-selective-local-first.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "4e5695bf09501ce4b12e570df8d06a73c64186d81979ba911e74d07ab1276ba8",
+      "bytes": 2454
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/decisions/0002-network-uncertainty-and-recovery.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/decisions/0002-network-uncertainty-and-recovery.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "3fdec4dc130aec3b2914d63316182a92bf1a588b7fe06d26e60ac182024c97e7",
+      "bytes": 5805
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/decisions/0003-device-session-and-local-continuity.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/decisions/0003-device-session-and-local-continuity.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "28fdc2171cd2e15fdaf4bd7481c50b681fd87eb511d20c0d362105b2aa95995c",
+      "bytes": 7311
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/decisions/0004-startup-failure-and-retry.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/decisions/0004-startup-failure-and-retry.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "4079441bf928cd741bd13c5f0fddb9f7111eac59eca8fd2de3cf70311a81a466",
+      "bytes": 4364
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/decisions/README.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/decisions/README.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "3f7f0030c4cddafd9329173ed871b73399013448eaec01184e40f5d5b5a5e28d",
+      "bytes": 2675
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/guidance/README.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/guidance/README.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "c23b2ffa35168d89f446a49cbbd5d4f71e6cb9788a447952a0b157aa05b92fc9",
+      "bytes": 5533
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/guidance/api-contracts.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/guidance/api-contracts.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "24608fdc4073254ac3c401b8aded5e654e767b2d85f54454e681e2312df260fc",
+      "bytes": 13741
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/guidance/app-startup.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/guidance/app-startup.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "c5493af852bcd3cfb3c4c2681860547bc63af82c0228ae3889f3baf56f72a328",
+      "bytes": 5829
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/guidance/authentication-and-session.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/guidance/authentication-and-session.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "dbec80f78e00a021643c91e6c17a9eb7c2b384c891dff827135f42404f63c274",
+      "bytes": 13398
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/guidance/behavior-preserving-refactoring.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/guidance/behavior-preserving-refactoring.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "18e6af6cfe948be1a86d102adaba2308bb504b03f12b595655005289db04ac33",
+      "bytes": 10535
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/guidance/code-readability.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/guidance/code-readability.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "33e3164e26a30d62430d10ec8c71c7660c6b8d4f5f08182516d2f4203dca3f0c",
+      "bytes": 5796
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/guidance/explanation-and-evidence-criteria.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/guidance/explanation-and-evidence-criteria.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+      "bytes": 6123
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/guidance/local-data-and-sync.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/guidance/local-data-and-sync.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "699a2cac48aa041176b95c0c86b2b8e0543653f17933c835c217faf4f254e643",
+      "bytes": 14088
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/worktrees/project-context-update/noline/context/project/guidance/network-and-policy.md",
+      "destination_relative_to_workspace": "source/supplement/worktree-project-context/context/project/guidance/network-and-policy.md",
+      "category": "worktree-project-context",
+      "preservation": "exact-byte-copy",
+      "sha256": "9f196ea22fc24bbf1797363f37465f8f13c2c56d7f67068eb6828eb46d91678a",
+      "bytes": 10874
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/30/rollout-2026-09-30T20-22-34-01a0f20d-50a5-78e2-a665-e2c59c34987e.jsonl",
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a0f20d-50a5-78e2-a665-e2c59c34987e/selected-events.jsonl",
+      "category": "selected-rollout-events",
+      "preservation": "selected-events-original-payload-with-provenance-wrapper",
+      "sha256": "e9178ce8186091b8ae609978996eba94fca90c54f15b8474fb8d40e8d4c40005",
+      "bytes": 146654,
+      "selected_event_count": 17
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T21-31-08-01a0f772-73ab-7823-b282-bddb19124b7e.jsonl",
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a0f772-73ab-7823-b282-bddb19124b7e/selected-events.jsonl",
+      "category": "selected-rollout-events",
+      "preservation": "selected-events-original-payload-with-provenance-wrapper",
+      "sha256": "712062658e1a9ad03390d28f2d009862f12334764bac937a3047768a80e50d35",
+      "bytes": 192334,
+      "selected_event_count": 5
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/04/rollout-2026-10-04T13-27-01-01a1052a-4e61-7072-9b81-ff44449e5b85.jsonl",
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a1052a-4e61-7072-9b81-ff44449e5b85/selected-events.jsonl",
+      "category": "selected-rollout-events",
+      "preservation": "selected-events-original-payload-with-provenance-wrapper",
+      "sha256": "9d6c9da612c22d718a03011e60a9b2ee058cbababb907dffe5f2dc504f0731cc",
+      "bytes": 79534,
+      "selected_event_count": 2
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/06/rollout-2026-10-06T18-45-08-01a1109a-4735-7a13-adbf-08a9f84300b4.jsonl",
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a1109a-4735-7a13-adbf-08a9f84300b4/selected-events.jsonl",
+      "category": "selected-rollout-events",
+      "preservation": "selected-events-original-payload-with-provenance-wrapper",
+      "sha256": "a95c5a458fb5672a0fbb53539c8f283e1c8bcfdae7bfded549ef903a418df64a",
+      "bytes": 193680,
+      "selected_event_count": 3
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T20-41-08-01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7.jsonl",
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7/selected-events.jsonl",
+      "category": "selected-rollout-events",
+      "preservation": "selected-events-original-payload-with-provenance-wrapper",
+      "sha256": "a8106c2c0ea9519beb43138110be59a82d7fa8367e3dd9d357945b12893831ec",
+      "bytes": 437892,
+      "selected_event_count": 15
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/17/rollout-2026-09-17T11-41-46-01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30.jsonl",
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30/selected-events.jsonl",
+      "category": "selected-rollout-events",
+      "preservation": "selected-events-original-payload-with-provenance-wrapper",
+      "sha256": "2cbc6957b83496843acd930003e0a0a620296935deb8bc7a521340dd9f62082b",
+      "bytes": 431463,
+      "selected_event_count": 30
+    }
+  ],
+  "rollout_extraction_rules": {
+    "selection": "오직 지정된 inclusive 1-based source line 범위의 허용된 event만 보존. 범위 밖은 sha256/bytes/line count를 위한 streaming 읽기만 수행하고 내용 판정·추가 보존하지 않음.",
+    "allowed_response_item_payload_types": [
+      "computer_call",
+      "computer_call_output",
+      "custom_tool_call",
+      "custom_tool_call_output",
+      "function_call",
+      "function_call_output",
+      "local_shell_call",
+      "local_shell_call_output",
+      "tool_call",
+      "tool_call_output",
+      "web_search_call",
+      "message(role=user/assistant; 공개 phase/channel만)"
+    ],
+    "allowed_item_completed_item_types": [
+      "CommandExecution",
+      "FileChange",
+      "ImageGeneration",
+      "McpToolCall",
+      "ToolCall",
+      "ToolResult",
+      "WebSearch",
+      "UserMessage",
+      "AgentMessage"
+    ],
+    "excluded": "analysis/reasoning/summary, system/developer, compaction, runtime 상태, 사용량, runtime 자동 삽입 skill/환경 지침. 미선택 원문의 내용·reasoning·encrypted_content는 사본이나 manifest에 넣지 않음.",
+    "payload_preservation": "선택 event의 원래 payload object 전체와 원래 payload type을 유지. JSONL 바깥 provenance wrapper에 source_line/role/type/payload_type/timestamp를 추가; JSON 재직렬화이므로 원본 줄 전체의 bytecopy는 아님. stdout/aggregated_output/formatted_output 및 tool output의 원래 데이터 타입 유지.",
+    "duplicate_policy": "원문에 존재하는 response_item과 공개 완료 event가 같은 내용을 중복 표현해도 지정 범위의 event는 별개로 보존.",
+    "uncertainty": "지정 범위 밖 도구 호출·결과 연결은 추가 수집하지 않으므로 일부 call/output이 짝을 이루지 않을 수 있음.",
+    "snapshot_file_mode": "0444"
+  },
+  "rollout_extractions": [
+    {
+      "session_prefix": "01a0f20d",
+      "session_id": "01a0f20d-50a5-78e2-a665-e2c59c34987e",
+      "meta_snapshot_relative_to_workspace": "source/noline-evaluation/corpus/01a0f20d-50a5-78e2-a665-e2c59c34987e/meta.json",
+      "meta_path_source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/30/rollout-2026-09-30T20-22-34-01a0f20d-50a5-78e2-a665-e2c59c34987e.jsonl",
+      "requested_line_ranges_inclusive": [
+        {
+          "start": 2874,
+          "end": 2887
+        },
+        {
+          "start": 2909,
+          "end": 2909
+        },
+        {
+          "start": 3022,
+          "end": 3033
+        }
+      ],
+      "original_current_sha256": "2c09e2893c548be351b3a45c53be4a0191cc91dff7052689b61f7a4d2515d9a9",
+      "original_current_bytes": 19123171,
+      "original_current_line_count": 3041,
+      "original_current_mtime": "2026-10-11T17:55:58.076282+09:00",
+      "meta_recorded_sha256": "2b147702d045b281fcf109ea6d8902de945fa58ad0e2e7523a3b2949d324cb63",
+      "meta_recorded_bytes": 19120036,
+      "matches_captured_meta_sha256": false,
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a0f20d-50a5-78e2-a665-e2c59c34987e/selected-events.jsonl",
+      "selected_sha256": "e9178ce8186091b8ae609978996eba94fca90c54f15b8474fb8d40e8d4c40005",
+      "selected_bytes": 146654,
+      "selected_event_count": 17,
+      "selected_source_lines": [
+        2874,
+        2876,
+        2877,
+        2878,
+        2882,
+        2883,
+        2884,
+        2886,
+        2887,
+        2909,
+        3022,
+        3024,
+        3025,
+        3026,
+        3030,
+        3032,
+        3033
+      ],
+      "requested_line_count": 27,
+      "excluded_events_in_requested_ranges": [
+        {
+          "source_line": 2875,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 2879,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 2880,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 2881,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 2885,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 3023,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 3027,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 3028,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 3029,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 3031,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        }
+      ],
+      "missing_requested_lines": []
+    },
+    {
+      "session_prefix": "01a0f772",
+      "session_id": "01a0f772-73ab-7823-b282-bddb19124b7e",
+      "meta_snapshot_relative_to_workspace": "source/noline-evaluation/corpus/01a0f772-73ab-7823-b282-bddb19124b7e/meta.json",
+      "meta_path_source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T21-31-08-01a0f772-73ab-7823-b282-bddb19124b7e.jsonl",
+      "requested_line_ranges_inclusive": [
+        {
+          "start": 30,
+          "end": 35
+        }
+      ],
+      "original_current_sha256": "0b9a9f357520b0aa1e10bc758a135543baa09c8b80f198c800fdddc681eff646",
+      "original_current_bytes": 37941201,
+      "original_current_line_count": 5710,
+      "original_current_mtime": "2026-10-11T17:54:52.868362+09:00",
+      "meta_recorded_sha256": "3aa6ba274089a4428300af6028208092cf8bd84f6e22a48e369acdb71e3194fc",
+      "meta_recorded_bytes": 37938066,
+      "matches_captured_meta_sha256": false,
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a0f772-73ab-7823-b282-bddb19124b7e/selected-events.jsonl",
+      "selected_sha256": "712062658e1a9ad03390d28f2d009862f12334764bac937a3047768a80e50d35",
+      "selected_bytes": 192334,
+      "selected_event_count": 5,
+      "selected_source_lines": [
+        30,
+        32,
+        33,
+        34,
+        35
+      ],
+      "requested_line_count": 6,
+      "excluded_events_in_requested_ranges": [
+        {
+          "source_line": 31,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        }
+      ],
+      "missing_requested_lines": []
+    },
+    {
+      "session_prefix": "01a1052a",
+      "session_id": "01a1052a-4e61-7072-9b81-ff44449e5b85",
+      "meta_snapshot_relative_to_workspace": "source/noline-evaluation/corpus/01a1052a-4e61-7072-9b81-ff44449e5b85/meta.json",
+      "meta_path_source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/04/rollout-2026-10-04T13-27-01-01a1052a-4e61-7072-9b81-ff44449e5b85.jsonl",
+      "requested_line_ranges_inclusive": [
+        {
+          "start": 7264,
+          "end": 7267
+        }
+      ],
+      "original_current_sha256": "77797b50e485a1b94ef39aea8149f96a05de039cf716425660e948321707ea28",
+      "original_current_bytes": 50867321,
+      "original_current_line_count": 7330,
+      "original_current_mtime": "2026-10-06T22:04:01.945922+09:00",
+      "meta_recorded_sha256": "77797b50e485a1b94ef39aea8149f96a05de039cf716425660e948321707ea28",
+      "meta_recorded_bytes": 50867321,
+      "matches_captured_meta_sha256": true,
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a1052a-4e61-7072-9b81-ff44449e5b85/selected-events.jsonl",
+      "selected_sha256": "9d6c9da612c22d718a03011e60a9b2ee058cbababb907dffe5f2dc504f0731cc",
+      "selected_bytes": 79534,
+      "selected_event_count": 2,
+      "selected_source_lines": [
+        7264,
+        7265
+      ],
+      "requested_line_count": 4,
+      "excluded_events_in_requested_ranges": [
+        {
+          "source_line": 7266,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 7267,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        }
+      ],
+      "missing_requested_lines": []
+    },
+    {
+      "session_prefix": "01a1109a",
+      "session_id": "01a1109a-4735-7a13-adbf-08a9f84300b4",
+      "meta_snapshot_relative_to_workspace": "source/noline-evaluation/corpus/01a1109a-4735-7a13-adbf-08a9f84300b4/meta.json",
+      "meta_path_source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/06/rollout-2026-10-06T18-45-08-01a1109a-4735-7a13-adbf-08a9f84300b4.jsonl",
+      "requested_line_ranges_inclusive": [
+        {
+          "start": 33,
+          "end": 36
+        }
+      ],
+      "original_current_sha256": "37bb8f59cf3507e46925ab6cee86b605f247c49c782ce211ac4f3357e3c2c8b0",
+      "original_current_bytes": 8840792,
+      "original_current_line_count": 1786,
+      "original_current_mtime": "2026-10-08T19:53:40.554797+09:00",
+      "meta_recorded_sha256": "37bb8f59cf3507e46925ab6cee86b605f247c49c782ce211ac4f3357e3c2c8b0",
+      "meta_recorded_bytes": 8840792,
+      "matches_captured_meta_sha256": true,
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a1109a-4735-7a13-adbf-08a9f84300b4/selected-events.jsonl",
+      "selected_sha256": "a95c5a458fb5672a0fbb53539c8f283e1c8bcfdae7bfded549ef903a418df64a",
+      "selected_bytes": 193680,
+      "selected_event_count": 3,
+      "selected_source_lines": [
+        33,
+        35,
+        36
+      ],
+      "requested_line_count": 4,
+      "excluded_events_in_requested_ranges": [
+        {
+          "source_line": 34,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        }
+      ],
+      "missing_requested_lines": []
+    },
+    {
+      "session_prefix": "01a0c8eb",
+      "session_id": "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7",
+      "meta_snapshot_relative_to_workspace": "source/noline-evaluation/corpus/01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7/meta.json",
+      "meta_path_source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T20-41-08-01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7.jsonl",
+      "requested_line_ranges_inclusive": [
+        {
+          "start": 2235,
+          "end": 2260
+        },
+        {
+          "start": 2336,
+          "end": 2336
+        }
+      ],
+      "original_current_sha256": "ce2e231b4090b568c07763107b5c2db00c2d51bbd25f337e6e824b435ac0e2e2",
+      "original_current_bytes": 19831212,
+      "original_current_line_count": 2582,
+      "original_current_mtime": "2026-10-11T17:56:03.085298+09:00",
+      "meta_recorded_sha256": "073abb1c4e4aa5bffa7550b7d6a49ac2ac26b72d1b15843b739503c40ca2712c",
+      "meta_recorded_bytes": 19828077,
+      "matches_captured_meta_sha256": false,
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7/selected-events.jsonl",
+      "selected_sha256": "a8106c2c0ea9519beb43138110be59a82d7fa8367e3dd9d357945b12893831ec",
+      "selected_bytes": 437892,
+      "selected_event_count": 15,
+      "selected_source_lines": [
+        2235,
+        2236,
+        2240,
+        2241,
+        2242,
+        2244,
+        2245,
+        2246,
+        2247,
+        2251,
+        2253,
+        2257,
+        2259,
+        2260,
+        2336
+      ],
+      "requested_line_count": 27,
+      "excluded_events_in_requested_ranges": [
+        {
+          "source_line": 2237,
+          "event_type": "response_item",
+          "payload_type": "message",
+          "reason": "runtime 자동 삽입 지침; 사람이 작성한 공개 사용자 메시지가 아님"
+        },
+        {
+          "source_line": 2238,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 2239,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 2243,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 2248,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 2249,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 2250,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 2252,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 2254,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 2255,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 2256,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 2258,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        }
+      ],
+      "missing_requested_lines": []
+    },
+    {
+      "session_prefix": "01a0ad3d",
+      "session_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30",
+      "meta_snapshot_relative_to_workspace": "source/noline-evaluation/corpus/01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30/meta.json",
+      "meta_path_source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/17/rollout-2026-09-17T11-41-46-01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30.jsonl",
+      "requested_line_ranges_inclusive": [
+        {
+          "start": 630,
+          "end": 645
+        },
+        {
+          "start": 768,
+          "end": 768
+        },
+        {
+          "start": 865,
+          "end": 875
+        },
+        {
+          "start": 932,
+          "end": 932
+        },
+        {
+          "start": 935,
+          "end": 945
+        },
+        {
+          "start": 949,
+          "end": 949
+        },
+        {
+          "start": 958,
+          "end": 958
+        },
+        {
+          "start": 985,
+          "end": 1000
+        }
+      ],
+      "original_current_sha256": "dd92d13fdfe3da91561028f69557dee6a905a1affc297fa5fc72d3c3f47a23cc",
+      "original_current_bytes": 18317694,
+      "original_current_line_count": 3487,
+      "original_current_mtime": "2026-09-21T20:07:47.354913+09:00",
+      "meta_recorded_sha256": "dd92d13fdfe3da91561028f69557dee6a905a1affc297fa5fc72d3c3f47a23cc",
+      "meta_recorded_bytes": 18317694,
+      "matches_captured_meta_sha256": true,
+      "destination_relative_to_workspace": "source/supplement/selected-rollout-events/01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30/selected-events.jsonl",
+      "selected_sha256": "2cbc6957b83496843acd930003e0a0a620296935deb8bc7a521340dd9f62082b",
+      "selected_bytes": 431463,
+      "selected_event_count": 30,
+      "selected_source_lines": [
+        631,
+        632,
+        633,
+        635,
+        637,
+        638,
+        639,
+        643,
+        645,
+        768,
+        867,
+        869,
+        870,
+        874,
+        932,
+        936,
+        938,
+        939,
+        940,
+        944,
+        949,
+        958,
+        986,
+        990,
+        991,
+        992,
+        994,
+        995,
+        997,
+        1000
+      ],
+      "requested_line_count": 58,
+      "excluded_events_in_requested_ranges": [
+        {
+          "source_line": 630,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 634,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 636,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 640,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 641,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 642,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 644,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 865,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 866,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 868,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 871,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 872,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 873,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 875,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 935,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 937,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 941,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 942,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 943,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 945,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 985,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 987,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 988,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 989,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        },
+        {
+          "source_line": 993,
+          "event_type": "token_usage_record",
+          "payload_type": null,
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 996,
+          "event_type": "event_msg",
+          "payload_type": "token_count",
+          "reason": "사용량·runtime 상태·compaction 등 지정 외 event"
+        },
+        {
+          "source_line": 998,
+          "event_type": "event_msg",
+          "payload_type": "item_completed",
+          "reason": "Reasoning/summary 또는 지정 외 item_completed"
+        },
+        {
+          "source_line": 999,
+          "event_type": "response_item",
+          "payload_type": "reasoning",
+          "reason": "reasoning 또는 system/developer 및 지정 외 response_item"
+        }
+      ],
+      "missing_requested_lines": []
+    }
+  ],
+  "missing_requested_sources": [],
+  "intentional_exclusions": [
+    {
+      "source": "원본 rollout 전체",
+      "reason": "reasoning 등이 포함되어 있으며 전체세션 보존은 승인 범위 밖. 선택 이벤트만 저장."
+    },
+    {
+      "source": "worktree의 context/project Markdown 외 제품코드·다른 하네스·과거 Git tree",
+      "reason": "현재 문서 관찰판과 HEAD/status만 요청됨."
+    },
+    {
+      "source": "research original의 md/txt 이외 파일과 지정된 두 source밖 근거",
+      "reason": "추가 지정된 직접원문 범위 밖."
+    }
+  ],
+  "validation": {
+    "all_exact_copies_byte_identical": true,
+    "all_selected_payloads_verifiable_against_source_line": true,
+    "original_rollout_current_hash_rechecked_after_extraction": true,
+    "existing_evidence_manifest_unchanged": true,
+    "file_count": 46,
+    "bytes": 1910573,
+    "categories": {
+      "research-original": {
+        "file_count": 7,
+        "bytes": 182582
+      },
+      "selected-rollout-events": {
+        "file_count": 6,
+        "bytes": 1481557
+      },
+      "worktree-project-context": {
+        "file_count": 33,
+        "bytes": 246434
+      }
+    },
+    "rollout_count": 6,
+    "selected_event_count": 72,
+    "excluded_event_count_in_requested_ranges": 54,
+    "missing_requested_source_count": 0,
+    "rollout_source_hash_matches_captured_meta_count": 3,
+    "rollout_source_hash_differs_from_captured_meta_count": 3
+  },
+  "rollout_source_version_limit": "session fullid와 meta.path를 확인했으나 일부 현재 rollout SHA-256/bytes는 기존 meta의 수집 당시 값과 다르다. 이 supplement는 지정된 줄의 현재 원본 event payload와 현재 원본 해시를 증명하며, meta 수집 당시 원본과 동일판이었다는 사실이나 차이 원인을 증명하지 않는다. 범위를 확대해 과거판을 재구성하지 않았다.",
+  "rollout_sources_changed_since_meta_capture": [
+    {
+      "session_id": "01a0f20d-50a5-78e2-a665-e2c59c34987e",
+      "meta_recorded_bytes": 19120036,
+      "original_current_bytes": 19123171,
+      "meta_recorded_sha256": "2b147702d045b281fcf109ea6d8902de945fa58ad0e2e7523a3b2949d324cb63",
+      "original_current_sha256": "2c09e2893c548be351b3a45c53be4a0191cc91dff7052689b61f7a4d2515d9a9"
+    },
+    {
+      "session_id": "01a0f772-73ab-7823-b282-bddb19124b7e",
+      "meta_recorded_bytes": 37938066,
+      "original_current_bytes": 37941201,
+      "meta_recorded_sha256": "3aa6ba274089a4428300af6028208092cf8bd84f6e22a48e369acdb71e3194fc",
+      "original_current_sha256": "0b9a9f357520b0aa1e10bc758a135543baa09c8b80f198c800fdddc681eff646"
+    },
+    {
+      "session_id": "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7",
+      "meta_recorded_bytes": 19828077,
+      "original_current_bytes": 19831212,
+      "meta_recorded_sha256": "073abb1c4e4aa5bffa7550b7d6a49ac2ac26b72d1b15843b739503c40ca2712c",
+      "original_current_sha256": "ce2e231b4090b568c07763107b5c2db00c2d51bbd25f337e6e824b435ac0e2e2"
+    }
+  ]
+}

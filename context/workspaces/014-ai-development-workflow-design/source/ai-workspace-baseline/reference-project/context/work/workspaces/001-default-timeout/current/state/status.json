@@ -1,0 +1,8 @@
+{
+  "finished_at": "2026-08-14T10:37:03.075Z",
+  "receipt": "workspaces/001-default-timeout/records/receipts/verify/verify-20260814T103703075846Z-a1cde45907164974a19c22564a956127.json",
+  "result": "pass",
+  "schema_version": 3,
+  "status": "verification_passed",
+  "workspace_id": "001-default-timeout"
+}

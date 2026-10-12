@@ -1,0 +1,1543 @@
+{
+  "captured_at": "2026-10-12T16:36:36.138725+09:00",
+  "entries": [
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/.agents/skills/apply-context-harness/SKILL.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/.agents/skills/apply-context-harness/SKILL.md",
+      "bytes": 22680,
+      "sha256": "d4d10e3b5322a8074d173ac21f6dd106f8609ad6491f86cfab43844e1794dff8"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/.agents/skills/apply-context-harness/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/.agents/skills/apply-context-harness/agents/openai.yaml",
+      "bytes": 350,
+      "sha256": "81a549cfaac10776d29e444eae2fb351e005314419bf93eef07fef0a1ea328e5"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/.agents/skills/apply-context-harness/references/application-contract.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/.agents/skills/apply-context-harness/references/application-contract.md",
+      "bytes": 26429,
+      "sha256": "c99615338c4b3617623fa9ebfc1b73bc295334cecb793ff791e27e37b3f96b20"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/.agents/skills/apply-context-harness/scripts/capture_target_state.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/.agents/skills/apply-context-harness/scripts/capture_target_state.py",
+      "bytes": 9632,
+      "sha256": "40fb58b7547c8080e1fc452120cc30c49d167e26c0d5ad0b20c26984c9e570e1"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/.agents/skills/apply-context-harness/scripts/record_harness_tests.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/.agents/skills/apply-context-harness/scripts/record_harness_tests.py",
+      "bytes": 13602,
+      "sha256": "abb86cf7af275c8451faae28f846a210c5d9aeb5e8951d36944d5d419fd48ed4"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/.agents/skills/apply-context-harness/scripts/tests/test_helpers.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/.agents/skills/apply-context-harness/scripts/tests/test_helpers.py",
+      "bytes": 10849,
+      "sha256": "639ad31ba624f8f0b24067281d4696b12c195c882448aa8e13e1021e553867ba"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/AGENTS.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/AGENTS.md",
+      "bytes": 5462,
+      "sha256": "300234f8c8a394078208e65f4b3bab1a2b661d7cfb85ce783439eb4a0f793253"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/CODE-QUALITY.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/CODE-QUALITY.md",
+      "bytes": 13370,
+      "sha256": "224a1e997148b0e1dea2e5c0538bc4c4e7598609d29ef65f83be70551b89ce6f"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/README.md",
+      "bytes": 11539,
+      "sha256": "dc6252bbcb006140b3c7868fb97050b2f5db840ade81074bf410a6a41469cc29"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/context/README.md",
+      "bytes": 2906,
+      "sha256": "9fd83c7e0bb448bebae77595a400b7a5593f5df49a58596947a703bfe0d76884"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/context/workspaces/README.md",
+      "bytes": 4341,
+      "sha256": "90fefdc4a547f5f54c736b5a04e02b2559a83c493ef2f09dc437d41e2718dbd8"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/README.md",
+      "bytes": 4361,
+      "sha256": "eda28e59607dcd6aaf77ae64d4b6871754762f84b36143d8440d82e9f6264d7e"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/create-context-workspace/SKILL.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/create-context-workspace/SKILL.md",
+      "bytes": 7399,
+      "sha256": "e2f06c1d5780ed7ba543ea40c227ff55076afdfa7838d66480d7bfe0d3562292"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/create-context-workspace/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/create-context-workspace/agents/openai.yaml",
+      "bytes": 391,
+      "sha256": "d19244825c7bd72a786a17b143fd423f1f09fc3bc3a33528fe1fba6271273e4a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/explanation-recovery/SKILL.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/explanation-recovery/SKILL.md",
+      "bytes": 7028,
+      "sha256": "9f3981002424b9e967e98cf8b13c05671f50271fb430e492a8acec749e6668ec"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/explanation-recovery/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/explanation-recovery/agents/openai.yaml",
+      "bytes": 314,
+      "sha256": "90b68d63cd06b9e30965ad929cb2fa1eae83a54a4121f56ef77a7033795d99ac"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/read-project-context/SKILL.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/read-project-context/SKILL.md",
+      "bytes": 3932,
+      "sha256": "f574da3dc7c0059dfcd6ff0d143f39615d2c224910874681f5592d04ca02938e"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/read-project-context/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/read-project-context/agents/openai.yaml",
+      "bytes": 359,
+      "sha256": "25c902d920babdaf0cf448f29a9805ec2508b48998bdc235ce32390632c645c5"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/reconsider-work/SKILL.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/reconsider-work/SKILL.md",
+      "bytes": 12530,
+      "sha256": "d9334a21831dbd311b69f1eb4ac5f1a576bec7e6cd185f695cc0eea569077404"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/reconsider-work/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/reconsider-work/agents/openai.yaml",
+      "bytes": 325,
+      "sha256": "5b41c363ce1dca4739f48f1c5c5b52c412e64f83aa87524ee1b5faf997c80f88"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/update-project-context/SKILL.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/update-project-context/SKILL.md",
+      "bytes": 5664,
+      "sha256": "362cd3877a6bc1a1529b23f6821cf99c7bddb64a9aa60c6382ef24a8ef551c85"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/update-project-context/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/update-project-context/agents/openai.yaml",
+      "bytes": 410,
+      "sha256": "6948937f8e1c773ad8f3819639bcfec17be0f72dcc0ba4cfbd0de8cf32fcf6dd"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/work-artifact-briefing/SKILL.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/work-artifact-briefing/SKILL.md",
+      "bytes": 11071,
+      "sha256": "5ccf61c506591e4f34df09c997738aa60b3bb3cb6c937100606b600c72b3a5fb"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/work-artifact-briefing/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/work-artifact-briefing/agents/openai.yaml",
+      "bytes": 328,
+      "sha256": "dfcebd4263c703c2302cf488296719a38fe784ed8d9ffd7dc26d9068beade2d2"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/work-discussion/SKILL.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/work-discussion/SKILL.md",
+      "bytes": 11868,
+      "sha256": "b3b0e00ba1a15663dd796ad8177ddc7a00ae9ab6604fb27867e8feed8aecdffb"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.agents/skills/work-discussion/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.agents/skills/work-discussion/agents/openai.yaml",
+      "bytes": 295,
+      "sha256": "eb96e6e8a257d6351d831abac1a15bfdceb6e991acdeb17929ab539edfa38035"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.claude/hooks/maintain.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.claude/hooks/maintain.py",
+      "bytes": 340,
+      "sha256": "9bd648bbd7029b6d99344f06a0d0b5192cd1b4bbb0ae14cbea838d07bf325998"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.claude/maintain.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.claude/maintain.json",
+      "bytes": 48,
+      "sha256": "d90cb30f290c4eeb5a27ca3d96cb0864553e054acd194e1c71e57099f23b720d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.codex/config.toml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.codex/config.toml",
+      "bytes": 328,
+      "sha256": "fd2bf20e20399b189f9548fb0ce8e86238625d231dd39945820a56e97e6cfcd6"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.codex/hooks.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.codex/hooks.json",
+      "bytes": 1305,
+      "sha256": "d57434fc33b56fe0a71fcf234a3f4e360bd703705d62cffd08108c6f650f116b"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.codex/hooks/maintain.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.codex/hooks/maintain.py",
+      "bytes": 420,
+      "sha256": "61f0455caeb0e3585e0e773c6cae785293d8d25a08b7d0a02dc1c1c52484b267"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.codex/maintain.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.codex/maintain.json",
+      "bytes": 48,
+      "sha256": "d90cb30f290c4eeb5a27ca3d96cb0864553e054acd194e1c71e57099f23b720d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/.gitignore",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/.gitignore",
+      "bytes": 74,
+      "sha256": "2e233320a3a50d4334b1fe0ccad6f11ed3c9718d4be51a24ce4b1913a7e4f503"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/AGENTS.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/AGENTS.md",
+      "bytes": 4290,
+      "sha256": "e1067733c081a40b1f84d58e30f22e48d6057708e124636786bf25fa54c0e5d4"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/CLAUDE.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/CLAUDE.md",
+      "bytes": 4290,
+      "sha256": "e1067733c081a40b1f84d58e30f22e48d6057708e124636786bf25fa54c0e5d4",
+      "source_symlink_target": "AGENTS.md"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/README.md",
+      "bytes": 17526,
+      "sha256": "1c57abd7a9b817173ab35dc7b2a4a696f998e8e7cac592116da8d2298edbf27c"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/README.md",
+      "bytes": 2190,
+      "sha256": "4cb0d6a982b23d4914fa6c9f88bf03677a4b5bcd3e6435383b534c02f3b81b1e"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/__init__.py",
+      "bytes": 37,
+      "sha256": "c8cb99f385157cb1c7e2ddf32364988341490a4bfbbcf5b75dde84afca47eba4"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/MAINTENANCE.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/MAINTENANCE.md",
+      "bytes": 9408,
+      "sha256": "5e23ba6896e68ee433af1bea15b0d7316efa9aa6f8bc45576cfd51234d45f5a7"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/README.md",
+      "bytes": 7134,
+      "sha256": "2afd8aea1050e72bd6d9e8b1acee3abfbd8c3760ef58212e1f5a5bded446febf"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/REFERENCE/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/REFERENCE/README.md",
+      "bytes": 860,
+      "sha256": "15ab726a442b83c34f7cd5f0c7084f6b2d217bf05f451845150f1e06016eaab8"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/REFERENCE/composition.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/REFERENCE/composition.md",
+      "bytes": 8398,
+      "sha256": "1e18de3c92f5a15576ae550575c98cc7692c36aaf5343f122962a5d367196a89"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/REFERENCE/reading.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/REFERENCE/reading.md",
+      "bytes": 5070,
+      "sha256": "3a1d05069266b1ba5fa912da977a0fb7aca42e03687fabe14ae9de29c4914da5"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/common/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/common/README.md",
+      "bytes": 810,
+      "sha256": "db850a47c55c57ea9c0cd3d3d5360af65c094960071882bf3c8bf60c836a60b9"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/common/prd.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/common/prd.md",
+      "bytes": 1973,
+      "sha256": "4446d0793b48192d33c2a6ea1b375edf113e30aeb9ddb4f72d77e43a03e4a42e"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/current/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/current/README.md",
+      "bytes": 935,
+      "sha256": "6e7c43958883be78c1eccac0b7f6b8e7faf074ca6d52e2a4bf028b547af421fc"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/current/architecture.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/current/architecture.md",
+      "bytes": 2457,
+      "sha256": "f3448f2c77b23a0832160b2e16931f21f6cb9eacaade57f7a918e23499ef8204"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/decisions/0001-default-timeout.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/decisions/0001-default-timeout.md",
+      "bytes": 1570,
+      "sha256": "0332735b36a2bfe6f39605516ff8a0858360373bf0d2be4ef9f72b6a741c6688"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/decisions/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/decisions/README.md",
+      "bytes": 1837,
+      "sha256": "598e2e582bc1b59bccc1c86b4d581e5f0e17c0aef399a6c4e629ee57c4ab1ceb"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/guidance/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/guidance/README.md",
+      "bytes": 2333,
+      "sha256": "4ab9543463ad54d9457ca33be55ad0c5c12fc0a2ae77704ad0a4b4275ab941f1"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/project/guidance/explanation-and-evidence-criteria.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/project/guidance/explanation-and-evidence-criteria.md",
+      "bytes": 6123,
+      "sha256": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/AGENTS.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/AGENTS.md",
+      "bytes": 12310,
+      "sha256": "19819f6ce17f3fefd4368a412edfb60eef3e37fc2e06579fc70d699a70f3917a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/README.md",
+      "bytes": 2898,
+      "sha256": "583a87ce25176dd93bdeacb2fec1d35c96b79e9cee381088ed9b2cb3d062eca6"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/__init__.py",
+      "bytes": 56,
+      "sha256": "944df23a817e1dfa2136353da31e09f57c4c43f0b4833fc28cc66b95de1f2de6"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/README.md",
+      "bytes": 6651,
+      "sha256": "981fe4af0ca9bdb25cef3dd61ca3e97fe82904653c4fa646e017cdb5e4d62477"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/__init__.py",
+      "bytes": 65,
+      "sha256": "29d765a6a3038b839477a88e4e1dc7f87cd739ed10a4f50177252e12d61e9987"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/__main__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/__main__.py",
+      "bytes": 145,
+      "sha256": "2e0d03eadf48b89e1c5158cdd9db5d86d1967fe797c316c8574693353fbd6f33"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/cli.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/cli.py",
+      "bytes": 4491,
+      "sha256": "7bf719aa37c6f6241d628dd0b6a98178a609eda272e780dea880af642c0a4f93"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/README.md",
+      "bytes": 21092,
+      "sha256": "f2eb86dce1e289d471b49fb11be2e31c6437baf49c028fd613f6d2de9daa749a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+      "bytes": 14584,
+      "sha256": "03bad37a9f5e8e5cd988479666212c7373c927af2fdfd39255e47a23468aeeb2"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/STRUCTURE.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/STRUCTURE.md",
+      "bytes": 5885,
+      "sha256": "ed5ab055775ae689f7dd5f916d29f76ec77611800322ebea150ce3cded7ac288"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/__init__.py",
+      "bytes": 423,
+      "sha256": "fbc8dbdaba3b3e6825e271d129226cc05f584fdf5e8420752558f92cd5b9fd68"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/adapters/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/adapters/__init__.py",
+      "bytes": 59,
+      "sha256": "b78f452d9db7bac9adeb7f7c9c28aeb1738dcd09448c2f2837ddad17cce279af"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/adapters/claude.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/adapters/claude.py",
+      "bytes": 14792,
+      "sha256": "25f4bb5377955fcb09ae7347a0a74d42f31f384bc147bf6944bec547e2c6bac0"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/adapters/codex.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/adapters/codex.py",
+      "bytes": 6990,
+      "sha256": "5f40ffe40ff803a436c392652480a3636d790618726e11cbe31a0d60e98871e9"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/adapters/codex_session.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/adapters/codex_session.py",
+      "bytes": 11354,
+      "sha256": "1bcc02b5f3a606aaa61b67645de8d4fe9893e792deb86511e5da1c96f9cf3f4b"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/adapters/events.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/adapters/events.py",
+      "bytes": 584,
+      "sha256": "52200b95bad4cc9928a5f6fc6d2d4cf356e8ba4cac638aa6aa7b36ec9f2815be"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/apply/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/apply/__init__.py",
+      "bytes": 70,
+      "sha256": "38f9d15c217a66c51467ee154efa81a634887da44bb073efeffc1bc97c68d987"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/apply/policy.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/apply/policy.py",
+      "bytes": 4423,
+      "sha256": "7d246649e567d15c036521311e915513f164a87f6cbe574ffa97b0e4acf3d95d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/apply/prepare.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/apply/prepare.py",
+      "bytes": 7832,
+      "sha256": "64501250aeb3110683e2164ec2fdb2c649eb961b724c869f2acda5a2a576e640"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/apply/service.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/apply/service.py",
+      "bytes": 1872,
+      "sha256": "e30cf4a45031674324c3ec1882e916b03a0b950601d4302d26c5fe50d189a661"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/apply/transaction.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/apply/transaction.py",
+      "bytes": 4088,
+      "sha256": "0d172fdd30063bd7dada9ff4d9017a98cf37e0d6fa1e84b6de7d2895f4d1a948"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/bootstrap.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/bootstrap.py",
+      "bytes": 1050,
+      "sha256": "f01061fbdbe72a76aa5565c1239445c186ed23351dff6e1784e605eca5867a77"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/claude_hook.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/claude_hook.py",
+      "bytes": 214,
+      "sha256": "af3e87251d430912a7ae08b41a699764a1c05ff9a6caf69a1504685f47046792"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/codex_session.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/codex_session.py",
+      "bytes": 152,
+      "sha256": "a232599e57c557d6ba348e08127a0cc0df59486bad04a267d62c8fc2ca4b8692"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/contracts/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/contracts/__init__.py",
+      "bytes": 60,
+      "sha256": "66c67b8b971218b35eb9ec9f2c707c3e5a536706a888613fa7aece418e707c18"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/contracts/decision.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/contracts/decision.py",
+      "bytes": 5319,
+      "sha256": "7a7630bb4872fd4177b9cfe760b238f7df7c7191c149458490ba203a67de9773"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/contracts/response.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/contracts/response.py",
+      "bytes": 5294,
+      "sha256": "939b9f6f79b07d9616e58ae9a8d670797c0df75c26871b1d90e6c40a7c1e8fdd"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/decision.schema.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/decision.schema.json",
+      "bytes": 1502,
+      "sha256": "ba2bc724a541818643ed14260ecd73fde957bfc856056a16de7d8dd344d77414"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/grounding.schema.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/grounding.schema.json",
+      "bytes": 727,
+      "sha256": "fcce71787545f24432231487ef095d4748899874b770f194ae30db85ea3b65ed"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/host_adapter.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/host_adapter.py",
+      "bytes": 1449,
+      "sha256": "657f25cb73e2235ba67405a0b9cda425ac679d66146db17b1fd59987a389c5d8"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/operation.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/operation.py",
+      "bytes": 453,
+      "sha256": "83639f5af89f1fbcae60f1a16e1b58be030418f301fbebd01f412ba0dd3d2a36"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/resources.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/resources.py",
+      "bytes": 169,
+      "sha256": "a0d44fe516197d8a7dc41e118507abab68e52575ed9919735ab05f4bb0b5f080"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/__init__.py",
+      "bytes": 57,
+      "sha256": "1a58fb79431a8c93dca5d02a688d7a6d678ec6843574d26e8fc4ac704b7d63e0"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/binding.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/binding.py",
+      "bytes": 7557,
+      "sha256": "7e9f82e2190e5896398d0173aae180cbeb0ff98f1d08a35e0e356f5557adf472"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/context.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/context.py",
+      "bytes": 2263,
+      "sha256": "ccca3a1ccac553ed8324049d4269ea4e4522f7dc2612a4e10a55caa20fa5c01f"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/engine.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/engine.py",
+      "bytes": 5507,
+      "sha256": "468625a4957d164b9fac3a26c440874c640bcbb0fcbf379c22596fd7e2e91baa"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/events.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/events.py",
+      "bytes": 20648,
+      "sha256": "d1223915b65b581b591ef01ebb620e81c2f8f17ef10a066ac6fe36244470758f"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/notices.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/notices.py",
+      "bytes": 4446,
+      "sha256": "460fc71b4eb84d6faf0c54704b5960fdfe982017f3000884dea2975ca7f3539b"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/state.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/state.py",
+      "bytes": 4062,
+      "sha256": "40b943e70d059d31bfc779be3545acec06080bf5ac8748ab9340c4ca2ca2ffae"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/status.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/status.py",
+      "bytes": 9811,
+      "sha256": "f8c8d95ee39d36755cca7829b3fe3a40be7fd026e9835b1f10642cf6e8d0ccbf"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/storage.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/storage.py",
+      "bytes": 12468,
+      "sha256": "c290355e5fd787b45e7fe66a80eb82f0b43448013078847ab796c1b69ab49c4a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/storage_io.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/storage_io.py",
+      "bytes": 2383,
+      "sha256": "98c05b93445a0c5f5f9b422594e377b0a0f6993e768882b4da32b89f13c4ab2c"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/runtime/worker.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/runtime/worker.py",
+      "bytes": 8583,
+      "sha256": "7da578d8a6688e298639643b122c55ee3b2eed566becdba88aab3fe51dd20cf1"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/semantic/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/semantic/__init__.py",
+      "bytes": 70,
+      "sha256": "f81af26ff6c9b8efb5ebd8b9b5cf915c7f4e9a4186aa28f404fb6fba49258c0b"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/semantic/prompt.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/semantic/prompt.py",
+      "bytes": 7905,
+      "sha256": "b58f9c3c459cba0913d3ab47a10f65419aad2973b152c966f326f7476ff68089"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/semantic/session.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/semantic/session.py",
+      "bytes": 1056,
+      "sha256": "8063e57f9eb295bf89aa0080292d201a221167c61b92b7782ce747c7ea802040"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/README.md",
+      "bytes": 1670,
+      "sha256": "80c44c21dd89eae7faf56b528d8a1a8ccb5e4dd9d5444749cf7ec16f649e7409"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/__init__.py",
+      "bytes": 53,
+      "sha256": "498b874711c0195613c6282a255a3a91b63269dce8e459a2b30cfd2fb8e485a1"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/adapters/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/adapters/__init__.py",
+      "bytes": 32,
+      "sha256": "2b22b4ac93d04909aecbdcd5a962a285ee8294c80ed37bb17f9add6e169b0d40"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/adapters/test_claude_hook.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/adapters/test_claude_hook.py",
+      "bytes": 7411,
+      "sha256": "b41c501c694c1af5c92931690a4485f8a828e1da8ea8e02f5e008ffaf0e02c7e"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/adapters/test_codex_session.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/adapters/test_codex_session.py",
+      "bytes": 18450,
+      "sha256": "c5536b3f99346db7d2e737c2d6ee1f988576f3c068f5d51d7a4751f298ccfd09"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/adapters/test_tool_boundaries.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/adapters/test_tool_boundaries.py",
+      "bytes": 6895,
+      "sha256": "16b24e03a28719c4f516d6e71b608802a833cfa5cf67e84ba8390371754d90a7"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/apply/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/apply/__init__.py",
+      "bytes": 29,
+      "sha256": "ea7baed2e5f357d043e17d511510fb5a0a4f140ad3d93b6e0343f10a00921f8d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/apply/test_bootstrap.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/apply/test_bootstrap.py",
+      "bytes": 1378,
+      "sha256": "45f2780e0e81c3aec5bf318c61b92eb34e1968fb93b6b6a16d156504b47c193d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/apply/test_owner_links.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/apply/test_owner_links.py",
+      "bytes": 7572,
+      "sha256": "5ac7fd94c91fcafe4d6a6c244a4bb7dd50013b7f4c4f70284d1c69cd5d2de2f4"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/apply/test_policy.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/apply/test_policy.py",
+      "bytes": 6168,
+      "sha256": "673a33858b79240c00be545f23fff2c67fcb85e5fc9a9f0817d6459eb3185e61"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/apply/test_transaction.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/apply/test_transaction.py",
+      "bytes": 4046,
+      "sha256": "e843c5dd40f3b750a00399af5827faa6903b7cafd05759c2041c5a81b150117b"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/contracts/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/contracts/__init__.py",
+      "bytes": 33,
+      "sha256": "c53072bf4cd6d4cdbd8d11b86841a93e06b0384803c7c4abaac70bc46aa931ff"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/contracts/test_decision.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/contracts/test_decision.py",
+      "bytes": 1754,
+      "sha256": "60284d151011bbdda6293377d81784b87ef194aab21c617467951901dc903aa4"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/runtime/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/runtime/__init__.py",
+      "bytes": 31,
+      "sha256": "3f7b8ff47e8c7608c5d8fe3f4ac644215f1ae652cabdf8f40a06f298d21efc20"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/runtime/test_binding.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/runtime/test_binding.py",
+      "bytes": 16120,
+      "sha256": "81bec62a2af203d0c3a74e5f1cc243f92e9539a393cdfb59acb4c6a4f4944af7"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/runtime/test_cli_runtime.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/runtime/test_cli_runtime.py",
+      "bytes": 8524,
+      "sha256": "6ed20a5a6fafe4dc0a69496ab7ae6824427de9d99e9fe8edf412131f99b096c8"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/runtime/test_compatibility.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/runtime/test_compatibility.py",
+      "bytes": 7140,
+      "sha256": "ed15031c056244697648961346b028d8aac50f52bfa5870fe22f7d5022b3fdf6"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/runtime/test_failure_ordering.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/runtime/test_failure_ordering.py",
+      "bytes": 10120,
+      "sha256": "1d5e9fd5330e2472cd34518522a52db889c7624e29ece620b1056916b5c0d74e"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/runtime/test_hooks.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/runtime/test_hooks.py",
+      "bytes": 10165,
+      "sha256": "dc4dcf5a36d7430f2fa0ce5496da33c0bea47222adbb40100535d5688f0423b5"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/semantic/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/semantic/__init__.py",
+      "bytes": 32,
+      "sha256": "267bc78a2435dc7a30bc6bbdb65249403b03c349f430d0c8638dabfc7392c700"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/semantic/test_prompt.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/semantic/test_prompt.py",
+      "bytes": 1118,
+      "sha256": "3c1bde74b5d513a79a801ab3564ed60bbc8900e486694d6639392377097f027a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/support/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/support/__init__.py",
+      "bytes": 31,
+      "sha256": "1ba130fd0d918ecd6b039a4bcb505ffb1b3ab18dc52cad9aefa3894673fcb1c1"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/support/apply.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/support/apply.py",
+      "bytes": 1913,
+      "sha256": "dff6e4b028d8f24ffecd693d8fa93c7d66a0e11a8e5a2cfe076f9af808dfe1b2"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/support/host.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/support/host.py",
+      "bytes": 4793,
+      "sha256": "0982b178c435710dc737925ccda54a48730711f11b7228cc55d12921d8ab9ecd"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/support/semantic.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/support/semantic.py",
+      "bytes": 4319,
+      "sha256": "35b975e51e98a0ffa050ae8eb354af97b7b9f9573ecec7a48a20c761ad3339a7"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/tests/test_cli.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/tests/test_cli.py",
+      "bytes": 2935,
+      "sha256": "61b4fe0b3cea3f2228dde77e1612303338455070a16b097dd1bee42aebb449dd"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/maintain/workspace-context-maintainer.toml",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/maintain/workspace-context-maintainer.toml",
+      "bytes": 7520,
+      "sha256": "1402ef33cd5bf4a40f799f9f3fd5becd7f83e47ef2bb92b7d2bcc54a9c726b62"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/README.md",
+      "bytes": 7357,
+      "sha256": "77b63cb4748b183ceeb3185aeb51274a0777bf010eced581672fe8b50f507934"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/__init__.py",
+      "bytes": 222,
+      "sha256": "40c3e9549e3dc903873fc5d7cedc6785542b73ad573bfceab8874e245375e20b"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/context.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/context.py",
+      "bytes": 4831,
+      "sha256": "49ad0e8829c04c3cdb2512d663d23b66a5f8ea71b7ec2aa372d87fafa3e885bd"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/contract.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/contract.py",
+      "bytes": 4049,
+      "sha256": "9c62b41cdebd8463d29e91dfc6d914fa895a9a17467f63044c1375588ad860e3"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/operation.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/operation.py",
+      "bytes": 222,
+      "sha256": "5649181e400045fe20576a6744170b72f0b18f95ccfdaa07024b9c4c3addb7ca"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/packet.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/packet.py",
+      "bytes": 3460,
+      "sha256": "14872272dee43afab676b66d3acbeb6aa995bd052fc5c32c43385718a98cd78a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/receipts.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/receipts.py",
+      "bytes": 7801,
+      "sha256": "21fb6d41e851ae8278fb16c6b90b23eca77c9a0f3723338dd699b3e31fb289dd"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/render.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/render.py",
+      "bytes": 3496,
+      "sha256": "6a76982719a998cf3ae4fb8ac99afcf526a817d7f3a3d77612e293c13c08092d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/tests/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/tests/__init__.py",
+      "bytes": 54,
+      "sha256": "0b4c28328b4422d0186ef992d5c4f9ad90301c2d518f640150bdbf0cb1315277"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/tests/support.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/tests/support.py",
+      "bytes": 1054,
+      "sha256": "c37291ec871066f62736be62b408fd8b7d5ed2d3b92a92d30492ec21930b5f60"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/tests/test_context.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/tests/test_context.py",
+      "bytes": 7539,
+      "sha256": "baabea76e5d07035e4d46918c5e06e34eaabe80b1f8b4dae10503731b7c8cb19"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/tests/test_contract.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/tests/test_contract.py",
+      "bytes": 9371,
+      "sha256": "76f5dd0d87ab41c8aff1b76df25b867bf95465fa6c27d568a754dd7fa3f9d254"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/tests/test_packet.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/tests/test_packet.py",
+      "bytes": 9925,
+      "sha256": "2219e334abfa54e2cd893ecb32b73cf9c782248a4d7d42f97cc4a410c17d4310"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/tests/test_receipts.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/tests/test_receipts.py",
+      "bytes": 11870,
+      "sha256": "caafc1ffb1ee700ce22547952752b98657d95864110126442eddf1be88a5890c"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/tests/test_render.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/tests/test_render.py",
+      "bytes": 1965,
+      "sha256": "03e9f46ecb2bbedb5aeba4e5e01c02556ba1c9665df5ab5f005338fec3dd4949"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/tests/test_selection.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/tests/test_selection.py",
+      "bytes": 1980,
+      "sha256": "308d526608c9d7274407cc63b5f02eba55f97d595fe77dab2b215707a4c06ac6"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/recover/tests/test_status.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/recover/tests/test_status.py",
+      "bytes": 3359,
+      "sha256": "8ed6e6a22dc42ce318a412519bf6a5edfd3f45a19fe01ec3b95258f23127396b"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/testing.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/testing.py",
+      "bytes": 11049,
+      "sha256": "9e8b7d53ace25c3465ba2aa953651bdc04531725511e1dc1d9378a97bfd25d4a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/validation/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/validation/README.md",
+      "bytes": 1846,
+      "sha256": "29f0081e32341db27c5671b19cbf53420f6d6dd181763438efbdfb6f3d2c17eb"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/validation/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/validation/__init__.py",
+      "bytes": 46,
+      "sha256": "1bf5cbde5e3209181448bc77f025b7ba29bd2fead551a641227e959f172be863"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/validation/tests/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/validation/tests/__init__.py",
+      "bytes": 68,
+      "sha256": "1d72a144e796a9e4bc23a10039997e960ffb0f159d627910447658cc59f9354c"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/validation/tests/test_cli.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/validation/tests/test_cli.py",
+      "bytes": 605,
+      "sha256": "3e1f525848dcaf1eb600e576c697e7b5a1227ea8219e0d4ff179c4482e804f34"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/validation/tests/test_cli_contracts.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/validation/tests/test_cli_contracts.py",
+      "bytes": 2685,
+      "sha256": "5bd26d08221dcd7669984b23ad950b8d0a64e62fb421fc59f08d54fd71610f76"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/validation/tests/test_ephemeral_workspace_state_preservation.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/validation/tests/test_ephemeral_workspace_state_preservation.py",
+      "bytes": 3088,
+      "sha256": "abf8338bc8a0f29f29b7cc61e6054f333f30041a098d6f99631add4c899f3ed7"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/README.md",
+      "bytes": 7106,
+      "sha256": "4b92e1198379c0aeaf65997c2a98a6f8028cde74a19a438f316556fa837a55fb"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/__init__.py",
+      "bytes": 139,
+      "sha256": "48839d6d4fa70cbc26ee2ad5ad94731854f8e75eb6854d56a9a61a71770796a2"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/contract.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/contract.py",
+      "bytes": 6107,
+      "sha256": "e552558bb8eb8541e1391fd730b883003b91ef7823583ce398043752d371123d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/evidence.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/evidence.py",
+      "bytes": 1676,
+      "sha256": "e5718d3406d20107dd26c7556f0f6144cfb9031564ebfb7114b418321a2da294"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/execution.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/execution.py",
+      "bytes": 3370,
+      "sha256": "d00e728dc40faf5350156d2c0adb3cd8b2e501503f125f7b64767d21e0dd4aff"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/operation.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/operation.py",
+      "bytes": 143,
+      "sha256": "412627c6b018b2dc5a36db5932791bc5b1972dc950abafa401ccb7f8837b71fb"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/output.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/output.py",
+      "bytes": 3164,
+      "sha256": "5adef56072bac731cbaf682b07fd61c1d449e5fad9e8eecbc22b7a6162c5d1ac"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/process_scope.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/process_scope.py",
+      "bytes": 2439,
+      "sha256": "826ce8606c80de49e9a3f06e58ed24a15d0efe30de79fc5286e6d947ee0732f6"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/service.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/service.py",
+      "bytes": 5720,
+      "sha256": "3762f10cff7f3515fb1bf203d9ca4b1937533acb67d739b6a628085f1418867a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/storage.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/storage.py",
+      "bytes": 2633,
+      "sha256": "b0a5c23545f9175d4eabb9ca20a736e2e1b85e10ebda0f4486cbcbed3ae99ad5"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/__init__.py",
+      "bytes": 55,
+      "sha256": "216c3169bd721618b21fd607a581328e3d67850ca56a6c5ab3fbd66921bce509"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/support.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/support.py",
+      "bytes": 1995,
+      "sha256": "f42ff46ae8a441f69f47cc17f06bec4e724cafe7017e41cbe0e041da7c26b1b5"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_contract.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_contract.py",
+      "bytes": 8082,
+      "sha256": "609a879088351f1fc8a04d7eb2f2417b38b6e3b78c050f13f31905979e4bc94b"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_evidence.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_evidence.py",
+      "bytes": 3542,
+      "sha256": "03366d631569a6684e9f42e1f497a3d6edafe19008f3a3ac11040d767c767fc0"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_execution.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_execution.py",
+      "bytes": 1895,
+      "sha256": "c107c0be7a166aa7136adb74996f06ff1b4805ba98fe09628a976ef195b09cc0"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_failure_ordering.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_failure_ordering.py",
+      "bytes": 4002,
+      "sha256": "dea65535b7170defe30359a075ba58bcc19ff02660474b1cf08ad698db4ecc46"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_output.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_output.py",
+      "bytes": 2257,
+      "sha256": "a5c516caaedf95148c4e0058d55ee324308e54fbd0e34c24a34f6c98da1d2fff"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_preflight.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_preflight.py",
+      "bytes": 3475,
+      "sha256": "4ee365b36c6d197f0980312f819ed95f55f0b70d04e91f9c35eedc03d789476d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_process.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_process.py",
+      "bytes": 4908,
+      "sha256": "9c0ec79d35bf386a6521efd1fd424a0799a01dc82c73ab274513f7f6eee467c6"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_process_scope.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_process_scope.py",
+      "bytes": 2795,
+      "sha256": "934b2178e2cd3b02effc9ee21c1785521dc810efaf5a93cd18be8d6272e19b2b"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_receipts.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_receipts.py",
+      "bytes": 7251,
+      "sha256": "fa7695b535ba492458a750b1d0a07708a24716f1b69f0b1814b14b07d740572d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_storage.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_storage.py",
+      "bytes": 3201,
+      "sha256": "30962ab2b600f147483da0f40e23942cda92ac9cc49d70b519bf7baa7fb03d13"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/verify/tests/test_stream_capture.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/verify/tests/test_stream_capture.py",
+      "bytes": 2685,
+      "sha256": "90883359ffb1fd70013a6b8ffc74d1cc3b9d8e4550c243f3743393189bf5696c"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace/README.md",
+      "bytes": 1612,
+      "sha256": "3c8ca481452f10466570b6096c0150883ef0ef75ea2f1de29144aedeaef506c4"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace/__init__.py",
+      "bytes": 2094,
+      "sha256": "b002074047822f0441b9493f145aa6f240a38af3e2b963a1e85bc4b9c82f6317"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace/identity.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace/identity.py",
+      "bytes": 2945,
+      "sha256": "b50140f50fcef6acc5c2f7b2b405ea0efc872700070b5c712c9e8f86d8f7221f"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace/paths.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace/paths.py",
+      "bytes": 3586,
+      "sha256": "0e8ce7ab2c83d5e4c055f46d82811996407c1105f716c8e332f845515958ecf7"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace/status.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace/status.py",
+      "bytes": 4926,
+      "sha256": "6428947672db85a0fc589bd38d2a46f669e8414ced427f7a3c8ebcc07c84f552"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace/tests/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace/tests/__init__.py",
+      "bytes": 38,
+      "sha256": "4ae3d2927f686c74ff21d7be3145beda44561496731507adf64b2b6ccd5f22eb"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace/tests/test_contracts.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace/tests/test_contracts.py",
+      "bytes": 5107,
+      "sha256": "e43c9f13e11975cfaf3ff4e0725ba4a899ffd5053ef9fca1df84797637a48543"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace/tests/test_paths.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace/tests/test_paths.py",
+      "bytes": 2816,
+      "sha256": "f9c3869c2f098eedaed0ed6670ea337eac80f45631074f15885877148d168e73"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace/validation.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace/validation.py",
+      "bytes": 1203,
+      "sha256": "414a3f8f045103c2b63732d248a24b95b10afbd616a7e24431515516bb1b3c56"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/harness/workspace_contract.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/harness/workspace_contract.py",
+      "bytes": 2028,
+      "sha256": "c3d44df5e7de76cb122978ca3a940251953dbbc3ab7cd764164b5e619d3bdfe5"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/README.md",
+      "bytes": 3455,
+      "sha256": "de907eaeb674ffcca6ab317d0433193ce1f8929c631613a58119dd92a5015006"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/memory/index.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/memory/index.md",
+      "bytes": 1465,
+      "sha256": "70497b1fc7735260ed16eac7dbca259bb3256cfa51543d565d38ab75d7cfed02"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/memory/project-context.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/memory/project-context.md",
+      "bytes": 1636,
+      "sha256": "0b8142ea428c1e638dfda89dea3cd1490b2953526f64dedd1939cfed5713faaf"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/01-problem-goal-scope.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/01-problem-goal-scope.md",
+      "bytes": 858,
+      "sha256": "18de8d00244ee7377091f2e08e8dced7b37dd6cc9c87632395b0d6213f6820a3"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/02-behavior-and-cases.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/02-behavior-and-cases.md",
+      "bytes": 772,
+      "sha256": "127d9c4394aa7e3c50b737aabeee340d35f523cb8a0c023cd72957bbf360dbb8"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/03-concepts-and-contracts.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/03-concepts-and-contracts.md",
+      "bytes": 806,
+      "sha256": "2fa52bbe134a4d2c602b4cb3b9dd9b667dc79b2844b241573dff0f0fd3f841e9"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/04-quality-and-completion.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/04-quality-and-completion.md",
+      "bytes": 1186,
+      "sha256": "c6ae7407b8ea62d9d581bcb5caa5f63140b44caa24b3f5e5060d5ba6a5b2023c"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/05-constraints-design-assumptions.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/05-constraints-design-assumptions.md",
+      "bytes": 1051,
+      "sha256": "6083663a05ffbade46c5a3b2acf61ae3ec9573e56e1e9586231322753017bac6"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/memory/tickets/index.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/memory/tickets/index.md",
+      "bytes": 533,
+      "sha256": "a0c3ee7192535d68cc1b54ec10d5662127cb713fa8436bb29a9f8b3101c2a092"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/state/index.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/state/index.md",
+      "bytes": 1637,
+      "sha256": "af7182cb9d2e4750d321f693e5f517409a6b8f3b46e3a8713ccecbc831c9986e"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/current/state/status.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/current/state/status.json",
+      "bytes": 306,
+      "sha256": "bac5a68e08fcce53c3bf84afaa8c19ca97d94e4055b8389d118cae8061a85f52"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/output/index.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/output/index.md",
+      "bytes": 756,
+      "sha256": "ff26774fbee2262657e30adf5aad6a0932877fa3b9f8ef1306128ac1a2cae073"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-01-default-timeout-verification-cycle.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-01-default-timeout-verification-cycle.md",
+      "bytes": 2739,
+      "sha256": "de0019a5ed9e674b1280c811caa5321c9a26d46c3e151e77fae783b1e2dd7dcd"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-02-current-folder-migration.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-02-current-folder-migration.md",
+      "bytes": 3037,
+      "sha256": "77c63aac29dc32df5d19859172521aaedbb8a15a4dd00cd5f51c277e0a44f3e5"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-03-harness-responsibility-boundary-refactor.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-03-harness-responsibility-boundary-refactor.md",
+      "bytes": 4055,
+      "sha256": "5dbe17bd22fd4c7a9e07954e9ceded50b104f3a19c5cf52cc2900f230f4f918d"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-04-project-work-context-boundary-migration.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-04-project-work-context-boundary-migration.md",
+      "bytes": 3904,
+      "sha256": "1317501f8cd768cf98020d0d94253c8536c6661a206ac0a34a4ca744b3841e84"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-14-05-machine-receipt-boundary.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/2026-08-14-05-machine-receipt-boundary.md",
+      "bytes": 3327,
+      "sha256": "87fe954a98965b1fa03c7428e33e42ae37b729ab115554618cd429c2c7de706a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/README.md",
+      "bytes": 1408,
+      "sha256": "c1ffeaa83e8289631264f4c50fe574ed65b4acea738faf392696fb6728c8af61"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/README.md",
+      "bytes": 1191,
+      "sha256": "b555620e360d38955051683cb7d0898d695bb98db360740107c82c13e75f440f"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json",
+      "bytes": 2917,
+      "sha256": "d29de213d95b0019df623fd6f5e8c4dcfed9b97baac2014c79b246315ea38f20"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json",
+      "bytes": 2348,
+      "sha256": "610912427fde5d985a88b0d18c4305dd8cd1b0155d44f37c582837ceaf04d5cd"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T045930913927Z-e6a729ee16834df8a16d1fc7d412e5ab.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T045930913927Z-e6a729ee16834df8a16d1fc7d412e5ab.json",
+      "bytes": 2348,
+      "sha256": "5209a1ebec6073a7613463f2bdf2f7094325654f8344cfa2c7f9da411333b3b5"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T124912507712Z-d2e85f3cf26a4372a2fc5bf476ebd245.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T124912507712Z-d2e85f3cf26a4372a2fc5bf476ebd245.json",
+      "bytes": 2348,
+      "sha256": "511ce23c8c7891079d0539a738dfd29d0bcacac2100bd27cd7d7ecec0aa5c319"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json",
+      "bytes": 2348,
+      "sha256": "710b1b305dd5e950bcc89869db0bcf4f3705e10a4881a9aa95deb038f174f50c"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T135739719409Z-2c773fcd8f4f4409b9a7c394194b3b13.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T135739719409Z-2c773fcd8f4f4409b9a7c394194b3b13.json",
+      "bytes": 2348,
+      "sha256": "1d1fd95cd4697549c99c4ea1a83f5ea241614d4bd1551454a58530058ec07129"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json",
+      "bytes": 2348,
+      "sha256": "38f21bd25a05bb813a3de35edf67aeab2d3124fcfa6af32a8b81444c70b43cd8"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T033807136133Z-6688019152ce406bb6778a58a3417fc2.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T033807136133Z-6688019152ce406bb6778a58a3417fc2.json",
+      "bytes": 2348,
+      "sha256": "6f4db570fe7c6024d6713fde593d1ccc0720c771b7ef6ae4f2ccc28ebb740f64"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json",
+      "bytes": 2348,
+      "sha256": "0d81a0b1ecc30305bba6ef5ed358e3c3871385d07aaca775955e6f048ffd8182"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T064854356201Z-2b17198a679c47e0ba9f7bbc23aefad6.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T064854356201Z-2b17198a679c47e0ba9f7bbc23aefad6.json",
+      "bytes": 2348,
+      "sha256": "db67ffcb5b2069d2b3631d60bb612723ac6776a1d9727bde5ca5106c56ed4be9"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T070729765148Z-4de3a77434444335b088d4944631e94f.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T070729765148Z-4de3a77434444335b088d4944631e94f.json",
+      "bytes": 2348,
+      "sha256": "7af71a6f60211171fa890aae34d6759c42692dd05e4a44dccd38f8bbb7e6cda4"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T103703075846Z-a1cde45907164974a19c22564a956127.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T103703075846Z-a1cde45907164974a19c22564a956127.json",
+      "bytes": 3574,
+      "sha256": "b7a64a1c3a8b59e337c8a21deb5026f4494c4de25beeff97e5c65d03949ed2eb"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/recover.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/recover.json",
+      "bytes": 925,
+      "sha256": "274613ecf7fba7e2e739404e9c26d6e5a337601d8c9ead19e47ce9e4474074cc"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/source/index.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/source/index.md",
+      "bytes": 532,
+      "sha256": "84284336c9ddfe5c1c692d5bf16d187b2b8e75f21ca390692b03f5ded6253f75"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/verify.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/verify.json",
+      "bytes": 702,
+      "sha256": "5b0cf09873914cf2e12f3116e4fdff0163588f979e6cbb991489304fdc0ca641"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/001-default-timeout/workspace.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/001-default-timeout/workspace.json",
+      "bytes": 67,
+      "sha256": "b11bf5da266fb08837c51ecfb9e9dab3d31ed828155a0f96a46f1d2e991e1488"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/CREATE-AND-TRANSITION.md",
+      "bytes": 12879,
+      "sha256": "030be23fab23432b98617851924e2f43e5442fae32ea321a38e6e430f9f71b49"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/DOCUMENT-WRITING.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/DOCUMENT-WRITING.md",
+      "bytes": 9324,
+      "sha256": "74ea5cd3c9dc29c4f6c8037ed7fd50995e39fee4439540173b289b69fc897edc"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/README.md",
+      "bytes": 9013,
+      "sha256": "43c2fc7ea3b159f7addbf1c2b382495b7772f2e5be3563f653f9730730cd7b06"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/SPEC-AND-TICKETS.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/SPEC-AND-TICKETS.md",
+      "bytes": 458,
+      "sha256": "79daf9a60b5f5c5519baf5bf0899ebe8aab4d7c3a67dc469c7c631e5f30e89fa"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/index.json",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/index.json",
+      "bytes": 74,
+      "sha256": "4e4bfd172a1e81c9bbfd4cd4d4ef9d04e82bffa26a3613b554886fb76efcd0c1"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/spec-and-tickets/2026-09-12-NOLINE-EVIDENCE.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/spec-and-tickets/2026-09-12-NOLINE-EVIDENCE.md",
+      "bytes": 8959,
+      "sha256": "f33cff44701de94f1481bb5503a972ef33704b4df3e36740fed7c2d15e3ff89a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/spec-and-tickets/EXECUTION-CRITERIA.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/spec-and-tickets/EXECUTION-CRITERIA.md",
+      "bytes": 7627,
+      "sha256": "93edea85915d2cdf81008451668d86ffbfcef8bc326889b9e62574e10d8fa5f9"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/spec-and-tickets/HISTORY.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/spec-and-tickets/HISTORY.md",
+      "bytes": 15780,
+      "sha256": "32b623c1f10e7f27fc346aa3378b26ebb81d8d0dfb5da0d0a67bc95f50e19349"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/spec-and-tickets/MAINTENANCE.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/spec-and-tickets/MAINTENANCE.md",
+      "bytes": 4698,
+      "sha256": "db3d6d8aeea35f56e4b5626b2804870c8b740c9ae1e29cbd4b9d171a758fd727"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/spec-and-tickets/README.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/spec-and-tickets/README.md",
+      "bytes": 8779,
+      "sha256": "c35351a100eda02b45ae2279a1011d20aa41cd9b602f55d5cefb65438338b573"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/spec-and-tickets/SPEC.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/spec-and-tickets/SPEC.md",
+      "bytes": 4046,
+      "sha256": "d22b77cb3723e197bd60d0f87fd36ef5617aca72b86144d9bd23a4d4d2f2823a"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/work/workspaces/spec-and-tickets/TICKET.md",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/context/work/workspaces/spec-and-tickets/TICKET.md",
+      "bytes": 4333,
+      "sha256": "6c20ea96a4a74a42e792df8ea9eea1e58f5ef39526e2b4e68024d0594d8d7179"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/src/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/src/__init__.py",
+      "bytes": 40,
+      "sha256": "8f15b5d681babaa88b741030693909d24e43370e3568260b2b4b4188f43de3a9"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/src/config_loader.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/src/config_loader.py",
+      "bytes": 1467,
+      "sha256": "dd224530943d6e49e196752fbe6d6b8df033c32f719b2a906be7922438da0665"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/tests/__init__.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/tests/__init__.py",
+      "bytes": 83,
+      "sha256": "3c6a0d1d9c0f88bf9c30818a7c9b60379b7b6d65f876d037ecbc361848d96fa9"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/tests/test_config_loader.py",
+      "destination_relative_to_workspace": "source/ai-workspace-baseline/reference-project/tests/test_config_loader.py",
+      "bytes": 1741,
+      "sha256": "f5de705fdaa935387e0eb1fe55b167c938056f0bcadcbd14900bdb27bbf665d0"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.claude/skills/recall-document-guidance/SKILL.md",
+      "destination_relative_to_workspace": "source/writing-guidance/skills/recall-document-guidance/SKILL.md",
+      "bytes": 1716,
+      "sha256": "e1817ae6b46005ba3ad1fc774f8fe81340a9bbd8e520838809643f56711f7b56"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.claude/references/ai-system_human-readable-structure.md",
+      "destination_relative_to_workspace": "source/writing-guidance/references/ai-system_human-readable-structure.md",
+      "bytes": 5228,
+      "sha256": "e60c5b01b0097e5ca0e8fb1305303633acc1e75562bdbe7581df580e86cbf542"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.claude/references/ai-system_instruction-clarity.md",
+      "destination_relative_to_workspace": "source/writing-guidance/references/ai-system_instruction-clarity.md",
+      "bytes": 8349,
+      "sha256": "9b6e288fea6ad7c88bcb351cc03ad90f20c5c6b3db9de69442b32d1f69950bbd"
+    },
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.claude/references/ai-system_context-ownership-boundary.md",
+      "destination_relative_to_workspace": "source/writing-guidance/references/ai-system_context-ownership-boundary.md",
+      "bytes": 7097,
+      "sha256": "968c2f8e88143d78fb42397b0e7adec90db504f1dc8050352906c9d299917c77"
+    }
+  ],
+  "extractions": [
+    {
+      "source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/11/rollout-2026-10-11T17-10-25-01a12a03-5c32-7d00-8d81-8f295f18fc0b.jsonl",
+      "thread_id": "01a12a03-5c32-7d00-8d81-8f295f18fc0b",
+      "thread_title": "Tripproof 보고서 분석",
+      "source_line_start": 1,
+      "source_line_end": 2744,
+      "source_prefix_sha256": "dfb40d4f351ad2dc8add3c548d22c10eaab93099b7b386c2c12e049a93dccc4e",
+      "source_prefix_bytes": 13459567,
+      "selection": "response_item/message role user and assistant visible commentary/final; user environment/skill/page payload excluded",
+      "skipped": [
+        {
+          "source_line": 6,
+          "reason": "자동 삽입된 환경/skill/page payload"
+        },
+        {
+          "source_line": 10,
+          "reason": "자동 삽입된 환경/skill/page payload"
+        },
+        {
+          "source_line": 1144,
+          "reason": "자동 삽입된 환경/skill/page payload"
+        },
+        {
+          "source_line": 1636,
+          "reason": "자동 삽입된 환경/skill/page payload"
+        },
+        {
+          "source_line": 1657,
+          "reason": "자동 삽입된 환경/skill/page payload"
+        },
+        {
+          "source_line": 1723,
+          "reason": "자동 삽입된 환경/skill/page payload"
+        },
+        {
+          "source_line": 1844,
+          "reason": "자동 삽입된 환경/skill/page payload"
+        },
+        {
+          "source_line": 2283,
+          "reason": "자동 삽입된 환경/skill/page payload"
+        },
+        {
+          "source_line": 2707,
+          "reason": "자동 삽입된 환경/skill/page payload"
+        }
+      ],
+      "text_records": 166,
+      "user_and_final_records": 108
+    },
+    {
+      "destination_relative_to_workspace": "source/discussion/conversation.jsonl",
+      "bytes": 171141,
+      "sha256": "bdc6f982a95e2b5ac9c097c1d974423fb8888145d77508476450e5469281168c"
+    },
+    {
+      "destination_relative_to_workspace": "source/discussion/conversation.md",
+      "bytes": 137242,
+      "sha256": "4896464ff75314827008755cf7ee282a20b267628fa195887a17eb3176f4b694"
+    },
+    {
+      "destination_relative_to_workspace": "source/discussion/design-conversation.md",
+      "bytes": 42842,
+      "sha256": "3455e1ef1db397739a3b5167028cc6061d56b250af9e2227a5acd9528a4b4af8"
+    }
+  ],
+  "notes": [
+    {
+      "directory_symlink_not_recreated": "reference-project/.claude/skills/explanation-recovery",
+      "target": "../../.agents/skills/explanation-recovery",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    },
+    {
+      "directory_symlink_not_recreated": "reference-project/.claude/skills/read-project-context",
+      "target": "../../.agents/skills/read-project-context",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    },
+    {
+      "directory_symlink_not_recreated": "reference-project/.claude/skills/reconsider-work",
+      "target": "../../.agents/skills/reconsider-work",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    },
+    {
+      "directory_symlink_not_recreated": "reference-project/.claude/skills/work-artifact-briefing",
+      "target": "../../.agents/skills/work-artifact-briefing",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    },
+    {
+      "directory_symlink_not_recreated": "reference-project/.claude/skills/work-discussion",
+      "target": "../../.agents/skills/work-discussion",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    },
+    {
+      "directory_symlink_not_recreated": "reference-project/.codex/skills/explanation-recovery",
+      "target": "../../.agents/skills/explanation-recovery",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    },
+    {
+      "directory_symlink_not_recreated": "reference-project/.codex/skills/read-project-context",
+      "target": "../../.agents/skills/read-project-context",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    },
+    {
+      "directory_symlink_not_recreated": "reference-project/.codex/skills/reconsider-work",
+      "target": "../../.agents/skills/reconsider-work",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    },
+    {
+      "directory_symlink_not_recreated": "reference-project/.codex/skills/work-artifact-briefing",
+      "target": "../../.agents/skills/work-artifact-briefing",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    },
+    {
+      "directory_symlink_not_recreated": "reference-project/.codex/skills/work-discussion",
+      "target": "../../.agents/skills/work-discussion",
+      "reason": "원본 skill 본문을 .agents 경로로 함께 보존; snapshot을 실행 가능한 host 설치로 만들지 않음"
+    }
+  ],
+  "ai_workspace_commit": "8d5f4267c946bbc5e2639fb3c064159a7bd15322",
+  "ai_workspace_pre_capture_status": "clean (before this Workspace creation)"
+}

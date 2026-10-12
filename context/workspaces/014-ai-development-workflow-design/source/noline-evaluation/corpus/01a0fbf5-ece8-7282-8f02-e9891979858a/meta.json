@@ -1,0 +1,48 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/02/rollout-2026-10-02T18-33-13-01a0fbf5-ece8-7282-8f02-e9891979858a.jsonl",
+  "id": "01a0fbf5-ece8-7282-8f02-e9891979858a",
+  "time": "2026-10-02T09:33:13.348Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 1169664,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "5b2208ce24a618a2501c3333621cad7236e0a8b4e6fd3b4ef7113a9948432ef4",
+  "classification": "conversation",
+  "messages": 5,
+  "characters": 6254,
+  "user_messages": 1,
+  "first_prompt": "이 프로젝트는 도메인 주도 설계에 기반해서 보면 어떤점이 보완되어야 해? 일단 도메인 주도 설계에 대해서 알려주고 한번 평가해줘\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 42,
+    "response_item": 40,
+    "world_state": 1,
+    "turn_context": 1,
+    "token_usage_record": 11
+  },
+  "excluded": {
+    "runtime_wrapper": 2
+  },
+  "tool_events": 20,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 761831,
+    "cached_input_tokens": 676736,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 4950,
+    "reasoning_output_tokens": 573,
+    "total_tokens": 766781
+  },
+  "first_time": "2026-10-02T09:33:43.281Z",
+  "last_time": "2026-10-02T09:37:42.335Z"
+}

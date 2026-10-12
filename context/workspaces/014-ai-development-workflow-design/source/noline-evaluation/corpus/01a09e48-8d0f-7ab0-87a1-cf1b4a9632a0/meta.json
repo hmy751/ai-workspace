@@ -1,0 +1,49 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T13-59-09-01a09e48-8d0f-7ab0-87a1-cf1b4a9632a0.jsonl",
+  "id": "01a09e48-8d0f-7ab0-87a1-cf1b4a9632a0",
+  "time": "2026-09-14T04:59:09.990Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 15353351,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "6c7605eb612158e65dd9756a780560cf56dd6cdb3f235bc7320dc00bf29fc6ca",
+  "classification": "conversation",
+  "messages": 42,
+  "characters": 19011,
+  "user_messages": 7,
+  "first_prompt": "그럼 분석을 바탕으로 context-harness 부터 반영하자 일단 context-harness 파악부터 하자\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 501,
+    "response_item": 415,
+    "world_state": 5,
+    "turn_context": 9,
+    "token_usage_record": 122,
+    "compacted": 3
+  },
+  "excluded": {
+    "runtime_wrapper": 4
+  },
+  "tool_events": 226,
+  "model_settings": [
+    {
+      "line": 12,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 28903865,
+    "cached_input_tokens": 27414016,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 170521,
+    "reasoning_output_tokens": 51124,
+    "total_tokens": 29074386
+  },
+  "first_time": "2026-09-14T04:59:52.443Z",
+  "last_time": "2026-09-14T13:05:46.041Z"
+}

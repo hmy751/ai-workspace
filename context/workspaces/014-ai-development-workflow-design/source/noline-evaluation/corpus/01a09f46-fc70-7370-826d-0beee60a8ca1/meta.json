@@ -1,0 +1,63 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T18-37-04-01a09f46-fc70-7370-826d-0beee60a8ca1.jsonl",
+  "id": "01a09f46-fc70-7370-826d-0beee60a8ca1",
+  "time": "2026-09-14T09:37:04.648Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 14157491,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "e27c80e75e1709b92be2efd9cd5f96ef381c42e2d29c913a976553790f5a916a",
+  "classification": "conversation",
+  "messages": 71,
+  "characters": 21245,
+  "user_messages": 13,
+  "first_prompt": "/Users/hammyeong-yeon/Desktop/10\\_work/noline/context/work/workspaces/004-project-context-contracts-and-guidance\n\n여길 확인해봐 \n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 656,
+    "response_item": 590,
+    "world_state": 6,
+    "turn_context": 16,
+    "token_usage_record": 168,
+    "compacted": 3
+  },
+  "excluded": {
+    "runtime_wrapper": 1
+  },
+  "tool_events": 304,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 997,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1016,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 23599078,
+    "cached_input_tokens": 22799616,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 96416,
+    "reasoning_output_tokens": 32806,
+    "total_tokens": 23695494
+  },
+  "first_time": "2026-09-14T09:37:18.948Z",
+  "last_time": "2026-09-14T12:26:16.779Z"
+}

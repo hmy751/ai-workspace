@@ -1,0 +1,106 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T12-51-13-01a09e0a-5816-71e3-9865-a4677e71b2dd.jsonl",
+  "id": "01a09e0a-5816-71e3-9865-a4677e71b2dd",
+  "time": "2026-09-14T03:51:13.202Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 32803420,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "250aefb1d627ed9fcba7debf1ba938993823ddfd997d467d4e07db979a2b507a",
+  "classification": "conversation",
+  "messages": 184,
+  "characters": 82491,
+  "user_messages": 46,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring\n\n여기 현황 파악하고 여기 작업과 기록ㄷㄹ을 가지고 project context 로 구성하려고 해 일단 파악해봐\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 1706,
+    "response_item": 1276,
+    "world_state": 19,
+    "turn_context": 47,
+    "token_usage_record": 356,
+    "compacted": 9,
+    "inter_agent_communication_metadata": 13
+  },
+  "excluded": {
+    "runtime_wrapper": 8
+  },
+  "tool_events": 616,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 867,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 999,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1526,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 2502,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 2574,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2856,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 3010,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 3317,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "medium"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 43093638,
+    "cached_input_tokens": 40578432,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 214075,
+    "reasoning_output_tokens": 78176,
+    "total_tokens": 43307713
+  },
+  "first_time": "2026-09-14T03:51:36.138Z",
+  "last_time": "2026-09-14T09:39:08.323Z"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "batches_expected": 9,
+  "batches_present": 9,
+  "parts_expected": 120,
+  "parts_declared_read": 120,
+  "primary_messages": 4156,
+  "scene_count": 89,
+  "quote_count": 495,
+  "errors": [],
+  "limitations": [
+    "읽었다는 보고와 인용의 원문 일치 점검이며 의미 판단의 정답 검증은 아니다.",
+    "코드 동작, 테스트 통과, 실제 사용자 경험은 이 기계 검증으로 확인되지 않는다."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T20-41-08-01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7.jsonl",
+  "id": "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7",
+  "time": "2026-09-22T11:41:08.178Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 19828077,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "073abb1c4e4aa5bffa7550b7d6a49ac2ac26b72d1b15843b739503c40ca2712c",
+  "classification": "conversation",
+  "messages": 129,
+  "characters": 44942,
+  "user_messages": 33,
+  "first_prompt": "그럼 project context 갱신 후 시점으로 지금 아마 티켓 06작업을 한것 같은데 한번 확인해보고 어떻게 수집하면 좋을지 나랑 얘기좀 해보자&#x20;\n일단 내 생각은 project 각 카테고리 별로 서브를 호출해서 수집하라고 하는게 어떨까 싶어 내용이 꽤 많아서 그냥 수집하라하면 잘 못할것 같은 우려가 들거든 그리고 처음 수집은 디테일을 수집한다기보다 뭔가 전반적으로 후보 가능성있는걸 쭉 수집하고 정하는거지 니생각은 어때?\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 1218,
+    "response_item": 958,
+    "world_state": 26,
+    "turn_context": 36,
+    "token_usage_record": 288,
+    "inter_agent_communication_metadata": 48,
+    "compacted": 6
+  },
+  "excluded": {
+    "runtime_wrapper": 15
+  },
+  "tool_events": 506,
+  "model_settings": [
+    {
+      "line": 10,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1090,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 2064,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 72673945,
+    "cached_input_tokens": 68919936,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 358506,
+    "reasoning_output_tokens": 103376,
+    "total_tokens": 73032451
+  },
+  "first_time": "2026-09-22T11:42:59.206Z",
+  "last_time": "2026-10-01T08:57:21.517Z"
+}

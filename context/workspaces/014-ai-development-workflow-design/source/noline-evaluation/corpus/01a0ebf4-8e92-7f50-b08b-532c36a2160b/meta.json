@@ -1,0 +1,48 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/29/rollout-2026-09-29T15-57-48-01a0ebf4-8e92-7f50-b08b-532c36a2160b.jsonl",
+  "id": "01a0ebf4-8e92-7f50-b08b-532c36a2160b",
+  "time": "2026-09-29T06:57:48.207Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 484337,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "f5835ea9d3bd2e637ab8481f51fbb77131c7328c5cb452725af743d9dcb9ef6b",
+  "classification": "conversation",
+  "messages": 7,
+  "characters": 2257,
+  "user_messages": 2,
+  "first_prompt": "/Users/hammyeong-yeon/Desktop/10\\_work/noline/apps/client/src/features/schedule/schedule-recovery/useScheduleRecovery.ts\n\n여기 로직을 기술스택 유지보수 전문가 입장에서 좀 코드를 판단하고 개선점을 봐줘\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 29,
+    "response_item": 68,
+    "world_state": 1,
+    "turn_context": 1,
+    "token_usage_record": 18
+  },
+  "excluded": {
+    "runtime_wrapper": 1
+  },
+  "tool_events": 34,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 1073767,
+    "cached_input_tokens": 996480,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 8518,
+    "reasoning_output_tokens": 4455,
+    "total_tokens": 1082285
+  },
+  "first_time": "2026-09-29T06:58:13.037Z",
+  "last_time": "2026-09-29T07:02:15.188Z"
+}

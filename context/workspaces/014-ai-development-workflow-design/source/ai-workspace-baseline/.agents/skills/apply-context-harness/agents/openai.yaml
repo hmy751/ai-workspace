@@ -1,0 +1,6 @@
+interface:
+  display_name: "Apply Context Harness"
+  short_description: "기존 Project에 context harness를 증거와 함께 이식"
+  default_prompt: "$apply-context-harness를 사용해 이 Project의 기존 canonical과 사용자 변경을 보존하면서 context harness를 이식하고 검증해줘."
+policy:
+  allow_implicit_invocation: true

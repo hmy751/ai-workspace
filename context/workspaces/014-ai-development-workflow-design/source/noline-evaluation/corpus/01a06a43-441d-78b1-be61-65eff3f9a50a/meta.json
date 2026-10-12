@@ -1,0 +1,50 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/04/rollout-2026-09-04T11-33-08-01a06a43-441d-78b1-be61-65eff3f9a50a.jsonl",
+  "id": "01a06a43-441d-78b1-be61-65eff3f9a50a",
+  "time": "2026-09-04T02:33:08.406Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/context-harness",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 7995449,
+  "discovery_reason": "explicit_initial_implant",
+  "source_sha256": "4b524b870045282fa0c3a2e6bea3cf2b4650235098d97e4fb801e6ea85c16038",
+  "classification": "conversation",
+  "messages": 66,
+  "characters": 13518,
+  "user_messages": 7,
+  "first_prompt": "noline이라는 프로젝트가 있을거야 여기에 우리 work를 이식하려해 스킬 써서 진행해보자\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 652,
+    "response_item": 594,
+    "world_state": 7,
+    "turn_context": 9,
+    "token_usage_record": 158,
+    "inter_agent_communication_metadata": 7,
+    "compacted": 2
+  },
+  "excluded": {
+    "runtime_wrapper": 2
+  },
+  "tool_events": 300,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-terra",
+        "effort": "xhigh"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 303860,
+    "cached_input_tokens": 212224,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 657,
+    "reasoning_output_tokens": 357,
+    "total_tokens": 304517
+  },
+  "first_time": "2026-09-04T02:33:10.962Z",
+  "last_time": "2026-09-04T07:50:03.546Z"
+}

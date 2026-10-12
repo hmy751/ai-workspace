@@ -1,0 +1,64 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T15-04-13-01a09437-64d8-73d2-a37d-d73df45986f7.jsonl",
+  "id": "01a09437-64d8-73d2-a37d-d73df45986f7",
+  "time": "2026-09-12T06:04:13.426Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 14461911,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "a63b315ce345a2b3cc137d0ddcca5b23ec2be766d438a7bcc9945c8e8437455c",
+  "classification": "conversation",
+  "messages": 50,
+  "characters": 21760,
+  "user_messages": 11,
+  "first_prompt": "`context/work/workspaces/002-code-readability-refactoring`의 후속 작업을 진행하려고 해. 이 Workspace를 현재 세션에 연결하고, 프로젝트 운영 지침에 따라 현황을 파악해줘.\\\n현재 Spec의 목표를 달성하도록 남은 작업의 티켓 구성을 다시 검토하고 구성안을 제시해줘. 기존 분석과 현재 코드, 이미 수행한 결과를 근거로 판단해줘.\\\nTicket 05는 구현 전이며 별도로 판단 중이니 문서와 구현을 그대로 둬. 다른 티켓과의 관계를 설명해야 한다면 연결만 표시해줘.\\\n기존 작업 결과와 수락 이력은 보존해줘. 우선 재구성안과 그 이유를 보여주고, 티켓 문서 수정과 제품 구현은 아직 하지 마.\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 764,
+    "response_item": 597,
+    "world_state": 10,
+    "turn_context": 13,
+    "token_usage_record": 170,
+    "compacted": 3,
+    "inter_agent_communication_metadata": 13
+  },
+  "excluded": {
+    "runtime_wrapper": 5
+  },
+  "tool_events": 316,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1177,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 1533,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 19598720,
+    "cached_input_tokens": 18045184,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 110701,
+    "reasoning_output_tokens": 34073,
+    "total_tokens": 19709421
+  },
+  "first_time": "2026-09-12T06:04:16.014Z",
+  "last_time": "2026-09-14T03:53:00.641Z"
+}

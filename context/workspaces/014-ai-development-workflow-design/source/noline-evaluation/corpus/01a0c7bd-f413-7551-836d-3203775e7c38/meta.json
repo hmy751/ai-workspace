@@ -1,0 +1,55 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T15-11-49-01a0c7bd-f413-7551-836d-3203775e7c38.jsonl",
+  "id": "01a0c7bd-f413-7551-836d-3203775e7c38",
+  "time": "2026-09-22T06:11:49.938Z",
+  "cwd": "/Users/hammyeong-yeon/.codex/worktrees/1570/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 994006,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "b373910eac9a2fa5d76b86ca3b8e5c45516b5d3cf0bc6916e04cecc0448c49de",
+  "classification": "conversation",
+  "messages": 17,
+  "characters": 39467,
+  "user_messages": 7,
+  "first_prompt": "호깃 지금 워크트리가 어떻게 돼?\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 78,
+    "response_item": 52,
+    "world_state": 3,
+    "turn_context": 7,
+    "token_usage_record": 12
+  },
+  "excluded": {
+    "runtime_wrapper": 4
+  },
+  "tool_events": 10,
+  "model_settings": [
+    {
+      "line": 10,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 79,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 26785653,
+    "cached_input_tokens": 24835072,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 143401,
+    "reasoning_output_tokens": 43575,
+    "total_tokens": 26929054
+  },
+  "first_time": "2026-09-22T06:12:01.387Z",
+  "last_time": "2026-09-25T10:12:48.434Z"
+}

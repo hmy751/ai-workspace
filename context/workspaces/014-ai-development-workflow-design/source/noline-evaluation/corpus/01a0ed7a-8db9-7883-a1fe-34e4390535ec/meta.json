@@ -1,0 +1,85 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/29/rollout-2026-09-29T23-03-47-01a0ed7a-8db9-7883-a1fe-34e4390535ec.jsonl",
+  "id": "01a0ed7a-8db9-7883-a1fe-34e4390535ec",
+  "time": "2026-09-29T14:03:47.026Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 18783801,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "b918cff580617fadb6c50d37d56e1e48a1ca0c6c7883dfe560cc758c88c8b95b",
+  "classification": "conversation",
+  "messages": 122,
+  "characters": 38479,
+  "user_messages": 40,
+  "first_prompt": "/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md\n\n여기 티켓 작업중이야 기록 잘 확인하고 현황 파악하자\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 1208,
+    "response_item": 1035,
+    "world_state": 13,
+    "turn_context": 36,
+    "token_usage_record": 366,
+    "compacted": 3,
+    "inter_agent_communication_metadata": 8
+  },
+  "excluded": {
+    "runtime_wrapper": 7
+  },
+  "tool_events": 664,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 220,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 708,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2365,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 2470,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2640,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "low"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 44044467,
+    "cached_input_tokens": 42689024,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 70913,
+    "reasoning_output_tokens": 8367,
+    "total_tokens": 44115380
+  },
+  "first_time": "2026-09-29T14:04:01.293Z",
+  "last_time": "2026-09-30T11:22:40.723Z"
+}

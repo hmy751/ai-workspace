@@ -1,0 +1,49 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/archived_sessions/rollout-2026-09-10T22-45-07-01a08b90-a4ad-75b0-ba36-504181bc2b2f.jsonl",
+  "id": "01a08b90-a4ad-75b0-ba36-504181bc2b2f",
+  "time": "2026-09-10T13:45:07.525Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "agent_created_thread",
+  "parent": null,
+  "bytes": 596291,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "6fc078491f5eb82fd5c0157fa1572998b66513519b453117f5cd854641e781f1",
+  "classification": "support_conversation",
+  "messages": 11,
+  "characters": 1855,
+  "user_messages": 0,
+  "first_prompt": "",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 80,
+    "response_item": 61,
+    "world_state": 3,
+    "turn_context": 5,
+    "token_usage_record": 20,
+    "inter_agent_communication_metadata": 1
+  },
+  "excluded": {
+    "runtime_wrapper": 2
+  },
+  "tool_events": 35,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "ultra"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 512543,
+    "cached_input_tokens": 504832,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1832,
+    "reasoning_output_tokens": 221,
+    "total_tokens": 514375
+  },
+  "first_time": "2026-09-10T13:45:14.839Z",
+  "last_time": "2026-09-10T13:54:43.430Z"
+}

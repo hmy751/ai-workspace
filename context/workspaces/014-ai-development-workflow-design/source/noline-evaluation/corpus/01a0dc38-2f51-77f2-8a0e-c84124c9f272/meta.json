@@ -1,0 +1,56 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/26/rollout-2026-09-26T14-37-44-01a0dc38-2f51-77f2-8a0e-c84124c9f272.jsonl",
+  "id": "01a0dc38-2f51-77f2-8a0e-c84124c9f272",
+  "time": "2026-09-26T05:37:44.831Z",
+  "cwd": "/Users/hammyeong-yeon/.codex/worktrees/1570/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 2279673,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "a06d92663cd277bac4fc716ed817653ccd975143a1055b2aff895eb52114d9b2",
+  "classification": "conversation",
+  "messages": 19,
+  "characters": 7470,
+  "user_messages": 4,
+  "first_prompt": "근데 왜 authstore에 안넣고 object assign으로 getRefreshToken 을 넣은거야?\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 216,
+    "response_item": 136,
+    "world_state": 4,
+    "turn_context": 5,
+    "token_usage_record": 39,
+    "compacted": 1
+  },
+  "excluded": {
+    "runtime_wrapper": 2
+  },
+  "tool_events": 68,
+  "model_settings": [
+    {
+      "line": 11,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 37,
+      "settings": {
+        "model": "gpt-6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 32285078,
+    "cached_input_tokens": 29704320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 163301,
+    "reasoning_output_tokens": 53207,
+    "total_tokens": 32448379
+  },
+  "first_time": "2026-09-26T06:11:17.938Z",
+  "last_time": "2026-09-28T10:27:52.726Z"
+}

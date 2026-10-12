@@ -4,7 +4,8 @@
 
 ## Active Workspace
 
-- active: [`012-ai-workspace-publication`](./012-ai-workspace-publication/)
+- active: [`014-ai-development-workflow-design`](./014-ai-development-workflow-design/) — Noline 평가·인터뷰와 강연을 바탕으로 한 전체 작업 방식의 설계 논의 및 근거 보존
+- prior publication work: [`012-ai-workspace-publication`](./012-ai-workspace-publication/)
 - prepared, inactive Maintain context-efficiency work: [`013-maintain-context-efficiency`](./013-maintain-context-efficiency/)
 - prior Noline integration and reference feedback: [`011-noline-harness-upgrade`](./011-noline-harness-upgrade/)
 - completed reference integration, downstream evaluation pending: [`010-spec-ticket-workspace-design`](./010-spec-ticket-workspace-design/)

@@ -1,0 +1,48 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T17-20-13-01a08f8d-8d48-7620-82be-076879b70341.jsonl",
+  "id": "01a08f8d-8d48-7620-82be-076879b70341",
+  "time": "2026-09-11T08:20:13.802Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 410573,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "244f8bcc769c7fe22899d6e5abe5863dcc424c70fb6dcca27619b5b6c63c83aa",
+  "classification": "conversation",
+  "messages": 11,
+  "characters": 1412,
+  "user_messages": 1,
+  "first_prompt": "이 프로젝트 실행 시키고 싶은데 로컬에서\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 45,
+    "response_item": 111,
+    "world_state": 1,
+    "turn_context": 1,
+    "token_usage_record": 32
+  },
+  "excluded": {
+    "runtime_wrapper": 1
+  },
+  "tool_events": 62,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-terra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 1365489,
+    "cached_input_tokens": 1292288,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 6773,
+    "reasoning_output_tokens": 2338,
+    "total_tokens": 1372262
+  },
+  "first_time": "2026-09-11T08:20:16.660Z",
+  "last_time": "2026-09-11T08:25:58.361Z"
+}

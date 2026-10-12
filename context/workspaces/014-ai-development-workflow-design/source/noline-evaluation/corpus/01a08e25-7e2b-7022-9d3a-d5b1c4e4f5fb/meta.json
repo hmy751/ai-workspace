@@ -1,0 +1,99 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T10-46-56-01a08e25-7e2b-7022-9d3a-d5b1c4e4f5fb.jsonl",
+  "id": "01a08e25-7e2b-7022-9d3a-d5b1c4e4f5fb",
+  "time": "2026-09-11T01:46:56.963Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 12203270,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "6d65ade0205be860189f792098e4e7cb757c65a51c48adea3928149cfcabf196",
+  "classification": "conversation",
+  "messages": 98,
+  "characters": 35948,
+  "user_messages": 29,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring\n\n여기 일단 현황 파악하자\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 832,
+    "response_item": 614,
+    "world_state": 21,
+    "turn_context": 30,
+    "token_usage_record": 165,
+    "inter_agent_communication_metadata": 28,
+    "compacted": 3
+  },
+  "excluded": {
+    "runtime_wrapper": 4
+  },
+  "tool_events": 272,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 81,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 130,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "ultra"
+      }
+    },
+    {
+      "line": 411,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 1302,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1355,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1481,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1652,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 20615861,
+    "cached_input_tokens": 19262848,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 101105,
+    "reasoning_output_tokens": 34816,
+    "total_tokens": 20716966
+  },
+  "first_time": "2026-09-11T01:47:03.974Z",
+  "last_time": "2026-09-12T06:23:41.700Z"
+}

@@ -1,0 +1,48 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/17/rollout-2026-09-17T12-08-55-01a0ad56-b4ad-7b13-9f5f-33ee3851d7e5.jsonl",
+  "id": "01a0ad56-b4ad-7b13-9f5f-33ee3851d7e5",
+  "time": "2026-09-17T03:08:55.878Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 1967316,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "f6a6bd01b4f3060f113a9ca9e41e51b46dee86260d2b587c029b13d02f67ff0d",
+  "classification": "conversation",
+  "messages": 14,
+  "characters": 5733,
+  "user_messages": 5,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/07-client-api-boundaries.md\n\n너와 이 티켓을 다루려고 해 근데 기록을 보면 알겠지만 지금 06 작업중이야&#x20;\n일단 워크ㅅ스페이스를 따로 따려고 해 코드 영향안가게 너와 작업하면서 그리고 07이랑 연결되는 추가 티켓이 있는지 봐주봐\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 92,
+    "response_item": 61,
+    "world_state": 1,
+    "turn_context": 4,
+    "token_usage_record": 18
+  },
+  "excluded": {
+    "runtime_wrapper": 1
+  },
+  "tool_events": 30,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 1544660,
+    "cached_input_tokens": 1431040,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5491,
+    "reasoning_output_tokens": 1086,
+    "total_tokens": 1550151
+  },
+  "first_time": "2026-09-17T03:09:46.736Z",
+  "last_time": "2026-09-17T03:22:07.013Z"
+}

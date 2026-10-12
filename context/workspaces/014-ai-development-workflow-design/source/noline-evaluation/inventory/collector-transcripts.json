@@ -1,0 +1,123 @@
+{
+  "sources": [
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/10/rollout-2026-09-10T21-56-54-01a08b64-7f25-7972-ac3e-496cb4af1de7.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T10-46-56-01a08e25-7e2b-7022-9d3a-d5b1c4e4f5fb.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T10-49-05-01a08e27-753f-76f0-95fa-32e1c324561f.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T17-37-29-01a08f9d-59f5-7763-b0ba-5ec65fea88eb.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-06-01a08ff3-0e91-7921-afe4-69f0968638ef.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-32-01a08ff3-754d-73a3-9c15-7c2e66d6367b.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-50-01a08ff3-bde0-7bd3-bd92-0dde7abc883d.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T15-01-22-01a09434-c83f-77b3-bd67-c96f380e6ef4.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T15-04-13-01a09437-64d8-73d2-a37d-d73df45986f7.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T12-51-13-01a09e0a-5816-71e3-9865-a4677e71b2dd.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T18-37-04-01a09f46-fc70-7370-826d-0beee60a8ca1.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/15/rollout-2026-09-15T17-02-49-01a0a417-0e41-72e0-b00d-4cb8f55e80f6.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/17/rollout-2026-09-17T11-41-46-01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30.jsonl",
+      "referenced_by": [
+        "manual_full_scan_manifest"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/18/rollout-2026-09-18T14-12-28-01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae.jsonl",
+      "referenced_by": [
+        "manual_full_scan_manifest"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/18/rollout-2026-09-18T23-47-04-01a0b4fc-3afa-7462-ae9e-6052b5a9e3c0.jsonl",
+      "referenced_by": [
+        "manual_full_scan_manifest"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/29/rollout-2026-09-29T23-03-47-01a0ed7a-8db9-7883-a1fe-34e4390535ec.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    },
+    {
+      "exists_now": true,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T21-31-08-01a0f772-73ab-7823-b282-bddb19124b7e.jsonl",
+      "referenced_by": [
+        "store_event"
+      ]
+    }
+  ]
+}

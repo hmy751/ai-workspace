@@ -1,0 +1,78 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/30/rollout-2026-09-30T20-22-34-01a0f20d-50a5-78e2-a665-e2c59c34987e.jsonl",
+  "id": "01a0f20d-50a5-78e2-a665-e2c59c34987e",
+  "time": "2026-09-30T11:22:34.080Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 19120036,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "2b147702d045b281fcf109ea6d8902de945fa58ad0e2e7523a3b2949d324cb63",
+  "classification": "conversation",
+  "messages": 177,
+  "characters": 110980,
+  "user_messages": 57,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md\n\n여기 현황 파악하자\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 1409,
+    "response_item": 1159,
+    "world_state": 23,
+    "turn_context": 50,
+    "token_usage_record": 359,
+    "inter_agent_communication_metadata": 35,
+    "compacted": 4
+  },
+  "excluded": {
+    "runtime_wrapper": 12
+  },
+  "tool_events": 630,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 631,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 995,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1777,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 1966,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 43105185,
+    "cached_input_tokens": 40957824,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 168299,
+    "reasoning_output_tokens": 41038,
+    "total_tokens": 43273484
+  },
+  "first_time": "2026-09-30T11:22:36.486Z",
+  "last_time": "2026-10-02T05:39:39.399Z"
+}

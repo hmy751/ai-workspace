@@ -1,0 +1,63 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T14-31-33-01a0f5f2-4f8f-71d1-ac7d-ff27d799888a.jsonl",
+  "id": "01a0f5f2-4f8f-71d1-ac7d-ff27d799888a",
+  "time": "2026-10-01T05:31:33.188Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 2480108,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "1e671d570c67641fd95d7c4eb4d4c1f372cfef445cf78ca20b1d6b334d4f2a5e",
+  "classification": "conversation",
+  "messages": 52,
+  "characters": 6715,
+  "user_messages": 16,
+  "first_prompt": "지금 도커는 열었고 서버랑 클라이언트 연결 좀 해줘 \n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 376,
+    "response_item": 316,
+    "world_state": 6,
+    "turn_context": 14,
+    "token_usage_record": 89,
+    "inter_agent_communication_metadata": 7
+  },
+  "excluded": {
+    "runtime_wrapper": 5
+  },
+  "tool_events": 150,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 566,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 700,
+      "settings": {
+        "model": "gpt-6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 9777201,
+    "cached_input_tokens": 9446528,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 31400,
+    "reasoning_output_tokens": 12564,
+    "total_tokens": 9808601
+  },
+  "first_time": "2026-10-01T05:31:35.119Z",
+  "last_time": "2026-10-01T06:00:48.067Z"
+}

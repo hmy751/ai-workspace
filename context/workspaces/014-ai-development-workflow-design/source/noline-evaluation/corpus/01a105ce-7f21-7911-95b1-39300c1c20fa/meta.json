@@ -1,0 +1,48 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/04/rollout-2026-10-04T16-26-21-01a105ce-7f21-7911-95b1-39300c1c20fa.jsonl",
+  "id": "01a105ce-7f21-7911-95b1-39300c1c20fa",
+  "time": "2026-10-04T07:26:21.502Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 510791,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "401b19ad84e7b274ff1cd2d8ac97eeed2d5f96ddcaeba49c6d844227af91d2dd",
+  "classification": "conversation",
+  "messages": 7,
+  "characters": 3449,
+  "user_messages": 2,
+  "first_prompt": "지금 여기 프로젝트에 린트가 얼마나 어떻게 적용되어 있나 확인해봐 특히 코드에 대해서 \n그리고 하나 궁금한게 일반 코드 스타일을 내가 정해서 그걸 적용시킬수도 있나?\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 49,
+    "response_item": 38,
+    "world_state": 1,
+    "turn_context": 2,
+    "token_usage_record": 10
+  },
+  "excluded": {
+    "runtime_wrapper": 2
+  },
+  "tool_events": 16,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 521431,
+    "cached_input_tokens": 456192,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 4703,
+    "reasoning_output_tokens": 269,
+    "total_tokens": 526134
+  },
+  "first_time": "2026-10-04T07:26:55.323Z",
+  "last_time": "2026-10-04T07:38:04.205Z"
+}

@@ -1,0 +1,55 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/23/rollout-2026-09-23T12-11-41-01a0cc3f-6361-7782-a7de-3db14ef9081d.jsonl",
+  "id": "01a0cc3f-6361-7782-a7de-3db14ef9081d",
+  "time": "2026-09-23T03:11:41.431Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 1299324,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "f88cd987701eb79154b7d0db46847f65f07968d5824f3609aa556a7db098c066",
+  "classification": "conversation",
+  "messages": 13,
+  "characters": 6089,
+  "user_messages": 4,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/records\n\n여기 좀 분류를 한다면 어떻게 할 수 있을까?\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 68,
+    "response_item": 56,
+    "world_state": 2,
+    "turn_context": 4,
+    "token_usage_record": 15
+  },
+  "excluded": {
+    "runtime_wrapper": 1
+  },
+  "tool_events": 22,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 60,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 1057331,
+    "cached_input_tokens": 907648,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 6512,
+    "reasoning_output_tokens": 1945,
+    "total_tokens": 1063843
+  },
+  "first_time": "2026-09-23T03:11:50.484Z",
+  "last_time": "2026-09-23T04:23:37.191Z"
+}

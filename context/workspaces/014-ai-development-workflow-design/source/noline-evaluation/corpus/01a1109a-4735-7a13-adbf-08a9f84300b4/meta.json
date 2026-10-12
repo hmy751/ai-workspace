@@ -1,0 +1,71 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/06/rollout-2026-10-06T18-45-08-01a1109a-4735-7a13-adbf-08a9f84300b4.jsonl",
+  "id": "01a1109a-4735-7a13-adbf-08a9f84300b4",
+  "time": "2026-10-06T09:45:08.686Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 8840792,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "37bb8f59cf3507e46925ab6cee86b605f247c49c782ce211ac4f3357e3c2c8b0",
+  "classification": "conversation",
+  "messages": 88,
+  "characters": 41791,
+  "user_messages": 21,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md\n\n티켓이랑 관련 기록 바탕으로 작업 파악하자 \n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 710,
+    "response_item": 655,
+    "world_state": 12,
+    "turn_context": 19,
+    "token_usage_record": 200,
+    "inter_agent_communication_metadata": 58,
+    "compacted": 1
+  },
+  "excluded": {
+    "runtime_wrapper": 4
+  },
+  "tool_events": 360,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 99,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 993,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1447,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 29280431,
+    "cached_input_tokens": 28321152,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 52603,
+    "reasoning_output_tokens": 6784,
+    "total_tokens": 29333034
+  },
+  "first_time": "2026-10-06T09:45:11.088Z",
+  "last_time": "2026-10-06T14:25:42.912Z"
+}

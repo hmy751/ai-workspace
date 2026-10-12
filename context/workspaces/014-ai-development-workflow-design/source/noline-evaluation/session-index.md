@@ -1,0 +1,54 @@
+# 대화 원문 색인
+
+시각은 한국 시각이다. 시작·끝은 수집 기간 안에 있는 공개 발화의 시각이며 세션의 전체 생성·종료 시각이 아니다. 첫 요청은 찾기 위한 단서일 뿐 후속 대화 전체의 주제가 아니다.
+
+| 기간 | 첫 요청 단서 | 메시지 | 추출본 |
+|---|---|---:|---|
+| 09-04 11:33–09-04 16:50 | noline이라는 프로젝트가 있을거야 여기에 우리 work를 이식하려해 스킬 써서 진행해보자  | 66 | [01a06a43](corpus/01a06a43-441d-78b1-be61-65eff3f9a50a/conversation.md) |
+| 09-04 11:34–09-04 11:41 | 지금 브랜치 작업 너가 한거야?  | 10 | [019e1575](corpus/019e1575-2779-7551-913a-fa76adc1f4cc/conversation.md) |
+| 09-06 19:23–09-08 19:13 | 지금 난 코드 리팩토링이 필요해보여 음 목표는 일단 포폴용으로 하려고 해서 음 개발자가 보기에 완벽한 코드라기 보단 음 매끄러운? 자연스러운 ? 이걸 구체화해야하는데&#x20; 일단 내가 뭘 원하는 | 31 | [01a0763c](corpus/01a0763c-7340-7363-afb6-acad4d10e9a7/conversation.md) |
+| 09-06 19:26–09-06 19:26 | .agents/skills/noline-work/SKILL.md 이파일 히스토리가 안보이네 언제 만든건지 보고싶은데  | 4 | [01a07641](corpus/01a07641-364b-7242-a362-c860e219a682/conversation.md) |
+| 09-10 17:29–09-10 21:56 | 지금 프로젝트 이식작업을 했어 이거 main에 병합하고 새 브랜치 따자 아마 지금 changed에 있는 문서 보면 알겠지만 리팩토링 작업을 할예정이거든 일단 이 문서는 커밋 하지말고 냅두고  | 73 | [01a08a6e](corpus/01a08a6e-de21-7483-8703-d10dd71df670/conversation.md) |
+| 09-10 21:56–09-11 10:07 | context/work/workspaces/002-code-readability-refactoring  여기서 작업 시작할거야 일단 혀황 잘 파악해봐  | 121 | [01a08b64](corpus/01a08b64-7f25-7972-ac3e-496cb4af1de7/conversation.md) |
+| 09-10 23:00–09-10 23:01 | context/work/workspaces/002-code-readability-refactoring context/work/workspaces/003-bug-investigation-and-fix | 3 | [01a08b9e](corpus/01a08b9e-ea84-7790-8016-83f6bf1ed8d9/conversation.md) |
+| 09-11 10:47–09-12 15:23 | context/work/workspaces/002-code-readability-refactoring  여기 일단 현황 파악하자  | 98 | [01a08e25](corpus/01a08e25-7e2b-7022-9d3a-d5b1c4e4f5fb/conversation.md) |
+| 09-11 10:49–09-11 17:41 | /Users/hammyeong-yeon/Desktop/10\_work/noline/context/work/workspaces/002-code-readability-refactoring/current | 80 | [01a08e27](corpus/01a08e27-753f-76f0-95fa-32e1c324561f/conversation.md) |
+| 09-11 17:20–09-11 17:25 | 이 프로젝트 실행 시키고 싶은데 로컬에서  | 11 | [01a08f8d](corpus/01a08f8d-8d48-7620-82be-076879b70341/conversation.md) |
+| 09-11 17:37–09-11 19:51 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/02-city-search.md  여기 파악해줘 니가  | 28 | [01a08f9d](corpus/01a08f9d-59f5-7763-b0ba-5ec65fea88eb/conversation.md) |
+| 09-11 19:11–09-11 22:53 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/03-storage-stats.md  여기 티켓 확인해 | 164 | [01a08ff3](corpus/01a08ff3-0e91-7921-afe4-69f0968638ef/conversation.md) |
+| 09-11 19:11–09-11 23:02 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/04-expense-api.md  여기 티케 ㅅ파악해봐 | 47 | [01a08ff3](corpus/01a08ff3-754d-73a3-9c15-7c2e66d6367b/conversation.md) |
+| 09-11 19:11–09-14 12:21 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/05-schedule-response.md  여기 티켓 | 210 | [01a08ff3](corpus/01a08ff3-bde0-7bd3-bd92-0dde7abc883d/conversation.md) |
+| 09-12 09:43–09-12 09:50 |  export function useStorageStats() { &#x20; const [stats, setStats] = useState\&lt;StorageStats&gt;(() =&gt; c | 14 | [01a09311](corpus/01a09311-8d84-7081-9654-f000305f880e/conversation.md) |
+| 09-12 15:01–09-12 15:04 | `context/work/workspaces/002-code-readability-refactoring`의 후속 작업을 진행하려고 해. 이 Workspace를 현재 세션에 연결하고, 프로젝트 운영  | 8 | [01a09434](corpus/01a09434-c83f-77b3-bd67-c96f380e6ef4/conversation.md) |
+| 09-12 15:04–09-14 12:53 | `context/work/workspaces/002-code-readability-refactoring`의 후속 작업을 진행하려고 해. 이 Workspace를 현재 세션에 연결하고, 프로젝트 운영  | 50 | [01a09437](corpus/01a09437-64d8-73d2-a37d-d73df45986f7/conversation.md) |
+| 09-13 14:53–09-14 10:05 | context/work/workspaces/003-bug-investigation-and-fixes.&#x20;  여길 파악하면 알겠지만 버그 개선 인데 음 일단 파악해줘  | 53 | [01a09951](corpus/01a09951-b008-7603-a220-f9c0fc808c93/conversation.md) |
+| 09-14 12:51–09-14 18:39 | context/work/workspaces/002-code-readability-refactoring  여기 현황 파악하고 여기 작업과 기록ㄷㄹ을 가지고 project context 로 구성하려고  | 184 | [01a09e0a](corpus/01a09e0a-5816-71e3-9865-a4677e71b2dd/conversation.md) |
+| 09-14 13:59–09-14 22:05 | 그럼 분석을 바탕으로 context-harness 부터 반영하자 일단 context-harness 파악부터 하자  | 42 | [01a09e48](corpus/01a09e48-8d0f-7ab0-87a1-cf1b4a9632a0/conversation.md) |
+| 09-14 17:54–09-14 18:16 | /Users/hammyeong-yeon/Desktop/10\_work/noline 저장소에서 Project context 갱신 작업을 해줘.  목표는 Workspace 002의 완료된 작업과 관련된 | 13 | [01a09f1f](corpus/01a09f1f-ba9e-76d0-80a2-42bf4c7d04b3/conversation.md) |
+| 09-14 18:37–09-14 21:26 | /Users/hammyeong-yeon/Desktop/10\_work/noline/context/work/workspaces/004-project-context-contracts-and-guidan | 71 | [01a09f46](corpus/01a09f46-fc70-7370-826d-0beee60a8ca1/conversation.md) |
+| 09-14 19:50–09-14 20:17 | /Users/hammyeong-yeon/Desktop/10\_work/noline 저장소에서 Project context 갱신 작업을 해줘.  목표는 Workspace 002의 완료된 작업과 관련된 | 18 | [01a09f8a](corpus/01a09f8a-8473-7bf0-b45d-67997c52091a/conversation.md) |
+| 09-15 17:03–09-17 11:41 | 먼저 기존 maintain 연결다 끊고 context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-s | 281 | [01a0a417](corpus/01a0a417-0e41-72e0-b00d-4cb8f55e80f6/conversation.md) |
+| 09-17 11:42–09-18 14:21 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md  여 | 270 | [01a0ad3d](corpus/01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30/conversation.md) |
+| 09-17 12:09–09-17 12:22 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/07-client-api-boundaries.md  너 | 14 | [01a0ad56](corpus/01a0ad56-b4ad-7b13-9f5f-33ee3851d7e5/conversation.md) |
+| 09-18 09:40–09-18 09:45 |  # Files pasted by the user:  ## "import { create, type StoreApi } from 'zustand'; import NetInfo, { type NetI | 10 | [01a0b1f4](corpus/01a0b1f4-9821-75a1-ada1-979e46ede831/conversation.md) |
+| 09-18 14:12–09-21 20:15 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md  여 | 233 | [01a0b2ee](corpus/01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae/conversation.md) |
+| 09-18 23:47–09-21 21:22 | 직전 커밋이랑 그 이후 워크스페이스 문서 그리고 지금 작업된 코드들을 봐줘&#x20; 막상 합의된대로 구현한걸 보니 관리 복잡도가 너무 높아 보여서 이게 이해가 되고 관리가 될까 라는 우려가 들어& | 266 | [01a0b4fc](corpus/01a0b4fc-3afa-7462-ae9e-6052b5a9e3c0/conversation.md) |
+| 09-21 20:14–09-29 16:46 | 지금 context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md | 232 | [01a0c3ac](corpus/01a0c3ac-f144-7251-805b-2e582aed07c6/conversation.md) |
+| 09-22 10:45–09-22 11:10 | ```ruby config.sessionId ??= useAuthStore.getState().sessionId ?? undefined;  이거문법이 뭐야? ??= 이랑 좀 설명해줘 ```  | 11 | [01a0c6c9](corpus/01a0c6c9-a603-77a2-8abe-50fc7e0814b0/conversation.md) |
+| 09-22 15:12–09-25 19:12 | 호깃 지금 워크트리가 어떻게 돼?  | 17 | [01a0c7bd](corpus/01a0c7bd-f413-7551-836d-3203775e7c38/conversation.md) |
+| 09-22 20:42–10-01 17:57 | 그럼 project context 갱신 후 시점으로 지금 아마 티켓 06작업을 한것 같은데 한번 확인해보고 어떻게 수집하면 좋을지 나랑 얘기좀 해보자&#x20; 일단 내 생각은 project 각 카 | 129 | [01a0c8eb](corpus/01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7/conversation.md) |
+| 09-23 12:11–09-23 13:23 | context/work/workspaces/002-code-readability-refactoring/records  여기 좀 분류를 한다면 어떻게 할 수 있을까?  | 13 | [01a0cc3f](corpus/01a0cc3f-6361-7782-a7de-3db14ef9081d/conversation.md) |
+| 09-26 15:11–09-28 19:27 | 근데 왜 authstore에 안넣고 object assign으로 getRefreshToken 을 넣은거야?  | 19 | [01a0dc38](corpus/01a0dc38-2f51-77f2-8a0e-c84124c9f272/conversation.md) |
+| 09-29 15:58–09-29 16:02 | /Users/hammyeong-yeon/Desktop/10\_work/noline/apps/client/src/features/schedule/schedule-recovery/useScheduleR | 7 | [01a0ebf4](corpus/01a0ebf4-8e92-7f50-b08b-532c36a2160b/conversation.md) |
+| 09-29 16:47–09-29 23:04 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md  티 | 211 | [01a0ec21](corpus/01a0ec21-e59e-7370-8432-8434271aa669/conversation.md) |
+| 09-29 23:04–09-30 20:22 | /Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/current/ | 122 | [01a0ed7a](corpus/01a0ed7a-8db9-7883-a1fe-34e4390535ec/conversation.md) |
+| 09-30 20:22–10-02 14:39 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md  여 | 177 | [01a0f20d](corpus/01a0f20d-50a5-78e2-a665-e2c59c34987e/conversation.md) |
+| 10-01 14:31–10-01 15:00 | 지금 도커는 열었고 서버랑 클라이언트 연결 좀 해줘   | 52 | [01a0f5f2](corpus/01a0f5f2-4f8f-71d1-ac7d-ff27d799888a/conversation.md) |
+| 10-01 15:24–10-01 15:26 | 루트에 CLAUDE.md좀 대부분 삭제하려고 해 정말필요한것만 남겨놓고 context-harness 에다가 context project를 다 옮길거거든 그래서 기존에 런북이니 이런게 다 깔끔하게 없 | 5 | [01a0f622](corpus/01a0f622-a472-7613-9ab5-7ceaaa1dfc04/conversation.md) |
+| 10-01 21:31–10-02 20:49 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md 여기 | 244 | [01a0f772](corpus/01a0f772-73ab-7823-b282-bddb19124b7e/conversation.md) |
+| 10-02 18:33–10-02 18:37 | 이 프로젝트는 도메인 주도 설계에 기반해서 보면 어떤점이 보완되어야 해? 일단 도메인 주도 설계에 대해서 알려주고 한번 평가해줘  | 5 | [01a0fbf5](corpus/01a0fbf5-ece8-7282-8f02-e9891979858a/conversation.md) |
+| 10-04 13:27–10-06 18:45 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md  여 | 344 | [01a1052a](corpus/01a1052a-4e61-7072-9b81-ff44449e5b85/conversation.md) |
+| 10-04 16:26–10-04 16:38 | 지금 여기 프로젝트에 린트가 얼마나 어떻게 적용되어 있나 확인해봐 특히 코드에 대해서  그리고 하나 궁금한게 일반 코드 스타일을 내가 정해서 그걸 적용시킬수도 있나?  | 7 | [01a105ce](corpus/01a105ce-7f21-7911-95b1-39300c1c20fa/conversation.md) |
+| 10-06 18:45–10-06 23:25 | context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md  티 | 88 | [01a1109a](corpus/01a1109a-4735-7a13-adbf-08a9f84300b4/conversation.md) |
+
+전체 원본 경로·SHA-256·추출 분류는 [sessions.json](inventory/sessions.json)에 있다. 첫 요청에 포함된 runtime UI 표시는 사람이 직접 쓴 문장과 구분해 읽는다.

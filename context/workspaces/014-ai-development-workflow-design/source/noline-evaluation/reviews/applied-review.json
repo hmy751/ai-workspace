@@ -1,0 +1,177 @@
+{
+  "decision": "Main이 8개 수정 필요 finding 및 종료 미확정 clarification의 제안 23개를 채택. supported 2건은 기존 의미 유지.",
+  "applied_changes": [
+    {
+      "finding": "SA-01",
+      "file": "episodes/batch-01.json",
+      "scene_id": "B01-S07",
+      "pointer": "/scenes/6/title"
+    },
+    {
+      "finding": "SA-01",
+      "file": "episodes/batch-01.json",
+      "scene_id": "B01-S07",
+      "pointer": "/scenes/6/observed"
+    },
+    {
+      "finding": "SA-01",
+      "file": "episodes/batch-01.json",
+      "scene_id": "B01-S07",
+      "pointer": "/scenes/6/message_ids"
+    },
+    {
+      "finding": "SA-02",
+      "file": "episodes/batch-04.json",
+      "scene_id": "B04-S07",
+      "pointer": "/scenes/6/observed"
+    },
+    {
+      "finding": "SA-02",
+      "file": "episodes/batch-04.json",
+      "scene_id": "B04-S07",
+      "pointer": "/scenes/6/interpretation"
+    },
+    {
+      "finding": "SA-02",
+      "file": "episodes/batch-04.json",
+      "scene_id": "B04-S07",
+      "pointer": "/scenes/6/message_ids"
+    },
+    {
+      "finding": "SA-03",
+      "file": "episodes/batch-06.json",
+      "scene_id": "B06-S02",
+      "pointer": "/scenes/1/interpretation"
+    },
+    {
+      "finding": "SA-03",
+      "file": "episodes/batch-06.json",
+      "scene_id": "B06-S02",
+      "pointer": "/scenes/1/alternatives"
+    },
+    {
+      "finding": "SA-03",
+      "file": "episodes/batch-06.json",
+      "scene_id": "B06-S02",
+      "pointer": "/scenes/1/unknowns"
+    },
+    {
+      "finding": "SA-03",
+      "file": "episodes/batch-06.json",
+      "scene_id": "B06-S02",
+      "pointer": "/scenes/1/message_ids"
+    },
+    {
+      "finding": "SA-04",
+      "file": "episodes/batch-01.json",
+      "scene_id": null,
+      "pointer": "/ordinary_spans/2/note"
+    },
+    {
+      "finding": "SA-04",
+      "file": "episodes/batch-01.json",
+      "scene_id": null,
+      "pointer": "/ordinary_spans/2/message_ids"
+    },
+    {
+      "finding": "SA-07",
+      "file": "episodes/batch-03.json",
+      "scene_id": "B03-S04",
+      "pointer": "/scenes/3/message_ids"
+    },
+    {
+      "finding": "SA-07",
+      "file": "episodes/batch-03.json",
+      "scene_id": "B03-S04",
+      "pointer": "/scenes/3/observed"
+    },
+    {
+      "finding": "SA-08",
+      "file": "episodes/batch-06.json",
+      "scene_id": "B06-S07",
+      "pointer": "/scenes/6/observed"
+    },
+    {
+      "finding": "SA-09",
+      "file": "episodes/batch-08.json",
+      "scene_id": "B08-S08",
+      "pointer": "/scenes/7/observed"
+    },
+    {
+      "finding": "SA-09",
+      "file": "episodes/batch-08.json",
+      "scene_id": "B08-S08",
+      "pointer": "/scenes/7/message_ids"
+    },
+    {
+      "finding": "SA-10",
+      "file": "episodes/batch-09.json",
+      "scene_id": "B09-S02",
+      "pointer": "/scenes/1/observed"
+    },
+    {
+      "finding": "SA-10",
+      "file": "episodes/batch-09.json",
+      "scene_id": "B09-S02",
+      "pointer": "/scenes/1/unknowns"
+    },
+    {
+      "finding": "SA-10",
+      "file": "episodes/batch-09.json",
+      "scene_id": "B09-S02",
+      "pointer": "/scenes/1/message_ids"
+    },
+    {
+      "finding": "SA-11",
+      "file": "episodes/batch-09.json",
+      "scene_id": "B09-S10",
+      "pointer": "/scenes/9/message_ids"
+    },
+    {
+      "finding": "SA-11",
+      "file": "episodes/batch-09.json",
+      "scene_id": "B09-S10",
+      "pointer": "/scenes/9/interpretation"
+    },
+    {
+      "finding": "SA-11",
+      "file": "episodes/batch-09.json",
+      "scene_id": "B09-S10",
+      "pointer": "/scenes/9/unknowns"
+    }
+  ],
+  "added_exact_quotes": 28,
+  "files": [
+    {
+      "file": "episodes/batch-01.json",
+      "before_sha256": "49c5271ddeca56c0b26d66418b2a809ddf9922c9f7206d270272d39cb79e9fef",
+      "after_sha256": "aed9e69a4b09c6b823c9a821d79625d6502618eaf5a466dc77d21b8972d8be8a"
+    },
+    {
+      "file": "episodes/batch-04.json",
+      "before_sha256": "7aa5bf8c0d1526e03ab02de6d5071dc14d63c9062d7e6c0888cbd2cbc330338d",
+      "after_sha256": "5e06e689b2ca61c844b533358a07d0ffb0812a4961195f561e54ac125fe0caab"
+    },
+    {
+      "file": "episodes/batch-06.json",
+      "before_sha256": "e0875ec11a334c0a296921c494bf3a3662f215a1bdea98f95b6d7da53ce084f9",
+      "after_sha256": "e3aaf5d6a750d84b04640e63be2cc42fc44e8cb227108f463384228ca3404924"
+    },
+    {
+      "file": "episodes/batch-03.json",
+      "before_sha256": "00f2bf2af16d8362f985d2ac756819d05184c48d027f8bb214705964caebecac",
+      "after_sha256": "0707b5b02ee692bd58a750ffa097e0ca589a9713b3da19cf974c8b6f0392bf72"
+    },
+    {
+      "file": "episodes/batch-08.json",
+      "before_sha256": "b410599f0d2e7563df752db9e990d068847c440a69fabec2a45ca5e8e28e56f4",
+      "after_sha256": "798528811cba01bd982f68a845070d2b77f491829f65d832b3abca896c26e6d4"
+    },
+    {
+      "file": "episodes/batch-09.json",
+      "before_sha256": "42f10bdda1cc9b685dd00c24cf14dca374482008d90d781554c762a52368db27",
+      "after_sha256": "307cc36fa883327e170b99c128b6174507e3b2bd92b48074d6b670578778edd1"
+    }
+  ],
+  "scope": "범위·승인 경위·보고 주체·해석 한계를 보강했으며 제품 품질·하네스 효과의 판정은 하지 않음"
+}

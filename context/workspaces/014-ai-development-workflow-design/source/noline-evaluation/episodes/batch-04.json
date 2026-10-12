@@ -1,0 +1,653 @@
+{
+  "batch_id": "batch-04",
+  "read_parts": [
+    "packets/batch-04/part-01.md",
+    "packets/batch-04/part-02.md",
+    "packets/batch-04/part-03.md",
+    "packets/batch-04/part-04.md",
+    "packets/batch-04/part-05.md",
+    "packets/batch-04/part-06.md",
+    "packets/batch-04/part-07.md",
+    "packets/batch-04/part-08.md",
+    "packets/batch-04/part-09.md",
+    "packets/batch-04/part-10.md",
+    "packets/batch-04/part-11.md",
+    "packets/batch-04/part-12.md",
+    "packets/batch-04/part-13.md"
+  ],
+  "coverage_note": "inventory의 batch-04 part-01~13을 순서대로 모두 읽었다. part-02·05·07·13의 한 번 출력이 잘려 해당 구간을 sed로 재독해했다. 패킷의 공개 발화 전체를 대상으로 했고 도구 출력·실행 결과·내부 리뷰어 원문은 열지 않았다. 마지막 part-13은 사용자 선택 설명 직후 끝나므로 후속 구현은 미확정으로 둔다.",
+  "scenes": [
+    {
+      "id": "B04-S01",
+      "title": "온라인 비활성 여행 지원을 새 정책으로 오인한 설명 복구",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1270",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1285",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1309",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1333",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1344",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1502",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1515",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1524",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1530"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1270",
+          "quote": "이 많은것들이 지금 문제란거잖아?"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1344",
+          "quote": "그래 정상화 해야할 것 같긴하네"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1502",
+          "quote": "온라인 비활성 여행은 당연히 수정삭제 정식지원해야하는거 아니야?"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1515",
+          "quote": "새로 허용할 정책이 아닙니다."
+        }
+      ],
+      "observed": "assistant가 조사 중 찾은 경로 결함과 이번 unknown 정책을 넓게 묶어 설명하자 사용자가 범위를 물었다. 코드 흐름 설명 뒤 정상화에는 동의했지만, 이후 온라인 비활성 수정·삭제가 본래 지원할 동작임을 지적했다. assistant가 새 정책처럼 표현한 점을 정정하고 초점을 unknown 쓰기 제어로 되돌렸다.",
+      "interpretation": "정책의 신설과 기존 계약의 결함 수정을 구별하지 못한 설명이 사용자의 범위 판단을 흔들었을 가능성. 사용자는 코드 예시를 요청한 뒤 원래 목표를 다시 짚어 판단을 교정했다.",
+      "alternatives": [
+        "온라인 경로의 결함 자체가 예상보다 커서 본래 정책 확인 질문이 자연스럽게 나왔을 수 있다."
+      ],
+      "unknowns": [
+        "당시 정책 파일과 제품 코드의 실제 상태는 이 발화만으로 독립 검증하지 않았다.",
+        "사용자가 느낀 부담의 정도는 직접 진술 이상으로 추정할 수 없다."
+      ],
+      "followup_sources": [
+        "part-01의 policy/constants.ts·repository·router 접근점과 당시 커밋/코드 확인 필요",
+        "Ticket 06과 2026-09-16 정책 기록의 실제 문장 대조 필요"
+      ]
+    },
+    {
+      "id": "B04-S02",
+      "title": "unknown 의미를 빈도 우려와 함께 결정",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1668",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1688",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1695",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1708",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1781",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1824",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1833",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1839",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1846",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1852",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1925",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1937"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1668",
+          "quote": "unkndwon 이 초기 애매할때 값이라 하지 않았나?"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1781",
+          "quote": "불필요하게 자꾸 변경되면 표시도 자주 바뀔거고"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1833",
+          "quote": "실기기 확인하고는 늦고 일단 판단을 해봐야 하겠네"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1846",
+          "quote": "그래 이정도면 unknwon 에 반영해도 엄청 불안하고 그렇지는 않겠어"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1925",
+          "quote": "그래 10초 하자"
+        }
+      ],
+      "observed": "사용자가 unknown이 초기 상태만인지 재관측의 미확정도 포함하는지 확인했다. assistant는 새 제안임을 구별했고, 사용자는 값의 흔들림과 화면 전환 빈도를 따졌다. NetInfo 구현에 대한 assistant 설명 뒤 사용자는 실기기 측정을 선행 조건으로 둘 수 없다며 현재 판단을 요구했고, 이후 판정 불가를 unknown에 반영하고 10초 안내를 선택했다.",
+      "interpretation": "사용자는 단순 상태명보다 전환 빈도가 실제 화면에 미칠 영향을 기준으로 정책을 정했다. assistant의 구현 설명이 결정에 쓰였지만 실기기 빈도는 미확정이었다.",
+      "alternatives": [
+        "사용자의 동의는 잠정적인 제품 판단이며 실제 안정성 검증을 면제한다는 뜻은 아니다."
+      ],
+      "unknowns": [
+        "NetInfo 11.4.1의 실제 기기별 전환 빈도와 Noline 서버 접근성의 관계",
+        "10초 안내가 일반 화면까지 이 시점에 구현됐는지"
+      ],
+      "followup_sources": [
+        "NetInfo 설치 소스 및 실제 기기 관측은 별도 검증 필요",
+        "Ticket 06의 10초 안내 완료 조건 확인 필요"
+      ]
+    },
+    {
+      "id": "B04-S03",
+      "title": "버튼별 검사 대신 Router 차단과 화면 안내로 경계 정리",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1550",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1556",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1563",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1583",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1899",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1905",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2043",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2051",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2082",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2095",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2163",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2176",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2183",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2187"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1550",
+          "quote": "전체 버튼에 적용해야하니까 관리복잡도가 높아질게 예상되네"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1563",
+          "quote": "버튼 말고 라우터에서 일괄 처리하게 할수는 없을까?"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1583",
+          "quote": "버튼마다 정책 검사를 넣지 않고, Router에서 일괄 차단하는 쪽을 추천합니다."
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2043",
+          "quote": "화면만 일단 debug로 덮을까? 쓰기는 안되고"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2163",
+          "quote": "그냥 자연스레 제한을보여주는걸로 하자"
+        }
+      ],
+      "observed": "사용자는 입력을 유지하면서 쓰기 실행을 막는 방식을 논의했고 버튼마다 unknown 조건을 두는 관리 부담을 제기했다. Router가 실행 시점에 오류로 차단하고 UI가 안내하는 방식으로 좁혔다. 캐시 삭제 없이 제한 화면을 보이기로 했고, 실행 환경 격리가 확인되지 않아 debug override를 화면 중심으로 두고 쓰기·새 sync 전송은 차단하기로 했다. 전송 후 응답 유실은 이번 큰 정책 인터뷰에서 일반 서버 요청 처리로 되돌렸다.",
+      "interpretation": "구현 복잡도와 실제 데이터 변경 위험이 UI/Router/debug의 책임 배치를 결정한 장면. 사용자 질문이 별도 추적·버튼별 정책 시스템의 도입을 줄였다.",
+      "alternatives": [
+        "Router 오류를 모든 화면이 적절히 표시했는지는 후속 연결 검사 전까지 별도 문제다."
+      ],
+      "unknowns": [
+        "공통 오류 안내가 실제 모든 mutation 호출부에 연결됐는지",
+        "debug 설정이 서버 데이터 격리를 제공하는지"
+      ],
+      "followup_sources": [
+        "part-02의 Ticket 06 문서 갱신 보고와 후속 코드/테스트 비교 필요",
+        "debug·Router 소비부 검증 접근점"
+      ]
+    },
+    {
+      "id": "B04-S04",
+      "title": "Maintain 실패 뒤 결정 기록을 직접 복구하고 보존성 확인",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1378",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1405",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1453",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1490",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2198",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2248",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2316",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2358",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2365",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2390",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2397",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2401"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:1453",
+          "quote": "충돌한 경계의 변경은 실제 문서에 적용되지 않았습니다."
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2198",
+          "quote": "그럼 work에 문서들 니가보고 갱신하고 작성하자"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2365",
+          "quote": "그래야 나중에 또 판단할수 있을거라서"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2401",
+          "quote": "다음 작업과 재판단에 필요한 내용은 반영했어."
+        }
+      ],
+      "observed": "Maintain 재연결 요청에서 문서 해시 충돌과 누락 합의를 확인했다는 보고가 있었다. 이후 사용자가 대화 전체를 바탕으로 Work 문서 갱신을 요청했고, assistant가 Ticket 06·Spec·기록 등을 직접 갱신했다고 보고했다. 사용자는 나중에 다시 판단할 수 있을 만큼 앞선 논의도 보존됐는지 두 차례 확인했다.",
+      "interpretation": "자동 기록 실패가 실제 작업 기록의 공백으로 이어졌고, 사용자는 단순 결론보다 재판단 가능한 이유·정정·보류 조건의 보존을 요구했다. assistant의 완전성 주장은 독립 검증 대상이다.",
+      "alternatives": [
+        "사용자의 재확인은 문서 신뢰도 확인일 수 있으며 실제 누락이 있었다는 증거는 아니다."
+      ],
+      "unknowns": [
+        "문서가 대화의 판단 근거를 실제로 충분히 보존했는지",
+        "Maintain generation 상태는 발화 보고 외에 확인하지 않았다."
+      ],
+      "followup_sources": [
+        "context/work/workspaces/002-code-readability-refactoring/records/2026-09-16-01-network-policy-and-implementation-boundaries.md",
+        "Ticket 06 해당 시점 diff 및 Maintain 도구 기록 확인 필요"
+      ]
+    },
+    {
+      "id": "B04-S05",
+      "title": "가독성 요구가 독립 리뷰의 판정 기준과 테스트 검출력으로 구체화",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2786",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2921",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3001",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3081",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3101",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3181",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3233",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3255",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3315",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3322",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3387",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3452"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2786",
+          "quote": "코드 스타일좀 다듬어봐 원래 목표가 그건데"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2921",
+          "quote": "아니 니가 작업한거 전체 다 테스트 코드도 그렇고"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3255",
+          "quote": "리뷰어가 그걸 제시하게 하라고 어떻게 하면 개선할지 목표와 구체적기준을 제시하게"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3315",
+          "quote": "Child를 잘못 전역 활성 판단으로 바꾸면 테스트가 실패해야 한다."
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3452",
+          "quote": "이전에는 통과했지만, 이제 **대비 테스트 4개가 실패하며 오류를 잡음**"
+        }
+      ],
+      "observed": "첫 Network Store 단계 후 사용자는 원래 목표가 코드 가독성임을 재강조했고 제품 코드와 테스트 전체를 다듬게 했다. 첫 독립 리뷰에서는 현재 개선을 평가했으나, 사용자는 리뷰어가 스스로 개선 목표·구체 기준을 제시해야 한다고 정정했다. 두 번째 리뷰는 Router 테스트의 구별력, sync 시작 책임, 재확인 요청 수명을 제안했고, assistant는 작업자 구현과 변이 검사 결과를 보고했다.",
+      "interpretation": "사용자가 품질 평가의 책임을 단순 통과 확인에서 수정 부담과 결함 검출력 판단으로 끌어올렸다. 검증의 실효성 주장은 당시 도구 출력이나 diff와 대조할 필요가 있다.",
+      "alternatives": [
+        "테스트 90개와 변이 검사 보고는 assistant 주장으로, 실제 품질 개선 정도를 대화만으로 확정할 수 없다."
+      ],
+      "unknowns": [
+        "독립 리뷰어가 실제 어떤 원자료를 봤는지",
+        "변이 검사와 테스트 실행의 실제 출력",
+        "이 변경이 뒤의 원복 범위에 포함됐는지"
+      ],
+      "followup_sources": [
+        "part-04의 리뷰·구현 보고에 연결된 테스트 파일과 git diff",
+        "뒤이은 원복 후 현재 코드/커밋 계보 확인 필요"
+      ]
+    },
+    {
+      "id": "B04-S06",
+      "title": "전문가 리뷰의 미해결 문제를 인계하고 새 세션에서 재현",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3520",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3538",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3618",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3635",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3642",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3695",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3803",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:9",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:50",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:96"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3520",
+          "quote": "다시 리뷰 돌려봐 코드 완전 전문가로 해서"
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3618",
+          "quote": "디버그 화면의 전체 동기화 버튼은 내가 보호한 SyncProvider를 거치지 않고 엔진을 직접 호출하고 있어."
+        },
+        {
+          "message_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:3642",
+          "quote": "현재까지 한거 기록 남겨줘 다음 새로운 세션이 이어서 하게"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:9",
+          "quote": "잘 현황 파악부터 해봐"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:50",
+          "quote": "기록과 현재 코드가 일치합니다."
+        }
+      ],
+      "observed": "사용자는 Store 변수 노출 우려에서 종합 코드 전문가 리뷰를 요구했다. assistant는 private closure라는 판단과 debug 수동 sync 우회·중복 sync 문제를 미해결로 보고했다. 사용자 요청에 따라 인계 기록·Ticket·state를 갱신했다고 했고, 다음 세션은 해당 티켓과 기록을 읽어 코드에서 두 문제와 여타 잔여 경로를 다시 확인했다고 보고했다.",
+      "interpretation": "세션 간 기록이 다음 작업의 출발점으로 실제 사용된 강한 대화 근거다. 다만 새 세션의 확인도 assistant 보고이므로 코드 사실은 별도 검증이 필요하다.",
+      "alternatives": [
+        "새 세션이 기록 없이도 같은 결함을 코드에서 찾을 수 있었을 가능성은 남는다."
+      ],
+      "unknowns": [
+        "인계 문서의 정확성 및 뒤의 철회 반영 여부",
+        "debug 우회와 중복 호출의 실제 실행 결과"
+      ],
+      "followup_sources": [
+        "2026-09-17-01-network-quality-review-and-handoff.md와 Ticket 06 당시 버전",
+        "s2 part-05의 코드·테스트 확인 접근점"
+      ]
+    },
+    {
+      "id": "B04-S07",
+      "title": "동작 개선으로 넓어진 품질 작업을 철회하고 목표를 다시 좁힘",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:103",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:255",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:274",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:312",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:895",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:970",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1013",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1020",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1044",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1104",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1202",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:262",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:289",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:296",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:319",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:327",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:339",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:344",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:351",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:975",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:991"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:970",
+          "quote": "작업의 범위가 너무 커진것 같아 다시 되돌려놓자"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:970",
+          "quote": "가독성 응집도 뭐 파악쉬운 등의 spec 목표정도의 코드 퀄리티"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1013",
+          "quote": "워커 작업 전 보존한 코드로 되돌렸습니다."
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1044",
+          "quote": "철회 표시를 유지해 이력으로 보존"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1104",
+          "quote": "동작을 유지하는 개선 후보 5개, 유지할 파일 6개"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:274",
+          "quote": "우리 티켓이랑 합의 한사항에 반대되지 않고?"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:296",
+          "quote": "니가 검증해야지 우리 합의랑 이런걸 보고"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:312",
+          "quote": "핵심 개선안은 합의에 맞으며 채택할 수 있다"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:339",
+          "quote": "티켓이랑 관련 레코드 읽고 판단한건 맞지?"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:351",
+          "quote": "좋아 작업 진행시켜"
+        }
+      ],
+      "observed": "사용자는 작업 중 코드 전체의 품질 리뷰와 worker·독립 검증을 요청했다. 구현 전 리뷰가 티켓·합의에 맞는지 묻고, 그 채택 판단은 Main이 해야 한다고 정정했다. assistant가 sync·startup·Router·화면 연결의 채택·제한을 제시하고 관련 기록과 코드를 읽었다고 답한 뒤 사용자는 진행을 지시했다. 이후 assistant는 확대된 소비 연결 구현과 205개 테스트 통과를 보고했다. 결과 설명을 본 사용자는 원래 원한 가독성·응집도·파악 용이성에 비해 동작 개선 범위가 커졌다며 작업 전 코드로의 복구를 요청했다. assistant는 복구·90개 테스트 통과를 보고했고, 사용자는 이미 남은 기록을 철회 표시와 함께 보존하기로 선택했다. 이후 동작 보존 중심의 좁은 품질 리뷰와 5개 파일 정리 결과가 보고됐다.",
+      "interpretation": "합의 대조와 실행 승인이 있었어도 최종 산출물의 변경 부담이 사용자가 기대한 품질 작업 단위와 맞지 않을 수 있음을 보여주는 장면이다. 테스트·독립 검증 결과는 그 적합성을 대신하지 않는다. Main의 사전 채택 판단과 사용자 승인, 산출물을 본 뒤의 원복 선택을 모두 보존해야 하며, 무단 확대나 사용자 변심 하나로 환원할 수 없다. 철회 표시 보존은 명시적 선택이지만 후속 세션 오인 방지는 가능한 효용으로만 해석한다.",
+      "alternatives": [
+        "확대된 변경 중 일부는 티켓의 결과를 충족하는 데 필요했을 수 있으나, 사용자는 이 시점의 작업 단위를 원복하기로 명시했다."
+      ],
+      "unknowns": [
+        "사본 원복의 실제 Git/파일 상태",
+        "철회 표시가 후속 기록에서 제대로 유지됐는지"
+      ],
+      "followup_sources": [
+        "2026-09-17-02-network-consumer-quality-improvements.md의 철회 표시",
+        "원복 전후 diff와 90/205 테스트 출력 확인 필요"
+      ]
+    },
+    {
+      "id": "B04-S08",
+      "title": "코드 위치와 동작 질문을 통해 사용자가 판단을 이어감",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1209",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1239",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1246",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1251",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2716",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2737",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2747",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2757",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2811",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2831",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2842",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2906",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2916",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2968",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2988",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:3020",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:3032",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:3078",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:3108",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:3111"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1209",
+          "quote": "이 코드 설명좀 해줘 이해가 안돼 흐름이"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1246",
+          "quote": "여기서 세션은 앱 실행되고 네트워크 감지하는 단위인거네"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2737",
+          "quote": "앱화면 진입은 해야되고 서버 동기화는 멈춰야 해"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2811",
+          "quote": "그게 무슨 말이지?"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2906",
+          "quote": "코드 정확히 어딘지 같이 말해"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:3078",
+          "quote": "이해 됐어"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:3108",
+          "quote": "모르겟어"
+        }
+      ],
+      "observed": "Network Store 설명 뒤 사용자는 session 수명을 자기 말로 재구성했고, 이후 소크라테스식 질문에서 앱 진입·sync 차단, 활성 여행 저장, ref 잠금 등을 답했다. Promise 대기 의미에서는 두 번 혼란을 표시해 assistant가 코드로 풀었고, 실제 파일·줄 위치를 요구했다. 후속 network 타이머 설명에는 이해했다고 말했으나 늦은 응답 우선순위는 모르겠다고 했다. assistant가 sync engine 질문까지 확장하자 사용자는 작업 범위를 다시 물은 뒤 질문을 멈추고 작업 부분 설명을 요청했다.",
+      "interpretation": "설명이 사용자의 판단을 이어가게 한 구체적 증거와, 추상 질문·범위 확대가 다시 설명 부담을 만든 증거가 함께 있다. 질문 자체를 이해 실패로 일반화할 수 없고, 주제별 이해 수준이 달랐다.",
+      "alternatives": [
+        "정답 응답은 바로 앞 설명을 재현한 것일 수 있어 장기적 이해를 입증하지 않는다."
+      ],
+      "unknowns": [
+        "학습 대화 이후 독립적으로 코드를 수정·판단할 수 있었는지"
+      ],
+      "followup_sources": [
+        "part-06~10의 network/provider 학습 대화 전체",
+        "그 뒤 사용자의 실제 코드 변경·리뷰 선택을 별도 연결 가능"
+      ]
+    },
+    {
+      "id": "B04-S09",
+      "title": "커밋 범위를 두 차례 정정하고 코드 검토 순서를 정함",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1698",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1751",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1758",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1787",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1868",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1874",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1909",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1916",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2020",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2218",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2253",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2260",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2276"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1698",
+          "quote": "일단 네트워크 관련 파일만 커밋해줘"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1758",
+          "quote": "아니 netowkrk 코드만 확인해서 커밋 하라고 햇는데 다하면 어떻게 해"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1787",
+          "quote": "나머지 코드 확인 안됏어"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:1916",
+          "quote": "나머지 테스트나 provicer나 등의 파일은 커밋 푸러줘"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2020",
+          "quote": "Provider, Router, 다른 테스트 3개, 정책 타입과 Debug 추가 UI 등 나머지 개선"
+        }
+      ],
+      "observed": "assistant가 네트워크 관련 코드 11개와 테스트 4개를 커밋했다고 보고하자 사용자는 검토된 Network Store·테스트·필요한 호출부만 뜻했다고 정정했다. assistant는 부분 커밋으로 고쳤다고 했지만, 후속 설명을 본 사용자가 Provider·Router 등도 제외하라고 재지시했다. assistant는 더 좁은 커밋으로 재구성하고 남은 변경을 작업 폴더에 보존했다고 보고했다. 이후 사용자가 Policy·Router·Provider 세 파일을 별도 커밋하게 하고 대응 테스트 누락을 바로잡았다.",
+      "interpretation": "사용자는 완료된 검토 단위를 커밋 경계로 삼았다. 기술적으로 관련된 파일이라는 이유만으로 미검토 변경을 확정 상태로 올린 것이 반복된 마찰의 핵심으로 보인다.",
+      "alternatives": [
+        "첫 요청의 “관련 파일”은 해석 여지가 있었으나, 후속 정정 뒤에는 검토 상태가 명확한 기준이 됐다."
+      ],
+      "unknowns": [
+        "실제 커밋 c578446와 6efdfed의 파일·hunk 범위",
+        "작업 폴더의 제외 변경 보존 여부"
+      ],
+      "followup_sources": [
+        "4466b90→ef3e1e0→c578446 커밋 계보와 diff 확인 필요",
+        "6efdfed 및 대응 테스트 파일 확인 필요"
+      ]
+    },
+    {
+      "id": "B04-S10",
+      "title": "Layout과 DB·인증 초기화의 책임을 재구성하되 선택 경계는 보류",
+      "kind": "candidate",
+      "message_ids": [
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2284",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2316",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2381",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2471",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2478",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2535",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2542",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2574",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2709",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:9",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:80",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:154",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:157",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:197",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:216",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:404",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:411",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:443",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:583",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:683",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:704",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:791",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:810",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:831",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:841",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:848",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:879",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:885"
+      ],
+      "quotes": [
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2542",
+          "quote": "application 층은 뭐지? FSD에 부합하지도 않아 보여서"
+        },
+        {
+          "message_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2574",
+          "quote": "그럼 그냥 layout에 두자 그냥"
+        },
+        {
+          "message_id": "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:216",
+          "quote": "진행하기전에 시나리오 짜려는 기능에 대한 테스트 먼저 작성하고 하자"
+        },
+        {
+          "message_id": "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:411",
+          "quote": "지금 preparation 과 auth init 도 있고 뭔가 따로 구현된느낌이야"
+        },
+        {
+          "message_id": "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:583",
+          "quote": "뭔가 다 뿔뿔이잖아 가독성도 좋고 좀 잘 해봐"
+        },
+        {
+          "message_id": "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:848",
+          "quote": "일단 application 분리 하고 리뷰어 리뷰 고려해서 한번 작업 진행해봐"
+        }
+      ],
+      "observed": "앞 세션에서는 사용자가 Layout 파일 분리 위치와 FSD 책임을 따져 최종적으로 Layout 안 유지를 택했고, assistant는 테스트·커밋·결정 기록을 보고했다. 새 세션은 그 티켓/기록을 출발점으로 DB·인증 실패 처리를 다음 작업으로 골랐다. 사용자는 DB 실패 재시도와 인증 읽기 실패 시 로그인 흐름을 구분한 뒤 시나리오 테스트 선행을 요구했다. 구현 보고 후 preparation/auth 중복과 Spec의 응집도 목표를 지적해 Root 중심으로 정리시켰고, 다시 모듈 경계를 물었다. 독립 리뷰 뒤 새 `application` 위치는 수용했지만 파일 세 개가 리뷰어 권고인지 assistant 안인지 확인했다. 마지막에는 여행 선택·cleanup 경계에 대한 질문 중 하나는 설명을 요청했고 하나는 선택했다.",
+      "interpretation": "세션을 넘어서 기존 문서·결정이 다시 참조되고, 사용자가 단계별로 코드의 책임·위치·테스트 순서를 통제했다. Layout 내부 유지에서 application 분리로의 변화는 새로운 작업 범위와 리뷰 근거가 생긴 뒤의 재판단으로 읽힌다.",
+      "alternatives": [
+        "DB/auth 실패 정책과 모듈 분리는 서로 다른 판단이며 한 번의 일관된 설계 결정으로 합쳐선 안 된다."
+      ],
+      "unknowns": [
+        "마지막 사용자 선택 이후 실제 application 분리 완료 여부는 이 batch 밖이다.",
+        "DB 실패·인증 복원 구현과 테스트 통과는 assistant 보고로 남아 있다.",
+        "여행 선택이 최신 서버 목록에서 사라졌을 때의 정책은 미정이다."
+      ],
+      "followup_sources": [
+        "part-13 이후 corpus 인접 공개 발화 또는 다음 batch",
+        "2026-09-18-app-startup-failure-recovery.md 및 layout/auth/db 코드·테스트·커밋 확인 필요"
+      ]
+    }
+  ],
+  "ordinary_spans": [
+    {
+      "message_ids": [
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2002",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2008",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2015",
+        "01a0a417-0e41-72e0-b00d-4cb8f55e80f6:2036"
+      ],
+      "note": "서버 PostgreSQL/로컬 SQLite와 개발·운영 설정을 확인한 구간. Debug 범위 판단의 배경이지만 이 응답만으로 환경 격리나 안정성을 판정하지 않는다."
+    },
+    {
+      "message_ids": [
+        "01a0ad56-b4ad-7b13-9f5f-33ee3851d7e5:144",
+        "01a0ad56-b4ad-7b13-9f5f-33ee3851d7e5:162",
+        "01a0ad56-b4ad-7b13-9f5f-33ee3851d7e5:169",
+        "01a0ad56-b4ad-7b13-9f5f-33ee3851d7e5:174"
+      ],
+      "note": "별도 worktree에서 병행할 Ticket 17의 접점을 비교하며 판단 기준을 설명한 구간. 실제 분리 작업 착수는 이 패킷에서 관찰되지 않는다."
+    },
+    {
+      "message_ids": [
+        "01a0b1f4-9821-75a1-ada1-979e46ede831:9",
+        "01a0b1f4-9821-75a1-ada1-979e46ede831:48",
+        "01a0b1f4-9821-75a1-ada1-979e46ede831:55",
+        "01a0b1f4-9821-75a1-ada1-979e46ede831:109",
+        "01a0b1f4-9821-75a1-ada1-979e46ede831:125"
+      ],
+      "note": "별도 세션에서 Network Store 대안 파일을 만들어 기존 테스트를 비교한 뒤 사용자 요청으로 삭제했다는 구간. 현재 Ticket 06 산출물로 남지 않았다는 보고이며 실제 파일 상태는 미확인."
+    }
+  ],
+  "open_questions": [
+    "part-13 마지막 선택 이후 application 분리, 여행 선택·cleanup 정책의 실제 후속 구현은 무엇인가?",
+    "assistant가 보고한 테스트 수, 변이 검사, 원복, 부분 커밋의 실제 결과는 각 도구 출력·git diff와 일치하는가?",
+    "Ticket 06 기록이 뒤의 철회·좁은 커밋·DB/auth 재판단을 현재 상태와 구분해 남겼는가?",
+    "NetInfo unknown 전환과 복구 안내의 실기기 빈도·행동은 후속 검증에서 확인됐는가?"
+  ]
+}

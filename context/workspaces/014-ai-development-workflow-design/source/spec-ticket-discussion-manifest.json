@@ -1,0 +1,31 @@
+{
+  "source_absolute_path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/11/rollout-2026-10-11T17-10-25-01a12a03-5c32-7d00-8d81-8f295f18fc0b.jsonl",
+  "source_line_range": [
+    2987,
+    3042
+  ],
+  "selection": "두 사용자 발화와 그 사이 assistant final만 추출. 도구·analysis·reasoning·자동 삽입 지침 제외.",
+  "messages": [
+    {
+      "source_line": 2987,
+      "timestamp": "2026-10-12T08:02:23.051Z",
+      "role": "user",
+      "text_sha256": "46d870bb2fde5441f948c9fbbbff2a316a93c815fadad3b3ef013ed30be8efe9"
+    },
+    {
+      "source_line": 3035,
+      "timestamp": "2026-10-12T08:04:45.986Z",
+      "role": "assistant",
+      "text_sha256": "1e9b30bd0ef3d73cbeaee5a8837f9a77926dd1a4be52cd88d0eb275a7c05f059"
+    },
+    {
+      "source_line": 3042,
+      "timestamp": "2026-10-12T08:05:43.991Z",
+      "role": "user",
+      "text_sha256": "88bfe0eae0177ded17bba19cc3e33e0b989252800f6e16727957245217d58f46"
+    }
+  ],
+  "destination_relative_to_workspace": "source/discussion/spec-ticket-conversation.md",
+  "bytes": 3626,
+  "sha256": "b8f4bbfc40e112cae717c85a1effa20caddf38fe733c43ea41982b5aacc23cf5"
+}

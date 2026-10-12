@@ -1,0 +1,1301 @@
+{
+  "agent_created_thread_sessions": [
+    {
+      "assistant_count_reconciles": true,
+      "classification": "support_conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 11,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/archived_sessions/rollout-2026-09-10T22-45-07-01a08b90-a4ad-75b0-ba36-504181bc2b2f.jsonl",
+      "raw_assistant_messages": 11,
+      "raw_user_messages": 2,
+      "session_id": "01a08b90-a4ad-75b0-ba36-504181bc2b2f",
+      "thread_source": "agent_created_thread",
+      "user_count_reconciles": true
+    }
+  ],
+  "all_non_subagent_sessions_with_messages": 64,
+  "all_non_subagent_source_sessions": 74,
+  "audit_version": "2026-10-11 초안 primary conversation 46개 기준",
+  "by_classification": {
+    "conversation": {
+      "excluded_wrappers": 204,
+      "extracted_assistant_messages": 3016,
+      "extracted_total_messages": 4156,
+      "extracted_user_messages": 1140,
+      "raw_assistant_messages": 3016,
+      "raw_user_messages": 1344,
+      "sessions_with_messages": 46,
+      "source_sessions": 56
+    },
+    "maintainer": {
+      "excluded_wrappers": 36,
+      "extracted_assistant_messages": 219,
+      "extracted_total_messages": 412,
+      "extracted_user_messages": 193,
+      "raw_assistant_messages": 219,
+      "raw_user_messages": 229,
+      "sessions_with_messages": 17,
+      "source_sessions": 17
+    },
+    "support_conversation": {
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 11,
+      "extracted_total_messages": 11,
+      "extracted_user_messages": 0,
+      "raw_assistant_messages": 11,
+      "raw_user_messages": 2,
+      "sessions_with_messages": 1,
+      "source_sessions": 1
+    }
+  },
+  "collector_coverage": {
+    "in_discovery": 17,
+    "in_primary": 17,
+    "in_sessions": 17,
+    "missing_from_discovery": [],
+    "missing_from_sessions": [],
+    "referenced": 17
+  },
+  "content_type_counts": {
+    "assistant:output_text": 3246,
+    "developer:input_text": 1734,
+    "user:input_image": 5,
+    "user:input_text": 1781
+  },
+  "cross_session_duplicates": {
+    "clusters": [
+      {
+        "channel": null,
+        "characters": 6,
+        "copies": 3,
+        "locators": [
+          {
+            "characters": 6,
+            "session_id": "01a0b4fc-3afa-7462-ae9e-6052b5a9e3c0",
+            "source_line": 1873,
+            "timestamp": "2026-09-19T03:33:11.604Z"
+          },
+          {
+            "characters": 6,
+            "session_id": "01a0c3ac-f144-7251-805b-2e582aed07c6",
+            "source_line": 3083,
+            "timestamp": "2026-09-28T11:48:20.454Z"
+          },
+          {
+            "characters": 6,
+            "session_id": "01a0c3ac-f144-7251-805b-2e582aed07c6",
+            "source_line": 3953,
+            "timestamp": "2026-09-29T06:48:10.340Z"
+          }
+        ],
+        "nontext_types": [],
+        "role": "user",
+        "runtime_skill_block": false,
+        "sessions": 2,
+        "text_sha256": "0566737f27e7a220006b44e67afb0cdd95aaa37c7a00525a06c8a93f6767998c"
+      },
+      {
+        "channel": null,
+        "characters": 8,
+        "copies": 3,
+        "locators": [
+          {
+            "characters": 8,
+            "session_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30",
+            "source_line": 2629,
+            "timestamp": "2026-09-18T03:50:13.465Z"
+          },
+          {
+            "characters": 8,
+            "session_id": "01a0c3ac-f144-7251-805b-2e582aed07c6",
+            "source_line": 338,
+            "timestamp": "2026-09-21T11:35:29.754Z"
+          },
+          {
+            "characters": 8,
+            "session_id": "01a0f772-73ab-7823-b282-bddb19124b7e",
+            "source_line": 1329,
+            "timestamp": "2026-10-02T05:51:36.111Z"
+          }
+        ],
+        "nontext_types": [],
+        "role": "user",
+        "runtime_skill_block": false,
+        "sessions": 3,
+        "text_sha256": "e809228589b4d91fabd7c264d3877003b1d38cf30f86bbef7ab2b25162d6deb8"
+      },
+      {
+        "channel": null,
+        "characters": 8,
+        "copies": 2,
+        "locators": [
+          {
+            "characters": 8,
+            "session_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6",
+            "source_line": 1399,
+            "timestamp": "2026-09-16T01:21:31.539Z"
+          },
+          {
+            "characters": 8,
+            "session_id": "01a0ed7a-8db9-7883-a1fe-34e4390535ec",
+            "source_line": 221,
+            "timestamp": "2026-09-30T07:08:50.714Z"
+          }
+        ],
+        "nontext_types": [],
+        "role": "user",
+        "runtime_skill_block": false,
+        "sessions": 2,
+        "text_sha256": "03fa97a6e6d39be0e90f2d08cb8752ce7a496463da7501d534404c5e827b9423"
+      },
+      {
+        "channel": null,
+        "characters": 5,
+        "copies": 2,
+        "locators": [
+          {
+            "characters": 5,
+            "session_id": "01a08b64-7f25-7972-ac3e-496cb4af1de7",
+            "source_line": 312,
+            "timestamp": "2026-09-10T13:07:03.877Z"
+          },
+          {
+            "characters": 5,
+            "session_id": "01a1052a-4e61-7072-9b81-ff44449e5b85",
+            "source_line": 2543,
+            "timestamp": "2026-10-04T08:25:22.438Z"
+          }
+        ],
+        "nontext_types": [],
+        "role": "user",
+        "runtime_skill_block": false,
+        "sessions": 2,
+        "text_sha256": "1f2c93afe25eefad3de5091d435b14461116ad107745f01d563fb2b76e569ce6"
+      },
+      {
+        "channel": null,
+        "characters": 8,
+        "copies": 2,
+        "locators": [
+          {
+            "characters": 8,
+            "session_id": "01a06a43-441d-78b1-be61-65eff3f9a50a",
+            "source_line": 200,
+            "timestamp": "2026-09-04T05:03:13.257Z"
+          },
+          {
+            "characters": 8,
+            "session_id": "01a09e48-8d0f-7ab0-87a1-cf1b4a9632a0",
+            "source_line": 687,
+            "timestamp": "2026-09-14T12:34:48.617Z"
+          }
+        ],
+        "nontext_types": [],
+        "role": "user",
+        "runtime_skill_block": false,
+        "sessions": 2,
+        "text_sha256": "5b944d3498f2f5d721674bfc3fedc7dde3505bf613ba3c7066a34f8ceea2965e"
+      },
+      {
+        "channel": null,
+        "characters": 9,
+        "copies": 2,
+        "locators": [
+          {
+            "characters": 9,
+            "session_id": "01a0c3ac-f144-7251-805b-2e582aed07c6",
+            "source_line": 4153,
+            "timestamp": "2026-09-29T07:00:03.452Z"
+          },
+          {
+            "characters": 9,
+            "session_id": "01a0ebf4-8e92-7f50-b08b-532c36a2160b",
+            "source_line": 91,
+            "timestamp": "2026-09-29T07:00:37.420Z"
+          }
+        ],
+        "nontext_types": [],
+        "role": "user",
+        "runtime_skill_block": false,
+        "sessions": 2,
+        "text_sha256": "c1bf095d486b660aa660b6103ccb40654639e78f0f77bf6dc2a8071f1ac5fcc2"
+      },
+      {
+        "channel": null,
+        "characters": 1395,
+        "copies": 2,
+        "locators": [
+          {
+            "characters": 1395,
+            "session_id": "01a09f1f-ba9e-76d0-80a2-42bf4c7d04b3",
+            "source_line": 9,
+            "timestamp": "2026-09-14T08:54:14.627Z"
+          },
+          {
+            "characters": 1395,
+            "session_id": "01a09f8a-8473-7bf0-b45d-67997c52091a",
+            "source_line": 9,
+            "timestamp": "2026-09-14T10:50:55.667Z"
+          }
+        ],
+        "nontext_types": [],
+        "role": "user",
+        "runtime_skill_block": false,
+        "sessions": 2,
+        "text_sha256": "d6d0cf1379000b9bca6f5ea7d6d381927b9544744da5b86e520fc48406597c28"
+      },
+      {
+        "channel": null,
+        "characters": 3,
+        "copies": 2,
+        "locators": [
+          {
+            "characters": 3,
+            "session_id": "01a08ff3-0e91-7921-afe4-69f0968638ef",
+            "source_line": 1562,
+            "timestamp": "2026-09-11T12:54:30.208Z"
+          },
+          {
+            "characters": 3,
+            "session_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6",
+            "source_line": 3662,
+            "timestamp": "2026-09-17T02:34:09.556Z"
+          }
+        ],
+        "nontext_types": [],
+        "role": "user",
+        "runtime_skill_block": false,
+        "sessions": 2,
+        "text_sha256": "e281a636c102b816c568275df95636ef3952ba311d6709dc5f91e897c8226d9d"
+      }
+    ],
+    "clusters_including_nonprimary_session": 0,
+    "extra_copies_other": 10,
+    "extra_copies_runtime_skill": 0,
+    "same_text_clusters": 8,
+    "same_timestamp_role_channel_text_clusters": 0
+  },
+  "per_session": [
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 59,
+      "extracted_user_messages": 7,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/04/rollout-2026-09-04T11-33-08-01a06a43-441d-78b1-be61-65eff3f9a50a.jsonl",
+      "raw_assistant_messages": 59,
+      "raw_user_messages": 9,
+      "session_id": "01a06a43-441d-78b1-be61-65eff3f9a50a",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 3,
+      "extracted_assistant_messages": 6,
+      "extracted_user_messages": 4,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/05/11/rollout-2026-05-11T14-14-19-019e1575-2779-7551-913a-fa76adc1f4cc.jsonl",
+      "raw_assistant_messages": 6,
+      "raw_user_messages": 7,
+      "session_id": "019e1575-2779-7551-913a-fa76adc1f4cc",
+      "thread_source": null,
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 22,
+      "extracted_user_messages": 9,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/06/rollout-2026-09-06T19-21-08-01a0763c-7340-7363-afb6-acad4d10e9a7.jsonl",
+      "raw_assistant_messages": 22,
+      "raw_user_messages": 11,
+      "session_id": "01a0763c-7340-7363-afb6-acad4d10e9a7",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 3,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/06/rollout-2026-09-06T19-26-20-01a07641-364b-7242-a362-c860e219a682.jsonl",
+      "raw_assistant_messages": 3,
+      "raw_user_messages": 2,
+      "session_id": "01a07641-364b-7242-a362-c860e219a682",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 3,
+      "extracted_assistant_messages": 50,
+      "extracted_user_messages": 23,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/10/rollout-2026-09-10T17-28-36-01a08a6e-de21-7483-8703-d10dd71df670.jsonl",
+      "raw_assistant_messages": 50,
+      "raw_user_messages": 26,
+      "session_id": "01a08a6e-de21-7483-8703-d10dd71df670",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 5,
+      "extracted_assistant_messages": 84,
+      "extracted_user_messages": 37,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/10/rollout-2026-09-10T21-56-54-01a08b64-7f25-7972-ac3e-496cb4af1de7.jsonl",
+      "raw_assistant_messages": 84,
+      "raw_user_messages": 42,
+      "session_id": "01a08b64-7f25-7972-ac3e-496cb4af1de7",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 3,
+      "extracted_assistant_messages": 28,
+      "extracted_user_messages": 13,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/10/rollout-2026-09-10T21-58-08-01a08b65-9ef2-7ec3-a9fa-3b2e23ef1514.jsonl",
+      "raw_assistant_messages": 28,
+      "raw_user_messages": 16,
+      "session_id": "01a08b65-9ef2-7ec3-a9fa-3b2e23ef1514",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "support_conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 11,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/archived_sessions/rollout-2026-09-10T22-45-07-01a08b90-a4ad-75b0-ba36-504181bc2b2f.jsonl",
+      "raw_assistant_messages": 11,
+      "raw_user_messages": 2,
+      "session_id": "01a08b90-a4ad-75b0-ba36-504181bc2b2f",
+      "thread_source": "agent_created_thread",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 1,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/10/rollout-2026-09-10T22-45-58-01a08b91-6a93-7021-8965-af14738f7878.jsonl",
+      "raw_assistant_messages": 1,
+      "raw_user_messages": 2,
+      "session_id": "01a08b91-6a93-7021-8965-af14738f7878",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 2,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/10/rollout-2026-09-10T23-00-42-01a08b9e-ea84-7790-8016-83f6bf1ed8d9.jsonl",
+      "raw_assistant_messages": 2,
+      "raw_user_messages": 2,
+      "session_id": "01a08b9e-ea84-7790-8016-83f6bf1ed8d9",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 4,
+      "extracted_assistant_messages": 69,
+      "extracted_user_messages": 29,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T10-46-56-01a08e25-7e2b-7022-9d3a-d5b1c4e4f5fb.jsonl",
+      "raw_assistant_messages": 69,
+      "raw_user_messages": 33,
+      "session_id": "01a08e25-7e2b-7022-9d3a-d5b1c4e4f5fb",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 5,
+      "extracted_assistant_messages": 57,
+      "extracted_user_messages": 23,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T10-49-05-01a08e27-753f-76f0-95fa-32e1c324561f.jsonl",
+      "raw_assistant_messages": 57,
+      "raw_user_messages": 28,
+      "session_id": "01a08e27-753f-76f0-95fa-32e1c324561f",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 4,
+      "extracted_assistant_messages": 26,
+      "extracted_user_messages": 16,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T10-50-22-01a08e28-a13b-7b32-a487-8206cab442f3.jsonl",
+      "raw_assistant_messages": 26,
+      "raw_user_messages": 20,
+      "session_id": "01a08e28-a13b-7b32-a487-8206cab442f3",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 10,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T17-20-13-01a08f8d-8d48-7620-82be-076879b70341.jsonl",
+      "raw_assistant_messages": 10,
+      "raw_user_messages": 2,
+      "session_id": "01a08f8d-8d48-7620-82be-076879b70341",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 3,
+      "extracted_assistant_messages": 23,
+      "extracted_user_messages": 5,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T17-37-29-01a08f9d-59f5-7763-b0ba-5ec65fea88eb.jsonl",
+      "raw_assistant_messages": 23,
+      "raw_user_messages": 8,
+      "session_id": "01a08f9d-59f5-7763-b0ba-5ec65fea88eb",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 5,
+      "extracted_user_messages": 3,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-10-38-01a08ff2-a13a-7023-a534-d94cd160d06b.jsonl",
+      "raw_assistant_messages": 5,
+      "raw_user_messages": 4,
+      "session_id": "01a08ff2-a13a-7023-a534-d94cd160d06b",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 3,
+      "extracted_assistant_messages": 127,
+      "extracted_user_messages": 37,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-06-01a08ff3-0e91-7921-afe4-69f0968638ef.jsonl",
+      "raw_assistant_messages": 127,
+      "raw_user_messages": 40,
+      "session_id": "01a08ff3-0e91-7921-afe4-69f0968638ef",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 39,
+      "extracted_user_messages": 8,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-32-01a08ff3-754d-73a3-9c15-7c2e66d6367b.jsonl",
+      "raw_assistant_messages": 39,
+      "raw_user_messages": 10,
+      "session_id": "01a08ff3-754d-73a3-9c15-7c2e66d6367b",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 8,
+      "extracted_assistant_messages": 158,
+      "extracted_user_messages": 52,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-50-01a08ff3-bde0-7bd3-bd92-0dde7abc883d.jsonl",
+      "raw_assistant_messages": 158,
+      "raw_user_messages": 60,
+      "session_id": "01a08ff3-bde0-7bd3-bd92-0dde7abc883d",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 3,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T20-14-43-01a0902d-4f7e-7681-a9ad-288d60bb9997.jsonl",
+      "raw_assistant_messages": 3,
+      "raw_user_messages": 3,
+      "session_id": "01a0902d-4f7e-7681-a9ad-288d60bb9997",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 5,
+      "extracted_user_messages": 5,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T22-27-52-01a090a7-36cc-78c2-a3e1-d637f651b293.jsonl",
+      "raw_assistant_messages": 5,
+      "raw_user_messages": 6,
+      "session_id": "01a090a7-36cc-78c2-a3e1-d637f651b293",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 8,
+      "extracted_user_messages": 6,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T09-43-16-01a09311-8d84-7081-9654-f000305f880e.jsonl",
+      "raw_assistant_messages": 8,
+      "raw_user_messages": 7,
+      "session_id": "01a09311-8d84-7081-9654-f000305f880e",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 6,
+      "extracted_assistant_messages": 33,
+      "extracted_user_messages": 34,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T09-59-43-01a09320-9f2c-7253-94cf-1d2e667035fb.jsonl",
+      "raw_assistant_messages": 33,
+      "raw_user_messages": 40,
+      "session_id": "01a09320-9f2c-7253-94cf-1d2e667035fb",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 25,
+      "extracted_user_messages": 25,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T13-03-14-01a093c8-a02d-7003-94a6-d0bfb9fa2d78.jsonl",
+      "raw_assistant_messages": 25,
+      "raw_user_messages": 27,
+      "session_id": "01a093c8-a02d-7003-94a6-d0bfb9fa2d78",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 6,
+      "extracted_user_messages": 2,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T15-01-22-01a09434-c83f-77b3-bd67-c96f380e6ef4.jsonl",
+      "raw_assistant_messages": 6,
+      "raw_user_messages": 3,
+      "session_id": "01a09434-c83f-77b3-bd67-c96f380e6ef4",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 2,
+      "extracted_user_messages": 2,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T15-02-18-01a09435-a271-79d3-853a-6f0229255713.jsonl",
+      "raw_assistant_messages": 2,
+      "raw_user_messages": 3,
+      "session_id": "01a09435-a271-79d3-853a-6f0229255713",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 5,
+      "extracted_assistant_messages": 39,
+      "extracted_user_messages": 11,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T15-04-13-01a09437-64d8-73d2-a37d-d73df45986f7.jsonl",
+      "raw_assistant_messages": 39,
+      "raw_user_messages": 16,
+      "session_id": "01a09437-64d8-73d2-a37d-d73df45986f7",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 3,
+      "extracted_assistant_messages": 9,
+      "extracted_user_messages": 9,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T15-04-59-01a09438-188f-7310-a292-ecbb9cee8fa7.jsonl",
+      "raw_assistant_messages": 9,
+      "raw_user_messages": 12,
+      "session_id": "01a09438-188f-7310-a292-ecbb9cee8fa7",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 40,
+      "extracted_user_messages": 13,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/13/rollout-2026-09-13T14-51-02-01a09951-b008-7603-a220-f9c0fc808c93.jsonl",
+      "raw_assistant_messages": 40,
+      "raw_user_messages": 15,
+      "session_id": "01a09951-b008-7603-a220-f9c0fc808c93",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 2,
+      "extracted_user_messages": 3,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T10-31-44-01a09d8a-a58c-75e1-b4f1-c310f03305fc.jsonl",
+      "raw_assistant_messages": 2,
+      "raw_user_messages": 4,
+      "session_id": "01a09d8a-a58c-75e1-b4f1-c310f03305fc",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 8,
+      "extracted_assistant_messages": 138,
+      "extracted_user_messages": 46,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T12-51-13-01a09e0a-5816-71e3-9865-a4677e71b2dd.jsonl",
+      "raw_assistant_messages": 138,
+      "raw_user_messages": 54,
+      "session_id": "01a09e0a-5816-71e3-9865-a4677e71b2dd",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 8,
+      "extracted_user_messages": 8,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T13-00-35-01a09e12-eaca-7033-bf81-09ad6fe03915.jsonl",
+      "raw_assistant_messages": 8,
+      "raw_user_messages": 10,
+      "session_id": "01a09e12-eaca-7033-bf81-09ad6fe03915",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 4,
+      "extracted_assistant_messages": 35,
+      "extracted_user_messages": 7,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T13-59-09-01a09e48-8d0f-7ab0-87a1-cf1b4a9632a0.jsonl",
+      "raw_assistant_messages": 35,
+      "raw_user_messages": 11,
+      "session_id": "01a09e48-8d0f-7ab0-87a1-cf1b4a9632a0",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 12,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T17-54-11-01a09f1f-ba9e-76d0-80a2-42bf4c7d04b3.jsonl",
+      "raw_assistant_messages": 12,
+      "raw_user_messages": 2,
+      "session_id": "01a09f1f-ba9e-76d0-80a2-42bf4c7d04b3",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 58,
+      "extracted_user_messages": 13,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T18-37-04-01a09f46-fc70-7370-826d-0beee60a8ca1.jsonl",
+      "raw_assistant_messages": 58,
+      "raw_user_messages": 14,
+      "session_id": "01a09f46-fc70-7370-826d-0beee60a8ca1",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 11,
+      "extracted_user_messages": 11,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T18-39-09-01a09f48-e304-7920-a85f-cc2ee0915211.jsonl",
+      "raw_assistant_messages": 11,
+      "raw_user_messages": 12,
+      "session_id": "01a09f48-e304-7920-a85f-cc2ee0915211",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 17,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/14/rollout-2026-09-14T19-50-50-01a09f8a-8473-7bf0-b45d-67997c52091a.jsonl",
+      "raw_assistant_messages": 17,
+      "raw_user_messages": 2,
+      "session_id": "01a09f8a-8473-7bf0-b45d-67997c52091a",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 8,
+      "extracted_assistant_messages": 192,
+      "extracted_user_messages": 89,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/15/rollout-2026-09-15T17-02-49-01a0a417-0e41-72e0-b00d-4cb8f55e80f6.jsonl",
+      "raw_assistant_messages": 192,
+      "raw_user_messages": 97,
+      "session_id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 5,
+      "extracted_assistant_messages": 31,
+      "extracted_user_messages": 32,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/15/rollout-2026-09-15T17-04-04-01a0a418-3403-74c2-ae07-c04dc40aa0e0.jsonl",
+      "raw_assistant_messages": 31,
+      "raw_user_messages": 37,
+      "session_id": "01a0a418-3403-74c2-ae07-c04dc40aa0e0",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 6,
+      "extracted_user_messages": 6,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/16/rollout-2026-09-16T10-22-47-01a0a7cf-2ce3-7003-b93c-2a791a3df178.jsonl",
+      "raw_assistant_messages": 6,
+      "raw_user_messages": 7,
+      "session_id": "01a0a7cf-2ce3-7003-b93c-2a791a3df178",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 4,
+      "extracted_assistant_messages": 175,
+      "extracted_user_messages": 95,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/17/rollout-2026-09-17T11-41-46-01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30.jsonl",
+      "raw_assistant_messages": 175,
+      "raw_user_messages": 99,
+      "session_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 9,
+      "extracted_user_messages": 5,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/17/rollout-2026-09-17T12-08-55-01a0ad56-b4ad-7b13-9f5f-33ee3851d7e5.jsonl",
+      "raw_assistant_messages": 9,
+      "raw_user_messages": 6,
+      "session_id": "01a0ad56-b4ad-7b13-9f5f-33ee3851d7e5",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 7,
+      "extracted_user_messages": 3,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/18/rollout-2026-09-18T09-39-52-01a0b1f4-9821-75a1-ada1-979e46ede831.jsonl",
+      "raw_assistant_messages": 7,
+      "raw_user_messages": 4,
+      "session_id": "01a0b1f4-9821-75a1-ada1-979e46ede831",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 11,
+      "extracted_assistant_messages": 164,
+      "extracted_user_messages": 69,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/18/rollout-2026-09-18T14-12-28-01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae.jsonl",
+      "raw_assistant_messages": 164,
+      "raw_user_messages": 80,
+      "session_id": "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 11,
+      "extracted_assistant_messages": 191,
+      "extracted_user_messages": 75,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/18/rollout-2026-09-18T23-47-04-01a0b4fc-3afa-7462-ae9e-6052b5a9e3c0.jsonl",
+      "raw_assistant_messages": 191,
+      "raw_user_messages": 86,
+      "session_id": "01a0b4fc-3afa-7462-ae9e-6052b5a9e3c0",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 10,
+      "extracted_assistant_messages": 169,
+      "extracted_user_messages": 63,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/21/rollout-2026-09-21T20-14-46-01a0c3ac-f144-7251-805b-2e582aed07c6.jsonl",
+      "raw_assistant_messages": 169,
+      "raw_user_messages": 73,
+      "session_id": "01a0c3ac-f144-7251-805b-2e582aed07c6",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 7,
+      "extracted_user_messages": 4,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T10-44-59-01a0c6c9-a603-77a2-8abe-50fc7e0814b0.jsonl",
+      "raw_assistant_messages": 7,
+      "raw_user_messages": 5,
+      "session_id": "01a0c6c9-a603-77a2-8abe-50fc7e0814b0",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 4,
+      "extracted_assistant_messages": 10,
+      "extracted_user_messages": 7,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T15-11-49-01a0c7bd-f413-7551-836d-3203775e7c38.jsonl",
+      "raw_assistant_messages": 10,
+      "raw_user_messages": 11,
+      "session_id": "01a0c7bd-f413-7551-836d-3203775e7c38",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 15,
+      "extracted_assistant_messages": 96,
+      "extracted_user_messages": 33,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T20-41-08-01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7.jsonl",
+      "raw_assistant_messages": 96,
+      "raw_user_messages": 48,
+      "session_id": "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 9,
+      "extracted_user_messages": 4,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/23/rollout-2026-09-23T12-11-41-01a0cc3f-6361-7782-a7de-3db14ef9081d.jsonl",
+      "raw_assistant_messages": 9,
+      "raw_user_messages": 5,
+      "session_id": "01a0cc3f-6361-7782-a7de-3db14ef9081d",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 15,
+      "extracted_user_messages": 4,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/26/rollout-2026-09-26T14-37-44-01a0dc38-2f51-77f2-8a0e-c84124c9f272.jsonl",
+      "raw_assistant_messages": 15,
+      "raw_user_messages": 6,
+      "session_id": "01a0dc38-2f51-77f2-8a0e-c84124c9f272",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 5,
+      "extracted_user_messages": 2,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/29/rollout-2026-09-29T15-57-48-01a0ebf4-8e92-7f50-b08b-532c36a2160b.jsonl",
+      "raw_assistant_messages": 5,
+      "raw_user_messages": 3,
+      "session_id": "01a0ebf4-8e92-7f50-b08b-532c36a2160b",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 6,
+      "extracted_assistant_messages": 152,
+      "extracted_user_messages": 59,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/29/rollout-2026-09-29T16-47-19-01a0ec21-e59e-7370-8432-8434271aa669.jsonl",
+      "raw_assistant_messages": 152,
+      "raw_user_messages": 65,
+      "session_id": "01a0ec21-e59e-7370-8432-8434271aa669",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 7,
+      "extracted_assistant_messages": 82,
+      "extracted_user_messages": 40,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/29/rollout-2026-09-29T23-03-47-01a0ed7a-8db9-7883-a1fe-34e4390535ec.jsonl",
+      "raw_assistant_messages": 82,
+      "raw_user_messages": 47,
+      "session_id": "01a0ed7a-8db9-7883-a1fe-34e4390535ec",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 23,
+      "extracted_user_messages": 23,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/30/rollout-2026-09-30T16-08-30-01a0f124-b5c2-7f13-99ba-897823c18c1e.jsonl",
+      "raw_assistant_messages": 23,
+      "raw_user_messages": 24,
+      "session_id": "01a0f124-b5c2-7f13-99ba-897823c18c1e",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 12,
+      "extracted_assistant_messages": 120,
+      "extracted_user_messages": 57,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/30/rollout-2026-09-30T20-22-34-01a0f20d-50a5-78e2-a665-e2c59c34987e.jsonl",
+      "raw_assistant_messages": 120,
+      "raw_user_messages": 69,
+      "session_id": "01a0f20d-50a5-78e2-a665-e2c59c34987e",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 5,
+      "extracted_assistant_messages": 36,
+      "extracted_user_messages": 16,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T14-31-33-01a0f5f2-4f8f-71d1-ac7d-ff27d799888a.jsonl",
+      "raw_assistant_messages": 36,
+      "raw_user_messages": 21,
+      "session_id": "01a0f5f2-4f8f-71d1-ac7d-ff27d799888a",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 4,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T15-24-20-01a0f622-a472-7613-9ab5-7ceaaa1dfc04.jsonl",
+      "raw_assistant_messages": 4,
+      "raw_user_messages": 3,
+      "session_id": "01a0f622-a472-7613-9ab5-7ceaaa1dfc04",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 11,
+      "extracted_assistant_messages": 178,
+      "extracted_user_messages": 66,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T21-31-08-01a0f772-73ab-7823-b282-bddb19124b7e.jsonl",
+      "raw_assistant_messages": 178,
+      "raw_user_messages": 77,
+      "session_id": "01a0f772-73ab-7823-b282-bddb19124b7e",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "maintainer",
+      "excluded_wrappers": 1,
+      "extracted_assistant_messages": 1,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T21-32-10-01a0f773-674b-7940-a527-aa4a7eb46e15.jsonl",
+      "raw_assistant_messages": 1,
+      "raw_user_messages": 2,
+      "session_id": "01a0f773-674b-7940-a527-aa4a7eb46e15",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 4,
+      "extracted_user_messages": 1,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/02/rollout-2026-10-02T18-33-13-01a0fbf5-ece8-7282-8f02-e9891979858a.jsonl",
+      "raw_assistant_messages": 4,
+      "raw_user_messages": 3,
+      "session_id": "01a0fbf5-ece8-7282-8f02-e9891979858a",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 16,
+      "extracted_assistant_messages": 257,
+      "extracted_user_messages": 87,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/04/rollout-2026-10-04T13-27-01-01a1052a-4e61-7072-9b81-ff44449e5b85.jsonl",
+      "raw_assistant_messages": 257,
+      "raw_user_messages": 103,
+      "session_id": "01a1052a-4e61-7072-9b81-ff44449e5b85",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 2,
+      "extracted_assistant_messages": 5,
+      "extracted_user_messages": 2,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/04/rollout-2026-10-04T16-26-21-01a105ce-7f21-7911-95b1-39300c1c20fa.jsonl",
+      "raw_assistant_messages": 5,
+      "raw_user_messages": 4,
+      "session_id": "01a105ce-7f21-7911-95b1-39300c1c20fa",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 4,
+      "extracted_assistant_messages": 67,
+      "extracted_user_messages": 21,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/06/rollout-2026-10-06T18-45-08-01a1109a-4735-7a13-adbf-08a9f84300b4.jsonl",
+      "raw_assistant_messages": 67,
+      "raw_user_messages": 25,
+      "session_id": "01a1109a-4735-7a13-adbf-08a9f84300b4",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/10/rollout-2026-09-10T22-06-44-01a08b6d-8101-71e2-9dd2-34f8dcf0b9d6.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "01a08b6d-8101-71e2-9dd2-34f8dcf0b9d6",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/30/rollout-2026-09-30T15-34-14-01a0f105-56fe-7170-a66f-2006e15694ec.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "01a0f105-56fe-7170-a66f-2006e15694ec",
+      "thread_source": "user",
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/05/04/rollout-2026-05-04T23-53-39-019df37b-0823-7271-b917-edeab50d8bb5.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "019df37b-0823-7271-b917-edeab50d8bb5",
+      "thread_source": null,
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/05/05/rollout-2026-05-05T00-39-53-019df3a5-5b31-7c11-b270-344b3b7ccb2f.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "019df3a5-5b31-7c11-b270-344b3b7ccb2f",
+      "thread_source": null,
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/05/05/rollout-2026-05-05T23-42-11-019df896-e521-7c20-b09b-a3571ae9face.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "019df896-e521-7c20-b09b-a3571ae9face",
+      "thread_source": null,
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/05/05/rollout-2026-05-05T23-44-51-019df899-5519-7f82-abda-e90bd55a8d3a.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "019df899-5519-7f82-abda-e90bd55a8d3a",
+      "thread_source": null,
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/05/11/rollout-2026-05-11T13-27-27-019e154a-3c70-7021-a168-c46a1d4b59c8.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "019e154a-3c70-7021-a168-c46a1d4b59c8",
+      "thread_source": null,
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/05/06/rollout-2026-05-06T15-45-52-019dfc09-293f-7e40-afea-276cdedfb72d.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "019dfc09-293f-7e40-afea-276cdedfb72d",
+      "thread_source": null,
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/03/19/rollout-2026-03-19T12-10-45-019d0412-fa9d-70f1-ae6b-4da9c67f160c.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "019d0412-fa9d-70f1-ae6b-4da9c67f160c",
+      "thread_source": null,
+      "user_count_reconciles": true
+    },
+    {
+      "assistant_count_reconciles": true,
+      "classification": "conversation",
+      "excluded_wrappers": 0,
+      "extracted_assistant_messages": 0,
+      "extracted_user_messages": 0,
+      "path": "/Users/hammyeong-yeon/.codex/sessions/2026/03/21/rollout-2026-03-21T17-12-28-019d0f73-ed9f-7f31-81be-d9f8e2d8f227.jsonl",
+      "raw_assistant_messages": 0,
+      "raw_user_messages": 0,
+      "session_id": "019d0f73-ed9f-7f31-81be-d9f8e2d8f227",
+      "thread_source": null,
+      "user_count_reconciles": true
+    }
+  ],
+  "primary_conversation_count": 46,
+  "response_item_type_counts": {
+    "agent_message": 590,
+    "custom_tool_call": 6319,
+    "custom_tool_call_output": 6319,
+    "function_call": 1524,
+    "function_call_output": 1534,
+    "message": 6084,
+    "reasoning": 8425
+  },
+  "retained_message_counts": {
+    "assistant": 3246,
+    "user": 1333
+  },
+  "retained_special_user_messages": {
+    "browser_ambient_block": 35,
+    "browser_block_with_request_marker": 35,
+    "question_reply_wrapper": 12
+  },
+  "role_channel_counts": {
+    "assistant:None": 3246,
+    "developer:None": 1263,
+    "user:None": 1575
+  },
+  "source": {
+    "collector": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/context-harness-review-20261011/inventory/collector-transcripts.json",
+    "discovery": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/context-harness-review-20261011/inventory/session-discovery.json",
+    "script": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/context-harness-review-20261011/scripts/build_corpus.py",
+    "sessions": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/context-harness-review-20261011/inventory/sessions.json"
+  },
+  "source_dict_exclusion": {
+    "all_subagent_with_parent": true,
+    "discovered": 334,
+    "thread_source_counts": {
+      "guardian_review": 211,
+      "subagent": 123
+    }
+  },
+  "source_file_sha256": {
+    "build_corpus.py": "4b3574084099f5e22327f5d203ce37a71fff38a44f0ea1611fb0d590a72c6a26",
+    "collector-transcripts.json": "bc4917b341a8b1da43f57f08a888dcb66456603f0285e4a6b2ab14e959397ef9",
+    "corpus-stats.json": "a3ad701b4b4ab185356107c38496cdd316367f3cdde0551a84154e907988bf11",
+    "session-discovery.json": "98d7db582c280b5cc215eae3ff44f12318cdc91d192fb930cf76d2a3eeaf6141",
+    "sessions.json": "89aaf34b077b1c462ab51a2ad336a1a252528f82c07b610ade65d931f2498ad3"
+  },
+  "wrapper_filter": {
+    "all_have_known_closing_tag": true,
+    "count_reconciliation_failures": [],
+    "excluded": 242,
+    "nonempty_tail_count": 0,
+    "prefix_counts": {
+      "# AGENTS.md instructions": 41,
+      "<environment_context>": 53,
+      "<external_codex_apps_open_page>": 27,
+      "<recommended_plugins>": 84,
+      "<skill>": 37
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/21/rollout-2026-09-21T20-14-46-01a0c3ac-f144-7251-805b-2e582aed07c6.jsonl",
+  "id": "01a0c3ac-f144-7251-805b-2e582aed07c6",
+  "time": "2026-09-21T11:14:46.236Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 31809156,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "2f4e0e86f1f7ffd0be935ce0aae3c92def8ee8dd9bd003a333bf0a22683ba7ae",
+  "classification": "conversation",
+  "messages": 232,
+  "characters": 114606,
+  "user_messages": 63,
+  "first_prompt": "지금 context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md 티켓06과 관련된 기록과 내용을 확인해봐\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 2270,
+    "response_item": 1669,
+    "world_state": 23,
+    "turn_context": 65,
+    "token_usage_record": 509,
+    "compacted": 9,
+    "inter_agent_communication_metadata": 20
+  },
+  "excluded": {
+    "runtime_wrapper": 10
+  },
+  "tool_events": 890,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 248,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 263,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 337,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 726,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1565,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2469,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2781,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 3152,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 68625379,
+    "cached_input_tokens": 65086080,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 307411,
+    "reasoning_output_tokens": 99670,
+    "total_tokens": 68932790
+  },
+  "first_time": "2026-09-21T11:14:48.664Z",
+  "last_time": "2026-09-29T07:46:34.238Z"
+}

@@ -1,0 +1,48 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T15-24-20-01a0f622-a472-7613-9ab5-7ceaaa1dfc04.jsonl",
+  "id": "01a0f622-a472-7613-9ab5-7ceaaa1dfc04",
+  "time": "2026-10-01T06:24:20.634Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 1087962,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "81528e283bdd1c1e86cd7cf96841295a06a9d485c87a9f87cc33a6b4f0205248",
+  "classification": "conversation",
+  "messages": 5,
+  "characters": 2979,
+  "user_messages": 1,
+  "first_prompt": "루트에 CLAUDE.md좀 대부분 삭제하려고 해 정말필요한것만 남겨놓고 context-harness 에다가 context project를 다 옮길거거든 그래서 기존에 런북이니 이런게 다 깔끔하게 없애면 좋겠어 일단 범위 파악해봐\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 32,
+    "response_item": 32,
+    "world_state": 1,
+    "turn_context": 1,
+    "token_usage_record": 8
+  },
+  "excluded": {
+    "runtime_wrapper": 2
+  },
+  "tool_events": 14,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 510359,
+    "cached_input_tokens": 424192,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3110,
+    "reasoning_output_tokens": 438,
+    "total_tokens": 513469
+  },
+  "first_time": "2026-10-01T06:24:22.774Z",
+  "last_time": "2026-10-01T06:26:18.975Z"
+}

@@ -1,0 +1,99 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/01/rollout-2026-10-01T21-31-08-01a0f772-73ab-7823-b282-bddb19124b7e.jsonl",
+  "id": "01a0f772-73ab-7823-b282-bddb19124b7e",
+  "time": "2026-10-01T12:31:08.229Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 37938066,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "3aa6ba274089a4428300af6028208092cf8bd84f6e22a48e369acdb71e3194fc",
+  "classification": "conversation",
+  "messages": 244,
+  "characters": 90641,
+  "user_messages": 66,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md 여기 작업 이어갈거야 최근 기록 한거 보고 현황 파악하자\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 2622,
+    "response_item": 2213,
+    "world_state": 26,
+    "turn_context": 67,
+    "token_usage_record": 724,
+    "inter_agent_communication_metadata": 48,
+    "compacted": 8
+  },
+  "excluded": {
+    "runtime_wrapper": 11
+  },
+  "tool_events": 1320,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1297,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "low"
+      }
+    },
+    {
+      "line": 1328,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "effort": "low"
+      }
+    },
+    {
+      "line": 1412,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1800,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2486,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 3024,
+      "settings": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 5476,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 98432936,
+    "cached_input_tokens": 95565056,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 239790,
+    "reasoning_output_tokens": 63327,
+    "total_tokens": 98672726
+  },
+  "first_time": "2026-10-01T12:31:22.272Z",
+  "last_time": "2026-10-02T11:49:47.259Z"
+}

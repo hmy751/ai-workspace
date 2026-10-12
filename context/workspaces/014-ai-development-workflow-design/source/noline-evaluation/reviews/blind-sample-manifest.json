@@ -1,0 +1,163 @@
+{
+  "seed": "noline-review-20261011-v1",
+  "selection": "각 batch의 user 역할 메시지를 SHA-256 순으로 하나 선택. 앞뒤 한 user turn 포함. 내용·장면 분류와 무관. 통계적 대표성은 주장하지 않음.",
+  "samples": [
+    {
+      "batch_id": "batch-01",
+      "anchor": "01a0763c-7340-7363-afb6-acad4d10e9a7:540",
+      "path": "reviews/blind-sample/batch-01.md",
+      "message_ids": [
+        "01a0763c-7340-7363-afb6-acad4d10e9a7:523",
+        "01a0763c-7340-7363-afb6-acad4d10e9a7:530",
+        "01a0763c-7340-7363-afb6-acad4d10e9a7:540",
+        "01a0763c-7340-7363-afb6-acad4d10e9a7:543",
+        "01a0763c-7340-7363-afb6-acad4d10e9a7:586"
+      ],
+      "characters": 1690
+    },
+    {
+      "batch_id": "batch-02",
+      "anchor": "01a08ff3-0e91-7921-afe4-69f0968638ef:1774",
+      "path": "reviews/blind-sample/batch-02.md",
+      "message_ids": [
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1720",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1730",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1741",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1755",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1774",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1780",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1816",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1823",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1829",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1871",
+        "01a08ff3-0e91-7921-afe4-69f0968638ef:1926"
+      ],
+      "characters": 4035
+    },
+    {
+      "batch_id": "batch-03",
+      "anchor": "01a09e0a-5816-71e3-9865-a4677e71b2dd:2048",
+      "path": "reviews/blind-sample/batch-03.md",
+      "message_ids": [
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:1878",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:1882",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:1900",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:1945",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:1987",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:2019",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:2041",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:2048",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:2054",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:2061",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:2065",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:2097",
+        "01a09e0a-5816-71e3-9865-a4677e71b2dd:2119"
+      ],
+      "characters": 7416
+    },
+    {
+      "batch_id": "batch-04",
+      "anchor": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2218",
+      "path": "reviews/blind-sample/batch-04.md",
+      "message_ids": [
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2208",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2211",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2218",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2223",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2253",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2260",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2263",
+        "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30:2276"
+      ],
+      "characters": 4935
+    },
+    {
+      "batch_id": "batch-05",
+      "anchor": "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1107",
+      "path": "reviews/blind-sample/batch-05.md",
+      "message_ids": [
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1078",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1084",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1100",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1107",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1112",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1119",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1122",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1142",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1156",
+        "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae:1168"
+      ],
+      "characters": 7585
+    },
+    {
+      "batch_id": "batch-06",
+      "anchor": "01a0c3ac-f144-7251-805b-2e582aed07c6:3522",
+      "path": "reviews/blind-sample/batch-06.md",
+      "message_ids": [
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3492",
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3495",
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3512",
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3522",
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3525",
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3545",
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3552",
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3555",
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3587",
+        "01a0c3ac-f144-7251-805b-2e582aed07c6:3607"
+      ],
+      "characters": 4933
+    },
+    {
+      "batch_id": "batch-07",
+      "anchor": "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1067",
+      "path": "reviews/blind-sample/batch-07.md",
+      "message_ids": [
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1057",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1060",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1067",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1072",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1091",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1095",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1151",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1217",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1284",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1342",
+        "01a0c8eb-70a7-75a2-9dfe-fd440b7c6bd7:1402"
+      ],
+      "characters": 2421
+    },
+    {
+      "batch_id": "batch-08",
+      "anchor": "01a0f772-73ab-7823-b282-bddb19124b7e:1768",
+      "path": "reviews/blind-sample/batch-08.md",
+      "message_ids": [
+        "01a0f772-73ab-7823-b282-bddb19124b7e:1755",
+        "01a0f772-73ab-7823-b282-bddb19124b7e:1761",
+        "01a0f772-73ab-7823-b282-bddb19124b7e:1768",
+        "01a0f772-73ab-7823-b282-bddb19124b7e:1772",
+        "01a0f772-73ab-7823-b282-bddb19124b7e:1779",
+        "01a0f772-73ab-7823-b282-bddb19124b7e:1786",
+        "01a0f772-73ab-7823-b282-bddb19124b7e:1790"
+      ],
+      "characters": 2002
+    },
+    {
+      "batch_id": "batch-09",
+      "anchor": "01a1052a-4e61-7072-9b81-ff44449e5b85:603",
+      "path": "reviews/blind-sample/batch-09.md",
+      "message_ids": [
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:542",
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:545",
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:596",
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:603",
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:608",
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:619",
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:634",
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:677",
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:720",
+        "01a1052a-4e61-7072-9b81-ff44449e5b85:779"
+      ],
+      "characters": 2275
+    }
+  ]
+}

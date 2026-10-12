@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "workspace_id": "001-default-timeout",
+  "claim": "Request policy loader가 canonical 기본 timeout 5000밀리초와 입력 검증·불변성 계약을 구현하며 고정 제품 테스트가 통과한다.",
+  "canonical_basis": [
+    "context/project/common/prd.md",
+    "context/project/decisions/0001-default-timeout.md"
+  ],
+  "verification": {
+    "argv": [
+      "python3",
+      "-m",
+      "unittest",
+      "tests.test_config_loader",
+      "-v"
+    ],
+    "evidence_paths": [
+      "src/__init__.py",
+      "src/config_loader.py",
+      "tests/__init__.py",
+      "tests/test_config_loader.py"
+    ],
+    "timeout_seconds": 30,
+    "max_output_chars": 20000
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-32-01a08ff3-754d-73a3-9c15-7c2e66d6367b.jsonl",
+  "id": "01a08ff3-754d-73a3-9c15-7c2e66d6367b",
+  "time": "2026-09-11T10:11:32.326Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 4184125,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "f9a573cae6ec149313c49aa02d79177449d102c8b7901e5ee4de39d9db02d0e3",
+  "classification": "conversation",
+  "messages": 47,
+  "characters": 9750,
+  "user_messages": 8,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/04-expense-api.md\n\n여기 티케 ㅅ파악해봐\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 331,
+    "response_item": 316,
+    "world_state": 6,
+    "turn_context": 9,
+    "token_usage_record": 90,
+    "compacted": 1
+  },
+  "excluded": {
+    "runtime_wrapper": 2
+  },
+  "tool_events": 164,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 11186357,
+    "cached_input_tokens": 10922496,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 45566,
+    "reasoning_output_tokens": 16415,
+    "total_tokens": 11231923
+  },
+  "first_time": "2026-09-11T10:11:38.115Z",
+  "last_time": "2026-09-11T14:02:02.745Z"
+}

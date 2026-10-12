@@ -1,0 +1,48 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/12/rollout-2026-09-12T09-43-16-01a09311-8d84-7081-9654-f000305f880e.jsonl",
+  "id": "01a09311-8d84-7081-9654-f000305f880e",
+  "time": "2026-09-12T00:43:16.253Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 369793,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "9f1643398c7c5ea316886855737093b314024213931ee54d56c0c0ca97285668",
+  "classification": "conversation",
+  "messages": 14,
+  "characters": 7267,
+  "user_messages": 6,
+  "first_prompt": "\nexport function useStorageStats() {\n&#x20; const [stats, setStats] = useState\\<StorageStats>(() => createStorageStats(0, 0));\n&#x20; const latestRequestId = useRef(0);\n\n&#x20; const refresh = useCallback(async () => {\n&#x20;   const requestId = ++latestRequestId.current;\n&#x20;   const nextStats = await calculateStorageStats();\n\n&#x20;   if (requestId === latestRequestId.current) {\n&#x20;     setStats(nextStats);\n&#x20;   }\n&#x20; }, []);\n\n&#x20; useEffect(() => {\n&#x20;   refresh();\n\n&#x20;   ",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 43,
+    "response_item": 44,
+    "world_state": 2,
+    "turn_context": 6,
+    "token_usage_record": 12
+  },
+  "excluded": {
+    "runtime_wrapper": 1
+  },
+  "tool_events": 12,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "medium"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 481609,
+    "cached_input_tokens": 441088,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5242,
+    "reasoning_output_tokens": 1720,
+    "total_tokens": 486851
+  },
+  "first_time": "2026-09-12T00:43:19.823Z",
+  "last_time": "2026-09-12T00:50:48.439Z"
+}

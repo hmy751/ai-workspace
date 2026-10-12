@@ -1,0 +1,78 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/18/rollout-2026-09-18T14-12-28-01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae.jsonl",
+  "id": "01a0b2ee-2d11-7b33-ba80-2ceeb380a0ae",
+  "time": "2026-09-18T05:12:28.719Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 27679929,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "cbc0cb6838f3aca5188328ac24807fe67ee05c3363d9464c0f85f62475bb6c49",
+  "classification": "conversation",
+  "messages": 233,
+  "characters": 93512,
+  "user_messages": 69,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md\n\n여기 현황 파악해서 티켓에 고나한 기록까지 읽고 다음 작업 뭐해야할지 생각해봐\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 1788,
+    "response_item": 1352,
+    "world_state": 19,
+    "turn_context": 68,
+    "token_usage_record": 412,
+    "compacted": 7,
+    "inter_agent_communication_metadata": 9
+  },
+  "excluded": {
+    "runtime_wrapper": 11
+  },
+  "tool_events": 684,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 1077,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2050,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "line": 2873,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 3412,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 51845807,
+    "cached_input_tokens": 49573504,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 310247,
+    "reasoning_output_tokens": 97952,
+    "total_tokens": 52156054
+  },
+  "first_time": "2026-09-18T05:12:31.222Z",
+  "last_time": "2026-09-21T11:15:21.789Z"
+}

@@ -1,0 +1,71 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/15/rollout-2026-09-15T17-02-49-01a0a417-0e41-72e0-b00d-4cb8f55e80f6.jsonl",
+  "id": "01a0a417-0e41-72e0-b00d-4cb8f55e80f6",
+  "time": "2026-09-15T08:02:49.560Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 26852205,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "21eff44ab410010f9df911396c937259632a0297ef3bf302fe47c8d218dc25d5",
+  "classification": "conversation",
+  "messages": 281,
+  "characters": 125557,
+  "user_messages": 89,
+  "first_prompt": "먼저 기존 maintain 연결다 끊고\ncontext/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md\n여기서 이제 시작하자 여기 maintain 연결하고 현황 파악하자\n\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 1813,
+    "response_item": 1456,
+    "world_state": 25,
+    "turn_context": 92,
+    "token_usage_record": 402,
+    "compacted": 7,
+    "inter_agent_communication_metadata": 10
+  },
+  "excluded": {
+    "runtime_wrapper": 8
+  },
+  "tool_events": 626,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 289,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2197,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2475,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 50142515,
+    "cached_input_tokens": 47061632,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 266091,
+    "reasoning_output_tokens": 94304,
+    "total_tokens": 50408606
+  },
+  "first_time": "2026-09-15T08:03:22.949Z",
+  "last_time": "2026-09-17T02:41:24.185Z"
+}

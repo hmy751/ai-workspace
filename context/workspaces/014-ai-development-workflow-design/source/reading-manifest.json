@@ -1,0 +1,152 @@
+{
+  "purpose": "원문은 변경하지 않고 읽기용 사본의 링크만 변환. 미복제 자료는 외부 원래 위치를 명시.",
+  "views": [
+    {
+      "source_snapshot": "source/noline-evaluation/README.md",
+      "reading_view": "source/reading/noline-evaluation/README.md",
+      "sha256": "e891826399863373218e682cbbc8d4d6046e410dfdd3898ebafd818b515ab7b8",
+      "localized_links": 26,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/assessment-entry.md",
+      "reading_view": "source/reading/noline-evaluation/assessment-entry.md",
+      "sha256": "56e98f478c0f4a3c86d000334793fc328ce3bd9bd5f8a5a4782d73e837384f73",
+      "localized_links": 17,
+      "unbundled_links": 1
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/document-index.md",
+      "reading_view": "source/reading/noline-evaluation/document-index.md",
+      "sha256": "dc3f21920a89ac1617c1e10a20aa6792c4ada6b665cdb4d66451b3931aa21cf6",
+      "localized_links": 212,
+      "unbundled_links": 1
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/improvement-directions.md",
+      "reading_view": "source/reading/noline-evaluation/improvement-directions.md",
+      "sha256": "e6e81222d811b8da3b8a7467040c4d9a5cac778b5051ef2c8783970b6257f7ce",
+      "localized_links": 10,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/lecture-perspective.md",
+      "reading_view": "source/reading/noline-evaluation/lecture-perspective.md",
+      "sha256": "24eaada73a0e35267556619c553d464f24e621946787c19be7ff1e37364306a4",
+      "localized_links": 22,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/method.md",
+      "reading_view": "source/reading/noline-evaluation/method.md",
+      "sha256": "6124fd8dc8c2d56f2f95f61ce2df4a8fd79ba5530b5281c55e1eda8e73862289",
+      "localized_links": 0,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/noline-assessment.md",
+      "reading_view": "source/reading/noline-evaluation/noline-assessment.md",
+      "sha256": "28be20bb89660d99453d9212cced42f44fcc838592726b94f0d2651b48e80b70",
+      "localized_links": 17,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/document-guidance-followup.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/document-guidance-followup.md",
+      "sha256": "9d43de5136441d048de9b1aaa36547526121a70f58086a529753456aac8552e4",
+      "localized_links": 4,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/independent-blind.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/independent-blind.md",
+      "sha256": "3fc603fbbdc724d2f01d1f96d8fcc8bd609cf5c8e4910f4f2eba371619319751",
+      "localized_links": 0,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/interview-20261012.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/interview-20261012.md",
+      "sha256": "73e903670cc966b716c09bb66d069aaeb1e38e5e31a414925387f835f16259b3",
+      "localized_links": 1,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/noline-change-evidence.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/noline-change-evidence.md",
+      "sha256": "466f98d35abbad6d21379ad2c864c79e38871c43b2dbe6f1d8a2aa397d809b39",
+      "localized_links": 12,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/noline-context-usage.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/noline-context-usage.md",
+      "sha256": "f9f18bfdd95d452d0777c8b00ec4f812f290869f2f63f4829893e31b14bdf107",
+      "localized_links": 16,
+      "unbundled_links": 1
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/noline-design-basis.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/noline-design-basis.md",
+      "sha256": "0382f883c65fc46c2d6307a28a631f131e47c3031eb10fc2c3bb71db4810bc91",
+      "localized_links": 31,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/noline-semantic-review.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/noline-semantic-review.md",
+      "sha256": "d6838c7b0fee145a1f2fb0dcb65d41059a1066972e93ba66aa00bed3af8c6979",
+      "localized_links": 2,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/reader-brief.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/reader-brief.md",
+      "sha256": "4d509308209c0889dc058ed1caedce8fe32ee7aa16f212279657a4151dbdf831",
+      "localized_links": 0,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/record-timing-followup.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/record-timing-followup.md",
+      "sha256": "09ef829bfeaf52395666807ce6555afacba94589f30b5ad9018c468c7ee62531",
+      "localized_links": 2,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/semantic-audit.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/semantic-audit.md",
+      "sha256": "165fe2054fd743cfabe4c90587c96d173d3a42e3c21ae1adf0f311bb4972b6f5",
+      "localized_links": 0,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/reviews/withdrawal-followup-comparison.md",
+      "reading_view": "source/reading/noline-evaluation/reviews/withdrawal-followup-comparison.md",
+      "sha256": "1ffc6f61f2f97b4bc7de5b722697050c90676f3591f52829d057a3992b7ccb04",
+      "localized_links": 3,
+      "unbundled_links": 2
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/scene-evidence.md",
+      "reading_view": "source/reading/noline-evaluation/scene-evidence.md",
+      "sha256": "9b5745c2eb04b799b9700c551f541c4758221ee668fcad3651471975d55a9f51",
+      "localized_links": 152,
+      "unbundled_links": 838
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/scene-index.md",
+      "reading_view": "source/reading/noline-evaluation/scene-index.md",
+      "sha256": "b2f9db8bec24cc836175a213d6f0cad32b68b6a4c9fa590e070b0a91ed62498e",
+      "localized_links": 89,
+      "unbundled_links": 0
+    },
+    {
+      "source_snapshot": "source/noline-evaluation/session-index.md",
+      "reading_view": "source/reading/noline-evaluation/session-index.md",
+      "sha256": "1b3662c5d591829e36026a52f6ff306be07415388708631da8cb718d24fc3d1e",
+      "localized_links": 1,
+      "unbundled_links": 46
+    }
+  ]
+}

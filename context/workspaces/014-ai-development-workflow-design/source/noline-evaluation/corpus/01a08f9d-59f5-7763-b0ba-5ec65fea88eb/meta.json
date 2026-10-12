@@ -1,0 +1,49 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T17-37-29-01a08f9d-59f5-7763-b0ba-5ec65fea88eb.jsonl",
+  "id": "01a08f9d-59f5-7763-b0ba-5ec65fea88eb",
+  "time": "2026-09-11T08:37:29.232Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 1607591,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "ea0d8618790b59749827a07156c7152ad8915c051de8aa7eb087ddb306e60bff",
+  "classification": "conversation",
+  "messages": 28,
+  "characters": 13850,
+  "user_messages": 5,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/02-city-search.md\n\n여기 파악해줘 니가 진행할거야\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 196,
+    "response_item": 185,
+    "world_state": 6,
+    "turn_context": 5,
+    "token_usage_record": 48,
+    "inter_agent_communication_metadata": 7
+  },
+  "excluded": {
+    "runtime_wrapper": 3
+  },
+  "tool_events": 86,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 1338658,
+    "cached_input_tokens": 1312384,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 6130,
+    "reasoning_output_tokens": 2424,
+    "total_tokens": 1344788
+  },
+  "first_time": "2026-09-11T08:37:31.904Z",
+  "last_time": "2026-09-11T10:51:40.055Z"
+}

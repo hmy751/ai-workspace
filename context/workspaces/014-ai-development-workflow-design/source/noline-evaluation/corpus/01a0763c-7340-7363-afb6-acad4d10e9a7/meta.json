@@ -1,0 +1,49 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/06/rollout-2026-09-06T19-21-08-01a0763c-7340-7363-afb6-acad4d10e9a7.jsonl",
+  "id": "01a0763c-7340-7363-afb6-acad4d10e9a7",
+  "time": "2026-09-06T10:21:08.311Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 2603224,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "11c4bfecfe9d858f5b39af045c8c93b01f7226468023fecb69105cb75c626994",
+  "classification": "conversation",
+  "messages": 31,
+  "characters": 20863,
+  "user_messages": 9,
+  "first_prompt": "지금 난 코드 리팩토링이 필요해보여 음 목표는 일단 포폴용으로 하려고 해서 음 개발자가 보기에 완벽한 코드라기 보단 음 매끄러운? 자연스러운 ? 이걸 구체화해야하는데&#x20;\n일단 내가 뭘 원하는지 정의가 안돼 그래서 같이 구체화 해보고 싶은데&#x20;\n러프하게 생각나는건 엔진 기본 코드나 흐름들 그런게 매끄럽게 동작하고 프로덕션 수준이어ㅆ으면 좋겠어 가독성이나 console 제거등 그리고 명확한 코드? 확장가능한 일단 그게 떠올라&#x20;\n\n컴포넌트 내부 흐름도 이상한데 그런거 뭐 등등이 떠오르네\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 292,
+    "response_item": 205,
+    "world_state": 6,
+    "turn_context": 8,
+    "token_usage_record": 56,
+    "inter_agent_communication_metadata": 21
+  },
+  "excluded": {
+    "runtime_wrapper": 2
+  },
+  "tool_events": 94,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "ultra"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 1241987,
+    "cached_input_tokens": 1039872,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3960,
+    "reasoning_output_tokens": 1056,
+    "total_tokens": 1245947
+  },
+  "first_time": "2026-09-06T10:23:23.468Z",
+  "last_time": "2026-09-08T10:13:43.051Z"
+}

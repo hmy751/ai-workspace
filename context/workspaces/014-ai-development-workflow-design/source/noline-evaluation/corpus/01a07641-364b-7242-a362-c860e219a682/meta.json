@@ -1,0 +1,48 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/06/rollout-2026-09-06T19-26-20-01a07641-364b-7242-a362-c860e219a682.jsonl",
+  "id": "01a07641-364b-7242-a362-c860e219a682",
+  "time": "2026-09-06T10:26:20.389Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 176157,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "dd3649db97f2a058c258054860d9b442035b92c083087acf3421ced2d3ce5f70",
+  "classification": "conversation",
+  "messages": 4,
+  "characters": 939,
+  "user_messages": 1,
+  "first_prompt": ".agents/skills/noline-work/SKILL.md 이파일 히스토리가 안보이네 언제 만든건지 보고싶은데\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 10,
+    "response_item": 18,
+    "world_state": 1,
+    "turn_context": 1,
+    "token_usage_record": 4
+  },
+  "excluded": {
+    "runtime_wrapper": 1
+  },
+  "tool_events": 6,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 119107,
+    "cached_input_tokens": 94592,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1262,
+    "reasoning_output_tokens": 264,
+    "total_tokens": 120369
+  },
+  "first_time": "2026-09-06T10:26:22.465Z",
+  "last_time": "2026-09-06T10:26:57.517Z"
+}
