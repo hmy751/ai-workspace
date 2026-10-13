@@ -6,7 +6,9 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 이후 사용자는 Spec·Ticket으로 나누어 보며 논의하자고 요청했다. 현재 [Spec](current/spec.md)과 [상위 Ticket 01~07](current/tickets/index.md)이 있다. 개발 작업 방식은 01-01~01-03, 기존 스킬 보완은 04-01~04-03으로 나눴다. 각 상위 폴더의 README에서 하위 과제를 찾는다. 설계 내용을 구체화하면서 검토자가 직접 품질 수정까지 수행하는 B 방향을 선택했다. 상세 연결과 적용 조건은 계속 설계하며 실제 구현은 시작하지 않았다. [선택 기록](records/2026-10-12-15-reviewer-editing-choice-and-start.md)
 
-현재 출발점은 **Spec 3절에 모은 전체 잠정안과 중요한 미결정**이다. 01-02의 자료 탐색을 거쳐 사용자는 부분 논의가 어떤 전체 체계로 모이는지 먼저 분명히 해 달라고 요청했다. 필요한 질문에 따라 Ticket을 선택해 구체화하고 전체안에 반영한다. 이 Workspace의 Spec·Ticket 사용과 개선할 시스템의 Spec·Ticket 설계는 구별한다. [최신 확인과 Spec 보완](records/2026-10-13-21-spec-integration-and-two-levels.md)
+전체 구상과 미결정은 **Spec 3절**에서 유지한다. 현재는 Main과 작업을 논의·결정하는 단계와 구현·검토·검증하는 단계를 구별하고, **작업 단계에서 좋은 구현을 돕는 컨텍스트·코드 기준·절차·도구**를 먼저 구체화한다. [우선순위와 코드 기준의 근거 후보](records/2026-10-13-28-execution-system-priority-and-code-criteria.md), [Matt·Lauren·Vercel 원자료 조사](records/2026-10-13-27-source-investigation-and-proposal-reset.md)를 필요한 질문에 맞춰 읽는다. Spec·설계 절차도 필요한 보완을 연결하되 그 도입을 중심에 놓지 않는다. 이 Workspace의 Spec·Ticket 사용과 개선할 시스템의 Spec·Ticket 설계는 구별한다.
+
+지금 이어갈 위치는 [책임 분리 선호와 상황별 조건](records/2026-10-13-31-criteria-roles-and-responsibility-interview.md)이다. 기능 Hook 내부 분리와 기존 도구에 맡긴 책임을 논의했으며, 다음 후보는 code-template의 Dialog가 Radix 위에 추가하는 책임·인터페이스를 보는 것이다. 템플릿을 읽었다는 사실을 선호 탐색 완료로 취급하지 않는다. [앞선 체크포인트](records/2026-10-13-29-discussion-checkpoint-and-code-criteria-scope.md)의 Matt 브레이크·컨텍스트·워크플로 등 전체 범위도 유지한다. 최근 대화는 의미 있는 변화와 필요한 발화를 선택해 기록했으며 전체 원문을 일괄 저장한 것은 아니다.
 
 ## 배경 없이 들어올 때
 

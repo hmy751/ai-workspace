@@ -38,4 +38,17 @@
 
 - [21 전체 잠정안의 Spec 반영과 두 층의 구별](2026-10-13-21-spec-integration-and-two-levels.md): 세션 간 전체 구상을 이어갈 Spec의 실제 보완, 014의 설계 문서와 개선할 시스템의 Spec·Ticket을 구별한 근거.
 
+- [22 먼저 구체화할 결정과 전체 체계의 영향](2026-10-13-22-first-decision-and-system-effects.md): 커밋 이후 가상 저장 작업으로 상세 기준의 적용 시점·담당을 비교하고 Project·Work·스킬·검증·경험 반영의 변화를 연결한 미채택 제안.
+
+- [23 알림 설정의 구현·검토 인수 예시](2026-10-13-23-notification-settings-handoff-example.md): 두 번째 안을 가정한 Project·개발 Work의 Spec·Ticket 본문, 역할별 요청문과 반환·기록 관계. 실제 개발 실행은 아니다.
+
+- [24 Matt의 원자료와 공개 스킬 조사](2026-10-13-24-matt-source-investigation.md): 작업 정의·선행 설계·TDD·검토·회고의 실제 계약과 판본 차이.
+- [25 Lauren의 강연과 공개 pstack 조사](2026-10-13-25-lauren-source-investigation.md): 설계·구현 위임·검증 스킬·Feature Map·shipping과 공개 범위.
+- [26 Vercel의 원문과 추가 공개 자료 조사](2026-10-13-26-vercel-source-investigation.md): 요청 모드·제품 판단·기준 routing·검증·기준 갱신과 공개 구현의 한계.
+- [27 원자료 조사와 앞선 합성안의 재검토](2026-10-13-27-source-investigation-and-proposal-reset.md): 최신 사용자 요청, 출처별 조사 진입점, 기존 ai-workspace 기준과 Main의 제안을 구별하고 다시 논의할 범위.
+- [28 작업 단계 우선순위와 코드 기준의 근거 후보](2026-10-13-28-execution-system-priority-and-code-criteria.md): Main과 작업을 결정하는 단계와 구현 단계를 구별한 사용자 원문, 작업 단계 시스템에 둔 우선순위, 토스·지정할 코드·기존 기록을 통한 기준 논의의 범위.
+- [29 코드 기준 논의 전 체크포인트](2026-10-13-29-discussion-checkpoint-and-code-criteria-scope.md): 마지막 커밋 뒤 논의 흐름과 기록 28 뒤의 주요 발화, Matt의 브레이크와 전체 시스템 범위, 다음 논의와 미결정, 대화 전체가 아닌 필요한 내용·원문의 보존 범위.
+- [30 code-template 확인과 실무 코드 조사 범위](2026-10-13-30-code-template-reference-and-authorship-sampling.md): 지정 저장소의 짧은 예제와 해석 한계, 팀 코드와 사용자 작성 변경을 구별하며 범위를 좁혀 조사하는 제안.
+- [31 코드 기준의 역할 구분과 책임 분리 인터뷰](2026-10-13-31-criteria-roles-and-responsibility-interview.md): 책임·응집도·합성형 UI·재사용·기능 Hook 내부 분리·기존 도구 책임에 관한 선호와 열린 조건. code-template 읽기와 선호 탐색 완료를 구별한 정정, 다음 논의 후보까지 보존한다.
+
 이전 대화의 보존 범위는 [대화 사본](../source/discussion/conversation.md)과 [자료 안내](../source/README.md)에서 확인한다. 그 뒤 설계 논의의 선택·정정에 필요한 발화는 기록 12~18에 직접 인용했으며, 최신 대화 전체를 source에 다시 저장한 것은 아니다. 다음 해석이 바뀌면 당시 기록을 현재 결론으로 덮어쓰지 않고 새 기록과 current에 이어 준다.
