@@ -6,12 +6,12 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 이후 사용자는 Spec·Ticket으로 나누어 보며 논의하자고 요청했다. 현재 [Spec](current/spec.md)과 [상위 Ticket 01~07](current/tickets/index.md)이 있다. 개발 작업 방식은 01-01~01-03, 기존 스킬 보완은 04-01~04-03으로 나눴다. 각 상위 폴더의 README에서 하위 과제를 찾는다. 설계 내용을 구체화하면서 검토자가 직접 품질 수정까지 수행하는 B 방향을 선택했다. 상세 연결과 적용 조건은 계속 설계하며 실제 구현은 시작하지 않았다. [선택 기록](records/2026-10-12-15-reviewer-editing-choice-and-start.md)
 
-다음 논의는 **01-02 코드·설계 품질**이다. 사용자는 먼저 관련 자료를 구체화해 함께 논의하자고 요청했다. 기준의 채택이나 실제 구조 변경에 앞서 자료의 방법·예시·적용 조건과 기존 구성의 차이를 살핀다. [최신 정정과 다음 순서](records/2026-10-12-18-quality-materials-next-step.md)
+현재 출발점은 **Spec 3절에 모은 전체 잠정안과 중요한 미결정**이다. 01-02의 자료 탐색을 거쳐 사용자는 부분 논의가 어떤 전체 체계로 모이는지 먼저 분명히 해 달라고 요청했다. 필요한 질문에 따라 Ticket을 선택해 구체화하고 전체안에 반영한다. 이 Workspace의 Spec·Ticket 사용과 개선할 시스템의 Spec·Ticket 설계는 구별한다. [최신 확인과 Spec 보완](records/2026-10-13-21-spec-integration-and-two-levels.md)
 
 ## 배경 없이 들어올 때
 
 1. [배경과 평가](current/memory.md)에서 무엇을 평가했고 왜 더 큰 설계 논의로 넘어왔는지 읽는다.
-2. [Spec](current/spec.md)에서 전체 목표·공통 기준·사용자 방향과 미정을, [Ticket 색인](current/tickets/index.md)에서 나눠 볼 결과를 확인한다.
+2. [Spec](current/spec.md)에서 전체 목표·공통 기준·전체 잠정안·선택과 미정을, [Ticket 색인](current/tickets/index.md)에서 구체화할 부분을 확인한다.
 3. [현재 진행](current/state.md)과 지금 논의할 Ticket 본문을 읽는다. [논의 지도](current/design-map.md)는 열린 관점과 Ticket의 연결을 확인할 때 사용한다.
 4. 필요한 근거만 [자료 안내](source/README.md)에서 고른다. 처음부터 corpus·코드·모든 연구 문서를 읽지 않아도 위 본문으로 대화를 이어갈 수 있게 구성했다.
 
