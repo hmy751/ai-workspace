@@ -51,4 +51,10 @@
 - [30 code-template 확인과 실무 코드 조사 범위](2026-10-13-30-code-template-reference-and-authorship-sampling.md): 지정 저장소의 짧은 예제와 해석 한계, 팀 코드와 사용자 작성 변경을 구별하며 범위를 좁혀 조사하는 제안.
 - [31 코드 기준의 역할 구분과 책임 분리 인터뷰](2026-10-13-31-criteria-roles-and-responsibility-interview.md): 책임·응집도·합성형 UI·재사용·기능 Hook 내부 분리·기존 도구 책임에 관한 선호와 열린 조건. code-template 읽기와 선호 탐색 완료를 구별한 정정, 다음 논의 후보까지 보존한다.
 
+- [32 실제 template 코드와 사용 예시 확인](2026-10-13-32-template-code-and-usage-discovery.md): 새로 지정한 20_lab/template의 직접 구현 Dialog·폼 도구 조합·무한 스크롤 책임 분리와 조사 한계.
+
+- [33 Dialog 논의에서 남긴 코드 기준 후보](2026-10-13-33-component-purpose-and-library-responsibility.md): Confirm의 잠정 방향, 목적·기존 도구 책임·사용처 부담·구현 수단의 구별, 공식 라이브러리 비교와 다음 폼 사례 제안.
+
+- [34 다음 세션 재진입 준비](2026-10-13-34-session-reentry-handoff.md): 전체 Spec·01-02의 흐름과 뉘앙스를 보존한 문서 정리, 실제 상태·권한·다음 행동과 확인 범위.
+
 이전 대화의 보존 범위는 [대화 사본](../source/discussion/conversation.md)과 [자료 안내](../source/README.md)에서 확인한다. 그 뒤 설계 논의의 선택·정정에 필요한 발화는 기록 12~18에 직접 인용했으며, 최신 대화 전체를 source에 다시 저장한 것은 아니다. 다음 해석이 바뀌면 당시 기록을 현재 결론으로 덮어쓰지 않고 새 기록과 current에 이어 준다.
