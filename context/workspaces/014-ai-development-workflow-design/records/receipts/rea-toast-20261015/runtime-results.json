@@ -1,0 +1,118 @@
+{
+  "recorded_at": "2026-10-15T07:27:48.316Z",
+  "node": "v24.16.0",
+  "versions": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zustand": "5.0.5",
+    "typescript": "5.8.3",
+    "jsdom": "26.1.0",
+    "@sinonjs/fake-timers": "15.0.0"
+  },
+  "scope": "Original source snapshots, real React/Zustand, JSDOM DOM, fake timers, CSS stub; no browser visual acceptance.",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "story-button-expiry-3000ms",
+      "passed": true,
+      "checkpoints": [
+        {
+          "label": "click adds and displays",
+          "virtual_time_ms": 0,
+          "store_count": 1,
+          "body_text": "Show ToastToast TitleThis is a toast message"
+        },
+        {
+          "label": "before duration",
+          "virtual_time_ms": 2999,
+          "store_count": 1,
+          "body_text": "Show ToastToast TitleThis is a toast message"
+        },
+        {
+          "label": "at duration",
+          "virtual_time_ms": 3000,
+          "store_count": 0,
+          "body_text": "Show Toast"
+        }
+      ]
+    },
+    {
+      "name": "default-duration-5000ms",
+      "passed": true,
+      "checkpoints": [
+        {
+          "label": "before default duration",
+          "virtual_time_ms": 4999,
+          "store_count": 1,
+          "body_text": "Toast Title"
+        },
+        {
+          "label": "at default duration",
+          "virtual_time_ms": 5000,
+          "store_count": 0,
+          "body_text": ""
+        }
+      ]
+    },
+    {
+      "name": "unmount-preserves-state-remount-restarts-full-duration",
+      "passed": true,
+      "checkpoints": [
+        {
+          "label": "unmounted after 1000ms",
+          "virtual_time_ms": 1000,
+          "store_count": 1,
+          "body_text": ""
+        },
+        {
+          "label": "unmounted beyond original deadline",
+          "virtual_time_ms": 11000,
+          "store_count": 1,
+          "body_text": ""
+        },
+        {
+          "label": "remounted",
+          "virtual_time_ms": 11000,
+          "store_count": 1,
+          "body_text": "Toast Title"
+        },
+        {
+          "label": "2999ms after remount",
+          "virtual_time_ms": 13999,
+          "store_count": 1,
+          "body_text": "Toast Title"
+        },
+        {
+          "label": "3000ms after remount",
+          "virtual_time_ms": 14000,
+          "store_count": 0,
+          "body_text": ""
+        }
+      ]
+    },
+    {
+      "name": "add-without-presenter-does-not-expire-until-mounted",
+      "passed": true,
+      "checkpoints": [
+        {
+          "label": "10000ms without presenter",
+          "virtual_time_ms": 10000,
+          "store_count": 1,
+          "body_text": ""
+        },
+        {
+          "label": "presenter mounted",
+          "virtual_time_ms": 10000,
+          "store_count": 1,
+          "body_text": "Toast Title"
+        },
+        {
+          "label": "3000ms after presenter mounted",
+          "virtual_time_ms": 13000,
+          "store_count": 0,
+          "body_text": ""
+        }
+      ]
+    }
+  ]
+}

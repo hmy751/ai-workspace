@@ -1,0 +1,376 @@
+{
+  "typescript": "5.8.3",
+  "method": "transpileModule; ES2022 CommonJS react-jsx esModuleInterop; sourceMap inlineSources; no execution, no typecheck, not production build",
+  "files": [
+    {
+      "source": "package.json",
+      "output": "package.json",
+      "transpiled": false
+    },
+    {
+      "source": "src/.DS_Store",
+      "output": "src/.DS_Store",
+      "transpiled": false
+    },
+    {
+      "source": "src/App.tsx",
+      "output": "src/App.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/api/fetcher.ts",
+      "output": "src/api/fetcher.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/.DS_Store",
+      "output": "src/component/.DS_Store",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Avatar/index.module.css",
+      "output": "src/component/Avatar/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Avatar/index.stories.tsx",
+      "output": "src/component/Avatar/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Avatar/index.tsx",
+      "output": "src/component/Avatar/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Button/index.module.css",
+      "output": "src/component/Button/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Button/index.stories.tsx",
+      "output": "src/component/Button/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Button/index.tsx",
+      "output": "src/component/Button/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Card/index.module.css",
+      "output": "src/component/Card/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Card/index.stories.tsx",
+      "output": "src/component/Card/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Card/index.tsx",
+      "output": "src/component/Card/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Checkbox/index.module.css",
+      "output": "src/component/Checkbox/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Checkbox/index.stories.tsx",
+      "output": "src/component/Checkbox/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Checkbox/index.tsx",
+      "output": "src/component/Checkbox/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Dialog/index.module.css",
+      "output": "src/component/Dialog/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Dialog/index.stories.tsx",
+      "output": "src/component/Dialog/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Dialog/index.tsx",
+      "output": "src/component/Dialog/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Dropdown/index.module.css",
+      "output": "src/component/Dropdown/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Dropdown/index.stories.tsx",
+      "output": "src/component/Dropdown/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Dropdown/index.tsx",
+      "output": "src/component/Dropdown/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/FormSection/Field/index.module.css",
+      "output": "src/component/FormSection/Field/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/FormSection/Field/index.stories.tsx",
+      "output": "src/component/FormSection/Field/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/FormSection/Field/index.tsx",
+      "output": "src/component/FormSection/Field/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/FormSection/index.stories.tsx",
+      "output": "src/component/FormSection/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Grid/index.module.css",
+      "output": "src/component/Grid/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Grid/index.stories.tsx",
+      "output": "src/component/Grid/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Grid/index.tsx",
+      "output": "src/component/Grid/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/ImageBox/index.module.css",
+      "output": "src/component/ImageBox/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/ImageBox/index.stories.tsx",
+      "output": "src/component/ImageBox/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/ImageBox/index.tsx",
+      "output": "src/component/ImageBox/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/InfiniteScrollContainer/index.stories.tsx",
+      "output": "src/component/InfiniteScrollContainer/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/InfiniteScrollContainer/index.tsx",
+      "output": "src/component/InfiniteScrollContainer/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Input/index.module.css",
+      "output": "src/component/Input/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Input/index.stories.tsx",
+      "output": "src/component/Input/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Input/index.tsx",
+      "output": "src/component/Input/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/MultiSelect/index.module.css",
+      "output": "src/component/MultiSelect/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/MultiSelect/index.stories.tsx",
+      "output": "src/component/MultiSelect/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/MultiSelect/index.tsx",
+      "output": "src/component/MultiSelect/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Portal.tsx",
+      "output": "src/component/Portal.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/RadioGroup/index.module.css",
+      "output": "src/component/RadioGroup/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/RadioGroup/index.stories.tsx",
+      "output": "src/component/RadioGroup/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/RadioGroup/index.tsx",
+      "output": "src/component/RadioGroup/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Select/index.module.css",
+      "output": "src/component/Select/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Select/index.stories.tsx",
+      "output": "src/component/Select/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Select/index.tsx",
+      "output": "src/component/Select/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Skeleton/index.module.css",
+      "output": "src/component/Skeleton/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Skeleton/index.tsx",
+      "output": "src/component/Skeleton/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Spinner/index.module.css",
+      "output": "src/component/Spinner/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Spinner/index.stories.tsx",
+      "output": "src/component/Spinner/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Spinner/index.tsx",
+      "output": "src/component/Spinner/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Text/index.module.css",
+      "output": "src/component/Text/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Text/index.stories.tsx",
+      "output": "src/component/Text/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Text/index.tsx",
+      "output": "src/component/Text/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Toast/index.module.css",
+      "output": "src/component/Toast/index.module.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/component/Toast/index.stories.tsx",
+      "output": "src/component/Toast/index.stories.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/component/Toast/index.tsx",
+      "output": "src/component/Toast/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/hooks/useClickOutsideEffect.ts",
+      "output": "src/hooks/useClickOutsideEffect.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/hooks/useFloatingPosition.ts",
+      "output": "src/hooks/useFloatingPosition.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/hooks/useInfiniteScrollObserver.ts",
+      "output": "src/hooks/useInfiniteScrollObserver.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/index.tsx",
+      "output": "src/index.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/store/react-query/index.md",
+      "output": "src/store/react-query/index.md",
+      "transpiled": false
+    },
+    {
+      "source": "src/store/useAlertDialogStore.ts",
+      "output": "src/store/useAlertDialogStore.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/store/useConfirmDialogStore.ts",
+      "output": "src/store/useConfirmDialogStore.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/store/useToastStore.ts",
+      "output": "src/store/useToastStore.js",
+      "transpiled": true
+    },
+    {
+      "source": "src/store/zustand/index.md",
+      "output": "src/store/zustand/index.md",
+      "transpiled": false
+    },
+    {
+      "source": "src/styles/globals.css",
+      "output": "src/styles/globals.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/styles/reset.css",
+      "output": "src/styles/reset.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/styles/tailwindcss.globals.css",
+      "output": "src/styles/tailwindcss.globals.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/styles/variables.css",
+      "output": "src/styles/variables.css",
+      "transpiled": false
+    },
+    {
+      "source": "src/utils/date.md",
+      "output": "src/utils/date.md",
+      "transpiled": false
+    },
+    {
+      "source": "tsconfig.json",
+      "output": "tsconfig.json",
+      "transpiled": false
+    }
+  ]
+}

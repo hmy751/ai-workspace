@@ -1,0 +1,107 @@
+[
+  {
+    "name": "summary",
+    "verb": "inspect-analysis-view",
+    "selection": {
+      "view": {
+        "kind": "summary"
+      }
+    },
+    "seconds": 1.0419226249996427,
+    "exit_code": 0,
+    "bytes": 10348
+  },
+  {
+    "name": "entry-outgoing",
+    "verb": "trace-application-feature",
+    "selection": {
+      "seed": {
+        "kind": "module",
+        "value": "src/component/InfiniteScrollContainer/index.stories.tsx",
+        "match": "exact"
+      },
+      "direction": "outgoing"
+    },
+    "seconds": 1.089591666999695,
+    "exit_code": 0,
+    "bytes": 64394
+  },
+  {
+    "name": "entry-both",
+    "verb": "trace-application-feature",
+    "selection": {
+      "seed": {
+        "kind": "module",
+        "value": "src/component/InfiniteScrollContainer/index.stories.tsx",
+        "match": "exact"
+      },
+      "direction": "both"
+    },
+    "seconds": 1.2079437499996857,
+    "exit_code": 0,
+    "bytes": 2231144
+  },
+  {
+    "name": "commonjs-entry-outgoing",
+    "verb": "trace-application-feature",
+    "selection": {
+      "seed": {
+        "kind": "module",
+        "value": "src/component/InfiniteScrollContainer/index.stories.js",
+        "match": "exact"
+      },
+      "direction": "outgoing"
+    },
+    "input": "commonjs-analysis.json",
+    "exit_code": 0,
+    "seconds": 1.5425913749995743,
+    "bytes": 337986
+  },
+  {
+    "name": "fetcher-importers",
+    "command": "trace-application-feature",
+    "exit_code": 0,
+    "elapsed_seconds": 1.53024354199988,
+    "input": "commonjs-analysis.json.gz",
+    "selection": {
+      "seed": {
+        "kind": "module",
+        "value": "src/api/fetcher.js",
+        "match": "exact"
+      },
+      "direction": "incoming"
+    }
+  },
+  {
+    "name": "observer-callers",
+    "command": "trace-javascript-semantics",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4982093750004424,
+    "input": "commonjs-analysis.json.gz",
+    "selection": {
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_c4c849970fd0d8d3d9f70a35006ddd19b5bbbca36009e345945d04aa4c8c3e4f"
+        },
+        "direction": "callers"
+      }
+    }
+  },
+  {
+    "name": "fetch-next-page",
+    "command": "trace-javascript-semantics",
+    "exit_code": 0,
+    "elapsed_seconds": 1.533878041999742,
+    "input": "commonjs-analysis.json.gz",
+    "selection": {
+      "query": {
+        "seed": {
+          "kind": "property",
+          "name": "fetchNextPage"
+        },
+        "direction": "forward-influence"
+      }
+    }
+  }
+]

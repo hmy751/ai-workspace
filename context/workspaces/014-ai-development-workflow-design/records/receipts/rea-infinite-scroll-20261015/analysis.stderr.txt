@@ -1,0 +1,62 @@
+{"rea_progress":{"phase":"analyze_javascript_application","completed":0,"total":1,"message":"Inventorying and parsing application artifacts","sequence":1}}
+{"rea_progress":{"phase":"read_javascript_artifacts","completed":0,"total":1,"message":"Reading inventoried JavaScript application sources","sequence":2}}
+{"rea_progress":{"phase":"parse_javascript_sources","completed":0,"total":1,"message":"Parsing and projecting 49 selected application source files","sequence":3}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting package.json (1/49)","sequence":4}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/App.tsx (2/49)","sequence":5}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/api/fetcher.ts (3/49)","sequence":6}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Avatar/index.stories.tsx (4/49)","sequence":7}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Avatar/index.tsx (5/49)","sequence":8}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Button/index.stories.tsx (6/49)","sequence":9}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Button/index.tsx (7/49)","sequence":10}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Card/index.stories.tsx (8/49)","sequence":11}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Card/index.tsx (9/49)","sequence":12}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Checkbox/index.stories.tsx (10/49)","sequence":13}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Checkbox/index.tsx (11/49)","sequence":14}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dialog/index.stories.tsx (12/49)","sequence":15}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dialog/index.tsx (13/49)","sequence":16}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dropdown/index.stories.tsx (14/49)","sequence":17}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dropdown/index.tsx (15/49)","sequence":18}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/FormSection/Field/index.stories.tsx (16/49)","sequence":19}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/FormSection/Field/index.tsx (17/49)","sequence":20}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/FormSection/index.stories.tsx (18/49)","sequence":21}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Grid/index.stories.tsx (19/49)","sequence":22}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Grid/index.tsx (20/49)","sequence":23}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/ImageBox/index.stories.tsx (21/49)","sequence":24}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/ImageBox/index.tsx (22/49)","sequence":25}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/InfiniteScrollContainer/index.stories.tsx (23/49)","sequence":26}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/InfiniteScrollContainer/index.tsx (24/49)","sequence":27}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Input/index.stories.tsx (25/49)","sequence":28}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Input/index.tsx (26/49)","sequence":29}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/MultiSelect/index.stories.tsx (27/49)","sequence":30}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/MultiSelect/index.tsx (28/49)","sequence":31}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Portal.tsx (29/49)","sequence":32}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/RadioGroup/index.stories.tsx (30/49)","sequence":33}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/RadioGroup/index.tsx (31/49)","sequence":34}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Select/index.stories.tsx (32/49)","sequence":35}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Select/index.tsx (33/49)","sequence":36}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Skeleton/index.tsx (34/49)","sequence":37}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Spinner/index.stories.tsx (35/49)","sequence":38}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Spinner/index.tsx (36/49)","sequence":39}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Text/index.stories.tsx (37/49)","sequence":40}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Text/index.tsx (38/49)","sequence":41}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Toast/index.stories.tsx (39/49)","sequence":42}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Toast/index.tsx (40/49)","sequence":43}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/global.d.ts (41/49)","sequence":44}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/hooks/useClickOutsideEffect.ts (42/49)","sequence":45}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/hooks/useFloatingPosition.ts (43/49)","sequence":46}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/hooks/useInfiniteScrollObserver.ts (44/49)","sequence":47}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/index.tsx (45/49)","sequence":48}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/store/useAlertDialogStore.ts (46/49)","sequence":49}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/store/useConfirmDialogStore.ts (47/49)","sequence":50}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/store/useToastStore.ts (48/49)","sequence":51}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting tsconfig.json (49/49)","sequence":52}}
+{"rea_progress":{"phase":"build_javascript_application_graph","completed":0,"total":1,"message":"Constructing application and Electron boundary relationships","sequence":53}}
+{"rea_progress":{"phase":"seal_javascript_application_graph","completed":0,"total":1,"message":"Sealing the validated application graph","sequence":54}}
+{"rea_progress":{"phase":"build_javascript_semantic_graph","completed":0,"total":1,"message":"Binding and validating static semantic relationships","sequence":55}}
+{"rea_progress":{"phase":"seal_javascript_semantic_graph","completed":0,"total":1,"message":"Validating and sealing the semantic graph","sequence":56}}
+{"rea_progress":{"phase":"validate_javascript_application_result","completed":0,"total":1,"message":"Validating result metadata and cross-graph bindings","sequence":57}}
+{"rea_progress":{"phase":"create_javascript_application_evidence","completed":0,"total":1,"message":"Creating and hashing application analysis Evidence","sequence":58}}
+{"rea_progress":{"phase":"seal_javascript_application_result","completed":0,"total":1,"message":"Sealing the complete application analysis result","sequence":59}}
+{"rea_progress":{"phase":"validate_javascript_application_evidence","completed":0,"total":1,"message":"Validating the immutable application Evidence JSON","sequence":60}}
+{"rea_progress":{"phase":"hash_javascript_application_evidence","completed":0,"total":1,"message":"Hashing the complete application analysis Evidence","sequence":61}}
+{"rea_progress":{"phase":"analyze_javascript_application","completed":1,"total":1,"message":"Application graph and Electron boundaries reconstructed","terminal":true,"sequence":62}}

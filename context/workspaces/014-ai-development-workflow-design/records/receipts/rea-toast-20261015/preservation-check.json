@@ -1,0 +1,74 @@
+{
+  "checked_at": "2026-10-15T07:33:29.099483+00:00",
+  "checks": [
+    {
+      "path": "package.json",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "tsconfig.json",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/store/useToastStore.ts",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/component/Toast/index.tsx",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/component/Toast/index.stories.tsx",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/component/Toast/index.module.css",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/component/Text/index.tsx",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/component/Text/index.module.css",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/component/Button/index.tsx",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/component/Button/index.module.css",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/component/Spinner/index.tsx",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "path": "src/component/Spinner/index.module.css",
+      "snapshot_matches": true,
+      "original_matches": true
+    },
+    {
+      "freeze": "direct-freeze",
+      "matches": true
+    },
+    {
+      "freeze": "rea-context-freeze",
+      "matches": true
+    }
+  ],
+  "original_git_status": "?? doc/FORM_IMPLEMENTATION_GUIDE.md\n?? doc/react-query/\n"
+}

@@ -1,0 +1,64 @@
+.grid {
+  display: grid;
+  gap: var(--grid-gap, 24px);
+}
+
+/* 1. columns prop이 없을 때: auto-fill 방식 */
+.autoFillColumns {
+  /* --grid-min-child-width 변수가 없으면 280px을 기본값으로 사용 */
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-child-width, 280px), 1fr));
+}
+
+/* 2. columns prop이 있을 때: 명시적 제어 방식 */
+.explicitColumns {
+  /* 기본 컬럼 수 (base) */
+  grid-template-columns: repeat(var(--grid-columns-base, var(--grid-columns, 1)), 1fr);
+}
+
+/* --- Breakpoints --- */
+/* sm: 640px 이상 */
+@media (min-width: 640px) {
+  .explicitColumns {
+    /* --grid-columns-sm 변수가 있으면 적용, 없으면 이전 값 유지 */
+    grid-template-columns: repeat(var(--grid-columns-sm, var(--grid-columns-base, var(--grid-columns, 1))), 1fr);
+  }
+}
+
+/* md: 768px 이상 */
+@media (min-width: 768px) {
+  .explicitColumns {
+    grid-template-columns: repeat(
+      var(--grid-columns-md, var(--grid-columns-sm, var(--grid-columns-base, var(--grid-columns, 1)))),
+      1fr
+    );
+  }
+}
+
+/* lg: 1024px 이상 */
+@media (min-width: 1024px) {
+  .explicitColumns {
+    grid-template-columns: repeat(
+      var(
+        --grid-columns-lg,
+        var(--grid-columns-md, var(--grid-columns-sm, var(--grid-columns-base, var(--grid-columns, 1))))
+      ),
+      1fr
+    );
+  }
+}
+
+/* xl: 1280px 이상 */
+@media (min-width: 1280px) {
+  .explicitColumns {
+    grid-template-columns: repeat(
+      var(
+        --grid-columns-xl,
+        var(
+          --grid-columns-lg,
+          var(--grid-columns-md, var(--grid-columns-sm, var(--grid-columns-base, var(--grid-columns, 1))))
+        )
+      ),
+      1fr
+    );
+  }
+}

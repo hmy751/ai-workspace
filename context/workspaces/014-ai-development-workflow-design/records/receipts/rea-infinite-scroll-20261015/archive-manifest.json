@@ -1,0 +1,26 @@
+[
+  {
+    "file": "emitted-analysis.json.gz",
+    "uncompressed_bytes": 19252891,
+    "uncompressed_sha256": "9f670f645cb9d36987f14300b3cbeb767a9bf53eb667d9a931773e35b48221a7",
+    "compressed_bytes": 3554608
+  },
+  {
+    "file": "commonjs-analysis.json.gz",
+    "uncompressed_bytes": 23140764,
+    "uncompressed_sha256": "1c9250e9132a05475310421c2ad54e56243c65ac5310b2cbc561737ba25b472d",
+    "compressed_bytes": 4294679
+  },
+  {
+    "file": "analysis.json.gz",
+    "uncompressed_bytes": 14185696,
+    "uncompressed_sha256": "20131e80759efcf3f0f8137306579a1b07e3e9820efee5f7f659e59308eb2e7b",
+    "compressed_bytes": 2533804
+  },
+  {
+    "file": "entry-both.json.gz",
+    "uncompressed_bytes": 2231144,
+    "uncompressed_sha256": "0d5a563ae5c31d50381b6e21c90baa362f876c39ff3af6dd1558be93cb60b22c",
+    "compressed_bytes": 206024
+  }
+]

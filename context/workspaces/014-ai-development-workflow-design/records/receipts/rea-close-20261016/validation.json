@@ -1,0 +1,22 @@
+{
+  "checked_at_kst": "2026-10-16T15:30:59.091207+09:00",
+  "scope": "참고 조사 문구·연결·보존 검사; 제품 동작 재실행 없음",
+  "reference_status": "조사 자료만 보존; 정식 도입·운영 기준·Ticket 진행 미반영",
+  "input_snapshot_hashes_verified": 87,
+  "frozen_draft_hashes_verified": 4,
+  "generated_snapshot_hashes_verified": 240,
+  "compressed_archives_verified": 4,
+  "markdown_files_checked": 19,
+  "local_links_checked": 255,
+  "active_rea_routing_removed": true,
+  "unrelated_spec_and_ticket_index_unchanged": true,
+  "existing_runtime_receipts": "두 실험의 기존 passed 결과 보존; 이번에 재실행하지 않음",
+  "working_tree_diff_check": "passed",
+  "staged_scope": "REA 조사 자료와 records 색인·current/state 종료 메모만 포함; 35~42·45와 기존 설계 변경 제외",
+  "staged_files": 415,
+  "staged_authored_markdown_files": 14,
+  "staged_local_links_verified": 117,
+  "staged_input_snapshot_hashes_verified": 87,
+  "staged_authored_diff_check": "passed",
+  "staged_snapshot_whitespace": "원본·변환 사본의 기존 trailing whitespace 8곳은 hash 보존을 위해 유지; 새 문서·스크립트에는 없음"
+}

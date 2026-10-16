@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-15T08:09:00.287694+00:00",
+  "source_files_unchanged": 75,
+  "source_git_status_unchanged": true,
+  "frozen_drafts_unchanged": 2,
+  "supplemental_source_unchanged": true,
+  "compressed_archives_verified": 4,
+  "runtime_scenarios_passed": 4,
+  "commonjs_query_replayed_same_evidence_id": true,
+  "related_markdown_files_checked": 13,
+  "local_links_checked": 245,
+  "git_diff_check": "passed",
+  "source_modules_discovered": [
+    "src/api/fetcher.js",
+    "src/component/Card/index.js",
+    "src/component/Grid/index.js",
+    "src/component/ImageBox/index.js",
+    "src/component/InfiniteScrollContainer/index.js",
+    "src/component/InfiniteScrollContainer/index.stories.js",
+    "src/component/Skeleton/index.js",
+    "src/hooks/useInfiniteScrollObserver.js"
+  ],
+  "limits": "Not independent A/B; no real browser geometry/backend/visual acceptance; no production build equivalence."
+}

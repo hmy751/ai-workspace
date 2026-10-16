@@ -1,0 +1,107 @@
+{"rea_progress":{"phase":"analyze_javascript_application","completed":0,"total":1,"message":"Inventorying and parsing application artifacts","sequence":1}}
+{"rea_progress":{"phase":"read_javascript_artifacts","completed":0,"total":1,"message":"Reading inventoried JavaScript application sources","sequence":2}}
+{"rea_progress":{"phase":"parse_javascript_sources","completed":0,"total":1,"message":"Parsing and projecting 94 selected application source files","sequence":3}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting package.json (1/94)","sequence":4}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/App.js (2/94)","sequence":5}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/App.js.map (3/94)","sequence":6}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/api/fetcher.js (4/94)","sequence":7}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/api/fetcher.js.map (5/94)","sequence":8}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Avatar/index.js (6/94)","sequence":9}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Avatar/index.js.map (7/94)","sequence":10}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Avatar/index.stories.js (8/94)","sequence":11}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Avatar/index.stories.js.map (9/94)","sequence":12}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Button/index.js (10/94)","sequence":13}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Button/index.js.map (11/94)","sequence":14}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Button/index.stories.js (12/94)","sequence":15}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Button/index.stories.js.map (13/94)","sequence":16}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Card/index.js (14/94)","sequence":17}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Card/index.js.map (15/94)","sequence":18}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Card/index.stories.js (16/94)","sequence":19}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Card/index.stories.js.map (17/94)","sequence":20}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Checkbox/index.js (18/94)","sequence":21}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Checkbox/index.js.map (19/94)","sequence":22}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Checkbox/index.stories.js (20/94)","sequence":23}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Checkbox/index.stories.js.map (21/94)","sequence":24}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dialog/index.js (22/94)","sequence":25}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dialog/index.js.map (23/94)","sequence":26}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dialog/index.stories.js (24/94)","sequence":27}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dialog/index.stories.js.map (25/94)","sequence":28}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dropdown/index.js (26/94)","sequence":29}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dropdown/index.js.map (27/94)","sequence":30}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dropdown/index.stories.js (28/94)","sequence":31}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Dropdown/index.stories.js.map (29/94)","sequence":32}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/FormSection/Field/index.js (30/94)","sequence":33}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/FormSection/Field/index.js.map (31/94)","sequence":34}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/FormSection/Field/index.stories.js (32/94)","sequence":35}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/FormSection/Field/index.stories.js.map (33/94)","sequence":36}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/FormSection/index.stories.js (34/94)","sequence":37}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/FormSection/index.stories.js.map (35/94)","sequence":38}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Grid/index.js (36/94)","sequence":39}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Grid/index.js.map (37/94)","sequence":40}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Grid/index.stories.js (38/94)","sequence":41}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Grid/index.stories.js.map (39/94)","sequence":42}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/ImageBox/index.js (40/94)","sequence":43}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/ImageBox/index.js.map (41/94)","sequence":44}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/ImageBox/index.stories.js (42/94)","sequence":45}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/ImageBox/index.stories.js.map (43/94)","sequence":46}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/InfiniteScrollContainer/index.js (44/94)","sequence":47}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/InfiniteScrollContainer/index.js.map (45/94)","sequence":48}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/InfiniteScrollContainer/index.stories.js (46/94)","sequence":49}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/InfiniteScrollContainer/index.stories.js.map (47/94)","sequence":50}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Input/index.js (48/94)","sequence":51}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Input/index.js.map (49/94)","sequence":52}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Input/index.stories.js (50/94)","sequence":53}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Input/index.stories.js.map (51/94)","sequence":54}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/MultiSelect/index.js (52/94)","sequence":55}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/MultiSelect/index.js.map (53/94)","sequence":56}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/MultiSelect/index.stories.js (54/94)","sequence":57}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/MultiSelect/index.stories.js.map (55/94)","sequence":58}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Portal.js (56/94)","sequence":59}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Portal.js.map (57/94)","sequence":60}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/RadioGroup/index.js (58/94)","sequence":61}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/RadioGroup/index.js.map (59/94)","sequence":62}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/RadioGroup/index.stories.js (60/94)","sequence":63}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/RadioGroup/index.stories.js.map (61/94)","sequence":64}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Select/index.js (62/94)","sequence":65}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Select/index.js.map (63/94)","sequence":66}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Select/index.stories.js (64/94)","sequence":67}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Select/index.stories.js.map (65/94)","sequence":68}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Skeleton/index.js (66/94)","sequence":69}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Skeleton/index.js.map (67/94)","sequence":70}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Spinner/index.js (68/94)","sequence":71}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Spinner/index.js.map (69/94)","sequence":72}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Spinner/index.stories.js (70/94)","sequence":73}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Spinner/index.stories.js.map (71/94)","sequence":74}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Text/index.js (72/94)","sequence":75}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Text/index.js.map (73/94)","sequence":76}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Text/index.stories.js (74/94)","sequence":77}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Text/index.stories.js.map (75/94)","sequence":78}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Toast/index.js (76/94)","sequence":79}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Toast/index.js.map (77/94)","sequence":80}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Toast/index.stories.js (78/94)","sequence":81}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/component/Toast/index.stories.js.map (79/94)","sequence":82}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/hooks/useClickOutsideEffect.js (80/94)","sequence":83}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/hooks/useClickOutsideEffect.js.map (81/94)","sequence":84}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/hooks/useFloatingPosition.js (82/94)","sequence":85}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/hooks/useFloatingPosition.js.map (83/94)","sequence":86}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/hooks/useInfiniteScrollObserver.js (84/94)","sequence":87}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/hooks/useInfiniteScrollObserver.js.map (85/94)","sequence":88}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/index.js (86/94)","sequence":89}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/index.js.map (87/94)","sequence":90}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/store/useAlertDialogStore.js (88/94)","sequence":91}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/store/useAlertDialogStore.js.map (89/94)","sequence":92}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/store/useConfirmDialogStore.js (90/94)","sequence":93}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/store/useConfirmDialogStore.js.map (91/94)","sequence":94}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/store/useToastStore.js (92/94)","sequence":95}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting src/store/useToastStore.js.map (93/94)","sequence":96}}
+{"rea_progress":{"phase":"parse_javascript_source","completed":0,"total":1,"message":"Parsing and projecting tsconfig.json (94/94)","sequence":97}}
+{"rea_progress":{"phase":"build_javascript_application_graph","completed":0,"total":1,"message":"Constructing application and Electron boundary relationships","sequence":98}}
+{"rea_progress":{"phase":"seal_javascript_application_graph","completed":0,"total":1,"message":"Sealing the validated application graph","sequence":99}}
+{"rea_progress":{"phase":"build_javascript_semantic_graph","completed":0,"total":1,"message":"Binding and validating static semantic relationships","sequence":100}}
+{"rea_progress":{"phase":"seal_javascript_semantic_graph","completed":0,"total":1,"message":"Validating and sealing the semantic graph","sequence":101}}
+{"rea_progress":{"phase":"validate_javascript_application_result","completed":0,"total":1,"message":"Validating result metadata and cross-graph bindings","sequence":102}}
+{"rea_progress":{"phase":"create_javascript_application_evidence","completed":0,"total":1,"message":"Creating and hashing application analysis Evidence","sequence":103}}
+{"rea_progress":{"phase":"seal_javascript_application_result","completed":0,"total":1,"message":"Sealing the complete application analysis result","sequence":104}}
+{"rea_progress":{"phase":"validate_javascript_application_evidence","completed":0,"total":1,"message":"Validating the immutable application Evidence JSON","sequence":105}}
+{"rea_progress":{"phase":"hash_javascript_application_evidence","completed":0,"total":1,"message":"Hashing the complete application analysis Evidence","sequence":106}}
+{"rea_progress":{"phase":"analyze_javascript_application","completed":1,"total":1,"message":"Application graph and Electron boundaries reconstructed","terminal":true,"sequence":107}}

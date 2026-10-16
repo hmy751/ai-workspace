@@ -58,3 +58,11 @@
 - [34 다음 세션 재진입 준비](2026-10-13-34-session-reentry-handoff.md): 전체 Spec·01-02의 흐름과 뉘앙스를 보존한 문서 정리, 실제 상태·권한·다음 행동과 확인 범위.
 
 이전 대화의 보존 범위는 [대화 사본](../source/discussion/conversation.md)과 [자료 안내](../source/README.md)에서 확인한다. 그 뒤 설계 논의의 선택·정정에 필요한 발화는 기록 12~18에 직접 인용했으며, 최신 대화 전체를 source에 다시 저장한 것은 아니다. 다음 해석이 바뀌면 당시 기록을 현재 결론으로 덮어쓰지 않고 새 기록과 current에 이어 준다.
+
+## 참고 조사 — REA
+
+정식 도입·설계 기준·Ticket 진행으로 반영하지 않은 조사 자료다. 필요할 때 [마무리 기록 46](2026-10-16-46-rea-reference-research-close.md)에서 판단과 한계를 확인한다.
+
+- [43 Toast 비교](2026-10-15-43-rea-toast-context-comparison.md): 작은 소스에서 직접 분석·REA 조회·제한된 실행 검사를 대조한 당시 기록.
+- [44 무한 스크롤 비교](2026-10-15-44-rea-infinite-scroll-context-comparison.md): 전체 src에서 관련 파일 탐색과 동작 해석·검사의 기여를 구별한 당시 기록.
+- [실험 자료 안내](experiments/README.md): 입력 사본·고정 초안·컨텍스트 예시·재현 코드의 성격과 읽는 경로.

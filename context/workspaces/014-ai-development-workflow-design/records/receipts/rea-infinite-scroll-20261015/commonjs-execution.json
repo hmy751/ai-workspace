@@ -1,0 +1,13 @@
+{
+  "command": [
+    "node",
+    "/tmp/rea-toast-tools/node_modules/rea-agents/scripts/rea.mjs",
+    "analyze-javascript-application",
+    "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/rea-infinite-scroll-20261015/commonjs",
+    "--format",
+    "json"
+  ],
+  "seconds": 4.088925791999827,
+  "exit_code": 0,
+  "bytes": 23140764
+}

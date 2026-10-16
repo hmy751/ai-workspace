@@ -1,0 +1,43 @@
+@import "./variables.css";
+@import "./reset.css";
+
+html,
+body {
+  width: 100%;
+  line-height: 1.5;
+  background-color: var(--color-background-base);
+  color: var(--color-text-primary);
+}
+
+/**
+* 전체 레이아웃 스타일
+*/
+.page-layout-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--layout-container-max);
+
+  @media (max-width: 767px) {
+    padding: 0 var(--space-4);
+  }
+}
+
+/**
+ * 스크린 리더 사용자에게는 내용을 제공하되, 시각적으로는 숨기는 클래스
+ * (참고: legend, caption 등에 선택적으로 적용 가능)
+ * tailwind에 sr-only 참고
+ */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important; /* 화면 밖으로 약간 밀어냄 */
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important; /* 줄바꿈 방지 */
+  border: 0 !important;
+}

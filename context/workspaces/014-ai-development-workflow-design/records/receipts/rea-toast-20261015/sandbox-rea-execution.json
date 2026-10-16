@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "/tmp/rea-toast-tools/node_modules/rea-agents/scripts/rea.mjs",
+    "analyze-javascript-application",
+    "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/rea-toast-20261015/input",
+    "--format",
+    "json"
+  ],
+  "exit_code": 1,
+  "seconds": 2.775459542000135,
+  "output_bytes": 130161,
+  "finished_at": "2026-10-15T07:22:31.713345+00:00"
+}

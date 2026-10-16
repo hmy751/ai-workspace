@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-10-15T07:34:55.001191+00:00",
+  "markdown_files": 11,
+  "local_links": 190,
+  "missing": [],
+  "receipt_json_files": 20,
+  "syntax_checks": "Python AST and node --check passed",
+  "git_diff_check": "passed",
+  "replay": {
+    "analysis_same_evidence_id": true,
+    "queries": [
+      {
+        "name": "summary",
+        "same_evidence_id": true
+      },
+      {
+        "name": "feature-store",
+        "same_evidence_id": true
+      },
+      {
+        "name": "timer-ownership",
+        "same_evidence_id": true
+      },
+      {
+        "name": "removeToast-provenance",
+        "same_evidence_id": true
+      },
+      {
+        "name": "duration-influence",
+        "same_evidence_id": true
+      },
+      {
+        "name": "timer-provenance",
+        "same_evidence_id": true
+      },
+      {
+        "name": "duration-parameter-influence",
+        "same_evidence_id": true
+      },
+      {
+        "name": "addToast-argument-influence",
+        "same_evidence_id": true
+      }
+    ]
+  }
+}

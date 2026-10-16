@@ -1,0 +1,68 @@
+{
+  "captured_at": "2026-10-15T07:20:13.858961+00:00",
+  "source_root": "/Users/hammyeong-yeon/Desktop/20_lab/template",
+  "source_head": "8a200e050debc355150b9a67f68b140214197f7f",
+  "scope": "Toast slice with local UI dependencies, not whole repository",
+  "files": [
+    {
+      "path": "package.json",
+      "bytes": 1441,
+      "sha256": "a36be25dab6e692dba20a8eaf7bef78f310f0c9074a68ee79cf03213116aadb9"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 544,
+      "sha256": "453a07f4e0cd99ad6df190f5f4be66246eba2a43faceaa793f53654d9279df9c"
+    },
+    {
+      "path": "src/store/useToastStore.ts",
+      "bytes": 714,
+      "sha256": "787319898103791ffc1a68477d1593758773e5ea75593eb7accf36f568ea7983"
+    },
+    {
+      "path": "src/component/Toast/index.tsx",
+      "bytes": 1285,
+      "sha256": "95e469a1df0c9abe2c3b548d602682d3e4ee7953da0c76741b81f151ecb89da7"
+    },
+    {
+      "path": "src/component/Toast/index.stories.tsx",
+      "bytes": 813,
+      "sha256": "d56d45a61db0ccf3aaf29de1127def305afb5e6c556fb789953d9e1500a6ab91"
+    },
+    {
+      "path": "src/component/Toast/index.module.css",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/component/Text/index.tsx",
+      "bytes": 1486,
+      "sha256": "0f481573ab4378d14da67bb015e16c0f9196ab38d9fb236668eaa9693a1d9377"
+    },
+    {
+      "path": "src/component/Text/index.module.css",
+      "bytes": 1489,
+      "sha256": "e7236587f3b898d812aa4bddacc1e126754cc5e8ec413cf19d3c3f76caf22a3f"
+    },
+    {
+      "path": "src/component/Button/index.tsx",
+      "bytes": 1148,
+      "sha256": "f59b4236fc8326dba894a1d0039230166e5cde423873ae213f721a596aa454a0"
+    },
+    {
+      "path": "src/component/Button/index.module.css",
+      "bytes": 1476,
+      "sha256": "856dc8c04b4ba0050432478a1fa1773b8db86cbbb6ef73d21ccd701110954109"
+    },
+    {
+      "path": "src/component/Spinner/index.tsx",
+      "bytes": 501,
+      "sha256": "e81a1ad143310376ba26515cead70597e09fba9c97c3bdf0b1a7a4c4ee43547a"
+    },
+    {
+      "path": "src/component/Spinner/index.module.css",
+      "bytes": 356,
+      "sha256": "646475f0e681c9154ce46c3eb6f0ae201aa326f37df488dbc9b00d7afdbf7080"
+    }
+  ]
+}

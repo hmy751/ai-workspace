@@ -1,0 +1,161 @@
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.trigger {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 50px;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  background-color: var(--color-base-white);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trigger:focus-visible {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem
+    color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.trigger.isError {
+  border-color: var(--color-error);
+}
+
+.trigger.isError:focus-visible {
+  box-shadow: 0 0 0 0.2rem
+    color-mix(in srgb, var(--color-error) 25%, transparent);
+}
+
+.trigger:disabled {
+  background-color: var(--color-gray-100);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  border-color: var(--color-gray-200);
+}
+
+.triggerValueWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  flex-grow: 1;
+  padding: var(--space-1) 0;
+}
+
+.placeholder {
+  color: var(--color-text-secondary);
+  padding: 2px var(--space-2);
+  line-height: 1.5;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-primary);
+  color: var(--color-base-white);
+  border-radius: var(--radius-sm);
+  padding: 2px var(--space-2);
+  font-size: var(--font-sm);
+  line-height: 1.5;
+}
+
+.tagRemoveButton {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: var(--space-1);
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tagRemoveButton:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.arrow {
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0;
+  margin-left: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-base-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-1);
+  list-style: none;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: var(--z-dropdown);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+.item:hover,
+.item:focus {
+  background-color: var(--color-gray-100);
+}
+
+.item.selected {
+  background-color: transparent;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+}
+
+.itemCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1em;
+  height: 1.1em;
+  border: 1.5px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.item:hover .itemCheckbox {
+  border-color: var(--color-gray-400);
+}
+
+.item.selected .itemCheckbox {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-base-white);
+}
+
+.itemCheckmark {
+  font-size: 0.9em;
+  line-height: 1;
+}

@@ -1,0 +1,151 @@
+:root {
+  /* =================================
+     1. Colors
+     ================================= */
+  /* Base Colors */
+  --color-base-white: #ffffff;
+  --color-base-black: #000000;
+
+  /* Brand Colors */
+  --color-primary: #228b22;
+  --color-secondary: #f5f5dc;
+  --color-neutral: #34495e;
+  --color-muted: #94a3b8;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Status Colors */
+  --color-success: #27ae60;
+  --color-warning: #f2c94c;
+  --color-error: #eb5757;
+  --color-info: #2d9cdb;
+
+  /* Text Colors */
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+  --color-text-disabled: #999999;
+
+  /* Gray Scale */
+  --color-gray-50: #f7fafc;
+  --color-gray-100: #edf2f7;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+
+  --color-background-base: #fafafa;
+
+  /* =================================
+     2. Layout & Spacing
+     ================================= */
+  /* Layout */
+  --layout-container-max: 726px;
+  --layout-header-height: 64px;
+  --layout-page-top-padding: 32px;
+  --layout-page-bottom-padding: 32px;
+
+  --layout-header-height-mobile: 48px;
+  --layout-page-top-padding-mobile: 16px;
+  --layout-page-bottom-padding-mobile: 16px;
+
+  /* Spacing */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+
+  /* =================================
+     3. Typography
+     ================================= */
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-2xl: 2rem;
+  --font-3xl: 2.5rem;
+
+  /* Font Weight */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* =================================
+     4. Effects & Interactions
+     ================================= */
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* =================================
+     Hover Effects Guide
+     
+     기본 사용법:
+     .element {
+       transition: var(--transition-base);
+     }
+
+     .element:hover {
+       // 밝게
+       filter: brightness(var(--hover-brightness));
+       box-shadow: var(--hover-shadow);
+   
+       // 어둡게
+       filter: brightness(var(--hover-darken));
+       box-shadow: var(--hover-shadow);
+     }
+     ================================= */
+  /* Hover Effects */
+  --hover-brightness: 1.1;
+  --hover-darken: 0.95;
+  --hover-shadow: var(--shadow-md);
+
+  /* Transitions */
+  --transition-base: all 0.3s ease;
+
+  /* =================================
+     5. Borders & Radius
+     ================================= */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 50%;
+
+  /* =================================
+     6. Z-index
+     ================================= */
+  --z-dialog: 1000;
+  --z-toast: 9999;
+  --z-overlay: 900;
+  --z-dropdown: 900;
+  --z-header: 100;
+}
+
+/* =================================
+   7. Focus Visible Utilities
+   ================================= */
+
+/* 기본 포커스 스타일 유틸리티 */
+.global-focus-visible-default:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem
+    color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+/* 에러 상태 포커스 스타일 유틸리티 */
+.global-focus-visible-error:focus-visible {
+  outline: none;
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 0.2rem
+    color-mix(in srgb, var(--color-error) 25%, transparent);
+}

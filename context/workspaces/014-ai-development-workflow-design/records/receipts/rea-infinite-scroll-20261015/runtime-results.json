@@ -1,0 +1,253 @@
+{
+  "recorded_at": "2026-10-15T08:01:25.836Z",
+  "node": "v24.16.0",
+  "versions": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "@tanstack/react-query": "5.80.6",
+    "typescript": "5.8.3",
+    "jsdom": "26.1.0",
+    "@sinonjs/fake-timers": "15.0.0"
+  },
+  "scope": "Original TS/TSX snapshot transpiled in memory; actual React/React Query; default QueryClient; mocked fetch and IntersectionObserver; JSDOM, fake timers, CSS stub. No real browser geometry, backend, visual acceptance or production build.",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "first-next-short-page-and-pending-guard",
+      "passed": true,
+      "checkpoints": [
+        {
+          "label": "initial pending",
+          "time_ms": 0,
+          "requests": [
+            {
+              "url": "https://dummyjson.com/products?skip=0&limit=20",
+              "aborted": false,
+              "settled": false
+            }
+          ],
+          "displayed_products": 0,
+          "text": "Our ProductsLoading products...",
+          "query_status": "pending",
+          "fetch_status": "fetching",
+          "cached_products": 0,
+          "active_observers": 0
+        },
+        {
+          "label": "first page",
+          "time_ms": 5,
+          "requests": [
+            {
+              "url": "https://dummyjson.com/products?skip=0&limit=20",
+              "aborted": false,
+              "settled": true
+            }
+          ],
+          "displayed_products": 20,
+          "text": "Our ProductsProduct 1100Product 2200Product 3300Product 4400Product 5500Product 6600Product 7700Product 8800Product 9900Product 101000Product 111100Product 121200Product 131300Product 141400Product 151500Product 161600Product 171700Product 181800Product 191900Product 202000",
+          "query_status": "success",
+          "fetch_status": "idle",
+          "cached_products": 20,
+          "active_observers": 1
+        },
+        {
+          "label": "repeat after pending render is suppressed",
+          "time_ms": 15,
+          "requests": [
+            {
+              "url": "https://dummyjson.com/products?skip=0&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": false
+            }
+          ],
+          "displayed_products": 20,
+          "text": "Our ProductsProduct 1100Product 2200Product 3300Product 4400Product 5500Product 6600Product 7700Product 8800Product 9900Product 101000Product 111100Product 121200Product 131300Product 141400Product 151500Product 161600Product 171700Product 181800Product 191900Product 202000Loading products...",
+          "query_status": "success",
+          "fetch_status": "fetching",
+          "cached_products": 20,
+          "active_observers": 1
+        },
+        {
+          "label": "short page ends",
+          "time_ms": 20,
+          "requests": [
+            {
+              "url": "https://dummyjson.com/products?skip=0&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": true
+            }
+          ],
+          "displayed_products": 25,
+          "text": "Our ProductsProduct 1100Product 2200Product 3300Product 4400Product 5500Product 6600Product 7700Product 8800Product 9900Product 101000Product 111100Product 121200Product 131300Product 141400Product 151500Product 161600Product 171700Product 181800Product 191900Product 202000Product 212100Product 222200Product 232300Product 242400Product 252500모든 상품을 둘러보셨습니다!",
+          "query_status": "success",
+          "fetch_status": "idle",
+          "cached_products": 25,
+          "active_observers": 0
+        }
+      ]
+    },
+    {
+      "name": "next-page-error-after-default-retries",
+      "passed": true,
+      "checkpoints": [
+        {
+          "label": "next page failure starts retry",
+          "time_ms": 10,
+          "requests": [
+            {
+              "url": "https://dummyjson.com/products?skip=0&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": true
+            }
+          ],
+          "displayed_products": 20,
+          "text": "Our ProductsProduct 1100Product 2200Product 3300Product 4400Product 5500Product 6600Product 7700Product 8800Product 9900Product 101000Product 111100Product 121200Product 131300Product 141400Product 151500Product 161600Product 171700Product 181800Product 191900Product 202000Loading products...",
+          "query_status": "success",
+          "fetch_status": "fetching",
+          "cached_products": 20,
+          "active_observers": 1
+        },
+        {
+          "label": "retries exhausted",
+          "time_ms": 7115,
+          "requests": [
+            {
+              "url": "https://dummyjson.com/products?skip=0&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": true
+            }
+          ],
+          "displayed_products": 0,
+          "text": "Our ProductsAn error occurred while fetching data.",
+          "query_status": "error",
+          "fetch_status": "idle",
+          "cached_products": 20,
+          "active_observers": 0
+        }
+      ]
+    },
+    {
+      "name": "two-observer-callbacks-before-react-rerender",
+      "passed": true,
+      "checkpoints": [
+        {
+          "label": "two callbacks in same act",
+          "time_ms": 10,
+          "requests": [
+            {
+              "url": "https://dummyjson.com/products?skip=0&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": false
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": false
+            }
+          ],
+          "displayed_products": 20,
+          "text": "Our ProductsProduct 1100Product 2200Product 3300Product 4400Product 5500Product 6600Product 7700Product 8800Product 9900Product 101000Product 111100Product 121200Product 131300Product 141400Product 151500Product 161600Product 171700Product 181800Product 191900Product 202000Loading products...",
+          "query_status": "success",
+          "fetch_status": "fetching",
+          "cached_products": 20,
+          "active_observers": 1
+        },
+        {
+          "label": "latest result shown without duplicate items",
+          "time_ms": 15,
+          "requests": [
+            {
+              "url": "https://dummyjson.com/products?skip=0&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": true
+            }
+          ],
+          "displayed_products": 25,
+          "text": "Our ProductsProduct 1100Product 2200Product 3300Product 4400Product 5500Product 6600Product 7700Product 8800Product 9900Product 101000Product 111100Product 121200Product 131300Product 141400Product 151500Product 161600Product 171700Product 181800Product 191900Product 202000Product 212100Product 222200Product 232300Product 242400Product 252500모든 상품을 둘러보셨습니다!",
+          "query_status": "success",
+          "fetch_status": "idle",
+          "cached_products": 25,
+          "active_observers": 0
+        }
+      ]
+    },
+    {
+      "name": "exact-page-size-needs-empty-followup",
+      "passed": true,
+      "checkpoints": [
+        {
+          "label": "empty followup ends after full first page",
+          "time_ms": 15,
+          "requests": [
+            {
+              "url": "https://dummyjson.com/products?skip=0&limit=20",
+              "aborted": false,
+              "settled": true
+            },
+            {
+              "url": "https://dummyjson.com/products?skip=20&limit=20",
+              "aborted": false,
+              "settled": true
+            }
+          ],
+          "displayed_products": 20,
+          "text": "Our ProductsProduct 1100Product 2200Product 3300Product 4400Product 5500Product 6600Product 7700Product 8800Product 9900Product 101000Product 111100Product 121200Product 131300Product 141400Product 151500Product 161600Product 171700Product 181800Product 191900Product 202000모든 상품을 둘러보셨습니다!",
+          "query_status": "success",
+          "fetch_status": "idle",
+          "cached_products": 20,
+          "active_observers": 0
+        }
+      ]
+    }
+  ]
+}

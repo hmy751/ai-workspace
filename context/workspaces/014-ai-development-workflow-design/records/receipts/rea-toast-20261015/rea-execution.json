@@ -1,0 +1,15 @@
+{
+  "command": [
+    "node",
+    "/tmp/rea-toast-tools/node_modules/rea-agents/scripts/rea.mjs",
+    "analyze-javascript-application",
+    "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/rea-toast-20261015/input",
+    "--format",
+    "json"
+  ],
+  "exit_code": 0,
+  "seconds": 4.192913834000137,
+  "output_bytes": 1091306,
+  "finished_at": "2026-10-15T07:23:19.476583+00:00",
+  "execution": "outside sandbox; macOS ownership helper needs compilation"
+}

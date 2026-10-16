@@ -1,0 +1,133 @@
+[
+  {
+    "name": "summary",
+    "verb": "inspect-analysis-view",
+    "selection": {
+      "view": {
+        "kind": "summary"
+      }
+    },
+    "source_evidence_id": "ev_f98d2792b2dc0ffbe797bd4e7049d57d861163e293f578dc6941417461215da7",
+    "exit_code": 0,
+    "seconds": 0.442,
+    "bytes": 10290
+  },
+  {
+    "name": "feature-store",
+    "verb": "trace-application-feature",
+    "selection": {
+      "seed": {
+        "kind": "module",
+        "value": "src/store/useToastStore.ts",
+        "match": "exact"
+      },
+      "direction": "both"
+    },
+    "source_evidence_id": "ev_f98d2792b2dc0ffbe797bd4e7049d57d861163e293f578dc6941417461215da7",
+    "exit_code": 0,
+    "seconds": 0.452,
+    "bytes": 217132
+  },
+  {
+    "name": "timer-ownership",
+    "verb": "trace-javascript-semantics",
+    "selection": {
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_661baec62123c0cd4f0c72410c60f5d171cf162bd8defe7d4def5a07db00448b"
+        },
+        "direction": "ownership"
+      }
+    },
+    "source_evidence_id": "ev_f98d2792b2dc0ffbe797bd4e7049d57d861163e293f578dc6941417461215da7",
+    "exit_code": 0,
+    "seconds": 0.439,
+    "bytes": 6206
+  },
+  {
+    "name": "removeToast-provenance",
+    "verb": "trace-javascript-semantics",
+    "selection": {
+      "query": {
+        "seed": {
+          "kind": "property",
+          "name": "removeToast"
+        },
+        "direction": "backward-provenance"
+      }
+    },
+    "source_evidence_id": "ev_f98d2792b2dc0ffbe797bd4e7049d57d861163e293f578dc6941417461215da7",
+    "exit_code": 0,
+    "seconds": 0.441,
+    "bytes": 7822
+  },
+  {
+    "name": "duration-influence",
+    "verb": "trace-javascript-semantics",
+    "selection": {
+      "query": {
+        "seed": {
+          "kind": "literal",
+          "value": 3000
+        },
+        "direction": "forward-influence"
+      }
+    },
+    "source_evidence_id": "ev_f98d2792b2dc0ffbe797bd4e7049d57d861163e293f578dc6941417461215da7",
+    "exit_code": 0,
+    "seconds": 0.438,
+    "bytes": 4532
+  },
+  {
+    "name": "timer-provenance",
+    "verb": "trace-javascript-semantics",
+    "selection": {
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_661baec62123c0cd4f0c72410c60f5d171cf162bd8defe7d4def5a07db00448b"
+        },
+        "direction": "backward-provenance"
+      }
+    },
+    "source_evidence_id": "ev_f98d2792b2dc0ffbe797bd4e7049d57d861163e293f578dc6941417461215da7",
+    "exit_code": 0,
+    "seconds": 0.429,
+    "bytes": 9792
+  },
+  {
+    "name": "duration-parameter-influence",
+    "verb": "trace-javascript-semantics",
+    "selection": {
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_68daf58a9b66b31bdb4ac1d3c4f700ef821bca5cd0689b954f4f28c2650139d6"
+        },
+        "direction": "forward-influence"
+      }
+    },
+    "source_evidence_id": "ev_f98d2792b2dc0ffbe797bd4e7049d57d861163e293f578dc6941417461215da7",
+    "exit_code": 0,
+    "seconds": 0.424,
+    "bytes": 15511
+  },
+  {
+    "name": "addToast-argument-influence",
+    "verb": "trace-javascript-semantics",
+    "selection": {
+      "query": {
+        "seed": {
+          "kind": "semantic-node",
+          "node_id": "jsrg_node_2cb5b6225085f80498f3df561e678d16f737973dab90d718bba989130566c803"
+        },
+        "direction": "forward-influence"
+      }
+    },
+    "source_evidence_id": "ev_f98d2792b2dc0ffbe797bd4e7049d57d861163e293f578dc6941417461215da7",
+    "exit_code": 0,
+    "seconds": 0.417,
+    "bytes": 6200
+  }
+]

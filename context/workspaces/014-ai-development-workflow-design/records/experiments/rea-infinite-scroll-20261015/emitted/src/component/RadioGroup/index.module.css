@@ -1,0 +1,89 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.root.horizontal {
+  flex-direction: row;
+}
+
+.root.vertical {
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.item.horizontal {
+  flex-direction: row;
+}
+
+.item.vertical {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.item input[type="radio"] {
+  width: 1.15em;
+  height: 1.15em;
+  border: 1.5px solid var(--color-gray-300);
+  border-radius: var(--radius-full);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.item input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  transform: scale(0);
+  transition: transform 0.1s ease-in-out;
+}
+
+.item input[type="radio"]:checked {
+  border-color: var(--color-primary);
+}
+
+.item input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+.item input[type="radio"]:focus {
+  border-color: var(--color-primary);
+}
+
+.item input[type="radio"]:disabled {
+  border-color: var(--color-gray-300);
+  background-color: var(--color-gray-100);
+  cursor: not-allowed;
+}
+
+.item input[type="radio"]:disabled::before {
+  background-color: var(--color-muted);
+}
+
+.text {
+  color: var(--color-text-primary);
+  user-select: none;
+  cursor: pointer;
+}
+
+.item input[type="radio"]:disabled + .text {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.item:hover input[type="radio"]:not(:checked):not(:disabled) {
+  border-color: var(--color-muted);
+}
