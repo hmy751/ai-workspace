@@ -9,3 +9,5 @@
 **이번 재개:** 전체 [Spec 3절](spec.md) → [state](state.md) → [01-02](tickets/01-development-workflow/01-02-code-design-quality.md)에서 흐름을 복원한다. [최신 종합 54](../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md)에 기준·적용 조건·미확정과 다음 작업을 모았다. 계획 42의 추가 영역을 살펴보고 fetcher 검토 판단에 사용자 수용을 얻었으나 실제 수정·검증 효과는 미확인이다. 상세 사례는 54의 링크에서 선택한다. 현재 다음 추천과 검증 범위는 state가 소유한다.
 
 원문과 당시 제안은 [source](../source/README.md), 상세 과정과 비교는 [records](../records/README.md), 선택한 현재 산출물은 [output](../output/index.md)에 연결한다. Main이 이 Workspace의 수동 운영 기준으로 갱신한다. Spec·Ticket의 의미 관계를 사용하되 Reference 자동화의 파일 배치·machine 계약을 설치한 것은 아니다.
+
+다른 세션에서 이어갈 때는 [재진입 점검 56](../records/2026-10-16-56-session-handoff-check.md)의 확인 범위와 첫 행동을 함께 본다. 실제 사용 코드부터 설명하는 대화 방식과 과거 회고의 불확실성을 보존하며, 상태의 최신 원천은 위 current 문서다.

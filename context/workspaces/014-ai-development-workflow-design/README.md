@@ -12,6 +12,8 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 ## 배경 없이 들어올 때
 
+현재 대화에서 다른 세션으로 넘어오는 경우에는 [재진입 점검 56](records/2026-10-16-56-session-handoff-check.md)에서 실제 Git 상태·첫 행동·판단의 강도와 대화 방식을 확인한 뒤 아래 정본을 읽는다. 이 기록은 정본을 대체하거나 01-02를 완료 처리하지 않는다.
+
 1. [배경과 평가](current/memory.md)에서 무엇을 평가했고 왜 더 큰 설계 논의로 넘어왔는지 읽는다.
 2. [Spec](current/spec.md)에서 전체 목표·공통 기준·전체 잠정안·선택과 미정을, [Ticket 색인](current/tickets/index.md)에서 구체화할 부분을 확인한다.
 3. [현재 진행](current/state.md)과 [01-02](current/tickets/01-development-workflow/01-02-code-design-quality.md)를 읽어 전체 설계 안의 위치, 사례별 선호와 열린 조건, 다음 비교의 목적을 확인한다.
