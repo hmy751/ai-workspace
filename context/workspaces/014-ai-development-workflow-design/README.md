@@ -8,14 +8,14 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 전체 구상과 미결정은 **Spec 3절**에서 유지한다. 현재는 Main과 작업을 논의·결정하는 단계와 구현·검토·검증하는 단계를 구별하고, **작업 단계에서 좋은 구현을 돕는 컨텍스트·코드 기준·절차·도구**를 먼저 구체화한다. [우선순위와 코드 기준의 근거 후보](records/2026-10-13-28-execution-system-priority-and-code-criteria.md), [Matt·Lauren·Vercel 원자료 조사](records/2026-10-13-27-source-investigation-and-proposal-reset.md)를 필요한 질문에 맞춰 읽는다. Spec·설계 절차도 필요한 보완을 연결하되 그 도입을 중심에 놓지 않는다. 이 Workspace의 Spec·Ticket 사용과 개선할 시스템의 Spec·Ticket 설계는 구별한다.
 
-지금 이어갈 위치는 [Dialog에서 정리한 코드 기준 후보](records/2026-10-13-33-component-purpose-and-library-responsibility.md)다. 기능 Hook과 Dialog 사례에서 목적·기존 도구 책임·사용처 부담을 논의했다. Confirm은 일단 사용처가 완료 후 닫기를 연결하는 방향으로 정리했으며, 다음 후보는 더 풍부한 `20_lab/template`의 Field와 React Hook Form 사용 예시를 함께 보는 것이다. 템플릿을 읽었다는 사실을 선호 탐색 완료로 취급하지 않는다. [앞선 체크포인트](records/2026-10-13-29-discussion-checkpoint-and-code-criteria-scope.md)의 Matt 브레이크·컨텍스트·워크플로 등 전체 범위도 유지한다. 최근 대화는 의미 있는 변화와 필요한 발화를 선택해 기록했으며 전체 원문을 일괄 저장한 것은 아니다.
+현재 [01-02](current/tickets/01-development-workflow/01-02-code-design-quality.md)는 컴포넌트와 요청·상태·업무 흐름·이벤트·날짜 예제에서 얻은 기준을 종합하고, fetcher의 유지·수정·보류 판단에 사용자 수용을 얻은 상태다. [종합 54](records/2026-10-16-54-code-quality-criteria-and-remaining-work.md)에서 기준·사례·조건과 남은 일을 확인한다. 다음 추천은 구현자·검토자가 사용할 안내 및 검토·수정·재확인 방법을 구성하는 것이다. 실제 제품 수정·테스트·효과 검증은 없고 01-02 완료나 모든 코드 영역의 탐색 충분성을 선언한 것은 아니다. 전체 체계의 범위는 유지한다.
 
 ## 배경 없이 들어올 때
 
 1. [배경과 평가](current/memory.md)에서 무엇을 평가했고 왜 더 큰 설계 논의로 넘어왔는지 읽는다.
 2. [Spec](current/spec.md)에서 전체 목표·공통 기준·전체 잠정안·선택과 미정을, [Ticket 색인](current/tickets/index.md)에서 구체화할 부분을 확인한다.
 3. [현재 진행](current/state.md)과 [01-02](current/tickets/01-development-workflow/01-02-code-design-quality.md)를 읽어 전체 설계 안의 위치, 사례별 선호와 열린 조건, 다음 비교의 목적을 확인한다.
-4. 이번 재개에는 [인터뷰 31](records/2026-10-13-31-criteria-roles-and-responsibility-interview.md)의 선호 요약과 [Dialog 기준 후보 33](records/2026-10-13-33-component-purpose-and-library-responsibility.md)을 선택해 읽는다. 코드 조사 범위는 [32](records/2026-10-13-32-template-code-and-usage-discovery.md), Git·권한·재진입 확인은 [34](records/2026-10-13-34-session-reentry-handoff.md)에 있다.
+4. [최신 종합 54](records/2026-10-16-54-code-quality-criteria-and-remaining-work.md)에서 현재 기준과 남은 일을 읽고 필요한 사례만 선택한다. 이전 탐색의 범위·순서를 재검토할 때만 [계획 42](records/2026-10-14-42-template-code-discussion-plan.md)와 [범위 보정 41](records/2026-10-14-41-template-coverage-and-next-code-areas.md)을 읽는다. 이번 보존 범위와 재진입 확인은 [기록 55](records/2026-10-16-55-spec-reentry-and-record-checkpoint.md)에 있다.
 5. 강연·기존 구성의 근거가 필요한 질문이 생기면 [자료 안내](source/README.md)와 [추가 조사 27](records/2026-10-13-27-source-investigation-and-proposal-reset.md)에서 고른다. [논의 지도](current/design-map.md)는 전체 연결을 재검토할 때 사용한다. 과거 기록 전체를 기본 입력으로 읽지 않는다.
 
 **이번 논의의 중요한 정정:** Maintain을 곧바로 다음 작업에 쓸 정보로 한정하지 않는다. 나중에 돌아볼 분석·시행착오·산출물·검증 등도 보존 목적에 따라 고려한다. Project context도 다음 판단만을 위한 문서로 한정하지 않고, 제품 이해와 설계·개발·검토 및 워커·워크플로가 사용하는 공통 맥락으로 함께 설계한다. 앞선 AI의 역할 배치·검토 절차·마무리 루프는 아직 채택된 운영 방식이 아니다. [정정 원문](source/discussion/design-conversation.md#L2659)

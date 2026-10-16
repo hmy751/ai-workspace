@@ -57,7 +57,43 @@
 
 - [34 다음 세션 재진입 준비](2026-10-13-34-session-reentry-handoff.md): 전체 Spec·01-02의 흐름과 뉘앙스를 보존한 문서 정리, 실제 상태·권한·다음 행동과 확인 범위.
 
+- [35 Field의 조합 구조와 디자인 변경](2026-10-13-35-field-composition-and-design-flexibility.md): 실제 폼 코드와 일체형 후보를 비교한 뒤, 디자인 변경의 확장성·유연성을 위해 의도적으로 분리했다는 사용자 설명과 판단 범위.
+
+- [36 무한 스크롤의 책임과 변경 범위](2026-10-13-36-infinite-scroll-responsibilities-and-composition.md): 실제 사용 코드의 조회·목록 구성, 관찰 Hook·Container의 책임과 상태 표시의 내용·조건·위치를 구별한 설명 근거.
+
+- [37 무한 스크롤 Container와 Hook 직접 사용 비교](2026-10-14-37-infinite-scroll-container-and-hook-comparison.md): 같은 조회·목록을 유지한 설명용 코드와 표시 정책·배치 변경의 차이. 당시 Container의 필요와 자유도에 관한 사용자 의도를 확인했다. 비교 코드는 실행 검증하지 않았다.
+
+- [38 Field·무한 스크롤 논의 체크포인트](2026-10-14-38-component-criteria-discussion-checkpoint.md): 상황의 목적·필요·트레이드오프라는 사용자 판단 기준, 사례별 의도·근거 연결, 현재까지 충분한 질문과 남은 논의의 구별.
+
 이전 대화의 보존 범위는 [대화 사본](../source/discussion/conversation.md)과 [자료 안내](../source/README.md)에서 확인한다. 그 뒤 설계 논의의 선택·정정에 필요한 발화는 기록 12~18에 직접 인용했으며, 최신 대화 전체를 source에 다시 저장한 것은 아니다. 다음 해석이 바뀌면 당시 기록을 현재 결론으로 덮어쓰지 않고 새 기록과 current에 이어 준다.
+
+- [39 실패 처리·검증의 실제 책임](2026-10-14-39-failure-handling-and-verification-code.md): 같은 템플릿의 요청 오류·폼 검증·표시와 개발 테스트 현황. 현재 코드 읽기이며 실행 검증·수정은 없다.
+
+- [40 01-02의 확보한 기준과 남은 작업](2026-10-14-40-ticket-01-02-findings-and-remaining-work.md): 사례 탐색의 충분성, 검토·수정 방법으로 구체화할 일, 추가 대화 필요성과 질문 목적 정정.
+
+- [41 template 조사 범위와 추가 논의 후보](2026-10-14-41-template-coverage-and-next-code-areas.md): 컴포넌트 밖 실제 코드·메모, 추가로 볼 판단 차이, 충분성 판단의 보정.
+
+- [42 template 상세 논의 계획](2026-10-14-42-template-code-discussion-plan.md): 01-02에서 볼 다섯 영역의 실제 코드·장면·판단·남길 결과와 진행 방식.
+
+- [45 앞선 코드의 네이밍·가독성 보완 검토](2026-10-16-45-naming-readability-supplement.md): 추가 관점을 Dialog·Field·폼 연결·무한 스크롤·fetcher에도 적용하고 기존 판단·변경 후보를 구별했다.
+
+- [47 fetcher의 오류 계약과 inter-persona 비교](2026-10-16-47-fetcher-error-contract-comparison.md): 사용자 동의 기준, 실제 오류 분류·검증·공통 대응, 로컬 선택의 우선순위 부담과 다음 상태 관리 논의.
+
+- [48 Toast의 상태·타이머 책임](2026-10-16-48-toast-state-and-timer-responsibilities.md): 실제 story 호출, 공유 상태와 표시 컴포넌트의 수명, 호출부·앱 배치부의 지식 범위.
+
+- [49 주문 mutation의 업무·화면 책임](2026-10-16-49-order-mutation-workflow-boundaries.md): Markdown 예제의 실제 성공 처리와 다른 화면의 재사용 비교, 공통 데이터 처리·업무 흐름·화면 선택의 조건.
+
+- [50 이벤트 Hook의 실제 사용과 책임](2026-10-16-50-event-hook-usage-and-boundaries.md): Dropdown·MultiSelect 호출, 외부 입력 판별·상태 정책의 경계와 null 입력 조건.
+
+- [51 날짜 입력과 구간 계약](2026-10-16-51-date-input-and-range-contracts.md): 월·월 인덱스 변환과 종료일 포함 여부의 차이, 예제·업무 정책의 구별.
+
+- [52 관련 리팩터링과 제품 범위](2026-10-16-52-related-refactoring-and-product-scope.md): 이번 수정에 공통화를 포함할 조건, 기존 동작 보존·변경 비용과 작은 테스트 제품의 차이에 대한 사용자 판단.
+
+- [53 fetcher 리뷰 판단 연습](2026-10-16-53-fetcher-review-decision-rehearsal.md): 오류 계약 정비를 가정한 유지·수정·보류, 보존할 계약과 확인할 실패 장면. 실제 수정·실행은 없다.
+
+- [54 01-02 기준 종합과 남은 작업](2026-10-16-54-code-quality-criteria-and-remaining-work.md): 사례별 판단 조건, fetcher 리뷰 수용, 작업용 기준·검토 절차·효과 확인의 남은 범위.
+
+- [55 Spec 재확인과 기록 보존](2026-10-16-55-spec-reentry-and-record-checkpoint.md): 전체 목표·현재 선택·미정과 문서 진입 경로를 대조하고 이번 커밋 범위를 확인한 기록.
 
 ## 참고 조사 — REA
 

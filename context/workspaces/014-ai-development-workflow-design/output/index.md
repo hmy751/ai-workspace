@@ -2,13 +2,29 @@
 
 현재 goal은 전체 역할과 가능성을 이해하고 각 부분을 세밀하게 설계하는 것이다. B의 검토자 직접 수정 방향을 선택했으며, 전체 운영 아키텍처의 확정이나 새 스킬·개발 워크플로 구현은 아직 없다.
 
+- [01-02 기준 종합과 남은 작업](../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md): 현재 종합 진입점. 사례별 기준과 조건, 판단 적용의 사용자 수용, 미완료인 전달·검토·효과 확인을 구별한다.
+- [fetcher의 유지·수정·보류 판단안](../records/2026-10-16-53-fetcher-review-decision-rehearsal.md): 확보한 기준을 오류 계약 정비 사례에 적용했다. 사용자가 판단 수준을 수용했으며 실제 수정·검증이나 세부 구현 채택은 없다.
+- [이번 수정에 관련 구조 개선을 포함할 조건](../records/2026-10-16-52-related-refactoring-and-product-scope.md): 같은 업무 흐름·직접 관련성, 변경 범위·동작 보존·제품 목적과 확장 필요에 따른 사용자 판단. 가상 사례이며 제품 변경은 없다.
+- [이벤트 Hook의 입력 계약과 지원 범위](../records/2026-10-16-50-event-hook-usage-and-boundaries.md): 실제 Dropdown 호출, null 처리 의도와 Dropdown·MultiSelect 목적에 맞춘 위치 Hook 범위에 대한 사용자 회고.
+- [주문 mutation의 공통 범위](../records/2026-10-16-49-order-mutation-workflow-boundaries.md): 같은 API보다 같은 업무 흐름인지로 공통화 범위를 정한다는 사용자 동의와 조건별 비교. 특정 Hook 구현 채택은 없다.
+- [Toast 상태·타이머 책임과 수명 기준](../records/2026-10-16-48-toast-state-and-timer-responsibilities.md): 실제 코드와 store 대안을 비교하고, 원하는 수명에 따라 판단하며 현재 방식도 목적에 맞으면 유지한다는 사용자 동의를 보존했다.
+- [fetcher의 오류 계약과 inter-persona 비교](../records/2026-10-16-47-fetcher-error-contract-comparison.md): 공통 계약의 신뢰성에 관한 사용자 동의와 실제 앱 비교. 공통 정책·로컬 선택의 우선순위는 후속 판단 후보이며 제품 변경은 없다.
+- [앞선 코드의 네이밍·가독성 보완 검토](../records/2026-10-16-45-naming-readability-supplement.md): 기존 구조 판단을 유지하면서 이름·타입·사용 계약의 새 관찰을 추가했다. 명명 규칙 채택이나 제품 수정은 없다.
+- [template 상세 논의 계획](../records/2026-10-14-42-template-code-discussion-plan.md): 추가 탐색에 사용한 계획 이력. 다섯 영역의 대상·장면·판단을 연결하며 현재 단계는 종합 54에서 읽는다.
+- [template 조사 범위와 추가 논의 후보](../records/2026-10-14-41-template-coverage-and-next-code-areas.md): 범위 점검. 컴포넌트 중심 기준과 다른 코드 영역의 탐색을 구별하고 실제 후보·이유를 확인했다.
+- [01-02의 확보한 기준과 남은 작업](../records/2026-10-14-40-ticket-01-02-findings-and-remaining-work.md): 확보한 기준과 남은 검토·수정 작업. 탐색 충분성과 다음 순서는 후속 기록 41에서 보정했다. 완료·운영안 채택은 아니다.
+- [실패 처리·검증의 실제 책임](../records/2026-10-14-39-failure-handling-and-verification-code.md): 코드 관찰과 미실행 비교 이력. 요청 오류·입력 검증·표시·자동 테스트의 현황을 구별했다. 코드 수정이나 정책 채택은 없다.
+- [Field·무한 스크롤 논의 체크포인트](../records/2026-10-14-38-component-criteria-discussion-checkpoint.md): Field·무한 스크롤 구조 논의의 체크포인트. 목적·필요·트레이드오프에 따른 판단, 사례별 의도와 근거, 아직 남은 논의와 미채택 다음 제안.
+- [무한 스크롤 Container와 Hook 직접 사용 비교](../records/2026-10-14-37-infinite-scroll-container-and-hook-comparison.md): 대비 코드와 함께 당시 디자인 형식·필요를 공통으로 제공하고 달라질 부분을 열어 둔 사용자 의도를 보존한다. Hook은 이미 분리돼 있으며 새 구현·실행 검증은 없다.
+- [무한 스크롤의 책임과 변경 범위](../records/2026-10-13-36-infinite-scroll-responsibilities-and-composition.md): 현재 사례의 사용 코드·관찰 Hook·Container 역할, 사용처가 바꿀 수 있는 내용과 내부에 정해진 표시 정책. 구조 변경이나 사용자 선호를 확정한 것은 아니다.
+- [Field의 조합 구조와 디자인 변경](../records/2026-10-13-35-field-composition-and-design-flexibility.md): 사용자 동의로 남긴 합성·라이브러리 의존성·부품 교체·연결 코드의 기준 정리. 당시 다음 사례는 무한 스크롤이었다. 모든 폼 래핑의 금지나 새 API 채택은 아니다.
 - [다음 세션 재진입 준비](../records/2026-10-13-34-session-reentry-handoff.md): 전체 Spec과 01-02 흐름을 이어 읽는 경로, 문서 정리 이유, 실제 Git·검증 범위. 설계안의 채택이나 적용 완료를 뜻하지 않는다.
 - [Spec 초안](../current/spec.md): 전체 목적·공통 기준·제약에 더해 현재 전체 잠정안·선택·주요 미결정을 유지한다. 014의 설계 문서 운영과 개선할 시스템의 Spec·Ticket 설계를 구별한다.
 - [Ticket 초안 목록](../current/tickets/index.md): 상위 01~07과 하위 Ticket으로 나누어 구체화할 결과와 연결. 본문과 색인은 current가 소유하며 여기에는 복제하지 않는다. 각 설계 작업의 상세 결과와 진행은 해당 Ticket에서 확인한다.
 - [코드 기준 논의 전 체크포인트](../records/2026-10-13-29-discussion-checkpoint-and-code-criteria-scope.md): 코드 기준 탐색을 시작한 배경. 마지막 정리 뒤 대화의 중요한 변화, 브레이크·컨텍스트·워크플로와 코드 기준 논의의 관계, 미결정과 선택적 원문 보존을 연결한다.
 - [code-template 참고 자료 확인](../records/2026-10-13-30-code-template-reference-and-authorship-sampling.md): 코드 기준 논의에 사용할 지정 예제의 내용과 한계, 회사 코드의 사용자 작성 부분을 좁혀 보는 조사 제안.
 - [실제 template 코드와 사용 예시 확인](../records/2026-10-13-32-template-code-and-usage-discovery.md): 새로 지정한 더 풍부한 템플릿의 Dialog·폼·무한 스크롤 코드와 다음 비교 후보.
-- [Dialog에서 정리한 코드 기준 후보](../records/2026-10-13-33-component-purpose-and-library-responsibility.md): 최신 논의 위치. Confirm의 잠정 선택과 일반 판단 후보를 구별하고 다음 Field·React Hook Form 사례로 연결한다.
+- [Dialog에서 정리한 코드 기준 후보](../records/2026-10-13-33-component-purpose-and-library-responsibility.md): Confirm의 잠정 선택과 일반 판단 후보를 구별하고 이후 Field·React Hook Form 사례로 연결한 근거.
 - [책임 분리 선호와 상황별 조건](../records/2026-10-13-31-criteria-roles-and-responsibility-interview.md): 앞선 선호 탐색. 페이지·합성형 UI·재사용 단위·기능 Hook 내부 분리와 기존 도구에 맡긴 책임에 관한 인터뷰, code-template 탐색이 끝난 것은 아니라는 정정과 다음 후보. 현재 선호를 모은 자료이며 확정된 코드 원칙은 아니다.
 - [작업 단계 우선순위와 코드 기준의 근거 후보](../records/2026-10-13-28-execution-system-priority-and-code-criteria.md): Main과 작업을 결정하는 단계와 구현 단계를 구별하고, 컨텍스트·코드 기준·절차·도구를 우선 구체화하려는 사용자 의도를 보존한다.
 - [원자료 조사와 합성안 재검토](../records/2026-10-13-27-source-investigation-and-proposal-reset.md): Matt·Lauren·Vercel의 기존·추가 1차 자료에서 실제 계약과 판본·공개 한계를 확인하고 앞선 인수 예시와 구별한다. 당시 선행 설계부터 논의하자는 제안과 현재 우선순위는 구별한다.

@@ -16,7 +16,7 @@
 
 ## 이어갈 순서와 관계
 
-현재의 구체 논의는 [01-02](01-development-workflow/01-02-code-design-quality.md)의 사용자 코드 기준 탐색이다. Dialog 사례를 정리한 뒤 Field·React Hook Form 비교를 제안했다. 이것이 전체 개발 체계의 범위를 좁히거나 Ticket들을 독립된 목표로 흩뜨리는 것은 아니다. 부분 결과를 어디에 연결할지는 Spec 3절에서 함께 관리한다.
+현재의 구체 논의는 [01-02](01-development-workflow/01-02-code-design-quality.md)다. 컴포넌트 밖 코드까지 탐색을 넓히고, 기준 종합과 fetcher 검토 판단에 대한 사용자 수용을 [종합 54](../../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md)에 보존했다. 다음 추천은 작업용 기준과 검토·수정·재확인 방법 구체화다. 실제 수정·테스트·효과 확인은 없으며 01-02는 진행 중이다. 상세 상태는 해당 Ticket, 전체 연결은 Spec 3절에서 관리한다.
 
 현재는 [작업 단계의 시스템을 먼저 구체화한다](../../records/2026-10-13-28-execution-system-priority-and-code-criteria.md). Main과 작업을 논의·결정하는 단계는 구별하고, 좋은 구현을 돕는 컨텍스트·코드 기준·작업 절차·검증 수단을 [원자료 조사](../../records/2026-10-13-27-source-investigation-and-proposal-reset.md)와 구체 사례로 논의한다. 선행 설계 도입이나 알림 설정 인수 예시의 상세화를 다음 순서로 고정하지 않는다. 필요한 질문에 따라 01·03·04 등을 연결하되 전체 범위와 Ticket 분할은 유지한다.
 

@@ -6,6 +6,6 @@
 - [state.md](state.md): 지금의 전체 단계와 다음 대화에서 이어갈 위치. 각 Ticket의 상세 상태를 복제하지 않는다.
 - [design-map.md](design-map.md): 열린 논의 영역과 Ticket의 연결. 분해에서 놓친 관점을 찾는 자료이며 확정된 아키텍처가 아니다.
 
-**이번 재개:** 전체 [Spec 3절](spec.md) → [state](state.md) → [01-02](tickets/01-development-workflow/01-02-code-design-quality.md)에서 큰 흐름과 현재 사례를 함께 복원한다. 문서만으로 인수할 때의 Git·자료·권한·확인 범위는 [기록 34](../records/2026-10-13-34-session-reentry-handoff.md)에 있다.
+**이번 재개:** 전체 [Spec 3절](spec.md) → [state](state.md) → [01-02](tickets/01-development-workflow/01-02-code-design-quality.md)에서 흐름을 복원한다. [최신 종합 54](../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md)에 기준·적용 조건·미확정과 다음 작업을 모았다. 계획 42의 추가 영역을 살펴보고 fetcher 검토 판단에 사용자 수용을 얻었으나 실제 수정·검증 효과는 미확인이다. 상세 사례는 54의 링크에서 선택한다. 현재 다음 추천과 검증 범위는 state가 소유한다.
 
 원문과 당시 제안은 [source](../source/README.md), 상세 과정과 비교는 [records](../records/README.md), 선택한 현재 산출물은 [output](../output/index.md)에 연결한다. Main이 이 Workspace의 수동 운영 기준으로 갱신한다. Spec·Ticket의 의미 관계를 사용하되 Reference 자동화의 파일 배치·machine 계약을 설치한 것은 아니다.
