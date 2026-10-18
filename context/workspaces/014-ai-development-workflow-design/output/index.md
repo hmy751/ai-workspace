@@ -1,8 +1,25 @@
 # 현재 선택한 설계 자료와 산출물
 
-현재 goal은 전체 역할과 가능성을 이해하고 각 부분을 세밀하게 설계하는 것이다. B의 검토자 직접 수정 방향을 선택했으며, 전체 운영 아키텍처의 확정이나 새 스킬·개발 워크플로 구현은 아직 없다.
+현재 goal은 전체 역할과 가능성을 이해하고 각 부분을 세밀하게 설계하는 것이다. B의 검토자 직접 수정 방향을 선택했으며, 전체 운영 아키텍처의 확정이나 새 스킬·개발 워크플로 구현은 아직 없다. 현재 시안에 대한 [사용자 평가73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md)는 전반적인 만족·최종 수용이 아니며03과 연결해 더 구체화할 필요가 있다는 의견이다. 아래 산출물은 이 유보와 함께 읽는다.
 
-- [01-02 기준 종합과 남은 작업](../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md): 현재 종합 진입점. 사례별 기준과 조건, 판단 적용의 사용자 수용, 미완료인 전달·검토·효과 확인을 구별한다.
+- [다음 세션 인계와 마무리 점검](../records/2026-10-18-75-ticket03-session-handoff.md): 진행 순서 동의·첫03 작업·권한·검증 범위와 보존 위치. [단계별 문서 화면](../records/prototypes/applied-criteria-2026-10-17/viewer.html)은72 시안의 보조 화면 사본이며 현재 판단의 정본은 Markdown이다.
+- [짧은 공통과 필요한 상세를 연결한 현재 시안](../records/2026-10-18-72-short-common-and-detail-prototype.md): 사용자가 공통을 짧게 두고 이름·가독성을 독립 절로 두는 방향을 선택해 기존 prototype에 반영했다. Project 한곳의 안내에서 상세·사례를 찾고, 주문의 현재 계약·작업 요구·구현 전 판단을 실제 문서로 읽는다.03·04-03의 재판단 부분과 이유도 연결했다. [실물 입구](../records/prototypes/applied-criteria-2026-10-17/README.md). 모든 기준·최종 운영 배치·실제 효과·Ticket 완료는 미확정이다.
+- [01-02 중간 정리 이후의 Ticket 흐름](../records/2026-10-18-74-ticket-flow-after-quality-draft.md): 다음 중심을03으로 옮기는 순서·이유·01-02 재방문 시점을 정리했고, 사용자는 이후 동의하며 다음 세션에서 이어가기로 했다([인계75](../records/2026-10-18-75-ticket03-session-handoff.md)). 현재 진행 방향이며 고정 일정·Ticket 완료·시안 전체 만족을 뜻하지 않는다.
+- [주문 작업의 읽기 경로와 공통·상세 경계](../records/2026-10-18-71-order-reading-and-criteria-boundaries.md): 작업 의뢰·현재 동작·공통 관점부터 필요한 상세·사례와 구현 전 판단까지 채웠다. 공통은 적용 관점·읽기 단서, 이름·가독성은 짧은 독립 절을 추천한다. 당시 가상 장면이며 prototype68을 유지했다. 후속 사용자 선택에 따른 반영은72에 있고 실제 제품·효과 확인은 없다.
+- [전체 기준의 구성·분류안](../records/2026-10-18-70-criteria-organization-proposal.md): 공통 적용 관점과 네 판단 주제, 조건별 사례·제품 계약·작업 결과·과정 근거의 역할을 제안했다. 기존 아홉 판단축의 연결과 구분 이유·실제 내용 예·후속 미정을 담는다. 지금 구체화 후 후속에서 다시 종합하는 진행에는 사용자 동의가 있고, 네 묶음 자체는 미채택이다.
+- [01-02의 남은 결정과 후속 구체화 범위](../records/2026-10-18-69-ticket-boundaries-and-next-design-step.md): 시안68까지의 결과와 기준 재료54를 종합하고, 현재 더 정할 범위·후속 책임·과정 재사용과 다음 진행 추천을 구별했다. 당시 진행 제안이며 이후 사용자 동의와 구성안은70에 있다. Ticket 완료는 아니다.
+- [리뷰 세 의견을 반영한 이전 시안 보완](../records/2026-10-18-68-principle-application-and-choice-basis.md): 원칙의 조건별 적용, Field 공유 이득·비용의 재판단과 목표 미충족 반환, HTTP 계약·작업 범위 구별. 직전 설명과 사용자 보완 요청도 보존했다. [실물 입구](../records/prototypes/applied-criteria-2026-10-17/README.md).
+- [보완 시안의 형식·판단·후속 재사용에 대한 개선 재리뷰](../records/2026-10-18-67-refined-prototype-improvement-review.md): 같은 reviewer가 개선된 구별과 연결을 확인하고 후보 기준의 사용 방식·Field 선택의 비용 근거·HTTP 정보 역할을 남은 보완으로 제안했다. 유지·변경 모두 유효한 재판단이며 당시에는 시안 본문을 변경하지 않았고 이후68에서 반영했다.
+- [원칙·사례와 후속 재구체화를 보여 주는 보완 시안](../records/2026-10-18-66-principles-cases-and-refinement-prototype.md): 앞선 보완의 근거. 연결된 실물은68에서 추가 보완했다. 기준 본문·별도 사례·Field 선택 장면·후속03의 재판단과 반환을 실제 문서로 작성했다. 제품 실행·후속 Ticket 완료는 가정이며 최종 운영 채택과 실제 효과는 미확인이다. [실물 입구](../records/prototypes/applied-criteria-2026-10-17/README.md).
+- [기준의 지위와 판단 과정을 후속 설계에 연결](../records/2026-10-18-65-criteria-status-and-cross-ticket-refinement.md): 시안 보완 전 사용자 방향과 같은 reviewer의 후속 조언. 일반 원칙·구체 사례 및 판단의 지위를 구별하고, 후속 Ticket이 과정 근거를 다시 읽을 조건과 현재 안의 변경 위치를 연결했다. 당시 prototype 보완은 실행 전이었으며 후속 결과는66에 있다. 실제 적용은 없다.
+- [적용 사례와 도출 이유에 대한 제3자 개선 리뷰](../records/2026-10-17-64-applied-format-improvement-review.md): 앞선 개선 의견. 기준·질문의 선택 기여, 일반 판단과 프로젝트 선택의 지위, 읽기 안내와 기록 책임을 검토했다. Main의 우선 보완 추천과 미채택 운영안을 구별하며 실제 사례 개편·효과 검증은 없다.
+- [프로젝트에 배치·전달·적용된 가상 사례](../records/2026-10-17-63-applied-criteria-project-example.md): 개선 리뷰 대상이 된 당시 적용 실물. 연결된 prototype은66·68에서 보완됐다. shop-web에 존재하는 기준·계약·skill·Ticket·기록을 작성하고 채팅 입력부터 검토자 직접 수정·최종 상태까지 채웠다. 파일 작성과 가정한 제품 실행을 구별한다.
+- [기준을 찾아 읽고 구현·검토에 전달하는 형식 시안](../records/2026-10-17-62-criteria-format-prototype.md): 이전 단계의 시안. 같은 내용의 연결본·통합본, 일반 기준·조건별 사례, 작업자·검토자 요청과 판단·확인·기록 예시를 대조한다. 형식·운영 채택이나 제품 실행 결과는 아니다.
+- [형식 설계를 위한 외부 자료 비교안](../records/2026-10-17-61-reference-comparison-for-format-design.md): 시안 62의 근거가 된 비교. 각 레퍼런스에서 가져오기·조정·보류와 사용자 생각·Spec에 비춘 이유·비용을 제시한다. 형식 후보를 만들기 전의 권고이며 채택은 아니다.
+- [형식 설계의 목표·판단 기준에 대한 개선 조언](../records/2026-10-16-59-format-design-objectives-advisor.md): 목표·비교 기준에 대한 앞선 조언. 내용 본문에 앞서 형식을 선택할 목표·비교 기준과 사용자 생각·Spec/Ticket·외부 자료를 사용하는 방법을 다룬다. 제3자의 조언과 Main의 진행 조정이며 목표문·형식 채택은 아니다.
+- [기준의 조직·표현·판단 질문 논의](../records/2026-10-16-57-criteria-organization-and-guiding-questions.md)와 [외부 비교](../records/2026-10-16-58-principles-questions-and-pstack-comparison.md): 사용자 생각과 외부 자료의 구성 비교. 59에서 목표·판단 기준을 먼저 논의하도록 순서를 보완했으며, 본문 구성·최종 형식·배치·효과는 미확정이다.
+
+- [01-02 기준 종합과 남은 작업](../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md): 기준 재료의 종합. 잔여 책임의 전체 대조는69, 현재 반영과 남은 판단은72와01-02에서 읽는다. 사례별 기준과 조건, 판단 적용의 사용자 수용, 미완료인 전달·검토·효과 확인을 구별한다.
 - [fetcher의 유지·수정·보류 판단안](../records/2026-10-16-53-fetcher-review-decision-rehearsal.md): 확보한 기준을 오류 계약 정비 사례에 적용했다. 사용자가 판단 수준을 수용했으며 실제 수정·검증이나 세부 구현 채택은 없다.
 - [이번 수정에 관련 구조 개선을 포함할 조건](../records/2026-10-16-52-related-refactoring-and-product-scope.md): 같은 업무 흐름·직접 관련성, 변경 범위·동작 보존·제품 목적과 확장 필요에 따른 사용자 판단. 가상 사례이며 제품 변경은 없다.
 - [이벤트 Hook의 입력 계약과 지원 범위](../records/2026-10-16-50-event-hook-usage-and-boundaries.md): 실제 Dropdown 호출, null 처리 의도와 Dropdown·MultiSelect 목적에 맞춘 위치 Hook 범위에 대한 사용자 회고.

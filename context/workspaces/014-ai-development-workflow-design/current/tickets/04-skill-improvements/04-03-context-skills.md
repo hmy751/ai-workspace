@@ -2,9 +2,13 @@
 
 상위 과제: [04 기존 스킬 보완](README.md)
 
-상태: **분해 정리 완료 · 설계 작업 미착수**. 전체 기준은 [Spec](../../spec.md)에 있다.
+상태: **시안의 읽기·갱신 접점 연결 · 기존 스킬 대조와 설계는 미완료**. 전체 기준은 [Spec](../../spec.md)에 있다.
 
 ## 맡은 결과와 범위
+
+2026-10-18 현재 시안 연결: [반영72](../../../records/2026-10-18-72-short-common-and-detail-prototype.md)는 사용자가 선택한 짧은 공통·이름과 가독성의 독립 절을 실제 문서와 읽기 안내에 연결한다. [주문 장면](../../../records/prototypes/applied-criteria-2026-10-17/order-walkthrough.md)에서 같은 작업 경로와 develop 역할을 받은 뒤 Project 안내·현재 계약·필요한 상세·조건별 사례로 내려가는 문구를 대조한다. 읽기 안내는 Project 한곳이 소유하며 역할 절차는 그곳을 참조한다. 가상 develop를 기존 스킬의 대조·실제 발견·적용 효과 확인으로 대신하지 않는다.
+
+03과 함께 [후속 재판단 장면](../../../records/prototypes/applied-criteria-2026-10-17/refinement-walkthrough.md)의 공통 충분성·이름 절의 독립성·상세 분량과 배치·사례 배치·제품 값과 Work 요구·읽기와 갱신 책임을 실제 기존 스킬·Project에 대입한다. 본문을 찾는 조건과 실제 판단·갱신에 쓰는 행동을 비교하고, 구성이 달라지면03의 읽기 안내와01-02의 설명도 함께 맞춘다. 선택된 형식 방향을 다시 묻거나 같은 시안만 반복하기보다 필요한 근거와 새 조건으로 다음 판단을 진행한다.
 
 read-project-context, update-project-context, create-context-workspace의 **유지·보완·연결 조정안과 실제 동작·본문 예시**를 만든다. 관련 본문을 선택해 작업에 적용하는 일, 여러 작업에 지속될 공통 맥락을 갱신하는 일, 새 독립·후속 Workspace를 만드는 일을 구별한다.
 
@@ -21,6 +25,8 @@ read-project-context, update-project-context, create-context-workspace의 **유�
 
 ## 다른 Ticket과 주고받을 것
 
+읽기·갱신 행동을 구체화할 때 [01-02의 과정과 후속 재검토 65](../../../records/2026-10-18-65-criteria-status-and-cross-ticket-refinement.md)를 진입점으로 삼는다. Main이 기준을 골라 준 가상 전달 장면만으로 실제 스킬의 발견·적용을 보장하지 않고, 필요한 자료를 고르는 조건과 일반 기준·사례·현재 계약의 지위를 함께 판단한다. 기존 스킬·도구·비용에 비춰 다른 전달량이나 배치가 필요하면 01-02 기준의 설명·읽기 안내와 03의 구성을 함께 재검토한다.
+
 [01-01](../01-development-workflow/01-01-development-flow.md)·[01-02](../01-development-workflow/01-02-code-design-quality.md)·[01-03](../01-development-workflow/01-03-behavior-verification.md)가 실제 소비할 맥락을 03과 함께 검토한다. 작업 중심과 선택이 바뀔 때는 [04-01](04-01-work-decision-skills.md), 자동 Maintainer의 기록 인계 문구와 제거 후 연결은 [06](../06-framework-transition.md)과 맞춘다.
 
 Project·Work 정본의 내용과 관리 책임을 스킬 안에 복제하지 않는다. 근거 사본과 현행 대상의 차이를 확인하며, 호출 설정·bridge의 존재를 실제 발견·호출·문서 반영·재진입 성공과 혼동하지 않는다.
@@ -33,4 +39,4 @@ Project·Work 정본의 내용과 관리 책임을 스킬 안에 복제하지 �
 - 적용하지 않을 경우, 중복 읽기·기록·책임을 만들 수 있는 경우와 그 비용을 확인한다.
 - 보완안이 02·03의 정본 책임 및 06의 전환안과 연결된다. 남은 사용자 선택과 실제 host 적용 뒤 확인할 경로를 남긴다.
 
-현재는 과제 분할만 수행했다. 스킬·Project 본문·설정의 실제 개편이나 설치·호출·사용 효과 확인은 아직 하지 않았다.
+현재는 과제 분할과 가상 시안의 읽기·갱신 접점 연결까지 수행했다. 실제 기존 스킬·Project 본문·설정의 개편이나 설치·호출·사용 효과 확인은 아직 하지 않았다.

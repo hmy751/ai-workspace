@@ -16,7 +16,13 @@
 
 ## 이어갈 순서와 관계
 
-현재의 구체 논의는 [01-02](01-development-workflow/01-02-code-design-quality.md)다. 컴포넌트 밖 코드까지 탐색을 넓히고, 기준 종합과 fetcher 검토 판단에 대한 사용자 수용을 [종합 54](../../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md)에 보존했다. 다음 추천은 작업용 기준과 검토·수정·재확인 방법 구체화다. 실제 수정·테스트·효과 확인은 없으며 01-02는 진행 중이다. 상세 상태는 해당 Ticket, 전체 연결은 Spec 3절에서 관리한다.
+**다음 중심은03이다.01-02는 중간 정리 상태로 두며 미완료다.** 사용자가 다음03과 이후 Ticket 흐름을 요청해 [추천 순서74](../../records/2026-10-18-74-ticket-flow-after-quality-draft.md)를 정리했다. 중심 진행은03 → 02 → 01-01 → 01-03 → 01-02 재방문 → 04-02 → 05 → 06 → 07을 제안한다.04-03은03·02,04-01은01-01과 함께 본다.06의 기존 결합과07의 부분 연결은 필요한 시점부터 확인한다. 이후 사용자는 “그래 좋아”라고 동의하고 다음 세션에서 이어가기로 했다([인계75](../../records/2026-10-18-75-ticket03-session-handoff.md)). 이를 현재 진행 방향으로 삼되, 새 조건에 따라 조정할 수 있으며 각 단계의 미정을 무조건 닫은 뒤에만 다음으로 가는 절차로 만들지 않는다.
+
+현재 반영본은 [시안72](../../records/2026-10-18-72-short-common-and-detail-prototype.md)다. 사용자가 공통을 짧게 두고 이름·가독성을 별도 절로 두는 방향을 선택해 실제 prototype 본문·읽기 안내와 주문 문서에 반영했다. [70](../../records/2026-10-18-70-criteria-organization-proposal.md)·[71](../../records/2026-10-18-71-order-reading-and-criteria-boundaries.md)은 도출 근거, [68](../../records/2026-10-18-68-principle-application-and-choice-basis.md)은 이전 시안 보완, [69](../../records/2026-10-18-69-ticket-boundaries-and-next-design-step.md)는 잔여 책임의 전체 대조다. 다음은 반영본의 남은 판단을 확인하고03·04-03의 실제 Project·기존 스킬,01-01·01-03의 실행·검증 조건으로 잇는 것이다. 후속은 필요한 과정·근거와 새 조건을 함께 보고 기준 본문까지 다시 판단한다. 이번 형식 방향의 선택과 모든 기준·최종 운영 배치·효과 확인·Ticket 완료는 구별한다.
+
+2026-10-18 과정 재사용 보완: 후속 Ticket은 결과물뿐 아니라 해당 판단의 조건·대안·사용자 정정을 선택해 읽고 새 조건에 따라 현재 안을 재구체화한다. [65](../../records/2026-10-18-65-criteria-status-and-cross-ticket-refinement.md)에 후속 판단별 과정 근거와 변경 반영 위치를 연결했다. 일반 원칙·구체 사례의 범위와 후보·채택·제품 계약 등의 지위를 구별하는 사용자 방향도 반영했다. 이 연결만으로 각 Ticket의 설계나 실제 적용이 완료된 것은 아니다.
+
+지금까지의 구체 논의는 [01-02](01-development-workflow/01-02-code-design-quality.md)에 중간 정리했고, 다음 중심은03이다. [적용 사례 63](../../records/2026-10-17-63-applied-criteria-project-example.md)과 도출 이유를 함께 본 [개선 리뷰 및 후속 연결 제안 64](../../records/2026-10-17-64-applied-format-improvement-review.md)는 앞선 설계·리뷰 근거다. Main은 일반 기준·질문·조건별 선택 장면을 중심으로 03·01-01/04·02와 맞닿는 읽기·전달·기록 경계를 함께 구체화하는 것을 추천한다. 짧은 공통·이름 절의 형식 방향은72에 반영했고, 최종 운영 배치·실제 제품 수정·테스트·효과 확인은 미완료다. 사례별 기준은 [54](../../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md), 사용자 생각은 [57](../../records/2026-10-16-57-criteria-organization-and-guiding-questions.md), 상세 상태는 해당 Ticket, 전체 연결은 Spec 3절에서 관리한다.
 
 현재는 [작업 단계의 시스템을 먼저 구체화한다](../../records/2026-10-13-28-execution-system-priority-and-code-criteria.md). Main과 작업을 논의·결정하는 단계는 구별하고, 좋은 구현을 돕는 컨텍스트·코드 기준·작업 절차·검증 수단을 [원자료 조사](../../records/2026-10-13-27-source-investigation-and-proposal-reset.md)와 구체 사례로 논의한다. 선행 설계 도입이나 알림 설정 인수 예시의 상세화를 다음 순서로 고정하지 않는다. 필요한 질문에 따라 01·03·04 등을 연결하되 전체 범위와 Ticket 분할은 유지한다.
 

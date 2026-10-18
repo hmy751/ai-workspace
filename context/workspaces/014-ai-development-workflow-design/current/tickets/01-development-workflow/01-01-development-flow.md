@@ -8,6 +8,8 @@
 
 ## 맡은 결과와 범위
 
+2026-10-18 시안 연결: 구현자와 B 검토자의 전달·반환을 정할 때 [보완66](../../../records/2026-10-18-66-principles-cases-and-refinement-prototype.md)과 [구체 장면](../../../records/prototypes/applied-criteria-2026-10-17/field-walkthrough.md)을 읽는다. 요청·현재 조건·판단 근거를 전달하고 검토자가 원요구와 직접 대조하는 장면을 사용한다. 이 사례의 상세 권한·인수 방식이 전체 운영으로 채택된 것은 아니다.
+
 목표·Spec·Ticket에서 조사·설계·구현·검토·수정·첫 보고까지 이어지는 **대표 작업의 진행안과 판단 책임의 선택 근거**를 만든다. AI가 필요한 일을 찾아 수행하는 부분과 사람의 제품 선택·이해·재판단이 필요한 지점을 구체화한다. Main·worker·reviewer의 수나 고정 호출 순서는 아직 정하지 않는다.
 
 이 Ticket은 전체 진행과 책임의 연결을 맡는다. 코드·설계 품질의 실제 기준과 검토·수정 방법은 [01-02](01-02-code-design-quality.md), 동작 검증과 도구는 [01-03](01-03-behavior-verification.md)가 구체화한다. 두 결과를 받아 진행안을 보완하되, 먼저 연결 초안을 만들어 기록·Project 논의를 시작할 수 있다.
@@ -22,6 +24,8 @@
 - [철회와 후속 구현 비교](../../../source/reading/noline-evaluation/reviews/withdrawal-followup-comparison.md), [평가·인터뷰](../../../records/2026-10-12-01-background-and-evaluation.md): 후보가 합의·범위·사람의 질문을 어떻게 처리하는지 대조하는 근거.
 
 ## 다른 Ticket과 주고받을 것
+
+실제 인수·반환과 Main의 판단 범위를 정할 때 [01-02 후속 연결 65](../../../records/2026-10-18-65-criteria-status-and-cross-ticket-refinement.md)의 과정 근거를 확인한다. 앞선 HTTP-07 가상 사례는 Main이 기준을 지정하고 구현자가 검증 공백까지 알려 준 장면이다. 이후 Field 장면은 작업 단서로 기준을 찾는 모습을 보충했다. 담당자가 스스로 찾을 범위와 Main이 전달할 맥락을 새 조건에서 다시 판단하고, 달라지면 작업 요청·읽기 조건·반환 요구를 함께 고친다. B의 직접 품질 수정 선택과 이 가상 장면의 세부 운영을 구별한다.
 
 [02](../02-work-records.md)에는 실제로 생기는 기록과 다시 사용할 장면을, [03](../03-project-context.md)에는 작업 주체가 소비할 맥락을 제시한다. [04-01](../04-skill-improvements/04-01-work-decision-skills.md)은 작업 정의·재판단을 실제 스킬로 연결하고, [04-02](../04-skill-improvements/04-02-artifact-explanation.md)은 첫 보고와 별도 브리핑·설명 복구를 구별해 보완한다.
 
