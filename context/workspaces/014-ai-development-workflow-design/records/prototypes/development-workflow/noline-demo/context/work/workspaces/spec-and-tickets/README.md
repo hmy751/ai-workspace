@@ -1,6 +1,6 @@
 # Work의 Spec·Ticket·state
 
-실제 Noline의 Spec·Ticket 구성에서 작업 정의·개별 실행·전체 상황을 구별하는 관계를 이 demo에 적용한다. 각 Workspace의 `current/memory/spec/` 다섯 파일이 하나의 Spec이다. 파일 수가 다섯이라는 이유로 작업을 다섯 Ticket으로 나누지는 않는다.
+작업 정의·개별 실행·전체 상황을 구별해 다음 행동에 필요한 내용을 찾는다. 각 Workspace의 `current/memory/spec/` 다섯 파일이 하나의 Spec이다. 파일 수가 다섯이라는 이유로 작업을 다섯 Ticket으로 나누지는 않는다.
 
 - `01-problem-goal-scope.md`: 해결할 문제, 얻을 결과, 포함·제외 범위
 - `02-behavior-and-cases.md`: 요구 동작과 결과가 달라지는 대표 사례
@@ -12,4 +12,4 @@ Ticket은 그 목표 안에서 한 번의 실행이 맡는 결과, 필요한 맥
 
 `current/state/index.md`는 Work 전체의 현재 상황과 다음 행동을 종합한다. 모든 Ticket의 정의와 상세 이력을 복제하지 않는다. 작업 담당자는 새 근거가 목표·계약·선택을 바꾸는지 판단해 해당 Owner를 고친다. 완료된 동작과 사용자 수락·제품 통합은 같은 상태가 아니다.
 
-이 기준은 실제 Noline의 운영 문서 전체를 옮긴 것이 아니다. 해당 기준과 현재 prototype의 대조 근거는 [구조 정정 기록](../../../../../../../2026-10-19-89-local-context-structure-correction.md)에 있다.
+이번 예시는 [로그인 완료 표현 Work](../001-login-completion-names/README.md)에서 이 역할별 내용을 확인할 수 있다.

@@ -52,7 +52,7 @@
 | [84 독립 책임](2026-10-19-84-personal-project-ownership-and-format-correction.md), [89 로컬 context 배치](2026-10-19-89-local-context-structure-correction.md) | 같은 context 안 Personal·Project·Work를 유지한다. Project가 개인 기준을 채택·관리하게 하지 않는다. |
 | [93 연결된 논의](2026-10-19-93-workflow-and-skills-discussion-focus.md) | 본문을 지금 다듬고 같은 작업 장면을 워크플로·기존 스킬 논의에 이어 쓴다.02를 먼저 끝내는 조건을 만들지 않는다. |
 
-[작성 근거](prototypes/development-workflow/authoring-basis.md#유지설명-보완개명동작-수정의-이번-구체화)에 이번 설명의 지위와 이전 문장 교체 이유를 연결했다. 외부 참고 자료를 새로 조회하거나 새 원칙을 도입하지 않았다. 기존 참고 자료가 이번 구체 문구·표를 직접 권고했다고 주장하지 않는다.
+[작성 근거](2026-10-19-prototype-authoring-basis-before-revision.md#유지설명-보완개명동작-수정의-이번-구체화)에 이번 설명의 지위와 이전 문장 교체 이유를 연결했다. 외부 참고 자료를 새로 조회하거나 새 원칙을 도입하지 않았다. 기존 참고 자료가 이번 구체 문구·표를 직접 권고했다고 주장하지 않는다.
 
 ## 남은 판단과 다음 연결
 

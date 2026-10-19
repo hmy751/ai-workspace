@@ -1,12 +1,14 @@
 # 03 — 개발과 판단에 쓰이는 Project context를 구체화한다
 
+2026-10-19 최신 반영: [102](../../records/2026-10-19-102-personal-project-update-ownership.md)에서 개인 기준 변경과 Project의 지속 규약·계약 갱신을 구별하는 기본값을 기존 관리 문서에 반영했다. Project 인증 가이드는 제품 의미를 유지하면서 일반 개인 기준·이번 A/B 비교 방법을 덜어냈다. [100](../../records/2026-10-19-100-role-based-prototype-revision.md)의 역할별 본문과 대상물 내부에서 이해하는 경로는 유지한다. 전체 수용·Ticket 완료·실제 운영 연결은 별도다.
+
 상태: **실제 Noline 대조 뒤 로컬 context 구조·본문 정정 · 최종 운영 구성은 미완료**. 현재 산출물은 [Noline demo context](../../records/prototypes/development-workflow/noline-demo/context/README.md)다. [정정89](../../records/2026-10-19-89-local-context-structure-correction.md)에 따라 personal·project·work를 같은 context 아래에 두고, Project의 관리·읽기·layer 책임과 Work의 memory·state·source·output·records를 실제 내용으로 구성했다.88의 단일 prototype은 그대로 계속 발전시킨다.84의 독립 내용 책임,01의 조건별 적용·형식 선택과 전체 수용 유보를 유지한다. 실제 Noline과 운영 기준 설치는 수행하지 않았다. 전체 기준은 [Spec](../spec.md)에 있다.
 
 [중간 정리90](../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md): 사용자는 현재 구조를 최종 채택하지 않았으며 DEVELOPMENT.md 위치를 포함해 전반적인 추가 구체화가 남았다고 밝혔다. 본문 책임과 읽기·갱신 동작을04-03과 함께 대조하며 같은 prototype을 계속 수정한다.
 
 [합의 대조와 반영92](../../records/2026-10-19-92-principles-cases-and-agreement-reconciliation.md): 원칙·상세 사례를 별도 파일로 분리하고 사례·근거를 보존하라는 사용자 선택을 같은 prototype에 반영했다. Personal의 일반 판단과 상세 상황, Project의 판단 조건과 선택 후 구현, Work의 현재 이유·역사 기록을 구별했다. 본문 충분성과 전체 수용은 남아 있다.
 
-[최신 평가와 마무리96](../../records/2026-10-19-96-body-quality-reservation-and-session-close.md): 사용자는95의 본문 보완 뒤에도 아직 부족하다고 평가했다. 본문 충분성과 사용자 수용은 계속 미해결이며 구체 원인은 미지정이다. 다음 세션은 현재 본문·95의 전후 비교를 읽고 부족한 지점을 다시 판단한다.
+[앞선 평가와 마무리96](../../records/2026-10-19-96-body-quality-reservation-and-session-close.md): 사용자는95의 본문 보완 뒤에도 아직 부족하다고 평가했고 당시에는 구체 원인을 지정하지 않았다. 이후97에서 이전 내용과 품질을 대조하고98에서 사용자 요청으로 빠진 판단과 같은 코드 비교를 반영했다. 전체 본문의 충분성과 최종 수용은 계속 검토한다.
 
 ## 맡은 결과와 범위
 

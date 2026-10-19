@@ -211,6 +211,8 @@ Ticket의 설계 결과에는 그 범위에 필요한 다음 관계가 드러나
 
 **Personal context의 선택과 남은 실행:** [89](../records/2026-10-19-89-local-context-structure-correction.md)의 로컬 context 배치를 현재 방향으로 사용한다. demo에서는 personal/development와 project·work를 같은 context 아래에 구성했고 Work의 절차·memory에서 필요한 기준을 찾는다. 전체 기준·새 문장·사례의 채택, 실제 운영 배포·동기화·skill 연결·자율 발견 효과는 남아 있다. 별도 ai-workspace 호스트나 글로벌 위치를 필수로 두지 않으며, Project의 개인 기준 관리 의무도 만들지 않는다. 예제 실행과 실제 Noline 통합은 구별한다.
 
+**관리 기본값과 워크플로 후속:** [102](../records/2026-10-19-102-personal-project-update-ownership.md)에 따라 개인 기준은 Personal, 이번 적용 판단은 Work, 제품의 지속 계약·규약·현재 사실은 Project가 관리한다. 필요한 설명 중복은 허용하며 개인 기준 변경만으로 Project를 함께 갱신하지 않는다. [103](../records/2026-10-19-103-prototype-session-checkpoint.md)에서 사용자는 Development의 워크플로 진입점·절차 본문 성격을 확인하고 관련 후속 작업에서 더 구체화하기로 했다. 스킬 본문과의 관계, 파일의 최종 이름·위치·Owner 및 역할 운영은 미정이다. 이번에는 세션 기록·커밋으로 묶으며 운영 설치로 이어가지 않는다.
+
 **미정:** 구체적인 기록 시점·작성 주체, reviewer의 상세 수정 범위와 인계·최종 확인, 첫 보고의 기준, 개발 도구, 스킬의 최종 구성, 공통 기준과 프로젝트 적응의 경계, Recover·Verify의 유지·단순화 범위, 실제 적용 범위와 순서. Main 기록·조건부 reviewer 등 앞선 제안은 검토 후보로 남는다.
 
 **설계 대안을 판단할 때 확인할 목적:** 사용자는 Dialog 논의에서, Confirm의 확인 역할과 주변 관계를 검토하지 않은 채 즉시 닫는 용도로 축소하고 비동기 처리를 사용처로 우회시킨 대안을 지적했다. 대상의 존재 이유와 맡은 역할을 이해한 뒤 유지·변경·통합·제거를 판단한다. 목적을 검토한 뒤 추상화를 없애거나 사용처에 제어를 두는 선택은 가능하며, 기존 구조 보존 의무로 해석하지 않는다. [구체 장면과 정정](../records/2026-10-13-32-template-code-and-usage-discovery.md)

@@ -26,16 +26,18 @@ prototype 아래 Markdown과 `noline-demo/examples/authentication/src/`, `noline
 
 첫 화면은 실제 폴더 경로를 따라 탐색하는 모드다. 폴더를 열어 본문을 고르며, 단계별 적용과 세 본문 비교로 전환할 수 있다.
 
-화면에 포함된 파일 링크는 해당 전체 본문으로 전환한다. 포함되지 않은 원기록은 원래 Markdown 위치를 기준으로 경로를 보정한 새 탭 링크로 남긴다. Personal과 Project의 본문을 합치거나 원기록을 표시 파일로 이동하지 않는다.
+‘이름 유지·개명 비교’는 Work의 [같은 코드 비교 원문](../noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md)을 표시한다. 넓은 화면에서는 A·B 절을 두 열로, 좁은 화면에서는 순서대로 보여 주며 공통 조건과 판단은 그대로 앞뒤에 둔다. `viewer.html#naming`으로 바로 열 수 있다. 원문 보기에서는 같은 Markdown 전체를 표시한다. 코드를 별도로 복제하거나 실행하지 않는다.
+
+화면에 포함된 파일 링크는 해당 전체 본문으로 전환한다. prototype 안의 소스·실행 안내는 같은 폴더 안에서 찾을 수 있어야 한다. 외부 웹 자료는 새 탭으로 열 수 있지만 바깥 설계 Workspace의 기록은 본문 읽기에 필요하지 않으며 이 화면에 포함하지 않는다.
 
 | 바꿀 내용 | 담당 파일 |
 | --- | --- |
 | 읽기 순서, 파일 분류, 비교할 세 본문, 표시할 파일 종류 | [build.mjs](build.mjs) |
-| 화면 배치, 파일 선택·원문 보기, 내부 전환·원기록 링크 | [shell.html](shell.html) |
+| 화면 배치, 파일 선택·원문 보기, 내부 전환·참고 링크 | [shell.html](shell.html) |
 | 원본·SHA·경로·앵커·링크 속성의 정적 확인 | [check.mjs](check.mjs) |
 
 ## 확인 범위
 
-`check.mjs`는 포함된 파일 목록과 현재 원문·SHA를 대조하고, 소스 전체가 실행 가능한 HTML로 삽입되지 않도록 escape됐는지 확인한다. 읽기 단계·비교 문서, 파일·앵커 경로와 링크 구성, 화면 스크립트 문법도 확인한다. DOM이나 브라우저를 실행하지 않으며 화면 배치·클릭 동작을 실측한 결과는 아니다.
+`check.mjs`는 포함된 파일 목록과 현재 원문·SHA를 대조하고, 소스 전체가 실행 가능한 HTML로 삽입되지 않도록 escape됐는지 확인한다. 읽기 단계·비교 문서, 파일·앵커 경로와 링크 구성, 화면 스크립트 문법도 확인한다. 본문에서 대상물 밖 로컬 파일을 참조하면 실패하므로 바깥 설계 기록 의존이 다시 들어오는 것도 잡는다. DOM이나 브라우저를 실행하지 않으며 화면 배치·클릭 동작을 실측한 결과는 아니다.
 
 인증 데모의 동작 검사는 별도다. 실행법과 확인한 제품 경계는 [prototype README](../README.md), 실제 수행 결과와 한계는 [Work 상태](../noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md)에서 확인한다. 표시 도구의 검사를 제품 코드의 검사 결과로 기록하지 않는다.

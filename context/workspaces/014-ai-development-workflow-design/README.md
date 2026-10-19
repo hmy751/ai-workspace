@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**현재 초점:** [마무리96](records/2026-10-19-96-body-quality-reservation-and-session-close.md)에서95의 본문 보완 뒤 사용자의 “아직 좀 부족해 보인다”는 평가와 다음 세션 재개 지점을 보존했다. 본문 충분성은 계속 미해결이며, 합의 대조·품질 리뷰·정적 검사 통과를 사용자 수용으로 읽지 않는다. 같은 prototype의 실제 본문과95의 전후 비교에서 부족한 지점을 다시 본다. 구체 워크플로·기존 스킬을 함께 보고02를 선행 단계로 고정하지 않는 방향은 유지한다.
+**현재 초점:** [세션 정리103](records/2026-10-19-103-prototype-session-checkpoint.md)에 프로토타입 개선·개인 코드 기준·갱신 책임과 마지막 Development 논의를 묶었다. 사용자는 워크플로·스킬 연결을 관련 후속 작업에서 더 구체화하기로 했다. 현재 결과는 [development-workflow](records/prototypes/development-workflow/README.md), 재개 지점과 남은 범위는 [current](current/index.md)에서 읽는다. 전체 수용·운영 연결·Ticket 완료는 별도다.
 
 Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용자 인터뷰, 개발 에이전트 관련 강연을 바탕으로 **ai-workspace와 실제 개발 방식을 어떻게 발전시킬지 함께 설계하는 작업**이다. 지금은 범위를 충분히 이해하고 각 부분을 세밀하게 구체화하는 단계다. 개발 워크플로, 기록 방식, 역할 배치를 확정하거나 구현하는 단계로 넘어간 것은 아니다.
 

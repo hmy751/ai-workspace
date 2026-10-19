@@ -16,13 +16,15 @@
 
 ## 이어갈 순서와 관계
 
+**최신 사용자 방향103:** 이번 프로토타입·관리 기준 정리는 기록·커밋으로 묶고, Development의 구체 진행·인계·역할과 스킬 연결은 관련 후속 작업에서 다룬다. 재개할 때01-01과04-03을 함께 보며 현재 파일의 이름·위치·Owner도 판단한다. 즉시 스킬 구현에 착수하거나 해당 Ticket을 완료한 것은 아니다. [세션 정리](../../records/2026-10-19-103-prototype-session-checkpoint.md)
+
 **최신 정정93:** 본문 충분성은 현재 작업에서 다루고, 구체 개발 워크플로와 맥락 선택·새 작업자의 인수는01-01과04의 관련 스킬을 함께 보며 구체화한다. 02의 Workspace 갱신은 뒤에 다룰 수 있다. 아래74·75의 흐름은 당시 선택이며, 티켓 소속을 별도 논의·선행 완료 단계로 적용하지 않는다. [사용자 정정과 해석 범위](../../records/2026-10-19-93-workflow-and-skills-discussion-focus.md)를 현재 진행에 우선한다.
 
 현재 중심은03의 맥락 본문 구성과04-03의 읽기·갱신 연결이다. [정정89](../../records/2026-10-19-89-local-context-structure-correction.md)에 따라 개인 기준은 로컬 context/personal에 두고 Project·Work와 나란히 구성한다. 별도 ai-workspace 호스트 해석은 대체하되84의 독립 본문 책임은 유지한다. 실제 Noline의 계층을 직접 대조해 같은 prototype을 수정했다. [본문 비교](../../records/prototypes/criteria-format-comparison-2026-10-19/README.md)는01의 반영 부분과 새 문장·사례·이유의 이전 대조로 보존한다. 실제 운영 전환·설치·동기화와 전체 기준 채택은 남아 있다.
 
 **01-02는 중간 정리·미완료로 두고03을 진행한다.** 사용자가 다음03과 이후 Ticket 흐름을 요청해 [추천 순서74](../../records/2026-10-18-74-ticket-flow-after-quality-draft.md)를 정리했다. 중심 진행은03 → 02 → 01-01 → 01-03 → 01-02 재방문 → 04-02 → 05 → 06 → 07을 제안한다.04-03은03·02,04-01은01-01과 함께 본다.06의 기존 결합과07의 부분 연결은 필요한 시점부터 확인한다. 이후 사용자는 “그래 좋아”라고 동의하고 다음 세션에서 이어가기로 했다([인계75](../../records/2026-10-18-75-ticket03-session-handoff.md)). 당시 진행 방향으로 선택했으며, 현재는 위93의 정정을 함께 읽는다. 각 단계의 미정을 무조건 닫은 뒤에만 다음으로 가는 절차로 만들지 않는다.
 
-현재 반영본은 [시안72](../../records/2026-10-18-72-short-common-and-detail-prototype.md)다. 사용자가 공통을 짧게 두고 이름·가독성을 별도 절로 두는 방향을 선택해 실제 prototype 본문·읽기 안내와 주문 문서에 반영했다. [70](../../records/2026-10-18-70-criteria-organization-proposal.md)·[71](../../records/2026-10-18-71-order-reading-and-criteria-boundaries.md)은 도출 근거, [68](../../records/2026-10-18-68-principle-application-and-choice-basis.md)은 이전 시안 보완, [69](../../records/2026-10-18-69-ticket-boundaries-and-next-design-step.md)는 잔여 책임의 전체 대조다. 다음은 반영본의 남은 판단을 확인하고03·04-03의 실제 Project·기존 스킬,01-01·01-03의 실행·검증 조건으로 잇는 것이다. 후속은 필요한 과정·근거와 새 조건을 함께 보고 기준 본문까지 다시 판단한다. 이번 형식 방향의 선택과 모든 기준·최종 운영 배치·효과 확인·Ticket 완료는 구별한다.
+앞선 형식 반영본은 [시안72](../../records/2026-10-18-72-short-common-and-detail-prototype.md)다. 사용자가 공통을 짧게 두고 이름·가독성을 별도 절로 두는 방향을 선택해 실제 prototype 본문·읽기 안내와 주문 문서에 반영했다. [70](../../records/2026-10-18-70-criteria-organization-proposal.md)·[71](../../records/2026-10-18-71-order-reading-and-criteria-boundaries.md)은 도출 근거, [68](../../records/2026-10-18-68-principle-application-and-choice-basis.md)은 이전 시안 보완, [69](../../records/2026-10-18-69-ticket-boundaries-and-next-design-step.md)는 잔여 책임의 전체 대조다. 다음은 반영본의 남은 판단을 확인하고03·04-03의 실제 Project·기존 스킬,01-01·01-03의 실행·검증 조건으로 잇는 것이다. 후속은 필요한 과정·근거와 새 조건을 함께 보고 기준 본문까지 다시 판단한다. 이번 형식 방향의 선택과 모든 기준·최종 운영 배치·효과 확인·Ticket 완료는 구별한다.
 
 2026-10-18 과정 재사용 보완: 후속 Ticket은 결과물뿐 아니라 해당 판단의 조건·대안·사용자 정정을 선택해 읽고 새 조건에 따라 현재 안을 재구체화한다. [65](../../records/2026-10-18-65-criteria-status-and-cross-ticket-refinement.md)에 후속 판단별 과정 근거와 변경 반영 위치를 연결했다. 일반 원칙·구체 사례의 범위와 후보·채택·제품 계약 등의 지위를 구별하는 사용자 방향도 반영했다. 이 연결만으로 각 Ticket의 설계나 실제 적용이 완료된 것은 아니다.
 

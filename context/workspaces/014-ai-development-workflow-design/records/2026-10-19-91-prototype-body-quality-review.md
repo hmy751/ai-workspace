@@ -39,7 +39,7 @@ Main은 책임 분리 전체 주제로 확장하기보다 현재 이름·완료 
 | Project guidance/code-readability | 실제 서비스·Store·callback·소비자가 표현할 결과, 완료 표현의 적합 조건과 수정 범위 |
 | Personal 입구·prototype 안내·authoring-basis | 본문 진입과 작성 지위의 분리, 핵심 발화 보존, 원기록·외부 원자료 재접근 |
 
-현재 코드·테스트는 변경하지 않았다. `current/authentication-flow.md`에는 인증 거부 판정·요청 차단·재인증 전환이 미구현임을 추가해 보장 범위를 명확히 했다. 외부 레퍼런스와 사용자 판단을 어떻게 사용했고 어디서 새 문장을 만들었는지는 [작성 근거](prototypes/development-workflow/authoring-basis.md)에 실제 발췌와 함께 남겼다.
+현재 코드·테스트는 변경하지 않았다. `current/authentication-flow.md`에는 인증 거부 판정·요청 차단·재인증 전환이 미구현임을 추가해 보장 범위를 명확히 했다. 외부 레퍼런스와 사용자 판단을 어떻게 사용했고 어디서 새 문장을 만들었는지는 [작성 근거](2026-10-19-prototype-authoring-basis-before-revision.md)에 실제 발췌와 함께 남겼다.
 
 ## 확인과 남은 판단
 

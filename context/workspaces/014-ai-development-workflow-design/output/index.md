@@ -1,9 +1,11 @@
 # 현재 선택한 설계 자료와 산출물
 
-**현재 초점:** [마무리96](../records/2026-10-19-96-body-quality-reservation-and-session-close.md)에서95의 본문 보완 뒤 사용자의 “아직 좀 부족해 보인다”는 평가와 다음 세션 재개 지점을 보존했다. 본문 충분성은 계속 미해결이며, 합의 대조·품질 리뷰·정적 검사 통과를 사용자 수용으로 읽지 않는다. 같은 prototype의 실제 본문과95의 전후 비교에서 부족한 지점을 다시 본다. 구체 워크플로·기존 스킬을 함께 보고02를 선행 단계로 고정하지 않는 방향은 유지한다.
+**현재 초점:** [세션 정리103](../records/2026-10-19-103-prototype-session-checkpoint.md)이 현재 결과·사용자 방향·후속 범위·확인을 연결한다. 실제 본문은 [development-workflow](../records/prototypes/development-workflow/README.md)에서 읽는다. [100](../records/2026-10-19-100-role-based-prototype-revision.md)의 역할별 재구성, [101](../records/2026-10-19-101-self-explanatory-code-priority.md)의 개인 기준, [102](../records/2026-10-19-102-personal-project-update-ownership.md)의 갱신 책임 정리를 이어받는다. Development의 스킬 연결은 후속 구체화 대상이다.
 
 현재 goal은 전체 역할과 가능성을 이해하고 각 부분을 세밀하게 설계하는 것이다. B의 검토자 직접 수정 방향을 선택했으며, 전체 운영 아키텍처의 확정이나 새 스킬·개발 워크플로 구현은 아직 없다. 현재 시안에 대한 [사용자 평가73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md)는 전반적인 만족·최종 수용이 아니며03과 연결해 더 구체화할 필요가 있다는 의견이다. 아래 산출물은 이 유보와 함께 읽는다.
 
+- [기존 판단 반영과 같은 코드 비교98](../records/2026-10-19-98-restored-judgments-and-naming-comparison.md): 현재 두 주제의 일반 기준·사례, 같은 코드의 이름 대안, 선택·유보와 반영 이유·확인을 연결한다.
+- [이전 결정·내용 반영과 본문 평가97](../records/2026-10-19-97-decision-coverage-and-body-assessment.md): 선택·유보·대체된 제안, 앞선 기준과 현재 내용의 차이, 같은 코드에서 비교할 표현·동작 선택, 워크플로·스킬의 남은 구체화를 대조한다. prototype 수정 전 Main의 평가다.
 - [본문 품질 유보와 세션 마무리96](../records/2026-10-19-96-body-quality-reservation-and-session-close.md): 아직 부족하다는 사용자 평가, 원인이 구체적으로 지정되지 않았다는 한계, 같은 본문에서 재개할 경로와 커밋 범위를 보존한다.
 - [이름 판단 본문 구체화95](../records/2026-10-19-95-naming-decisions-body-refinement.md): 유지·설명 보완·개명·동작 수정의 조건, 세 상세 사례와 Project 적용을 다듬었다. 실제 전후 문장·이유·합의와 새 설명의 구별 및 확인을 보존한다.
 - [기록 정리와 다음 재개94](../records/2026-10-19-94-body-refinement-checkpoint.md):91~93의 실제 반영과 최신 진행 정정, 아직 수행하지 않은 본문 대조 추천, 커밋 범위·확인을 모았다. 이때 추천한 첫 본문 보완은95에서 수행했다.

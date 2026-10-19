@@ -42,6 +42,19 @@ for (const stage of data.stages) {
 }
 assert.equal(data.comparison.length, 3);
 for (const entry of data.comparison) { assert.equal(documents.get(entry.path)?.kind, 'markdown', entry.path); }
+const namingDocument = documents.get(data.namingComparison);
+assert.equal(namingDocument?.kind, 'markdown', '이름 비교의 원문이 없습니다.');
+const namingBlocks = [...namingDocument.content.matchAll(/```js\n([\s\S]*?)\n```/g)].map(match => match[1]);
+assert.equal(namingBlocks.length, 2, '같은 동작의 A·B 코드가 필요합니다.');
+for (const block of namingBlocks) { new vm.Script(block); }
+assert.equal(
+  namingBlocks[0].replaceAll('loginAndRefresh', 'signInAndRequestRefresh').replaceAll('onCompleted', 'onSignedIn'),
+  namingBlocks[1],
+  '이름 외에 주석이나 동작도 달라졌습니다. 비교 조건을 다시 확인하세요.',
+);
+for (const heading of ['A — 이름 유지와 설명 보완', 'B — 개명과 설명 보완']) {
+  assert.ok(namingDocument.html.includes(`>${heading}</h2>`), `비교 열 제목이 없습니다: ${heading}`);
+}
 assert.ok(data.documents.some(doc => doc.path.startsWith('noline-demo/examples/authentication/src/')));
 assert.ok(data.documents.some(doc => doc.path.startsWith('noline-demo/examples/authentication/tests/')));
 
@@ -90,6 +103,11 @@ for (const doc of data.documents.filter(entry => entry.kind === 'markdown')) {
     }
     if (expected.protocol !== 'file:') { continue; }
     const targetFile = decodeURIComponent(expected.pathname);
+    const relativeFile = path.relative(root, targetFile);
+    if (relativeFile === '..' || relativeFile.startsWith(`..${path.sep}`) || path.isAbsolute(relativeFile)) {
+      problems.push(`${doc.path}: 대상물 밖 파일에 의존하는 링크 ${href}`);
+      continue;
+    }
     if (!fs.existsSync(targetFile)) { problems.push(`${doc.path}: 없는 파일 ${href}`); continue; }
     if (!expected.hash) { continue; }
     anchorLinks++;
@@ -127,8 +145,10 @@ console.log(JSON.stringify({
   codeRendering: '전체 소스를 escape하여 읽기 전용 표시',
   stages: data.stages.length,
   comparisonColumns: data.comparison.length,
+  namingAlternatives: '2개 코드가 이름 두 쌍 외에 주석 포함 동일',
   internalLinks, referenceLinks, anchorLinks,
   missingPathsOrAnchors: problems.length,
+  localDocumentBoundary: '모든 로컬 링크가 prototype 안에 있음',
   rejectedLinkCases: unsupported.length,
   clientScriptSyntax: '통과',
   browserRendering: '실행하지 않음',

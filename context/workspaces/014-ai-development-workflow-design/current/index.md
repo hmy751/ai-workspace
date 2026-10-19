@@ -1,8 +1,8 @@
 # 현재 논의의 진입점
 
-**현재 초점:** [마무리96](../records/2026-10-19-96-body-quality-reservation-and-session-close.md)에서95의 본문 보완 뒤 사용자의 “아직 좀 부족해 보인다”는 평가와 다음 세션 재개 지점을 보존했다. 본문 충분성은 계속 미해결이며, 합의 대조·품질 리뷰·정적 검사 통과를 사용자 수용으로 읽지 않는다. 같은 prototype의 실제 본문과95의 전후 비교에서 부족한 지점을 다시 본다. 구체 워크플로·기존 스킬을 함께 보고02를 선행 단계로 고정하지 않는 방향은 유지한다.
+**현재 초점:** [세션 정리103](../records/2026-10-19-103-prototype-session-checkpoint.md)에97~102의 실제 반영과 마지막 사용자 방향을 묶었다. Development는 개발 워크플로의 진입점·절차 본문 시안이며 최종 위치·스킬 관계·역할 운영은 관련 후속 작업에서 구체화한다. [102](../records/2026-10-19-102-personal-project-update-ownership.md)의 관리 기본값과 [101](../records/2026-10-19-101-self-explanatory-code-priority.md)의 개인 코드 기준은 유지한다. [현재 상태](state.md)에서 재개 조건과 남은 범위를 읽는다.
 
-88·89에서 프로토타입의 초기 작성과 당시 검토를 수행했다. **현재는96의 품질 유보에 따라 본문을 다시 보고 같은 폴더에서 계속 발전시키는 단계다.** [정정89](../records/2026-10-19-89-local-context-structure-correction.md)와 [development-workflow](../records/prototypes/development-workflow/README.md)가 현재 진입점이다. Noline demo는 Main이 구체 적용 대상으로 고른 예시이며 실제 Noline 적용은 아니다.
+88·89에서 프로토타입의 초기 작성과 당시 검토를 수행했다. **96의 품질 유보 뒤97에서 평가하고98에서 빠진 판단과 같은 코드 비교를 반영했다. 같은 폴더에서 계속 발전시키는 단계다.** [정정89](../records/2026-10-19-89-local-context-structure-correction.md)와 [development-workflow](../records/prototypes/development-workflow/README.md)가 현재 구조·실물의 진입점이다. Noline demo는 Main이 구체 적용 대상으로 고른 예시이며 실제 Noline 적용은 아니다.
 
 [보완87](../records/2026-10-19-87-conditional-application-and-provenance.md)의 조건별 적용과 과정 재접근을 이어받는다. 개인 기준의 현재 위치는89의 로컬 context/personal이며, 별도 ai-workspace 호스트로 고정한86의 해석은 대체한다. demo 안에서 Personal·Project의 독립 본문과 Work의 선택·충돌 판단·반환 절차를 구성했다. 실제 운영 저장소의 설치·배포·동기화·skill 연결은 남아 있다.
 
@@ -12,7 +12,7 @@
 
 ## 문서별 책임
 
-- [memory.md](memory.md): 배경과 평가에서 얻은 경험, Spec·Ticket을 쓰게 된 흐름.
+- [memory.md](memory.md): 대상물 경계·범위 안의 완성도, 배경과 평가에서 얻은 경험, Spec·Ticket을 쓰게 된 흐름.
 - [spec.md](spec.md): 전체 목표·공통 기준·잠정안·사용자 선택·미정.3절은 전체 체계와 현재 초점을 연결한다.
 - [tickets/index.md](tickets/index.md): 상위01~07과 하위 Ticket의 관계. 각 Ticket은 상세 결과·완료 조건·진행을 소유한다.
 - [state.md](state.md): 현재 작업 중심, 다음 추천, 미실행 범위와 재진입 경로. 과거의 날짜별 진행은 records에서 찾는다.

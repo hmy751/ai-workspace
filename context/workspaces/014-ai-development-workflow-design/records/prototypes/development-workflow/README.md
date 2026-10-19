@@ -1,91 +1,37 @@
-# Noline demo에 적용한 context 구조
+# 개발 판단을 코드와 한 작업에 적용하기
 
-앞으로 이 폴더 하나를 계속 발전시킨다. **현재 내용은 중간 커밋으로 보존한 시안이며 전체 구조의 최종안이 아니다.** 특히 Work의 DEVELOPMENT.md 위치·이름·운영 책임과 전반적인 구체화가 남아 있다. [중간 정리90](../../2026-10-19-90-prototype-checkpoint-and-open-design.md)에서 현재 선택과 미결정을 구별한다. 적용 대상은 **[noline-demo/context/](noline-demo/context/README.md)**다. 개인 기준, 제품 맥락, 작업 맥락을 그 안에 나란히 두고, 로그인 완료 범위를 다루는 한 Work에서 함께 사용한다.
+공통화할 범위, 신뢰할 계약, 이름과 완료 표현을 **코드와 사용 조건으로 판단하는 개발 프로토타입**이다. 개인의 일반 기준과 사례를 읽고, Noline 인증 예제에서 제품 계약과 함께 적용한 선택·코드·검사 결과를 확인할 수 있다.
 
-**최신 사용자 평가:**95의 본문 보완 뒤에도 아직 부족하다는 평가가 남아 있다. [마무리96](../../2026-10-19-96-body-quality-reservation-and-session-close.md)에서 다음 세션의 재개 위치를 찾는다. 구체 부족 원인은 아직 지정되지 않았으며, 검토·정적 검사 통과를 본문 충분성이나 최종 수용으로 읽지 않는다.
+[폴더와 본문 열기](viewer.html) · [이름 유지·개명 나란히 보기](viewer.html#naming) · [로그인 작업 따라가기](walkthrough.md)
 
-[폴더와 본문을 화면에서 보기](viewer.html) · [Noline demo 시작](noline-demo/README.md) · [한 작업을 따라 읽기](walkthrough.md)
+## 지금 궁금한 것에서 시작한다
 
-**이번 본문 보완:** 이름 유지·설명 보완·개명·동작 수정을 가르는 근거를 구체화했다. [일반 기준](noline-demo/context/personal/development/naming-and-completion.md#유지설명-보완개명동작-수정을-고른다)은 필요한 결과·실제 동작·표현의 차이를, [상세 사례](noline-demo/context/personal/development/cases/naming-and-completion.md#유지개명동작-수정이-달라지는-설명용-사례)는 그 조건에서 선택이 달라지는 이유를, [Project 가이드](noline-demo/context/project/guidance/code-readability.md#표현을-고칠지-동작을-고칠지)는 인증·조회·소비자의 실제 경계를 설명한다. [기록95](../../2026-10-19-95-naming-decisions-body-refinement.md)에 이전 문장과 이번 수정·이유·합의 범위를 비교했다. 현재 동작과 미정 운영 조건은 유지한다.
+| 보고 싶은 것 | 시작점 | 여기서 이해할 차이 |
+| --- | --- | --- |
+| 공통으로 묶을 범위와 사용처에 남길 선택 | [공통 제공과 사용처 선택](noline-demo/context/personal/development/shared-boundaries.md) · [코드 사례](noline-demo/context/personal/development/cases/shared-boundaries.md) | Field의 배치·입력 교체, Container의 오류 표시, 같은 주문 API와 같은 구매 흐름의 차이 |
+| 공통 오류와 시간·자원의 의미 | [계약과 수명](noline-demo/context/personal/development/contracts-and-lifetime.md) · [코드 사례](noline-demo/context/personal/development/cases/contracts-and-lifetime.md) | 파싱 실패·HTTP 상태, 옵션의 적용 순서, Toast의 3초가 시작되는 시점 |
+| 이름을 유지할지, 바꿀지, 동작을 고칠지 | [이름과 완료](noline-demo/context/personal/development/naming-and-completion.md) · [판단 사례](noline-demo/context/personal/development/cases/naming-and-completion.md) | 같은 코드의 이름 유지·개명 비용과 이득, 설명만으로 해결할 수 없는 완료 요구 |
+| 기준을 실제 작업에서 어떻게 사용하는지 | [로그인 완료 표현을 정리하는 작업](walkthrough.md) | Personal의 판단 관점, Project의 계약, Work의 선택이 코드에 연결되는 과정 |
+| 실행 코드와 확인 범위 | [Noline demo](noline-demo/README.md) | 저장·인증 적용 뒤 조회를 요청하되 결과는 기다리지 않는 완료 경계 |
 
-이번에는 기존 합의와 다시 대조해 **일반 기준과 상세 사례를 별도 파일로 나눴다.** [일반 기준](noline-demo/context/personal/development/naming-and-completion.md)은 책임·표현·완료 판단의 뜻과 핵심 조건을, [상세 사례](noline-demo/context/personal/development/cases/naming-and-completion.md)는 초대·isError·silent·완료 범위의 구체 상황과 판단 차이를 설명한다. 기존 코드·당시 판단·원문 근거를 보존했으며 원칙 이해에 필요한 짧은 대비는 일반 본문에 남겼다. 사례 전체를 매번 읽는 절차는 아니다.
+일반 기준은 다른 작업에도 적용할 판단과 조건을 설명한다. 사례는 그 기준으로 선택이 갈리는 코드를 보여 준다. 전체 사례를 순서대로 읽는 대신 이번 쟁점에 맞는 본문을 고른다.
 
-[Project 가이드](noline-demo/context/project/guidance/code-readability.md)와 [인증 계약](noline-demo/context/project/guidance/authentication-and-session.md)은 제품의 판단 조건을, [current](noline-demo/context/project/current/authentication-flow.md)는 선택 후 이름·코드·지원 범위를 맡는다. [적용 해설](walkthrough.md)은 초기 입력의 재구성과 현재 결과를 구별한다. 사용자 발췌·외부 참고·새 문장과 코드의 지위는 [작성 근거](authoring-basis.md), 이번 수정과 합의 대조는 [기록92](../../2026-10-19-92-principles-cases-and-agreement-reconciliation.md)에서 읽는다. 검토 겸임·생략 조건과 입력 판본 보존을 포함한 운영 세부는 미정이다.
+## Personal·Project·Work가 맡는 내용
 
-## 실제 파일 배치
+세 층은 [noline-demo/context](noline-demo/context/README.md) 아래에 있다. 서로의 본문을 복제하지 않고, 한 작업에서 필요한 내용을 함께 선택한다.
 
-```text
-development-workflow/
-├── noline-demo/
-│   ├── AGENTS.md
-│   ├── README.md
-│   ├── context/
-│   │   ├── README.md
-│   │   ├── personal/
-│   │   │   ├── README.md
-│   │   │   └── development/
-│   │   │       ├── README.md
-│   │   │       ├── naming-and-completion.md    일반 기준·핵심 대비
-│   │   │       └── cases/naming-and-completion.md  상세 사례·판단 근거
-│   │   ├── project/
-│   │   │   ├── README.md
-│   │   │   ├── MAINTENANCE.md
-│   │   │   ├── REFERENCE/          읽기·본문 구성 기준
-│   │   │   ├── common/             제품 의미
-│   │   │   ├── current/            현재 구현·지원 범위
-│   │   │   ├── guidance/           제품 개발 계약
-│   │   │   └── decisions/          제품 선택의 근거
-│   │   └── work/
-│   │       ├── README.md
-│   │       ├── AGENTS.md
-│   │       ├── DEVELOPMENT.md      Personal·Project를 선택하는 절차
-│   │       └── workspaces/
-│   │           ├── README.md
-│   │           ├── spec-and-tickets/README.md
-│   │           └── 001-login-completion-names/
-│   │               ├── README.md
-│   │               ├── current/
-│   │               │   ├── memory/
-│   │               │   │   ├── index.md
-│   │               │   │   ├── spec/        한 Work의 다섯 관점
-│   │               │   │   ├── tickets/     실행 정의·상태
-│   │               │   │   ├── project-context.md
-│   │               │   │   └── personal-context.md
-│   │               │   └── state/index.md
-│   │               ├── source/              부여한 초기 입력
-│   │               ├── output/              실제 결과의 위치
-│   │               └── records/             선택·작성·검사 이력
-│   └── examples/authentication/
-│       ├── src/                  메모리 기반 인증 예제
-│       └── tests/                완료·실패 경계 검사
-├── authoring-basis.md             사용자 판단·외부 참고·새 구체화의 근거
-├── walkthrough.md                사람이 읽는 적용 해설
-├── viewer/                       화면 생성·검사 도구
-└── viewer.html                   위 파일들의 표시 사본
-```
+| 위치 | 소유하는 내용 | 이번 인증 예제에서의 역할 |
+| --- | --- | --- |
+| [Personal](noline-demo/context/personal/README.md) | 개인의 판단 기준·이유·조건과 사례 | 이름 유지·설명·개명·동작 수정 중 필요한 조치를 판단한다. |
+| [Project](noline-demo/context/project/README.md) | 제품의 의미·개발 계약·현재 구현 | 인증 적용과 조회 완료를 구별하고 실패 때 보존할 상태를 정한다. |
+| [Work](noline-demo/context/work/README.md) | 이번 요구·선택·상태·입력·결과·기록 | 내부 두 소비자의 완료 표현을 정리하고 코드와 확인 결과를 연결한다. |
 
-프로토타입 바깥에 두었던 작업대 모형과 별도 workflow 폴더는 현재 구성에서 없앴다. 초기 작업 입력도 해당 Workspace의 source에서 찾는다. 바깥에는 화면 도구, 적용 해설과 본문 작성 근거를 둔다. 개발 기준을 적용할 때 작성 이력을 먼저 읽는 절차는 두지 않는다.
+Work의 [개발 절차](noline-demo/context/work/DEVELOPMENT.md)는 이 입력을 고르고 구현·검토·갱신으로 연결하는 방법을 설명한다. Project가 개인 기준의 채택 목록을 관리하지 않으며, 이번 Work에서 고른 함수명을 모든 작업의 규칙으로 올리지 않는다.
 
-## 실제 Noline에서 확인한 것과 이번 추가
+## 직접 확인할 수 있는 범위
 
-실제 Noline의 `context/README.md`, `project/README.md`와 관리·읽기·구성 기준, `work/workspaces/README.md`, 실제 Workspace의 memory·state·Spec·Ticket 배치를 직접 확인했다. 관찰 기준은 Noline `4fb309d2`이며, 확인 경로와 이번 정정은 [기록89](../../2026-10-19-89-local-context-structure-correction.md)에 남긴다.
+[인증 예제](noline-demo/examples/authentication/README.md)는 Node.js로 실행하는 메모리 기반 코드다. Login은 완료 뒤 이동을, Reauth는 닫기를 시작하며 실제 화면은 구현하지 않았다. 서버·DB·실제 기기 저장소와 운영 Harness도 연결하지 않았다. 실행 방법은 [demo 안내](noline-demo/README.md#직접-실행한다), 결과와 남은 조건은 [Work 상태](noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md)에서 읽는다.
 
-| 구분 | 이 프로토타입에 반영한 내용 |
-| --- | --- |
-| 실제 Noline의 구조 | Project의 common/current/guidance, 관리·읽기 기준과 decisions. Work의 current/memory·state, source·output·records. Spec 다섯 파일과 Ticket, 작업별 Project 선택. |
-| 사용자 정정에 따른 추가 | `context/personal/`을 Project·Work와 같은 context 아래에 둔다. 실제 Noline에 이미 있는 층이라고 주장하지 않는다. |
-| 이번 연결 구체화 | Work의 `DEVELOPMENT.md`가 Personal과 Project를 각각 선택한다. 현재 사용한 개인 주제는 Work memory의 `personal-context.md`에 남긴다. 둘 다 이번 프로토타입에서 구체화한 절차다. |
-| 실행 범위 | 인증 예제 코드는 직접 실행할 수 있다. 실제 Noline의 앱 코드를 복제한 것이 아니므로 `examples/authentication/`에 둔다. 실제 Noline의 apps/client·server·packages 전체를 재현하지 않는다. |
-| 아직 연결하지 않은 운영 장치 | 실제 Noline의 Recover·Maintain·Verify Harness와 host hook·skill bridge는 이 demo에 설치하지 않았다. 실행되지 않는 기계 계약이나 성공 상태를 꾸며 넣지 않고 문서 경로로 재진입한다. |
+현재 선택된 인증 이름과 같은 동작의 유지 대안은 [두 코드 비교](noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md)에 있다. 사례의 설명용 API나 조건부 권고를 제품에 이미 구현한 것으로 읽지 않는다. 역할 겸임·검토 생략 조건과 자동 스킬 연결은 아직 정하지 않은 운영 범위다.
 
-## 같은 context 안에서 담당을 나눈다
-
-Personal은 개인의 판단 이유·적용 조건을, Project는 제품 자체의 의미·개발 계약을, Work는 이번 요구·선택·상태·결과를 소유한다. 같은 부모 폴더에 있다는 사실이 본문 통합이나 Project의 개인 기준 관리 의무를 뜻하지 않는다.
-
-01에서 반영하도록 선택한 형식·조건별 적용과 이번에 새로 쓴 질문·예시의 지위는 [작성 근거](authoring-basis.md)에서 구별한다. 핵심 원문 발췌와 원기록 경로를 함께 보존하고, Personal·Project 본문에는 실제 판단에 필요한 설명과 조건을 직접 쓴다.
-
-## 확인과 다음 수정
-
-코드 실행법은 [Noline demo README](noline-demo/README.md#직접-실행한다), 현재 결과와 다음 행동은 [Work state](noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md), 산출물 위치는 [output](noline-demo/context/work/workspaces/001-login-completion-names/output/index.md)에서 읽는다. 다음 변경도 이 폴더의 해당 Owner를 고친 뒤 [화면 재생성](viewer/README.md)을 수행한다.
-
-이 프로토타입을 만드는 설계 작업 자체는 바깥 [Workspace 014](../../../README.md)가 소유한다. 기존 날짜별 시안과 실제 Noline 원본은 유지한다. 이전 배치와 문서는 [정정89](../../2026-10-19-89-local-context-structure-correction.md)의 변경 전 보존본에서 복원할 수 있다.
+본문과 실행 코드가 정본이며 `viewer.html`은 이를 담은 열람 화면이다. 수정한 뒤에는 [화면 생성 안내](viewer/README.md)에 따라 표시 내용을 갱신한다.

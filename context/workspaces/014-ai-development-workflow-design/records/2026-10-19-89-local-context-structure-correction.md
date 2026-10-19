@@ -43,7 +43,7 @@ Main은 Personal까지 demo context 안에 둘지, 앞서 기록한 ai-workspace
 
 ## 확인 범위
 
-이동 뒤 Main이 현재 경로에서 Node 검사7개, 정상 demo, 조회 실패 demo를 직접 실행해 모두 성공 종료를 확인했다. 실제 입력·본문·산출물 경로와 남은 범위는 [Work의 후속 확인](prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-05-context-layout-check.md)에 남긴다. 이전 검토자의 기록은 당시 내용·동작 확인이며 이번 구조를 수락했다는 증거가 아니다.
+이동 뒤 Main이 현재 경로에서 Node 검사7개, 정상 demo, 조회 실패 demo를 직접 실행해 모두 성공 종료를 확인했다. 실제 입력·본문·산출물 경로와 남은 범위는 [Work의 후속 확인](2026-10-19-prototype-layout-check-before-revision.md)에 남긴다. 이전 검토자의 기록은 당시 내용·동작 확인이며 이번 구조를 수락했다는 증거가 아니다.
 
 화면을 재생성하고 문서48개·소스와 검사5개의 전체 원문·SHA 일치를 확인했다. 화면 안쪽 연결206곳·바깥 원문 연결23곳·제목 연결10곳, 잘못된 링크 형식12종의 거부와 스크립트 문법을 정적으로 확인했다. Workspace current·관련 안내·현재 prototype의 파일 연결890곳에도 누락이 없었다. 브라우저 렌더링·실제품 통합·사용자 수락을 확인한 것으로 보고하지 않는다. 실제 Noline, 바깥 운영 context, 글로벌 기준·skill·hook은 변경하지 않았으며 커밋하지 않는다.
 
