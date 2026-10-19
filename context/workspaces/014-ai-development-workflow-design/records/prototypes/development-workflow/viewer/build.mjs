@@ -23,6 +23,7 @@ async function loadMarked() {
 const {Marked} = await loadMarked();
 const personalRoot = 'noline-demo/context/personal/';
 const personal = personalRoot + 'development/naming-and-completion.md';
+const personalCases = personalRoot + 'development/cases/naming-and-completion.md';
 const personalCommon = personalRoot + 'development/README.md';
 const workflow = 'noline-demo/context/work/DEVELOPMENT.md';
 const project = 'noline-demo/context/project/';
@@ -67,7 +68,8 @@ const labels = {
   'noline-demo/context/README.md': 'Context · Personal·Project·Work',
   [personalRoot + 'README.md']: 'Personal 입구 · 지위와 책임',
   [personalCommon]: '짧은 개발 공통 · 조건별 적용',
-  [personal]: '이름·책임·완료 범위 상세',
+  [personal]: '일반 기준 · 이름·책임·완료',
+  [personalCases]: '상세 사례 · 상황·판단·근거',
   [workflow]: 'Workflow · 입력 선택과 전달·갱신',
   [project + 'README.md']: 'Project 입구 · 담당 본문 선택',
   [project + 'current/authentication-flow.md']: '작업 후 · 인증 흐름 현황',
@@ -75,7 +77,7 @@ const labels = {
   [work + 'records/2026-10-19-03-execution.md']: '로컬 실행 결과와 확인 범위',
   [work + 'records/2026-10-19-04-review.md']: '실물 검토 결과와 미확인',
   [work + 'source/scenario-input.md']: '작업 전 · 코드와 사용처',
-  'walkthrough.md': '전체 작업 흐름과 확인 범위',
+  'walkthrough.md': '적용 해설 · 초기 조건 재구성과 현재 결과',
 };
 
 const documents = sourceFiles(root).map(fullPath => {
@@ -105,9 +107,9 @@ const demoTests = documents.filter(doc => doc.path.startsWith('noline-demo/examp
 
 const stages = [
   {label: 'Context와 작업', title: '1. 한 프로젝트 안의 Context와 Work', description: '같은 context 안에 Personal·Project·Work를 두고, 이번 작업의 Spec·Ticket·현재 상태를 찾습니다.', documents: ['noline-demo/context/README.md', work + 'README.md', work + 'current/memory/index.md', work + 'current/memory/spec/01-problem-goal-scope.md', work + 'current/memory/tickets/01-authentication-completion.md', work + 'source/scenario-input.md', 'README.md']},
-  {label: '필요 본문 선택', title: '2. Work에서 Personal과 Project를 선택', description: 'Work의 절차와 현재 선택이 두 입력을 연결합니다. Project 본문은 자기 제품 계약을 독립적으로 설명합니다.', documents: [workflow, work + 'current/memory/personal-context.md', work + 'current/memory/project-context.md', personalRoot + 'README.md', personalCommon, personal, project + 'README.md', project + 'guidance/code-readability.md']},
-  {label: '대안·계약 판단', title: '3. 조건과 비용에 따라 수단을 고름', description: '이름 유지·설명 보완·개명·동작 변경 중 현재 목적에 맞는 선택을 대조합니다.', documents: ['walkthrough.md', work + 'current/memory/spec/02-behavior-and-cases.md', work + 'current/memory/spec/03-concepts-and-contracts.md', work + 'current/memory/spec/05-constraints-design-assumptions.md', personal, project + 'guidance/authentication-and-session.md']},
-  {label: '구현과 결과', title: '4. Output에서 실제 구현을 찾음', description: '산출물 지도에서 예제 코드와 검사를 찾고, 작성 기록의 선택 이유와 대조합니다.', documents: [work + 'output/index.md', work + 'records/2026-10-19-02-implementation.md', ...demoSources]},
+  {label: '필요 본문 선택', title: '2. Work에서 Personal과 Project를 선택', description: '일반 기준을 읽고 판단 차이가 필요할 때 상세 사례를 고릅니다. 현재 읽기 경로이며 최초 전달 판본의 복원본은 아닙니다.', documents: [workflow, work + 'current/memory/personal-context.md', work + 'current/memory/project-context.md', personalRoot + 'README.md', personalCommon, personal, personalCases, project + 'README.md', project + 'guidance/code-readability.md']},
+  {label: '대안·계약 판단', title: '3. 초기 판단 조건과 대안을 재구성해 읽음', description: '보존된 시작 입력으로 판단 조건을 풀고 현재 기준과 대조한 해설입니다. 새 작업자가 독립적으로 적용한 실험은 아닙니다.', documents: ['walkthrough.md', work + 'source/scenario-input.md', personal, personalCases, project + 'guidance/authentication-and-session.md']},
+  {label: '구현과 결과', title: '4. Output에서 실제 구현을 찾음', description: '선택 후 이름·코드는 결과로 읽습니다. 당시 작성 기록과 현재 보완된 선택 이유를 구별합니다.', documents: [work + 'output/index.md', work + 'current/memory/spec/05-constraints-design-assumptions.md', project + 'current/authentication-flow.md', work + 'records/2026-10-19-02-implementation.md', ...demoSources]},
   {label: '검토와 검사', title: '5. 실제 수행과 한계를 구별', description: '구조 정정 뒤 Main이 직접 확인한 기록과 과거 검사·검토를 구별해서 읽습니다.', documents: [work + 'records/2026-10-19-05-context-layout-check.md', work + 'current/memory/spec/04-quality-and-completion.md', work + 'records/2026-10-19-03-execution.md', work + 'records/2026-10-19-04-review.md', ...demoTests]},
   {label: '현재와 다음', title: '6. 같은 구조에서 다음 변경을 이어감', description: '현재 상태와 결과 위치를 확인하고, 개인 기준·제품 계약·작업 상태 중 달라진 Owner를 갱신합니다.', documents: [work + 'current/state/index.md', work + 'output/index.md', project + 'current/authentication-flow.md', project + 'MAINTENANCE.md', personalRoot + 'README.md', workflow]},
 ];

@@ -1,9 +1,12 @@
 # 현재 선택한 설계 자료와 산출물
 
-**현재 중간 정리:** [90](../records/2026-10-19-90-prototype-checkpoint-and-open-design.md)에 따라 현재 시안은 커밋해 보존했으며 추가 구체화가 남아 있다. `DEVELOPMENT.md`의 위치·이름·운영 책임과 전체 구성을 최종 채택한 것은 아니다. 89의 로컬 context 정정과 독립 Personal·Project 책임을 유지하면서 같은 prototype을 계속 발전시킨다.
+**현재 초점:** [중간 정리94](../records/2026-10-19-94-body-refinement-checkpoint.md)에 본문 품질 보완·원칙과 사례 분리·진행 정정까지 보존했다. 다음 재개는 같은 prototype에서 이름 유지·설명 보완·개명·동작 수정의 실제 본문을 나란히 보며 다듬는 것이다. 이어 구체 개발 워크플로와 기존 스킬을 함께 보며, 02의 Workspace 갱신을 선행 단계로 고정하지 않는다. 상세 비교 순서는 Main의 추천이고 전체 기준 수용·운영 설치·Ticket 완료는 미정이다.
 
 현재 goal은 전체 역할과 가능성을 이해하고 각 부분을 세밀하게 설계하는 것이다. B의 검토자 직접 수정 방향을 선택했으며, 전체 운영 아키텍처의 확정이나 새 스킬·개발 워크플로 구현은 아직 없다. 현재 시안에 대한 [사용자 평가73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md)는 전반적인 만족·최종 수용이 아니며03과 연결해 더 구체화할 필요가 있다는 의견이다. 아래 산출물은 이 유보와 함께 읽는다.
 
+- [기록 정리와 다음 재개94](../records/2026-10-19-94-body-refinement-checkpoint.md):91~93의 실제 반영과 최신 진행 정정, 아직 수행하지 않은 본문 대조 추천, 커밋 범위·확인을 모았다. 다음에는 동일 prototype의 현재 본문을 읽고 필요한 문장을 다듬는다.
+- [워크플로와 스킬을 함께 보는 진행 정정93](../records/2026-10-19-93-workflow-and-skills-discussion-focus.md): 티켓 경계로 논의를 과도하게 나누지 않고 본문·구체 워크플로·기존 스킬을 연결한다. 02를 선행 단계로 고정하지 않는다.
+- [최신 합의 대조와 반영92](../records/2026-10-19-92-principles-cases-and-agreement-reconciliation.md): 일반 기준·상세 사례 분리와 기존 근거 보존, Project·Work의 설명 정정, 적용 전후 구별과 남은 운영 조건을 확인한다. 같은 prototype의 최신 본문을 가리키며 별도 결과 사본은 만들지 않는다.
 - [앞으로 계속 발전시킬 단일 적용 프로토타입](../records/prototypes/development-workflow/README.md): 사용자 요청으로 같은 폴더를 계속 고칠 새 실물의 본문·실행 코드·적용 장면을 작성하고 내용 검토를 마쳤다. 89에서 구조를 정정한 noline-demo/context의 Personal·Project·Work와 적용 절차를 함께 읽는다. [선택과 범위88](../records/2026-10-19-88-living-applied-prototype.md)에서 사용자 요청과 Main의 예시 선택을 구별한다. 실제 운영 Personal 생성·제품 적용·스킬 설치는 없다.
 - [조건별 적용과 원래 근거로 돌아가는 경로 보완87](../records/2026-10-19-87-conditional-application-and-provenance.md): 채택 뒤에도 목적·조건·비용에 따라 적용한다는 설명과 대화·사례의 재접근 경로를 [당시 시안](../records/prototypes/personal-project-applied-2026-10-19/README.md)에 보완한 내용과 요청 범위다. 이 시안은88의 새 프로토타입에 이어받을 원형으로 보존한다.01의 반영 선택·전체 유보, 이번 새 문장·사례의 지위를 구별하며 실제 파일 이동은 없다.
 - [context/personal 위치 선택과 실제 본문 비교86](../records/2026-10-19-86-context-personal-choice-and-text-comparison.md): 관리·축적·수정 분리를 이유로 context 아래 Personal 층을 선택한 당시 기록이다. 별도 ai-workspace 호스트로 고정한 해석은89에서 정정했다. [7쌍 원문 비교](../records/prototypes/criteria-format-comparison-2026-10-19/README.md)는87 보완 전01의 반영 부분과 Main의 구체화를 유지·추가·차이·이유로 대조한 snapshot이다. 보완 뒤 현재 본문과 구별해 보존한다.84의 독립 책임을 유지하며 실제 폴더·파일 이동·운영 설치는 없다.
@@ -19,7 +22,7 @@
 - [03의 기존 본문·스킬 첫 대조와 진행 제안](../records/2026-10-18-76-ticket03-first-comparison-and-discussion.md):03 착수 때 확인한 기존 내용·스킬·문서 개선과01-02 접점. API 사용 장면은 당시 추천이며, 위치·책임 방향은81, 후속 본문 시안은82에서 읽는다.
 - [다음 세션 인계와 마무리 점검](../records/2026-10-18-75-ticket03-session-handoff.md): 착수 전 진행 순서 동의·첫03 작업·권한·검증 범위와 보존 위치. [단계별 문서 화면](../records/prototypes/applied-criteria-2026-10-17/viewer.html)은72 시안의 보조 화면 사본이며 현재 판단의 정본은 Markdown이다.
 - [01-02의 짧은 공통과 필요한 상세를 연결한 시안72](../records/2026-10-18-72-short-common-and-detail-prototype.md): 사용자가 공통을 짧게 두고 이름·가독성을 독립 절로 두는 방향을 선택해 기존 prototype에 반영했다. Project 한곳의 안내에서 상세·사례를 찾고, 주문의 현재 계약·작업 요구·구현 전 판단을 실제 문서로 읽는다.03·04-03의 재판단 부분과 이유도 연결했다. [실물 입구](../records/prototypes/applied-criteria-2026-10-17/README.md). 모든 기준·최종 운영 배치·실제 효과·Ticket 완료는 미확정이다.
-- [01-02 중간 정리 이후의 Ticket 흐름](../records/2026-10-18-74-ticket-flow-after-quality-draft.md): 다음 중심을03으로 옮기는 순서·이유·01-02 재방문 시점을 정리했고, 사용자는 이후 동의하며 다음 세션에서 이어가기로 했다([인계75](../records/2026-10-18-75-ticket03-session-handoff.md)). 현재 진행 방향이며 고정 일정·Ticket 완료·시안 전체 만족을 뜻하지 않는다.
+- [01-02 중간 정리 이후의 Ticket 흐름](../records/2026-10-18-74-ticket-flow-after-quality-draft.md): 다음 중심을03으로 옮기는 순서·이유·01-02 재방문 시점을 정리했고, 사용자는 이후 동의하며 다음 세션에서 이어가기로 했다([인계75](../records/2026-10-18-75-ticket03-session-handoff.md)). 당시 진행 선택이며 현재는93의 정정을 따른다. 고정 일정·Ticket 완료·시안 전체 만족을 뜻하지 않는다.
 - [주문 작업의 읽기 경로와 공통·상세 경계](../records/2026-10-18-71-order-reading-and-criteria-boundaries.md): 작업 의뢰·현재 동작·공통 관점부터 필요한 상세·사례와 구현 전 판단까지 채웠다. 공통은 적용 관점·읽기 단서, 이름·가독성은 짧은 독립 절을 추천한다. 당시 가상 장면이며 prototype68을 유지했다. 후속 사용자 선택에 따른 반영은72에 있고 실제 제품·효과 확인은 없다.
 - [전체 기준의 구성·분류안](../records/2026-10-18-70-criteria-organization-proposal.md): 공통 적용 관점과 네 판단 주제, 조건별 사례·제품 계약·작업 결과·과정 근거의 역할을 제안했다. 기존 아홉 판단축의 연결과 구분 이유·실제 내용 예·후속 미정을 담는다. 지금 구체화 후 후속에서 다시 종합하는 진행에는 사용자 동의가 있고, 네 묶음 자체는 미채택이다.
 - [01-02의 남은 결정과 후속 구체화 범위](../records/2026-10-18-69-ticket-boundaries-and-next-design-step.md): 시안68까지의 결과와 기준 재료54를 종합하고, 현재 더 정할 범위·후속 책임·과정 재사용과 다음 진행 추천을 구별했다. 당시 진행 제안이며 이후 사용자 동의와 구성안은70에 있다. Ticket 완료는 아니다.

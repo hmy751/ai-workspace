@@ -8,6 +8,8 @@
 
 [정정89](../../../records/2026-10-19-89-local-context-structure-correction.md)은 개인 기준을 별도 ai-workspace 호스트로 분리한 해석을 대체한다. 현재 demo는 같은 context 안의 personal·project를 Work의 DEVELOPMENT.md에서 선택하고, 필요한 본문과 이유를 Work memory에 남긴다. 기존 read-project-context의 제품 본문 선택 책임과 개인 기준의 선택을 구별한다. 실제 운영 skill·자동 호출·동기화 방식은 후속 설계이며 이번에는 설치하지 않았다.
 
+[합의 대조와 반영92](../../../records/2026-10-19-92-principles-cases-and-agreement-reconciliation.md): 일반 기준에서 필요한 상세 사례로 내려가는 읽기 경로를 절차 시안에 연결했다. B의 검토자 직접 수정 방향을 유지하고 검토 겸임·생략 조건은 미정으로 남겼다. DEVELOPMENT의 최종 위치·책임과 실제 스킬 연결·설치는 아직 결정하거나 수행하지 않았다.
+
 ## 맡은 결과와 범위
 
 Personal의 일반 판단과 Project의 제품·개발 계약은 각각 독립 본문이 소유한다. [현재 workflow](../../../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)는 Main이 작업 단서로 필요한 개인 주제와 대상 Project 본문을 고르고, 충돌·열린 선택을 판단하며, 구현자·검토자에게 필요한 입력을 전달하고 결과를 각 책임에 돌려보내는 모습을 다룬다. 이 연결을 Project README의 개인 문서 안내·채택·갱신 관리로 대신하지 않는다. 개인 기준은89에 따라 demo context/personal에서 찾는다. 현재 경로와 수동 절차는 구성했으며 기존 스킬 반영과 실제 자율 발견 효과는 남아 있다. 새 스킬을 설치한 것은 아니다.

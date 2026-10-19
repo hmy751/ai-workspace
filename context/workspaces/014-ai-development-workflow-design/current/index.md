@@ -1,6 +1,6 @@
 # 현재 논의의 진입점
 
-**현재 중간 정리:** [90](../records/2026-10-19-90-prototype-checkpoint-and-open-design.md)에 따라 현재 시안은 커밋해 보존했으며 추가 구체화가 남아 있다. `DEVELOPMENT.md`의 위치·이름·운영 책임과 전체 구성을 최종 채택한 것은 아니다. 89의 로컬 context 정정과 독립 Personal·Project 책임을 유지하면서 같은 prototype을 계속 발전시킨다.
+**현재 초점:** [중간 정리94](../records/2026-10-19-94-body-refinement-checkpoint.md)에 본문 품질 보완·원칙과 사례 분리·진행 정정까지 보존했다. 다음 재개는 같은 prototype에서 이름 유지·설명 보완·개명·동작 수정의 실제 본문을 나란히 보며 다듬는 것이다. 이어 구체 개발 워크플로와 기존 스킬을 함께 보며, 02의 Workspace 갱신을 선행 단계로 고정하지 않는다. 상세 비교 순서는 Main의 추천이고 전체 기준 수용·운영 설치·Ticket 완료는 미정이다.
 
 **새 프로토타입의 본문·코드 작성과 내용 검토를 마쳤다. 현재는 그 적용 모습을 검토하고 같은 폴더에서 계속 발전시키는 단계다.** [정정89](../records/2026-10-19-89-local-context-structure-correction.md)와 [development-workflow](../records/prototypes/development-workflow/README.md)가 현재 진입점이다. Noline demo는 Main이 구체 적용 대상으로 고른 예시이며 실제 Noline 적용은 아니다.
 
