@@ -2,7 +2,13 @@
 
 현재 goal은 전체 역할과 가능성을 이해하고 각 부분을 세밀하게 설계하는 것이다. B의 검토자 직접 수정 방향을 선택했으며, 전체 운영 아키텍처의 확정이나 새 스킬·개발 워크플로 구현은 아직 없다. 현재 시안에 대한 [사용자 평가73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md)는 전반적인 만족·최종 수용이 아니며03과 연결해 더 구체화할 필요가 있다는 의견이다. 아래 산출물은 이 유보와 함께 읽는다.
 
-- [다음 세션 인계와 마무리 점검](../records/2026-10-18-75-ticket03-session-handoff.md): 진행 순서 동의·첫03 작업·권한·검증 범위와 보존 위치. [단계별 문서 화면](../records/prototypes/applied-criteria-2026-10-17/viewer.html)은72 시안의 보조 화면 사본이며 현재 판단의 정본은 Markdown이다.
+- [Personal context의 위치·책임 방향과 다음 본문 설계](../records/2026-10-19-81-personal-context-direction-and-next-step.md): `context/personal/development/`의 중앙 정본과 Project의 채택·적용 관계를 현재 설계 방향으로 선택했다. 아직 실제 개인 기준 디렉터리는 없으며 다음 추천은 한 주제의 개인 본문·Project guidance·읽기 안내다.
+- [개인 기준·Project의 실제 내용 분류](../records/2026-10-18-80-personal-project-content-allocation.md): 세 가이드의 항목 분류와 연결 예. 당시 루트 위치 추천은81에서 대체됐다.
+- [개인 기준과 Project를 별도 층으로 둘지에 관한 논의](../records/2026-10-18-79-personal-and-project-layer-discussion.md): 분리의 이유와 당시 Main 추천. 후속 구조 정정·위치 방향 선택은81을 따른다.
+- [세 코드 가이드의 실제 내용과 개인·프로젝트 적용 범위](../records/2026-10-18-78-code-guides-comparison-and-applicability.md): 리팩터링·코드 가독성·01-02의 실제 문장, 겹침·독립 역할·보완 비교. 사용자 제안인 개인 공통 기준과 프로젝트별 가이드의 구별을 다룬다. 당시 적용 범위 비교이며 후속 위치·책임 방향은81에 있다. 실제 본문 통합·전역 적용·배포는 없다.
+- [기존 Project 전체 내용·제공 방식과01-02 접점](../records/2026-10-18-77-existing-project-content-map.md): 제품 의미·현재 구현·코드 판단·제품별 개발·설명·선택 이유를 구별한 전체 지도. 함께 읽는 관계로 본문을 모호하게 합치지 않는 사용자 요청과 기존 기준의 유지·보완에 대한 첫 의견을 담는다. 당시 전체 지도이며 후속 위치·책임 방향은81에 있다. 본문 통합안은 채택하지 않았다.
+- [03의 기존 본문·스킬 첫 대조와 진행 제안](../records/2026-10-18-76-ticket03-first-comparison-and-discussion.md):03 착수 때 확인한 기존 내용·스킬·문서 개선과01-02 접점. API 사용 장면은 당시 추천이며, 현재 본문 구성의 방향과 다음 추천은81을 따른다.
+- [다음 세션 인계와 마무리 점검](../records/2026-10-18-75-ticket03-session-handoff.md): 착수 전 진행 순서 동의·첫03 작업·권한·검증 범위와 보존 위치. [단계별 문서 화면](../records/prototypes/applied-criteria-2026-10-17/viewer.html)은72 시안의 보조 화면 사본이며 현재 판단의 정본은 Markdown이다.
 - [짧은 공통과 필요한 상세를 연결한 현재 시안](../records/2026-10-18-72-short-common-and-detail-prototype.md): 사용자가 공통을 짧게 두고 이름·가독성을 독립 절로 두는 방향을 선택해 기존 prototype에 반영했다. Project 한곳의 안내에서 상세·사례를 찾고, 주문의 현재 계약·작업 요구·구현 전 판단을 실제 문서로 읽는다.03·04-03의 재판단 부분과 이유도 연결했다. [실물 입구](../records/prototypes/applied-criteria-2026-10-17/README.md). 모든 기준·최종 운영 배치·실제 효과·Ticket 완료는 미확정이다.
 - [01-02 중간 정리 이후의 Ticket 흐름](../records/2026-10-18-74-ticket-flow-after-quality-draft.md): 다음 중심을03으로 옮기는 순서·이유·01-02 재방문 시점을 정리했고, 사용자는 이후 동의하며 다음 세션에서 이어가기로 했다([인계75](../records/2026-10-18-75-ticket03-session-handoff.md)). 현재 진행 방향이며 고정 일정·Ticket 완료·시안 전체 만족을 뜻하지 않는다.
 - [주문 작업의 읽기 경로와 공통·상세 경계](../records/2026-10-18-71-order-reading-and-criteria-boundaries.md): 작업 의뢰·현재 동작·공통 관점부터 필요한 상세·사례와 구현 전 판단까지 채웠다. 공통은 적용 관점·읽기 단서, 이름·가독성은 짧은 독립 절을 추천한다. 당시 가상 장면이며 prototype68을 유지했다. 후속 사용자 선택에 따른 반영은72에 있고 실제 제품·효과 확인은 없다.
