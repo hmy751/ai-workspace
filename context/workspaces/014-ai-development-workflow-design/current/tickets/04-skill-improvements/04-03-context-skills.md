@@ -2,13 +2,15 @@
 
 상위 과제: [04 기존 스킬 보완](README.md)
 
-상태: **Project 읽기·갱신 스킬 첫 대조 완료 · 보완 설계와 Workspace 생성 대조는 미완료**.03 시작 요청에 따라 [76](../../../records/2026-10-18-76-ticket03-first-comparison-and-discussion.md)에서 Noline·Reference의 read/update 스킬과 읽기·관리 기준을 비교했다. 기존 선택적 읽기·공통 맥락 갱신 책임을 확인했으며, 본문과 연결한 실제 동작 예시·호출 효과·스킬 수정은 아직 없다. 전체 기준은 [Spec](../../spec.md)에 있다.
+상태: **Project 읽기·갱신 스킬 첫 대조와 workflow 시안 수정 완료 · 실제 스킬 보완은 미완료**.76에서 기존 read/update 스킬과 읽기·관리 기준을 비교했고82·83에 본문·적용 장면을 만들었다. 최신 [정정84](../../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)는 Project가 개인 문서를 관리하는 직접 연결을 대체한다. 현재는 [88](../../../records/2026-10-19-88-living-applied-prototype.md)의 [단일 프로토타입 workflow](../../../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)에서 입력 선택·충돌 판단·구현/검토 인계·결과별 갱신을 구체화하며 실제 스킬 수정·호출 효과·Workspace 생성 대조는 미완료다. 전체 기준은 [Spec](../../spec.md)에 있다.
+
+[정정89](../../../records/2026-10-19-89-local-context-structure-correction.md)은 개인 기준을 별도 ai-workspace 호스트로 분리한 해석을 대체한다. 현재 demo는 같은 context 안의 personal·project를 Work의 DEVELOPMENT.md에서 선택하고, 필요한 본문과 이유를 Work memory에 남긴다. 기존 read-project-context의 제품 본문 선택 책임과 개인 기준의 선택을 구별한다. 실제 운영 skill·자동 호출·동기화 방식은 후속 설계이며 이번에는 설치하지 않았다.
 
 ## 맡은 결과와 범위
 
-[81의 Personal context 방향](../../../records/2026-10-19-81-personal-context-direction-and-next-step.md)에 따라03의 다음 본문 구성에서는 개인 기준과 Project의 실제 의미·계약을 어떻게 찾아 함께 적용하고, 바뀐 의미를 어느 정본에 반영할지 연결한다. 개인 기준 중앙 정본과 Project의 채택 관계는 방향을 정했지만 실제 접근·전달·갱신 방식은 미정이다. 이 연결을 위해 전체 개인 기준을 매번 읽히거나 현행 스킬을 이미 고친 것으로 전제하지 않는다.
+Personal의 일반 판단과 Project의 제품·개발 계약은 각각 독립 본문이 소유한다. [현재 workflow](../../../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)는 Main이 작업 단서로 필요한 개인 주제와 대상 Project 본문을 고르고, 충돌·열린 선택을 판단하며, 구현자·검토자에게 필요한 입력을 전달하고 결과를 각 책임에 돌려보내는 모습을 다룬다. 이 연결을 Project README의 개인 문서 안내·채택·갱신 관리로 대신하지 않는다. 개인 기준은89에 따라 demo context/personal에서 찾는다. 현재 경로와 수동 절차는 구성했으며 기존 스킬 반영과 실제 자율 발견 효과는 남아 있다. 새 스킬을 설치한 것은 아니다.
 
-2026-10-18 현재 시안 연결: [반영72](../../../records/2026-10-18-72-short-common-and-detail-prototype.md)는 사용자가 선택한 짧은 공통·이름과 가독성의 독립 절을 실제 문서와 읽기 안내에 연결한다. [주문 장면](../../../records/prototypes/applied-criteria-2026-10-17/order-walkthrough.md)에서 같은 작업 경로와 develop 역할을 받은 뒤 Project 안내·현재 계약·필요한 상세·조건별 사례로 내려가는 문구를 대조한다. 읽기 안내는 Project 한곳이 소유하며 역할 절차는 그곳을 참조한다. 가상 develop를 기존 스킬의 대조·실제 발견·적용 효과 확인으로 대신하지 않는다.
+2026-10-18 현재 시안 연결: [반영72](../../../records/2026-10-18-72-short-common-and-detail-prototype.md)는 사용자가 선택한 짧은 공통·이름과 가독성의 독립 절을 실제 문서와 읽기 안내에 연결한다. [주문 장면](../../../records/prototypes/applied-criteria-2026-10-17/order-walkthrough.md)에서 같은 작업 경로와 develop 역할을 받은 뒤 Project 안내·현재 계약·필요한 상세·조건별 사례로 내려가는 문구를 대조한다. 당시 시안은 Project 한곳의 읽기 안내를 역할 절차가 참조했다. Personal까지 포함한 현재 연결 책임은84에서 다시 나누며,72의 배치를 독립 기준 연결의 확정 구조로 확대하지 않는다. 가상 develop를 기존 스킬의 대조·실제 발견·적용 효과 확인으로 대신하지 않는다.
 
 03과 함께 [후속 재판단 장면](../../../records/prototypes/applied-criteria-2026-10-17/refinement-walkthrough.md)의 공통 충분성·이름 절의 독립성·상세 분량과 배치·사례 배치·제품 값과 Work 요구·읽기와 갱신 책임을 실제 기존 스킬·Project에 대입한다. 본문을 찾는 조건과 실제 판단·갱신에 쓰는 행동을 비교하고, 구성이 달라지면03의 읽기 안내와01-02의 설명도 함께 맞춘다. 선택된 형식 방향을 다시 묻거나 같은 시안만 반복하기보다 필요한 근거와 새 조건으로 다음 판단을 진행한다.
 
@@ -41,4 +43,4 @@ Project·Work 정본의 내용과 관리 책임을 스킬 안에 복제하지 �
 - 적용하지 않을 경우, 중복 읽기·기록·책임을 만들 수 있는 경우와 그 비용을 확인한다.
 - 보완안이 02·03의 정본 책임 및 06의 전환안과 연결된다. 남은 사용자 선택과 실제 host 적용 뒤 확인할 경로를 남긴다.
 
-현재는 과제 분할과 가상 시안의 접점 연결에 이어76에서 기존 read/update 스킬과 읽기·관리 계약의 첫 대조를 수행했다. Workspace 생성 스킬의 상세 대조, 실제 본문에 대입한 보완안과 호출 효과는 남아 있다. 기존 스킬·Project 본문·설정의 개편이나 설치는 하지 않았다.
+현재는76의 read/update 첫 대조와82~87의 이전 시안을 근거로 [88의 단일 프로토타입](../../../records/prototypes/development-workflow/README.md)에서 독립 본문을 선택·사용·갱신하는 workflow를 계속 구체화한다. 기존 날짜별 workflow는 원형으로 보존한다. Workspace 생성 스킬의 상세 대조, 현행 스킬 보완안과 실제 호출 효과는 남아 있다. 기존 스킬·Project 운영 정본·설정의 개편이나 설치는 하지 않았다.

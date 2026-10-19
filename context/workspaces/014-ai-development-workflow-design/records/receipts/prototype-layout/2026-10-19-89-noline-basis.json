@@ -1,0 +1,22 @@
+{
+  "root": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "head": "4fb309d2ba50afaca44019879d7161964b9b2328",
+  "mode": "read-only context structure observation",
+  "files": {
+    "CLAUDE.md": "ead3a9a3062131fcf0b89ecdf46808a510c3d77c8377d9200ca577c4ba423820",
+    "context/README.md": "7fafc685425bdb0bbd3c91bdadf26b7ec09b101531da2a615ee93800081d8de5",
+    "context/project/README.md": "937d66f109844c4e0c312c04aafba8779f2b5e39274f2fcdfd60b93250d8fec9",
+    "context/project/MAINTENANCE.md": "a17f60aaa671e234a31ef8240e27d2aa8f2acb833a83f68273ffa8ffc97f0b7e",
+    "context/project/REFERENCE/composition.md": "990359603694b94cb6505bdf59745526eea448f7e0b24877853d997e2866aab6",
+    "context/project/REFERENCE/reading.md": "387b8edabf7563116d252fa7c3e6ea485e30898162672d4f16fb44c3d2187069",
+    "context/work/README.md": "aa3e1a3d599c3cd5e365ffe6422cb3031b0b1a23e48ef5c345a5902360af2383",
+    "context/work/AGENTS.md": "904c729324df8ae6bd4dcefd7768635bb72dbbec5770e91c869848fd7fa85bd8",
+    "context/work/workspaces/README.md": "43c2fc7ea3b159f7addbf1c2b382495b7772f2e5be3563f653f9730730cd7b06",
+    "context/work/workspaces/spec-and-tickets/README.md": "1c863447c21a8a6aff076893ea0bd0e39ac568a91d5edc951aacb4aaa77bc308",
+    "context/work/workspaces/spec-and-tickets/SPEC.md": "d22b77cb3723e197bd60d0f87fd36ef5617aca72b86144d9bd23a4d4d2f2823a",
+    "context/work/workspaces/spec-and-tickets/TICKET.md": "07fbe1aceea887f75720db16042775d94f660f70a168ead8ae1fdda60947a47e",
+    "context/work/workspaces/003-bug-investigation-and-fixes/README.md": "495ec6ff929654f58e9490e6a61960ff9a12ee3819d708262dc7a014ea353aa7",
+    "context/work/workspaces/003-bug-investigation-and-fixes/current/memory/index.md": "0350909af501abb3faa787764c57173b1ac0ff86c3e59fc2998427fb9e93bacd",
+    "context/work/workspaces/003-bug-investigation-and-fixes/current/memory/project-context.md": "4343eb1dad6c5f577cfa525925048935a62cb348d2f2ee12ca6ecaff0b9525c0"
+  }
+}
