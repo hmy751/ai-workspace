@@ -1,8 +1,8 @@
 # 현재 논의의 진입점
 
-**현재 초점:** [중간 정리94](../records/2026-10-19-94-body-refinement-checkpoint.md)에 본문 품질 보완·원칙과 사례 분리·진행 정정까지 보존했다. 다음 재개는 같은 prototype에서 이름 유지·설명 보완·개명·동작 수정의 실제 본문을 나란히 보며 다듬는 것이다. 이어 구체 개발 워크플로와 기존 스킬을 함께 보며, 02의 Workspace 갱신을 선행 단계로 고정하지 않는다. 상세 비교 순서는 Main의 추천이고 전체 기준 수용·운영 설치·Ticket 완료는 미정이다.
+**현재 초점:** [마무리96](../records/2026-10-19-96-body-quality-reservation-and-session-close.md)에서95의 본문 보완 뒤 사용자의 “아직 좀 부족해 보인다”는 평가와 다음 세션 재개 지점을 보존했다. 본문 충분성은 계속 미해결이며, 합의 대조·품질 리뷰·정적 검사 통과를 사용자 수용으로 읽지 않는다. 같은 prototype의 실제 본문과95의 전후 비교에서 부족한 지점을 다시 본다. 구체 워크플로·기존 스킬을 함께 보고02를 선행 단계로 고정하지 않는 방향은 유지한다.
 
-**새 프로토타입의 본문·코드 작성과 내용 검토를 마쳤다. 현재는 그 적용 모습을 검토하고 같은 폴더에서 계속 발전시키는 단계다.** [정정89](../records/2026-10-19-89-local-context-structure-correction.md)와 [development-workflow](../records/prototypes/development-workflow/README.md)가 현재 진입점이다. Noline demo는 Main이 구체 적용 대상으로 고른 예시이며 실제 Noline 적용은 아니다.
+88·89에서 프로토타입의 초기 작성과 당시 검토를 수행했다. **현재는96의 품질 유보에 따라 본문을 다시 보고 같은 폴더에서 계속 발전시키는 단계다.** [정정89](../records/2026-10-19-89-local-context-structure-correction.md)와 [development-workflow](../records/prototypes/development-workflow/README.md)가 현재 진입점이다. Noline demo는 Main이 구체 적용 대상으로 고른 예시이며 실제 Noline 적용은 아니다.
 
 [보완87](../records/2026-10-19-87-conditional-application-and-provenance.md)의 조건별 적용과 과정 재접근을 이어받는다. 개인 기준의 현재 위치는89의 로컬 context/personal이며, 별도 ai-workspace 호스트로 고정한86의 해석은 대체한다. demo 안에서 Personal·Project의 독립 본문과 Work의 선택·충돌 판단·반환 절차를 구성했다. 실제 운영 저장소의 설치·배포·동기화·skill 연결은 남아 있다.
 

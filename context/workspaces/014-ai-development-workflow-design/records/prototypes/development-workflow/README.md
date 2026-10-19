@@ -2,7 +2,11 @@
 
 앞으로 이 폴더 하나를 계속 발전시킨다. **현재 내용은 중간 커밋으로 보존한 시안이며 전체 구조의 최종안이 아니다.** 특히 Work의 DEVELOPMENT.md 위치·이름·운영 책임과 전반적인 구체화가 남아 있다. [중간 정리90](../../2026-10-19-90-prototype-checkpoint-and-open-design.md)에서 현재 선택과 미결정을 구별한다. 적용 대상은 **[noline-demo/context/](noline-demo/context/README.md)**다. 개인 기준, 제품 맥락, 작업 맥락을 그 안에 나란히 두고, 로그인 완료 범위를 다루는 한 Work에서 함께 사용한다.
 
+**최신 사용자 평가:**95의 본문 보완 뒤에도 아직 부족하다는 평가가 남아 있다. [마무리96](../../2026-10-19-96-body-quality-reservation-and-session-close.md)에서 다음 세션의 재개 위치를 찾는다. 구체 부족 원인은 아직 지정되지 않았으며, 검토·정적 검사 통과를 본문 충분성이나 최종 수용으로 읽지 않는다.
+
 [폴더와 본문을 화면에서 보기](viewer.html) · [Noline demo 시작](noline-demo/README.md) · [한 작업을 따라 읽기](walkthrough.md)
+
+**이번 본문 보완:** 이름 유지·설명 보완·개명·동작 수정을 가르는 근거를 구체화했다. [일반 기준](noline-demo/context/personal/development/naming-and-completion.md#유지설명-보완개명동작-수정을-고른다)은 필요한 결과·실제 동작·표현의 차이를, [상세 사례](noline-demo/context/personal/development/cases/naming-and-completion.md#유지개명동작-수정이-달라지는-설명용-사례)는 그 조건에서 선택이 달라지는 이유를, [Project 가이드](noline-demo/context/project/guidance/code-readability.md#표현을-고칠지-동작을-고칠지)는 인증·조회·소비자의 실제 경계를 설명한다. [기록95](../../2026-10-19-95-naming-decisions-body-refinement.md)에 이전 문장과 이번 수정·이유·합의 범위를 비교했다. 현재 동작과 미정 운영 조건은 유지한다.
 
 이번에는 기존 합의와 다시 대조해 **일반 기준과 상세 사례를 별도 파일로 나눴다.** [일반 기준](noline-demo/context/personal/development/naming-and-completion.md)은 책임·표현·완료 판단의 뜻과 핵심 조건을, [상세 사례](noline-demo/context/personal/development/cases/naming-and-completion.md)는 초대·isError·silent·완료 범위의 구체 상황과 판단 차이를 설명한다. 기존 코드·당시 판단·원문 근거를 보존했으며 원칙 이해에 필요한 짧은 대비는 일반 본문에 남겼다. 사례 전체를 매번 읽는 절차는 아니다.
 

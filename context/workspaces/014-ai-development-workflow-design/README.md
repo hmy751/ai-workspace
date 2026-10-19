@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**현재 초점:** [중간 정리94](records/2026-10-19-94-body-refinement-checkpoint.md)에 본문 품질 보완·원칙과 사례 분리·진행 정정까지 보존했다. 다음 재개는 같은 prototype에서 이름 유지·설명 보완·개명·동작 수정의 실제 본문을 나란히 보며 다듬는 것이다. 이어 구체 개발 워크플로와 기존 스킬을 함께 보며, 02의 Workspace 갱신을 선행 단계로 고정하지 않는다. 상세 비교 순서는 Main의 추천이고 전체 기준 수용·운영 설치·Ticket 완료는 미정이다.
+**현재 초점:** [마무리96](records/2026-10-19-96-body-quality-reservation-and-session-close.md)에서95의 본문 보완 뒤 사용자의 “아직 좀 부족해 보인다”는 평가와 다음 세션 재개 지점을 보존했다. 본문 충분성은 계속 미해결이며, 합의 대조·품질 리뷰·정적 검사 통과를 사용자 수용으로 읽지 않는다. 같은 prototype의 실제 본문과95의 전후 비교에서 부족한 지점을 다시 본다. 구체 워크플로·기존 스킬을 함께 보고02를 선행 단계로 고정하지 않는 방향은 유지한다.
 
 Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용자 인터뷰, 개발 에이전트 관련 강연을 바탕으로 **ai-workspace와 실제 개발 방식을 어떻게 발전시킬지 함께 설계하는 작업**이다. 지금은 범위를 충분히 이해하고 각 부분을 세밀하게 구체화하는 단계다. 개발 워크플로, 기록 방식, 역할 배치를 확정하거나 구현하는 단계로 넘어간 것은 아니다.
 
@@ -10,7 +10,7 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 전체 구상과 미결정은 **Spec 3절**에서 유지한다. 현재는 Main과 작업을 논의·결정하는 단계와 구현·검토·검증하는 단계를 구별하고, **작업 단계에서 좋은 구현을 돕는 컨텍스트·코드 기준·절차·도구**를 먼저 구체화한다. [우선순위와 코드 기준의 근거 후보](records/2026-10-13-28-execution-system-priority-and-code-criteria.md), [Matt·Lauren·Vercel 원자료 조사](records/2026-10-13-27-source-investigation-and-proposal-reset.md)를 필요한 질문에 맞춰 읽는다. Spec·설계 절차도 필요한 보완을 연결하되 그 도입을 중심에 놓지 않는다. 이 Workspace의 Spec·Ticket 사용과 개선할 시스템의 Spec·Ticket 설계는 구별한다.
 
-현재는 **본문·실행 코드와 적용 장면을 갖춘 새 프로토타입의 작성·내용 검토를 마쳤으며, 이 실물을 함께 검토하고 같은 폴더에서 계속 발전시키는 단계**다. 사용자 요청과 Main이 정한 경로·예시의 구별은 [기록88](records/2026-10-19-88-living-applied-prototype.md)에 있다. 앞으로 수정할 실물은 [development-workflow](records/prototypes/development-workflow/README.md)이며, 그 안의 noline-demo/context에 Personal·Project·Work를 두고 적용 절차와 작업 장면을 연결한다. 현재 구조는89의 직접 조사·정정을 따른다. 기존 날짜별 시안은 원형을 보존한다.
+88·89에서 본문·실행 코드와 적용 장면을 갖춘 프로토타입을 작성하고 당시 검토를 수행했다. **현재는96의 품질 유보에 따라 실제 본문을 다시 보고, 같은 폴더에서 계속 발전시키는 단계**다. 사용자 요청과 Main이 정한 경로·예시의 구별은 [기록88](records/2026-10-19-88-living-applied-prototype.md)에 있다. 앞으로 수정할 실물은 [development-workflow](records/prototypes/development-workflow/README.md)이며, 그 안의 noline-demo/context에 Personal·Project·Work를 두고 적용 절차와 작업 장면을 연결한다. 현재 구조는89의 직접 조사·정정을 따른다. 기존 날짜별 시안은 원형을 보존한다.
 
 [보완87](records/2026-10-19-87-conditional-application-and-provenance.md)의 조건별 적용·과정 재접근·새 문장과 사례의 지위는 유지한다. 개인 기준은89에서 확인한 로컬 context 층이며, 현재 demo의 personal/development에 본문이 있다.84의 독립 Personal·Project 책임과 Work 절차의 연결을 유지한다. [선택86](records/2026-10-19-86-context-personal-choice-and-text-comparison.md)의 당시 위치 해석과 [7쌍 비교](records/prototypes/criteria-format-comparison-2026-10-19/README.md),87의 [이전 시안](records/prototypes/personal-project-applied-2026-10-19/README.md)은 역사로 보존한다. prototype 내부 재배치를 실제 Noline 실행·전체 기준 채택·운영 설치로 올리지 않는다.
 

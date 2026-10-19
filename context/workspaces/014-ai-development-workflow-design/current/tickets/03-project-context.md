@@ -6,6 +6,8 @@
 
 [합의 대조와 반영92](../../records/2026-10-19-92-principles-cases-and-agreement-reconciliation.md): 원칙·상세 사례를 별도 파일로 분리하고 사례·근거를 보존하라는 사용자 선택을 같은 prototype에 반영했다. Personal의 일반 판단과 상세 상황, Project의 판단 조건과 선택 후 구현, Work의 현재 이유·역사 기록을 구별했다. 본문 충분성과 전체 수용은 남아 있다.
 
+[최신 평가와 마무리96](../../records/2026-10-19-96-body-quality-reservation-and-session-close.md): 사용자는95의 본문 보완 뒤에도 아직 부족하다고 평가했다. 본문 충분성과 사용자 수용은 계속 미해결이며 구체 원인은 미지정이다. 다음 세션은 현재 본문·95의 전후 비교를 읽고 부족한 지점을 다시 판단한다.
+
 ## 맡은 결과와 범위
 
 2026-10-18 사용자 요청: 제품 정책·코드 가이던스 등을 함께 읽어야 한다는 이유로 본문을 모호하게 합치지 않는다. 내용의 역할을 분류할 수 있게 유지하고, 읽기 연결과 본문 통합의 필요를 별도로 판단한다. 기존 폴더나 종류별 파일 하나를 고정하는 요구로 확대하지 않는다. 전체 지도와 실제 항목 비교는77~80에서 수행했다. 다음 본문 구성에서도 이 구별을 유지하며76의 API 사례를 확정된 첫 주제로 읽지 않는다. 원문과 첫 비교는 [77](../../records/2026-10-18-77-existing-project-content-map.md)에 있다.
@@ -50,18 +52,19 @@ Noline 문서 개선 전후와 사용자 평가를 대조한다. 9월과 10월 �
 
 ## 현재 상태와 실제 결과
 
-| 결과 | 확인한 내용과 현재 지위 |
-| --- | --- |
-| [단일 적용 프로토타입88](../../records/2026-10-19-88-living-applied-prototype.md) | 같은 새 폴더를 계속 발전시키라는 요청에 따라 Personal·Noline demo의 Project/Work·workflow·작업 장면을 연결한다. 기존 날짜별 시안은 보존하며 실제 제품 적용·전체 기준 채택은 아니다. |
-| [위치 선택·본문 비교86](../../records/2026-10-19-86-context-personal-choice-and-text-comparison.md) | 관리·축적·수정 분리를 이유로 context/personal 층을 사용자가 선택했다.85의 글로벌 추천을 대체하되84의 독립 책임은 유지한다.01의 시안 반영과 새 본문 구체화를 비교하며 실제 이동·전체 기준 채택은 없다. |
-| [책임·형식 정정84](../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md) | Personal 위치와 Project 직접 의존을 재검토하라는 사용자 요청으로 독립 본문·workflow를 구체화한다.01의 질문·조건별 대안·과정 재접근을 대조하며 실제 설치·제품 실행·전체 기준 채택은 아니다. |
-| [적용 장면83](../../records/2026-10-19-83-personal-project-applied-example.md) | 수정 전 중앙 개인 기준·Project·Work 배치와 가상 의뢰·개명·검토·기록의 경과다. 현재 연결 시안은84에서 수정하며83의 당시 내용·검사는 보존한다. |
-| [세 본문 시안82](../../records/2026-10-19-82-naming-responsibility-completion-draft.md) | 사용자가 이름·책임·완료 범위를 선택해 실제 본문 작성을 요청했다. [비교 입구](../../records/prototypes/personal-project-naming-2026-10-19/README.md)에서 개인 일반 판단·Noline 적용·읽기 안내를 구별한다. 운영 채택·원본 이동·통합·제품 적용은 없다. |
-| [구조 정정과 방향81](../../records/2026-10-19-81-personal-context-direction-and-next-step.md) | 당시 ai-workspace 내부 Personal 위치와 Project 참조 관계를 설계 전제로 삼은 기록이다. 최신 사용자 정정으로84에서 대체하며 처음부터 미정이었다고 소급하지 않는다. 당시에도 운영 정본 생성·원문 이동·통합·설치는 없었다. |
-| [항목 분류80](../../records/2026-10-18-80-personal-project-content-allocation.md)·[층 논의79](../../records/2026-10-18-79-personal-and-project-layer-discussion.md) | 세 가이드의 개인 후보·Project 계약·Work 기록과 적용 연결을 나눴다.80의 루트 위치 추천은81에서 대체됐다. 재사용 가능한 판단과 해당 Project가 자체 소유할 기준을 구별한 근거로 읽고, 개인 문서를 직접 참조하는 관계는84에서 다시 나눈다. |
-| [실제 비교78](../../records/2026-10-18-78-code-guides-comparison-and-applicability.md) | 리팩터링·가독성·01-02를 실제 문장과 여덟 질문으로 대조했다. 개인 기준을 표현 취향으로만 축소하거나 Project에 적혔다는 이유로 제품 고유 기준이라 보지 않는다. 항목 전체의 개인 기준 채택은 없다. |
-| [전체 지도77](../../records/2026-10-18-77-existing-project-content-map.md) | 기준판 내용10편·관찰판 내용24편과 관리 안내를 구별해 제공 내용·주제별 입구·역할별 본문의 연결을 확인했다. 두 판본을 합친 최신 정본으로 취급하지 않는다. |
-| [첫 대조76](../../records/2026-10-18-76-ticket03-first-comparison-and-discussion.md) | Project 대표 본문·구성 기준, read/update 스킬·읽기/관리 계약과 문서 개선을 비교했다. API 변경 장면은 당시 추천이며 실제 호출·효과 확인은 없다. |
+| 결과                                                                                                                                                                | 확인한 내용과 현재 지위                                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [본문 구체화95](../../records/2026-10-19-95-naming-decisions-body-refinement.md)                                                                                    | 일반 판단·상세 사례·Project의 제품 조건을 각 본문에서 구체화했다. Noline 가이드는 인증 적용·조회·소비자 행동으로 표현 보완과 동작 변경을 구별한다. Personal의 직접 관리 책임, 새 제품 동작·운영 선택은 추가하지 않았다.                             |
+| [단일 적용 프로토타입88](../../records/2026-10-19-88-living-applied-prototype.md)                                                                                   | 같은 새 폴더를 계속 발전시키라는 요청에 따라 Personal·Noline demo의 Project/Work·workflow·작업 장면을 연결한다. 기존 날짜별 시안은 보존하며 실제 제품 적용·전체 기준 채택은 아니다.                                                                 |
+| [위치 선택·본문 비교86](../../records/2026-10-19-86-context-personal-choice-and-text-comparison.md)                                                                 | 관리·축적·수정 분리를 이유로 context/personal 층을 사용자가 선택했다.85의 글로벌 추천을 대체하되84의 독립 책임은 유지한다.01의 시안 반영과 새 본문 구체화를 비교하며 실제 이동·전체 기준 채택은 없다.                                               |
+| [책임·형식 정정84](../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)                                                                 | Personal 위치와 Project 직접 의존을 재검토하라는 사용자 요청으로 독립 본문·workflow를 구체화한다.01의 질문·조건별 대안·과정 재접근을 대조하며 실제 설치·제품 실행·전체 기준 채택은 아니다.                                                          |
+| [적용 장면83](../../records/2026-10-19-83-personal-project-applied-example.md)                                                                                      | 수정 전 중앙 개인 기준·Project·Work 배치와 가상 의뢰·개명·검토·기록의 경과다. 현재 연결 시안은84에서 수정하며83의 당시 내용·검사는 보존한다.                                                                                                        |
+| [세 본문 시안82](../../records/2026-10-19-82-naming-responsibility-completion-draft.md)                                                                             | 사용자가 이름·책임·완료 범위를 선택해 실제 본문 작성을 요청했다. [비교 입구](../../records/prototypes/personal-project-naming-2026-10-19/README.md)에서 개인 일반 판단·Noline 적용·읽기 안내를 구별한다. 운영 채택·원본 이동·통합·제품 적용은 없다. |
+| [구조 정정과 방향81](../../records/2026-10-19-81-personal-context-direction-and-next-step.md)                                                                       | 당시 ai-workspace 내부 Personal 위치와 Project 참조 관계를 설계 전제로 삼은 기록이다. 최신 사용자 정정으로84에서 대체하며 처음부터 미정이었다고 소급하지 않는다. 당시에도 운영 정본 생성·원문 이동·통합·설치는 없었다.                              |
+| [항목 분류80](../../records/2026-10-18-80-personal-project-content-allocation.md)·[층 논의79](../../records/2026-10-18-79-personal-and-project-layer-discussion.md) | 세 가이드의 개인 후보·Project 계약·Work 기록과 적용 연결을 나눴다.80의 루트 위치 추천은81에서 대체됐다. 재사용 가능한 판단과 해당 Project가 자체 소유할 기준을 구별한 근거로 읽고, 개인 문서를 직접 참조하는 관계는84에서 다시 나눈다.              |
+| [실제 비교78](../../records/2026-10-18-78-code-guides-comparison-and-applicability.md)                                                                              | 리팩터링·가독성·01-02를 실제 문장과 여덟 질문으로 대조했다. 개인 기준을 표현 취향으로만 축소하거나 Project에 적혔다는 이유로 제품 고유 기준이라 보지 않는다. 항목 전체의 개인 기준 채택은 없다.                                                     |
+| [전체 지도77](../../records/2026-10-18-77-existing-project-content-map.md)                                                                                          | 기준판 내용10편·관찰판 내용24편과 관리 안내를 구별해 제공 내용·주제별 입구·역할별 본문의 연결을 확인했다. 두 판본을 합친 최신 정본으로 취급하지 않는다.                                                                                             |
+| [첫 대조76](../../records/2026-10-18-76-ticket03-first-comparison-and-discussion.md)                                                                                | Project 대표 본문·구성 기준, read/update 스킬·읽기/관리 계약과 문서 개선을 비교했다. API 변경 장면은 당시 추천이며 실제 호출·효과 확인은 없다.                                                                                                      |
 
 다음은 [단일 적용 프로토타입](../../records/prototypes/development-workflow/README.md)에서 각 본문이 충분한 의미를 갖고 실제 작업 장면에 연결되는지 검토하고 같은 폴더에서 보완하는 것이다.87의 조건별 적용·과정 근거·지위 구별을 이어받으며 기존 [7쌍 비교](../../records/prototypes/criteria-format-comparison-2026-10-19/README.md)는 보완 전 자료로 보존한다.66·68·72의 반영 선택과73의 전체 유보를 함께 읽는다.04-03은 독립 입력의 선택·충돌 판단·갱신을,06은 선택한 context/personal 위치의 실제 전환·접근을 연결한다. 원본 이동·합치기·설치와01-02·03 완료로 올리지 않는다.
 
