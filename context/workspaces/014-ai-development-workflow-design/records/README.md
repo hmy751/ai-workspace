@@ -1,6 +1,6 @@
 # 논의와 보존 기록
 
-**최신 구조 정정:** [89](2026-10-19-89-local-context-structure-correction.md)에서 사용자가 Personal을 로컬 context 안에 두려는 뜻이라고 확인했다. Main은 실제 Noline을 직접 읽고 같은 prototype의 `noline-demo/context/personal·project·work`와 Work 내부 계층을 고쳤다.86의 별도 ai-workspace 호스트 해석과88의 첫 배치를 현재 구조로 이어받지 않는다.
+**현재 중간 정리:** [90](2026-10-19-90-prototype-checkpoint-and-open-design.md)에 따라 현재 시안은 커밋해 보존했으며 추가 구체화가 남아 있다. `DEVELOPMENT.md`의 위치·이름·운영 책임과 전체 구성을 최종 채택한 것은 아니다. 89의 로컬 context 정정과 독립 Personal·Project 책임을 유지하면서 같은 prototype을 계속 발전시킨다.
 
 이 폴더는 이번 설계 작업의 분석·비교·제안·정정·검증 등 보존할 과정을 소유한다. current의 실행 재개에 곧바로 필요하지 않아도 보존 목적이 있으면 남길 수 있다. 과거 기록에 적힌 당시 제안은 현재 채택을 뜻하지 않는다.
 
@@ -157,6 +157,10 @@
 - [87 채택 뒤의 조건별 적용과 원래 근거로 돌아가는 경로](2026-10-19-87-conditional-application-and-provenance.md): 사용자 보완 요청,01에서 반영한 적용 의미·전체 채택 유보와 Main의 새 질문·사례를 구별한다.86의7쌍 비교는 보완 전 snapshot으로 보존하고 당시 시안에 보완한 설명·근거 경로로 이어간다. 이 원형은88의 단일 프로토타입에 이어받는다. context/personal 위치 선택은 유지하며 실제 파일 이동·운영 설치는 없다.
 
 - [88 하나를 계속 발전시키는 적용 프로토타입](2026-10-19-88-living-applied-prototype.md): 적용 모습을 갖춘 새 프로토타입 하나를 계속 고치자는 사용자 요청과 Main이 정한 development-workflow 경로·Noline demo 예시를 구별한다. 새 본문·실행 예시의 작성과 로컬 검사·별도 내용 검토를 실제 Work 기록으로 연결한다. 이전 날짜별 시안은 원형으로 보존하고 실제 운영 설치·본문 전체 채택·실제 Noline 효과로 올리지 않는다.
+
+- [89 실제 Noline 대조와 로컬 context 구조 정정](2026-10-19-89-local-context-structure-correction.md): 사용자 의도를 직접 확인해 개인 기준을 같은 context 아래에 두고 실제 Noline의 Project·Work 계층과 대조해 같은 prototype을 고친 기록. 이전 배치 보존본·조사 근거·직접 확인을 연결한다.
+
+- [90 적용 프로토타입 중간 커밋과 남은 구체화](2026-10-19-90-prototype-checkpoint-and-open-design.md): 현재 시안을 먼저 커밋한 결과, DEVELOPMENT.md 위치와 전반적인 미완성에 대한 사용자 유보, 유지할 판단·남은 논의·다음 재진입과 직접 정리 범위를 보존한다.
 
 ## 참고 조사 — REA
 

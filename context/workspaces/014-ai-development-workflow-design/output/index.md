@@ -1,6 +1,6 @@
 # 현재 선택한 설계 자료와 산출물
 
-**최신 구조 정정:** [89](../records/2026-10-19-89-local-context-structure-correction.md)에서 사용자가 Personal을 로컬 context 안에 두려는 뜻이라고 확인했다. Main은 실제 Noline을 직접 읽고 같은 prototype의 `noline-demo/context/personal·project·work`와 Work 내부 계층을 고쳤다.86의 별도 ai-workspace 호스트 해석과88의 첫 배치를 현재 구조로 이어받지 않는다.
+**현재 중간 정리:** [90](../records/2026-10-19-90-prototype-checkpoint-and-open-design.md)에 따라 현재 시안은 커밋해 보존했으며 추가 구체화가 남아 있다. `DEVELOPMENT.md`의 위치·이름·운영 책임과 전체 구성을 최종 채택한 것은 아니다. 89의 로컬 context 정정과 독립 Personal·Project 책임을 유지하면서 같은 prototype을 계속 발전시킨다.
 
 현재 goal은 전체 역할과 가능성을 이해하고 각 부분을 세밀하게 설계하는 것이다. B의 검토자 직접 수정 방향을 선택했으며, 전체 운영 아키텍처의 확정이나 새 스킬·개발 워크플로 구현은 아직 없다. 현재 시안에 대한 [사용자 평가73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md)는 전반적인 만족·최종 수용이 아니며03과 연결해 더 구체화할 필요가 있다는 의견이다. 아래 산출물은 이 유보와 함께 읽는다.
 

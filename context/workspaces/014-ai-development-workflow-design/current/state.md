@@ -1,8 +1,8 @@
 # 현재 상태
 
-2026-10-19. **사용자 정정에 따라 같은 프로토타입의 `noline-demo/context/` 안에 Personal·Project·Work를 나란히 구성했다.** Main이 실제 Noline의 context·Project 관리·Workspace·Spec·Ticket 구조를 직접 확인해 고쳤다. 앞선 “ai-workspace 쪽”을 별도 개인 기준 호스트로 고정한 해석은 대체한다. 사용자 뜻은 글로벌 분리 대신 로컬 context 안에서 관리·축적·수정하는 것이었다. [정정89](../records/2026-10-19-89-local-context-structure-correction.md)에 정확한 발화·구조 근거·수정·확인 범위가 있다. 앞으로도 [development-workflow](../records/prototypes/development-workflow/README.md) 한 폴더를 발전시킨다.
+2026-10-19. **현재 적용 시안을 `deddf66`으로 먼저 커밋하고, 대화 기록과 재진입 안내를 정리한 상태다.** 사용자는 `noline-demo/context/work/DEVELOPMENT.md`의 위치를 포함해 전반적으로 더 구체화할 부분이 많다고 밝혔다. 커밋은 보존을 위한 중간 지점이며 구조·본문·절차의 최종 채택이나 만족·완료가 아니다. 최신 요청과 남은 판단은 [기록90](../records/2026-10-19-90-prototype-checkpoint-and-open-design.md), 로컬 context 의미를 바로잡은 원문과 실제 Noline 대조는 [정정89](../records/2026-10-19-89-local-context-structure-correction.md)에 있다.
 
-현재 실물은 [Noline demo context](../records/prototypes/development-workflow/noline-demo/context/README.md)다. 개인 본문은 personal, 제품 의미·현재 구현·가이드는 project, 이번 Spec·Ticket·state·source·output·records는 work가 소유한다. 연결 절차는 Work의 DEVELOPMENT.md에 있다. 이동한 예제 경로에서 검사7개와 정상·조회 실패 demo를 Main이 직접 실행했다. 화면은 실제 폴더 탐색으로 시작하도록 재생성하고 원문·경로·스크립트를 정적으로 확인했다. 실제 Noline·자동 Harness·UI 통합과 전체 기준 채택은 확인하지 않았다. 바깥 운영 context와 원본 Noline을 변경한 것은 아니다.01-02·03·04-03·06은 미완료다.
+현재 실물은 [Noline demo context](../records/prototypes/development-workflow/noline-demo/context/README.md)다. 개인 본문은 personal, 제품 의미·현재 구현·가이드는 project, 이번 Spec·Ticket·state·source·output·records는 work가 소유한다. 연결 절차 시안은 Work의 DEVELOPMENT.md에 있으며 이 위치·이름·소유 책임은 미확정이다. 이동한 예제 경로에서 검사7개와 정상·조회 실패 demo를 Main이 직접 실행했다. 화면은 실제 폴더 탐색으로 시작하도록 재생성하고 원문·경로·스크립트를 정적으로 확인했다. 실제 Noline·자동 Harness·UI 통합과 전체 기준 채택은 확인하지 않았다. 바깥 운영 context와 원본 Noline을 변경한 것은 아니다.01-02·03·04-03·06은 미완료다.
 
 [7쌍 본문 비교](../records/prototypes/criteria-format-comparison-2026-10-19/README.md)는 이번 보완 전01·새 구체화의 실제 원문과 평가를 보존한다. 87에서 보완한 [이전 적용 시안](../records/prototypes/personal-project-applied-2026-10-19/README.md)은 원형으로 남기고, 조건별 적용 설명·과정 근거·지위 구별을88의 새 프로토타입으로 이어간다.66·68·72의 형식·적용 의미 반영 선택과73의 전체 유보를 구별하고, 이번 보완 요청을 질문·사례·기준 본문 전체의 채택으로 올리지 않는다.
 
@@ -22,11 +22,13 @@
 
 ## 다음에 이어갈 일
 
+다음 논의는 현재 [DEVELOPMENT.md](../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)가 맡으려는 입력 선택·전달·검토·갱신과 실제 Noline의 기존 책임을 대조하는 데서 시작할 수 있다. 어디에 둘지뿐 아니라 무엇을 본문이 소유하고 무엇을 기존 스킬·워크플로가 실행할지 구체화한다. Main의 다음 진행 제안이며 사용자가 대체 위치나 새 순서를 확정한 것은 아니다. 이번 정리에서 구조를 추가 변경하지 않는다.
+
 [단일 프로토타입](../records/prototypes/development-workflow/README.md)에서 개인 기준이 대상 Project의 계약과 함께 선택되고 구현·검토·기록으로 이어지는 적용 모습을 검토한다. 보완이 생기면 이 폴더를 계속 고치고 판단 이유는 기록으로 남긴다. [87](../records/2026-10-19-87-conditional-application-and-provenance.md)에서 이어받은 조건별 적용, 원래 대화·사례로 돌아가는 경로, 새 질문·사례의 지위 표시가 이 적용 모습에서도 유지되는지 확인한다. 기준을 특정 코드 모양에 맞추라는 명령으로 읽지 않고 목적·사용처·비용에 따라 유지·수정을 판단하는지 본다. [7쌍 비교](../records/prototypes/criteria-format-comparison-2026-10-19/README.md)는 보완 전 상태로 유지한다.84의 독립 책임과89의 로컬 context 배치를 실제 운영 설치나 제품 효과로 올리지 않는다.
 
 03에서는 분리된 본문만 읽어도 의미·조건·판단을 충분히 이해할 수 있는지 보고,04-03에서는 어떤 작업 단서로 찾아 적용하며 변화를 어디에 반영하는지 연결한다. 기존 원본 이동·합치기·설치는 하지 않는다. 항목 분류와 폴더 비교만 반복하거나 한 세트를03 전체의 완료로 올리지 않는다.
 
-재진입은 Workspace README·current/index·Spec·output과 [기록88](../records/2026-10-19-88-living-applied-prototype.md)·[단일 프로토타입](../records/prototypes/development-workflow/README.md)에서 시작한다. 조건별 적용·과정 재접근의 보완은87과 보존된 날짜별 원형에서 확인한다. 최신 위치·구조 정정은89, 앞선 선택은86, 보완 전 원문 대조는7쌍 비교에서 확인한다. 책임·적용 장면은84의 수정 시안, 결정과 새 구체화의 구별은85, 그 이전 선택·가정은81~83에서 읽는다.01-02 입력은66·68·72·73과 해당 질문의 과정 근거를 선택한다. 글로벌 위치 추천, 별도 ai-workspace 호스트 의무, Project의 개인 기준 직접 관리 책임을 현행으로 이어받지 않는다.
+재진입은 Workspace README·current/index·Spec·output과 [기록90](../records/2026-10-19-90-prototype-checkpoint-and-open-design.md)·[단일 프로토타입](../records/prototypes/development-workflow/README.md)에서 시작한다. 조건별 적용·과정 재접근의 보완은87과 보존된 날짜별 원형에서 확인한다. 최신 위치·구조 정정은89, 앞선 선택은86, 보완 전 원문 대조는7쌍 비교에서 확인한다. 책임·적용 장면은84의 수정 시안, 결정과 새 구체화의 구별은85, 그 이전 선택·가정은81~83에서 읽는다.01-02 입력은66·68·72·73과 해당 질문의 과정 근거를 선택한다. 글로벌 위치 추천, 별도 ai-workspace 호스트 의무, Project의 개인 기준 직접 관리 책임을 현행으로 이어받지 않는다.
 
 전체 진행 방향은 [74](../records/2026-10-18-74-ticket-flow-after-quality-draft.md)·[사용자 동의75](../records/2026-10-18-75-ticket03-session-handoff.md)의03 → 02 → 01-01 → 01-03 → 01-02 재방문 → 04-02 → 05 → 06 → 07을 유지한다.04-03은03·02,04-01은01-01과 함께 본다.06의 기존 결합과07의 부분 연결은 필요한 시점부터 다루며 새 근거에 따라 순서를 조정할 수 있다.75의 착수 전 첫 행동은 현재 지시가 아니다.
 
@@ -42,4 +44,4 @@
 
 사용자는 앞선 대화까지 서브에 넘겨 Workspace 기록을 정리하고 커밋하도록 요청했다. 정리 범위·검증은 [81의 기록 정리 절](../records/2026-10-19-81-personal-context-direction-and-next-step.md#2026-10-19-기록-정리와-확인)에 남겼다. 기존76~81의 비교·정정·선택과 current·Ticket·output 안내가 그 정리 범위였다. source·기존 prototype·reference-project·전역 파일·제품은 변경하지 않았다.
 
-앞선 정리 시작 HEAD는 `83e2e06`이며 결과는 `bcb779c`에 커밋됐다. 이후 세 본문 작성은 [82](../records/2026-10-19-82-naming-responsibility-completion-draft.md), 실제 배치·적용 장면의 첫 구체화는 [83](../records/2026-10-19-83-personal-project-applied-example.md), 위치·책임·형식 정정은 [84](../records/2026-10-19-84-personal-project-ownership-and-format-correction.md), 글로벌 위치 추천은85, 당시 위치 선택·보완 전 본문 비교는86, 조건별 적용·과정 재접근 보완은87, 단일 적용 프로토타입의 첫 작성은88, 실제 Noline 대조와 로컬 context 구조 정정은89에서 구별한다. 이후 시안과 안내는 미커밋 변경이며 실제 제품 코드·운영 기준을 바꾼 것은 아니다. 실제 HEAD와 작업 트리는 Git에서 확인한다. 과거 인계·검사 결과는 해당 날짜의 [기록 색인](../records/README.md)에서 찾으며 현재 제품·설계 검증 결과로 재사용하지 않는다.
+앞선 정리 시작 HEAD는 `83e2e06`이며 결과는 `bcb779c`에 커밋됐다. 이후 세 본문 작성은 [82](../records/2026-10-19-82-naming-responsibility-completion-draft.md), 실제 배치·적용 장면의 첫 구체화는 [83](../records/2026-10-19-83-personal-project-applied-example.md), 위치·책임·형식 정정은 [84](../records/2026-10-19-84-personal-project-ownership-and-format-correction.md), 글로벌 위치 추천은85, 당시 위치 선택·보완 전 본문 비교는86, 조건별 적용·과정 재접근 보완은87, 단일 적용 프로토타입의 첫 작성은88, 실제 Noline 대조와 로컬 context 구조 정정은89에서 구별한다. 이후82~89의 시안·비교·안내·prototype은 `deddf66`에 커밋했다. 이번90의 유보·다음 판단과 안내 정리는 별도 후속 커밋으로 남긴다. 실제 제품 코드·운영 기준을 바꾼 것은 아니다. 실제 HEAD와 작업 트리는 Git에서 확인한다. 과거 인계·검사 결과는 해당 날짜의 [기록 색인](../records/README.md)에서 찾으며 현재 제품·설계 검증 결과로 재사용하지 않는다.

@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**최신 구조 정정:** [89](records/2026-10-19-89-local-context-structure-correction.md)에서 사용자가 Personal을 로컬 context 안에 두려는 뜻이라고 확인했다. Main은 실제 Noline을 직접 읽고 같은 prototype의 `noline-demo/context/personal·project·work`와 Work 내부 계층을 고쳤다.86의 별도 ai-workspace 호스트 해석과88의 첫 배치를 현재 구조로 이어받지 않는다.
+**현재 중간 정리:** [90](records/2026-10-19-90-prototype-checkpoint-and-open-design.md)에 따라 현재 시안은 커밋해 보존했으며 추가 구체화가 남아 있다. `DEVELOPMENT.md`의 위치·이름·운영 책임과 전체 구성을 최종 채택한 것은 아니다. 89의 로컬 context 정정과 독립 Personal·Project 책임을 유지하면서 같은 prototype을 계속 발전시킨다.
 
 Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용자 인터뷰, 개발 에이전트 관련 강연을 바탕으로 **ai-workspace와 실제 개발 방식을 어떻게 발전시킬지 함께 설계하는 작업**이다. 지금은 범위를 충분히 이해하고 각 부분을 세밀하게 구체화하는 단계다. 개발 워크플로, 기록 방식, 역할 배치를 확정하거나 구현하는 단계로 넘어간 것은 아니다.
 

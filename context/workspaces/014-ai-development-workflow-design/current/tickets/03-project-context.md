@@ -2,6 +2,8 @@
 
 상태: **실제 Noline 대조 뒤 로컬 context 구조·본문 정정 · 최종 운영 구성은 미완료**. 현재 산출물은 [Noline demo context](../../records/prototypes/development-workflow/noline-demo/context/README.md)다. [정정89](../../records/2026-10-19-89-local-context-structure-correction.md)에 따라 personal·project·work를 같은 context 아래에 두고, Project의 관리·읽기·layer 책임과 Work의 memory·state·source·output·records를 실제 내용으로 구성했다.88의 단일 prototype은 그대로 계속 발전시킨다.84의 독립 내용 책임,01의 조건별 적용·형식 선택과 전체 수용 유보를 유지한다. 실제 Noline과 운영 기준 설치는 수행하지 않았다. 전체 기준은 [Spec](../spec.md)에 있다.
 
+[중간 정리90](../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md): 사용자는 현재 구조를 최종 채택하지 않았으며 DEVELOPMENT.md 위치를 포함해 전반적인 추가 구체화가 남았다고 밝혔다. 본문 책임과 읽기·갱신 동작을04-03과 함께 대조하며 같은 prototype을 계속 수정한다.
+
 ## 맡은 결과와 범위
 
 2026-10-18 사용자 요청: 제품 정책·코드 가이던스 등을 함께 읽어야 한다는 이유로 본문을 모호하게 합치지 않는다. 내용의 역할을 분류할 수 있게 유지하고, 읽기 연결과 본문 통합의 필요를 별도로 판단한다. 기존 폴더나 종류별 파일 하나를 고정하는 요구로 확대하지 않는다. 전체 지도와 실제 항목 비교는77~80에서 수행했다. 다음 본문 구성에서도 이 구별을 유지하며76의 API 사례를 확정된 첫 주제로 읽지 않는다. 원문과 첫 비교는 [77](../../records/2026-10-18-77-existing-project-content-map.md)에 있다.

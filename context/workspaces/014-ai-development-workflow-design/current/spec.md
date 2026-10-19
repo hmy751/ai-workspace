@@ -97,6 +97,8 @@ Noline에 이식한 Project·Work context와 스킬은 재설명을 줄이고 �
 
 ### 현재 파악한 코드 선호와 적용 조건
 
+**2026-10-19 중간 커밋과 추가 구체화:** [90](../records/2026-10-19-90-prototype-checkpoint-and-open-design.md)에서 사용자는 DEVELOPMENT.md의 위치와 전반적인 구체화가 남아 있다고 밝히고 현재 시안을 커밋·정리하도록 요청했다. Personal을 로컬 context에 둔다는 방향과 독립 내용 책임은 유지하되, 연결 절차의 현재 파일 위치·이름·Owner·기존 스킬 관계를 확정하지 않는다. 실제 적용 prototype을 계속 고치며 판단할 대상이고, 커밋을 전체 기준 수락이나 관련 Ticket 완료로 올리지 않는다.
+
 **2026-10-19 Personal의 로컬 context 위치와 적용 구조:** 사용자는 개인 기준을 글로벌로 분리하지 않고 로컬 context 안에서 관리·축적·수정하려는 뜻이라고 정정했다. [89](../records/2026-10-19-89-local-context-structure-correction.md)에 따라 현재 실물은 `noline-demo/context/personal/`이고 project·work와 나란히 둔다.86을 근거로 별도 ai-workspace 모형을 필수 호스트로 둔 해석은 대체한다. Main이 실제 Noline의 Project·Work 구조를 읽고 같은 prototype 안의 계층·본문·읽기 경로를 수정했다. Personal·Project의 독립 책임과 Work 절차의 선택·충돌 판단·반환 연결은 유지한다. 기존 원본과 실제 운영 Noline은 변경하지 않았다.01의 시안 반영과 새 문장·사례의 차이는 [본문 비교](../records/prototypes/criteria-format-comparison-2026-10-19/README.md)에 보존하며,66·68·72의 형식 선택과73의 전체 수용 유보를 유지한다.
 
 **2026-10-19 Personal·Project 책임과 형식 정정:** 사용자는 ai-workspace 내부 Personal 배치와 Project의 개인 기준 직접 참조를 재검토하고01에서 논의한 내용 형식도 확인하라고 요청했다. [84](../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)에 따라 [수정 시안](../records/prototypes/personal-project-applied-2026-10-19/README.md)은 Personal·Project의 독립 본문을 두고 [workflow](../records/prototypes/personal-project-applied-2026-10-19/workflow.md)가 선택·충돌 판단·구현/검토 입력·결과별 갱신을 연결한다. 당시 `personal-context/`는 책임 비교용 배치였으며 후속 위치 해석은86을 거쳐89에서 로컬 context로 정정했다. 짧은 공통과 상세 의미·질문·타당한 대안, 과정 근거 재접근을 보완하며 기준 전체·스킬 운영을 채택하거나 제품 효과를 확인한 것은 아니다.83은 수정 전 배치와 가상 장면의 근거로 보존한다.

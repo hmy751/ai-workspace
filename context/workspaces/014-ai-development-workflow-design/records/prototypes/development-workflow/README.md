@@ -1,6 +1,6 @@
 # Noline demo에 적용한 context 구조
 
-앞으로 이 폴더 하나를 계속 발전시킨다. 적용 대상은 **[noline-demo/context/](noline-demo/context/README.md)**다. 개인 기준, 제품 맥락, 작업 맥락을 그 안에 나란히 두고, 로그인 완료 범위를 다루는 한 Work에서 함께 사용한다.
+앞으로 이 폴더 하나를 계속 발전시킨다. **현재 내용은 중간 커밋으로 보존한 시안이며 전체 구조의 최종안이 아니다.** 특히 Work의 DEVELOPMENT.md 위치·이름·운영 책임과 전반적인 구체화가 남아 있다. [중간 정리90](../../2026-10-19-90-prototype-checkpoint-and-open-design.md)에서 현재 선택과 미결정을 구별한다. 적용 대상은 **[noline-demo/context/](noline-demo/context/README.md)**다. 개인 기준, 제품 맥락, 작업 맥락을 그 안에 나란히 두고, 로그인 완료 범위를 다루는 한 Work에서 함께 사용한다.
 
 [폴더와 본문을 화면에서 보기](viewer.html) · [Noline demo 시작](noline-demo/README.md) · [한 작업을 따라 읽기](walkthrough.md)
 

@@ -1,6 +1,6 @@
 # Personal·Project를 이번 Work에 적용하는 절차
 
-이 절차는 `noline-demo/context/work/`가 소유한다. Main은 같은 context 아래의 [Personal](../personal/README.md)과 [Project](../project/README.md)를 따로 읽고 해당 Workspace의 목표·계약에 적용한다. 로컬 context 안에 기준을 두는 선택을 반영한 현재 프로토타입 절차이며, 실제 Noline에 이미 설치된 skill의 원문이 아니다.
+이 문서는 입력 선택·전달·검토·갱신을 연결해 보는 절차 시안이며, 현재 `noline-demo/context/work/`에 보관한다. **이 위치·파일명·운영 책임은 확정하지 않았다.** 실제 Noline의 기존 스킬·작업 절차와 대조해 무엇을 어디서 담당할지 더 구체화해야 한다. Main은 같은 context 아래의 [Personal](../personal/README.md)과 [Project](../project/README.md)를 따로 읽고 해당 Workspace의 목표·계약에 적용한다. 로컬 context 안에 기준을 두는 선택을 반영한 현재 프로토타입 절차이며, 실제 Noline에 이미 설치된 skill의 원문이 아니다.
 
 개인 기준과 Project 계약은 서로의 본문을 알아야 성립하는 관계가 아니다. **Main이 이번 요청의 성격에 맞춰 두 입력을 가져오고, 이번 Work의 목표와 실제 코드에 대입해 구현·검토를 연결한다.** 개인 기준은 판단 관점을, Project는 제품의 의미·개발 계약·현재 사실을 제공한다. 이 문서는 그 내용을 다시 정의하지 않고 선택·비교·전달·갱신을 누가 언제 맡는지 설명한다.
 

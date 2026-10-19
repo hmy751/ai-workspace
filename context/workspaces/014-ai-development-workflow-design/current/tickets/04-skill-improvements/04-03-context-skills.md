@@ -4,6 +4,8 @@
 
 상태: **Project 읽기·갱신 스킬 첫 대조와 workflow 시안 수정 완료 · 실제 스킬 보완은 미완료**.76에서 기존 read/update 스킬과 읽기·관리 기준을 비교했고82·83에 본문·적용 장면을 만들었다. 최신 [정정84](../../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)는 Project가 개인 문서를 관리하는 직접 연결을 대체한다. 현재는 [88](../../../records/2026-10-19-88-living-applied-prototype.md)의 [단일 프로토타입 workflow](../../../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)에서 입력 선택·충돌 판단·구현/검토 인계·결과별 갱신을 구체화하며 실제 스킬 수정·호출 효과·Workspace 생성 대조는 미완료다. 전체 기준은 [Spec](../../spec.md)에 있다.
 
+[중간 정리90](../../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md): 사용자는 DEVELOPMENT.md의 현재 위치를 미완성의 예로 짚었다. 이 파일이 Work의 확정 운영 계약이라는 전제 없이 위치·이름·소유 책임, 기존 read/update/작업 스킬과의 행동 분담을 구체화한다. 이번 커밋·정리는 대체 위치 선택이나 실제 skill 설치가 아니다.
+
 [정정89](../../../records/2026-10-19-89-local-context-structure-correction.md)은 개인 기준을 별도 ai-workspace 호스트로 분리한 해석을 대체한다. 현재 demo는 같은 context 안의 personal·project를 Work의 DEVELOPMENT.md에서 선택하고, 필요한 본문과 이유를 Work memory에 남긴다. 기존 read-project-context의 제품 본문 선택 책임과 개인 기준의 선택을 구별한다. 실제 운영 skill·자동 호출·동기화 방식은 후속 설계이며 이번에는 설치하지 않았다.
 
 ## 맡은 결과와 범위

@@ -1,6 +1,6 @@
 # 현재 논의의 진입점
 
-**최신 구조 정정:** [89](../records/2026-10-19-89-local-context-structure-correction.md)에서 사용자가 Personal을 로컬 context 안에 두려는 뜻이라고 확인했다. Main은 실제 Noline을 직접 읽고 같은 prototype의 `noline-demo/context/personal·project·work`와 Work 내부 계층을 고쳤다.86의 별도 ai-workspace 호스트 해석과88의 첫 배치를 현재 구조로 이어받지 않는다.
+**현재 중간 정리:** [90](../records/2026-10-19-90-prototype-checkpoint-and-open-design.md)에 따라 현재 시안은 커밋해 보존했으며 추가 구체화가 남아 있다. `DEVELOPMENT.md`의 위치·이름·운영 책임과 전체 구성을 최종 채택한 것은 아니다. 89의 로컬 context 정정과 독립 Personal·Project 책임을 유지하면서 같은 prototype을 계속 발전시킨다.
 
 **새 프로토타입의 본문·코드 작성과 내용 검토를 마쳤다. 현재는 그 적용 모습을 검토하고 같은 폴더에서 계속 발전시키는 단계다.** [정정89](../records/2026-10-19-89-local-context-structure-correction.md)와 [development-workflow](../records/prototypes/development-workflow/README.md)가 현재 진입점이다. Noline demo는 Main이 구체 적용 대상으로 고른 예시이며 실제 Noline 적용은 아니다.
 
