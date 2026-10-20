@@ -1,6 +1,6 @@
 # 논의와 보존 기록
 
-**현재 초점:** [119](2026-10-20-119-ticket03-closeout.md)에03의 완료 조건 대조·후속 책임·current 마무리를 남겼다. 체계 지침의 독립 본문과 형성 근거는 [118](2026-10-20-118-system-guidance-definition-and-entry.md), 정책 적용·정정은 [117](2026-10-20-117-content-policy-application-checkpoint.md), Work의 현재 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에 있다. 과거 기록의 당시 미완료·다음 행동과 현재119의 종료 판단을 구별한다.
+**현재 초점:** [122](2026-10-20-122-formation-evidence-integration-and-reentry.md)에 정책의 외부 참고·선택 전환 근거 보완과 새 독자·수정자의 실제 수행을 남겼다. 발견과 권고는 [121](2026-10-20-121-formation-evidence-improvement-review.md)에 있다. [119](2026-10-20-119-ticket03-closeout.md)의03 구성안 마감과 후속 범위는 유지한다. 체계 지침은 [118](2026-10-20-118-system-guidance-definition-and-entry.md), Work의 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에서 읽는다.
 
 이 폴더는 이번 설계 작업의 분석·비교·제안·정정·검증 등 보존할 과정을 소유한다. current의 실행 재개에 곧바로 필요하지 않아도 보존 목적이 있으면 남길 수 있다. 과거 기록에 적힌 당시 제안은 현재 채택을 뜻하지 않는다.
 
@@ -211,3 +211,7 @@
 - [119 Ticket03 완료 조건 대조와 마무리](2026-10-20-119-ticket03-closeout.md): 구성안·대표 본문·읽기와 갱신 책임의 완료 근거, 후속 Ticket에 남긴 범위와 current·output 정리.
 
 - [120 본문·형성 자료의 파일명 구별](2026-10-20-120-visible-body-and-background-names.md): `_background`와 대문자 `INDEX` 선택, 정책·데모·현재 링크의 적용 및 Work 경계 유지.
+
+- [121 형성 자료의 누락과 구성·확인 방식 개선 리뷰](2026-10-20-121-formation-evidence-improvement-review.md): 정책의 외부 참고 관계·기록 분리 전환 근거의 누락, 다른 표본의 확인 범위, 구체 보완 권고와 이후 확인할 장면. 리뷰 당시 미적용이었으며 후속 반영과 수행 확인은122에 있다.
+
+- [122 형성 근거 통합과 새 독자·수정자의 수행](2026-10-20-122-formation-evidence-integration-and-reentry.md): 121 권고의 실제 반영, 외부 참고·확인 한계와 선택 이유 보존, 독립 복사본의 읽기·모의 변경 및 Main의 대조. 모의 수정 자체는 정본에 채택하지 않았다.

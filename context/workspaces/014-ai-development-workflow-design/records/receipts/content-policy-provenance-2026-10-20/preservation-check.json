@@ -1,0 +1,31 @@
+{
+  "reader_changes": {
+    "modified": [],
+    "added": [],
+    "deleted": []
+  },
+  "editor_changes": {
+    "modified": [
+      "noline-demo/context/CONTENT-POLICY.md",
+      "noline-demo/context/_background/content-policy/context.md",
+      "noline-demo/context/_background/content-policy/evidence.md",
+      "noline-demo/context/_background/content-policy/README.md"
+    ],
+    "added": [
+      "noline-demo/context/_background/content-policy/records/2026-10-20-preserved-evidence-reentry-experiment.md"
+    ],
+    "deleted": []
+  },
+  "canonical_vs_test_input": {
+    "modified": [],
+    "added": [],
+    "deleted": []
+  },
+  "all_prior_evidence_lines_preserved_in_order": true,
+  "prior_record_files_preserved": 4,
+  "no_product_work_or_other_body_changes": true,
+  "input_files_available": 128,
+  "input_files_snapshotted": 128,
+  "generated_viewer_excluded_from_content_comparison": true,
+  "input_archive": "input.zip"
+}
