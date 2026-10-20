@@ -1,6 +1,6 @@
 # 현재 논의의 진입점
 
-**현재 초점:** [세션 정리103](../records/2026-10-19-103-prototype-session-checkpoint.md)에97~102의 실제 반영과 마지막 사용자 방향을 묶었다. Development는 개발 워크플로의 진입점·절차 본문 시안이며 최종 위치·스킬 관계·역할 운영은 관련 후속 작업에서 구체화한다. [102](../records/2026-10-19-102-personal-project-update-ownership.md)의 관리 기본값과 [101](../records/2026-10-19-101-self-explanatory-code-priority.md)의 개인 코드 기준은 유지한다. [현재 상태](state.md)에서 재개 조건과 남은 범위를 읽는다.
+**현재 초점:** [112의 세션 정리](../records/2026-10-20-112-formation-context-session-checkpoint.md)에서 형성 맥락 논의·시범 적용·관리 원칙 작성과 마지막 viewer 문단 제거를 이어 읽는다. 실제 원칙은 [CONTENT-POLICY.md](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md), 현재 범위·다음 판단은 [state](state.md)가 소유한다. cases는 선택적인 본문 분할 예시이며 기존 주제의 새 폴더 구성으로의 전환은 아직 하지 않았다.
 
 88·89에서 프로토타입의 초기 작성과 당시 검토를 수행했다. **96의 품질 유보 뒤97에서 평가하고98에서 빠진 판단과 같은 코드 비교를 반영했다. 같은 폴더에서 계속 발전시키는 단계다.** [정정89](../records/2026-10-19-89-local-context-structure-correction.md)와 [development-workflow](../records/prototypes/development-workflow/README.md)가 현재 구조·실물의 진입점이다. Noline demo는 Main이 구체 적용 대상으로 고른 예시이며 실제 Noline 적용은 아니다.
 

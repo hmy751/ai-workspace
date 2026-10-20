@@ -74,6 +74,7 @@ const problems = [];
 let internalLinks = 0;
 let referenceLinks = 0;
 let anchorLinks = 0;
+const documentLinks = new Map();
 
 for (const doc of data.documents.filter(entry => entry.kind === 'markdown')) {
   for (const match of doc.html.matchAll(/href="([^"]+)"/g)) {
@@ -83,6 +84,8 @@ for (const doc of data.documents.filter(entry => entry.kind === 'markdown')) {
     const expected = new URL(href, pathToFileURL(path.join(root, doc.path)));
     if (resolved.kind === 'document') {
       internalLinks++;
+      if (!documentLinks.has(doc.path)) { documentLinks.set(doc.path, new Set()); }
+      documentLinks.get(doc.path).add(resolved.path);
       assert.equal(path.resolve(root, resolved.path), decodeURIComponent(expected.pathname));
       assert.equal(resolved.anchor, decodeURIComponent(expected.hash.slice(1)));
     } else {
@@ -125,6 +128,23 @@ for (const doc of data.documents.filter(entry => entry.kind === 'markdown')) {
 }
 assert.deepEqual(problems, []);
 
+// 이름 기준의 시범 묶음에서 발견 경로와 왕복 연결을 확인한다. 의미 일치는 판정하지 않는다.
+const personalRoot = 'noline-demo/context/personal/';
+const namingBody = personalRoot + 'development/naming-and-completion.md';
+const namingContext = personalRoot + 'development/naming-and-completion.context.md';
+const namingEvidence = personalRoot + 'development/naming-and-completion.evidence.md';
+const requiredContextLinks = [
+  [personalRoot + 'README.md', namingContext],
+  [namingBody, namingContext],
+  [namingContext, namingBody],
+  [namingContext, namingEvidence],
+  [namingEvidence, namingContext],
+];
+for (const [from, to] of requiredContextLinks) {
+  assert.ok(documents.has(from) && documents.has(to), `이름 기준의 구성 문서가 없습니다: ${from} → ${to}`);
+  assert.ok(documentLinks.get(from)?.has(to), `이름 기준의 필수 연결이 없습니다: ${from} → ${to}`);
+}
+
 const sampleDocument = data.documents.find(doc => doc.kind === 'markdown').path;
 const unsupported = [
   'javascript:alert(1)', 'data:text/html,test', 'vbscript:msgbox(1)',
@@ -146,6 +166,7 @@ console.log(JSON.stringify({
   stages: data.stages.length,
   comparisonColumns: data.comparison.length,
   namingAlternatives: '2개 코드가 이름 두 쌍 외에 주석 포함 동일',
+  namingContextRelations: `${requiredContextLinks.length}개 필수 연결 확인 · 의미 일치는 별도 판단`,
   internalLinks, referenceLinks, anchorLinks,
   missingPathsOrAnchors: problems.length,
   localDocumentBoundary: '모든 로컬 링크가 prototype 안에 있음',

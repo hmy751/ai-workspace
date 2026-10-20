@@ -70,6 +70,8 @@ const labels = {
   [personalRoot + 'README.md']: 'Personal 입구 · 적용할 기준 선택',
   [personalCommon]: '짧은 개발 공통 · 조건별 적용',
   [personal]: '일반 기준 · 이름·책임·완료',
+  [personalRoot + 'development/naming-and-completion.context.md']: '형성 맥락 · 목적·판단과 갱신 조건',
+  [personalRoot + 'development/naming-and-completion.evidence.md']: '근거 발췌 · 당시 발화와 확인 범위',
   [personalCases]: '상세 사례 · 같은 코드의 선택 비교',
   [workflow]: 'Workflow · 입력 선택과 전달·갱신',
   [project + 'README.md']: 'Project 입구 · 담당 본문 선택',

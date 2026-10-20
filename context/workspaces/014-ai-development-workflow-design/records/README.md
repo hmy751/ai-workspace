@@ -1,6 +1,6 @@
 # 논의와 보존 기록
 
-**현재 초점:** [세션 정리103](2026-10-19-103-prototype-session-checkpoint.md)에서97~102의 실제 결과와 Development의 후속 구체화 범위, 재진입·커밋 확인을 읽는다. 이 폴더의 설계 기록을 대상물의 필수 읽기 경로에 넣지 않는다.
+**현재 초점:** [112의 세션 정리](2026-10-20-112-formation-context-session-checkpoint.md)는104 이후의 조사·정정·시범 적용·구성 검토·정책 작성과 마지막 viewer 문단 제거를 연결한다. 실제 변경과 아직 미적용인 주제 폴더·background 전환을 구별한다. 원칙 작성은111, 대화 재점검은110, 독립안 비교는109, 기존 변경 실험은107에서 찾는다.
 
 이 폴더는 이번 설계 작업의 분석·비교·제안·정정·검증 등 보존할 과정을 소유한다. current의 실행 재개에 곧바로 필요하지 않아도 보존 목적이 있으면 남길 수 있다. 과거 기록에 적힌 당시 제안은 현재 채택을 뜻하지 않는다.
 
@@ -183,6 +183,16 @@
 - [102 Personal·Project·Work의 갱신 책임 정리](2026-10-19-102-personal-project-update-ownership.md): 사용자 우려·셀프체크·정리 요청, 중복 허용과 변경 이유에 따른 갱신 기본값, 실제 문서 조정과 확인 범위를 보존한다.
 
 - [103 프로토타입 개선 세션 정리와 워크플로 후속 범위](2026-10-19-103-prototype-session-checkpoint.md):97~102의 실제 결과, Development의 진입점·절차 본문 성격과 후속 구체화 요청, 보류·재진입·커밋 범위·확인을 모았다.
+
+- [104 LLM Wiki·Matt·dev-wiki 조사와 이전 적용안](2026-10-19-104-rationale-near-content-research.md): 외부 자료 조사는 보존하되, 본문 형식 중심 제안은105의 정정으로 현재 추천에서 제외했다.
+- [105 본문 옆 형성 맥락의 정정과 내용 초안](2026-10-20-105-adjacent-formation-context.md): 확인한 사용자 의도, 역할·형식 제안과 이름 기준의 실제 맥락 문서 초안.
+- [106 위키·설계 이유·근거의 외부 관리 사례](2026-10-20-106-wiki-and-rationale-practices-research.md): Lauren·Gwern·Ryan·Andy·ADR 등의 공개 방식, 이번 구상에 가져올 부분과 한계를 조사했다.
+- [107 이름 기준의 형성 맥락 시범 적용과 변경 실험](2026-10-20-107-naming-context-pilot-and-maintenance-trials.md): 맥락·발췌·읽기·갱신 조건의 실제 반영과 네 독립 복사본에서의 변경 결과·한계.
+- [108 주제 묶음과 공통 관리 원칙의 범위 논의](2026-10-20-108-topic-bundles-and-context-management-discussion.md): 폴더·진입점 요청과 데모 공통 적용 범위. 당시 평평한 배치 제안은109의 사용자 정정과 두 층 검토로 이어진다.
+- [109 본문·사례와 형성 자료의 독립안·상호 검토](2026-10-20-109-content-and-formation-layer-cross-review.md): 사용자 선호를 포함한 동일 입력, 고정 최초안 두 개와 상호 검토 두 개, 쟁점별 공통점·차이·이유. 구현·운영 검증은 아니다.
+- [110 형성 맥락 논의 재점검과 본문 묶음의 구성](2026-10-20-110-formation-context-dialogue-review.md): 실제 대화와 독립 self-check로 확인한 오독·유지할 요구, index 본문·연결 사례·background의 구성과 읽기·갱신 조건. 새 구조는 미적용이다.
+- [111 데모 공통 본문·형성 자료 관리 원칙의 진입 문서](2026-10-20-111-content-policy-entry.md): CONTENT-POLICY.md 작성, cases를 선택적 본문 분할 예시로 일반화, 진입 연결·표시 검사와 미전환 범위.
+- [112 형성 맥락·관리 원칙의 세션 정리와 재개 지점](2026-10-20-112-formation-context-session-checkpoint.md): viewer 문단 제거,104 이후 대화·실물·미전환 범위, 검사와 커밋 범위.
 
 ## 참고 조사 — REA
 

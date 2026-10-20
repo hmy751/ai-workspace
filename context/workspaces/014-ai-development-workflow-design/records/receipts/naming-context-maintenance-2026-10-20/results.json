@@ -1,0 +1,273 @@
+{
+  "date": "2026-10-20",
+  "entry": "README.md",
+  "isolation": "fresh subagents without parent conversation; one independent prototype copy each",
+  "tool_path_supplied": "MARKED_MODULE external installed dependency only",
+  "prototype_baseline_sha256": {
+    "README.md": "17d79bda852b26539c024ba15f6024ad1110b33b9e811d666da013abbc36bae4",
+    "viewer.html": "af91242aa97fb2fb051375a77f6e7e6f838b361f23e54990ba4a06a0a7795507",
+    "walkthrough.md": "b9047c16d1ed277541b8ddc447a8947aff111f44a9980e864b871bc7fd15a481",
+    "viewer/shell.html": "0675f01b4e444e42c9351de18f8cf02a5c3ba1cb68dabac7ce3b68e45b2b10d0",
+    "viewer/README.md": "53c6af9b4aa47fe598e90fbf638f35704ddec651a9acadc807662ba3fe987556",
+    "viewer/check.mjs": "33ce19dcd10aebf7790da2a8aea842825064687b89f427afc8151e60061b5751",
+    "viewer/build.mjs": "2b474ecbfafe2dcc457c8b4b31848f1a9052af184de242c69c1f93a4a3888051",
+    "noline-demo/README.md": "ed1d212df3207e66b830278055356d275b0c4211b53df38adc77ea556052c957",
+    "noline-demo/AGENTS.md": "2c6b1f6ec95e69ff5746ba75c8b95e8d6b631149d10b21407fb8f81c95931fb1",
+    "noline-demo/context/README.md": "f46e8c209349d23168c31e916f02a0082ec50abb6102a441ef62e9b011676245",
+    "noline-demo/examples/authentication/README.md": "97a3339378be18ee65af17a4a6bfcbe82d47359eed950cb7efe19d48bf43b46b",
+    "noline-demo/examples/authentication/tests/authentication.test.mjs": "9bc336c592f3184e1502ff084f3b50d321a9482c11a7c058e91ed9738ad30258",
+    "noline-demo/examples/authentication/src/device-session.mjs": "2f920a98cef94b05c1a41b941bef5e591839ecc81a0efbbe85c4a069a49012f7",
+    "noline-demo/examples/authentication/src/authentication.mjs": "69bde5fa5bc230d7156fa7ecf852ccf9e4773f124d146a5a5c503e757c6c5673",
+    "noline-demo/examples/authentication/src/consumers.mjs": "9658c2de42b0803a0fa63d04ab8743590ffc4a9f06db401695faa3de26924feb",
+    "noline-demo/examples/authentication/src/demo.mjs": "a16756ad8df68084a697e69e276334cadd005ba005d52a9606d18285af8f68c1",
+    "noline-demo/context/personal/README.md": "9b4c2e692b2783658028bd3e5d7584d9833ddc0884986dd5d7cfa79cc710571e",
+    "noline-demo/context/project/README.md": "25c0fc1aa7a59068b795eb98deda093ba00ccd468ed07ac2ac17816f62692831",
+    "noline-demo/context/project/MAINTENANCE.md": "7e485036bdf663eb1fe4d62a71b9e20d06ed128ece8d70f4c54a58b434d812f4",
+    "noline-demo/context/work/README.md": "0e7370bbda2c70289ecf53e1de04a1333df8855145564611179c08211d5ff540",
+    "noline-demo/context/work/AGENTS.md": "51600d918fb7afdccfa89e9ced9c581d555df8c69c3bb14b4f9311aff0714010",
+    "noline-demo/context/work/DEVELOPMENT.md": "1c6a7e45ea1d9a6072d6590721e02498f4f1582a706a493e88abfb873f201c8f",
+    "noline-demo/context/work/workspaces/README.md": "0135695eccbcc8b1e632b65c7517fd42a0e3fd739ae962784dea2febc1610cff",
+    "noline-demo/context/work/workspaces/001-login-completion-names/README.md": "32ad65aba29aa81af2f43d9fbbb7bc54d597ee862a1f08d5baeab43edd44a94a",
+    "noline-demo/context/work/workspaces/spec-and-tickets/README.md": "2a85b499485167429a3666f4bd79506fb20344d6cdb7c241487920e1b80f8824",
+    "noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-01-input-selection.md": "f3367074fc29c7222ffe69db355acccba8c77be909f6b788b7e270cd3aa6787e",
+    "noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-02-implementation.md": "b242c8741bc07593e611676902f5c73dcd90c70d4b7aedcd64e108030f0262c2",
+    "noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-04-review.md": "0fd191661d96ef36bc02b4c75992f97b7dbb56d4954bc450df4249a068bcec8e",
+    "noline-demo/context/work/workspaces/001-login-completion-names/records/README.md": "16a2f008e0186c296a43d71e9a66c7343b633a7b7ca9d8085f4b14a9d154e810",
+    "noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-03-execution.md": "3b7485d5014ae102a9c686df89a9dafdabe7f0dcedbbbaf2fb8b0a5fb64311d5",
+    "noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md": "ef9a12f2e8bd03798506460f1588863cf1590bae8b89099c8a53284584578dd5",
+    "noline-demo/context/work/workspaces/001-login-completion-names/source/index.md": "84e29ddb6dde548dc23038ad75ec85f15e9d01e733e384a8363805fc588d6844",
+    "noline-demo/context/work/workspaces/001-login-completion-names/source/scenario-input.md": "34896d7a23bcd8996c66895301ec474c3da64a05c5e121078e67efe3a8aae1e5",
+    "noline-demo/context/work/workspaces/001-login-completion-names/output/index.md": "a502e1a6d88c21c07f898d858989fe6d150c3f63a65bd5595ed4686790e84f55",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/project-context.md": "bb0bfabbe3567545ecbe474cb0427df5de4f4e8459c1f2626fcebb16b32ce63f",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/personal-context.md": "e961c0f724d09c8154e90a56a7ae261f4f587586da5040ec140fc65e80360753",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/index.md": "f7cbb31e0dcbb68302f8007193bb7562700cca59792193556d6bd33308e2a892",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md": "123df9c5b1cdf41c408c7b29af0669572f0f5de61f98741de9efdd3924c26db6",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md": "2a37a813cf0ecad6eab7037fc57ba7883a80a245310b388a700157cfb93fd6ae",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/tickets/index.md": "86060063ba5337b45de1d826f0b309ca485a094cf89de1c25120dcf33704ee08",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/spec/01-problem-goal-scope.md": "c4805a09c0aa2e2812577a1f4ad3831dbf0c3d8b9777d26ee4a2423e2d07958b",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/spec/02-behavior-and-cases.md": "ed73ed6bcd67f2a7a4c4ed18425104490e1cf536e6e8eb367c0d200cc59f79e1",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/spec/05-constraints-design-assumptions.md": "d7316819030832eea2ebb3024dadb1e7d940f39ac8c5c9e891016e04a17181f8",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/spec/03-concepts-and-contracts.md": "4dff8edac9411799325ee7c462d14448a1bd67d4d6a36be1d130caec936f70aa",
+    "noline-demo/context/work/workspaces/001-login-completion-names/current/memory/spec/04-quality-and-completion.md": "dde2603320c0412fd4112c3a8a45518c63af55109fc537b8ce52ac1a27e58411",
+    "noline-demo/context/project/guidance/authentication-and-session.md": "b337a1cc617e9d1d3d79f66d6c4e68b6443bcc032c59cf13dfcd37466c8f37e0",
+    "noline-demo/context/project/guidance/README.md": "6e46300f0ba3f438af76eb86d86d1344444227981e2c26f85494c17fecf00869",
+    "noline-demo/context/project/guidance/code-readability.md": "e816fb6296b8199accf6e6e3e60a02ccd8517f2852a206c8dbaecc541bb810b4",
+    "noline-demo/context/project/decisions/README.md": "a0aac142c154fac7aec21ff7ad1f1379c0e6d41225ec2cbf624fb42e45bd442d",
+    "noline-demo/context/project/common/README.md": "f358755c19252917dd6c9fc3a57c634f6f148ca5966d7c558e18c1cbabd814a7",
+    "noline-demo/context/project/common/device-session.md": "72e877f7e308c3ceed2a7bbdf0f70f4eee1a1c8b3d511f5c76dcc0f79c860a70",
+    "noline-demo/context/project/current/authentication-flow.md": "4405104f0a5ec996cc8618e643ee93ed9d89e9c7920a8c187743ea0967b2abce",
+    "noline-demo/context/project/current/README.md": "cfb5e4dd8aa3cc471c862227b088280cab5fe06414a79e70a5ec4bcbdbbc2f42",
+    "noline-demo/context/project/REFERENCE/composition.md": "4d57600aef21908972e36e0c94d9013f13569c815b1c5baf2cfa9b5abc007340",
+    "noline-demo/context/project/REFERENCE/README.md": "7226853914908b864c8f7a02741dd4d9f94f02624fea8621fb71393876861bc3",
+    "noline-demo/context/project/REFERENCE/reading.md": "e5b637ab200446a42dfc1e172d12d68f7bbbe521e2b07a10c06b465f3addd131",
+    "noline-demo/context/personal/development/README.md": "415b52288cdfdbdf092fbb918555b6ce983d123433c9f0814c3666576cba14b2",
+    "noline-demo/context/personal/development/naming-and-completion.context.md": "375c0431d234e7699b97897093a207029bc916a39e21954d7ea9083e4e3eb5e1",
+    "noline-demo/context/personal/development/shared-boundaries.md": "91ed524445a5284a0f5847d6286a6364bbe1b0a8064d4f5a1e82ca6879178384",
+    "noline-demo/context/personal/development/contracts-and-lifetime.md": "30d4a46decaa2a72d9c7b37b77147d3e55d81ba83c5d3b1598cc38863dad97ba",
+    "noline-demo/context/personal/development/naming-and-completion.md": "773a73baa7248f0277e74d3e2bc5a6b638bfdf32e37f3625a546deadb1a213c3",
+    "noline-demo/context/personal/development/naming-and-completion.evidence.md": "933ba28279a9b7f137e95bb1460f05185f3aa80cd18e979b356664cea91cbf4d",
+    "noline-demo/context/personal/development/cases/shared-boundaries.md": "907649c740158f61cb496b91d742605c31f39b12ef41822e5644bf29aee1ff7a",
+    "noline-demo/context/personal/development/cases/contracts-and-lifetime.md": "f9f52043d8fbfced369997612d4a5299b380cdda9478062c3f9530958324d683",
+    "noline-demo/context/personal/development/cases/naming-and-completion.md": "befb58fefd2cd2de635c1baca41d00a1a93f06e45813e119c9068de66ff40173"
+  },
+  "injected_change": {
+    "old": "설명을 읽으면 사용할 수 있는 수준에서 멈추지 않고, 설명에 맡긴 의미를 코드가 직접 드러낼 수 있는지 먼저 본다.",
+    "new": "가까운 설명을 읽고 올바르게 사용할 수 있으면 충분히 명료하다고 판단한다. 실제 오사용이 확인되기 전에는 설명 의존만을 이유로 개명을 검토하지 않는다."
+  },
+  "cases": {
+    "meaning": {
+      "request": "개인 이름 기준에 다음 판단을 추가해줘. 개명을 권할 때는 같은 사용처의 호출 코드를 변경 전후로 최소 한 쌍 놓고, 설명을 보지 않고 읽을 수 있는 의미가 무엇이 달라지는지 보여주자. 단순히 더 명료하다고 주장하는 것만으로 개명을 권하지 않겠다는 새 기준이야. 설명과 근거도 다음 작업자가 이 변경을 이해할 수 있게 정리해줘. 실제 제품 동작을 바꾸는 요청은 아니야.",
+      "changes": [
+        {
+          "path": "noline-demo/context/personal/development/naming-and-completion.context.md",
+          "before_sha256": "375c0431d234e7699b97897093a207029bc916a39e21954d7ea9083e4e3eb5e1",
+          "after_sha256": "0a8f26504ec6c6a995738a78e375a574dc3ebaeba2343112661b4c5e488e2fd8"
+        },
+        {
+          "path": "noline-demo/context/personal/development/naming-and-completion.evidence.md",
+          "before_sha256": "933ba28279a9b7f137e95bb1460f05185f3aa80cd18e979b356664cea91cbf4d",
+          "after_sha256": "1e19a5575add81b6aa5becaaab50efd52ba494d22aa899cdc2733f9f408ca010"
+        },
+        {
+          "path": "noline-demo/context/personal/development/naming-and-completion.md",
+          "before_sha256": "773a73baa7248f0277e74d3e2bc5a6b638bfdf32e37f3625a546deadb1a213c3",
+          "after_sha256": "7447ac5f4bb1d8e431123101dc643ab14a5110f866278995e96b8ea3b7335b28"
+        },
+        {
+          "path": "noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md",
+          "before_sha256": "123df9c5b1cdf41c408c7b29af0669572f0f5de61f98741de9efdd3924c26db6",
+          "after_sha256": "36186c95e07ac01ceb57d987ce3d834ddf15bcd5c620ff52d8277a9e9aa3c0bd"
+        },
+        {
+          "path": "viewer.html",
+          "before_sha256": "af91242aa97fb2fb051375a77f6e7e6f838b361f23e54990ba4a06a0a7795507",
+          "after_sha256": "445704bd0487202c5b8ed6a666607dcbcbc321388aafcd75ce4b19bb09bc0f5a"
+        }
+      ],
+      "original_evidence_sections_preserved": true,
+      "project_and_execution_files_unchanged": true,
+      "final_static_check": {
+        "documents": 55,
+        "codeFiles": 5,
+        "sourceContentAndSha": "현재 파일과 모두 일치",
+        "codeRendering": "전체 소스를 escape하여 읽기 전용 표시",
+        "stages": 6,
+        "comparisonColumns": 3,
+        "namingAlternatives": "2개 코드가 이름 두 쌍 외에 주석 포함 동일",
+        "namingContextRelations": "5개 필수 연결 확인 · 의미 일치는 별도 판단",
+        "internalLinks": 286,
+        "referenceLinks": 5,
+        "anchorLinks": 39,
+        "missingPathsOrAnchors": 0,
+        "localDocumentBoundary": "모든 로컬 링크가 prototype 안에 있음",
+        "rejectedLinkCases": 12,
+        "clientScriptSyntax": "통과",
+        "browserRendering": "실행하지 않음",
+        "demoTests": "이 검사에서는 실행하지 않음"
+      }
+    },
+    "wording": {
+      "request": "이름 기준의 문장 “외부에서 하나의 기능으로 사용하는 것과 내부 책임을 나누는 것은 함께 성립한다.”를 “외부에 하나의 기능을 제공하면서 내부 책임을 나눌 수 있다.”로 다듬어줘. 의미나 기준을 바꾸려는 것은 아니야.",
+      "changes": [
+        {
+          "path": "noline-demo/context/personal/development/naming-and-completion.md",
+          "before_sha256": "773a73baa7248f0277e74d3e2bc5a6b638bfdf32e37f3625a546deadb1a213c3",
+          "after_sha256": "2ea38c9ee604f1c4fd193ac887404e8c9097b8b558b94376e5542bc10351f6e3"
+        },
+        {
+          "path": "viewer.html",
+          "before_sha256": "af91242aa97fb2fb051375a77f6e7e6f838b361f23e54990ba4a06a0a7795507",
+          "after_sha256": "d1d8ba5d27e84d5fb5276a0babea1a319397a5e23bf0fcc3afb05b6720a74c9e"
+        }
+      ],
+      "original_evidence_sections_preserved": true,
+      "project_and_execution_files_unchanged": true,
+      "final_static_check": {
+        "documents": 55,
+        "codeFiles": 5,
+        "sourceContentAndSha": "현재 파일과 모두 일치",
+        "codeRendering": "전체 소스를 escape하여 읽기 전용 표시",
+        "stages": 6,
+        "comparisonColumns": 3,
+        "namingAlternatives": "2개 코드가 이름 두 쌍 외에 주석 포함 동일",
+        "namingContextRelations": "5개 필수 연결 확인 · 의미 일치는 별도 판단",
+        "internalLinks": 281,
+        "referenceLinks": 5,
+        "anchorLinks": 35,
+        "missingPathsOrAnchors": 0,
+        "localDocumentBoundary": "모든 로컬 링크가 prototype 안에 있음",
+        "rejectedLinkCases": 12,
+        "clientScriptSyntax": "통과",
+        "browserRendering": "실행하지 않음",
+        "demoTests": "이 검사에서는 실행하지 않음"
+      }
+    },
+    "observation": {
+      "request": "새 관찰을 남기고 기존 이름 기준에 무엇을 다시 검토해야 할지 정리해줘. 모의 읽기 실험에서 개발자 3명 중 2명은 loginAndRefresh가 signInAndRequestRefresh보다 역할을 빨리 파악하게 했다고 응답했어. 후자는 refresh가 네트워크 조회 완료까지 뜻한다고 받아들였다고 해. 참여자의 배경, 제시 순서와 실제 소요 시간은 확보하지 못했어. 기존 방향을 바꾸자는 결정은 아직 없어.",
+      "changes": [
+        {
+          "path": "noline-demo/context/personal/development/cases/naming-and-completion.md",
+          "before_sha256": "befb58fefd2cd2de635c1baca41d00a1a93f06e45813e119c9068de66ff40173",
+          "after_sha256": "055943d5900ad8a39704ce6ccaab612e4ea88b713e3b18e3a7baeb9df7e4aaa6"
+        },
+        {
+          "path": "noline-demo/context/personal/development/naming-and-completion.context.md",
+          "before_sha256": "375c0431d234e7699b97897093a207029bc916a39e21954d7ea9083e4e3eb5e1",
+          "after_sha256": "1f174f24a048133055c8efde1c1aa508123076f26f47f2dd6ad44f74239e09af"
+        },
+        {
+          "path": "noline-demo/context/personal/development/naming-and-completion.evidence.md",
+          "before_sha256": "933ba28279a9b7f137e95bb1460f05185f3aa80cd18e979b356664cea91cbf4d",
+          "after_sha256": "f11c519d82e4584c2f4358ae6d07e266651165d2b6807546dd5eeb115b113e97"
+        },
+        {
+          "path": "noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md",
+          "before_sha256": "123df9c5b1cdf41c408c7b29af0669572f0f5de61f98741de9efdd3924c26db6",
+          "after_sha256": "8c8db8766257ababb23e4ff8bab395a98aca7d305cd64ad6edb314ffc74adc81"
+        },
+        {
+          "path": "viewer.html",
+          "before_sha256": "af91242aa97fb2fb051375a77f6e7e6f838b361f23e54990ba4a06a0a7795507",
+          "after_sha256": "3dce673506dab01e8642cf16a4b752be103aff9dfc4f5cdcd6a49769712ed19d"
+        }
+      ],
+      "original_evidence_sections_preserved": true,
+      "project_and_execution_files_unchanged": true,
+      "final_static_check": {
+        "documents": 55,
+        "codeFiles": 5,
+        "sourceContentAndSha": "현재 파일과 모두 일치",
+        "codeRendering": "전체 소스를 escape하여 읽기 전용 표시",
+        "stages": 6,
+        "comparisonColumns": 3,
+        "namingAlternatives": "2개 코드가 이름 두 쌍 외에 주석 포함 동일",
+        "namingContextRelations": "5개 필수 연결 확인 · 의미 일치는 별도 판단",
+        "internalLinks": 290,
+        "referenceLinks": 5,
+        "anchorLinks": 43,
+        "missingPathsOrAnchors": 0,
+        "localDocumentBoundary": "모든 로컬 링크가 prototype 안에 있음",
+        "rejectedLinkCases": 12,
+        "clientScriptSyntax": "통과",
+        "browserRendering": "실행하지 않음",
+        "demoTests": "이 검사에서는 실행하지 않음"
+      }
+    },
+    "consistency": {
+      "request": "이름 기준을 다음 작업에서 사용하려고 해. 연결된 자료와 함께 읽고 현재의 의미와 근거가 맞는지 확인해서, 자료로 해결할 수 있는 불일치는 바로 고쳐줘. 새 개인 선호나 제품 계약을 결정하는 요청은 아니야.",
+      "changes": [
+        {
+          "path": "noline-demo/context/personal/development/naming-and-completion.md",
+          "before_sha256": "319880087feeca86b647a5f59548d42c922e69337f12fe1fe0b6eb07c9936564",
+          "after_sha256": "e37a9584cdcd3d8647ea7a971c8a8d96cede9f26cc1f4f94ced8bb35a4d794ad"
+        },
+        {
+          "path": "viewer.html",
+          "before_sha256": "af91242aa97fb2fb051375a77f6e7e6f838b361f23e54990ba4a06a0a7795507",
+          "after_sha256": "a7502c5588292b34fefd54ca9e685e60eb6b6d71246c123d77bce25bbca4a12d"
+        }
+      ],
+      "original_evidence_sections_preserved": true,
+      "project_and_execution_files_unchanged": true,
+      "final_static_check": {
+        "documents": 55,
+        "codeFiles": 5,
+        "sourceContentAndSha": "현재 파일과 모두 일치",
+        "codeRendering": "전체 소스를 escape하여 읽기 전용 표시",
+        "stages": 6,
+        "comparisonColumns": 3,
+        "namingAlternatives": "2개 코드가 이름 두 쌍 외에 주석 포함 동일",
+        "namingContextRelations": "5개 필수 연결 확인 · 의미 일치는 별도 판단",
+        "internalLinks": 281,
+        "referenceLinks": 5,
+        "anchorLinks": 35,
+        "missingPathsOrAnchors": 0,
+        "localDocumentBoundary": "모든 로컬 링크가 prototype 안에 있음",
+        "rejectedLinkCases": 12,
+        "clientScriptSyntax": "통과",
+        "browserRendering": "실행하지 않음",
+        "demoTests": "이 검사에서는 실행하지 않음"
+      }
+    }
+  },
+  "structural_controls": {
+    "control": {
+      "build_exit": 0,
+      "check_exit": 0,
+      "stdout": "{\n  \"documents\": 55,\n  \"codeFiles\": 5,\n  \"sourceContentAndSha\": \"현재 파일과 모두 일치\",\n  \"codeRendering\": \"전체 소스를 escape하여 읽기 전용 표시\",\n  \"stages\": 6,\n  \"comparisonColumns\": 3,\n  \"namingAlternatives\": \"2개 코드가 이름 두 쌍 외에 주석 포함 동일\",\n  \"namingContextRelations\": \"5개 필수 연결 확인 · 의미 일치는 별도 판단\",\n  \"internalLinks\": 281,\n  \"referenceLinks\": 5,\n  \"anchorLinks\": 35,\n  \"missingPathsOrAnchors\": 0,\n  \"localDocumentBoundary\": \"모든 로컬 링크가 prototype 안에 있음\",\n  \"rejectedLinkCases\": 12,\n  \"clientScriptSyntax\": \"통과\",\n  \"browserRendering\": \"실행하지 않음\",\n  \"demoTests\": \"이 검사에서는 실행하지 않음\"\n}\n",
+      "stderr": ""
+    },
+    "missing-connection": {
+      "build_exit": 0,
+      "check_exit": 1,
+      "stdout": "",
+      "stderr": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: 이름 기준의 필수 연결이 없습니다: noline-demo/context/personal/development/naming-and-completion.md → noline-demo/context/personal/development/naming-and-completion.context.md\n    at file:///private/tmp/naming-context-maintenance-05blc1ax/missing-connection/viewer/check.mjs:145:10\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: '==',\n  diff: 'simple'\n}\n\nNode.js v24.16.0\n"
+    },
+    "semantic-mismatch": {
+      "build_exit": 0,
+      "check_exit": 0,
+      "stdout": "{\n  \"documents\": 55,\n  \"codeFiles\": 5,\n  \"sourceContentAndSha\": \"현재 파일과 모두 일치\",\n  \"codeRendering\": \"전체 소스를 escape하여 읽기 전용 표시\",\n  \"stages\": 6,\n  \"comparisonColumns\": 3,\n  \"namingAlternatives\": \"2개 코드가 이름 두 쌍 외에 주석 포함 동일\",\n  \"namingContextRelations\": \"5개 필수 연결 확인 · 의미 일치는 별도 판단\",\n  \"internalLinks\": 281,\n  \"referenceLinks\": 5,\n  \"anchorLinks\": 35,\n  \"missingPathsOrAnchors\": 0,\n  \"localDocumentBoundary\": \"모든 로컬 링크가 prototype 안에 있음\",\n  \"rejectedLinkCases\": 12,\n  \"clientScriptSyntax\": \"통과\",\n  \"browserRendering\": \"실행하지 않음\",\n  \"demoTests\": \"이 검사에서는 실행하지 않음\"\n}\n",
+      "stderr": ""
+    }
+  }
+}
