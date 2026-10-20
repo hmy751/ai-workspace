@@ -16,4 +16,6 @@
 
 따라서 일반 조회 실패를 인증 저장 실패처럼 알리면 사용자는 이미 끝난 로그인을 반복하게 된다. 복구 안내와 재시도는 실패한 조회에 맞춰야 한다. 다만 어느 화면으로 언제 이동할지는 그 화면이 최신 조회 결과를 필요로 하는지에 따라 별도로 정한다.
 
-저장·공개 순서와 사건별 실패 처리는 [인증·세션 계약](../guidance/authentication-and-session.md), 이 예제가 실제로 제공하는 계정·데이터 검사는 [현재 구현 범위](../current/authentication-flow.md)가 설명한다.
+저장·공개 순서와 사건별 실패 처리는 [인증·세션 계약](../../guidance/authentication-and-session/index.md), 이 예제가 실제로 제공하는 계정·데이터 검사는 [현재 구현 범위](../../current/authentication-flow/index.md)가 설명한다.
+
+본문의 범위와 형성 의도·변경 근거를 읽을 경로는 [구성 안내](README.md)에 있다.

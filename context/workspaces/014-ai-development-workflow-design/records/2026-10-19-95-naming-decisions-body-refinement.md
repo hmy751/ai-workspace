@@ -38,7 +38,7 @@
 
 ### Project는 자기 제품의 조건을 직접 설명한다
 
-[Project 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability.md#표현을-고칠지-동작을-고칠지)에는 현재 소비자의 인증 완료 뒤 이동·닫기, 조회 비대기, 후속 조회 실패의 조건을 사용했다. 설명만 보완할 조건과 표현을 고를 조건, 실제 최신 결과 요구가 생길 조건을 한 표에서 대조한다. 이미 완료한 인증을 일반 조회 실패 때문에 되돌리지 않는 계약과 별도 인증 거부의 경계도 유지한다.
+[Project 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/index.md#표현을-고칠지-동작을-고칠지)에는 현재 소비자의 인증 완료 뒤 이동·닫기, 조회 비대기, 후속 조회 실패의 조건을 사용했다. 설명만 보완할 조건과 표현을 고를 조건, 실제 최신 결과 요구가 생길 조건을 한 표에서 대조한다. 이미 완료한 인증을 일반 조회 실패 때문에 되돌리지 않는 계약과 별도 인증 거부의 경계도 유지한다.
 
 선택한 정확한 함수명은 계속 Project current와 Work에 있다. Project에서 Personal이나 작성 이력을 읽어야 내용을 이해하는 연결을 추가하지 않았다. 현재 실행 예제·제품 계약·초기 입력·과거 Work 기록을 변경하지 않았다.
 

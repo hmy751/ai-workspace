@@ -79,7 +79,7 @@ const labels = {
   [personalCases]: '상세 사례 · 같은 코드의 선택 비교',
   [workflow]: 'Workflow · 입력 선택과 전달·갱신',
   [project + 'README.md']: 'Project 입구 · 담당 본문 선택',
-  [project + 'current/authentication-flow.md']: '작업 후 · 인증 흐름 현황',
+  [project + 'current/authentication-flow/index.md']: '작업 후 · 인증 흐름 현황',
   [work + 'records/2026-10-19-01-input-selection.md']: '이번 Work에서 실제 선택한 입력',
   [work + 'records/2026-10-19-03-execution.md']: '로컬 실행 결과와 확인 범위',
   [work + 'records/2026-10-19-04-review.md']: '실물 검토 결과와 미확인',
@@ -99,7 +99,9 @@ const documents = sourceFiles(root).map(fullPath => {
   const group = kind === 'code' ? isTest ? '로컬 데모 · 검사 코드' : '로컬 데모 · 구현 코드'
     : relativePath.startsWith(personalRoot) ? 'Personal · 개인의 기준'
     : relativePath.includes('/context/work/') ? '이번 Work · 요구와 근거'
-    : relativePath.startsWith('noline-demo/') ? 'Project · 제품의 계약'
+    : relativePath.startsWith(project) ? 'Project · 제품의 계약'
+    : relativePath.startsWith('noline-demo/context/') ? 'Context · 공통 구성과 관리'
+    : relativePath.startsWith('noline-demo/') ? '데모 · 진입과 실행 안내'
     : '전체 안내와 적용 장면';
   const rendered = kind === 'markdown'
     ? renderMarkdown(content)
@@ -115,15 +117,15 @@ const demoTests = documents.filter(doc => doc.path.startsWith('noline-demo/examp
 
 const stages = [
   {label: 'Context와 작업', title: '1. 한 프로젝트 안의 Context와 Work', description: '같은 context 안에 Personal·Project·Work를 두고, 이번 작업의 Spec·Ticket·현재 상태를 찾습니다.', documents: ['noline-demo/context/README.md', work + 'README.md', work + 'current/memory/index.md', work + 'current/memory/spec/01-problem-goal-scope.md', work + 'current/memory/tickets/01-authentication-completion.md', work + 'source/scenario-input.md', 'README.md']},
-  {label: '필요 본문 선택', title: '2. Work에서 Personal과 Project를 선택', description: '일반 기준을 읽고 판단 차이가 필요할 때 상세 사례를 고릅니다. 현재 읽기 경로이며 최초 전달 판본의 복원본은 아닙니다.', documents: [workflow, work + 'current/memory/personal-context.md', work + 'current/memory/project-context.md', personalRoot + 'README.md', personalCommon, personal, personalCases, project + 'README.md', project + 'guidance/code-readability.md']},
-  {label: '대안·계약 판단', title: '3. 초기 판단 조건과 대안을 재구성해 읽음', description: '보존된 시작 입력으로 판단 조건을 풀고 현재 기준과 대조한 해설입니다. 새 작업자가 독립적으로 적용한 실험은 아닙니다.', documents: ['walkthrough.md', work + 'source/scenario-input.md', personal, personalCases, project + 'guidance/authentication-and-session.md']},
-  {label: '구현과 결과', title: '4. Output에서 실제 구현을 찾음', description: '선택 후 이름·코드는 결과로 읽습니다. 당시 작성 기록과 현재 보완된 선택 이유를 구별합니다.', documents: [work + 'output/index.md', work + 'current/memory/spec/05-constraints-design-assumptions.md', project + 'current/authentication-flow.md', work + 'records/2026-10-19-02-implementation.md', ...demoSources]},
+  {label: '필요 본문 선택', title: '2. Work에서 Personal과 Project를 선택', description: '일반 기준을 읽고 판단 차이가 필요할 때 상세 사례를 고릅니다. 현재 읽기 경로이며 최초 전달 판본의 복원본은 아닙니다.', documents: [workflow, work + 'current/memory/personal-context.md', work + 'current/memory/project-context.md', personalRoot + 'README.md', personalCommon, personal, personalCases, project + 'README.md', project + 'guidance/code-readability/index.md']},
+  {label: '대안·계약 판단', title: '3. 초기 판단 조건과 대안을 재구성해 읽음', description: '보존된 시작 입력으로 판단 조건을 풀고 현재 기준과 대조한 해설입니다. 새 작업자가 독립적으로 적용한 실험은 아닙니다.', documents: ['walkthrough.md', work + 'source/scenario-input.md', personal, personalCases, project + 'guidance/authentication-and-session/index.md']},
+  {label: '구현과 결과', title: '4. Output에서 실제 구현을 찾음', description: '선택 후 이름·코드는 결과로 읽습니다. 당시 작성 기록과 현재 보완된 선택 이유를 구별합니다.', documents: [work + 'output/index.md', work + 'current/memory/spec/05-constraints-design-assumptions.md', project + 'current/authentication-flow/index.md', work + 'records/2026-10-19-02-implementation.md', ...demoSources]},
   {label: '검토와 검사', title: '5. 실제 수행과 한계를 구별', description: '현재 실행 방법과 당시 검사·검토 결과에서 확인한 경계와 남은 조건을 구별합니다.', documents: ['noline-demo/README.md', work + 'current/memory/spec/04-quality-and-completion.md', work + 'records/2026-10-19-03-execution.md', work + 'records/2026-10-19-04-review.md', ...demoTests]},
-  {label: '현재와 다음', title: '6. 같은 구조에서 다음 변경을 이어감', description: '현재 상태와 결과 위치를 확인하고, 개인 기준·제품 계약·작업 상태 중 달라진 Owner를 갱신합니다.', documents: [work + 'current/state/index.md', work + 'output/index.md', project + 'current/authentication-flow.md', project + 'MAINTENANCE.md', personalRoot + 'README.md', workflow]},
+  {label: '현재와 다음', title: '6. 같은 구조에서 다음 변경을 이어감', description: '현재 상태와 결과 위치를 확인하고, 개인 기준·제품 계약·작업 상태 중 달라진 Owner를 갱신합니다.', documents: [work + 'current/state/index.md', work + 'output/index.md', project + 'current/authentication-flow/index.md', project + 'MAINTENANCE.md', personalRoot + 'README.md', workflow]},
 ];
 const comparison = [
   {label: 'Personal 기준', path: personal},
-  {label: 'Project 가이드', path: project + 'guidance/code-readability.md'},
+  {label: 'Project 가이드', path: project + 'guidance/code-readability/index.md'},
   {label: 'Workflow 연결', path: workflow},
 ];
 for (const stage of stages) {

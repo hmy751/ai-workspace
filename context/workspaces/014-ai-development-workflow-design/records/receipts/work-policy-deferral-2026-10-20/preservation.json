@@ -1,0 +1,28 @@
+{
+  "role": "Deferred prior Work layout; historical copy only, not active content or a reading prerequisite.",
+  "source": "Work layout immediately before user requested to defer policy application on 2026-10-20",
+  "sha256": "78f477cfae65f8a0230bc9fe4d98dd2e0a95082061ca00ca5ae367ac2a58ba7a",
+  "files": 45,
+  "outer_link_changes": [
+    [
+      "records/2026-10-19-97-decision-coverage-and-body-assessment.md",
+      1
+    ],
+    [
+      "records/2026-10-19-104-rationale-near-content-research.md",
+      2
+    ],
+    [
+      "records/2026-10-19-92-principles-cases-and-agreement-reconciliation.md",
+      1
+    ],
+    [
+      "records/2026-10-20-105-adjacent-formation-context.md",
+      1
+    ],
+    [
+      "records/2026-10-20-114-durable-body-policy-and-reapplication.md",
+      2
+    ]
+  ]
+}

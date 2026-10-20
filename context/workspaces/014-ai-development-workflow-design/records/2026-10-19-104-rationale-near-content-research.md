@@ -52,7 +52,7 @@ Matt Pocock의 [writing-for-agents 고정 원문](https://github.com/mattpocock/
 | 현재 본문 | 이미 함께 읽을 수 있는 맥락 | 이번 구상에서의 판단 |
 | --- | --- | --- |
 | [Personal 이름·완료 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md) | 코드 자체에서 의미를 읽으려는 지향점, 설명이 필요한 경우, 호환 비용, 동작 수정과의 구별 | 이유가 없는 규칙 목록이 아니다. 같은 해설을 덧붙이기보다 기존 설명의 충분성을 확인한다. 특정 A/B 선택은 Work가 맡는다. |
-| [Project의 기기 세션 의미](prototypes/development-workflow/noline-demo/context/project/common/device-session.md) | 사용자 여행 데이터의 연속성, 인증 복구와 조회의 차이, 조회 실패에 맞춰 안내할 이유 | 제품 목적에서 계약이 나오는 좋은 배치다. 개인 선호의 채택 이력을 이곳에 추가할 이유는 없다. |
+| [Project의 기기 세션 의미](prototypes/development-workflow/noline-demo/context/project/common/device-session/index.md) | 사용자 여행 데이터의 연속성, 인증 복구와 조회의 차이, 조회 실패에 맞춰 안내할 이유 | 제품 목적에서 계약이 나오는 좋은 배치다. 개인 선호의 채택 이력을 이곳에 추가할 이유는 없다. |
 | [Work의 현재 설계·가정](prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/current/memory/spec/05-constraints-design-assumptions.md) | 개명 이유, 내부 두 소비자·공개 호환 없음, 비대기 조건, 재판단 조건, 가정·한계 | 이번 선택의 이유는 이미 본문에 있다. 모든 비교를 이곳에 복제하지 않고 기존 A/B 기록을 상세로 연결하면 된다. |
 | [DEVELOPMENT의 결과 갱신](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md#결과를-해당-책임으로-돌려준다) | Personal·Project·Work별 갱신과 짧은 설명 중복 허용 | 절차와 예외는 있다. 왜 이 구분이 변경 판단에 필요한지, 개인 선호가 제품의 공통 약속으로 오인되지 않게 하는 목적을 절 가까이 설명하는 보완을 검토할 만하다. |
 | [Project 구성 기준](prototypes/development-workflow/noline-demo/context/project/REFERENCE/composition.md) | 자기 범위의 의미·이유·조건을 본문에서 설명하고 상세 이력을 Work에 두는 기준 | 이미 이번 생각과 겹치는 관리 원칙이 있다. 별도 위키 구조·공통 지침을 추가하기 전에 이 원칙이 실제 본문에서 작동하는지 본다. |

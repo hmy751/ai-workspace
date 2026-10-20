@@ -6,4 +6,4 @@
 
 Store 저장이 실패하면 이전 저장값이 남는다는 어댑터 계약 안에서 상태를 보존한다. 디스크 일부만 써진 경우의 복구, 동시 세션 변경, 실제 queue 조율은 이 예제의 보장에 포함되지 않는다.
 
-지속 제품 계약은 [Project 인증 가이드](../../../../../../project/guidance/authentication-and-session.md)가 소유한다. 이 Work는 그 계약이 이번 코드·소비자의 입출력에 어떤 제한을 주는지 선택해 사용한다.
+지속 제품 계약은 [Project 인증 가이드](../../../../../../project/guidance/authentication-and-session/index.md)가 소유한다. 이 Work는 그 계약이 이번 코드·소비자의 입출력에 어떤 제한을 주는지 선택해 사용한다.

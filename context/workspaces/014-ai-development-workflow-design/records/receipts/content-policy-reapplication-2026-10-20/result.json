@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-20",
+  "kind": "hypothetical-document-maintenance-trial",
+  "applied_to_real_demo": false,
+  "scope": "DEVELOPMENT reading and actual editing in a temporary prototype copy",
+  "snapshot_note": "Development and common entries were ready; other Project backgrounds were still being written. This was not a snapshot of the final entire artifact. The later policy formation-material addition is absent.",
+  "excluded_from_copy": [
+    "viewer.html",
+    "viewer/"
+  ],
+  "changed_files": [
+    {
+      "path": "README.md",
+      "before_sha256": "daadc63a318a58b77326bee188f93b6f46dec4d70f2999870524749d41dc3cd5",
+      "after_sha256": "0a42fbffe9865c22654cd3f96ddb9e29f7cb7151affd0f812a545bd3effb0aff"
+    },
+    {
+      "path": "noline-demo/context/work/development/README.md",
+      "before_sha256": "79a2bcfa6f26f553e2d9ae3e1679fcf8fcecc606f05c58c8ceac60f52d82f738",
+      "after_sha256": "1926b81b372c52fd0c2d20f40a8b6c0ddf23b22e01345f6e587e7128b2936cad"
+    },
+    {
+      "path": "noline-demo/context/work/development/background/README.md",
+      "before_sha256": "398e8ce47ba68a733d8b99b0f3d378774ca0c0543ceb97250deb1c8d6a37a038",
+      "after_sha256": "35f30a70290921c2af4fe883229c039ddd4735d699885d475d00a93f754f2458"
+    },
+    {
+      "path": "noline-demo/context/work/development/background/context.md",
+      "before_sha256": "a22f749302481abf2c6786e70b2ac0416c1ccebdee5f05b3a8da7dea51988539",
+      "after_sha256": "ee1a26b6317e530e882db4201b305eb8b158674da7880403a093480b525bc33f"
+    },
+    {
+      "path": "noline-demo/context/work/development/background/evidence.md",
+      "before_sha256": "cb3bc431065161949b1a2452f5b28323445e7eb5cf2407bbf3023c08c5bed1de",
+      "after_sha256": "c9e8a9ba5ef67b78f3726e50afeb728853be6743c8281d581185a098a06a3a89"
+    },
+    {
+      "path": "noline-demo/context/work/development/background/records/2026-10-20-internal-document-review-assumption.md",
+      "before_sha256": null,
+      "after_sha256": "901a1198b5f7c5d9117992eba0e7be63a05a9aaa5b04dd5ef982d52f4e677b59"
+    },
+    {
+      "path": "noline-demo/context/work/development/index.md",
+      "before_sha256": "67f9c600e1a11d34686a5d1657fbf0e36aabb01f89d6030a145b662d8d501d1c",
+      "after_sha256": "03b5796f252e47ece070a7a798916644a30dbded5045a8c754df236073cb1481"
+    }
+  ],
+  "existing_evidence_preserved_as_exact_prefix": true,
+  "old_formation_records_unchanged": [
+    "noline-demo/context/work/development/background/records/2026-10-12-review-and-handoff.md"
+  ],
+  "agent_link_check_count": 79,
+  "main_check": "Main inspected the full diff and compared original evidence and formation records. Existing source, product code and unrelated context were not modified in the copy.",
+  "limits": [
+    "One hypothetical edit does not establish long-term reliability.",
+    "The scenario is not an actual user agreement.",
+    "Display generation was intentionally outside the copy trial."
+  ]
+}

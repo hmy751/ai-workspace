@@ -1,0 +1,37 @@
+{
+  "restored_from_33c1fee": [
+    "project/MAINTENANCE.md",
+    "project/REFERENCE/README.md",
+    "project/REFERENCE/reading.md",
+    "project/REFERENCE/composition.md",
+    "work/DEVELOPMENT.md",
+    "work/AGENTS.md",
+    "work/workspaces/README.md",
+    "work/workspaces/spec-and-tickets/README.md"
+  ],
+  "body_route_map": {
+    "project/management/index.md": "project/MAINTENANCE.md",
+    "project/management/index.reading.md": "project/REFERENCE/reading.md",
+    "project/management/index.composition.md": "project/REFERENCE/composition.md",
+    "project/management/README.md": "project/REFERENCE/README.md",
+    "work/development/index.md": "work/DEVELOPMENT.md",
+    "work/development/README.md": "work/DEVELOPMENT.md",
+    "work/management/index.md": "work/workspaces/README.md",
+    "work/management/index.spec-and-tickets.md": "work/workspaces/spec-and-tickets/README.md",
+    "work/management/README.md": "work/workspaces/README.md"
+  },
+  "formation_move_map": {
+    "project/management/background/context.md": "project/REFERENCE/background/context.md",
+    "project/management/background/evidence.md": "project/REFERENCE/background/evidence.md",
+    "project/management/background/README.md": "project/REFERENCE/background/README.md",
+    "project/management/background/records/2026-10-20-project-management.md": "project/REFERENCE/background/records/2026-10-20-project-management.md",
+    "work/development/background/context.md": "work/background/development/context.md",
+    "work/development/background/evidence.md": "work/background/development/evidence.md",
+    "work/development/background/README.md": "work/background/development/README.md",
+    "work/development/background/records/2026-10-12-review-and-handoff.md": "work/background/development/records/2026-10-12-review-and-handoff.md",
+    "work/management/background/context.md": "work/workspaces/spec-and-tickets/background/context.md",
+    "work/management/background/evidence.md": "work/workspaces/spec-and-tickets/background/evidence.md",
+    "work/management/background/README.md": "work/workspaces/spec-and-tickets/background/README.md",
+    "work/management/background/records/2026-09-12-goal-and-execution.md": "work/workspaces/spec-and-tickets/background/records/2026-09-12-goal-and-execution.md"
+  }
+}

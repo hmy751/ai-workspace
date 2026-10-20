@@ -1,0 +1,19 @@
+{
+  "documents": 141,
+  "codeFiles": 5,
+  "sourceContentAndSha": "현재 파일과 모두 일치",
+  "codeRendering": "전체 소스를 escape하여 읽기 전용 표시",
+  "stages": 6,
+  "comparisonColumns": 3,
+  "namingAlternatives": "2개 코드가 이름 두 쌍 외에 주석 포함 동일",
+  "namingContextRelations": "13개 필수 연결 확인 · 의미 일치는 별도 판단",
+  "internalLinks": 767,
+  "referenceLinks": 4,
+  "anchorLinks": 195,
+  "missingPathsOrAnchors": 0,
+  "localDocumentBoundary": "모든 로컬 링크가 prototype 안에 있음",
+  "rejectedLinkCases": 12,
+  "clientScriptSyntax": "통과",
+  "browserRendering": "실행하지 않음",
+  "demoTests": "이 검사에서는 실행하지 않음"
+}

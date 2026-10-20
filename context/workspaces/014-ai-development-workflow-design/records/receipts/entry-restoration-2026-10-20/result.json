@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-20",
+  "baseline": "33c1fee",
+  "restored_entry_files_present": [
+    "project/MAINTENANCE.md",
+    "project/REFERENCE/README.md",
+    "project/REFERENCE/reading.md",
+    "project/REFERENCE/composition.md",
+    "work/DEVELOPMENT.md",
+    "work/AGENTS.md",
+    "work/workspaces/README.md",
+    "work/workspaces/spec-and-tickets/README.md"
+  ],
+  "removed_duplicate_entry_directories": [
+    "project/management",
+    "work/management",
+    "work/development"
+  ],
+  "removed_general_body_forwarders": [
+    "project/common/device-session.md",
+    "project/current/authentication-flow.md",
+    "project/guidance/authentication-and-session.md",
+    "project/guidance/code-readability.md"
+  ],
+  "scenario_input": "exactly three current-body link targets changed; all other text and code match baseline",
+  "source_text_before_sha256": "34896d7a23bcd8996c66895301ec474c3da64a05c5e121078e67efe3a8aae1e5",
+  "source_text_after_sha256": "1dcc0571479041951e2346c5b18097af4d1d67d588de0e15d8eaa6f72786ec18",
+  "formation_file_paths": [
+    "project/REFERENCE/background/context.md",
+    "project/REFERENCE/background/evidence.md",
+    "project/REFERENCE/background/README.md",
+    "project/REFERENCE/background/records/2026-10-20-project-management.md",
+    "work/background/development/context.md",
+    "work/background/development/evidence.md",
+    "work/background/development/README.md",
+    "work/background/development/records/2026-10-12-review-and-handoff.md",
+    "work/workspaces/spec-and-tickets/background/context.md",
+    "work/workspaces/spec-and-tickets/background/evidence.md",
+    "work/workspaces/spec-and-tickets/background/README.md",
+    "work/workspaces/spec-and-tickets/background/records/2026-09-12-goal-and-execution.md"
+  ],
+  "remaining_design_question": "Entry responsibilities, names, locations and grouping remain deferred for discussion."
+}

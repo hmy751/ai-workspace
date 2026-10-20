@@ -1,6 +1,6 @@
 # 논의와 보존 기록
 
-**현재 초점:** [113의 워커 적용과 검증](2026-10-20-113-content-policy-worker-application.md)은 정책과 현재 데모만으로 수행한 세 주제 구성·이름 background 적용, 독자 확인과 독립 검증, 발견한 참조 누락을 반영한 정책 보완을 보존한다. 앞선 조사·정정·정책 작성까지의 정리는 [112](2026-10-20-112-formation-context-session-checkpoint.md), 원칙 작성은111, 대화 재점검은110, 독립안 비교는109, 이전 변경 실험은107에서 찾는다.
+**현재 초점:** [마무리117](2026-10-20-117-content-policy-application-checkpoint.md)은 이번에 남긴 결과·열린 논의·검증 범위·커밋 범위를 모은다. [116](2026-10-20-116-defer-work-content-policy.md)은 Work의 기존 형태·제약과 혼합될 수 있다는 사용자 정정에 따라 이번 Work 구성 적용을 되돌리고 논의를 보류한 기록이다. Personal·Project 적용은 유지한다. [115](2026-10-20-115-complete-body-moves-and-restore-entries.md)의 진입 복구와 [114](2026-10-20-114-durable-body-policy-and-reapplication.md)의 재적용·검토는 이전 단계의 관찰이다.
 
 이 폴더는 이번 설계 작업의 분석·비교·제안·정정·검증 등 보존할 과정을 소유한다. current의 실행 재개에 곧바로 필요하지 않아도 보존 목적이 있으면 남길 수 있다. 과거 기록에 적힌 당시 제안은 현재 채택을 뜻하지 않는다.
 
@@ -193,6 +193,11 @@
 - [110 형성 맥락 논의 재점검과 본문 묶음의 구성](2026-10-20-110-formation-context-dialogue-review.md): 실제 대화와 독립 self-check로 확인한 오독·유지할 요구, index 본문·연결 사례·background의 구성과 읽기·갱신 조건. 새 구조는 미적용이다.
 - [111 데모 공통 본문·형성 자료 관리 원칙의 진입 문서](2026-10-20-111-content-policy-entry.md): CONTENT-POLICY.md 작성, cases를 선택적 본문 분할 예시로 일반화, 진입 연결·표시 검사와 미전환 범위.
 - [112 형성 맥락·관리 원칙의 세션 정리와 재개 지점](2026-10-20-112-formation-context-session-checkpoint.md): viewer 문단 제거,104 이후 대화·실물·미전환 범위, 검사와 커밋 범위.
+- [113 정책을 받은 새 작업자의 본문 구성과 보완](2026-10-20-113-content-policy-worker-application.md): 최초 적용·읽기 확인·참조 수정과 정책 보완. 이후114의 범위 정정으로 이어진다.
+- [114 지속 본문 전반의 정책 보완과 재적용](2026-10-20-114-durable-body-policy-and-reapplication.md): 적용 범위·형성 맥락의 실제 구성, 새 작업자의 해석·독립 검토·변경 실험과 한계.
+- [115 일반 본문 이동 완결과 기존 진입 복구](2026-10-20-115-complete-body-moves-and-restore-entries.md): 옛 연결 파일 제거와 진입 문서 본문 복구. Work에 형성 자료를 유지한 선택은116으로 대체됐다.
+- [116 Work 적용 보류와 기존 형태 복구](2026-10-20-116-defer-work-content-policy.md): 사용자 정정, 전체 Work 복구, 직접 기준판 대조와 보류 사본의 지위.
+- [117 재적용·후속 정정의 마무리](2026-10-20-117-content-policy-application-checkpoint.md): 현재 유지·복구한 결과, 남은 논의와 확인·커밋 범위.
 
 ## 참고 조사 — REA
 

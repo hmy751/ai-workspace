@@ -1,0 +1,129 @@
+{
+  "baseline": "33c1fee",
+  "backup": "/private/tmp/014-work-before-policy-deferral",
+  "restored_or_changed": [
+    "DEVELOPMENT.md",
+    "README.md",
+    "workspaces/001-login-completion-names/current/memory/index.md",
+    "workspaces/001-login-completion-names/current/memory/personal-context.md",
+    "workspaces/001-login-completion-names/current/memory/project-context.md",
+    "workspaces/001-login-completion-names/current/memory/spec/01-problem-goal-scope.md",
+    "workspaces/001-login-completion-names/current/memory/spec/02-behavior-and-cases.md",
+    "workspaces/001-login-completion-names/current/memory/spec/03-concepts-and-contracts.md",
+    "workspaces/001-login-completion-names/current/memory/spec/04-quality-and-completion.md",
+    "workspaces/001-login-completion-names/current/memory/spec/05-constraints-design-assumptions.md",
+    "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md",
+    "workspaces/001-login-completion-names/current/memory/tickets/index.md",
+    "workspaces/001-login-completion-names/records/2026-10-19-04-review.md",
+    "workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md",
+    "workspaces/README.md",
+    "workspaces/spec-and-tickets/README.md"
+  ],
+  "removed_added": [
+    "background/development/README.md",
+    "background/development/context.md",
+    "background/development/evidence.md",
+    "background/development/records/2026-10-12-review-and-handoff.md",
+    "workspaces/001-login-completion-names/current/memory/spec/README.md",
+    "workspaces/001-login-completion-names/current/memory/spec/background/README.md",
+    "workspaces/001-login-completion-names/current/memory/spec/background/context.md",
+    "workspaces/001-login-completion-names/current/memory/spec/background/evidence.md",
+    "workspaces/001-login-completion-names/current/memory/spec/background/records/2026-10-20-spec-body.md",
+    "workspaces/001-login-completion-names/current/memory/spec/index.behavior-and-cases.md",
+    "workspaces/001-login-completion-names/current/memory/spec/index.concepts-and-contracts.md",
+    "workspaces/001-login-completion-names/current/memory/spec/index.constraints-design-assumptions.md",
+    "workspaces/001-login-completion-names/current/memory/spec/index.md",
+    "workspaces/001-login-completion-names/current/memory/spec/index.problem-goal-scope.md",
+    "workspaces/001-login-completion-names/current/memory/spec/index.quality-and-completion.md",
+    "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/README.md",
+    "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/README.md",
+    "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/context.md",
+    "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/evidence.md",
+    "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/records/2026-10-20-execution-boundary.md",
+    "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/index.md",
+    "workspaces/spec-and-tickets/background/README.md",
+    "workspaces/spec-and-tickets/background/context.md",
+    "workspaces/spec-and-tickets/background/evidence.md",
+    "workspaces/spec-and-tickets/background/records/2026-09-12-goal-and-execution.md"
+  ],
+  "link_changes": [
+    {
+      "file": "workspaces/001-login-completion-names/current/memory/project-context.md",
+      "old": "../../../../../project/common/device-session.md",
+      "new": "../../../../../project/common/device-session/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/current/memory/project-context.md",
+      "old": "../../../../../project/guidance/authentication-and-session.md",
+      "new": "../../../../../project/guidance/authentication-and-session/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/current/memory/project-context.md",
+      "old": "../../../../../project/guidance/code-readability.md",
+      "new": "../../../../../project/guidance/code-readability/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/current/memory/project-context.md",
+      "old": "../../../../../project/current/authentication-flow.md",
+      "new": "../../../../../project/current/authentication-flow/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/current/memory/spec/03-concepts-and-contracts.md",
+      "old": "../../../../../../project/guidance/authentication-and-session.md",
+      "new": "../../../../../../project/guidance/authentication-and-session/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/output/index.md",
+      "old": "../../../../project/guidance/authentication-and-session.md",
+      "new": "../../../../project/guidance/authentication-and-session/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/output/index.md",
+      "old": "../../../../project/current/authentication-flow.md",
+      "new": "../../../../project/current/authentication-flow/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/records/2026-10-19-01-input-selection.md",
+      "old": "../../../../project/common/device-session.md",
+      "new": "../../../../project/common/device-session/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/records/2026-10-19-01-input-selection.md",
+      "old": "../../../../project/guidance/authentication-and-session.md",
+      "new": "../../../../project/guidance/authentication-and-session/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/records/2026-10-19-01-input-selection.md",
+      "old": "../../../../project/guidance/code-readability.md",
+      "new": "../../../../project/guidance/code-readability/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/records/2026-10-19-02-implementation.md",
+      "old": "../../../../project/guidance/authentication-and-session.md",
+      "new": "../../../../project/guidance/authentication-and-session/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/records/2026-10-19-04-review.md",
+      "old": "../../../../project/guidance/authentication-and-session.md",
+      "new": "../../../../project/guidance/authentication-and-session/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/source/scenario-input.md",
+      "old": "../../../../project/current/authentication-flow.md",
+      "new": "../../../../project/current/authentication-flow/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/source/scenario-input.md",
+      "old": "../../../../project/guidance/authentication-and-session.md",
+      "new": "../../../../project/guidance/authentication-and-session/index.md"
+    },
+    {
+      "file": "workspaces/001-login-completion-names/source/scenario-input.md",
+      "old": "../../../../project/guidance/code-readability.md",
+      "new": "../../../../project/guidance/code-readability/index.md"
+    }
+  ],
+  "inventory_equal": true,
+  "only_link_changes": true,
+  "current_count": 26
+}

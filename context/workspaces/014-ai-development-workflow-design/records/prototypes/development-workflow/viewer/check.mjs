@@ -130,6 +130,7 @@ assert.deepEqual(problems, []);
 
 // 이름 기준의 본문·형성 자료 입구와 왕복 연결을 확인한다. 의미 일치는 판정하지 않는다.
 const personalRoot = 'noline-demo/context/personal/';
+const developmentEntry = personalRoot + 'development/README.md';
 const namingRoot = personalRoot + 'development/naming-and-completion/';
 const namingEntry = namingRoot + 'README.md';
 const namingBody = namingRoot + 'index.md';
@@ -138,7 +139,8 @@ const namingBackground = namingRoot + 'background/README.md';
 const namingContext = namingRoot + 'background/context.md';
 const namingEvidence = namingRoot + 'background/evidence.md';
 const requiredContextLinks = [
-  [personalRoot + 'README.md', namingBackground],
+  [personalRoot + 'README.md', developmentEntry],
+  [developmentEntry, namingBackground],
   [namingEntry, namingBody],
   [namingEntry, namingCases],
   [namingEntry, namingBackground],

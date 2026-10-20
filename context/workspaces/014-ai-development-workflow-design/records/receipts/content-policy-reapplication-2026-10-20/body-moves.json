@@ -1,0 +1,17 @@
+{
+  "project/common/device-session.md": "project/common/device-session/index.md",
+  "project/guidance/authentication-and-session.md": "project/guidance/authentication-and-session/index.md",
+  "project/guidance/code-readability.md": "project/guidance/code-readability/index.md",
+  "project/current/authentication-flow.md": "project/current/authentication-flow/index.md",
+  "project/MAINTENANCE.md": "project/management/index.md",
+  "project/REFERENCE/reading.md": "project/management/index.reading.md",
+  "project/REFERENCE/composition.md": "project/management/index.composition.md",
+  "work/DEVELOPMENT.md": "work/development/index.md",
+  "work/workspaces/spec-and-tickets/README.md": "work/management/index.spec-and-tickets.md",
+  "work/workspaces/001-login-completion-names/current/memory/spec/01-problem-goal-scope.md": "work/workspaces/001-login-completion-names/current/memory/spec/index.problem-goal-scope.md",
+  "work/workspaces/001-login-completion-names/current/memory/spec/02-behavior-and-cases.md": "work/workspaces/001-login-completion-names/current/memory/spec/index.behavior-and-cases.md",
+  "work/workspaces/001-login-completion-names/current/memory/spec/03-concepts-and-contracts.md": "work/workspaces/001-login-completion-names/current/memory/spec/index.concepts-and-contracts.md",
+  "work/workspaces/001-login-completion-names/current/memory/spec/04-quality-and-completion.md": "work/workspaces/001-login-completion-names/current/memory/spec/index.quality-and-completion.md",
+  "work/workspaces/001-login-completion-names/current/memory/spec/05-constraints-design-assumptions.md": "work/workspaces/001-login-completion-names/current/memory/spec/index.constraints-design-assumptions.md",
+  "work/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md": "work/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/index.md"
+}

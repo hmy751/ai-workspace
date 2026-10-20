@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-20",
+  "baseline": "33c1fee",
+  "work_file_set_matches_baseline": true,
+  "work_file_count": 26,
+  "remaining_background_directories": 0,
+  "only_allowed_changes": "15 link targets in 7 files to current Project bodies; all other bytes equal baseline",
+  "changed_files": [
+    {
+      "file": "workspaces/001-login-completion-names/current/memory/project-context.md",
+      "changed_link_targets": 4
+    },
+    {
+      "file": "workspaces/001-login-completion-names/current/memory/spec/03-concepts-and-contracts.md",
+      "changed_link_targets": 1
+    },
+    {
+      "file": "workspaces/001-login-completion-names/output/index.md",
+      "changed_link_targets": 2
+    },
+    {
+      "file": "workspaces/001-login-completion-names/records/2026-10-19-01-input-selection.md",
+      "changed_link_targets": 3
+    },
+    {
+      "file": "workspaces/001-login-completion-names/records/2026-10-19-02-implementation.md",
+      "changed_link_targets": 1
+    },
+    {
+      "file": "workspaces/001-login-completion-names/records/2026-10-19-04-review.md",
+      "changed_link_targets": 1
+    },
+    {
+      "file": "workspaces/001-login-completion-names/source/scenario-input.md",
+      "changed_link_targets": 3
+    }
+  ],
+  "link_target_count": 15
+}

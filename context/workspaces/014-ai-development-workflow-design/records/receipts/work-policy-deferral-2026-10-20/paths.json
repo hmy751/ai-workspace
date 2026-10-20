@@ -1,0 +1,292 @@
+{
+  "work_root": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/work",
+  "mapping": [
+    {
+      "old": "AGENTS.md",
+      "new": "AGENTS.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/AGENTS.md"
+    },
+    {
+      "old": "DEVELOPMENT.md",
+      "new": "DEVELOPMENT.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/DEVELOPMENT.md"
+    },
+    {
+      "old": "README.md",
+      "new": "README.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/README.md"
+    },
+    {
+      "old": "background/development/README.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/background/development/README.md"
+    },
+    {
+      "old": "background/development/context.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/background/development/context.md"
+    },
+    {
+      "old": "background/development/evidence.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/background/development/evidence.md"
+    },
+    {
+      "old": "background/development/records/2026-10-12-review-and-handoff.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/background/development/records/2026-10-12-review-and-handoff.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/README.md",
+      "new": "workspaces/001-login-completion-names/README.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/README.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/index.md",
+      "new": "workspaces/001-login-completion-names/current/memory/index.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/index.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/personal-context.md",
+      "new": "workspaces/001-login-completion-names/current/memory/personal-context.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/personal-context.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/project-context.md",
+      "new": "workspaces/001-login-completion-names/current/memory/project-context.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/project-context.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/README.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/README.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/background/README.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/background/README.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/background/context.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/background/context.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/background/evidence.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/background/evidence.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/background/records/2026-10-20-spec-body.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/background/records/2026-10-20-spec-body.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/index.behavior-and-cases.md",
+      "new": "workspaces/001-login-completion-names/current/memory/spec/02-behavior-and-cases.md",
+      "action": "원래 본문 경로·내용 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/index.behavior-and-cases.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/index.concepts-and-contracts.md",
+      "new": "workspaces/001-login-completion-names/current/memory/spec/03-concepts-and-contracts.md",
+      "action": "원래 본문 경로·내용 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/index.concepts-and-contracts.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/index.constraints-design-assumptions.md",
+      "new": "workspaces/001-login-completion-names/current/memory/spec/05-constraints-design-assumptions.md",
+      "action": "원래 본문 경로·내용 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/index.constraints-design-assumptions.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/index.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/index.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/index.problem-goal-scope.md",
+      "new": "workspaces/001-login-completion-names/current/memory/spec/01-problem-goal-scope.md",
+      "action": "원래 본문 경로·내용 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/index.problem-goal-scope.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/spec/index.quality-and-completion.md",
+      "new": "workspaces/001-login-completion-names/current/memory/spec/04-quality-and-completion.md",
+      "action": "원래 본문 경로·내용 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/spec/index.quality-and-completion.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/README.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/README.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/README.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/README.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/context.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/context.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/evidence.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/evidence.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/records/2026-10-20-execution-boundary.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/background/records/2026-10-20-execution-boundary.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/index.md",
+      "new": "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md",
+      "action": "원래 본문 경로·내용 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/index.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/memory/tickets/index.md",
+      "new": "workspaces/001-login-completion-names/current/memory/tickets/index.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/memory/tickets/index.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/current/state/index.md",
+      "new": "workspaces/001-login-completion-names/current/state/index.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/current/state/index.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/output/index.md",
+      "new": "workspaces/001-login-completion-names/output/index.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/output/index.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/records/2026-10-19-01-input-selection.md",
+      "new": "workspaces/001-login-completion-names/records/2026-10-19-01-input-selection.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/records/2026-10-19-01-input-selection.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/records/2026-10-19-02-implementation.md",
+      "new": "workspaces/001-login-completion-names/records/2026-10-19-02-implementation.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/records/2026-10-19-02-implementation.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/records/2026-10-19-03-execution.md",
+      "new": "workspaces/001-login-completion-names/records/2026-10-19-03-execution.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/records/2026-10-19-03-execution.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/records/2026-10-19-04-review.md",
+      "new": "workspaces/001-login-completion-names/records/2026-10-19-04-review.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/records/2026-10-19-04-review.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md",
+      "new": "workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/records/README.md",
+      "new": "workspaces/001-login-completion-names/records/README.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/records/README.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/source/index.md",
+      "new": "workspaces/001-login-completion-names/source/index.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/source/index.md"
+    },
+    {
+      "old": "workspaces/001-login-completion-names/source/scenario-input.md",
+      "new": "workspaces/001-login-completion-names/source/scenario-input.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/001-login-completion-names/source/scenario-input.md"
+    },
+    {
+      "old": "workspaces/README.md",
+      "new": "workspaces/README.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/README.md"
+    },
+    {
+      "old": "workspaces/spec-and-tickets/README.md",
+      "new": "workspaces/spec-and-tickets/README.md",
+      "action": "원래 위치 유지·기준판 복구",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/spec-and-tickets/README.md"
+    },
+    {
+      "old": "workspaces/spec-and-tickets/background/README.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/spec-and-tickets/background/README.md"
+    },
+    {
+      "old": "workspaces/spec-and-tickets/background/context.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/spec-and-tickets/background/context.md"
+    },
+    {
+      "old": "workspaces/spec-and-tickets/background/evidence.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/spec-and-tickets/background/evidence.md"
+    },
+    {
+      "old": "workspaces/spec-and-tickets/background/records/2026-09-12-goal-and-execution.md",
+      "new": null,
+      "action": "활성 Work에서 제거·복구 전 사본에 보존",
+      "backup": "/private/tmp/014-work-before-policy-deferral/workspaces/spec-and-tickets/background/records/2026-09-12-goal-and-execution.md"
+    }
+  ],
+  "outside_work_link_change": {
+    "file": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/walkthrough.md",
+    "old": "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion/index.md",
+    "new": "workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md"
+  },
+  "verification": {
+    "baseline": "33c1fee",
+    "file_inventory_equal": true,
+    "baseline_files": 26,
+    "remaining_new_files": 0,
+    "non_link_text_changes": 0,
+    "project_link_destination_changes": 15,
+    "files_with_link_changes": 7,
+    "local_links_checked": 647,
+    "broken_links": 0,
+    "git_diff_check": "pass"
+  }
+}

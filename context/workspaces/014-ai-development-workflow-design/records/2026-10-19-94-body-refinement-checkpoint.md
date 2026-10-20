@@ -24,7 +24,7 @@ Main은 현재 prototype의 본문을 한 차례 더 다듬고 구체 워크플�
 | [92 합의 대조와 반영](2026-10-19-92-principles-cases-and-agreement-reconciliation.md) | 일반 원칙과 상세 사례를 별도 파일로 분리하고 기존 코드·판단 근거를 보존했다. 대기·실패의 이유, 초기 입력과 선택 후 결과, B와 미정 운영 조건을 맞췄다. 당시 지적 목록의 보완은 반영했으며 전체 과거 결정 전수 확인이나 실제 적용 효과를 주장하지 않는다. |
 | [93 논의 단위·진행 정정](2026-10-19-93-workflow-and-skills-discussion-focus.md) | 티켓 소속을 근거로 연결된 논의를 잘게 나누지 않는다. 본문 충분성은 지금 다루고, 구체 워크플로와 관련 스킬·맥락 선택·새 작업자 인수를 함께 본다. 02의 Workspace 갱신을 먼저 완료할 필요는 없다. |
 
-현재 실물은 [development-workflow](prototypes/development-workflow/README.md) 하나다. 그 안의 같은 context 아래 personal·project·work를 두며 서로의 내용 책임을 유지한다. [일반 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md), [상세 사례](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.cases.md), [Project 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability.md), [작성 근거](2026-10-19-prototype-authoring-basis-before-revision.md)를 현재 본문으로 읽는다. 날짜별 이전 prototype과 source는 원형을 보존한다.
+현재 실물은 [development-workflow](prototypes/development-workflow/README.md) 하나다. 그 안의 같은 context 아래 personal·project·work를 두며 서로의 내용 책임을 유지한다. [일반 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md), [상세 사례](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.cases.md), [Project 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/index.md), [작성 근거](2026-10-19-prototype-authoring-basis-before-revision.md)를 현재 본문으로 읽는다. 날짜별 이전 prototype과 source는 원형을 보존한다.
 
 ## 다음에 바로 할 일
 

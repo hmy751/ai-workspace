@@ -16,7 +16,7 @@
 
 - [일반 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md)은 요구·공개 약속·실제 동작·소비자의 행동을 구별한다. 내부 사용처를 함께 바꿀 수 있다는 사실을 자동 개명 사유로 쓰지 않고, 설명 보완과 새 보장 도입을 나눴다.
 - [상세 사례](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.cases.md)는 기존 내부 함수·공개 API·파일 저장 대비에 조건과 선택 이유를 보탰다. 새 조건은 Main의 가정이며 실제 사건이나 사용자 결정이 아니다. 초대·isError·silent의 기존 관찰과 판단은 보존했다.
-- [Project 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability.md)는 인증 적용·후속 조회·Login의 이동·Reauth의 닫기 조건으로 표현 보완과 동작 변경을 구별한다. 실제 제품 기능을 추가하거나 Personal의 관리 책임을 가져오지 않았다.
+- [Project 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/index.md)는 인증 적용·후속 조회·Login의 이동·Reauth의 닫기 조건으로 표현 보완과 동작 변경을 구별한다. 실제 제품 기능을 추가하거나 Personal의 관리 책임을 가져오지 않았다.
 
 이전 문장과 수정 이유는95, 사용자 발췌·외부 참고 범위·새 구체화의 지위는 [작성 근거](2026-10-19-prototype-authoring-basis-before-revision.md)에 있다. 이번 마무리에서는 이 세 본문과95를 그대로 두고 최신 평가·진입 안내만 보완했다. 앞선 외부 참고를 새로 조회하거나 제품을 실행한 것은 아니다.
 
