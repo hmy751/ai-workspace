@@ -1,6 +1,6 @@
 # 논의와 보존 기록
 
-**현재 초점:** [124](2026-10-20-124-personal-formation-evidence-completion.md)에 개발 공통·이름 기준의 형성 근거와 연결 보완을 남겼다. 발견·범위 대조는 [123](2026-10-20-123-other-formation-materials-audit.md)에 있다. [122](2026-10-20-122-formation-evidence-integration-and-reentry.md)에 정책의 외부 참고·선택 전환 근거 보완과 새 독자·수정자의 실제 수행을 남겼다. 발견과 권고는 [121](2026-10-20-121-formation-evidence-improvement-review.md)에 있다. [119](2026-10-20-119-ticket03-closeout.md)의03 구성안 마감과 후속 범위는 유지한다. 체계 지침은 [118](2026-10-20-118-system-guidance-definition-and-entry.md), Work의 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에서 읽는다.
+**현재 초점:** [125](2026-10-20-125-personal-provenance-fresh-worker.md)에 보완한 Personal 자료의 새 워커 읽기·실제 사본 수정과 과거 근거 보존 확인을 남겼다. [124](2026-10-20-124-personal-formation-evidence-completion.md)에 개발 공통·이름 기준의 형성 근거와 연결 보완을 남겼다. 발견·범위 대조는 [123](2026-10-20-123-other-formation-materials-audit.md)에 있다. [122](2026-10-20-122-formation-evidence-integration-and-reentry.md)에 정책의 외부 참고·선택 전환 근거 보완과 새 독자·수정자의 실제 수행을 남겼다. 발견과 권고는 [121](2026-10-20-121-formation-evidence-improvement-review.md)에 있다. [119](2026-10-20-119-ticket03-closeout.md)의03 구성안 마감과 후속 범위는 유지한다. 체계 지침은 [118](2026-10-20-118-system-guidance-definition-and-entry.md), Work의 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에서 읽는다.
 
 이 폴더는 이번 설계 작업의 분석·비교·제안·정정·검증 등 보존할 과정을 소유한다. current의 실행 재개에 곧바로 필요하지 않아도 보존 목적이 있으면 남길 수 있다. 과거 기록에 적힌 당시 제안은 현재 채택을 뜻하지 않는다.
 
@@ -219,3 +219,5 @@
 - [123 다른 본문의 형성 이유·근거 점검](2026-10-20-123-other-formation-materials-audit.md): 개발 공통의 실제 외부 참고 관계와 이름 기준의 유지 판단 근거 누락, 다른 단위의 보존 관계·확인 한계, 필요한 보완 범위. 점검 뒤 실제 반영은124에 있다.
 
 - [124 개발 공통·이름 기준의 형성 근거 보완](2026-10-20-124-personal-formation-evidence-completion.md): 외부 예제·형식 참고와 적용 한계, 문자열 isError 유지 원문·후속 지향의 관계, 읽기 연결·원문 보존·표시 검사와 커밋 범위.
+
+- [125 Personal의 새 독자·수정 실험](2026-10-20-125-personal-provenance-fresh-worker.md): 외부 참고와 선택의 구별, 과거 유지 판단을 고려한 모의 수정과 보존 확인.

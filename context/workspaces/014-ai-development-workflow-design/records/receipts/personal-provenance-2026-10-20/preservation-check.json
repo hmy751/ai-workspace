@@ -1,0 +1,17 @@
+{
+  "changed_files": [
+    "noline-demo/context/personal/development/naming-and-completion/INDEX.cases.md",
+    "noline-demo/context/personal/development/naming-and-completion/INDEX.md",
+    "noline-demo/context/personal/development/naming-and-completion/README.md",
+    "noline-demo/context/personal/development/naming-and-completion/_background/README.md",
+    "noline-demo/context/personal/development/naming-and-completion/_background/context.md",
+    "noline-demo/context/personal/development/naming-and-completion/_background/evidence.md",
+    "noline-demo/context/personal/development/naming-and-completion/_background/records/2026-10-20-simulated-boolean-input-default.md",
+    "noline-demo/context/personal/development/shared-boundaries/INDEX.cases.md"
+  ],
+  "existing_formation_records": 16,
+  "all_existing_formation_records_byte_identical": true,
+  "naming_original_quote_lines": 10,
+  "all_original_quotes_preserved": true,
+  "canonical_matches_baseline_excluding_viewer": true
+}
