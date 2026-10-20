@@ -1,5 +1,7 @@
 # 현재 상태
 
+2026-10-20 읽기 안내 보완과 정정: 사용자 요청으로 [CONTENT-POLICY.md](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md#두-층의-입구에서-역할을-먼저-설명하고-읽을-조건을-안내한다)에 background의 형성 자료 보존 역할을 먼저 설명한 뒤 읽을 조건을 안내하도록 반영했다. 사용자가 주제 아래 README도 두려던 뜻을 재확인하여, Main이 안내를 `index.md`로 대체했던 부분을 바로잡았다. 주제의 `README.md`는 묶음의 구성·두 층의 역할과 읽기 경로를, `background/README.md`는 형성 자료의 역할과 질문별 자료 선택을 안내한다. `index.md`는 시작 본문이다. 구성 예시와 안내 갱신·확인 기준도 맞췄다. 이번에는 공통 정책을 보완했으며 실제 주제 폴더 전환이나 두 README 작성은 하지 않았다.
+
 2026-10-20 세션 정리: 사용자 요청으로 [CONTENT-POLICY.md](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)의 viewer 관련 마지막 문단을 제거했다. 본문·맥락·근거의 의미를 대조하는 원칙은 유지하고 특정 표시 도구의 운영과 구별했다. [112](../records/2026-10-20-112-formation-context-session-checkpoint.md)에104 이후의 대화·작업·검사·커밋 범위와 다음 재개 지점을 정리했다. 실제 산출물은 기존 배치의 이름 기준 맥락·근거와 공통 관리 원칙이다. cases는 본문에서 나눈 문서의 선택적 예시이며, 주제 폴더·background 전환과 데모 전체 적용은 아직 하지 않았다. 열람 화면의 문서56개·코드5개 원문 및 링크 검사를 통과했다.
 
 2026-10-20 앞선 재점검: 사용자는 주제 본문에 `index.md`, 연결 사례에 `index.cases.md`를 제안하고 관련 대화 전체에서 충돌·유실·미반영을 확인하라고 요청했다. [110](../records/2026-10-20-110-formation-context-dialogue-review.md)에 실제 공개 대화와 독립 self-check를 대조했다. Main이 형성 맥락을 본문 설명 보완으로 좁히고, 사례와 형성 자료를 같은 층에 놓고, 기록 분리를 분량 증가 뒤로 미뤘던 점을 바로잡았다. 현재 권고는 index 본문·연결 사례와 background의 현재 맥락·형성과 변경 기록·근거를 구별하고 데모 공통 관리 원칙에 읽기·갱신 조건을 함께 두는 것이다. 새 구조는 미적용이며 이번에는 점검 기록과 현재 안내만 갱신했다.
