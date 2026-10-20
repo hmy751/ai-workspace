@@ -12,13 +12,13 @@
 
 | 복원하거나 보완한 내용 | 이어받은 판단과 이번 작성의 구별 |
 | --- | --- |
-| [공통 제공·사용처 선택](prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/index.md)과 사례 |35 Field·37 Container의 당시 의도와 보존 판단,49의 같은 업무 흐름 기준 동의,52의 조건부 관련 개선 선택을 이어받았다. 실제 교체와 후속 처리를 확인하는 설명·질문 구성은 Main의 구체화이며 특정 RHF 연결·주문 Hook을 선택하지 않았다. |
-| [계약·수명](prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/index.md)과 사례 |47의 오류 형태·의미 신뢰,48의 원하는 수명,50의 목적과 지원 범위,53의 유지·수정·보류 판단을 복원했다. null 의도는 잠정 회고로 남기고 store 이전·오류 계층 확대·미지원 취소는 결정하지 않았다. |
+| [공통 제공·사용처 선택](prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/INDEX.md)과 사례 |35 Field·37 Container의 당시 의도와 보존 판단,49의 같은 업무 흐름 기준 동의,52의 조건부 관련 개선 선택을 이어받았다. 실제 교체와 후속 처리를 확인하는 설명·질문 구성은 Main의 구체화이며 특정 RHF 연결·주문 Hook을 선택하지 않았다. |
+| [계약·수명](prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/INDEX.md)과 사례 |47의 오류 형태·의미 신뢰,48의 원하는 수명,50의 목적과 지원 범위,53의 유지·수정·보류 판단을 복원했다. null 의도는 잠정 회고로 남기고 store 이전·오류 계층 확대·미지원 취소는 결정하지 않았다. |
 | [같은 코드의 이름 비교](prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md) | 현재 wrapper와 Login 동작을 기반으로 이름 두 쌍만 달리한 설명용 재구성이다. A도 같은 설명으로 충분할 수 있고 B는 이름만 훑을 때의 구별이 더 있다는 비교다. 사용자에게 B의 보편적 우월성을 수용받았거나 독자 효과를 실험한 결과가 아니다. |
 
 기존78의 중괄호·빈 줄·주석·로그 규칙과 상세 리팩터링 검증은 존재를 현재 개발 입구에 연결했다. 이번에 모두 개인 공통 규칙으로 옮긴 것은 아니다. 이번 요청을 전역 기준·스킬·원본 Noline 설치로 확대하지 않았다.
 
-[65](2026-10-18-65-criteria-status-and-cross-ticket-refinement.md)에서 사용자는 일반 원칙과 구체 사례를 나눠 보고 싶다고 했다. 66·72에서는 일반 본문의 핵심 대비와 필요한 상세를 구별하는 방향을 다뤘다. 이후 사용자가 이 프로토타입의 **원칙과 상세 사례를 별도 파일로 나누되 기존 사례·근거를 보존하도록 명시했다.** 현재 [일반 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md)과 [상세 사례](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.cases.md)의 분리는 그 선택을 반영한다.
+[65](2026-10-18-65-criteria-status-and-cross-ticket-refinement.md)에서 사용자는 일반 원칙과 구체 사례를 나눠 보고 싶다고 했다. 66·72에서는 일반 본문의 핵심 대비와 필요한 상세를 구별하는 방향을 다뤘다. 이후 사용자가 이 프로토타입의 **원칙과 상세 사례를 별도 파일로 나누되 기존 사례·근거를 보존하도록 명시했다.** 현재 [일반 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md)과 [상세 사례](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.cases.md)의 분리는 그 선택을 반영한다.
 
 반환과 throw의 짧은 대비·완료 단계 표는 일반 기준의 의미를 설명하므로 그 자리에 남겼다. 초대 흐름 코드, isError의 당시 판단, silent의 관찰·해석, 유지·개명·동작 수정의 상세 설명은 사례로 분리했다. 이 구체적인 배치와 새 문장은 Main의 구현이며, 사례 내용 전체나 특정 코드 모양의 채택을 뜻하지 않는다. 사례 파일 안에서도 관찰 사실·사용자 판단·새 재구성을 직접 구별한다.
 
@@ -125,10 +125,10 @@ Project의 기기 저장·상태 공개·같은 계정 데이터 보존은 기�
 | 고른 입력 | 이번에 필요한 이유 | 읽는 범위 |
 | --- | --- | --- |
 | [개인 개발 공통](prototypes/development-workflow/noline-demo/context/personal/development/README.md) | 기준과 모양이 다르다는 이유만으로 바꾸지 않고 목적·사용처·비용을 먼저 판단한다. | 현재 작업의 조건부 적용 설명 |
-| [개인 이름·책임·완료 상세](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md) | 표현 정리, 설명 보완, 구현의 보장 부족을 구별한다. | 책임·완료 범위와 대안 비교. 그 안의 Main 새 질문·사례를 확정 기준으로 올리지 않는다. |
-| [기기 세션의 제품 의미](prototypes/development-workflow/noline-demo/context/project/common/device-session/index.md) | 같은 계정의 로컬 작업을 보존하는 이유를 확인한다. | 재인증과 조회 결과의 차이 |
-| [인증·세션 계약](prototypes/development-workflow/noline-demo/context/project/guidance/authentication-and-session/index.md) | 저장·상태 공개 순서와 실패 후 보존할 결과를 정한다. | 이번 wrapper가 건드리는 완료·후속 실패 경계 |
-| [인증 가독성](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/index.md) | 함수·callback·안내를 소비자가 필요로 하는 결과와 대조한다. | 이름을 고정 답으로 삼지 않는 적용 기준 |
+| [개인 이름·책임·완료 상세](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md) | 표현 정리, 설명 보완, 구현의 보장 부족을 구별한다. | 책임·완료 범위와 대안 비교. 그 안의 Main 새 질문·사례를 확정 기준으로 올리지 않는다. |
+| [기기 세션의 제품 의미](prototypes/development-workflow/noline-demo/context/project/common/device-session/INDEX.md) | 같은 계정의 로컬 작업을 보존하는 이유를 확인한다. | 재인증과 조회 결과의 차이 |
+| [인증·세션 계약](prototypes/development-workflow/noline-demo/context/project/guidance/authentication-and-session/INDEX.md) | 저장·상태 공개 순서와 실패 후 보존할 결과를 정한다. | 이번 wrapper가 건드리는 완료·후속 실패 경계 |
+| [인증 가독성](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/INDEX.md) | 함수·callback·안내를 소비자가 필요로 하는 결과와 대조한다. | 이름을 고정 답으로 삼지 않는 적용 기준 |
 | [기존 설명 시안의 시작 장면](prototypes/personal-project-applied-2026-10-19/scenario-input.md) | 이전에 비교하던 모호한 이름·소비자 가정을 확인한다. | 가상의 시작 입력이며 실제 제품 코드·이전 테스트 결과가 아니다. |
 
 기준을 채택한 뒤에도 작업마다 조건에 따라 적용한다는 뜻을 이번 장면에서 사용했다. 내부 사용처 두 개이고 호환 API가 없다는 예시 조건에서는 개명으로 완료 범위를 알리기 쉽다. 공개 API였다면 이름 유지와 계약 보완이 타당할 수 있고, 조회 결과까지 약속한 기능이었다면 구현 변경이 필요하다. 이번 코드 선택이 그 대안들을 없애지 않는다.

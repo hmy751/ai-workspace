@@ -1,6 +1,6 @@
 # 작업 시작 입력 — 인증 흐름의 이름과 완료 경계
 
-> 이 문서는 이번 프로토타입에 부여한 초기 문제와 코드 가정이다. 기존 Noline의 실제 과거 코드나 커밋을 복원한 것이 아니다. 아래 발췌는 비교 입력이고, 현재 실행 가능한 구현은 [데모 소스](../../../../../examples/authentication/src/authentication.mjs)에 있다. 작업 후 이름과 검토는 [Work 현재 상태](../current/state/index.md)에 따로 남긴다. 이 시작 입력을 사후 결과로 덮어쓰지 않는다. 작업 후 Project 현황은 [현재 연결](../../../../project/current/authentication-flow/index.md)에 있다.
+> 이 문서는 이번 프로토타입에 부여한 초기 문제와 코드 가정이다. 기존 Noline의 실제 과거 코드나 커밋을 복원한 것이 아니다. 아래 발췌는 비교 입력이고, 현재 실행 가능한 구현은 [데모 소스](../../../../../examples/authentication/src/authentication.mjs)에 있다. 작업 후 이름과 검토는 [Work 현재 상태](../current/state/index.md)에 따로 남긴다. 이 시작 입력을 사후 결과로 덮어쓰지 않는다. 작업 후 Project 현황은 [현재 연결](../../../../project/current/authentication-flow/INDEX.md)에 있다.
 
 ## 현재 책임과 사용처
 
@@ -60,6 +60,6 @@ loginAndRefresh(input, {
 
 초기 인터페이스와 두 호출부에는 callback의 완료 범위를 설명하는 가까운 주석이 없다고 가정한다. LoginScreen에는 재조회·렌더까지 끝났다고 읽히는 표시 문구가 있다. `navigateAfterSignIn`은 기존 이동 정책을 실행하는 소비자 동작이고 `closeDialog`는 기존 닫기 동작이며, 여기서 새 화면 정책을 제안한 것이 아니다.
 
-비교할 현재 약속은 [인증 계약](../../../../project/guidance/authentication-and-session/index.md), Project 자체의 표현 요구는 [가독성 가이드](../../../../project/guidance/code-readability/index.md)에서 읽는다. 이 초기 입력에는 개선 이름이나 개명 결론을 미리 적지 않는다. 이름을 유지하며 설명을 보완할지, 개명할지, 동작의 문제가 있는지는 Work에서 판단한다.
+비교할 현재 약속은 [인증 계약](../../../../project/guidance/authentication-and-session/INDEX.md), Project 자체의 표현 요구는 [가독성 가이드](../../../../project/guidance/code-readability/INDEX.md)에서 읽는다. 이 초기 입력에는 개선 이름이나 개명 결론을 미리 적지 않는다. 이름을 유지하며 설명을 보완할지, 개명할지, 동작의 문제가 있는지는 Work에서 판단한다.
 
 초기 가정과 현재 구현을 구별한다. 위 발췌는 변경 이유를 비교하는 입력이며, 지금의 함수·대기·실패 동작은 데모 소스와 테스트에서 확인한다. 초기판과의 실제 제품 회귀를 검증한 것은 아니다. 보존된 Noline 문서만으로 이 함수명·대기 동작을 도출한 것도 아니다.

@@ -22,13 +22,13 @@
 
 ### 일반 기준은 판단을 바꾸는 조건을 소유한다
 
-[일반 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md#유지설명-보완개명동작-수정을-고른다)에 요구·공개 약속·실제 반환·소비자 행동을 대조하는 설명과 선택 표를 보완했다. 이름 유지, 가까운 설명 보완, 개명, 동작 수정과 요구 충돌 시 확인을 구별한다. 고정 순서나 하나만 고르는 분류가 아니며, 이름을 유지하면서 설명을 보완하는 조합도 가능하다.
+[일반 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md#유지설명-보완개명동작-수정을-고른다)에 요구·공개 약속·실제 반환·소비자 행동을 대조하는 설명과 선택 표를 보완했다. 이름 유지, 가까운 설명 보완, 개명, 동작 수정과 요구 충돌 시 확인을 구별한다. 고정 순서나 하나만 고르는 분류가 아니며, 이름을 유지하면서 설명을 보완하는 조합도 가능하다.
 
 설명이 충분한지는 호출자가 다음 행동을 결정할 수 있는지로 본다. 읽어도 내부 분기를 다시 따라가야 하거나 이름과 설명이 서로 다른 결과를 약속하면 보완이 덜 된 것이다. 이 정확한 판단 질문과 설명 방식은 기존 합의를 이번 본문에 적용한 Main의 구체화다.
 
 ### 상세 사례는 필요한 결과와 선택 이유를 보여 준다
 
-[사례](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.cases.md)의 마지막 세 행을 각 상황의 요구·동작·판단·한계로 풀었다.
+[사례](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.cases.md)의 마지막 세 행을 각 상황의 요구·동작·판단·한계로 풀었다.
 
 - **내부 함수:** 요청 접수로 충분한 동작을 두고, 접수와 후속 완료를 이름에서 구별하기 어려운 읽기 부담을 설명했다. 적은 사용처는 변경 비용의 조건이며 개명의 이유 자체가 아니다.
 - **공개 API:** 접수 식별자와 별도 결과 조회라는 설명용 조건을 추가했다. 호출 경계에서 의미를 이미 구별할 수 있다면 유지하거나 누락된 설명만 보완할 수 있다. 공개 여부만으로 유지·전환을 고정하지 않는다.
@@ -38,7 +38,7 @@
 
 ### Project는 자기 제품의 조건을 직접 설명한다
 
-[Project 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/index.md#표현을-고칠지-동작을-고칠지)에는 현재 소비자의 인증 완료 뒤 이동·닫기, 조회 비대기, 후속 조회 실패의 조건을 사용했다. 설명만 보완할 조건과 표현을 고를 조건, 실제 최신 결과 요구가 생길 조건을 한 표에서 대조한다. 이미 완료한 인증을 일반 조회 실패 때문에 되돌리지 않는 계약과 별도 인증 거부의 경계도 유지한다.
+[Project 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/INDEX.md#표현을-고칠지-동작을-고칠지)에는 현재 소비자의 인증 완료 뒤 이동·닫기, 조회 비대기, 후속 조회 실패의 조건을 사용했다. 설명만 보완할 조건과 표현을 고를 조건, 실제 최신 결과 요구가 생길 조건을 한 표에서 대조한다. 이미 완료한 인증을 일반 조회 실패 때문에 되돌리지 않는 계약과 별도 인증 거부의 경계도 유지한다.
 
 선택한 정확한 함수명은 계속 Project current와 Work에 있다. Project에서 Personal이나 작성 이력을 읽어야 내용을 이해하는 연결을 추가하지 않았다. 현재 실행 예제·제품 계약·초기 입력·과거 Work 기록을 변경하지 않았다.
 

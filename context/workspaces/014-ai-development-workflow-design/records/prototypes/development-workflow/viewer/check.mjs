@@ -133,11 +133,11 @@ const personalRoot = 'noline-demo/context/personal/';
 const developmentEntry = personalRoot + 'development/README.md';
 const namingRoot = personalRoot + 'development/naming-and-completion/';
 const namingEntry = namingRoot + 'README.md';
-const namingBody = namingRoot + 'index.md';
-const namingCases = namingRoot + 'index.cases.md';
-const namingBackground = namingRoot + 'background/README.md';
-const namingContext = namingRoot + 'background/context.md';
-const namingEvidence = namingRoot + 'background/evidence.md';
+const namingBody = namingRoot + 'INDEX.md';
+const namingCases = namingRoot + 'INDEX.cases.md';
+const namingBackground = namingRoot + '_background/README.md';
+const namingContext = namingRoot + '_background/context.md';
+const namingEvidence = namingRoot + '_background/evidence.md';
 const requiredContextLinks = [
   [personalRoot + 'README.md', developmentEntry],
   [developmentEntry, namingBackground],

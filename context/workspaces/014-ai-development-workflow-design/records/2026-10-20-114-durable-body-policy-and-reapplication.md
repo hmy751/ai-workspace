@@ -62,7 +62,7 @@ Main은 첫 워커에게 바깥 작성 기록을 추가 입력으로 쓰지 않�
 | [Project 관리](prototypes/development-workflow/noline-demo/context/project/REFERENCE/README.md) | 읽기·구성·갱신은 같은 관리 책임 안의 시작 본문과 분할 본문으로 구성했다. 서로 다른 읽기 조건은 유지했다. |
 | [Work 개발 절차](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)와 [관리 절차](prototypes/development-workflow/noline-demo/context/work/workspaces/README.md) | 실제 작업 연결과 Workspace 문서 관리의 변경 이유를 구별했다. 독립 Personal·Project를 Work가 연결하는 이유, 검토자 직접 수정 방향과 실제 읽기 전용 검토의 차이, 전체 목표와 실행 단위 완료의 차이를 남겼다. |
 | [Spec](prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/current/memory/index.md)과 [Ticket](prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md) | Spec 다섯 관점은 한 작업 정의로, Ticket은 별도 실행 책임으로 묶었다. 가상 입력에서 만든 데모, 후속 이름 비교, 분해 이유의 확인 범위를 구별했다. 현재 결과·완료 조건은 본문에 남겼다. |
-| [context 공통 형성 자료](prototypes/development-workflow/noline-demo/context/background/README.md) | 상위 진입점에 있는 지속적인 책임·위치 설명의 근거를 연결했다. 정책 자체의 형성 자료는 독립 검토 후 Main이 추가했다. |
+| [context 공통 형성 자료](prototypes/development-workflow/noline-demo/context/_background/README.md) | 상위 진입점에 있는 지속적인 책임·위치 설명의 근거를 연결했다. 정책 자체의 형성 자료는 독립 검토 후 Main이 추가했다. |
 
 단순 경로 안내·일시 상태·입력 선택·source·output·과거 records는 본래 역할을 유지했다. 도구 진입 파일과 기존 `DEVELOPMENT.md`·`MAINTENANCE.md`는 필요한 연결을 남겼고, 보존 입력이 참조하는 옛 Project 경로도 연결 파일로 유지했다. 실질 본문을 옮긴 곳은 읽기 목적에 맞춰 새 본문으로 연결했다. [이동표](receipts/content-policy-reapplication-2026-10-20/body-moves.json)에 경로를 보존한다.
 
@@ -74,7 +74,7 @@ Main은 첫 워커에게 바깥 작성 기록을 추가 입력으로 쓰지 않�
 
 세 가지 보완이 나왔다.
 
-- 정책 자체도 지속 기준인데 형성 자료로 들어가는 경로가 없었다. Main의 소유 범위였으므로 Main이 [정책 형성 자료](prototypes/development-workflow/noline-demo/context/background/content-policy/README.md)를 구성하고 정책의 읽기 조건과 연결했다. 사용자가 요청한 대문자 진입 파일은 유지했다. 앞서 전달한 정책에서 행동 규칙을 다시 바꾼 것은 아니며 자기 형성 자료를 찾는 문단을 추가했다.
+- 정책 자체도 지속 기준인데 형성 자료로 들어가는 경로가 없었다. Main의 소유 범위였으므로 Main이 [정책 형성 자료](prototypes/development-workflow/noline-demo/context/_background/content-policy/README.md)를 구성하고 정책의 읽기 조건과 연결했다. 사용자가 요청한 대문자 진입 파일은 유지했다. 앞서 전달한 정책에서 행동 규칙을 다시 바꾼 것은 아니며 자기 형성 자료를 찾는 문단을 추가했다.
 - 이전 Work 진입점의 원자료·과거 기록 보존 규칙이 새 관리 본문으로 옮겨지지 않았다. 워커가 관리 본문에 복원하고 Work 진입 지침에서도 보존 책임을 찾게 했다.
 - 공통화 기록에서 Main의 비교안 B에 있던 화면별 callback 유지와 사용자가 덧붙인 변경 범위·보존·투자 조건이 섞여 있었다. 워커가 원자료52와 대조해 발언 주체와 선택 지위를 나누고 정정 사실을 남겼다.
 

@@ -8,10 +8,10 @@
 
 | 보고 싶은 것 | 시작점 | 여기서 이해할 차이 |
 | --- | --- | --- |
-| 공통으로 묶을 범위와 사용처에 남길 선택 | [공통 제공과 사용처 선택](noline-demo/context/personal/development/shared-boundaries/index.md) · [코드 사례](noline-demo/context/personal/development/shared-boundaries/index.cases.md) | Field의 배치·입력 교체, Container의 오류 표시, 같은 주문 API와 같은 구매 흐름의 차이 |
-| 공통 오류와 시간·자원의 의미 | [계약과 수명](noline-demo/context/personal/development/contracts-and-lifetime/index.md) · [코드 사례](noline-demo/context/personal/development/contracts-and-lifetime/index.cases.md) | 파싱 실패·HTTP 상태, 옵션의 적용 순서, Toast의 3초가 시작되는 시점 |
-| 이름을 유지할지, 바꿀지, 동작을 고칠지 | [이름과 완료](noline-demo/context/personal/development/naming-and-completion/index.md) · [판단 사례](noline-demo/context/personal/development/naming-and-completion/index.cases.md) | 같은 코드의 이름 유지·개명 비용과 이득, 설명만으로 해결할 수 없는 완료 요구 |
-| 이름 기준이 왜 이렇게 만들어졌고 어떻게 고칠지 | [형성 자료 안내](noline-demo/context/personal/development/naming-and-completion/background/README.md) | 현재 맥락, 당시 선택·정정 기록, 발화 근거를 질문에 따라 찾는 경로 |
+| 공통으로 묶을 범위와 사용처에 남길 선택 | [공통 제공과 사용처 선택](noline-demo/context/personal/development/shared-boundaries/INDEX.md) · [코드 사례](noline-demo/context/personal/development/shared-boundaries/INDEX.cases.md) | Field의 배치·입력 교체, Container의 오류 표시, 같은 주문 API와 같은 구매 흐름의 차이 |
+| 공통 오류와 시간·자원의 의미 | [계약과 수명](noline-demo/context/personal/development/contracts-and-lifetime/INDEX.md) · [코드 사례](noline-demo/context/personal/development/contracts-and-lifetime/INDEX.cases.md) | 파싱 실패·HTTP 상태, 옵션의 적용 순서, Toast의 3초가 시작되는 시점 |
+| 이름을 유지할지, 바꿀지, 동작을 고칠지 | [이름과 완료](noline-demo/context/personal/development/naming-and-completion/INDEX.md) · [판단 사례](noline-demo/context/personal/development/naming-and-completion/INDEX.cases.md) | 같은 코드의 이름 유지·개명 비용과 이득, 설명만으로 해결할 수 없는 완료 요구 |
+| 이름 기준이 왜 이렇게 만들어졌고 어떻게 고칠지 | [형성 자료 안내](noline-demo/context/personal/development/naming-and-completion/_background/README.md) | 현재 맥락, 당시 선택·정정 기록, 발화 근거를 질문에 따라 찾는 경로 |
 | 체계 지침의 본체·진입과 상세 분할을 어떻게 구별할지 | [체계 지침의 역할과 구성](noline-demo/context/SYSTEM-GUIDANCE.md) | 일반 내용의 기준과 체계를 다루는 지침, 진입 본문·상세·형성 자료의 책임 |
 | 기준을 실제 작업에서 어떻게 사용하는지 | [로그인 완료 표현을 정리하는 작업](walkthrough.md) | Personal의 판단 관점, Project의 계약, Work의 선택이 코드에 연결되는 과정 |
 | 실행 코드와 확인 범위 | [Noline demo](noline-demo/README.md) | 저장·인증 적용 뒤 조회를 요청하되 결과는 기다리지 않는 완료 경계 |

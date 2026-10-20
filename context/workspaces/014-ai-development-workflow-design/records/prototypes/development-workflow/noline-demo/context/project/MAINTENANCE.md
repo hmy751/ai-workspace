@@ -12,4 +12,4 @@
 
 한 작업의 시도·대안·실행 수치는 Work records에 남긴다. 새로운 본문을 만들 가치가 있는지와 기록할 가치가 있는지는 구별한다. 과거 source·기록을 새 결론에 맞춰 덮어쓰지 않는다. 이 demo의 관리는 직접 수행하며 자동 Maintain이 Project를 갱신했다고 가정하지 않는다.
 
-이 관리 계약과 읽기·구성 기준을 형성한 근거가 필요하면 [REFERENCE의 형성 자료 안내](REFERENCE/background/README.md)에서 관련 질문을 고른다.
+이 관리 계약과 읽기·구성 기준을 형성한 근거가 필요하면 [REFERENCE의 형성 자료 안내](REFERENCE/_background/README.md)에서 관련 질문을 고른다.

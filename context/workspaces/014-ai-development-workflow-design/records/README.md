@@ -209,3 +209,5 @@
 - [실험 자료 안내](experiments/README.md): 입력 사본·고정 초안·컨텍스트 예시·재현 코드의 성격과 읽는 경로.
 
 - [119 Ticket03 완료 조건 대조와 마무리](2026-10-20-119-ticket03-closeout.md): 구성안·대표 본문·읽기와 갱신 책임의 완료 근거, 후속 Ticket에 남긴 범위와 current·output 정리.
+
+- [120 본문·형성 자료의 파일명 구별](2026-10-20-120-visible-body-and-background-names.md): `_background`와 대문자 `INDEX` 선택, 정책·데모·현재 링크의 적용 및 Work 경계 유지.

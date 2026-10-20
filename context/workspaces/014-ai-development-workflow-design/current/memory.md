@@ -32,6 +32,8 @@
 
 이후 사용자는 `spec-and-tickets/background`를 보고 **Work 쪽에는 이번 구성을 두지 말고 기존 형태·제약으로 되돌린 뒤 별도로 논의하자**고 요청했다. Work 적용 전체의 현재 보류이며, 앞선 진입 복구에서 Work에 형성 자료와 개별 Spec·Ticket 묶음을 남긴 선택을 대체한다. 기존 source·records·current의 역할과 내용을 보존하고 새 background·본문 재배치·안내를 원복한다. Personal·Project 적용은 유지한다. 이는 전체 지속 본문을 검토하자는 방향의 철회나 Work에 대한 영구 금지가 아니다. [현재 경계116](../records/2026-10-20-116-defer-work-content-policy.md)에서 실제 복구와 확인을 읽는다.
 
+사용자는 파일 목록에서도 본문과 형성 자료를 구별하도록 `_background/`와 `INDEX.md`·`INDEX.<내용 이름>.md` 표기를 선택했다. 이는 기존 역할을 드러내는 이름이며 형성 자료의 중요도를 낮추거나 대문자를 체계 지침 전용 표시로 삼지 않는다. README의 안내 역할과 Work의 적용 보류는 유지한다. [표기 반영120](../records/2026-10-20-120-visible-body-and-background-names.md)
+
 ## 체계 지침의 독립 역할
 
 117 이후 사용자는 DEVELOPMENT·CONTENT-POLICY처럼 원래 위치에서 진입점이자 본체인 문서를 일반 상세처럼 안쪽으로 옮기는 데 의문을 제기했다. `DOCUMENT-WRITING.md`를 같은 성격의 읽기 전용 예시로 제시했고 `REFERENCE/composition.md`처럼 세분화할 수 있다는 점도 명시했다. 개발 작업으로 개념을 좁힌 정의를 정정한 뒤 **‘체계 지침’이라는 명칭과 CONTENT-POLICY 밖 독립 문서 작성**을 선택했다.

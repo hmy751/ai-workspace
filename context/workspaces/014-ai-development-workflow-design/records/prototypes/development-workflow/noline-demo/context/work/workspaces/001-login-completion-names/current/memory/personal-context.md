@@ -1,11 +1,11 @@
 # 이번 작업이 선택한 개인 기준
 
-이 작업은 이름과 완료 표현을 다루므로 [개발 공통](../../../../../personal/development/index.md)과 [이름·책임·완료 기준](../../../../../personal/development/naming-and-completion/index.md)을 사용한다. 제품의 완료·실패 계약은 별도로 [Project 선택](project-context.md)에서 읽는다.
+이 작업은 이름과 완료 표현을 다루므로 [개발 공통](../../../../../personal/development/INDEX.md)과 [이름·책임·완료 기준](../../../../../personal/development/naming-and-completion/INDEX.md)을 사용한다. 제품의 완료·실패 계약은 별도로 [Project 선택](project-context.md)에서 읽는다.
 
 판단할 것은 두 소비자가 callback 뒤에 무엇을 하는지, 이름·타입·제어 흐름에서 필요한 완료 범위를 읽을 수 있는지, 설명이 코드의 모호함을 대신하고 있지는 않은지다. 내부 코드라는 사실은 변경 비용을 낮추지만 그 자체가 개명의 이득은 아니다.
 
 [같은 코드 비교](../../records/2026-10-19-06-naming-alternatives.md)에서 유지안도 설명을 읽으면 사용할 수 있지만 주요 완료 의미를 설명에 의존한다. 현재는 그 의미를 코드에서 드러내는 방향을 우선해 개명안을 선택했다. 내부 두 사용처라는 조건은 그 개선 비용을 제한한다. 최신 결과를 약속하는 요구였다면 이름만 좁히는 대신 동작을 바꿔야 할 수 있다.
 
-일반 기준만으로 차이를 이해하기 어려울 때 [이름 사례](../../../../../personal/development/naming-and-completion/index.cases.md)를 읽는다. 공통화로 화면별 후속 책임을 바꾸거나 오류 의미·자원 수명까지 수정하게 되면 [관련 주제](../../../../../personal/development/README.md)도 선택한다. 새 본문이 생겼다는 이유로 모든 주제를 필수 입력에 추가하지 않는다.
+일반 기준만으로 차이를 이해하기 어려울 때 [이름 사례](../../../../../personal/development/naming-and-completion/INDEX.cases.md)를 읽는다. 공통화로 화면별 후속 책임을 바꾸거나 오류 의미·자원 수명까지 수정하게 되면 [관련 주제](../../../../../personal/development/README.md)도 선택한다. 새 본문이 생겼다는 이유로 모든 주제를 필수 입력에 추가하지 않는다.
 
 입력을 고르고 전달하는 방법은 [개발 절차](../../../../DEVELOPMENT.md), 최초 선택은 [입력 기록](../../records/2026-10-19-01-input-selection.md)에 있다. 여기의 링크는 현재 본문을 가리키며 최초 전달 판본의 고정 사본이 아니다.

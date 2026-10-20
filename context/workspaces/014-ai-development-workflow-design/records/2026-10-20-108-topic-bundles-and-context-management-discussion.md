@@ -35,8 +35,8 @@ Main이 데모 공통·Personal 공통·이름 묶음의 안내 중 범위를 �
 
 Main은 실제 파일을 다시 읽었고, 별도 읽기 전용 검토도 받았다. 아래는 수정 후보이며 아직 반영하지 않았다.
 
-1. [이름 기준 맥락](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/background/context.md)의 뒤쪽 읽기·갱신·원문 보존·관계 확인은 여러 본문에 적용할 관리 원칙에 가깝다. 이를 공통 관리 문서에서 소유하고, 이름 묶음에는 필요한 연결과 고유 조건을 남기는 편이 역할이 분명하다.
-2. [근거 발췌](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/background/evidence.md)에는 원문 뒤에 현재 해석이 길게 반복되는 부분이 있다. 코드 명료함의 지향, Personal·Project 관리 책임의 재설명은 맥락과 겹친다. 근거를 오해하지 않기 위한 당시 상황·발화자·확인 한계는 남기되 현재 판단을 다시 전개하는 설명은 맥락에서 소유할 수 있다.
+1. [이름 기준 맥락](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/context.md)의 뒤쪽 읽기·갱신·원문 보존·관계 확인은 여러 본문에 적용할 관리 원칙에 가깝다. 이를 공통 관리 문서에서 소유하고, 이름 묶음에는 필요한 연결과 고유 조건을 남기는 편이 역할이 분명하다.
+2. [근거 발췌](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/evidence.md)에는 원문 뒤에 현재 해석이 길게 반복되는 부분이 있다. 코드 명료함의 지향, Personal·Project 관리 책임의 재설명은 맥락과 겹친다. 근거를 오해하지 않기 위한 당시 상황·발화자·확인 한계는 남기되 현재 판단을 다시 전개하는 설명은 맥락에서 소유할 수 있다.
 3. 여러 진입점에 있는 짧은 안내는 독자가 들어오는 경로를 연결하므로 유지할 이유가 있다. 각 진입점에 상세 관리 규칙까지 복제할 필요는 없다.
 4. 기준·맥락·근거·사례를 하나의 주제 폴더에 모을 이유는 생겼다. 파일 종류가 다르기 때문이 아니라 같은 주제를 이해하고 수정할 때 함께 다루는 내용이기 때문이다. 일반 기준과 상세 사례는 폴더 안에서도 별도 파일로 유지할 수 있다.
 

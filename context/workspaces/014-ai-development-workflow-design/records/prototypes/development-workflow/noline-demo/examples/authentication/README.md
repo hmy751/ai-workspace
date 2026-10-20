@@ -8,4 +8,4 @@
 - [정상·실패 실행 장면](src/demo.mjs)
 - [완료·실패 경계 검사](tests/authentication.test.mjs)
 
-실행 기준 디렉터리와 명령은 [프로젝트 README](../../README.md#직접-실행한다)에 있다. 제품 계약은 [인증 가이드](../../context/project/guidance/authentication-and-session/index.md)가, 이 예제를 결과로 선택한 이유와 검사는 [Work](../../context/work/workspaces/001-login-completion-names/README.md)가 맡는다.
+실행 기준 디렉터리와 명령은 [프로젝트 README](../../README.md#직접-실행한다)에 있다. 제품 계약은 [인증 가이드](../../context/project/guidance/authentication-and-session/INDEX.md)가, 이 예제를 결과로 선택한 이유와 검사는 [Work](../../context/work/workspaces/001-login-completion-names/README.md)가 맡는다.

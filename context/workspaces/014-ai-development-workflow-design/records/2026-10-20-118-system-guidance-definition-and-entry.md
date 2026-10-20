@@ -13,7 +13,7 @@
 | 참고 예시 | 사용자가 지정한 `reference-project/context/work/workspaces/DOCUMENT-WRITING.md`는 읽기 전용 비교 예시다. 그 원본·운영 체계를 수정하거나 데모로 이식하지 않는다. |
 | 이번 범위 | Work의 current·Spec·Ticket·source·output·records는 유지한다. 워크플로·스킬 구체화는 다음 Ticket이고, Personal·Project 전체의 관리 단위나 품질을 전면 재구성하는 요청도 아니다. |
 
-‘운영 지침’, ‘컨텍스트 사용·관리 지침’, ‘작업 체계 기준’, ‘대표 기준문서’, ‘체계 진입 지침’은 검토 과정의 제안이었다. 앞의 세 가지는 범위가 좁거나 의미가 모호할 수 있었고, 대표·진입이라는 말은 내용의 성격보다 찾아오는 역할을 설명했다. 마지막에는 체계 지침이라는 이름과 구체적인 담당 범위의 설명을 함께 두기로 했다. 필요한 사용자 원문과 참고 예시의 발췌는 [새 본문 가까이 둔 근거](prototypes/development-workflow/noline-demo/context/background/system-guidance/evidence.md)에 보존했다.
+‘운영 지침’, ‘컨텍스트 사용·관리 지침’, ‘작업 체계 기준’, ‘대표 기준문서’, ‘체계 진입 지침’은 검토 과정의 제안이었다. 앞의 세 가지는 범위가 좁거나 의미가 모호할 수 있었고, 대표·진입이라는 말은 내용의 성격보다 찾아오는 역할을 설명했다. 마지막에는 체계 지침이라는 이름과 구체적인 담당 범위의 설명을 함께 두기로 했다. 필요한 사용자 원문과 참고 예시의 발췌는 [새 본문 가까이 둔 근거](prototypes/development-workflow/noline-demo/context/_background/system-guidance/evidence.md)에 보존했다.
 
 ## 현재 결과와 책임
 
@@ -23,7 +23,7 @@
 
 [CONTENT-POLICY](prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)는 본문·형성 자료의 구성·보존·읽기·갱신을 계속 소유한다. 기존 진입 보존 설명은 새 문서의 해당 판단으로 연결하고, 개념을 두 정본에서 다시 정의하지 않도록 범위를 밝혔다. context와 prototype 입구에서도 필요한 상황에 새 본문을 찾게 했다.
 
-새 문서의 [형성 자료](prototypes/development-workflow/noline-demo/context/background/system-guidance/README.md)는 현재 의도·선택 이유, 명명과 진입의 판단 기록, 필요한 사용자 발화와 참고 예시를 구별한다. 014 전체 과정을 따라가지 않아도 본문의 이유를 재검토할 수 있게 선별했다. 기존 정책의 형성 자료는 이 논의로 이어지는 경로만 추가했다.
+새 문서의 [형성 자료](prototypes/development-workflow/noline-demo/context/_background/system-guidance/README.md)는 현재 의도·선택 이유, 명명과 진입의 판단 기록, 필요한 사용자 발화와 참고 예시를 구별한다. 014 전체 과정을 따라가지 않아도 본문의 이유를 재검토할 수 있게 선별했다. 기존 정책의 형성 자료는 이 논의로 이어지는 경로만 추가했다.
 
 ## 확인과 남은 범위
 

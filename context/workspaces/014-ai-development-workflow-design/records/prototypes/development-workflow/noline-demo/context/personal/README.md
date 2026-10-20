@@ -16,6 +16,6 @@
 
 기존 설명으로 판단하기 어려운 조건이 드러나면 어떤 전제가 달라졌는지 확인한다. 여러 Project에 가져갈 개인 판단의 의미·조건이 바뀌었다면 이 본문을 고치고, 그 기준을 사용 중인 Work에서 현재 선택에 미치는 영향을 살핀다. 특정 제품의 요구나 이번 작업의 변경 비용이 달라진 경우에는 해당 Project나 Work가 그 내용을 관리한다. 한 작업의 함수명이나 선택을 개인 공통 의무로 곧바로 올리지 않는다.
 
-세 주제와 개발 공통 관점에는 현재 내용을 쓰는 본문과 그 내용을 형성한 의도·배경·선택·근거를 보존하는 자료를 구별해 두었다. [개발 판단 안내](development/README.md)에서 현재 적용할 본문을 고르고, 의미·조건이나 구성을 바꾸려면 해당 안내의 형성 자료를 읽는다. 이 상위 본문이 설명하는 독립 책임과 로컬 위치는 [context 형성 자료](../background/README.md), 조건별 적용은 [적용 방식의 근거](development/naming-and-completion/background/evidence.md#조건별-적용), 갱신 기본값은 [소유 관계의 근거](development/naming-and-completion/background/evidence.md#개인-기준의-소유)에서 복원한다. [공통 관리 원칙](../CONTENT-POLICY.md)에 따라 필요한 관계를 함께 맞춘다.
+세 주제와 개발 공통 관점에는 현재 내용을 쓰는 본문과 그 내용을 형성한 의도·배경·선택·근거를 보존하는 자료를 구별해 두었다. [개발 판단 안내](development/README.md)에서 현재 적용할 본문을 고르고, 의미·조건이나 구성을 바꾸려면 해당 안내의 형성 자료를 읽는다. 이 상위 본문이 설명하는 독립 책임과 로컬 위치는 [context 형성 자료](../_background/README.md), 조건별 적용은 [적용 방식의 근거](development/naming-and-completion/_background/evidence.md#조건별-적용), 갱신 기본값은 [소유 관계의 근거](development/naming-and-completion/_background/evidence.md#개인-기준의-소유)에서 복원한다. [공통 관리 원칙](../CONTENT-POLICY.md)에 따라 필요한 관계를 함께 맞춘다.
 
 이 폴더는 현재 프로젝트에서 읽는 기준 본문이다. 여러 저장소 사이의 배포·동기화는 구현되어 있지 않다.

@@ -6,10 +6,10 @@
 
 | 지금 필요한 판단 | 담당 본문 |
 | --- | --- |
-| 같은 계정으로 다시 로그인할 때 무엇을 보존하는가 | [기기 세션과 작업 연속성](common/device-session/index.md) |
-| 언제 인증이 끝나며 후속 조회 실패를 어떻게 처리하는가 | [인증·세션 계약](guidance/authentication-and-session/index.md) |
-| 함수·callback·안내가 같은 결과를 표현하는가 | [인증 코드의 가독성](guidance/code-readability/index.md) |
-| 현재 구현과 검사가 어느 범위까지 이어지는가 | [현재 인증 흐름](current/authentication-flow/index.md) |
+| 같은 계정으로 다시 로그인할 때 무엇을 보존하는가 | [기기 세션과 작업 연속성](common/device-session/INDEX.md) |
+| 언제 인증이 끝나며 후속 조회 실패를 어떻게 처리하는가 | [인증·세션 계약](guidance/authentication-and-session/INDEX.md) |
+| 함수·callback·안내가 같은 결과를 표현하는가 | [인증 코드의 가독성](guidance/code-readability/INDEX.md) |
+| 현재 구현과 검사가 어느 범위까지 이어지는가 | [현재 인증 흐름](current/authentication-flow/INDEX.md) |
 
 제품 의미는 [common](common/README.md), 구현·지원 현실은 [current](current/README.md), 관련 작업의 계약과 판단은 [guidance](guidance/README.md)가 맡는다. 세 층을 매번 순서대로 모두 읽지 않고 지금 질문에 맞게 고른다. 중요한 제품 선택의 근거는 [decisions](decisions/README.md)에서 찾는다.
 
@@ -23,4 +23,4 @@
 
 특정 Work의 함수명 선택과 대안·실행 이력은 [로그인 완료 표현 Work](../work/workspaces/001-login-completion-names/README.md)에 남긴다. 한 번의 선택을 제품 전체 의무로 자동 승격하지 않는다.
 
-제품 의미·계약·현황 본문은 자체 폴더의 README에서 현재 적용 경로와 형성 자료의 읽을 조건을 안내한다. 읽기·구성 기준은 [REFERENCE](REFERENCE/README.md), 갱신 계약은 [MAINTENANCE](MAINTENANCE.md)가 기존 위치에서 설명한다. 이 운영 문서의 형성 근거는 [보조 자료](REFERENCE/background/README.md), Personal·Work와 독립 책임을 둔 경위는 [context 형성 자료](../background/README.md)에서 찾는다.
+제품 의미·계약·현황 본문은 자체 폴더의 README에서 현재 적용 경로와 형성 자료의 읽을 조건을 안내한다. 읽기·구성 기준은 [REFERENCE](REFERENCE/README.md), 갱신 계약은 [MAINTENANCE](MAINTENANCE.md)가 기존 위치에서 설명한다. 이 운영 문서의 형성 근거는 [보조 자료](REFERENCE/_background/README.md), Personal·Work와 독립 책임을 둔 경위는 [context 형성 자료](../_background/README.md)에서 찾는다.

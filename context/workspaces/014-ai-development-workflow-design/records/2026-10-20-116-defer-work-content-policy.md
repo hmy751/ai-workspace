@@ -17,7 +17,7 @@ Work는 기존 형태와 제약을 유지하고, 형성 자료 방식의 적용 
 
 [CONTENT-POLICY](prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)와 [context 진입](prototypes/development-workflow/noline-demo/context/README.md)에 Work 적용 보류와 현재 적용 범위를 일치시켰다. 지속 본문 전반을 검토한다는 방향을 모든 기존 체계에 즉시 같은 형식을 적용하는 규칙으로 해석하지 않는다. 또한 Work의 영구 제외로 확정하지 않는다.
 
-정책의 [현재 형성 맥락](prototypes/development-workflow/noline-demo/context/background/content-policy/context.md#work의-기존-체계와-형성-자료는-별도로-논의한다)과 [사용자 근거](prototypes/development-workflow/noline-demo/context/background/content-policy/evidence.md#work-전체의-구성-적용-보류), 기존 정정 기록에는 이번 선택을 이어 남겼다. 이는 공통 정책의 적용 경계를 설명하는 자료이며 Work의 형성 자료를 다른 활성 위치로 옮겨 대신 사용하게 하는 구성이 아니다.
+정책의 [현재 형성 맥락](prototypes/development-workflow/noline-demo/context/_background/content-policy/context.md#work의-기존-체계와-형성-자료는-별도로-논의한다)과 [사용자 근거](prototypes/development-workflow/noline-demo/context/_background/content-policy/evidence.md#work-전체의-구성-적용-보류), 기존 정정 기록에는 이번 선택을 이어 남겼다. 이는 공통 정책의 적용 경계를 설명하는 자료이며 Work의 형성 자료를 다른 활성 위치로 옮겨 대신 사용하게 하는 구성이 아니다.
 
 114·115의 구성과 검토 결과는 당시 관찰로 보존한다. 현재 적용 상태를 그 기록의 과거 완료 표현에서 복원하지 않고 이 기록과 current에서 찾는다.
 

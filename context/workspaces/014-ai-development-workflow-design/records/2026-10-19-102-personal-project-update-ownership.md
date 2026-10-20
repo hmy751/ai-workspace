@@ -26,7 +26,7 @@ Personal은 여러 Project에 가져갈 개인 판단의 의미·조건을 관�
 
 | 문서 | 조정과 이유 |
 | --- | --- |
-| [Project 인증 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/index.md) | 일반적인 ‘코드에서 먼저 개선’ 우선순위와 동일 주석 A/B 비교 방법·이번 개명 비용 판단을 덜어냈다. 인증 적용·조회 요청·조회 결과·화면 준비의 차이, 실패 의미와 소비자 요구에 따른 판단은 유지했다. |
+| [Project 인증 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/INDEX.md) | 일반적인 ‘코드에서 먼저 개선’ 우선순위와 동일 주석 A/B 비교 방법·이번 개명 비용 판단을 덜어냈다. 인증 적용·조회 요청·조회 결과·화면 준비의 차이, 실패 의미와 소비자 요구에 따른 판단은 유지했다. |
 | [Project 관리](prototypes/development-workflow/noline-demo/context/project/MAINTENANCE.md) | 프로젝트의 지속 규약으로 둘 이유·범위와 필요한 설명의 중복 허용을 명시했다. 갱신 조건은 Project 자신의 의미·규약·현재 사실이다. |
 | [Personal 입구](prototypes/development-workflow/noline-demo/context/personal/README.md) | 개인 판단 자체의 변경과 제품 요구·이번 비용의 차이를 구별하고, 개인 기준 변경 시 적용 중인 Work에 미치는 영향을 살피도록 했다. |
 | [Work 개발 절차](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md#결과를-해당-책임으로-돌려준다) | 결과별 갱신 표와 기본값을 보완했다. 개인 기준 수정만으로 Project를 함께 고치지 않으며, 설명 중복과 규약 관리 책임을 구별한다. |

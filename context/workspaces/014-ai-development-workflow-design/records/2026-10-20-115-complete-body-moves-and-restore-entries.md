@@ -28,7 +28,7 @@ Main은 앞선 설명에서 옛 파일의 참조 유무를 확인했지만, 링�
 
 [CONTENT-POLICY](prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)의 기존 적용 범위·구성·읽기·갱신·확인 절을 고쳤다. 일반 본문의 이동은 참조 갱신과 옛 파일 제거까지 끝내고, 이미 진입을 맡는 문서의 책임 재편은 형성 자료 보완과 구별한다. 현재 읽을 링크와 당시 원문판 출처를 구별해 다룬다. 이미 허용된 진입 변경에 반복 승인을 요구하지 않는 조건도 유지한다.
 
-정책 자체의 [형성 맥락](prototypes/development-workflow/noline-demo/context/background/content-policy/context.md#본문-이동을-마치는-것과-기존-진입을-바꾸는-것), [사용자 원문](prototypes/development-workflow/noline-demo/context/background/content-policy/evidence.md#본문-이동의-완결과-진입-문서의-원복), [선택·정정 기록](prototypes/development-workflow/noline-demo/context/background/content-policy/records/2026-10-20-entry-restoration-and-complete-moves.md)도 함께 갱신했다. 데모 안에서 핵심 이유와 근거를 읽을 수 있으며 이 바깥 기록을 필수 입력으로 삼지 않는다.
+정책 자체의 [형성 맥락](prototypes/development-workflow/noline-demo/context/_background/content-policy/context.md#본문-이동을-마치는-것과-기존-진입을-바꾸는-것), [사용자 원문](prototypes/development-workflow/noline-demo/context/_background/content-policy/evidence.md#본문-이동의-완결과-진입-문서의-원복), [선택·정정 기록](prototypes/development-workflow/noline-demo/context/_background/content-policy/records/2026-10-20-entry-restoration-and-complete-moves.md)도 함께 갱신했다. 데모 안에서 핵심 이유와 근거를 읽을 수 있으며 이 바깥 기록을 필수 입력으로 삼지 않는다.
 
 ## 확인과 남은 논의
 

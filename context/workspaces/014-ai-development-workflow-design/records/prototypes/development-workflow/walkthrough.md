@@ -14,9 +14,9 @@
 
 | 필요한 판단 | 사용하는 본문 | 이번 작업에 가져오는 내용 |
 | --- | --- | --- |
-| 표현과 동작 중 무엇을 고칠지 | [Personal 이름·완료 기준](noline-demo/context/personal/development/naming-and-completion/index.md) | 소비자가 필요한 결과와 실제 보장을 대조한다. 가능한 한 코드 자체에서 의미를 읽을 수 있게 하고, 설명·개명·구성·동작 수정 중 필요한 조치를 고른다. |
-| 인증 완료가 보장하는 상태 | [Project 인증 계약](noline-demo/context/project/guidance/authentication-and-session/index.md) | 기기 저장과 상태 적용은 완료한다. 후속 조회의 실패는 인증 저장 실패와 구별한다. |
-| 이 제품에서 피해야 할 완료 표현 | [Project 가독성 가이드](noline-demo/context/project/guidance/code-readability/index.md) | 인증 적용·조회 요청·조회 결과·화면 준비를 섞지 않는다. |
+| 표현과 동작 중 무엇을 고칠지 | [Personal 이름·완료 기준](noline-demo/context/personal/development/naming-and-completion/INDEX.md) | 소비자가 필요한 결과와 실제 보장을 대조한다. 가능한 한 코드 자체에서 의미를 읽을 수 있게 하고, 설명·개명·구성·동작 수정 중 필요한 조치를 고른다. |
+| 인증 완료가 보장하는 상태 | [Project 인증 계약](noline-demo/context/project/guidance/authentication-and-session/INDEX.md) | 기기 저장과 상태 적용은 완료한다. 후속 조회의 실패는 인증 저장 실패와 구별한다. |
+| 이 제품에서 피해야 할 완료 표현 | [Project 가독성 가이드](noline-demo/context/project/guidance/code-readability/INDEX.md) | 인증 적용·조회 요청·조회 결과·화면 준비를 섞지 않는다. |
 | 이번 구현의 범위 | [Work Ticket](noline-demo/context/work/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md) | 인증 적용 뒤 조회를 요청하고 기다리지 않는 완료 경계를 새 실행 예제로 구현한다. 두 소비자의 이동·닫기를 유지하며 이름과 완료 표현을 비교한다. |
 
 Personal이 비교할 관점을 제공하고 Project가 제품의 약속을 정한다. Work는 이 둘을 현재 사용처에 대입해 선택한다. [개발 절차](noline-demo/context/work/DEVELOPMENT.md)는 입력 선택·전달·검토·갱신을 연결한다. 이 해설은 현재 문서를 이용한 설명이며 최초 전달 판본을 그대로 재현한 실험은 아니다.
@@ -45,6 +45,6 @@ Personal이 비교할 관점을 제공하고 Project가 제품의 약속을 정�
 
 ## 다음 변경은 달라진 내용을 소유한 곳에 남긴다
 
-새 소비자가 최신 결과를 필요로 하면 Project의 완료 계약과 해당 Work의 요구를 함께 판단한다. 코드 연결만 바뀌면 [Project current](noline-demo/context/project/current/authentication-flow/index.md)를 맞춘다. 이번 선택과 확인·미확인은 [Work 상태](noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md)에 남기고, 결과 파일은 [output](noline-demo/context/work/workspaces/001-login-completion-names/output/index.md)에서 찾는다.
+새 소비자가 최신 결과를 필요로 하면 Project의 완료 계약과 해당 Work의 요구를 함께 판단한다. 코드 연결만 바뀌면 [Project current](noline-demo/context/project/current/authentication-flow/INDEX.md)를 맞춘다. 이번 선택과 확인·미확인은 [Work 상태](noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md)에 남기고, 결과 파일은 [output](noline-demo/context/work/workspaces/001-login-completion-names/output/index.md)에서 찾는다.
 
 ‘가능한 한 설명 없이 이해되는 코드’처럼 여러 작업에 가져갈 개인 판단은 Personal에서 관리한다. 그 기준이 바뀌면 이번 A/B 선택의 이유도 Work에서 다시 살핀다. 인증 완료의 보장이나 프로젝트의 공통 개발 규약이 달라진 것이 아니라면 Project 가이드를 함께 바꿀 필요는 없다. 이번 함수명을 새 공통 명명 규칙으로 등록하거나 모든 인증 작업에 조회 비대기를 강제하지 않는다.
