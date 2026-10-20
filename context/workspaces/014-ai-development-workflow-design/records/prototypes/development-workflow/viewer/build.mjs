@@ -22,9 +22,10 @@ async function loadMarked() {
 
 const {Marked} = await loadMarked();
 const personalRoot = 'noline-demo/context/personal/';
-const personal = personalRoot + 'development/naming-and-completion.md';
-const personalCases = personalRoot + 'development/cases/naming-and-completion.md';
-const personalCommon = personalRoot + 'development/README.md';
+const namingRoot = personalRoot + 'development/naming-and-completion/';
+const personal = namingRoot + 'index.md';
+const personalCases = namingRoot + 'index.cases.md';
+const personalCommon = personalRoot + 'development/index.md';
 const workflow = 'noline-demo/context/work/DEVELOPMENT.md';
 const project = 'noline-demo/context/project/';
 const work = 'noline-demo/context/work/workspaces/001-login-completion-names/';
@@ -68,10 +69,13 @@ const labels = {
   'README.md': '개발 판단 · 읽기와 실행 시작점',
   'noline-demo/context/README.md': 'Context · Personal·Project·Work',
   [personalRoot + 'README.md']: 'Personal 입구 · 적용할 기준 선택',
+  [personalRoot + 'development/README.md']: '개발 기준 입구 · 주제 선택과 관리',
   [personalCommon]: '짧은 개발 공통 · 조건별 적용',
+  [namingRoot + 'README.md']: '이름 기준 묶음 · 구성과 읽기 안내',
   [personal]: '일반 기준 · 이름·책임·완료',
-  [personalRoot + 'development/naming-and-completion.context.md']: '형성 맥락 · 목적·판단과 갱신 조건',
-  [personalRoot + 'development/naming-and-completion.evidence.md']: '근거 발췌 · 당시 발화와 확인 범위',
+  [namingRoot + 'background/README.md']: '형성 자료 입구 · 질문별 읽기 안내',
+  [namingRoot + 'background/context.md']: '형성 맥락 · 목적과 선택 이유',
+  [namingRoot + 'background/evidence.md']: '근거 발췌 · 당시 발화와 확인 범위',
   [personalCases]: '상세 사례 · 같은 코드의 선택 비교',
   [workflow]: 'Workflow · 입력 선택과 전달·갱신',
   [project + 'README.md']: 'Project 입구 · 담당 본문 선택',

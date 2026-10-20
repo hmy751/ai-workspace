@@ -14,9 +14,9 @@
 | --- | --- | --- |
 | [프로토타입 입구](prototypes/development-workflow/README.md) | 작성 단계·합의 상태·원기록 안내가 첫 화면의 중심이었다. | 공통화·계약·이름·실제 적용 중 무엇을 보고 싶은지로 본문을 고른다. 역할과 실행 범위도 같은 문서에서 이해한다. |
 | [Personal·개발 입구](prototypes/development-workflow/noline-demo/context/personal/development/README.md) | 복원 경위·미통합 항목·작성 지위를 독자에게 설명했다. | 판단 범위, 주제별 읽기 경로, 제품에 대입하는 방법을 안내한다. 일반 기준은 적용할 조건을, 사례는 선택이 갈리는 차이를 맡는다. |
-| [공통 경계 사례](prototypes/development-workflow/noline-demo/context/personal/development/cases/shared-boundaries.md) | 관찰·사용자 발화·Main 해석·미선택을 사례마다 반복했다. | Field의 실제 연결과 배치 변경, Container의 오류 때 목록 결과, 주문의 다른/같은 구매 흐름을 코드와 조건으로 비교한다. 재사용 여부를 사례의 결론으로 먼저 주지 않는다. |
-| [계약·수명 사례](prototypes/development-workflow/noline-demo/context/personal/development/cases/contracts-and-lifetime.md) | 판단의 지위가 동작 비교에 앞섰고 fetcher 관찰과 정비가 나뉘었다. | 비동기 오류 전달·오분류·HTTP 상태·timer 정리를 하나의 정비 사례로 묶었다. Toast는 표시 시작/추가 시점과 재표시의 시간 차이, null은 중단/건너뛰기의 결과 차이를 보여 준다. |
-| [이름 사례](prototypes/development-workflow/noline-demo/context/personal/development/cases/naming-and-completion.md) | 결론이 가정에 든 내부·공개 대비가 길고 동일 코드 비교는 끝에 추가됐다. | 인증 A/B를 중심에 두고 공통 함수와 동일 주석의 호출부를 제시한다. 유지안도 성립하며 개명 이득·비용을 비교한다. 저장은 실제 결과 누락의 코드로 동작 수정이 필요한 경우를 보여 준다. |
+| [공통 경계 사례](prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/index.cases.md) | 관찰·사용자 발화·Main 해석·미선택을 사례마다 반복했다. | Field의 실제 연결과 배치 변경, Container의 오류 때 목록 결과, 주문의 다른/같은 구매 흐름을 코드와 조건으로 비교한다. 재사용 여부를 사례의 결론으로 먼저 주지 않는다. |
+| [계약·수명 사례](prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/index.cases.md) | 판단의 지위가 동작 비교에 앞섰고 fetcher 관찰과 정비가 나뉘었다. | 비동기 오류 전달·오분류·HTTP 상태·timer 정리를 하나의 정비 사례로 묶었다. Toast는 표시 시작/추가 시점과 재표시의 시간 차이, null은 중단/건너뛰기의 결과 차이를 보여 준다. |
+| [이름 사례](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.cases.md) | 결론이 가정에 든 내부·공개 대비가 길고 동일 코드 비교는 끝에 추가됐다. | 인증 A/B를 중심에 두고 공통 함수와 동일 주석의 호출부를 제시한다. 유지안도 성립하며 개명 이득·비용을 비교한다. 저장은 실제 결과 누락의 코드로 동작 수정이 필요한 경우를 보여 준다. |
 | 일반 본문 세 편 | 작성·합의 설명과 상세 사례가 기준 설명에 섞였다. | 공통으로 맡길 약속과 사용처 차이, 계약 의미와 수명, 이름·설명·동작 수정의 조건을 설명한다. 짧은 의미 대비는 남기고 상세 관찰은 사례로 연결한다. |
 | 중복 사례와 연결 | 초대·silent 설명이 여러 곳에서 반복됐다. | 초대는 일반 이름 본문의 기능 단위/내부 책임 설명에 흡수하고 silent의 처리 순서는 계약 사례 한곳에서 소유한다. 이름 본문은 필요한 의미만 연결한다. |
 | [로그인 적용 해설](prototypes/development-workflow/walkthrough.md)·Work 현재 안내 | 제작 경위와 최초 입력의 지위 설명이 판단 흐름을 가렸다. | 소비자의 다음 행동, 제품 계약, A/B 선택, 코드·검사의 관계로 읽는다. 새 실행 예제 작성과 같은 현재 코드에서의 표현 비교를 처음부터 구별한다. |

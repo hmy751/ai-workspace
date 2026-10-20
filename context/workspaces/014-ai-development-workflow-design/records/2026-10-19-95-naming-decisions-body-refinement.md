@@ -22,13 +22,13 @@
 
 ### 일반 기준은 판단을 바꾸는 조건을 소유한다
 
-[일반 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion.md#유지설명-보완개명동작-수정을-고른다)에 요구·공개 약속·실제 반환·소비자 행동을 대조하는 설명과 선택 표를 보완했다. 이름 유지, 가까운 설명 보완, 개명, 동작 수정과 요구 충돌 시 확인을 구별한다. 고정 순서나 하나만 고르는 분류가 아니며, 이름을 유지하면서 설명을 보완하는 조합도 가능하다.
+[일반 기준](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md#유지설명-보완개명동작-수정을-고른다)에 요구·공개 약속·실제 반환·소비자 행동을 대조하는 설명과 선택 표를 보완했다. 이름 유지, 가까운 설명 보완, 개명, 동작 수정과 요구 충돌 시 확인을 구별한다. 고정 순서나 하나만 고르는 분류가 아니며, 이름을 유지하면서 설명을 보완하는 조합도 가능하다.
 
 설명이 충분한지는 호출자가 다음 행동을 결정할 수 있는지로 본다. 읽어도 내부 분기를 다시 따라가야 하거나 이름과 설명이 서로 다른 결과를 약속하면 보완이 덜 된 것이다. 이 정확한 판단 질문과 설명 방식은 기존 합의를 이번 본문에 적용한 Main의 구체화다.
 
 ### 상세 사례는 필요한 결과와 선택 이유를 보여 준다
 
-[사례](prototypes/development-workflow/noline-demo/context/personal/development/cases/naming-and-completion.md#유지개명동작-수정이-달라지는-설명용-사례)의 마지막 세 행을 각 상황의 요구·동작·판단·한계로 풀었다.
+[사례](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.cases.md)의 마지막 세 행을 각 상황의 요구·동작·판단·한계로 풀었다.
 
 - **내부 함수:** 요청 접수로 충분한 동작을 두고, 접수와 후속 완료를 이름에서 구별하기 어려운 읽기 부담을 설명했다. 적은 사용처는 변경 비용의 조건이며 개명의 이유 자체가 아니다.
 - **공개 API:** 접수 식별자와 별도 결과 조회라는 설명용 조건을 추가했다. 호출 경계에서 의미를 이미 구별할 수 있다면 유지하거나 누락된 설명만 보완할 수 있다. 공개 여부만으로 유지·전환을 고정하지 않는다.

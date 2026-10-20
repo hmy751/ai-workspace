@@ -87,4 +87,4 @@ function submitLogin(credentials) {
 
 **안내 문구 수정은 이 두 선택과 별개다.** 초기의 “로그인과 화면 갱신 완료”는 확인하지 않은 결과를 약속하므로 두 안 모두 “로그인 완료”로 맞췄다. B만 문구를 고치거나 A만 잘못된 표현을 남겨 개명의 효과를 부풀리지 않았다. 조회 완료를 기다리는 변경도 넣지 않았다. 그 결과가 실제로 필요한 소비자가 생기면 이름 비교와 별도로 동작·완료 계약을 판단한다.
 
-두 코드 블록은 식별자 두 쌍을 대응시키면 주석을 포함해 동일하다. 이는 같은 코드의 표현 대안이라는 정적 비교이며 두 제품 버전의 회귀 검증이 아니다. 실행 예제의 이름과 동작은 이번 비교에서 바꾸지 않았다. 일반 판단은 [이름·완료 기준](../../../../personal/development/naming-and-completion.md), 현재 선택 요약은 [Spec](../current/memory/spec/05-constraints-design-assumptions.md)에서 이어 읽는다.
+두 코드 블록은 식별자 두 쌍을 대응시키면 주석을 포함해 동일하다. 이는 같은 코드의 표현 대안이라는 정적 비교이며 두 제품 버전의 회귀 검증이 아니다. 실행 예제의 이름과 동작은 이번 비교에서 바꾸지 않았다. 일반 판단은 [이름·완료 기준](../../../../personal/development/naming-and-completion/index.md), 현재 선택 요약은 [Spec](../current/memory/spec/05-constraints-design-assumptions.md)에서 이어 읽는다.

@@ -1,6 +1,6 @@
 # 현재 선택한 설계 자료와 산출물
 
-**현재 초점:** 실제 산출물은 이름 기준 옆 형성 맥락·근거와 데모 context의 [관리 원칙](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)이다. 정책에서 viewer 운영 문단을 제거했으며 context 진입점과 열람 화면은 유지했다. [112의 세션 정리](../records/2026-10-20-112-formation-context-session-checkpoint.md)가 현재 반영·검사·미적용 범위를 연결한다. cases는 본문 분할의 선택적 예시이고, 기존 주제의 폴더 재배치는 미실행이다.
+**현재 초점:** 공통 [관리 원칙](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)에 따라 [개발 기준 세 주제](../records/prototypes/development-workflow/noline-demo/context/personal/development/README.md)를 묶고, [이름 기준](../records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/README.md)에 본문·사례와 background의 맥락·기록·근거를 구분했다. [113의 워커 적용과 검증](../records/2026-10-20-113-content-policy-worker-application.md)이 첫 해석, 현재 결과, 누락 수정·후속 정책 보완과 확인 한계를 연결한다. 사례는 기존 분할 본문을 보존한 것이며 필수 파일 규칙이 아니다.
 
 현재 goal은 전체 역할과 가능성을 이해하고 각 부분을 세밀하게 설계하는 것이다. B의 검토자 직접 수정 방향을 선택했으며, 전체 운영 아키텍처의 확정이나 새 스킬·개발 워크플로 구현은 아직 없다. 현재 시안에 대한 [사용자 평가73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md)는 전반적인 만족·최종 수용이 아니며03과 연결해 더 구체화할 필요가 있다는 의견이다. 아래 산출물은 이 유보와 함께 읽는다.
 

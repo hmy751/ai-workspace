@@ -4,8 +4,8 @@
 
 | 고른 입력 | 이번에 필요한 이유 | 읽는 범위 |
 | --- | --- | --- |
-| [개인 개발 공통](../../../../personal/development/README.md) | 기준과 모양이 다르다는 이유만으로 바꾸지 않고 목적·사용처·비용을 먼저 판단한다. | 현재 작업의 조건부 적용 설명 |
-| [개인 이름·책임·완료 상세](../../../../personal/development/naming-and-completion.md) | 표현 정리, 설명 보완, 구현의 보장 부족을 구별한다. | 책임·완료 범위와 대안 비교. 그 안의 Main 새 질문·사례를 확정 기준으로 올리지 않는다. |
+| [개인 개발 공통](../../../../personal/development/index.md) | 기준과 모양이 다르다는 이유만으로 바꾸지 않고 목적·사용처·비용을 먼저 판단한다. | 현재 작업의 조건부 적용 설명 |
+| [개인 이름·책임·완료 상세](../../../../personal/development/naming-and-completion/index.md) | 표현 정리, 설명 보완, 구현의 보장 부족을 구별한다. | 책임·완료 범위와 대안 비교. 그 안의 Main 새 질문·사례를 확정 기준으로 올리지 않는다. |
 | [기기 세션의 제품 의미](../../../../project/common/device-session.md) | 같은 계정의 로컬 작업을 보존하는 이유를 확인한다. | 재인증과 조회 결과의 차이 |
 | [인증·세션 계약](../../../../project/guidance/authentication-and-session.md) | 저장·상태 공개 순서와 실패 후 보존할 결과를 정한다. | 이번 wrapper가 건드리는 완료·후속 실패 경계 |
 | [인증 가독성](../../../../project/guidance/code-readability.md) | 함수·callback·안내를 소비자가 필요로 하는 결과와 대조한다. | 이름을 고정 답으로 삼지 않는 적용 기준 |

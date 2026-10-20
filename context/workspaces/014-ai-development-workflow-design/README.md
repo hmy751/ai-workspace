@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**현재 초점:** 이름 기준의 형성 맥락 시범 적용과 데모 공통 [관리 원칙](records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)을 마련하고, 정책에서 viewer 운영 설명을 제거했다. 대화·작업·확인·남은 범위는 [112의 세션 정리](records/2026-10-20-112-formation-context-session-checkpoint.md)에서 이어 읽는다. cases는 선택적인 본문 분할 예시이며, 주제 폴더·background로의 재배치와 데모 전체 적용은 아직 하지 않았다.
+**현재 초점:** 공통 [관리 원칙](records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)과 현재 데모만 받은 워커가 Personal 세 주제를 묶고 이름 기준의 background를 구성했다. 새 독자의 적용·변경 판단과 독립 대조를 수행했으며, 공통 본문 이동 때 남은 링크 한 건을 수정했다. 사용자는 큰 구성과 새 독자의 읽기를 긍정했고, 이 사례를 근거로 링크의 읽기 목적을 보존하도록 정책도 보완했다. [113의 적용과 검증](records/2026-10-20-113-content-policy-worker-application.md)에서 첫 해석·실제 변경·확인 한계를 읽는다. Project·Work 전체 재배치, 실제 Noline 적용과 장기 유지 효과 검증은 아니다.
 
 Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용자 인터뷰, 개발 에이전트 관련 강연을 바탕으로 **ai-workspace와 실제 개발 방식을 어떻게 발전시킬지 함께 설계하는 작업**이다. 지금은 범위를 충분히 이해하고 각 부분을 세밀하게 구체화하는 단계다. 개발 워크플로, 기록 방식, 역할 배치를 확정하거나 구현하는 단계로 넘어간 것은 아니다.
 

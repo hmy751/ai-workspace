@@ -10,7 +10,7 @@ Main은 맡은 작업의 목표·보존할 동작·미정인 선택을 파악하
 
 | 필요한 입력 | Main이 고르는 경로와 가져올 내용 |
 | --- | --- |
-| 개인의 개발 판단 | 대상 프로젝트의 [context 입구](../README.md)에서 [Personal 입구](../personal/README.md)를 찾고 [짧은 개발 공통](../personal/development/README.md)에서 관련 주제를 고른다. 공통 범위·부품 교체·관련 구조 개선이면 [공통 제공과 사용처 선택](../personal/development/shared-boundaries.md), 오류 의미·타이머·지원 범위면 [계약과 수명](../personal/development/contracts-and-lifetime.md), 이름·완료 표현이면 [이름 기준](../personal/development/naming-and-completion.md)을 읽는다. 일반 기준으로 판단 차이가 불분명할 때 해당 절의 상세 사례를 고른다. 주제가 늘었다고 모든 본문을 붙이지 않는다. |
+| 개인의 개발 판단 | 대상 프로젝트의 [context 입구](../README.md)에서 [Personal 입구](../personal/README.md)를 찾고 [개발 판단 안내](../personal/development/README.md)에서 관련 주제를 고른다. 공통 판단이 필요하면 [공통 관점](../personal/development/index.md)을 읽는다. 공통 범위·부품 교체·관련 구조 개선이면 [공통 제공과 사용처 선택](../personal/development/shared-boundaries/index.md), 오류 의미·타이머·지원 범위면 [계약과 수명](../personal/development/contracts-and-lifetime/index.md), 이름·완료 표현이면 [이름 기준](../personal/development/naming-and-completion/index.md)을 읽는다. 일반 기준으로 판단 차이가 불분명할 때 해당 절의 상세 사례를 고른다. 주제가 늘었다고 모든 본문을 붙이지 않는다. |
 | 대상 Project의 의미와 계약 | 대상의 [진입 지침](../../AGENTS.md)과 [Project 안내](../project/README.md)에서 현재 질문에 필요한 제품·개발 계약을 고른다. 인증의 이름이라면 인증 계약과 표현 가이드를 읽고 해당 코드·호출부를 대조한다. 개인 기준이 없어도 이 경로에서 Project의 약속을 이해할 수 있어야 한다. |
 | 이번 Work의 요구·상태·결과 | Work의 current/memory에서 Spec·Ticket과 선택한 맥락을, current/state에서 전체 상황·다음 행동을 읽는다. 이어 하는 작업이면 필요한 구현·검토 기록을 고른다. 과거 선택이 현재 요구인지 이력인지 구별한다. |
 
@@ -57,7 +57,7 @@ Main은 무엇이 이번 요구이고 무엇이 제품 계약인지, 어떤 개�
 
 | 결과의 성격 | 갱신할 곳과 판단 |
 | --- | --- |
-| 여러 Project에서도 쓸 개인 판단의 의미·조건이 바뀜 | Personal의 기준 본문과 그 주제의 [갱신 안내](../personal/README.md#기준을-고치는-경우)를 확인하고, Main이 사용 중인 Work의 선택에 미치는 영향을 판단한다. 이름 기준에는 본문 옆 형성 맥락과 근거가 연결돼 있다. 개인 기준의 변경만으로 Project 가이드를 함께 고치지는 않는다. |
+| 여러 Project에서도 쓸 개인 판단의 의미·조건이 바뀜 | Personal의 기준 본문과 그 주제의 [갱신 안내](../personal/README.md#기준을-고치는-경우)를 확인하고, Main이 사용 중인 Work의 선택에 미치는 영향을 판단한다. 이름 기준의 [형성 자료 안내](../personal/development/naming-and-completion/background/README.md)에서 관련 맥락·기록·근거를 고른다. 개인 기준의 변경만으로 Project 가이드를 함께 고치지는 않는다. |
 | 대상 제품의 의미·약속·지속할 개발 규약이 바뀜 | 해당 Project의 권한 있는 선택과 적용 범위에 따라 common 또는 guidance를 맞춘다. 이번에 사용한 개인 기준을 Project 전체 규약으로 삼는 것은 별도의 판단이다. |
 | 현재 함수·사용처·지원 연결이 바뀜 | 변경 담당자가 확인한 범위와 함께 Project current를 맞추고 Main이 작업 인계에서 확인한다. 과거 상태는 이번 Work의 입력·기록에 남긴다. |
 | 이번 선택·대안·수정·검사·미충족 | Work의 records에 경위를 남기고 Spec·Ticket·state·output 중 의미가 바뀐 곳을 맞춘다. 기준이나 제품 계약의 정본으로 중복 관리하지 않는다. |

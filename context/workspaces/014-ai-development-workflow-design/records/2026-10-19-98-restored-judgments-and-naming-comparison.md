@@ -12,9 +12,9 @@
 
 | 반영한 내용 | 현재 위치 | 구성 이유 |
 | --- | --- | --- |
-| 공통 형식·편의와 사용처 선택, 부품 교체의 값·이벤트·ref·오류 계약, 기존 도구의 책임 | [공통 제공·사용처 선택](prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries.md) | 책임이 같다는 말만으로는 실제 부품 교체·옵션 추가를 판단하기 어려웠다. 어떤 변경을 사용처에서 표현할 수 있는지 직접 대입하게 했다. |
-| 같은 API와 같은 업무 흐름, 이번 수정과 직접 관련된 구조 개선 | 같은 일반 기준과 [Field·Container·주문·관련 개선 사례](prototypes/development-workflow/noline-demo/context/personal/development/cases/shared-boundaries.md) | 공통화 경계와 수정 범위를 같은 업무 변화에서 함께 판단한다. 유지·과잉 변경 방지뿐 아니라 실제로 함께 개선하는 긍정 사례도 복원했다. |
-| 오류 형태·의미와 숨은 순서, 상태·타이머·자원 수명, 지원 범위 안 정확성 | [계약·수명 기준](prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime.md)과 [상세 사례](prototypes/development-workflow/noline-demo/context/personal/development/cases/contracts-and-lifetime.md) | 호출 모양이 같아도 오류 뜻이나 시간 시작점이 달라질 수 있다. 이름·완료 본문에 모두 넣지 않고 실패·종료·지원 경계를 소유할 본문을 분리했다. |
+| 공통 형식·편의와 사용처 선택, 부품 교체의 값·이벤트·ref·오류 계약, 기존 도구의 책임 | [공통 제공·사용처 선택](prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/index.md) | 책임이 같다는 말만으로는 실제 부품 교체·옵션 추가를 판단하기 어려웠다. 어떤 변경을 사용처에서 표현할 수 있는지 직접 대입하게 했다. |
+| 같은 API와 같은 업무 흐름, 이번 수정과 직접 관련된 구조 개선 | 같은 일반 기준과 [Field·Container·주문·관련 개선 사례](prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/index.cases.md) | 공통화 경계와 수정 범위를 같은 업무 변화에서 함께 판단한다. 유지·과잉 변경 방지뿐 아니라 실제로 함께 개선하는 긍정 사례도 복원했다. |
+| 오류 형태·의미와 숨은 순서, 상태·타이머·자원 수명, 지원 범위 안 정확성 | [계약·수명 기준](prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/index.md)과 [상세 사례](prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/index.cases.md) | 호출 모양이 같아도 오류 뜻이나 시간 시작점이 달라질 수 있다. 이름·완료 본문에 모두 넣지 않고 실패·종료·지원 경계를 소유할 본문을 분리했다. |
 | 같은 동작의 이름 유지와 개명 | [Work의 두 코드 비교](prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md) | ‘헷갈린다/이미 이해한다’를 가정한 다른 상황의 비교에서 나아가, 같은 코드에서 이름과 설명이 각각 제공하는 정보를 비교한다. 이 작업의 특정 이름은 Work에 남긴다. |
 | 필요한 본문 선택과 남은 내용 | [Personal 개발 입구](prototypes/development-workflow/noline-demo/context/personal/development/README.md), Personal 안내, Work DEVELOPMENT | 이미 논의한 내용이 ‘나중에 생길 새 주제’처럼 사라지지 않게 실제 본문으로 연결했다. 새 주제가 생겼다고 모든 작업에 전부 읽도록 요구하지 않는다. |
 

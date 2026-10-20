@@ -26,7 +26,7 @@
 
 | 구분 | 현재 상태 |
 | --- | --- |
-| 이름 기준의 형성 자료 | [본문](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion.md) 옆에 `.context.md`·`.evidence.md`를 추가했고 기존 사례·진입점·Work의 읽기 경로를 연결했다.107의 기존 시범 배치다. |
+| 이름 기준의 형성 자료 | [본문](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md) 옆에 `.context.md`·`.evidence.md`를 추가했고 기존 사례·진입점·Work의 읽기 경로를 연결했다.107의 기존 시범 배치다. |
 | 변경 유지 실험 | 네 독립 복사본에서 의미 변경·표현만 수정·충돌 관찰·심은 의미 모순을 다뤘다. 결과와 diff를107 및 receipts에 보존했다. 실험용 기준·관찰은 현재 본문에 반영하지 않았다. |
 | 공통 관리 원칙 | context 바로 아래 대문자 `CONTENT-POLICY.md`를 작성하고 context README에서 연결했다.111의 작성 이후 이번에 viewer 문단을 제거했다. |
 | 주제 묶음으로의 전환 | 이름 기준을 `naming-and-completion/index.md`와 연결 본문·background로 옮기는 작업은 아직 하지 않았다. 원칙 작성과 전체 적용을 구별한다. |

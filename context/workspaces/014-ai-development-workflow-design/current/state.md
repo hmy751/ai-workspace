@@ -1,6 +1,10 @@
 # 현재 상태
 
-2026-10-20 읽기 안내 보완과 정정: 사용자 요청으로 [CONTENT-POLICY.md](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md#두-층의-입구에서-역할을-먼저-설명하고-읽을-조건을-안내한다)에 background의 형성 자료 보존 역할을 먼저 설명한 뒤 읽을 조건을 안내하도록 반영했다. 사용자가 주제 아래 README도 두려던 뜻을 재확인하여, Main이 안내를 `index.md`로 대체했던 부분을 바로잡았다. 주제의 `README.md`는 묶음의 구성·두 층의 역할과 읽기 경로를, `background/README.md`는 형성 자료의 역할과 질문별 자료 선택을 안내한다. `index.md`는 시작 본문이다. 구성 예시와 안내 갱신·확인 기준도 맞췄다. 이번에는 공통 정책을 보완했으며 실제 주제 폴더 전환이나 두 README 작성은 하지 않았다.
+2026-10-20 적용 후 정책 보완: 사용자는 큰 구성과 새 독자의 선택적 읽기를 긍정하고, 본문을 옮긴 뒤 안내 README로 남은 링크를 수정한 판단에 동의했다. [CONTENT-POLICY.md](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)의 기존 구성·읽기·갱신·완료 확인을 보완했다. 상위 README는 공통 본문을 함께 담을 수 있고, 분리했다면 링크의 읽기 목적과 실제 내용이 이어지도록 갱신한다. 경로가 남은 채 역할만 바뀌는 경우도 참조 문장에서 출발해 확인한다. [113의 후속 보완](../records/2026-10-20-113-content-policy-worker-application.md#후속-정책-보완-링크가-맡은-읽기-목적을-보존한다)에 사례·범위와 대조를 남겼다. 현재 문서 배치를 다시 바꾸거나 제품 코드를 수정한 것은 아니다. 사용자 요청으로 이번 적용·검증·정책 보완과 기록을 한 변경 묶음으로 보존한다.
+
+2026-10-20 정책의 실제 적용: 앞선 대화를 받지 않은 워커가 공통 정책과 데모에서 Personal 세 주제를 README·index·분할 사례로 묶고, 이름 주제의 형성 자료를 background의 안내·현재 맥락·기록 세 편·근거로 구성했다. 공통 판단은 development/index.md로 보존했다. 새 독자는 현재 적용에 본문·사례만 읽고, 의미 변경 제안에는 관련 형성 자료와 정책을 추가로 읽어 판단했다. 독립 대조에서 찾은 공통 본문 링크 누락 한 건은 워커가 수정했고 Main이 대상 내용을 확인했다. [113](../records/2026-10-20-113-content-policy-worker-application.md)에 전달한 범위·첫 해석·수정·검증과 한계를 남겼다. 첫 워커 실행에서는 정책·제품 코드·Work 원자료를 변경하지 않았다. 표시 화면은 문서64개·코드5개로 갱신했고 경로·원문 검사를 통과했다.
+
+2026-10-20 앞선 읽기 안내 보완과 정정: 사용자 요청으로 [CONTENT-POLICY.md](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md#두-층의-입구에서-역할을-먼저-설명하고-읽을-조건을-안내한다)에 background의 형성 자료 보존 역할을 먼저 설명한 뒤 읽을 조건을 안내하도록 반영했다. 사용자가 주제 아래 README도 두려던 뜻을 재확인하여, Main이 안내를 `index.md`로 대체했던 부분을 바로잡았다. 주제의 `README.md`는 묶음의 구성·두 층의 역할과 읽기 경로를, `background/README.md`는 형성 자료의 역할과 질문별 자료 선택을 안내한다. `index.md`는 시작 본문이다. 구성 예시와 안내 갱신·확인 기준도 맞췄다. 이번에는 공통 정책을 보완했으며 실제 주제 폴더 전환이나 두 README 작성은 하지 않았다.
 
 2026-10-20 세션 정리: 사용자 요청으로 [CONTENT-POLICY.md](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)의 viewer 관련 마지막 문단을 제거했다. 본문·맥락·근거의 의미를 대조하는 원칙은 유지하고 특정 표시 도구의 운영과 구별했다. [112](../records/2026-10-20-112-formation-context-session-checkpoint.md)에104 이후의 대화·작업·검사·커밋 범위와 다음 재개 지점을 정리했다. 실제 산출물은 기존 배치의 이름 기준 맥락·근거와 공통 관리 원칙이다. cases는 본문에서 나눈 문서의 선택적 예시이며, 주제 폴더·background 전환과 데모 전체 적용은 아직 하지 않았다. 열람 화면의 문서56개·코드5개 원문 및 링크 검사를 통과했다.
 
@@ -54,7 +58,7 @@
 
 ## 다음에 이어갈 일
 
-**지금의 판단:** 먼저 [관리 원칙](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)을 읽는다. 본문에서 나눈 상세·절차·사례는 같은 사용 층에 두며 cases를 필수로 만들지 않는다. 현재 완료 범위는 이름 기준의 시범 형성 자료, 공통 원칙 문서·진입 연결·열람 화면 갱신과112의 세션 정리다. 원칙에서 viewer 운영 설명은 제거했다. 이후 적용을 요청받으면 이름 기준의 주제 묶음과 background를 구성하고 연결된 진입점·화면을 함께 다룬다. 현재 적용에 필요한 이유·조건은 본문에 남기고 형성 의도·선택·최소 근거는 가까이 보존한다. 공통 원칙을 Personal에만 한정하거나 모든 주제에 같은 파일 수를 의무화하지 않는다. 전체 구성 논의는110, 이전 변경 실험은107이며 어느 쪽도 이번 원칙의 장기 효과 검증은 아니다.
+**지금의 판단:** [관리 원칙](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)과 실제 [주제 안내](../records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/README.md)를 함께 볼 수 있다. 이번 작업에서 기존 Personal 세 주제와 이름 background의 구성을 적용했고 검증 중 발견한 링크도 맞췄다. 첫 실행 결과와 남은 적용 범위 판단은 [113](../records/2026-10-20-113-content-policy-worker-application.md)에서 이어간다. 정책의 핵심 층위가 전달됐다는 관찰을 모든 단일 Project 문서의 일괄 전환이나 반복·장기 유지 보장으로 확대하지 않는다. 다른 두 주제의 실제 형성 자료 보강과 Project·Work의 주제 적용은 필요한 본문과 근거가 있을 때 별도로 판단한다. 기존 workflow·skill 후속 범위와 Ticket 미완료는 유지한다.
 
 **후속 워크플로 범위:** Development의 구체화는 워크플로·관련 스킬을 다룰 후속 작업에서 한다. 이번 본문·관리 정리를 곧바로 스킬 구현이나 재실험으로 확대하지 않는다. [103](../records/2026-10-19-103-prototype-session-checkpoint.md)에 사용자의 질문·설명·후속 선택을 보존했다. 이전93의 연결된 논의를 함께 본다는 방향은 유지하되, 지금 모든 관련 Ticket을 연속 완결하는 순서로 적용하지 않는다.
 

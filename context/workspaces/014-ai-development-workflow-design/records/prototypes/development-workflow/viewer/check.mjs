@@ -128,14 +128,25 @@ for (const doc of data.documents.filter(entry => entry.kind === 'markdown')) {
 }
 assert.deepEqual(problems, []);
 
-// 이름 기준의 시범 묶음에서 발견 경로와 왕복 연결을 확인한다. 의미 일치는 판정하지 않는다.
+// 이름 기준의 본문·형성 자료 입구와 왕복 연결을 확인한다. 의미 일치는 판정하지 않는다.
 const personalRoot = 'noline-demo/context/personal/';
-const namingBody = personalRoot + 'development/naming-and-completion.md';
-const namingContext = personalRoot + 'development/naming-and-completion.context.md';
-const namingEvidence = personalRoot + 'development/naming-and-completion.evidence.md';
+const namingRoot = personalRoot + 'development/naming-and-completion/';
+const namingEntry = namingRoot + 'README.md';
+const namingBody = namingRoot + 'index.md';
+const namingCases = namingRoot + 'index.cases.md';
+const namingBackground = namingRoot + 'background/README.md';
+const namingContext = namingRoot + 'background/context.md';
+const namingEvidence = namingRoot + 'background/evidence.md';
 const requiredContextLinks = [
-  [personalRoot + 'README.md', namingContext],
-  [namingBody, namingContext],
+  [personalRoot + 'README.md', namingBackground],
+  [namingEntry, namingBody],
+  [namingEntry, namingCases],
+  [namingEntry, namingBackground],
+  [namingBody, namingCases],
+  [namingBody, namingBackground],
+  [namingCases, namingBody],
+  [namingBackground, namingContext],
+  [namingBackground, namingEvidence],
   [namingContext, namingBody],
   [namingContext, namingEvidence],
   [namingEvidence, namingContext],

@@ -12,10 +12,10 @@
 
 | 파일 | 맡는 내용 |
 | --- | --- |
-| [naming-and-completion.md](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion.md) | 현재 사용할 판단. 기준의 의미는 바꾸지 않고 맥락·근거·갱신 안내로 읽는 경로를 추가했다. |
-| [naming-and-completion.context.md](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion.context.md) | 만들려던 결과, 현재 방향을 만든 판단과 필요한 과정, 반영·유보, 읽기·갱신 조건. |
-| [naming-and-completion.evidence.md](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion.evidence.md) | 판단을 뒷받침하는 당시 발화·기록의 발췌. 사용자 원문, Main 설명, 기록의 정리, 이번 해설을 구별한다. |
-| 기존 [cases/naming-and-completion.md](prototypes/development-workflow/noline-demo/context/personal/development/cases/naming-and-completion.md) | 코드·사용 조건·대안의 차이를 설명하는 사례. 형성 이력을 담는 문서로 바꾸지 않았다. |
+| [naming-and-completion.md](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.md) | 현재 사용할 판단. 기준의 의미는 바꾸지 않고 맥락·근거·갱신 안내로 읽는 경로를 추가했다. |
+| [naming-and-completion.context.md](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/background/context.md) | 만들려던 결과, 현재 방향을 만든 판단과 필요한 과정, 반영·유보, 읽기·갱신 조건. |
+| [naming-and-completion.evidence.md](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/background/evidence.md) | 판단을 뒷받침하는 당시 발화·기록의 발췌. 사용자 원문, Main 설명, 기록의 정리, 이번 해설을 구별한다. |
+| 기존 [cases/naming-and-completion.md](prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/index.cases.md) | 코드·사용 조건·대안의 차이를 설명하는 사례. 형성 이력을 담는 문서로 바꾸지 않았다. |
 
 형성 맥락에는 구현 품질을 높이려는 출발점, 설명으로 사용 가능함과 코드 자체의 명료함을 구별한 과정, 내부 사용처의 변경 가능성은 비용 조건이라는 판단, 채택 뒤에도 조건별로 적용한다는 뜻, Personal·Project의 관리 책임을 담았다. 합의 문구를 모으거나 본문의 조항을 다시 요약하는 방식으로 구성하지 않았다.
 

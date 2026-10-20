@@ -14,7 +14,7 @@
 
 | 필요한 판단 | 사용하는 본문 | 이번 작업에 가져오는 내용 |
 | --- | --- | --- |
-| 표현과 동작 중 무엇을 고칠지 | [Personal 이름·완료 기준](noline-demo/context/personal/development/naming-and-completion.md) | 소비자가 필요한 결과와 실제 보장을 대조한다. 가능한 한 코드 자체에서 의미를 읽을 수 있게 하고, 설명·개명·구성·동작 수정 중 필요한 조치를 고른다. |
+| 표현과 동작 중 무엇을 고칠지 | [Personal 이름·완료 기준](noline-demo/context/personal/development/naming-and-completion/index.md) | 소비자가 필요한 결과와 실제 보장을 대조한다. 가능한 한 코드 자체에서 의미를 읽을 수 있게 하고, 설명·개명·구성·동작 수정 중 필요한 조치를 고른다. |
 | 인증 완료가 보장하는 상태 | [Project 인증 계약](noline-demo/context/project/guidance/authentication-and-session.md) | 기기 저장과 상태 적용은 완료한다. 후속 조회의 실패는 인증 저장 실패와 구별한다. |
 | 이 제품에서 피해야 할 완료 표현 | [Project 가독성 가이드](noline-demo/context/project/guidance/code-readability.md) | 인증 적용·조회 요청·조회 결과·화면 준비를 섞지 않는다. |
 | 이번 구현의 범위 | [Work Ticket](noline-demo/context/work/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md) | 인증 적용 뒤 조회를 요청하고 기다리지 않는 완료 경계를 새 실행 예제로 구현한다. 두 소비자의 이동·닫기를 유지하며 이름과 완료 표현을 비교한다. |
