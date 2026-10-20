@@ -2,6 +2,8 @@
 
 상태: **분해 정리 완료 · 설계 작업 미착수**. 보존 자료가 준비된 것과 이 Ticket의 기록 운영안을 만든 것은 다르다. 전체 기준은 [Spec](../spec.md)에 있다.
 
+2026-10-20 후속 입력: [03 마감119](../../records/2026-10-20-119-ticket03-closeout.md)에서 본문과 형성 자료의 관리 결과를 이어받되, **Work는 기존 형태와 제약을 유지한다.** 새 background·Spec/Ticket 본문 재배치는 [116](../../records/2026-10-20-116-defer-work-content-policy.md)에서 복구했다. 이 Ticket에서 기존 current·source·output·records와 형성 맥락의 관계를 논의할 때 복구 이유를 먼저 읽으며,03의 정책을 자동 적용하지 않는다. 이 입력을 남긴 것이02의 기록 운영안 완료나 착수는 아니다.
+
 ## 맡은 결과와 범위
 
 2026-10-18 시안 연결: 현재 요약과 과정 보존의 경계를 선택할 때 [보완66](../../records/2026-10-18-66-principles-cases-and-refinement-prototype.md)과 [구체 장면](../../records/prototypes/applied-criteria-2026-10-17/refinement-walkthrough.md)을 읽는다. Field 의도 정정·외부 비교의 보류 이유·62에서63으로 바뀐 목적이 실제로 어느 재판단에 쓰이는지 본다. 남길 기록의 양보다 선택에 필요한 근거를 복원할 수 있는지 판단한다.

@@ -1,6 +1,6 @@
 # 논의와 보존 기록
 
-**현재 초점:** [118](2026-10-20-118-system-guidance-definition-and-entry.md)은 ‘체계 지침’ 명칭의 선택과 독립 본문 작성, 진입·분할의 구별과 현재 범위를 남긴다. 앞선 [117](2026-10-20-117-content-policy-application-checkpoint.md)은 정책 재적용과 후속 정정의 마무리이며, [116](2026-10-20-116-defer-work-content-policy.md)의 Work 복구와 기존 구성 유지가 이어진다. 114·115의 구성·검토는 각 단계의 관찰로 읽는다.
+**현재 초점:** [119](2026-10-20-119-ticket03-closeout.md)에03의 완료 조건 대조·후속 책임·current 마무리를 남겼다. 체계 지침의 독립 본문과 형성 근거는 [118](2026-10-20-118-system-guidance-definition-and-entry.md), 정책 적용·정정은 [117](2026-10-20-117-content-policy-application-checkpoint.md), Work의 현재 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에 있다. 과거 기록의 당시 미완료·다음 행동과 현재119의 종료 판단을 구별한다.
 
 이 폴더는 이번 설계 작업의 분석·비교·제안·정정·검증 등 보존할 과정을 소유한다. current의 실행 재개에 곧바로 필요하지 않아도 보존 목적이 있으면 남길 수 있다. 과거 기록에 적힌 당시 제안은 현재 채택을 뜻하지 않는다.
 
@@ -207,3 +207,5 @@
 - [43 Toast 비교](2026-10-15-43-rea-toast-context-comparison.md): 작은 소스에서 직접 분석·REA 조회·제한된 실행 검사를 대조한 당시 기록.
 - [44 무한 스크롤 비교](2026-10-15-44-rea-infinite-scroll-context-comparison.md): 전체 src에서 관련 파일 탐색과 동작 해석·검사의 기여를 구별한 당시 기록.
 - [실험 자료 안내](experiments/README.md): 입력 사본·고정 초안·컨텍스트 예시·재현 코드의 성격과 읽는 경로.
+
+- [119 Ticket03 완료 조건 대조와 마무리](2026-10-20-119-ticket03-closeout.md): 구성안·대표 본문·읽기와 갱신 책임의 완료 근거, 후속 Ticket에 남긴 범위와 current·output 정리.

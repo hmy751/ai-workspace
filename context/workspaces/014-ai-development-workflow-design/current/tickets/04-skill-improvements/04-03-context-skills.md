@@ -2,9 +2,11 @@
 
 상위 과제: [04 기존 스킬 보완](README.md)
 
-2026-10-19 후속 입력: [103](../../../records/2026-10-19-103-prototype-session-checkpoint.md)에서 사용자는 Development의 최종 위치·역할과 스킬 관계를 워크플로 관련 작업 때 더 구체화하기로 했다.01-01과 함께 스킬 본문 통합 또는 별도 절차 문서 연결을 비교하되 현재 안을 확정하지 않는다. [102](../../../records/2026-10-19-102-personal-project-update-ownership.md)의 Personal·Work·Project별 갱신 기본값과 필요한 설명 중복 허용을 실제 스킬 행동에 연결한다. 이번 세션은 기록·커밋이며 스킬 수정·설치는 하지 않는다.
+2026-10-20 후속 입력: [03](../03-project-context.md)의 본문·사례·형성 자료와 읽기·갱신 책임 구체화를 완료 결과로 이어받는다. 현재 CONTENT-POLICY와 SYSTEM-GUIDANCE의 구별, 일반 적용과 의미 수정 시 선택적으로 읽는 자료를 실제 기존 스킬의 조건·입력·행동과 대조한다.01-01과 DEVELOPMENT의 최종 위치·Owner를 판단하며 Work의 새 background 적용은 보류한다. [마감119](../../../records/2026-10-20-119-ticket03-closeout.md)는 결과 연결이며 스킬 수정·설치·호출 효과의 완료가 아니다.
 
-상태: **Project 읽기·갱신 스킬 첫 대조와 workflow 시안 수정 완료 · 실제 스킬 보완은 미완료**.76에서 기존 read/update 스킬과 읽기·관리 기준을 비교했고82·83에 본문·적용 장면을 만들었다. 최신 [정정84](../../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)는 Project가 개인 문서를 관리하는 직접 연결을 대체한다. 현재는 [88](../../../records/2026-10-19-88-living-applied-prototype.md)의 [단일 프로토타입 workflow](../../../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)에서 입력 선택·충돌 판단·구현/검토 인계·결과별 갱신을 구체화하며 실제 스킬 수정·호출 효과·Workspace 생성 대조는 미완료다. 전체 기준은 [Spec](../../spec.md)에 있다.
+2026-10-19 당시 후속 입력: [103](../../../records/2026-10-19-103-prototype-session-checkpoint.md)에서 사용자는 Development의 최종 위치·역할과 스킬 관계를 워크플로 관련 작업 때 더 구체화하기로 했다.01-01과 함께 스킬 본문 통합 또는 별도 절차 문서 연결을 비교하되 현재 안을 확정하지 않는다. [102](../../../records/2026-10-19-102-personal-project-update-ownership.md)의 Personal·Work·Project별 갱신 기본값과 필요한 설명 중복 허용을 실제 스킬 행동에 연결한다. 이번 세션은 기록·커밋이며 스킬 수정·설치는 하지 않는다.
+
+상태: **Project 읽기·갱신 스킬 첫 대조와 workflow 시안 수정 완료 · 실제 스킬 보완은 미완료**.76에서 기존 read/update 스킬과 읽기·관리 기준을 비교했고82·83에 본문·적용 장면을 만들었다. 앞선 [책임 정정84](../../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)는 Project가 개인 문서를 관리하는 직접 연결을 대체한다. 현재는 [88](../../../records/2026-10-19-88-living-applied-prototype.md)의 [단일 프로토타입 workflow](../../../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)에서 입력 선택·충돌 판단·구현/검토 인계·결과별 갱신을 구체화하며 실제 스킬 수정·호출 효과·Workspace 생성 대조는 미완료다. 전체 기준은 [Spec](../../spec.md)에 있다.
 
 [중간 정리90](../../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md): 사용자는 DEVELOPMENT.md의 현재 위치를 미완성의 예로 짚었다. 이 파일이 Work의 확정 운영 계약이라는 전제 없이 위치·이름·소유 책임, 기존 read/update/작업 스킬과의 행동 분담을 구체화한다. 이번 커밋·정리는 대체 위치 선택이나 실제 skill 설치가 아니다.
 

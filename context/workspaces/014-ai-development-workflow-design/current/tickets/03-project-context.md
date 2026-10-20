@@ -1,73 +1,53 @@
 # 03 — 개발과 판단에 쓰이는 Project context를 구체화한다
 
-2026-10-19 최신 반영: [102](../../records/2026-10-19-102-personal-project-update-ownership.md)에서 개인 기준 변경과 Project의 지속 규약·계약 갱신을 구별하는 기본값을 기존 관리 문서에 반영했다. Project 인증 가이드는 제품 의미를 유지하면서 일반 개인 기준·이번 A/B 비교 방법을 덜어냈다. [100](../../records/2026-10-19-100-role-based-prototype-revision.md)의 역할별 본문과 대상물 내부에서 이해하는 경로는 유지한다. 전체 수용·Ticket 완료·실제 운영 연결은 별도다.
+상태: **완료 — 구성·대표 본문·읽기와 갱신 책임을 검토 가능한 프로토타입으로 구체화했다.** 2026-10-20 사용자 요청으로 현재 결과를 아래 완료 조건과 대조하고 마무리했다. [종료 판단119](../../records/2026-10-20-119-ticket03-closeout.md)에 근거와 후속 책임을 남겼다. 실제 운영 설치·장기 효과와 후속 워크플로·스킬 설계는 각 담당 Ticket에서 이어간다.
 
-상태: **실제 Noline 대조 뒤 로컬 context 구조·본문 정정 · 최종 운영 구성은 미완료**. 현재 산출물은 [Noline demo context](../../records/prototypes/development-workflow/noline-demo/context/README.md)다. [정정89](../../records/2026-10-19-89-local-context-structure-correction.md)에 따라 personal·project·work를 같은 context 아래에 두고, Project의 관리·읽기·layer 책임과 Work의 memory·state·source·output·records를 실제 내용으로 구성했다.88의 단일 prototype은 그대로 계속 발전시킨다.84의 독립 내용 책임,01의 조건별 적용·형식 선택과 전체 수용 유보를 유지한다. 실제 Noline과 운영 기준 설치는 수행하지 않았다. 전체 기준은 [Spec](../spec.md)에 있다.
-
-[중간 정리90](../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md): 사용자는 현재 구조를 최종 채택하지 않았으며 DEVELOPMENT.md 위치를 포함해 전반적인 추가 구체화가 남았다고 밝혔다. 본문 책임과 읽기·갱신 동작을04-03과 함께 대조하며 같은 prototype을 계속 수정한다.
-
-[합의 대조와 반영92](../../records/2026-10-19-92-principles-cases-and-agreement-reconciliation.md): 원칙·상세 사례를 별도 파일로 분리하고 사례·근거를 보존하라는 사용자 선택을 같은 prototype에 반영했다. Personal의 일반 판단과 상세 상황, Project의 판단 조건과 선택 후 구현, Work의 현재 이유·역사 기록을 구별했다. 본문 충분성과 전체 수용은 남아 있다.
-
-[앞선 평가와 마무리96](../../records/2026-10-19-96-body-quality-reservation-and-session-close.md): 사용자는95의 본문 보완 뒤에도 아직 부족하다고 평가했고 당시에는 구체 원인을 지정하지 않았다. 이후97에서 이전 내용과 품질을 대조하고98에서 사용자 요청으로 빠진 판단과 같은 코드 비교를 반영했다. 전체 본문의 충분성과 최종 수용은 계속 검토한다.
+현재 산출물은 [development-workflow](../../records/prototypes/development-workflow/README.md)이며, [Noline demo context](../../records/prototypes/development-workflow/noline-demo/context/README.md)에 Personal·Project·Work의 실제 본문·사례·작업 장면을 구성했다. 전체 목표와 기준은 [Spec](../spec.md)이 소유한다.03 완료가 Workspace 전체나01-02·04-03·06의 완료를 뜻하지 않는다.
 
 ## 맡은 결과와 범위
 
-2026-10-18 사용자 요청: 제품 정책·코드 가이던스 등을 함께 읽어야 한다는 이유로 본문을 모호하게 합치지 않는다. 내용의 역할을 분류할 수 있게 유지하고, 읽기 연결과 본문 통합의 필요를 별도로 판단한다. 기존 폴더나 종류별 파일 하나를 고정하는 요구로 확대하지 않는다. 전체 지도와 실제 항목 비교는77~80에서 수행했다. 다음 본문 구성에서도 이 구별을 유지하며76의 API 사례를 확정된 첫 주제로 읽지 않는다. 원문과 첫 비교는 [77](../../records/2026-10-18-77-existing-project-content-map.md)에 있다.
-
-2026-10-18 현재 입력: 사용자가 선택한 짧은 공통·이름과 가독성의 독립 절을 [시안72](../../records/2026-10-18-72-short-common-and-detail-prototype.md)에 반영했다. quality의 두 공통 문단·네 상세 절, Project 한곳의 읽기 안내와 [주문 문서 장면](../../records/prototypes/applied-criteria-2026-10-17/order-walkthrough.md)이01-02에서 넘겨받은 실물이다.70·71은 선택 이유,68은 이전 보완으로 읽는다. 형식 방향의 선택을 처음부터 다시 묻지 않고 실제 Project·기존 스킬 조건에 대입한다. 최종 운영 배치와 실제 읽기 효과는 아직 확정하지 않았다. [사용자 평가73](../../records/2026-10-18-73-prototype-reservations-and-ticket03.md)도 함께 읽는다. 사용자는 현재 시안 전체가 아주 마음에 드는 것은 아니며 더 구체화하려면03과 연결된다고 말했다. 특정 불만 원인은 미지정이다. 이 Ticket에서는 현재 안을 만족·완료된 입력으로 전제하지 않고 실제 Project의 구성·본문·읽기 조건과 이번 과정·이유를 함께 보고 구체화한다.
-
-[후속 재판단 장면](../../records/prototypes/applied-criteria-2026-10-17/refinement-walkthrough.md)의 여섯 접점을 이 Ticket에서 이어 본다. 공통이 필요한 관점을 충분히 환기하는지, 이름·가독성에 독립 판단이 남는지, 상세의 분량·배치와 사례의 위치가 읽기·관리 비용에 맞는지, 제품 값과 Work 요구가 섞이지 않는지, 읽기와 갱신 책임이 실제 기존 구조에 연결되는지다. 선택 이유와 조건을 함께 복원해 유지·통합·분리·설명량 변경을 판단하고 현재 기준·읽기 안내·수신 Ticket에 돌려준다.03이 전체 형식을 확정 입력으로 배치만 하는 관계는 아니다.
-
-기준·현재 계약·사례의 배치를 정할 때는 [01-02 후속 연결 65](../../records/2026-10-18-65-criteria-status-and-cross-ticket-refinement.md)에서 해당 판단의 과정 근거를 고른다. Field·Container의 조건 차이, 사용자 생각, 조각 시안이 부족했던 정정, 사례와 현재 사실의 지위가 섞인 리뷰를 함께 고려한다. 그 결과 분류·본문의 추상도·설명량·찾기 경로가 달라지면 현재 기준 본문과 읽기 안내도 함께 고친다. 01-02의 파일 배치를 확정 입력으로 받아 그대로 이식하는 관계가 아니다.
-
-앞선 2026-10-18 연결 제안: [개선 리뷰 및 후속 논의 64](../../records/2026-10-17-64-applied-format-improvement-review.md)는 기준 본문에서 일반 판단·사용자 선호·프로젝트 현재 선택의 지위를 구별하고, 작업 단서에서 관련 기준으로 가는 읽기 경로를 함께 보완하도록 추천한다. 01-02의 짧은 선택 장면에서 이 관계를 구체화하되, 당시 안내 표 위치와 Project 전체 분류는 미선택이었다. 현재 시안의 안내는72에서 Project README 한곳으로 연결했으며 실제 Project의 최종 배치는 계속 판단한다. 실제 읽기·갱신 행동은 04-03, Work 기록과의 경계는 02와 연결한다.
-
-2026-10-16 연결 논의: 01-02에서 일반 코드 기준·판단 질문·사례의 조직과 전달 형태를 검토하기 시작했다. [논의 57](../../records/2026-10-16-57-criteria-organization-and-guiding-questions.md)의 구성 후보를 이 Ticket의 공통 기준·제품 사실·프로젝트별 선택, 정본과 읽는 경로 문제에 연결한다. 실제 Project 구성안이나 폴더 배치를 채택한 것은 아니다.
-
 Project context에 어떤 내용을 어느 정도 구체적으로 두고, 누가 어떤 작업에서 읽고 관리할지 **실제 본문 예시·구성·읽기 경로가 연결된 안**으로 만든다. 제품 의미·현재 구조·개발 가이드·선택 이유를 함께 보며, 코드 워커·검토자·작업 워크플로가 사용할 맥락도 다룬다.
 
-문서에 따라 핵심 설명·사례·절차가 필요한 정도가 다르다는 사용자 경험을 반영한다. 목차나 문서 길이만 바꾸는 것으로 끝내지 않고, 무엇을 이해하거나 수행하는 데 충분한지 보여 준다. 코드가 실제 패턴을 제공하는 역할과 문서·검사·도구가 맡을 내용을 비교한다.
+문서에 따라 핵심 설명·사례·절차가 필요한 정도가 다르다는 사용자 경험을 반영한다. 목차나 길이만 바꾸는 것으로 끝내지 않고, 무엇을 이해하거나 수행하는 데 충분한지 보여 준다. 코드가 실제 패턴을 제공하는 역할과 문서·검사·도구가 맡을 내용을 비교한다. 공통 내용을 Work마다 복제하지 않으면서 실제 작업에 필요한 의미를 전달한다.
 
-공통 내용을 Work마다 복제하지 않으면서 실제 작업에는 필요한 의미가 전달돼야 한다. 현재 `common/current/guidance/decisions`를 유지·보완·조정할 이유를 검토하고, 이름이 이미 있다는 이유만으로 최종 구조로 고정하지 않는다.
+현재 맡은 결과는 구성안과 예시의 제시다. 원본 Project 전면 수정이나 장기 사용 효과 확인은 별도 상태로 남긴다. 기존 `common/current/guidance/decisions`의 이름이나 현재 폴더 수를 모든 Project의 최종 구조로 고정하지 않는다.
 
-## 실행 맥락과 접근
+## 현재 결과와 선택 이유
 
-Noline 문서 개선 전후와 사용자 평가를 대조한다. 9월과 10월 사건, main과 별도 worktree, 첫 11편의 평가와 후속 문서의 미확인을 구별한다. 더 짧아져야 좋다는 전제를 두지 않는다.
+| 결과 | 현재 구성과 이유 |
+| --- | --- |
+| Personal·Project·Work의 독립 책임 | 개인의 일반 판단, 제품의 계약·규약·현재 사실, 이번 적용·선택·진행을 나눴다. [102](../../records/2026-10-19-102-personal-project-update-ownership.md)에 따라 개인 기준 변경만으로 Project를 자동 갱신하지 않으며, 필요한 설명 중복은 허용한다. |
+| 역할별 Project 본문 | [기기·세션](../../records/prototypes/development-workflow/noline-demo/context/project/common/device-session/index.md)은 제품 의미, [인증 개발](../../records/prototypes/development-workflow/noline-demo/context/project/guidance/authentication-and-session/index.md)은 개발 계약·조건별 판단, [코드 표현](../../records/prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/index.md)은 제품 의미를 코드로 표현할 기준, [현재 인증 흐름](../../records/prototypes/development-workflow/noline-demo/context/project/current/authentication-flow/index.md)은 예제 코드·검사의 실제 지원 범위를 맡는다. 함께 읽는다는 이유로 모호하게 합치지 않았다. |
+| 일반 본문·분할 본문·사례 | 일반 본문은 현재 판단에 필요한 의미·조건을 설명하고 상세 사례는 코드·사용 조건·대안의 결과를 보여 준다. 같은 동작의 이름 유지·개명 비교와 설명 의존을 줄이는 개인 지향을 구별했다. [100](../../records/2026-10-19-100-role-based-prototype-revision.md)·[101](../../records/2026-10-19-101-self-explanatory-code-priority.md) |
+| 본문 가까운 형성 자료 | 의도·배경·목적, 필요한 논의·선택·정정과 최소 원문을 선별해 보존한다. 현재 읽고 사용하는 본문과 수정·재검토용 자료를 구별하고 양쪽 입구에서 읽을 조건을 알린다. [CONTENT-POLICY](../../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)가 공통 관리 기준을 소유한다. |
+| 체계 지침의 역할 | [SYSTEM-GUIDANCE](../../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)는 특정 영역의 구성·작성·사용·연결·변경을 정하는 본문을 설명한다. 진입 본체를 유지하면서 상세를 나눌 수 있고, 개발에 한정하거나 대문자만으로 권한을 구별하지 않는다. [118](../../records/2026-10-20-118-system-guidance-definition-and-entry.md) |
+| 기존 Work 유지 | 새 background·본문 재배치는 기존 current·Spec·Ticket·source·output·records의 형태와 제약에 섞일 수 있어 복구했다. 관련 Project 본문 링크만 현재 위치에 맞췄다. [116](../../records/2026-10-20-116-defer-work-content-policy.md) |
 
-역할이 다른 실제 문서 일부를 골라 현재 내용과 필요한 본문 예시를 만든다. 개발 시작, 구조 변경, 검토, 제품 이해 같은 사용 장면에서 무엇을 읽고 어떻게 활용하는지 보인다. 새로 안 사실과 선택이 코드·Work·Project 중 어디에 남을지, 오래된 문서를 어떻게 발견·수정할지도 비교한다.
+대상물은 바깥014 작성 기록 없이 본문을 이해할 수 있게 구성했다.014는 전체 설계의 과정·평가·정정을 보존하고, 개별 본문을 이해하거나 고칠 때 필요한 형성 이유는 대상물 안에서 찾는다. 가상 제품의 작업 사건과 실제 문서 작성 대화를 섞지 않는다.
 
-- [문서 지침 전후 비교](../../source/reading/noline-evaluation/reviews/document-guidance-followup.md): 실제 개선 근거와 판본·인과의 한계.
-- [Noline Project 기준판](../../source/noline-baseline/context/project/README.md), [별도 worktree 관찰판](../../source/supplement/worktree-project-context/context/project/README.md): 서로 다른 판본의 내용과 읽기 경로.
-- [Reference의 구성 기준](../../source/ai-workspace-baseline/reference-project/context/project/REFERENCE/composition.md): 기존 역할 분할과 작성 기준.
-- [Agent 신뢰 강연](../../source/lectures/03_Agent_신뢰_강연_전체번역.md): 코드 패턴·Feature Map·검사·문서의 관계를 비교할 재료.
+## 완료 조건과 확인 결과
 
-02는 Work 기록과의 경계, 01-01·01-02·01-03는 개발·검토·검증에서 소비할 맥락, 04-03은 읽기·갱신 스킬의 구체 행동을 함께 검토한다. Project 문서의 전체 구성을 먼저 고정해야 개발 방식의 논의를 시작할 수 있는 것은 아니다.
+아래 네 조건은 착수 때의 조건을 유지해 대조했다. 운영 설치를 완료 조건에서 새로 빼거나 조건을 축소한 것이 아니다.
 
-## 완료 조건과 확인 방법
+| 완료 조건 | 현재 근거와 판정 |
+| --- | --- |
+| 역할이 다른 대표 문서에 충분한 본문 예시가 있고, 필요한 개념·사례·절차의 수준을 선택한 이유가 보인다. | **충족.** 위 제품 계약·개발 가이드·현재 구현과 Personal 일반 기준·사례에 실제 내용이 있고,100·102 및 인접 형성 자료에서 구성·수정 이유를 확인한다. |
+| 대표 작업에서 필요한 맥락을 찾아 실제 판단이나 수행에 사용할 수 있다. 위치만 알려 주거나 다음 작업 요약만 제공하는 구성으로 끝나지 않는다. | **충족.** [walkthrough](../../records/prototypes/development-workflow/walkthrough.md)는 소비자 요구·완료 계약·같은 코드 비교·선택·구현과 확인·갱신을 잇는다.107의 변경 실험,113·118의 새 독자 관찰은 제한된 장면에서 읽기와 적용을 추가 확인했다. |
+| Project·Work·코드·검사·스킬·도구가 맡는 내용과 읽기·갱신 책임이 연결되고, 중복 정본이나 빠진 책임을 검토한다. | **구성안 수준에서 충족.** Project의 [MAINTENANCE](../../records/prototypes/development-workflow/noline-demo/context/project/MAINTENANCE.md)·[REFERENCE](../../records/prototypes/development-workflow/noline-demo/context/project/REFERENCE/README.md)와 [DEVELOPMENT](../../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)가 선택·충돌·결과별 갱신을 설명한다. 코드·검사는 current에서 연결한다. 스킬 실제 보완·호출과 최종 운영 책임은04-03·01-01로 잇는다. |
+| 기존 구성의 유지·보완·변경안과 영향, 사용자에게 남은 선택, 이후 효과를 확인할 장면을 제시한다. | **충족.** 115·116의 일반 본문 이동 정리와 진입·Work 복구,117의 열린 판단,118의 체계 지침 구별이 대안·영향을 남긴다.107·114의 변경 실험과118의 읽기 관찰을 실제 운영·장기 효과와 구별했다. |
 
-- 역할이 다른 대표 문서에 충분한 본문 예시가 있고, 필요한 개념·사례·절차의 수준을 선택한 이유가 보인다.
-- 대표 작업에서 필요한 맥락을 찾아 실제 판단이나 수행에 사용할 수 있다. 위치만 알려 주거나 다음 작업 요약만 제공하는 구성으로 끝나지 않는다.
-- Project·Work·코드·검사·스킬·도구가 맡는 내용과 읽기·갱신 책임이 연결되고, 중복 정본이나 빠진 책임을 검토한다.
-- 기존 구성의 유지·보완·변경안과 영향, 사용자에게 남은 선택, 이후 효과를 확인할 장면을 제시한다.
+73·96의 과거 전체 품질 유보는 그대로 보존한다. 이후100~118의 개선과 현재 실물을 완료 조건에 대조한 이번 판정이03의 현재 상태다. 사용자 “좋아”를 모든 문장·관리 단위·운영안의 일괄 승인으로 확대하지 않는다.
 
-현재 맡은 결과는 구성안과 예시의 제시다. 원본 Project 전면 수정이나 장기 사용 효과 확인은 별도 상태로 남긴다.
+## 후속에서 이어받을 범위
 
-## 현재 상태와 실제 결과
+- **01-01·04-03:** DEVELOPMENT의 구체 진행·인계·수정·최종 확인, 기존 스킬과의 연결 및 최종 위치·Owner. 입력 선택과 갱신 기본값은 현재 본문을 사용하되 실제 스킬 행동을 대조한다.
+- **02:** Work의 기존 구성과 형성 맥락·기록 관계. 현재 Work는 그대로 두며 이번 마감을 새 정책 재적용의 계기로 삼지 않는다.
+- **01-02:** 개인 코드 기준 전체와 검토·수정 방법의 완결.03의 본문 결과와 새 실행 조건을 받아 재종합한다.
+- **06·07:** 실제 운영 배치·전환·전체 연결과 사용 효과 확인. 실제 Noline 수정·설치·배포는 수행하지 않았다.
+- **후속 소비·변경에서 재검토:** 관련 계약·가이드를 각각 관리할지 묶을지, 형성 자료의 충분성과 유지 비용. 현재는 개별 본문과 연결을 갖춘 안이며 전역 분류를 확정하지 않았다. 구체 문제가 확인되면 관련 담당 Ticket에서03 결과까지 함께 고친다.
 
-| 결과                                                                                                                                                                | 확인한 내용과 현재 지위                                                                                                                                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [본문 구체화95](../../records/2026-10-19-95-naming-decisions-body-refinement.md)                                                                                    | 일반 판단·상세 사례·Project의 제품 조건을 각 본문에서 구체화했다. Noline 가이드는 인증 적용·조회·소비자 행동으로 표현 보완과 동작 변경을 구별한다. Personal의 직접 관리 책임, 새 제품 동작·운영 선택은 추가하지 않았다.                             |
-| [단일 적용 프로토타입88](../../records/2026-10-19-88-living-applied-prototype.md)                                                                                   | 같은 새 폴더를 계속 발전시키라는 요청에 따라 Personal·Noline demo의 Project/Work·workflow·작업 장면을 연결한다. 기존 날짜별 시안은 보존하며 실제 제품 적용·전체 기준 채택은 아니다.                                                                 |
-| [위치 선택·본문 비교86](../../records/2026-10-19-86-context-personal-choice-and-text-comparison.md)                                                                 | 관리·축적·수정 분리를 이유로 context/personal 층을 사용자가 선택했다.85의 글로벌 추천을 대체하되84의 독립 책임은 유지한다.01의 시안 반영과 새 본문 구체화를 비교하며 실제 이동·전체 기준 채택은 없다.                                               |
-| [책임·형식 정정84](../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)                                                                 | Personal 위치와 Project 직접 의존을 재검토하라는 사용자 요청으로 독립 본문·workflow를 구체화한다.01의 질문·조건별 대안·과정 재접근을 대조하며 실제 설치·제품 실행·전체 기준 채택은 아니다.                                                          |
-| [적용 장면83](../../records/2026-10-19-83-personal-project-applied-example.md)                                                                                      | 수정 전 중앙 개인 기준·Project·Work 배치와 가상 의뢰·개명·검토·기록의 경과다. 현재 연결 시안은84에서 수정하며83의 당시 내용·검사는 보존한다.                                                                                                        |
-| [세 본문 시안82](../../records/2026-10-19-82-naming-responsibility-completion-draft.md)                                                                             | 사용자가 이름·책임·완료 범위를 선택해 실제 본문 작성을 요청했다. [비교 입구](../../records/prototypes/personal-project-naming-2026-10-19/README.md)에서 개인 일반 판단·Noline 적용·읽기 안내를 구별한다. 운영 채택·원본 이동·통합·제품 적용은 없다. |
-| [구조 정정과 방향81](../../records/2026-10-19-81-personal-context-direction-and-next-step.md)                                                                       | 당시 ai-workspace 내부 Personal 위치와 Project 참조 관계를 설계 전제로 삼은 기록이다. 최신 사용자 정정으로84에서 대체하며 처음부터 미정이었다고 소급하지 않는다. 당시에도 운영 정본 생성·원문 이동·통합·설치는 없었다.                              |
-| [항목 분류80](../../records/2026-10-18-80-personal-project-content-allocation.md)·[층 논의79](../../records/2026-10-18-79-personal-and-project-layer-discussion.md) | 세 가이드의 개인 후보·Project 계약·Work 기록과 적용 연결을 나눴다.80의 루트 위치 추천은81에서 대체됐다. 재사용 가능한 판단과 해당 Project가 자체 소유할 기준을 구별한 근거로 읽고, 개인 문서를 직접 참조하는 관계는84에서 다시 나눈다.              |
-| [실제 비교78](../../records/2026-10-18-78-code-guides-comparison-and-applicability.md)                                                                              | 리팩터링·가독성·01-02를 실제 문장과 여덟 질문으로 대조했다. 개인 기준을 표현 취향으로만 축소하거나 Project에 적혔다는 이유로 제품 고유 기준이라 보지 않는다. 항목 전체의 개인 기준 채택은 없다.                                                     |
-| [전체 지도77](../../records/2026-10-18-77-existing-project-content-map.md)                                                                                          | 기준판 내용10편·관찰판 내용24편과 관리 안내를 구별해 제공 내용·주제별 입구·역할별 본문의 연결을 확인했다. 두 판본을 합친 최신 정본으로 취급하지 않는다.                                                                                             |
-| [첫 대조76](../../records/2026-10-18-76-ticket03-first-comparison-and-discussion.md)                                                                                | Project 대표 본문·구성 기준, read/update 스킬·읽기/관리 계약과 문서 개선을 비교했다. API 변경 장면은 당시 추천이며 실제 호출·효과 확인은 없다.                                                                                                      |
+## 필요한 과정 근거
 
-다음은 [단일 적용 프로토타입](../../records/prototypes/development-workflow/README.md)에서 각 본문이 충분한 의미를 갖고 실제 작업 장면에 연결되는지 검토하고 같은 폴더에서 보완하는 것이다.87의 조건별 적용·과정 근거·지위 구별을 이어받으며 기존 [7쌍 비교](../../records/prototypes/criteria-format-comparison-2026-10-19/README.md)는 보완 전 자료로 보존한다.66·68·72의 반영 선택과73의 전체 유보를 함께 읽는다.04-03은 독립 입력의 선택·충돌 판단·갱신을,06은 선택한 context/personal 위치의 실제 전환·접근을 연결한다. 원본 이동·합치기·설치와01-02·03 완료로 올리지 않는다.
+기존 Project의 내용과 판본 차이는 [지도77](../../records/2026-10-18-77-existing-project-content-map.md)·[비교78](../../records/2026-10-18-78-code-guides-comparison-and-applicability.md), 독립 책임과 로컬 context 배치는84·89, 역할별 본문과 갱신은100~103, 형성 자료의 조사·실험·정책은104~118에서 질문에 맞게 고른다. [기록 색인](../../records/README.md)에서 각 원문에 접근한다.
 
-앞선 [알림 설정 인수 예시23](../../records/2026-10-13-23-notification-settings-handoff-example.md)는 두 번째 안을 가정한 설명 자료이며 실제 Project 내용을 검증한 구성안이 아니다. 그 근거와 한계는 [27](../../records/2026-10-13-27-source-investigation-and-proposal-reset.md)에 있다. 기존 canonical의 유지·보완과 실제 본문·읽기·도구의 충분성은 여전히 미완료다.
+01-02의 [과정 연결65](../../records/2026-10-18-65-criteria-status-and-cross-ticket-refinement.md)와 [시안72](../../records/2026-10-18-72-short-common-and-detail-prototype.md)는 이전 판단과 조건을 복원하는 입력이다. 이전 날짜별 시안과75의 착수 인계는 원형으로 남기고 현재 첫 행동으로 읽지 않는다. 과거 current 판본은 체계 지침 커밋 `450d3a8`과 앞선 Git 이력에서 확인할 수 있다.
