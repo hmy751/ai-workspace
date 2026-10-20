@@ -1,6 +1,6 @@
 # 논의와 보존 기록
 
-**현재 초점:** [마무리117](2026-10-20-117-content-policy-application-checkpoint.md)은 이번에 남긴 결과·열린 논의·검증 범위·커밋 범위를 모은다. [116](2026-10-20-116-defer-work-content-policy.md)은 Work의 기존 형태·제약과 혼합될 수 있다는 사용자 정정에 따라 이번 Work 구성 적용을 되돌리고 논의를 보류한 기록이다. Personal·Project 적용은 유지한다. [115](2026-10-20-115-complete-body-moves-and-restore-entries.md)의 진입 복구와 [114](2026-10-20-114-durable-body-policy-and-reapplication.md)의 재적용·검토는 이전 단계의 관찰이다.
+**현재 초점:** [118](2026-10-20-118-system-guidance-definition-and-entry.md)은 ‘체계 지침’ 명칭의 선택과 독립 본문 작성, 진입·분할의 구별과 현재 범위를 남긴다. 앞선 [117](2026-10-20-117-content-policy-application-checkpoint.md)은 정책 재적용과 후속 정정의 마무리이며, [116](2026-10-20-116-defer-work-content-policy.md)의 Work 복구와 기존 구성 유지가 이어진다. 114·115의 구성·검토는 각 단계의 관찰로 읽는다.
 
 이 폴더는 이번 설계 작업의 분석·비교·제안·정정·검증 등 보존할 과정을 소유한다. current의 실행 재개에 곧바로 필요하지 않아도 보존 목적이 있으면 남길 수 있다. 과거 기록에 적힌 당시 제안은 현재 채택을 뜻하지 않는다.
 
@@ -198,6 +198,7 @@
 - [115 일반 본문 이동 완결과 기존 진입 복구](2026-10-20-115-complete-body-moves-and-restore-entries.md): 옛 연결 파일 제거와 진입 문서 본문 복구. Work에 형성 자료를 유지한 선택은116으로 대체됐다.
 - [116 Work 적용 보류와 기존 형태 복구](2026-10-20-116-defer-work-content-policy.md): 사용자 정정, 전체 Work 복구, 직접 기준판 대조와 보류 사본의 지위.
 - [117 재적용·후속 정정의 마무리](2026-10-20-117-content-policy-application-checkpoint.md): 현재 유지·복구한 결과, 남은 논의와 확인·커밋 범위.
+- [118 체계 지침의 개념 선택과 독립 본문](2026-10-20-118-system-guidance-definition-and-entry.md): 개발에 한정하지 않은 개념, 진입 본체·상세 분할·표기, CONTENT-POLICY와의 책임 분리와 작성·확인 범위.
 
 ## 참고 조사 — REA
 

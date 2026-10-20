@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**현재 초점:** [마무리117](records/2026-10-20-117-content-policy-application-checkpoint.md)에서 이번에 남긴 결과와 다음 논의를 읽는다. [116](records/2026-10-20-116-defer-work-content-policy.md)에 따라 데모 Work에는 이번 본문·background 구성을 적용하지 않고 기존 형태·제약으로 복구했다. Personal·Project의 현재 적용은 유지한다. Work의 Spec·Ticket·current·source·output·records와 형성 자료의 관계는 별도 논의 뒤에 정한다. [관리 원칙](records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)도 이 적용 경계를 따른다. 114·115는 정정 전 구성과 당시 확인 기록이다.
+**현재 초점:** 사용자가 ‘체계 지침’을 선택하고 독립 문서를 요청해 [SYSTEM-GUIDANCE](records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)를 작성했다. [118](records/2026-10-20-118-system-guidance-definition-and-entry.md)에 개념·진입·분할의 논의와 반영 범위를 남겼다. CONTENT-POLICY는 본문·형성 자료의 관리를 계속 맡는다. Work는 [116](records/2026-10-20-116-defer-work-content-policy.md)의 복구 상태와 기존 제약을 유지하고, 구체 워크플로·스킬은 다음 Ticket에서 다룬다. 앞선 Personal·Project 적용과 당시 열린 판단은 [117](records/2026-10-20-117-content-policy-application-checkpoint.md)에서 구별한다.
 
 Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용자 인터뷰, 개발 에이전트 관련 강연을 바탕으로 **ai-workspace와 실제 개발 방식을 어떻게 발전시킬지 함께 설계하는 작업**이다. 지금은 범위를 충분히 이해하고 각 부분을 세밀하게 구체화하는 단계다. 개발 워크플로, 기록 방식, 역할 배치를 확정하거나 구현하는 단계로 넘어간 것은 아니다.
 

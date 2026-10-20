@@ -1,6 +1,6 @@
 # 현재 논의의 진입점
 
-**현재 초점:** [마무리117](../records/2026-10-20-117-content-policy-application-checkpoint.md)에서 남긴 결과·열린 판단·확인 범위를 먼저 읽는다. Work 복구의 이유와 대조는 [116](../records/2026-10-20-116-defer-work-content-policy.md)이 소유한다. Personal·Project는 현재 구성을 유지하며 Work는 기존 Spec·Ticket·current·source·output·records와 제약을 사용한다. [정책](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)의 현재 범위와 [state](state.md)의 남은 논의를 확인한다. 114·115의 옛 완료 표현을 현재 구성의 승인으로 읽지 않는다.
+**현재 초점:** [체계 지침의 독립 본문](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)과 [작성 기록118](../records/2026-10-20-118-system-guidance-definition-and-entry.md)에서 현재 개념·진입·상세 역할과 선택 근거를 읽는다. [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)는 본문·형성 자료의 관리를 맡는다. Personal·Project의 기존 적용은 유지하고 Work는116의 복구 상태를 그대로 둔다. 구체 워크플로·스킬은 다음 Ticket의 범위이며, [state](state.md)에서 현재 완료·후속을 구별한다.
 
 88·89에서 프로토타입의 초기 작성과 당시 검토를 수행했다. **96의 품질 유보 뒤97에서 평가하고98에서 빠진 판단과 같은 코드 비교를 반영했다. 같은 폴더에서 계속 발전시키는 단계다.** [정정89](../records/2026-10-19-89-local-context-structure-correction.md)와 [development-workflow](../records/prototypes/development-workflow/README.md)가 현재 구조·실물의 진입점이다. Noline demo는 Main이 구체 적용 대상으로 고른 예시이며 실제 Noline 적용은 아니다.
 

@@ -1,6 +1,8 @@
 # 현재 상태
 
-2026-10-20 기록·커밋 정리: 사용자 요청으로 정책 재적용·후속 정정의 최종 결과와 열린 논의를 [117](../records/2026-10-20-117-content-policy-application-checkpoint.md)에 모았다. Personal·Project의 본문·형성 자료 보완은 유지하고 Work는 기준판 형태로 복구했다. 다음에는 Work의 기존 체계와 형성 맥락의 관계, 진입 문서 구성, Personal·Project 관리 단위의 적절성을 논의한다. 워크플로·스킬 구체화는 후속 범위로 유지한다. 이번 커밋은 현재 결과의 보존이며 전체 기준 수용·관련 Ticket 완료를 뜻하지 않는다.
+2026-10-20 체계 지침의 독립 본문 작성: 사용자가 명칭을 선택하고 CONTENT-POLICY와 별도 문서로 만들도록 요청했다. [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)에 개발에 한정하지 않은 역할 정의와 진입 본문·상세 지침·대문자 표기의 관계를 설명했다. 필요한 형성 맥락·선택·발화는 본문 가까이 보존하고 기존 정책과 진입 연결을 맞췄다. [118](../records/2026-10-20-118-system-guidance-definition-and-entry.md)에서 논의·반영·확인 범위를 읽는다. Work는 기존 구성을 유지하며 구체 워크플로·스킬은 다음 Ticket에서 다룬다.
+
+2026-10-20 앞선 기록·커밋 정리: 사용자 요청으로 정책 재적용·후속 정정의 결과와 당시 열린 논의를 [117](../records/2026-10-20-117-content-policy-application-checkpoint.md)에 모아 `114a5e9`로 커밋했다. Personal·Project의 본문·형성 자료 보완은 유지하고 Work는 기준판 형태로 복구했다. 당시 남긴 Work·진입·관리 단위의 논의 중 이번118에서는 체계 지침의 구별과 독립 본문을 다뤘고, Work는 유지하며 구체 워크플로·스킬은 다음 Ticket으로 남겼다. 커밋은 결과 보존이며 전체 기준 수용·관련 Ticket 완료를 뜻하지 않는다.
 
 2026-10-20 Work 적용 보류: 사용자는 Work에 이미 원래 형태와 제약이 있어 새 background 구성이 혼합될 수 있다고 지적하고 Work 쪽에는 두지 말고 되돌리도록 요청했다. Work 전체를 이번 정책 적용 전 형태로 복구했고, 새 형성 자료와 Spec·Ticket의 index·README 구성·읽기 안내를 제거했다. 기존 current·source·output·records의 역할과 내용은 보존했다. 기준판과 파일26개가 같고 현재 Project 링크15곳 외 내용도 같음을 별도 대조했다. Personal·Project 적용은 유지한다. 현재 판단·반영·확인은 [116](../records/2026-10-20-116-defer-work-content-policy.md)이 소유한다. 아래115에서 Work의 가까운 보조 자료를 유지한 선택은 이 정정으로 대체됐다.
 
@@ -66,7 +68,7 @@
 
 ## 다음에 이어갈 일
 
-**지금의 판단:** [116](../records/2026-10-20-116-defer-work-content-policy.md)의 Work 복구 결과에서 이어간다. Work의 기존 Spec·Ticket·current·source·output·records와 제약을 먼저 살피고 형성 맥락을 어떻게 다룰지 별도로 논의한다. 새 background를 다른 이름·위치로 옮겨 유지하거나, 단순 진입 파일 원복만으로 요청을 완료하지 않는다. Work의 영구 제외를 확정한 것은 아니다. Personal·Project의 현재 적용과 Project 관리 진입 재편의 유보는 유지한다.
+**지금의 판단:** [118](../records/2026-10-20-118-system-guidance-definition-and-entry.md)의 체계 지침 독립 본문을 현재 결과로 둔다. 사용자가 Work는 기존 current 등의 구성을 유지하라고 했으므로 Work 재편을 당장의 다음 작업으로 잡지 않는다. Personal·Project의 현재 적용과 기존 Project 관리 진입은 유지하며, 그 관리 단위 전체를 재구성하는 일도 이번 요청에 포함하지 않았다. Work와 형성 자료의 관계를 나중에 다시 다룰 때는 [116](../records/2026-10-20-116-defer-work-content-policy.md)의 복구 이유·기존 제약을 함께 본다.
 
 **후속 워크플로 범위:** Development의 구체화는 워크플로·관련 스킬을 다룰 후속 작업에서 한다. 이번 본문·관리 정리를 곧바로 스킬 구현이나 재실험으로 확대하지 않는다. [103](../records/2026-10-19-103-prototype-session-checkpoint.md)에 사용자의 질문·설명·후속 선택을 보존했다. 이전93의 연결된 논의를 함께 본다는 방향은 유지하되, 지금 모든 관련 Ticket을 연속 완결하는 순서로 적용하지 않는다.
 
@@ -74,7 +76,7 @@
 
 프로토타입 본문을 다시 다루면 [development-workflow](../records/prototypes/development-workflow/README.md)에서 실제 결과를 읽고 필요한 부분만 보완한다. 구성·품질 개선은100, 개인 코드 기준은101, Personal·Project·Work 갱신 책임은102가 상세 근거다. 설명 없이 코드에서 의미를 읽는 지향, 필요한 설명 중복 허용, 제품 계약의 독립성, 대상물과 바깥014 기록의 경계를 유지한다. 전체 본문 충분성과 사용자 수용은 자동 완료로 처리하지 않는다.
 
-기존 운영 저장소의 이동·설치·스킬 수정은 아직 하지 않았다.02의 Workspace 갱신을 선행 완료 조건으로 두지 않으며,01-02·03·04-03·06의 미완료와 역할·최종 검증·설치 방식의 미정을 유지한다. 재진입은 current/index·이 state·관리 원칙과117에서 시작하며, Work 복구의 상세는116에서 읽는다. 다음 구성 논의는110, 독립안 비교는109, 기존 변경 실험은107에서 필요한 만큼 읽는다.
+기존 운영 저장소의 이동·설치·스킬 수정은 아직 하지 않았다.02의 Workspace 갱신을 선행 완료 조건으로 두지 않으며,01-02·03·04-03·06의 미완료와 역할·최종 검증·설치 방식의 미정을 유지한다. 재진입은 current/index·이 state·체계 지침과118에서 시작하며, 본문 관리의 앞선 결과는117, Work 복구는116에서 읽는다. 이전 구성 논의는110, 독립안 비교는109, 기존 변경 실험은107에서 필요한 만큼 고른다.
 
 ## 이어갈 때 유지할 조건
 
