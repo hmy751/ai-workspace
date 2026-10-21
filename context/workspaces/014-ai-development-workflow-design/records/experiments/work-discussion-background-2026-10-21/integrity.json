@@ -1,0 +1,32 @@
+{
+  "formation": {
+    "input_unchanged": true,
+    "read_count": 5,
+    "reads": [
+      "REQUEST.md",
+      "_background/README.md",
+      "_background/context.md",
+      "_background/evidence.md",
+      "_background/records/2026-10-21-selection-and-policy-application.md"
+    ],
+    "background_read_count": 4,
+    "policy_read_count": 0
+  },
+  "consumer": {
+    "input_unchanged": true,
+    "read_count": 9,
+    "reads": [
+      "AGENTS.md",
+      "REQUEST.md",
+      ".claude/skills/work-discussion/SKILL.md",
+      ".claude/skills/shared/explanation-and-evidence-criteria.md",
+      "context/work/latest-scope.md",
+      "context/work/spec.md",
+      "context/work/ticket.md",
+      "context/work/observations.md",
+      "context/work/quality.md"
+    ],
+    "background_read_count": 0,
+    "policy_read_count": 0
+  }
+}

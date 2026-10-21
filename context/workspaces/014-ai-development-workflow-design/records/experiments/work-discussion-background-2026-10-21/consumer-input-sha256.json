@@ -1,0 +1,20 @@
+{
+  ".claude/skills/SKILLS-CONTENT-POLICY.md": "bade6cbfe3bdd16644fa826895e7ee3d215fd7a2800cdaf71c2bdf715f6e8b3e",
+  ".claude/skills/_background/skills-content-policy/README.md": "1589c2049f531a63b561e9f5062b297890426b1ca7d5dd571d51a82dc11e1eea",
+  ".claude/skills/_background/skills-content-policy/context.md": "e618c4bec4ca96ba90770ef521e801a8d7e001ce7a75a823e7a5585704c0a6bf",
+  ".claude/skills/_background/skills-content-policy/evidence.md": "62e10471eb5894e294619613d033009d7878fde7c0a086d803c8894f28385f6f",
+  ".claude/skills/_background/skills-content-policy/records/2026-10-21-initial-policy.md": "09acf1a5f52f2f971d962fc0e6d513e5e1c154f8d6cfca7c1240df267f5423ce",
+  ".claude/skills/shared/explanation-and-evidence-criteria.md": "bdebb64e397244485d939213f1d851ffdd6b0da346d91ea94ac56514a415f091",
+  ".claude/skills/work-discussion/SKILL.md": "6c1e15c29df513ceb5019e1ca7c0f832fce1d43df8925e5ad8e4da4481eb5dbd",
+  ".claude/skills/work-discussion/_background/README.md": "7d2792d62e9dc89463f95ca23c8dbf5874b67da69764287413fe61ef7c6d93fe",
+  ".claude/skills/work-discussion/_background/context.md": "9b4ea8429864dc38ee3093d13a8b6ced7deeee0f2234e100a67cc3bafc7f9a46",
+  ".claude/skills/work-discussion/_background/evidence.md": "e16a0a668e2eb7da76beb407bbeafc0e2fc10c1bb913fe7ffedfd36546da442f",
+  ".claude/skills/work-discussion/_background/records/2026-10-21-selection-and-policy-application.md": "d0302cdaa039442eaad33d17048507e3b5fd22a9dfd325351207ee4a69c27512",
+  "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+  "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+  "context/work/latest-scope.md": "ebe419ebb783959ed628113c1ea1ee472e26d13c2b1f3ea112dd6006599517c3",
+  "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+  "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+  "context/work/spec.md": "b69c9efc27bacf746e8758c988cdc56199ed1329d1d62108a29583b63af81781",
+  "context/work/ticket.md": "f5171932c1b928a8dd08d5e1d2fcf0a57e103a90248f2339222d65103a7eb5bc"
+}

@@ -2,6 +2,8 @@
 
 work-discussion의 기존 정의 대조·요청별 반환 최소안을04-01 설계 결과로 채택했다. 실제 프로젝트나 전역 스킬에 설치한 상태는 아니다.
 
+스킬을 새로 만들거나 의미·구성을 바꿀 때는 [SKILLS-CONTENT-POLICY](SKILLS-CONTENT-POLICY.md)를 읽는다. 이 지침은 실행 본문·보조 자료·형성 근거의 구성과 갱신을 맡는다. work-discussion에는 [형성 자료와 읽기 경로](work-discussion/_background/README.md)를 구성했다. 다른 스킬의 형성 자료 구성은 후속 작업이다.
+
 | 필요한 일 | 읽을 본문 |
 | --- | --- |
 | 기존 정의가 충분한지, 무엇을 더 구체화할지 판단한다 | [work-discussion](work-discussion/SKILL.md) |

@@ -18,6 +18,7 @@
 
 ## 전체 설계와 다른 Ticket의 입력
 
+- [스킬 본문 관리 정책](../records/prototypes/development-workflow/skills/SKILLS-CONTENT-POLICY.md): 스킬의 실행 본문·상세·형성 자료 구성과 갱신을 정하는 진입 지침. 정책과 작성 경로를 만들고 [work-discussion 형성 자료](../records/prototypes/development-workflow/skills/work-discussion/_background/README.md)에 적용했다. [형성 자료 이해·수정 판단과 소비 확인](../records/2026-10-21-ticket04-01-background-reading-check.md)에서 각1회의 읽기 결과를 확인했다. [작성·적용 마무리](../records/2026-10-21-skills-content-policy-and-work-discussion.md)에 전체 범위와 후속을 연결했다. 다른 스킬 적용은 후속이다.
 - [work-discussion prototype 본문](../records/prototypes/development-workflow/skills/work-discussion/SKILL.md): 04-01 설계 결과 완료. 기존 정의·보완 후보 대조와 요청별 반환의 최소안을 승인·반영했고 reconsider-work는 유지한다. [두 조건 수행 기록](../records/2026-10-21-ticket04-01-minimal-update-and-two-checks.md)에 확인과 한계가 있다. 사용자 위치 정정으로 Reference 수정은 원복했다. Reference·외부 Noline 설치나 운영 책임 변경은 포함하지 않는다.
 - [Spec](../current/spec.md): 전체 목적·공통 기준·잠정안·선택·미정.
 - [Ticket 목록](../current/tickets/index.md): 결과별 책임과 후속 연결.01-02·04-03 등의 완료 상태는03 완료로 함께 바꾸지 않는다.

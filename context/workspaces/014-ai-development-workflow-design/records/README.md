@@ -233,3 +233,7 @@
 - [04-01 기존판·보완판의 사후 정정 없는16회 비교](2026-10-20-ticket04-01-blind-skill-comparison.md): 두 사례와 가상 반대 조건, 독립 응답16개·버전을 가린 검토, 재서술 감소와 정확도 개선 미입증의 구별. 실제 스킬은 미수정이며 입력·판본·원응답을 함께 보존했다.
 
 - [04-01 work-discussion 최소 수정과 두 조건 확인](2026-10-21-ticket04-01-minimal-update-and-two-checks.md): 사용자 승인한 prototype 본문·안내 반영과 Reference 원복, 충분한 정의와 실제 선택이 필요한 정의의 각1회 수행, 원응답·한계·후속.
+
+- [04-01 형성 자료 이해·수정 판단과 소비 확인](2026-10-21-ticket04-01-background-reading-check.md): 새 실행2개에서 구성 이유·조건부 편집 판단 복원, 실행 소비의 background 미열람을 관찰했다. 원응답·읽기 경로·입력 사본과 한계를 보존했다.
+
+- [스킬 본문 관리 정책·work-discussion 적용 마무리](2026-10-21-skills-content-policy-and-work-discussion.md): 정책의 역할·첫 적용·새 실행2개의 확인·공백과 후속, 워크스페이스 정리·커밋 범위.
