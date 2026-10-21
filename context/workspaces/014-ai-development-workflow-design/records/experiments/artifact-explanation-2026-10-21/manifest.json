@@ -1,0 +1,116 @@
+[
+  {
+    "run": "r01",
+    "scene": "scene-1",
+    "version": "baseline",
+    "skill": "work-artifact-briefing",
+    "source_session": "01a0f20d-50a5-78e2-a665-e2c59c34987e",
+    "source_lines": [
+      2436,
+      2499
+    ],
+    "original_skill": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/source/noline-baseline/.claude/skills/work-artifact-briefing/SKILL.md",
+    "skill_sha256": "5ccf61c506591e4f34df09c997738aa60b3bb3cb6c937100606b600c72b3a5fb",
+    "input_sha256": "7983e51e0862aacfe4a823d1135265d84c6a20eb4dde196787f97df0ab72f471",
+    "normalized_skill_sha256": "217c16e2b89e02a4cf1b3e228a6d6ecbc637556a9ee3d7f29c1687999f2d1e03",
+    "guidance_sha256": "610fe4017055e6502eb68d159f3372d5dc36879bc80d238d3c6cd365c7e943a7",
+    "prompt_sha256": "7fb979148fca370113e5b9c906e755c3f1761110c24099becdcef2338a0dfd27",
+    "answer_sha256": "391df6c583081fb13f84fbbf2b471fa866a5f2b77b9dae5c2d9894404c5fa1ae",
+    "answer_characters": 4975
+  },
+  {
+    "run": "r02",
+    "scene": "scene-1",
+    "version": "candidate",
+    "skill": "work-artifact-briefing",
+    "source_session": "01a0f20d-50a5-78e2-a665-e2c59c34987e",
+    "source_lines": [
+      2436,
+      2499
+    ],
+    "original_skill": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md",
+    "skill_sha256": "c7280a352b2bc482077bed7fdaa4aec1b1c5fe08eccb691acff28bf00e5bb5af",
+    "input_sha256": "7983e51e0862aacfe4a823d1135265d84c6a20eb4dde196787f97df0ab72f471",
+    "normalized_skill_sha256": "922ca44b34ae3b51f1875d6d35b377f66fc5774d37424fd917bf54396bd3838b",
+    "guidance_sha256": "610fe4017055e6502eb68d159f3372d5dc36879bc80d238d3c6cd365c7e943a7",
+    "prompt_sha256": "bd56e06add21b00b30ce099cef13a0cc8a10c68368aa1a0e6d936541241a7b8c",
+    "answer_sha256": "6157232d181694959f3039605af93d1b1bc7b88c73018b002f144f96b7ec4a02",
+    "answer_characters": 4721
+  },
+  {
+    "run": "r03",
+    "scene": "scene-2",
+    "version": "candidate",
+    "skill": "explanation-recovery",
+    "source_session": "01a0b4fc-3afa-7462-ae9e-6052b5a9e3c0",
+    "source_lines": [
+      3471,
+      3528
+    ],
+    "original_skill": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explanation-recovery/SKILL.md",
+    "skill_sha256": "e9371cf5486d5cd3575e7e17aa99f1b48cc071ce5ae7782ae997d154f604bfb4",
+    "input_sha256": "26b7057846e8c9cf64d64705752128409fb7fa09ed1009010bf7de112ae76b36",
+    "normalized_skill_sha256": "d27b201a673f4b61a917b7c93a18859337c4a34dddce4c985c26dc79ae628371",
+    "guidance_sha256": "610fe4017055e6502eb68d159f3372d5dc36879bc80d238d3c6cd365c7e943a7",
+    "prompt_sha256": "3d71bc4e0e463be1f30fc9c0c34e37e5189c5bf74e0ae58fda7fd873e83fb085",
+    "answer_sha256": "5534ffd271721fed14e08ba32401c902b4b0e43d8f8cdda31ff14e7b91c5d393",
+    "answer_characters": 1117
+  },
+  {
+    "run": "r04",
+    "scene": "scene-2",
+    "version": "baseline",
+    "skill": "explanation-recovery",
+    "source_session": "01a0b4fc-3afa-7462-ae9e-6052b5a9e3c0",
+    "source_lines": [
+      3471,
+      3528
+    ],
+    "original_skill": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/source/noline-baseline/.claude/skills/explanation-recovery/SKILL.md",
+    "skill_sha256": "9f3981002424b9e967e98cf8b13c05671f50271fb430e492a8acec749e6668ec",
+    "input_sha256": "26b7057846e8c9cf64d64705752128409fb7fa09ed1009010bf7de112ae76b36",
+    "normalized_skill_sha256": "54c7aba1adffe76d19ef18667663db814f6541f6a0341a472811d730e742bb20",
+    "guidance_sha256": "610fe4017055e6502eb68d159f3372d5dc36879bc80d238d3c6cd365c7e943a7",
+    "prompt_sha256": "128b3413477af99b9b3a28b658dcc06e081e077729501143fe1d083d721c5d4f",
+    "answer_sha256": "66a57a31a6105f3b17a34a04ef4c28e5f8e280e0f6b8c3d5b307f9fdab06fbf9",
+    "answer_characters": 980
+  },
+  {
+    "run": "r05",
+    "scene": "scene-3",
+    "version": "candidate",
+    "skill": "work-artifact-briefing",
+    "source_session": "01a0ec21-e59e-7370-8432-8434271aa669",
+    "source_lines": [
+      2402,
+      2757
+    ],
+    "original_skill": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md",
+    "skill_sha256": "c7280a352b2bc482077bed7fdaa4aec1b1c5fe08eccb691acff28bf00e5bb5af",
+    "input_sha256": "fe9621348344b9d85ae2076826aec835e76492141dcadf5fef20e4f360246267",
+    "normalized_skill_sha256": "922ca44b34ae3b51f1875d6d35b377f66fc5774d37424fd917bf54396bd3838b",
+    "guidance_sha256": "610fe4017055e6502eb68d159f3372d5dc36879bc80d238d3c6cd365c7e943a7",
+    "prompt_sha256": "0aa3ba431811d66d839311630190f83602d3631a479c49ff7594ec471c84bdfa",
+    "answer_sha256": "f24d07112a456c22c1c1a980023905bcdee581d9d76f72a584e8519c5fa80ea9",
+    "answer_characters": 927
+  },
+  {
+    "run": "r06",
+    "scene": "scene-3",
+    "version": "baseline",
+    "skill": "work-artifact-briefing",
+    "source_session": "01a0ec21-e59e-7370-8432-8434271aa669",
+    "source_lines": [
+      2402,
+      2757
+    ],
+    "original_skill": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/source/noline-baseline/.claude/skills/work-artifact-briefing/SKILL.md",
+    "skill_sha256": "5ccf61c506591e4f34df09c997738aa60b3bb3cb6c937100606b600c72b3a5fb",
+    "input_sha256": "fe9621348344b9d85ae2076826aec835e76492141dcadf5fef20e4f360246267",
+    "normalized_skill_sha256": "217c16e2b89e02a4cf1b3e228a6d6ecbc637556a9ee3d7f29c1687999f2d1e03",
+    "guidance_sha256": "610fe4017055e6502eb68d159f3372d5dc36879bc80d238d3c6cd365c7e943a7",
+    "prompt_sha256": "9a1512e1ed67f910ec9c6cf3f31c1a4447c53e35dab12d3a8e6194008ba7fa77",
+    "answer_sha256": "ae9b88004497441e24636852865a2d4896f56a726cc2db92c748eefbce5c6d1a",
+    "answer_characters": 800
+  }
+]

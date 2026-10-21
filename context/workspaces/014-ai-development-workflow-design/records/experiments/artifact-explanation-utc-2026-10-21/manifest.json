@@ -1,0 +1,43 @@
+{
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "mapping": {
+    "a": "baseline",
+    "b": "candidate"
+  },
+  "source": "context/workspaces/014-ai-development-workflow-design/source/noline-evaluation/corpus/01a1052a-4e61-7072-9b81-ff44449e5b85/messages.jsonl",
+  "source_lines": [
+    2746,
+    2772,
+    2779,
+    2784,
+    2863,
+    2918,
+    2987,
+    3005,
+    3018,
+    4360,
+    4367,
+    4370,
+    4389,
+    4396,
+    4399,
+    4424,
+    4439,
+    4454
+  ],
+  "cutoff": 4454,
+  "hashes": {
+    "conversation.md": "e8c71e783f1d4aea465d79fb41e08c75d29e352bb74ba4a472dd63847a14b8dc",
+    "runs/a/prompt.txt": "09a297f68827af201b82f01c7db033c5a3537cb019c9b64d5b648dc15a0d5af5",
+    "runs/b/prompt.txt": "b28a853d4982be9066ad13c0b4acd672e1699a59319e2b1b8407d7fdf472bfae",
+    "versions/a/AGENTS.md": "446d6c527f53c2be03cad50bfafb712454d0cf05355cd9fb968acd7a11ef9e8f",
+    "versions/b/AGENTS.md": "446d6c527f53c2be03cad50bfafb712454d0cf05355cd9fb968acd7a11ef9e8f",
+    "versions/b/.agents/skills/work-artifact-briefing/SKILL.md": "3b46bb41adfec1102d976c0f57951d884484c6c7c62d61b471c2a8d4e5078830",
+    "versions/b/.agents/skills/explanation-recovery/SKILL.md": "dfc1fcee296f5959bf1307506a1c46ba3aa82f2ae06c796466c94ed8a29d37c1",
+    "versions/b/context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+    "versions/a/.agents/skills/work-artifact-briefing/SKILL.md": "5ccf61c506591e4f34df09c997738aa60b3bb3cb6c937100606b600c72b3a5fb",
+    "versions/a/.agents/skills/explanation-recovery/SKILL.md": "9f3981002424b9e967e98cf8b13c05671f50271fb430e492a8acec749e6668ec",
+    "versions/a/context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+  }
+}

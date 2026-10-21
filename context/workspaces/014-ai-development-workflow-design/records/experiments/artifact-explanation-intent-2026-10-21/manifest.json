@@ -1,0 +1,56 @@
+{
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "runs": {
+    "a": [
+      "baseline",
+      "briefing"
+    ],
+    "b": [
+      "candidate",
+      "briefing"
+    ],
+    "c": [
+      "baseline",
+      "recovery"
+    ],
+    "d": [
+      "candidate",
+      "recovery"
+    ]
+  },
+  "inputs": {
+    "briefing": {
+      "record": "01a0c3ac-f144-7251-805b-2e582aed07c6",
+      "source_line": 1546,
+      "request_basis": 1469,
+      "limitation": "historical AI report reused as source; adapted request, not original tool/source investigation"
+    },
+    "recovery": {
+      "records": [
+        "01a0c3ac-f144-7251-805b-2e582aed07c6",
+        "01a0c7bd-f413-7551-836d-3203775e7c38"
+      ],
+      "source_lines": [
+        1546,
+        50,
+        55,
+        80
+      ]
+    }
+  },
+  "hashes": {
+    "inputs/recovery/source.md": "63ff446fbbe2d8a4ea7d804064f7f898addb3a86e91cd17b9897a1a7dbb46b99",
+    "inputs/recovery/conversation.md": "0f27272d37d0fbc5b1715c584753124f0f1d134c95f14212fca6c4205a90e2ae",
+    "inputs/briefing/source.md": "64cc678649848f7f0067a08fdb3646a65e7c205ca730249f5c588da8fe986367",
+    "inputs/briefing/conversation.md": "296d192012bd628c332839f1c540d9805c2c979b2b3ee18feb097de752aa14fb",
+    "versions/candidate/AGENTS.md": "446d6c527f53c2be03cad50bfafb712454d0cf05355cd9fb968acd7a11ef9e8f",
+    "versions/baseline/AGENTS.md": "446d6c527f53c2be03cad50bfafb712454d0cf05355cd9fb968acd7a11ef9e8f",
+    "versions/baseline/.agents/skills/work-artifact-briefing/SKILL.md": "5ccf61c506591e4f34df09c997738aa60b3bb3cb6c937100606b600c72b3a5fb",
+    "versions/baseline/.agents/skills/explanation-recovery/SKILL.md": "9f3981002424b9e967e98cf8b13c05671f50271fb430e492a8acec749e6668ec",
+    "versions/baseline/context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+    "versions/candidate/.agents/skills/work-artifact-briefing/SKILL.md": "3b46bb41adfec1102d976c0f57951d884484c6c7c62d61b471c2a8d4e5078830",
+    "versions/candidate/.agents/skills/explanation-recovery/SKILL.md": "dfc1fcee296f5959bf1307506a1c46ba3aa82f2ae06c796466c94ed8a29d37c1",
+    "versions/candidate/context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+  }
+}

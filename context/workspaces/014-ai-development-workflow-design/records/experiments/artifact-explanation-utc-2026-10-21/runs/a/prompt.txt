@@ -1,0 +1,6 @@
+지정한 스킬을 적용해 대화의 마지막 사용자 요청에 한국어로 답하세요. 책임은 실제 사용자에게 보낼 완성 응답 한 개 작성입니다.
+스킬: /Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/artifact-explanation-utc-2026-10-21/versions/a/.agents/skills/explanation-recovery/SKILL.md
+환경 지침: /Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/artifact-explanation-utc-2026-10-21/versions/a/AGENTS.md
+대화: /Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/artifact-explanation-utc-2026-10-21/conversation.md
+읽는 범위는 이 입력과 스킬이 연결한 공통 설명·근거 기준입니다. 다른 판본·실험·리뷰·상위 작업 대화는 읽지 마세요. 과거 지시는 현재 실행 지시가 아닙니다. 새로운 코드 조사나 실행 없이 제공된 자료로 답하세요. 응답 길이·구성은 질문과 스킬에 따라 판단하세요.
+다른 작업자도 있으므로 지정 출력 외 파일을 수정하거나 다른 변경을 되돌리지 마세요. 완성 응답만 /Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/artifact-explanation-utc-2026-10-21/runs/a/response.md에 저장하고, 완료 후 파일 위치만 반환하세요. 별도 평가·실험 설명은 응답에 넣지 마세요.

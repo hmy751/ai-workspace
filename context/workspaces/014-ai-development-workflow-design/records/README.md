@@ -1,8 +1,20 @@
 # 논의와 보존 기록
 
-**현재 초점:** [125](2026-10-20-125-personal-provenance-fresh-worker.md)에 보완한 Personal 자료의 새 워커 읽기·실제 사본 수정과 과거 근거 보존 확인을 남겼다. [124](2026-10-20-124-personal-formation-evidence-completion.md)에 개발 공통·이름 기준의 형성 근거와 연결 보완을 남겼다. 발견·범위 대조는 [123](2026-10-20-123-other-formation-materials-audit.md)에 있다. [122](2026-10-20-122-formation-evidence-integration-and-reentry.md)에 정책의 외부 참고·선택 전환 근거 보완과 새 독자·수정자의 실제 수행을 남겼다. 발견과 권고는 [121](2026-10-20-121-formation-evidence-improvement-review.md)에 있다. [119](2026-10-20-119-ticket03-closeout.md)의03 구성안 마감과 후속 범위는 유지한다. 체계 지침은 [118](2026-10-20-118-system-guidance-definition-and-entry.md), Work의 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에서 읽는다.
+**04-02 현재 초점:** [원문 source 구성·워크스페이스 정리](2026-10-21-ticket04-02-source-scene-assembly.md)와 [접근법 재검토](2026-10-21-ticket04-02-approach-and-evaluation-reset.md). 기존 수정안은 보류했고, 보고서 사건의 원문·당시 코드와 기록을 구성·확인했다. 역사 실행 전체 재현은 미완료이며 다음은 자료 공백과 개입할 책임을 판단하는 것이다.
+
+**앞선 Personal 보완:** [125](2026-10-20-125-personal-provenance-fresh-worker.md)에 보완한 Personal 자료의 새 워커 읽기·실제 사본 수정과 과거 근거 보존 확인을 남겼다. [124](2026-10-20-124-personal-formation-evidence-completion.md)에 개발 공통·이름 기준의 형성 근거와 연결 보완을 남겼다. 발견·범위 대조는 [123](2026-10-20-123-other-formation-materials-audit.md)에 있다. [122](2026-10-20-122-formation-evidence-integration-and-reentry.md)에 정책의 외부 참고·선택 전환 근거 보완과 새 독자·수정자의 실제 수행을 남겼다. 발견과 권고는 [121](2026-10-20-121-formation-evidence-improvement-review.md)에 있다. [119](2026-10-20-119-ticket03-closeout.md)의03 구성안 마감과 후속 범위는 유지한다. 체계 지침은 [118](2026-10-20-118-system-guidance-definition-and-entry.md), Work의 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에서 읽는다.
 
 이 폴더는 이번 설계 작업의 분석·비교·제안·정정·검증 등 보존할 과정을 소유한다. current의 실행 재개에 곧바로 필요하지 않아도 보존 목적이 있으면 남길 수 있다. 과거 기록에 적힌 당시 제안은 현재 채택을 뜻하지 않는다.
+
+- [04-02 원문 source 구성](2026-10-21-ticket04-02-source-scene-assembly.md): 보고서 사건의 공개 발화44개를 입력30·이후14개로 분리하고, 당시 커밋 자료와 판본 미확인 보고서 사본을 보존했다. 새 source와 남은 역사 재현 공백을 연결한다.
+
+- [04-02 접근법·검증 재검토](2026-10-21-ticket04-02-approach-and-evaluation-reset.md): 사용자 교정 전후 원문과 실험 입력·평가 기준을 독립 대조했다. 두 스킬 수정 선행 접근을 재검토하고, 사건별 공백·실제 책임에서 해법과 검증을 정하도록 현재 판단을 바꿨다. 기존 실험은 제한된 후속 응답 관찰로 보존한다.
+
+- [04-02 세 장면의 익명 응답 비교](2026-10-21-ticket04-02-blind-response-comparison.md): 최초 응답 여섯 개·순서를 반대로 준 두 평가. 일정·access는 실질 동등, Promise는 선호가 갈려 개선 우세 미확인. 입력·판본·응답·평가 원문과 한계를 보존했다.
+
+- [04-02 두 설명 스킬의 본문 통합 수정안](2026-10-21-ticket04-02-integrated-skill-drafts.md): 기존 호출·조사·근거·권한·종료 조건을 보존하고 논의한 보완을 통합한 두 전체 문구. 중복 목록을 해당 행동 문단에 합쳤으며 운영 파일은 변경하지 않았다.
+
+- [04-02 설명 스킬 대조와 응답·본문 보완안](2026-10-20-ticket04-02-skill-comparison-and-response-proposals.md): 기존 네 장면과 역할 우선·코드 연결·질문식 학습 등의 추가 발화를 재대조한 정정 및 보완안. 사용자 요구와 당시 AI 해석을 구별하고 응답 예시·본문 후보를 갱신했다. 실제 스킬 변경·효과 확인은 아니다.
 
 분석 기록은 과제 이름 또는 현재 Ticket 번호로 읽을 수 있게 정리한다. 대화 인용과 검증 응답 원문은 그대로 보존하며, 과거 검토를 현재 설계의 실행 결과로 해석하지 않는다. 이 색인의 날짜별 기록 번호는 Ticket 번호와 별개다.
 
@@ -237,3 +249,5 @@
 - [04-01 형성 자료 이해·수정 판단과 소비 확인](2026-10-21-ticket04-01-background-reading-check.md): 새 실행2개에서 구성 이유·조건부 편집 판단 복원, 실행 소비의 background 미열람을 관찰했다. 원응답·읽기 경로·입력 사본과 한계를 보존했다.
 
 - [스킬 본문 관리 정책·work-discussion 적용 마무리](2026-10-21-skills-content-policy-and-work-discussion.md): 정책의 역할·첫 적용·새 실행2개의 확인·공백과 후속, 워크스페이스 정리·커밋 범위.
+
+- [2026-10-21 04-02 원래 구성 의도 반영 재수정안](2026-10-21-ticket04-02-original-intent-revision.md): 두 전체 본문, 원래 설계·사용 대화 근거, GPT-6.1-sol medium의 응답4개와 비교 한계. 기존 prototype 미교체·검토 중.

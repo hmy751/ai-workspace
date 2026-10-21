@@ -1,0 +1,682 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-21T07:08:33.252969+00:00",
+  "session_id": "01a1052a-4e61-7072-9b81-ff44449e5b85",
+  "source_file": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/source/noline-evaluation/corpus/01a1052a-4e61-7072-9b81-ff44449e5b85/messages.jsonl",
+  "source_sha256": "6e00a02e2909750ec2080996e0da152bd739ba487a8d3c3849338a749b3993d4",
+  "selection": {
+    "input": {
+      "from_source_line": 12,
+      "through_source_line": 619,
+      "count": 30,
+      "timestamp_cutoff": "2026-10-04T05:21:42.325Z"
+    },
+    "evaluation": {
+      "from_source_line": 634,
+      "through_source_line": 1119,
+      "count": 14
+    },
+    "selection_rule": "all corpus messages within each inclusive range, original order, no inner deletion",
+    "preserved_fields": "entire original JSONL records; text companion adds only speaker/source_line/timestamp/phase delimiters"
+  },
+  "git": {
+    "repository": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+    "commit": "0b3b167c8b8d15dc1a45d87da934dfc5efaed994",
+    "basis_message_source_line": 84,
+    "basis": "historical assistant reported HEAD and clean tracked working tree; commit object separately verified",
+    "working_tree_at_cutoff": "not_independently_reconstructed",
+    "archive": "repository/noline-0b3b167.tar.gz",
+    "tracked_entry_count": 951,
+    "reading_paths": [
+      "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md",
+      "context/work/workspaces/002-code-readability-refactoring/current/state/index.md",
+      "context/work/workspaces/002-code-readability-refactoring/output/index.md",
+      "context/work/workspaces/002-code-readability-refactoring/records/2026-10-02-01-schedule-create-boundaries-and-verification.md",
+      "context/work/workspaces/002-code-readability-refactoring/records/2026-10-02-02-policy-consumer-review-continuity.md",
+      "context/work/workspaces/002-code-readability-refactoring/records/2026-10-02-03-expense-time-decisions-and-verification.md"
+    ]
+  },
+  "original_rollout": {
+    "path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/04/rollout-2026-10-04T13-27-01-01a1052a-4e61-7072-9b81-ff44449e5b85.jsonl",
+    "available_at_recorded_path": false,
+    "tool_events_for_selected_interval": "not_available_in_current_bundle"
+  },
+  "observed_artifacts": [
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/ux-review-20260930/12-online-schedule-list.jpg",
+      "destination": "observed-artifacts/ux-review-20260930/12-online-schedule-list.jpg",
+      "size": 36199,
+      "source_mtime_ns": 1790768072127664390,
+      "sha256": "9bd433850a96ab3d5c4aedb5b38f9f5c6ac6b431bea16aa66094b4c14ba21a08",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/ux-review-20260930/13-online-schedule-detail.jpg",
+      "destination": "observed-artifacts/ux-review-20260930/13-online-schedule-detail.jpg",
+      "size": 33784,
+      "source_mtime_ns": 1790768072410203390,
+      "sha256": "5180a10abcc9e43ff1752a773ad61e35538a21de4f3b00544f4356d54270f3e9",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/ux-review-20260930/evidence.md",
+      "destination": "observed-artifacts/ux-review-20260930/evidence.md",
+      "size": 9992,
+      "source_mtime_ns": 1790768275931106092,
+      "sha256": "1f9bf86cc13fe9c96861af47af6a6a31bfae7d18c00c7cc3b9d0e86d96e29018",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/ux-review-20260930/report-preview.jpg",
+      "destination": "observed-artifacts/ux-review-20260930/report-preview.jpg",
+      "size": 75775,
+      "source_mtime_ns": 1790770255104546924,
+      "sha256": "3cf98f7297612dfe7f71661a6af0918782478fb526be572ac312777483ada6a2",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/ux-review-20260930/report.html",
+      "destination": "observed-artifacts/ux-review-20260930/report.html",
+      "size": 710581,
+      "source_mtime_ns": 1790770232698358471,
+      "sha256": "8869952a7cb81b82cd1102f511192ff1af93aa66c8f2deb531881eec7ff11ba8",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/ux-review-20260930/ui-excerpts.md",
+      "destination": "observed-artifacts/ux-review-20260930/ui-excerpts.md",
+      "size": 1962,
+      "source_mtime_ns": 1790768072717830386,
+      "sha256": "0cc84bba2c50a7a55e01415d7fb006eb4341e6c5426de80ecb3b5e573433a818",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/home-review-20261004/01-current-active-online-home.jpg",
+      "destination": "observed-artifacts/home-review-20261004/01-current-active-online-home.jpg",
+      "size": 39365,
+      "source_mtime_ns": 1791089908689054294,
+      "sha256": "a6c08cd5abd54a7f4cf38b7b977fc399f85234a2fe0320fae13059ff9d18bdf1",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/home-review-20261004/02-active-offline-home.jpg",
+      "destination": "observed-artifacts/home-review-20261004/02-active-offline-home.jpg",
+      "size": 36296,
+      "source_mtime_ns": 1791089994086943945,
+      "sha256": "b239bc30f5be33099b4f6cb56fe8fb41dea5aabab1791bcc38dfdd45dc5a6623",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/home-review-20261004/03-active-unknown-home.jpg",
+      "destination": "observed-artifacts/home-review-20261004/03-active-unknown-home.jpg",
+      "size": 36266,
+      "source_mtime_ns": 1791090025784458199,
+      "sha256": "8baec562b59855cf745dec94006082f2dcbc33f69a67005b1d767847f6cd25f9",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/home-review-20261004/04-active-online-restored-home.jpg",
+      "destination": "observed-artifacts/home-review-20261004/04-active-online-restored-home.jpg",
+      "size": 36198,
+      "source_mtime_ns": 1791090066674074794,
+      "sha256": "4d355e626f79514ed04a714550281a80288703f45a59a11b83ec6f5b86bd5472",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/home-review-20261004/observations.md",
+      "destination": "observed-artifacts/home-review-20261004/observations.md",
+      "size": 4332,
+      "source_mtime_ns": 1791090097459877273,
+      "sha256": "1548c9a084c99bf0e7b62de3dfe14d7a2152d548a8900eddd6a6ee8a01d769bb",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/home-review-20261004/report.html",
+      "destination": "observed-artifacts/home-review-20261004/report.html",
+      "size": 332666,
+      "source_mtime_ns": 1791099655431874047,
+      "sha256": "9fb2128e3cb92ff1341654dec428354081b22ded79eb228ad0c843b377759f18",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/01-foreground-home.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/01-foreground-home.jpg",
+      "size": 33648,
+      "source_mtime_ns": 1791091567962039750,
+      "sha256": "e6dcc80a50b005de2166737dbc13cf25e5fe59ac6ffd5100f49eae62d114d1cc",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/02-foreground.html",
+      "destination": "observed-artifacts/remaining-review-20261004/02-foreground.html",
+      "size": 58921,
+      "source_mtime_ns": 1791093468285930526,
+      "sha256": "6b8f7c3f6f4b687d3fc1ebbff372b30f24f09da06d95ac9b0299b28a6dfa6383",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/02-schedule-list-top.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/02-schedule-list-top.jpg",
+      "size": 33942,
+      "source_mtime_ns": 1791091392755089288,
+      "sha256": "93cd3b6422d7a5fc83a55e799ae69a770349dc191f1dc14ece9a6504af59faab",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/03-journey-ux.html",
+      "destination": "observed-artifacts/remaining-review-20261004/03-journey-ux.html",
+      "size": 234379,
+      "source_mtime_ns": 1791093468287850925,
+      "sha256": "ef01b431c050ee1e67e63047402a8ed1bdb038d9dccd3cee3b788ac8ae0e4455",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/03-schedule-list-bottom.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/03-schedule-list-bottom.jpg",
+      "size": 33585,
+      "source_mtime_ns": 1791091404137372566,
+      "sha256": "1e561347f5ab80a55e797b27fd65d203b4dd00ab28f7e7223a9986388cb28b7f",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/04-date-consistency.html",
+      "destination": "observed-artifacts/remaining-review-20261004/04-date-consistency.html",
+      "size": 199741,
+      "source_mtime_ns": 1791093468289241443,
+      "sha256": "b5cdf30bc19f312c6242f928bbcb83010309d9d1eb1235e7230143476d592470",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/04-expense-list.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/04-expense-list.jpg",
+      "size": 36005,
+      "source_mtime_ns": 1791091428277299281,
+      "sha256": "98ff263e81cf343827f9eb682d24d5e84903c040302b8fcc89a8d2047150375b",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/05-deferred-scope.html",
+      "destination": "observed-artifacts/remaining-review-20261004/05-deferred-scope.html",
+      "size": 89689,
+      "source_mtime_ns": 1791093468289927327,
+      "sha256": "63e2c19f81719e2aefd398c2c82b4eb823d13ef47a032b4b8e3ece0ccb52fb83",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/05-foreground-settled-home.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/05-foreground-settled-home.jpg",
+      "size": 33121,
+      "source_mtime_ns": 1791091464692570104,
+      "sha256": "a786a0a8d23272f65341c5f96aaced3171d66721212de1b1c43bdb9fefa4d311",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/06-schedule-detail.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/06-schedule-detail.jpg",
+      "size": 30637,
+      "source_mtime_ns": 1791091485265966883,
+      "sha256": "cf9fd915ce885b049ce2d18e48f757a73f7f307927c0db1481351faed79027e3",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/07-expense-detail.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/07-expense-detail.jpg",
+      "size": 24174,
+      "source_mtime_ns": 1791091499773999150,
+      "sha256": "130bca5b63e04cff74f2f762309ac5e8db253ee637e4b6e383489e87feb704b8",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/08-expense-create-unsaved.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/08-expense-create-unsaved.jpg",
+      "size": 31606,
+      "source_mtime_ns": 1791091526184916138,
+      "sha256": "282bfb50617b8a3b3e6b8c507ad38d4f87023841f688f186454fe505184b5d1e",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/09-inactive-schedule-online.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/09-inactive-schedule-online.jpg",
+      "size": 32648,
+      "source_mtime_ns": 1791092935630907820,
+      "sha256": "997a7354b0b44d65528f4259645b4546f9eb70db74fe12cafd1630d8c5f9ea3c",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/10-inactive-expense-online.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/10-inactive-expense-online.jpg",
+      "size": 33653,
+      "source_mtime_ns": 1791092959256648608,
+      "sha256": "1c0620d8591ec975bb6dc84bb554beb067c76aff22a08129c2cdebbfcce76ff5",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/11-inactive-expense-unknown.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/11-inactive-expense-unknown.jpg",
+      "size": 19965,
+      "source_mtime_ns": 1791093005193954962,
+      "sha256": "16cfcd5a156b2457298d3a0329db83e25297e31c36a95d6aedc290a95283f2a7",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/12-inactive-schedule-unknown.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/12-inactive-schedule-unknown.jpg",
+      "size": 20152,
+      "source_mtime_ns": 1791093017562148607,
+      "sha256": "74807cda772a43760b3b20a5158681a9e482dc01f34c17441ed33210335c1605",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/13-inactive-schedule-offline.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/13-inactive-schedule-offline.jpg",
+      "size": 21612,
+      "source_mtime_ns": 1791093075032856748,
+      "sha256": "68a1c882d3cd344804eb40824e65c0df1d1410751f0eae695b5a442424b84447",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/14-inactive-expense-offline.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/14-inactive-expense-offline.jpg",
+      "size": 21455,
+      "source_mtime_ns": 1791093089627646170,
+      "sha256": "76af8318bae490b3b29bf9170620aed8b36c7ad5708941a0aac5e8d2e2410e49",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/15-inactive-expense-restored.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/15-inactive-expense-restored.jpg",
+      "size": 33663,
+      "source_mtime_ns": 1791093133149744633,
+      "sha256": "71a5dfd50ba478f5df040a2808e3aaaa25418aac0a856edd5e26aa06b9fffce5",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/16-inactive-expense-detail.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/16-inactive-expense-detail.jpg",
+      "size": 22245,
+      "source_mtime_ns": 1791093147208848680,
+      "sha256": "bb26a96c0e3bdca82b501581b7ec38c324b82f9248e5a9019a5da01a27fc51ab",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/17-inactive-schedule-restored.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/17-inactive-schedule-restored.jpg",
+      "size": 32672,
+      "source_mtime_ns": 1791093178678300273,
+      "sha256": "bd38b5f847d8135a4f391ea3255ca805f13955f83aa0086283d141a3308b21b2",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/18-schedule-date-picker.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/18-schedule-date-picker.jpg",
+      "size": 27960,
+      "source_mtime_ns": 1791093235375023124,
+      "sha256": "14fcc8f00de0750d0d7baa99055c467d0138020b4b7acea9b509f2df991f4c77",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/19-schedule-time-picker.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/19-schedule-time-picker.jpg",
+      "size": 22981,
+      "source_mtime_ns": 1791093270635649536,
+      "sha256": "679397263b882601b1b49cd49381247987994ac9d914e782dc2c77737dd19804",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/20-schedule-draft-preserved.jpg",
+      "destination": "observed-artifacts/remaining-review-20261004/20-schedule-draft-preserved.jpg",
+      "size": 27927,
+      "source_mtime_ns": 1791093290587802381,
+      "sha256": "2db8108f12dd68bb605f9e4c56748e7be2b543cec22cd02b1a4abb57beb247d0",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/date-network-followup.md",
+      "destination": "observed-artifacts/remaining-review-20261004/date-network-followup.md",
+      "size": 8981,
+      "source_mtime_ns": 1791092964660064867,
+      "sha256": "dd08282e8e76a5921c2bf85881a25842afc0dd7ff310856ffb86b77b2a8c56d5",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/followup-observations.md",
+      "destination": "observed-artifacts/remaining-review-20261004/followup-observations.md",
+      "size": 4556,
+      "source_mtime_ns": 1791093370584486573,
+      "sha256": "6b2a30f94ec1475e21e52795ea33b6e48b860521fc8ad636343918b219a5c7e6",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/foreground-refresh-runtime.json",
+      "destination": "observed-artifacts/remaining-review-20261004/foreground-refresh-runtime.json",
+      "size": 485,
+      "source_mtime_ns": 1791102546360384096,
+      "sha256": "c92a12d11b23b249503b37b4e291af8c33c5d7226f6f1150634703cc52e3e5e5",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/index.html",
+      "destination": "observed-artifacts/remaining-review-20261004/index.html",
+      "size": 180971,
+      "source_mtime_ns": 1791093468290535626,
+      "sha256": "5eb630591f28cde6f8d068981ad13569ff74d4af94fe6f8e8c228e9fc6460d8d",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    },
+    {
+      "source_path": "/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/observations.md",
+      "destination": "observed-artifacts/remaining-review-20261004/observations.md",
+      "size": 3473,
+      "source_mtime_ns": 1791092002154858973,
+      "sha256": "49f15d154208161ab0ad41266cb140619be8175d819cbe6c6d4760283acd3ebc",
+      "historical_exactness": "not_verified",
+      "input_status": "excluded_pending_version_check"
+    }
+  ],
+  "runtime": {
+    "simulator_state_restored": false,
+    "database_state_restored": false,
+    "historical_workers_outputs_complete": false
+  },
+  "readiness": "verbatim_and_git_sources_ready; full_historical_execution_not_ready",
+  "files": {
+    "README.md": {
+      "bytes": 3128,
+      "sha256": "6f0813a92c79bce757af79f8001f88302b2d964d767563a03692e19a685ae550"
+    },
+    "evaluation/conversation.txt": {
+      "bytes": 9629,
+      "sha256": "a0fb7d2f8d70d56abe09e33e2b3105ccecf98f7c4aa4cc953bbf505128f34aad"
+    },
+    "evaluation/messages.jsonl": {
+      "bytes": 12194,
+      "sha256": "9a69f30f461e9b50a8fe4679de90c9c99222f835243aec93d6a87bd5a4b58d10"
+    },
+    "input/conversation.txt": {
+      "bytes": 24753,
+      "sha256": "e1615870715f6ba26d27cf1f44b67a3fa4791d3be78a5a83afd6a4f2a7cee44d"
+    },
+    "input/messages.jsonl": {
+      "bytes": 30301,
+      "sha256": "7f1e0f7a3cbadfe087b2ba05d696b213cb14492bfbad74b19b3f8f7924e4d946"
+    },
+    "observed-artifacts/README.md": {
+      "bytes": 1420,
+      "sha256": "df045a1b0fb41bf7cab42689d170421bb95a1dfec4a21e910e2b8fc2ae1b114d"
+    },
+    "observed-artifacts/home-review-20261004/01-current-active-online-home.jpg": {
+      "bytes": 39365,
+      "sha256": "a6c08cd5abd54a7f4cf38b7b977fc399f85234a2fe0320fae13059ff9d18bdf1"
+    },
+    "observed-artifacts/home-review-20261004/02-active-offline-home.jpg": {
+      "bytes": 36296,
+      "sha256": "b239bc30f5be33099b4f6cb56fe8fb41dea5aabab1791bcc38dfdd45dc5a6623"
+    },
+    "observed-artifacts/home-review-20261004/03-active-unknown-home.jpg": {
+      "bytes": 36266,
+      "sha256": "8baec562b59855cf745dec94006082f2dcbc33f69a67005b1d767847f6cd25f9"
+    },
+    "observed-artifacts/home-review-20261004/04-active-online-restored-home.jpg": {
+      "bytes": 36198,
+      "sha256": "4d355e626f79514ed04a714550281a80288703f45a59a11b83ec6f5b86bd5472"
+    },
+    "observed-artifacts/home-review-20261004/observations.md": {
+      "bytes": 4332,
+      "sha256": "1548c9a084c99bf0e7b62de3dfe14d7a2152d548a8900eddd6a6ee8a01d769bb"
+    },
+    "observed-artifacts/home-review-20261004/report.html": {
+      "bytes": 332666,
+      "sha256": "9fb2128e3cb92ff1341654dec428354081b22ded79eb228ad0c843b377759f18"
+    },
+    "observed-artifacts/remaining-review-20261004/01-foreground-home.jpg": {
+      "bytes": 33648,
+      "sha256": "e6dcc80a50b005de2166737dbc13cf25e5fe59ac6ffd5100f49eae62d114d1cc"
+    },
+    "observed-artifacts/remaining-review-20261004/02-foreground.html": {
+      "bytes": 58921,
+      "sha256": "6b8f7c3f6f4b687d3fc1ebbff372b30f24f09da06d95ac9b0299b28a6dfa6383"
+    },
+    "observed-artifacts/remaining-review-20261004/02-schedule-list-top.jpg": {
+      "bytes": 33942,
+      "sha256": "93cd3b6422d7a5fc83a55e799ae69a770349dc191f1dc14ece9a6504af59faab"
+    },
+    "observed-artifacts/remaining-review-20261004/03-journey-ux.html": {
+      "bytes": 234379,
+      "sha256": "ef01b431c050ee1e67e63047402a8ed1bdb038d9dccd3cee3b788ac8ae0e4455"
+    },
+    "observed-artifacts/remaining-review-20261004/03-schedule-list-bottom.jpg": {
+      "bytes": 33585,
+      "sha256": "1e561347f5ab80a55e797b27fd65d203b4dd00ab28f7e7223a9986388cb28b7f"
+    },
+    "observed-artifacts/remaining-review-20261004/04-date-consistency.html": {
+      "bytes": 199741,
+      "sha256": "b5cdf30bc19f312c6242f928bbcb83010309d9d1eb1235e7230143476d592470"
+    },
+    "observed-artifacts/remaining-review-20261004/04-expense-list.jpg": {
+      "bytes": 36005,
+      "sha256": "98ff263e81cf343827f9eb682d24d5e84903c040302b8fcc89a8d2047150375b"
+    },
+    "observed-artifacts/remaining-review-20261004/05-deferred-scope.html": {
+      "bytes": 89689,
+      "sha256": "63e2c19f81719e2aefd398c2c82b4eb823d13ef47a032b4b8e3ece0ccb52fb83"
+    },
+    "observed-artifacts/remaining-review-20261004/05-foreground-settled-home.jpg": {
+      "bytes": 33121,
+      "sha256": "a786a0a8d23272f65341c5f96aaced3171d66721212de1b1c43bdb9fefa4d311"
+    },
+    "observed-artifacts/remaining-review-20261004/06-schedule-detail.jpg": {
+      "bytes": 30637,
+      "sha256": "cf9fd915ce885b049ce2d18e48f757a73f7f307927c0db1481351faed79027e3"
+    },
+    "observed-artifacts/remaining-review-20261004/07-expense-detail.jpg": {
+      "bytes": 24174,
+      "sha256": "130bca5b63e04cff74f2f762309ac5e8db253ee637e4b6e383489e87feb704b8"
+    },
+    "observed-artifacts/remaining-review-20261004/08-expense-create-unsaved.jpg": {
+      "bytes": 31606,
+      "sha256": "282bfb50617b8a3b3e6b8c507ad38d4f87023841f688f186454fe505184b5d1e"
+    },
+    "observed-artifacts/remaining-review-20261004/09-inactive-schedule-online.jpg": {
+      "bytes": 32648,
+      "sha256": "997a7354b0b44d65528f4259645b4546f9eb70db74fe12cafd1630d8c5f9ea3c"
+    },
+    "observed-artifacts/remaining-review-20261004/10-inactive-expense-online.jpg": {
+      "bytes": 33653,
+      "sha256": "1c0620d8591ec975bb6dc84bb554beb067c76aff22a08129c2cdebbfcce76ff5"
+    },
+    "observed-artifacts/remaining-review-20261004/11-inactive-expense-unknown.jpg": {
+      "bytes": 19965,
+      "sha256": "16cfcd5a156b2457298d3a0329db83e25297e31c36a95d6aedc290a95283f2a7"
+    },
+    "observed-artifacts/remaining-review-20261004/12-inactive-schedule-unknown.jpg": {
+      "bytes": 20152,
+      "sha256": "74807cda772a43760b3b20a5158681a9e482dc01f34c17441ed33210335c1605"
+    },
+    "observed-artifacts/remaining-review-20261004/13-inactive-schedule-offline.jpg": {
+      "bytes": 21612,
+      "sha256": "68a1c882d3cd344804eb40824e65c0df1d1410751f0eae695b5a442424b84447"
+    },
+    "observed-artifacts/remaining-review-20261004/14-inactive-expense-offline.jpg": {
+      "bytes": 21455,
+      "sha256": "76af8318bae490b3b29bf9170620aed8b36c7ad5708941a0aac5e8d2e2410e49"
+    },
+    "observed-artifacts/remaining-review-20261004/15-inactive-expense-restored.jpg": {
+      "bytes": 33663,
+      "sha256": "71a5dfd50ba478f5df040a2808e3aaaa25418aac0a856edd5e26aa06b9fffce5"
+    },
+    "observed-artifacts/remaining-review-20261004/16-inactive-expense-detail.jpg": {
+      "bytes": 22245,
+      "sha256": "bb26a96c0e3bdca82b501581b7ec38c324b82f9248e5a9019a5da01a27fc51ab"
+    },
+    "observed-artifacts/remaining-review-20261004/17-inactive-schedule-restored.jpg": {
+      "bytes": 32672,
+      "sha256": "bd38b5f847d8135a4f391ea3255ca805f13955f83aa0086283d141a3308b21b2"
+    },
+    "observed-artifacts/remaining-review-20261004/18-schedule-date-picker.jpg": {
+      "bytes": 27960,
+      "sha256": "14fcc8f00de0750d0d7baa99055c467d0138020b4b7acea9b509f2df991f4c77"
+    },
+    "observed-artifacts/remaining-review-20261004/19-schedule-time-picker.jpg": {
+      "bytes": 22981,
+      "sha256": "679397263b882601b1b49cd49381247987994ac9d914e782dc2c77737dd19804"
+    },
+    "observed-artifacts/remaining-review-20261004/20-schedule-draft-preserved.jpg": {
+      "bytes": 27927,
+      "sha256": "2db8108f12dd68bb605f9e4c56748e7be2b543cec22cd02b1a4abb57beb247d0"
+    },
+    "observed-artifacts/remaining-review-20261004/date-network-followup.md": {
+      "bytes": 8981,
+      "sha256": "dd08282e8e76a5921c2bf85881a25842afc0dd7ff310856ffb86b77b2a8c56d5"
+    },
+    "observed-artifacts/remaining-review-20261004/followup-observations.md": {
+      "bytes": 4556,
+      "sha256": "6b2a30f94ec1475e21e52795ea33b6e48b860521fc8ad636343918b219a5c7e6"
+    },
+    "observed-artifacts/remaining-review-20261004/foreground-refresh-runtime.json": {
+      "bytes": 485,
+      "sha256": "c92a12d11b23b249503b37b4e291af8c33c5d7226f6f1150634703cc52e3e5e5"
+    },
+    "observed-artifacts/remaining-review-20261004/index.html": {
+      "bytes": 180971,
+      "sha256": "5eb630591f28cde6f8d068981ad13569ff74d4af94fe6f8e8c228e9fc6460d8d"
+    },
+    "observed-artifacts/remaining-review-20261004/observations.md": {
+      "bytes": 3473,
+      "sha256": "49f15d154208161ab0ad41266cb140619be8175d819cbe6c6d4760283acd3ebc"
+    },
+    "observed-artifacts/ux-review-20260930/12-online-schedule-list.jpg": {
+      "bytes": 36199,
+      "sha256": "9bd433850a96ab3d5c4aedb5b38f9f5c6ac6b431bea16aa66094b4c14ba21a08"
+    },
+    "observed-artifacts/ux-review-20260930/13-online-schedule-detail.jpg": {
+      "bytes": 33784,
+      "sha256": "5180a10abcc9e43ff1752a773ad61e35538a21de4f3b00544f4356d54270f3e9"
+    },
+    "observed-artifacts/ux-review-20260930/evidence.md": {
+      "bytes": 9992,
+      "sha256": "1f9bf86cc13fe9c96861af47af6a6a31bfae7d18c00c7cc3b9d0e86d96e29018"
+    },
+    "observed-artifacts/ux-review-20260930/report-preview.jpg": {
+      "bytes": 75775,
+      "sha256": "3cf98f7297612dfe7f71661a6af0918782478fb526be572ac312777483ada6a2"
+    },
+    "observed-artifacts/ux-review-20260930/report.html": {
+      "bytes": 710581,
+      "sha256": "8869952a7cb81b82cd1102f511192ff1af93aa66c8f2deb531881eec7ff11ba8"
+    },
+    "observed-artifacts/ux-review-20260930/ui-excerpts.md": {
+      "bytes": 1962,
+      "sha256": "0cc84bba2c50a7a55e01415d7fb006eb4341e6c5426de80ecb3b5e573433a818"
+    },
+    "repository/README.md": {
+      "bytes": 2646,
+      "sha256": "ae7b992c851fd2e427c2a30eb2c901d287f7dc071012026129ac39555fb43cb5"
+    },
+    "repository/commit.txt": {
+      "bytes": 293,
+      "sha256": "bc918241e85a8a3b84d8855e409bd1036fe5ff60613bd99897d79cf8dbdd04ee"
+    },
+    "repository/noline-0b3b167.tar.gz": {
+      "bytes": 8189290,
+      "sha256": "e656bb00c7b9d56edf80fd36c7cab823e488d4125aa1bb5b0ec965d30034bb23"
+    },
+    "repository/reading/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md": {
+      "bytes": 79297,
+      "sha256": "7e46a444211a556949c36d5077d17c1ebe5ad0069bd98201f4fd141effb79304"
+    },
+    "repository/reading/context/work/workspaces/002-code-readability-refactoring/current/state/index.md": {
+      "bytes": 4771,
+      "sha256": "83f303936376fe45cde67a8af63d63b4b7e18de2040852444c1aa76726ceed48"
+    },
+    "repository/reading/context/work/workspaces/002-code-readability-refactoring/output/index.md": {
+      "bytes": 25681,
+      "sha256": "3838f982b9c46cf1783b5cdd974a878a9c005057831e00238553062f6d2619e9"
+    },
+    "repository/reading/context/work/workspaces/002-code-readability-refactoring/records/2026-10-02-01-schedule-create-boundaries-and-verification.md": {
+      "bytes": 12338,
+      "sha256": "24de3ad10d882d59745f948ed28e08e37c35fc42dca02ff3d7f53374c6b8eeae"
+    },
+    "repository/reading/context/work/workspaces/002-code-readability-refactoring/records/2026-10-02-02-policy-consumer-review-continuity.md": {
+      "bytes": 5188,
+      "sha256": "be76e799c7b6df137496f3768b3f47df1e7b534d4b9adb03a82e2aece0754d87"
+    },
+    "repository/reading/context/work/workspaces/002-code-readability-refactoring/records/2026-10-02-03-expense-time-decisions-and-verification.md": {
+      "bytes": 18313,
+      "sha256": "f3eb6c967debc7ab692d24866cdf9b5824624b379f7323e01b172bd842ea6179"
+    },
+    "repository/recent-history.txt": {
+      "bytes": 1044,
+      "sha256": "7214701907d1187336616cf83f7f1c305cc52c09cb216a93cd10fd9d736c4e97"
+    },
+    "repository/tracked-files.txt": {
+      "bytes": 118486,
+      "sha256": "6b2b707eebb8519273819bca260e42962e61a69ec429114074e93f06ed3ed9d1"
+    }
+  },
+  "verification": {
+    "conversation": {
+      "input": {
+        "count": 30,
+        "byte_exact_records": true,
+        "verbatim_text": true,
+        "nontext_entries": []
+      },
+      "evaluation": {
+        "count": 14,
+        "byte_exact_records": true,
+        "verbatim_text": true,
+        "nontext_entries": []
+      }
+    },
+    "continuous_range_complete": true,
+    "git_blob_matches": 951,
+    "observed_copy_matches": 41,
+    "curated_links_valid": true,
+    "independent_review": {
+      "status": "completed",
+      "reviewer": "source_scene_check",
+      "required_fixes": [],
+      "result": "원문·연속 범위·파일 동일성 확인. 이후 답변의 입력 유입 없음. 당시 홈 HTML 판본과 실행 상태 미복원 한계 유지.",
+      "record": "../../../records/2026-10-21-ticket04-02-source-scene-assembly.md"
+    }
+  }
+}

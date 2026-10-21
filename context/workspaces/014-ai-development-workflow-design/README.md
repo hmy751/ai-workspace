@@ -6,6 +6,8 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 사용자는2026-10-12에 독립 Workspace와 근거 사본을 함께 보존해 새 세션도 논의를 이어가도록 요청했다. 이 폴더는 설계 작업의 기록 단위이며 Reference Harness를 설치·실행한 Workspace가 아니다. [Spec](current/spec.md)이 전체 구상과 미결정을, [Ticket01~07](current/tickets/index.md)이 결과별 책임을 맡는다. 검토자가 필요한 품질 수정을 직접 수행하는 B 방향은 선택했고 상세 인계·검증·운영은 후속에서 구체화한다.
 
+04-02는 기존 설명 스킬 수정안을 보류하고 보고서 사건의 연속 대화·당시 Git 자료를 [새 source](source/artifact-explanation-scenes/README.md)로 구성했다. 원문 경계·동일성의 독립 검토는 마쳤으며 당시 실행 전체 재현은 미완료다. 현재 판단과 다음 행동은 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)에서 이어간다.
+
 ## 지금 읽을 결과
 
 실물은 [development-workflow](records/prototypes/development-workflow/README.md) 한 폴더에서 계속 발전시킨다. 그 안의 noline-demo/context에 Personal의 개인 판단, Project의 제품 계약·개발 가이드·현재 사실, Work의 이번 선택·진행·결과를 구별했다. [CONTENT-POLICY](records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)는 본문과 형성 자료의 관리를, [SYSTEM-GUIDANCE](records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)는 체계 지침과 진입·상세의 역할을 소유한다.

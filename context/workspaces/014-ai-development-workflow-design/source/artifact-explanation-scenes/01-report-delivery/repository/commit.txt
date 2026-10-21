@@ -1,0 +1,7 @@
+commit 0b3b167c8b8d15dc1a45d87da934dfc5efaed994
+Author:     함명연 <hmy751@gmail.com>
+AuthorDate: Fri Oct 2 20:49:35 2026 +0900
+Commit:     함명연 <hmy751@gmail.com>
+CommitDate: Fri Oct 2 20:49:35 2026 +0900
+
+    docs(workspace): 경비·시간 결정과 검증 및 보류 사항 기록

@@ -18,8 +18,15 @@
 
 ## 전체 설계와 다른 Ticket의 입력
 
+- [04-02 원문 중심 source](../source/artifact-explanation-scenes/README.md): 보고서 사건의 연속 발화·Git·작업 기록·현재 산출물 사본을 구분한 자료. [구성 기록](../records/2026-10-21-ticket04-02-source-scene-assembly.md)에 검증과 공백을 연결했다. 사건 요약이나 기대 답을 대신 공급하지 않으며, 당시 실행 전체의 재현 준비·스킬 효과 검증은 완료하지 않았다.
+
+- [04-02 접근법·검증 재검토](../records/2026-10-21-ticket04-02-approach-and-evaluation-reset.md): 현재 판단 진입점. 첫 전달·조사·기준 적용과 사용자 교정 이후 재설명을 구별하고, 원인별 개입과 검증 방법을 다시 정했다. [두 스킬 재수정안](../records/2026-10-21-ticket04-02-original-intent-revision.md)과 기존 prototype은 보류한 후보이며 효과·채택이 확인된 현재 해법이 아니다.
+
 - [스킬 본문 관리 정책](../records/prototypes/development-workflow/skills/SKILLS-CONTENT-POLICY.md): 스킬의 실행 본문·상세·형성 자료 구성과 갱신을 정하는 진입 지침. 정책과 작성 경로를 만들고 [work-discussion 형성 자료](../records/prototypes/development-workflow/skills/work-discussion/_background/README.md)에 적용했다. [형성 자료 이해·수정 판단과 소비 확인](../records/2026-10-21-ticket04-01-background-reading-check.md)에서 각1회의 읽기 결과를 확인했다. [작성·적용 마무리](../records/2026-10-21-skills-content-policy-and-work-discussion.md)에 전체 범위와 후속을 연결했다. 다른 스킬 적용은 후속이다.
+- [04-02 세 장면 익명 응답 비교](../records/2026-10-21-ticket04-02-blind-response-comparison.md): 기존판·수정안 최초 응답 여섯 개와 독립 평가 두 개. 이번 범위에서 수정안의 우세는 확인하지 못했다. 통합안의 적용 효과나 실제 제품 검증으로 해석하지 않는다.
 - [work-discussion prototype 본문](../records/prototypes/development-workflow/skills/work-discussion/SKILL.md): 04-01 설계 결과 완료. 기존 정의·보완 후보 대조와 요청별 반환의 최소안을 승인·반영했고 reconsider-work는 유지한다. [두 조건 수행 기록](../records/2026-10-21-ticket04-01-minimal-update-and-two-checks.md)에 확인과 한계가 있다. 사용자 위치 정정으로 Reference 수정은 원복했다. Reference·외부 Noline 설치나 운영 책임 변경은 포함하지 않는다.
+- [04-02 두 설명 스킬의 본문 통합 수정안](../records/2026-10-21-ticket04-02-integrated-skill-drafts.md): 앞선 대조·정정·응답 예시를 반영한 전체 SKILL.md 후보. 기존 조건을 유지하고 중복을 본문에 합쳤다. [프로토타입의 실제 스킬 파일·변경점](../records/prototypes/development-workflow/skills/README.md)로 이어진다. 검토용이며 운영 미적용·효과 미확인이다.
+- [04-02 설명 스킬 대조와 응답 제안](../records/2026-10-20-ticket04-02-skill-comparison-and-response-proposals.md): 사용자 정정에 따른 원문 재대조와 보완안. 근본 역할 우선·실제 코드와 흐름, 이전 보고와의 연속성, 설명과 적절성 판단을 구체화하고 Promise의 실패 해석을 낮췄다. 응답 예시·본문 후보는 미채택·미설치이며 상세 진행은 [04-02](../current/tickets/04-skill-improvements/04-02-artifact-explanation.md)가 맡는다.
 - [Spec](../current/spec.md): 전체 목적·공통 기준·잠정안·선택·미정.
 - [Ticket 목록](../current/tickets/index.md): 결과별 책임과 후속 연결.01-02·04-03 등의 완료 상태는03 완료로 함께 바꾸지 않는다.
 - [01-02 기준 종합54](../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md)와 [형식 반영72](../records/2026-10-18-72-short-common-and-detail-prototype.md): 코드 기준과 공통·상세·사례의 앞선 입력. [73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md)의 당시 전체 만족 유보를 함께 읽고, 현재 본문은 위 단일 prototype에서 확인한다.

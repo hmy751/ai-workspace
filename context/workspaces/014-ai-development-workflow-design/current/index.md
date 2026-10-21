@@ -4,6 +4,8 @@
 
 현재 산출물은 [development-workflow](../records/prototypes/development-workflow/README.md)의 본문·사례·코드·작업 장면이다. [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)는 본문과 형성 자료의 관리를, [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)는 체계 지침과 진입·상세의 역할을 설명한다. 실제 운영 Noline·스킬·하네스 설치는 하지 않았다.
 
+04-02를 이어갈 때는 [해당 Ticket](tickets/04-skill-improvements/04-02-artifact-explanation.md)과 [원문 중심 source](../source/artifact-explanation-scenes/README.md)를 먼저 읽는다. 기존 설명 스킬 수정안은 보류했고, 보고서 사건의 원문·Git 자료 구성과 독립 검토를 마쳤다. 당시 홈 HTML·전체 실행 상태의 공백을 고려해 검증 가능한 범위와 개입할 책임을 정하는 단계다.
+
 ## 재진입
 
 1. [state](state.md)와 [output](../output/index.md)에서 이번에 끝낸 결과·현재 실물·다음 행동을 확인하고 Git 상태를 대조한다.

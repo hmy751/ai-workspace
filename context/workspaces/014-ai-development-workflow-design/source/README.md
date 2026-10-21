@@ -20,6 +20,10 @@
 
 `improvement-directions.md`와 일부 이전 AI 보고에는 코드 품질 우선이나 이후 정정된 방향이 담겨 있다. 당시 과정의 근거로 보존했으며 현 실행 계획은 아니다. 현재 방향·후보의 지위는 [Spec](../current/spec.md), 변화의 배경은 [제안·정정 기록](../records/2026-10-12-03-proposals-and-corrections.md)에서 확인한다.
 
+## 원문 중심의 후속 구성
+
+[artifact-explanation-scenes](artifact-explanation-scenes/README.md)는04-02에서 필요한 사건의 연속 공개 발화와 당시 Git·산출물 출처를 따로 보존한 후속 묶음이다. 현재 보고서 작성 사건 하나를 구성했고, 기존 corpus·원본 사본은 변경하지 않았다. 입력 이전 원문과 이후 평가용 원문, 역사 Git 사본과 판본 미확인 현재 산출물을 분리한다. 분석·판단은 [구성 기록](../records/2026-10-21-ticket04-02-source-scene-assembly.md)이 소유한다.
+
 ## 무엇을 어느 정도 보존했나
 
 - `discussion/`: 현재 채팅 `Tripproof 보고서 분석`의 사용자 발화·AI 공개 응답을 지정 시점까지 추출. 도구 출력·추론·자동 삽입 지침을 전체 대화 Markdown에 넣지 않았다. source_line과 시각을 보존하며 설계 전환 이후의 원문은 별도 파일로도 읽을 수 있다. 이후 Spec·Ticket 분해 요청의 세 발화는 별도 파일로 추가해 기존 사본의 보존 범위를 유지했다.

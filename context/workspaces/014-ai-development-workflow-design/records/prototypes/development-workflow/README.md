@@ -9,6 +9,7 @@
 | 보고 싶은 것 | 시작점 | 여기서 이해할 차이 |
 | --- | --- | --- |
 | 스킬 본문과 형성 자료를 작성·갱신하는 방법 | [스킬 본문 관리 정책](skills/SKILLS-CONTENT-POLICY.md) | 실행 지침·조건부 상세·형성 맥락과 근거의 책임 및 읽을 조건 |
+| 작업물을 설명하거나 앞선 설명을 복구하는 스킬 수정안 | [두 설명 스킬과 변경점](skills/README.md) | 접근법 재검토로 보류한 후보와 그 문구 차이. 채택·효과가 확인된 현재 해법은 아니다. |
 | 공통으로 묶을 범위와 사용처에 남길 선택 | [공통 제공과 사용처 선택](noline-demo/context/personal/development/shared-boundaries/INDEX.md) · [코드 사례](noline-demo/context/personal/development/shared-boundaries/INDEX.cases.md) | Field의 배치·입력 교체, Container의 오류 표시, 같은 주문 API와 같은 구매 흐름의 차이 |
 | 공통 오류와 시간·자원의 의미 | [계약과 수명](noline-demo/context/personal/development/contracts-and-lifetime/INDEX.md) · [코드 사례](noline-demo/context/personal/development/contracts-and-lifetime/INDEX.cases.md) | 파싱 실패·HTTP 상태, 옵션의 적용 순서, Toast의 3초가 시작되는 시점 |
 | 이름을 유지할지, 바꿀지, 동작을 고칠지 | [이름과 완료](noline-demo/context/personal/development/naming-and-completion/INDEX.md) · [판단 사례](noline-demo/context/personal/development/naming-and-completion/INDEX.cases.md) | 같은 코드의 이름 유지·개명 비용과 이득, 설명만으로 해결할 수 없는 완료 요구 |
