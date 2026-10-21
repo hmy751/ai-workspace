@@ -1,0 +1,42 @@
+[
+  {
+    "case": "R1",
+    "answer": "case-1/responses/answer-1.md",
+    "run": "run-06"
+  },
+  {
+    "case": "R1",
+    "answer": "case-1/responses/answer-2.md",
+    "run": "run-03"
+  },
+  {
+    "case": "R1",
+    "answer": "case-1/responses/answer-3.md",
+    "run": "run-16"
+  },
+  {
+    "case": "R1",
+    "answer": "case-1/responses/answer-4.md",
+    "run": "run-09"
+  },
+  {
+    "case": "R2",
+    "answer": "case-2/responses/answer-1.md",
+    "run": "run-08"
+  },
+  {
+    "case": "R2",
+    "answer": "case-2/responses/answer-2.md",
+    "run": "run-13"
+  },
+  {
+    "case": "R2",
+    "answer": "case-2/responses/answer-3.md",
+    "run": "run-04"
+  },
+  {
+    "case": "R2",
+    "answer": "case-2/responses/answer-4.md",
+    "run": "run-12"
+  }
+]

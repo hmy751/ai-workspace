@@ -18,6 +18,7 @@
 
 ## 전체 설계와 다른 Ticket의 입력
 
+- [work-discussion prototype 본문](../records/prototypes/development-workflow/skills/work-discussion/SKILL.md): 04-01 설계 결과 완료. 기존 정의·보완 후보 대조와 요청별 반환의 최소안을 승인·반영했고 reconsider-work는 유지한다. [두 조건 수행 기록](../records/2026-10-21-ticket04-01-minimal-update-and-two-checks.md)에 확인과 한계가 있다. 사용자 위치 정정으로 Reference 수정은 원복했다. Reference·외부 Noline 설치나 운영 책임 변경은 포함하지 않는다.
 - [Spec](../current/spec.md): 전체 목적·공통 기준·잠정안·선택·미정.
 - [Ticket 목록](../current/tickets/index.md): 결과별 책임과 후속 연결.01-02·04-03 등의 완료 상태는03 완료로 함께 바꾸지 않는다.
 - [01-02 기준 종합54](../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md)와 [형식 반영72](../records/2026-10-18-72-short-common-and-detail-prototype.md): 코드 기준과 공통·상세·사례의 앞선 입력. [73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md)의 당시 전체 만족 유보를 함께 읽고, 현재 본문은 위 단일 prototype에서 확인한다.

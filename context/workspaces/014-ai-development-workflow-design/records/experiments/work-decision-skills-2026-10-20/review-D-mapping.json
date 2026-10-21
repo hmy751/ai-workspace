@@ -1,0 +1,42 @@
+[
+  {
+    "case": "D1",
+    "answer": "case-1/responses/answer-1.md",
+    "run": "run-05"
+  },
+  {
+    "case": "D1",
+    "answer": "case-1/responses/answer-2.md",
+    "run": "run-14"
+  },
+  {
+    "case": "D1",
+    "answer": "case-1/responses/answer-3.md",
+    "run": "run-15"
+  },
+  {
+    "case": "D1",
+    "answer": "case-1/responses/answer-4.md",
+    "run": "run-11"
+  },
+  {
+    "case": "D2",
+    "answer": "case-2/responses/answer-1.md",
+    "run": "run-02"
+  },
+  {
+    "case": "D2",
+    "answer": "case-2/responses/answer-2.md",
+    "run": "run-07"
+  },
+  {
+    "case": "D2",
+    "answer": "case-2/responses/answer-3.md",
+    "run": "run-10"
+  },
+  {
+    "case": "D2",
+    "answer": "case-2/responses/answer-4.md",
+    "run": "run-01"
+  }
+]

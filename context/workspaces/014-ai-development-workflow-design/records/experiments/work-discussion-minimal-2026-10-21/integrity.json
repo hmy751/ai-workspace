@@ -1,0 +1,9 @@
+{
+  "completed_runs": 2,
+  "changed_inputs": [],
+  "actual_skill_matches_trial": true,
+  "skill_sha256": "08591ad1b7ff7ae195e390d3b7fd4cb20bfea9e230ec8540674a97cc92ca3649",
+  "basic_frontmatter_checks": "passed",
+  "broken_skill_links": [],
+  "quick_validate": "Could not start: available Python environments lack PyYAML. No dependency installation; basic field/link checks performed directly."
+}

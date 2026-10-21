@@ -14,6 +14,7 @@
 | 이름 기준이 왜 이렇게 만들어졌고 어떻게 고칠지 | [형성 자료 안내](noline-demo/context/personal/development/naming-and-completion/_background/README.md) | 현재 맥락, 당시 선택·정정 기록, 발화 근거를 질문에 따라 찾는 경로 |
 | 체계 지침의 본체·진입과 상세 분할을 어떻게 구별할지 | [체계 지침의 역할과 구성](noline-demo/context/SYSTEM-GUIDANCE.md) | 일반 내용의 기준과 체계를 다루는 지침, 진입 본문·상세·형성 자료의 책임 |
 | 기준을 실제 작업에서 어떻게 사용하는지 | [로그인 완료 표현을 정리하는 작업](walkthrough.md) | Personal의 판단 관점, Project의 계약, Work의 선택이 코드에 연결되는 과정 |
+| 작업 정의가 충분한지, 무엇을 더 구체화할지 | [작업 논의 스킬](skills/work-discussion/SKILL.md) · [스킬 안내](skills/README.md) | 기존 정의와 보완 후보의 대조, 충분성 판단과 필요한 구체화에 맞춘 반환 |
 | 실행 코드와 확인 범위 | [Noline demo](noline-demo/README.md) | 저장·인증 적용 뒤 조회를 요청하되 결과는 기다리지 않는 완료 경계 |
 
 일반 기준은 다른 작업에도 적용할 판단과 조건을 설명한다. 사례는 그 기준으로 선택이 갈리는 코드를 보여 준다. 전체 사례를 순서대로 읽는 대신 이번 쟁점에 맞는 본문을 고른다.

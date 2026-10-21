@@ -1,0 +1,314 @@
+[
+  {
+    "id": "run-01",
+    "case": "D2",
+    "version": "proposed",
+    "repetition": 2,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-01",
+    "skill": "work-discussion",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-01\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "2d4a37323ef8cd2dd05a4820b959da522f6971e214d854cb9ac37f0041e2e745",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/latest-scope.md": "ebe419ebb783959ed628113c1ea1ee472e26d13c2b1f3ea112dd6006599517c3",
+      "context/work/ticket.md": "f5171932c1b928a8dd08d5e1d2fcf0a57e103a90248f2339222d65103a7eb5bc",
+      "context/work/spec.md": "b69c9efc27bacf746e8758c988cdc56199ed1329d1d62108a29583b63af81781",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-02",
+    "case": "D2",
+    "version": "proposed",
+    "repetition": 1,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-02",
+    "skill": "work-discussion",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-02\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "2d4a37323ef8cd2dd05a4820b959da522f6971e214d854cb9ac37f0041e2e745",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/latest-scope.md": "ebe419ebb783959ed628113c1ea1ee472e26d13c2b1f3ea112dd6006599517c3",
+      "context/work/ticket.md": "f5171932c1b928a8dd08d5e1d2fcf0a57e103a90248f2339222d65103a7eb5bc",
+      "context/work/spec.md": "b69c9efc27bacf746e8758c988cdc56199ed1329d1d62108a29583b63af81781",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-03",
+    "case": "R1",
+    "version": "proposed",
+    "repetition": 1,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-03",
+    "skill": "reconsider-work",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-03\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/reconsider-work/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "a8937ab6eb2f011c64f25298be9c4f18187ccf36977c622cd2c2299d17f086b6",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/reconsider-work/SKILL.md": "3bfe3a692afbab615a6fbdaeed0e3daf25820c9023de7c3618225668a3497b8b",
+      "context/work/revised-policy.md": "14c5a81824c56f4ec9041e7bb21843c1f3380be250103bb8817d459ef7b9bb45",
+      "context/work/original-policy.md": "ad18269bcf9c93eb8e021d5fb5e2daa80dafa6a8808a5499816cccafaefb6bbd",
+      "context/work/ticket.md": "ad2c2c403813b58c8d3b1f945760c634cf67060cc7e6570a6ed73e1d71297ac6",
+      "context/work/observations.md": "feb5d843444db1909c2a3ef35806e66db9fc184634e26baed970ad9b3f48eaeb",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-04",
+    "case": "R2",
+    "version": "proposed",
+    "repetition": 2,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-04",
+    "skill": "reconsider-work",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-04\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/reconsider-work/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "a8937ab6eb2f011c64f25298be9c4f18187ccf36977c622cd2c2299d17f086b6",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/reconsider-work/SKILL.md": "3bfe3a692afbab615a6fbdaeed0e3daf25820c9023de7c3618225668a3497b8b",
+      "context/work/revised-policy.md": "14c5a81824c56f4ec9041e7bb21843c1f3380be250103bb8817d459ef7b9bb45",
+      "context/work/ux-observation.md": "59c29de6b5aa4fb7dce2db5784df4546d88aceb9768faa6bae412e56ea27d3b0",
+      "context/work/original-policy.md": "ad18269bcf9c93eb8e021d5fb5e2daa80dafa6a8808a5499816cccafaefb6bbd",
+      "context/work/ticket.md": "ad2c2c403813b58c8d3b1f945760c634cf67060cc7e6570a6ed73e1d71297ac6",
+      "context/work/observations.md": "bbfebcfd9f70f1b18b278d90969619a1a8d93217a4ebeb54ab4ca176e5875fdd",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-05",
+    "case": "D1",
+    "version": "proposed",
+    "repetition": 2,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-05",
+    "skill": "work-discussion",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-05\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.mdには 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "2d4a37323ef8cd2dd05a4820b959da522f6971e214d854cb9ac37f0041e2e745",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/ticket.md": "ecc292d4b90fc6b7fbc8805a7fb5e9d923b0a3aed2ecff84849b360040b2eca8",
+      "context/work/spec.md": "9f4a2ecd2dbda19cbceec8d486f1dc319b87335fcd8f1694582286c80f47e666",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-06",
+    "case": "R1",
+    "version": "current",
+    "repetition": 2,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-06",
+    "skill": "reconsider-work",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-06\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/reconsider-work/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "a8937ab6eb2f011c64f25298be9c4f18187ccf36977c622cd2c2299d17f086b6",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/reconsider-work/SKILL.md": "d9334a21831dbd311b69f1eb4ac5f1a576bec7e6cd185f695cc0eea569077404",
+      "context/work/revised-policy.md": "14c5a81824c56f4ec9041e7bb21843c1f3380be250103bb8817d459ef7b9bb45",
+      "context/work/original-policy.md": "ad18269bcf9c93eb8e021d5fb5e2daa80dafa6a8808a5499816cccafaefb6bbd",
+      "context/work/ticket.md": "ad2c2c403813b58c8d3b1f945760c634cf67060cc7e6570a6ed73e1d71297ac6",
+      "context/work/observations.md": "feb5d843444db1909c2a3ef35806e66db9fc184634e26baed970ad9b3f48eaeb",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-07",
+    "case": "D2",
+    "version": "current",
+    "repetition": 2,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-07",
+    "skill": "work-discussion",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-07\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "b3b0e00ba1a15663dd796ad8177ddc7a00ae9ab6604fb27867e8feed8aecdffb",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/latest-scope.md": "ebe419ebb783959ed628113c1ea1ee472e26d13c2b1f3ea112dd6006599517c3",
+      "context/work/ticket.md": "f5171932c1b928a8dd08d5e1d2fcf0a57e103a90248f2339222d65103a7eb5bc",
+      "context/work/spec.md": "b69c9efc27bacf746e8758c988cdc56199ed1329d1d62108a29583b63af81781",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-08",
+    "case": "R2",
+    "version": "current",
+    "repetition": 1,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-08",
+    "skill": "reconsider-work",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-08\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/reconsider-work/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "a8937ab6eb2f011c64f25298be9c4f18187ccf36977c622cd2c2299d17f086b6",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/reconsider-work/SKILL.md": "d9334a21831dbd311b69f1eb4ac5f1a576bec7e6cd185f695cc0eea569077404",
+      "context/work/revised-policy.md": "14c5a81824c56f4ec9041e7bb21843c1f3380be250103bb8817d459ef7b9bb45",
+      "context/work/ux-observation.md": "59c29de6b5aa4fb7dce2db5784df4546d88aceb9768faa6bae412e56ea27d3b0",
+      "context/work/original-policy.md": "ad18269bcf9c93eb8e021d5fb5e2daa80dafa6a8808a5499816cccafaefb6bbd",
+      "context/work/ticket.md": "ad2c2c403813b58c8d3b1f945760c634cf67060cc7e6570a6ed73e1d71297ac6",
+      "context/work/observations.md": "bbfebcfd9f70f1b18b278d90969619a1a8d93217a4ebeb54ab4ca176e5875fdd",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-09",
+    "case": "R1",
+    "version": "proposed",
+    "repetition": 2,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-09",
+    "skill": "reconsider-work",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-09\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/reconsider-work/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "a8937ab6eb2f011c64f25298be9c4f18187ccf36977c622cd2c2299d17f086b6",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/reconsider-work/SKILL.md": "3bfe3a692afbab615a6fbdaeed0e3daf25820c9023de7c3618225668a3497b8b",
+      "context/work/revised-policy.md": "14c5a81824c56f4ec9041e7bb21843c1f3380be250103bb8817d459ef7b9bb45",
+      "context/work/original-policy.md": "ad18269bcf9c93eb8e021d5fb5e2daa80dafa6a8808a5499816cccafaefb6bbd",
+      "context/work/ticket.md": "ad2c2c403813b58c8d3b1f945760c634cf67060cc7e6570a6ed73e1d71297ac6",
+      "context/work/observations.md": "feb5d843444db1909c2a3ef35806e66db9fc184634e26baed970ad9b3f48eaeb",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-10",
+    "case": "D2",
+    "version": "current",
+    "repetition": 1,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-10",
+    "skill": "work-discussion",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-10\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "b3b0e00ba1a15663dd796ad8177ddc7a00ae9ab6604fb27867e8feed8aecdffb",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/latest-scope.md": "ebe419ebb783959ed628113c1ea1ee472e26d13c2b1f3ea112dd6006599517c3",
+      "context/work/ticket.md": "f5171932c1b928a8dd08d5e1d2fcf0a57e103a90248f2339222d65103a7eb5bc",
+      "context/work/spec.md": "b69c9efc27bacf746e8758c988cdc56199ed1329d1d62108a29583b63af81781",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-11",
+    "case": "D1",
+    "version": "current",
+    "repetition": 1,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-11",
+    "skill": "work-discussion",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-11\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "b3b0e00ba1a15663dd796ad8177ddc7a00ae9ab6604fb27867e8feed8aecdffb",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/ticket.md": "ecc292d4b90fc6b7fbc8805a7fb5e9d923b0a3aed2ecff84849b360040b2eca8",
+      "context/work/spec.md": "9f4a2ecd2dbda19cbceec8d486f1dc319b87335fcd8f1694582286c80f47e666",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-12",
+    "case": "R2",
+    "version": "current",
+    "repetition": 2,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-12",
+    "skill": "reconsider-work",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-12\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/reconsider-work/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "a8937ab6eb2f011c64f25298be9c4f18187ccf36977c622cd2c2299d17f086b6",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/reconsider-work/SKILL.md": "d9334a21831dbd311b69f1eb4ac5f1a576bec7e6cd185f695cc0eea569077404",
+      "context/work/revised-policy.md": "14c5a81824c56f4ec9041e7bb21843c1f3380be250103bb8817d459ef7b9bb45",
+      "context/work/ux-observation.md": "59c29de6b5aa4fb7dce2db5784df4546d88aceb9768faa6bae412e56ea27d3b0",
+      "context/work/original-policy.md": "ad18269bcf9c93eb8e021d5fb5e2daa80dafa6a8808a5499816cccafaefb6bbd",
+      "context/work/ticket.md": "ad2c2c403813b58c8d3b1f945760c634cf67060cc7e6570a6ed73e1d71297ac6",
+      "context/work/observations.md": "bbfebcfd9f70f1b18b278d90969619a1a8d93217a4ebeb54ab4ca176e5875fdd",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-13",
+    "case": "R2",
+    "version": "proposed",
+    "repetition": 1,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-13",
+    "skill": "reconsider-work",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-13\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/reconsider-work/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "a8937ab6eb2f011c64f25298be9c4f18187ccf36977c622cd2c2299d17f086b6",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/reconsider-work/SKILL.md": "3bfe3a692afbab615a6fbdaeed0e3daf25820c9023de7c3618225668a3497b8b",
+      "context/work/revised-policy.md": "14c5a81824c56f4ec9041e7bb21843c1f3380be250103bb8817d459ef7b9bb45",
+      "context/work/ux-observation.md": "59c29de6b5aa4fb7dce2db5784df4546d88aceb9768faa6bae412e56ea27d3b0",
+      "context/work/original-policy.md": "ad18269bcf9c93eb8e021d5fb5e2daa80dafa6a8808a5499816cccafaefb6bbd",
+      "context/work/ticket.md": "ad2c2c403813b58c8d3b1f945760c634cf67060cc7e6570a6ed73e1d71297ac6",
+      "context/work/observations.md": "bbfebcfd9f70f1b18b278d90969619a1a8d93217a4ebeb54ab4ca176e5875fdd",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-14",
+    "case": "D1",
+    "version": "proposed",
+    "repetition": 1,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-14",
+    "skill": "work-discussion",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-14\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "2d4a37323ef8cd2dd05a4820b959da522f6971e214d854cb9ac37f0041e2e745",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/ticket.md": "ecc292d4b90fc6b7fbc8805a7fb5e9d923b0a3aed2ecff84849b360040b2eca8",
+      "context/work/spec.md": "9f4a2ecd2dbda19cbceec8d486f1dc319b87335fcd8f1694582286c80f47e666",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-15",
+    "case": "D1",
+    "version": "current",
+    "repetition": 2,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-15",
+    "skill": "work-discussion",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-15\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "b3b0e00ba1a15663dd796ad8177ddc7a00ae9ab6604fb27867e8feed8aecdffb",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/ticket.md": "ecc292d4b90fc6b7fbc8805a7fb5e9d923b0a3aed2ecff84849b360040b2eca8",
+      "context/work/spec.md": "9f4a2ecd2dbda19cbceec8d486f1dc319b87335fcd8f1694582286c80f47e666",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-16",
+    "case": "R1",
+    "version": "current",
+    "repetition": 1,
+    "root": "/tmp/work-decision-trial-20261020/runs/run-16",
+    "skill": "reconsider-work",
+    "prompt": "당신은 아래 작업 사본에서 사용자 요청을 처리하는 AI다. 이전 대화는 없다.\n작업 루트: /tmp/work-decision-trial-20261020/runs/run-16\n이 루트의 AGENTS.md, REQUEST.md, .claude/skills/reconsider-work/SKILL.md와 필요한 context/work 자료를 읽고 REQUEST.md에 답하라. 지정 루트 밖의 자료·다른 대화·상위 저장소 기록을 열지 말고 subagent를 추가하지 마라. 제품 구현이나 기존 입력 파일 수정 없이 사용자에게 줄 답을 작성하라. 출력 책임은 자신의 response.md 하나다. 다른 실행자의 파일을 수정하지 마라. response.md에는 사용자에게 줄 최종 응답 본문만 저장하고, 최종 메시지도 그 응답으로 반환하라.",
+    "sha256": {
+      "REQUEST.md": "a8937ab6eb2f011c64f25298be9c4f18187ccf36977c622cd2c2299d17f086b6",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/reconsider-work/SKILL.md": "d9334a21831dbd311b69f1eb4ac5f1a576bec7e6cd185f695cc0eea569077404",
+      "context/work/revised-policy.md": "14c5a81824c56f4ec9041e7bb21843c1f3380be250103bb8817d459ef7b9bb45",
+      "context/work/original-policy.md": "ad18269bcf9c93eb8e021d5fb5e2daa80dafa6a8808a5499816cccafaefb6bbd",
+      "context/work/ticket.md": "ad2c2c403813b58c8d3b1f945760c634cf67060cc7e6570a6ed73e1d71297ac6",
+      "context/work/observations.md": "feb5d843444db1909c2a3ef35806e66db9fc184634e26baed970ad9b3f48eaeb",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  }
+]

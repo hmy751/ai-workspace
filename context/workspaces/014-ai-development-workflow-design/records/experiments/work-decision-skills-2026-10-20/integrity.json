@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-20",
+  "completed_runs": 16,
+  "changed_inputs": [],
+  "response_copies_match": true,
+  "responses": [
+    {
+      "id": "run-01",
+      "sha256": "42183f2d3bcf4dc7eb7883d3dd2bdcbd7fd88c64d9c1f221bbc943c8b87f663b"
+    },
+    {
+      "id": "run-02",
+      "sha256": "3a846484d4f518cb42bb968fc9079cd705e27038a018c4cf74fa512f2639b70f"
+    },
+    {
+      "id": "run-03",
+      "sha256": "393cee57af4da28a9b56398e57eae3255b9f6d7510e74d493f8aebd506892970"
+    },
+    {
+      "id": "run-04",
+      "sha256": "c020bdec61c374dc25f86b35084e2eea5ddd9cf82810c387dad134d6e023e68f"
+    },
+    {
+      "id": "run-05",
+      "sha256": "59275a9c80a1563e54c4e50b6a12f3fc694168b78d9194837a39a37fecdb9282"
+    },
+    {
+      "id": "run-06",
+      "sha256": "d92c31e9d23018c3bfd0dabb1c5f82bde15cdfe1bf2c9c36b158449bf4626deb"
+    },
+    {
+      "id": "run-07",
+      "sha256": "6157b4dec8390cb65df94a78c8e273c68811cc70439c2919460aaf8753a40ef8"
+    },
+    {
+      "id": "run-08",
+      "sha256": "412a27de6e9343e40182d980a4dfc37d099423a0ed26b76ba6681faf1d99d0a9"
+    },
+    {
+      "id": "run-09",
+      "sha256": "4717beddbfcb582e58f9c801d4cc3b3fbfacd3ca1abaa5a6b16379ce8671d3f1"
+    },
+    {
+      "id": "run-10",
+      "sha256": "21b4436f3dd9ee3771643a33ec9f2a792bf0d499b8c42ff774c2c1d5852d3024"
+    },
+    {
+      "id": "run-11",
+      "sha256": "e4c908b4fa5128afa4242daa4eb1ed9371ac681c74d1016be8adde4102d376c4"
+    },
+    {
+      "id": "run-12",
+      "sha256": "b55c96dcb0e27e9d6176d3f1839da99499b111885675c90bb45f9c3a6be6878b"
+    },
+    {
+      "id": "run-13",
+      "sha256": "4e9c6c3693c1a6deb578f8f9e581f25de7154107f2864d229f7beee25696194f"
+    },
+    {
+      "id": "run-14",
+      "sha256": "ddc190901313b41e7d63836210d9fad1da6a1a9c43c04920e9116022605597a0"
+    },
+    {
+      "id": "run-15",
+      "sha256": "3f681901d60e1c181bd78ae2f423ef0c3f73356af857c1150570df5a8d029709"
+    },
+    {
+      "id": "run-16",
+      "sha256": "6b045bac1a159fb34b3fe2563a2955fb6dec982cb5d905a7b589905caba0088b"
+    }
+  ],
+  "skills": [
+    {
+      "skill": "work-discussion",
+      "reference_equals_baseline_and_trial": true,
+      "sha256": "b3b0e00ba1a15663dd796ad8177ddc7a00ae9ab6604fb27867e8feed8aecdffb"
+    },
+    {
+      "skill": "reconsider-work",
+      "reference_equals_baseline_and_trial": true,
+      "sha256": "d9334a21831dbd311b69f1eb4ac5f1a576bec7e6cd185f695cc0eea569077404"
+    }
+  ],
+  "access_audit": "Instruction-based scope only; full tool access history was not audited."
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "run-a",
+    "case": "D1",
+    "root": "/tmp/work-discussion-minimal-20261021/run-a",
+    "prompt": "작업 루트: /tmp/work-discussion-minimal-20261021/run-a\n이전 대화는 없다. 이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 사용자 요청에 답하라. 이 루트 밖 자료·다른 대화·외부 원본을 읽지 말고 추가 subagent를 만들지 마라. 기존 입력이나 제품을 수정하지 않는다. 자신의 response.md에 사용자에게 줄 최종 답만 저장하고 최종 메시지에도 반환하라. 다른 실행자와 환경을 공유하므로 다른 파일이나 변경을 건드리지 마라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "08591ad1b7ff7ae195e390d3b7fd4cb20bfea9e230ec8540674a97cc92ca3649",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/ticket.md": "ecc292d4b90fc6b7fbc8805a7fb5e9d923b0a3aed2ecff84849b360040b2eca8",
+      "context/work/spec.md": "9f4a2ecd2dbda19cbceec8d486f1dc319b87335fcd8f1694582286c80f47e666",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  },
+  {
+    "id": "run-b",
+    "case": "D2",
+    "root": "/tmp/work-discussion-minimal-20261021/run-b",
+    "prompt": "작업 루트: /tmp/work-discussion-minimal-20261021/run-b\n이전 대화는 없다. 이 루트의 AGENTS.md, REQUEST.md, .claude/skills/work-discussion/SKILL.md와 필요한 context/work 자료를 읽고 사용자 요청에 답하라. 이 루트 밖 자료·다른 대화·외부 원본을 읽지 말고 추가 subagent를 만들지 마라. 기존 입력이나 제품을 수정하지 않는다. 자신의 response.md에 사용자에게 줄 최종 답만 저장하고 최종 메시지에도 반환하라. 다른 실행자와 환경을 공유하므로 다른 파일이나 변경을 건드리지 마라.",
+    "sha256": {
+      "REQUEST.md": "efe7de05b2bcc7e30c6eed9b1fdd923eec97ac4c75d1674fef447f00d8683bc1",
+      "AGENTS.md": "7411552445349f18fac19cbc86e861995714f9581cf41efa0a83a68b91d4ce5d",
+      ".claude/skills/work-discussion/SKILL.md": "08591ad1b7ff7ae195e390d3b7fd4cb20bfea9e230ec8540674a97cc92ca3649",
+      "context/work/quality.md": "901c236d2c076ba38d08076e92787b276938e94b8ef0f7fdd6287197fd2e9aee",
+      "context/work/latest-scope.md": "ebe419ebb783959ed628113c1ea1ee472e26d13c2b1f3ea112dd6006599517c3",
+      "context/work/ticket.md": "f5171932c1b928a8dd08d5e1d2fcf0a57e103a90248f2339222d65103a7eb5bc",
+      "context/work/spec.md": "b69c9efc27bacf746e8758c988cdc56199ed1329d1d62108a29583b63af81781",
+      "context/work/observations.md": "9203cfb0f0f104b499e2fc102059f4bb0a0ee622d66c92ac1d2ae6576e1eaa19",
+      "context/project/guidance/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+    }
+  }
+]
