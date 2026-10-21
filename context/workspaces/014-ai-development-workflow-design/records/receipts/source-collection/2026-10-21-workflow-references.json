@@ -1,0 +1,454 @@
+{
+  "checked_at": "2026-10-21T16:34:47.706872+09:00",
+  "scope": "원문 복사 무결성·기존 원자료 보존·자료 안내 연결. 보존한 skill과 제품 코드는 실행하지 않음.",
+  "collections": [
+    {
+      "provider": "matt-pocock",
+      "file_count": 81,
+      "bytes": 403841,
+      "hashes_and_origin_match": true,
+      "head": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "source_scope_clean": true
+    },
+    {
+      "provider": "pstack",
+      "file_count": 148,
+      "bytes": 3391164,
+      "hashes_and_origin_match": true,
+      "head": "190d28736eff128ec94f502a22c7fe0c4b56cd37",
+      "source_scope_clean": true
+    },
+    {
+      "provider": "cursor-team-kit",
+      "file_count": 8,
+      "bytes": 76788,
+      "hashes_and_origin_match": true,
+      "head": "190d28736eff128ec94f502a22c7fe0c4b56cd37",
+      "source_scope_clean": true
+    }
+  ],
+  "failures": [],
+  "raw_relative_links_outside_capture": [
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/productivity/grill-me/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/productivity/grill-me/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/engineering/triage/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/engineering/wayfinder/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/engineering/prototype/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/engineering/research/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/engineering/wizard/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/productivity/grill-me/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/productivity/teach/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/productivity/to-questionnaire/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "README.md",
+      "target": "./skills/productivity/wait-what/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/frozen-misc-skills.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/new-skills.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/frozen-misc-skills.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/harness-name-collisions.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/mainstream-issue-trackers-only.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/native-question-tool.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/new-skills.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/question-limits.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/setup-skill-verify-mode.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "SCOPE.md",
+      "target": "./.out-of-scope/subagent-recursion.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "skills/engineering/README.md",
+      "target": "./triage/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "skills/engineering/README.md",
+      "target": "./wayfinder/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "skills/engineering/README.md",
+      "target": "./prototype/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "skills/engineering/README.md",
+      "target": "./research/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "skills/engineering/README.md",
+      "target": "./wizard/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "skills/productivity/README.md",
+      "target": "./grill-me/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "skills/productivity/README.md",
+      "target": "./teach/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "skills/productivity/README.md",
+      "target": "./to-questionnaire/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "matt-pocock",
+      "from": "skills/productivity/README.md",
+      "target": "./wait-what/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/poteto-help/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/poteto-help/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/in-your-own-words/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/sharpen/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/recall/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/ketchup/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/automate-me/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/make-bot-ui/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/teach/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/bro/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./skills/automate-me/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./automations/benny/",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "README.md",
+      "target": "./automations/benny/FOR_AGENTS.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/02-poteto-mode.md",
+      "target": "../../skills/in-your-own-words/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/02-poteto-mode.md",
+      "target": "../../skills/sharpen/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/03-understand.md",
+      "target": "../../skills/teach/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/03-understand.md",
+      "target": "../../skills/recall/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/07-overnight.md",
+      "target": "../../skills/ketchup/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/07-overnight.md",
+      "target": "../../automations/benny/README.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/07-overnight.md",
+      "target": "../../automations/benny/FOR_AGENTS.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/09-make-it-yours.md",
+      "target": "../../skills/automate-me/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/09-make-it-yours.md",
+      "target": "../../skills/make-bot-ui/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/10-recipes-and-pitfalls.md",
+      "target": "../../skills/bro/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/10-recipes-and-pitfalls.md",
+      "target": "../../skills/ketchup/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "docs/guide/README.md",
+      "target": "../../skills/poteto-help/SKILL.md",
+      "original_target_exists": true,
+      "classification": "not_selected_navigation"
+    },
+    {
+      "collection": "pstack",
+      "from": "skills/why/references/synthesizer-prompt.md",
+      "target": "url",
+      "original_target_exists": false,
+      "classification": "illustrative_placeholder"
+    }
+  ],
+  "preexisting_source": {
+    "file_count": 1121,
+    "changed_files": []
+  },
+  "vercel_existing_article_matches_manifest": true,
+  "lectures_against_original_manifest": {
+    "file_count": 10,
+    "mismatches": []
+  },
+  "authored_navigation": {
+    "checked_links": 309,
+    "missing": []
+  },
+  "total_new_source_files": 237,
+  "total_new_source_bytes": 3871793
+}

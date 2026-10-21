@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-21T16:22:14.425063+09:00",
+  "timezone": "Asia/Seoul",
+  "scope": "사용자가 지정한 로컬 클론에서 구현·검토 및 수정 논의에 필요한 원문과 연결 자료를 선택 보존. 설치·실행한 skill이 아니며 원문은 변경하지 않음.",
+  "source_root": "/Users/hammyeong-yeon/Desktop/plugins/cursor-team-kit",
+  "repository_root": "/Users/hammyeong-yeon/Desktop/plugins",
+  "repository_url": "https://github.com/cursor/plugins",
+  "git_head": "190d28736eff128ec94f502a22c7fe0c4b56cd37",
+  "git_status_porcelain_in_source_scope": [],
+  "version": "1.2.0",
+  "version_source": ".cursor-plugin/plugin.json",
+  "preservation": "selected regular files, byte-for-byte; source-relative paths retained under repository/",
+  "file_count": 8,
+  "total_bytes": 76788,
+  "groups": [
+    {
+      "id": "pstack-direct-dependencies",
+      "role": "support",
+      "purpose_ko": "poteto-mode가 직접 참조하는 변경 정리·UI/CLI 제어와 이들의 증거 비교 계약을 보존한다.",
+      "paths": [
+        "skills/deslop/SKILL.md",
+        "skills/control-ui/SKILL.md",
+        "skills/control-cli/SKILL.md",
+        "skills/verify-this/SKILL.md"
+      ],
+      "why": "pstack의 named calls에서 같은 plugins 저장소의 실제 본문으로 연결한다. verify-this는 control-ui의 명시된 사용처와 control-ui/control-cli의 증거 비교 맥락을 보존한다."
+    },
+    {
+      "id": "provenance",
+      "role": "provenance",
+      "purpose_ko": "별도 plugin의 저자·라이선스·판본·공식 진입점을 보존한다.",
+      "paths": [
+        "README.md",
+        "LICENSE",
+        ".cursor-plugin/plugin.json",
+        "assets/avatar.png"
+      ],
+      "why": "pstack 자체나 Lauren의 내부 도구로 오인하지 않게 출처를 구별한다."
+    }
+  ],
+  "excluded": [
+    {
+      "paths_or_group": "다른 cursor-team-kit skill·agent·rules",
+      "reason": "이번 pstack 직접 참조와 연결되는 네 본문 밖의 독립 도구는 보존하지 않는다. README에는 이들 탐색 링크가 원문 그대로 남는다."
+    }
+  ],
+  "unresolved_dependencies": [
+    {
+      "from": "skills/control-ui/SKILL.md",
+      "target": "target application, repo-native browser harness, Playwright or Chromium CDP",
+      "reason": "대상 프로젝트와 실행 host에서 갖출 도구다. 이 자료 수집에서 설치·실행하지 않는다."
+    },
+    {
+      "from": "skills/control-cli/SKILL.md",
+      "target": "target CLI, tmux/PTY/runtime inspector",
+      "reason": "대상 프로젝트와 실행 host에서 갖출 도구다. 이 자료 수집에서 설치·실행하지 않는다."
+    }
+  ],
+  "available_regular_files_at_capture": [
+    ".cursor-plugin/plugin.json",
+    "LICENSE",
+    "README.md",
+    "agents/ci-watcher.md",
+    "agents/thermo-nuclear-code-quality-review.md",
+    "assets/avatar.png",
+    "rules/no-inline-imports.mdc",
+    "rules/typescript-exhaustive-switch.mdc",
+    "skills/check-compiler-errors/SKILL.md",
+    "skills/control-cli/SKILL.md",
+    "skills/control-ui/SKILL.md",
+    "skills/deslop/SKILL.md",
+    "skills/fix-ci/SKILL.md",
+    "skills/fix-merge-conflicts/SKILL.md",
+    "skills/get-pr-comments/SKILL.md",
+    "skills/loop-on-ci/SKILL.md",
+    "skills/make-pr-easy-to-review/SKILL.md",
+    "skills/new-branch-and-pr/SKILL.md",
+    "skills/pr-review-canvas/SKILL.md",
+    "skills/pr-review-canvas/renderer.js",
+    "skills/pr-review-canvas/styles.css",
+    "skills/pr-review-canvas/template.html",
+    "skills/review-and-ship/SKILL.md",
+    "skills/run-smoke-tests/SKILL.md",
+    "skills/thermo-nuclear-code-quality-review/SKILL.md",
+    "skills/verify-this/SKILL.md",
+    "skills/weekly-review/SKILL.md",
+    "skills/what-did-i-get-done/SKILL.md",
+    "skills/workflow-from-chats/SKILL.md"
+  ],
+  "entries": [
+    {
+      "source_relative_path": ".cursor-plugin/plugin.json",
+      "source_repository_relative_path": "cursor-team-kit/.cursor-plugin/plugin.json",
+      "destination_relative_to_workspace": "source/workflow-references/cursor-team-kit/repository/.cursor-plugin/plugin.json",
+      "bytes": 899,
+      "sha256": "9c8622d0577205959b6469a5454cbe2787ad3c6412439759328e92dc0115584d",
+      "source_mode": "0o644",
+      "groups": [
+        "provenance"
+      ]
+    },
+    {
+      "source_relative_path": "LICENSE",
+      "source_repository_relative_path": "cursor-team-kit/LICENSE",
+      "destination_relative_to_workspace": "source/workflow-references/cursor-team-kit/repository/LICENSE",
+      "bytes": 1063,
+      "sha256": "702f5f331b56aff0e33d8c7826df5202559f894145eb70355c6477b55b5bb8a0",
+      "source_mode": "0o644",
+      "groups": [
+        "provenance"
+      ]
+    },
+    {
+      "source_relative_path": "README.md",
+      "source_repository_relative_path": "cursor-team-kit/README.md",
+      "destination_relative_to_workspace": "source/workflow-references/cursor-team-kit/repository/README.md",
+      "bytes": 2526,
+      "sha256": "6f0e34073ee503824eb5baf52a52119cffe330f2685477ea8d303e881ecd1679",
+      "source_mode": "0o644",
+      "groups": [
+        "provenance"
+      ]
+    },
+    {
+      "source_relative_path": "assets/avatar.png",
+      "source_repository_relative_path": "cursor-team-kit/assets/avatar.png",
+      "destination_relative_to_workspace": "source/workflow-references/cursor-team-kit/repository/assets/avatar.png",
+      "bytes": 59641,
+      "sha256": "13127219825cd53eff1f09686798f2dd7f5e00d0a7093e74d2619e72d5a44c26",
+      "source_mode": "0o644",
+      "groups": [
+        "provenance"
+      ]
+    },
+    {
+      "source_relative_path": "skills/control-cli/SKILL.md",
+      "source_repository_relative_path": "cursor-team-kit/skills/control-cli/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/cursor-team-kit/repository/skills/control-cli/SKILL.md",
+      "bytes": 4333,
+      "sha256": "13ac93e595bbda2000849bdb815d5f2ca03f7c2ca63788c8335f9212b9b422a2",
+      "source_mode": "0o644",
+      "groups": [
+        "pstack-direct-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/control-ui/SKILL.md",
+      "source_repository_relative_path": "cursor-team-kit/skills/control-ui/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/cursor-team-kit/repository/skills/control-ui/SKILL.md",
+      "bytes": 4802,
+      "sha256": "410cae25bdb1e5d2323b126abc5047b0213be7fdb0195710213fa8de8a751871",
+      "source_mode": "0o644",
+      "groups": [
+        "pstack-direct-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/deslop/SKILL.md",
+      "source_repository_relative_path": "cursor-team-kit/skills/deslop/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/cursor-team-kit/repository/skills/deslop/SKILL.md",
+      "bytes": 719,
+      "sha256": "2f7b7def74af7ed11f5b44b4d32f0f91fca8c5d1f92bf2171e8d12fd33a0f810",
+      "source_mode": "0o644",
+      "groups": [
+        "pstack-direct-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/verify-this/SKILL.md",
+      "source_repository_relative_path": "cursor-team-kit/skills/verify-this/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/cursor-team-kit/repository/skills/verify-this/SKILL.md",
+      "bytes": 2805,
+      "sha256": "c1c7b27c1133085bd3409c601ea12b6e6f61b4b23debcd52bc248fc01907e7de",
+      "source_mode": "0o644",
+      "groups": [
+        "pstack-direct-dependencies"
+      ]
+    }
+  ]
+}

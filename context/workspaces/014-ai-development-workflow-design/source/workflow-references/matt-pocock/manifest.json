@@ -1,0 +1,1263 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-21T16:20:23.942140+09:00",
+  "timezone": "Asia/Seoul",
+  "scope": "사용자가 지정한 로컬 클론에서 구현·검토 및 수정 논의에 필요한 원문과 연결 자료를 선택 보존. 설치·실행한 skill이 아니며 원문은 변경하지 않음.",
+  "source_root": "/Users/hammyeong-yeon/Desktop/skills",
+  "repository_root": "/Users/hammyeong-yeon/Desktop/skills",
+  "repository_url": "https://github.com/mattpocock/skills",
+  "git_head": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+  "git_status_porcelain_in_source_scope": [],
+  "version": "1.3.1",
+  "version_source": "package.json",
+  "preservation": "selected regular files, byte-for-byte; source-relative paths retained under repository/",
+  "file_count": 81,
+  "total_bytes": 403841,
+  "groups": [
+    {
+      "id": "implementation",
+      "role": "core",
+      "purpose_ko": "이미 결정한 작업을 단일 Ticket 또는 전체 Spec으로 구현하는 실제 절차와 테스트 규율을 보존한다.",
+      "paths": [
+        "skills/engineering/implement/SKILL.md",
+        "skills/engineering/implement/agents/openai.yaml",
+        "docs/engineering/implement.md",
+        "skills/engineering/implement-spec/SKILL.md",
+        "skills/engineering/implement-spec/agents/openai.yaml",
+        "docs/engineering/implement-spec.md",
+        "skills/engineering/tdd/SKILL.md",
+        "skills/engineering/tdd/agents/openai.yaml",
+        "skills/engineering/tdd/mocking.md",
+        "skills/engineering/tdd/tests.md",
+        "docs/engineering/tdd.md"
+      ],
+      "why": "구현 입력, 합의한 테스트 경계, red-green, 병렬 worktree 인수와 통합, 검토 호출 및 종료 공백을 직접 대조한다. tests.md와 mocking.md 및 invocation metadata를 포함한다."
+    },
+    {
+      "id": "review-and-design",
+      "role": "core",
+      "purpose_ko": "검토 및 수정 단계의 실제 검토 계약과 구조 판단 기준·개선 후보 조사 절차를 보존한다.",
+      "paths": [
+        "skills/engineering/code-review/SKILL.md",
+        "skills/engineering/code-review/agents/openai.yaml",
+        "docs/engineering/code-review.md",
+        "skills/engineering/codebase-design/DEEPENING.md",
+        "skills/engineering/codebase-design/DESIGN-IT-TWICE.md",
+        "skills/engineering/codebase-design/SKILL.md",
+        "skills/engineering/codebase-design/agents/openai.yaml",
+        "docs/engineering/codebase-design.md",
+        "skills/engineering/improve-codebase-architecture/HTML-REPORT.md",
+        "skills/engineering/improve-codebase-architecture/SKILL.md",
+        "skills/engineering/improve-codebase-architecture/agents/openai.yaml",
+        "docs/engineering/improve-codebase-architecture.md"
+      ],
+      "why": "Standards와 Spec 검토, deep module 판단, 의존성별 테스트와 대안 인터페이스 탐색, HTML 전후 비교를 보존한다. 직접 수정 권고와 보고형 code-review의 차이를 확인할 수 있도록 docs와 모든 상대 참조를 포함한다."
+    },
+    {
+      "id": "implementation-input",
+      "role": "support",
+      "purpose_ko": "구현으로 넘길 결정·Spec·Ticket·용어·ADR가 어떻게 형성되는지 보존한다.",
+      "paths": [
+        "skills/engineering/to-spec/SKILL.md",
+        "skills/engineering/to-spec/agents/openai.yaml",
+        "docs/engineering/to-spec.md",
+        "skills/engineering/to-tickets/SKILL.md",
+        "skills/engineering/to-tickets/agents/openai.yaml",
+        "docs/engineering/to-tickets.md",
+        "skills/engineering/grill-with-docs/SKILL.md",
+        "skills/engineering/grill-with-docs/agents/openai.yaml",
+        "docs/engineering/grill-with-docs.md",
+        "skills/engineering/domain-modeling/ADR-FORMAT.md",
+        "skills/engineering/domain-modeling/GLOSSARY-FORMAT.md",
+        "skills/engineering/domain-modeling/SKILL.md",
+        "skills/engineering/domain-modeling/agents/openai.yaml",
+        "docs/engineering/domain-modeling.md",
+        "skills/productivity/grilling/SKILL.md",
+        "skills/productivity/grilling/agents/openai.yaml",
+        "docs/productivity/grilling.md"
+      ],
+      "why": "구현 단계의 전후 경계를 이해하는 데 필요한 직접 입력 생성 절차와 호출 primitive만 포함한다. 전체 사전 설계 workflow를 이번 논의의 새 목표로 채택하지 않는다. domain-modeling의 두 format reference를 포함한다."
+    },
+    {
+      "id": "execution-context-dependencies",
+      "role": "support",
+      "purpose_ko": "선정된 skill이 실제로 요구하는 tracker·domain 문서와 agent 문서 작성 dependency를 보존한다.",
+      "paths": [
+        "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+        "skills/engineering/setup-matt-pocock-skills/agents/openai.yaml",
+        "skills/engineering/setup-matt-pocock-skills/domain.md",
+        "skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md",
+        "skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md",
+        "skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md",
+        "skills/engineering/setup-matt-pocock-skills/triage-labels.md",
+        "docs/engineering/setup-matt-pocock-skills.md",
+        "skills/productivity/writing-for-agents/SKILL-MECHANICS.md",
+        "skills/productivity/writing-for-agents/SKILL.md",
+        "skills/productivity/writing-for-agents/agents/openai.yaml",
+        "docs/productivity/writing-for-agents.md"
+      ],
+      "why": "code-review·to-spec·to-tickets·implement-spec의 setup 전제와 retro의 writing-for-agents 호출을 복원한다. tracker별 template, domain consumer 규칙, triage labels 조건부 template, SKILL-MECHANICS를 함께 보존한다. 설치 자체는 수행하지 않는다."
+    },
+    {
+      "id": "diagnosis-evidence-report",
+      "role": "boundary",
+      "purpose_ko": "작업 중 실패 진단, 실행 근거, 사람 검토를 위한 보고, 다음 환경 개선의 경계를 보존한다.",
+      "paths": [
+        "skills/engineering/diagnosing-bugs/SKILL.md",
+        "skills/engineering/diagnosing-bugs/agents/openai.yaml",
+        "skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh",
+        "docs/engineering/diagnosing-bugs.md",
+        "skills/engineering/pr/CREDITS.md",
+        "skills/engineering/pr/SKILL.md",
+        "skills/engineering/pr/agents/openai.yaml",
+        "docs/engineering/pr.md",
+        "skills/engineering/retro/SKILL.md",
+        "skills/engineering/retro/agents/openai.yaml",
+        "docs/engineering/retro.md"
+      ],
+      "why": "진단의 원증상 재현과 수정 후 재확인, HITL template, PR의 전후 증거·가역성·영향, retro의 기계 검사와 판단 기준 분류를 비교한다. pr CREDITS를 함께 보존한다. 자동 회고나 배포를 도입한다는 뜻은 아니다."
+    },
+    {
+      "id": "phase-and-handoff",
+      "role": "boundary",
+      "purpose_ko": "구현·검토 사이에서 같은 대화 유지, 새 문맥 위임, 인계의 선택 근거를 보존한다.",
+      "paths": [
+        "skills/engineering/ask-matt/PHASE-BOUNDARIES.md",
+        "skills/engineering/ask-matt/SKILL.md",
+        "skills/engineering/ask-matt/agents/openai.yaml",
+        "docs/engineering/ask-matt.md",
+        "skills/productivity/handoff/SKILL.md",
+        "skills/productivity/handoff/agents/openai.yaml",
+        "docs/productivity/handoff.md"
+      ],
+      "why": "ask-matt의 PHASE-BOUNDARIES.md와 handoff는 단계 전환·원자료와 요약 비용·구현 인수 연결에 직접 필요하다. router가 이름만 안내하는 모든 sibling skill을 dependency로 재귀 수집하지 않는다."
+    },
+    {
+      "id": "repository-provenance",
+      "role": "provenance",
+      "purpose_ko": "로컬 사본의 정체·용어·지원 범위·호출 규칙과 라이선스를 보존한다.",
+      "paths": [
+        "README.md",
+        "LICENSE",
+        "SCOPE.md",
+        "GLOSSARY.md",
+        "CHANGELOG.md",
+        "skills/engineering/README.md",
+        "skills/productivity/README.md",
+        ".agents/invocation.md",
+        ".agents/adr/0001-explicit-setup-pointer-only-for-hard-dependencies.md",
+        "package.json",
+        ".claude-plugin/plugin.json"
+      ],
+      "why": "개별 skill만으로 놓치는 모듈식 구성과 user/model invocation 경계, 저장소 버전 이력을 함께 확인한다."
+    }
+  ],
+  "excluded": [
+    {
+      "paths_or_group": "skills/in-progress/**, skills/misc/**, skills/deprecated/**",
+      "reason": "이번 구현·검토 계약의 호출 dependency가 아닌 실험·별도 기술 설정과 이전 범주. chief-of-staff 및 관련 changeset만 기준 commit 이후 변경됐으나 이번 범위 밖이다."
+    },
+    {
+      "paths_or_group": "skills/engineering/{triage,wayfinder,research,prototype,wizard}/ 및 대응 docs",
+      "reason": "이슈 분류·대형 탐색·외부 조사·버릴 시제품·사람 전용 인프라 작업은 현재 구현·검토 두 단계의 필수 호출 dependency가 아니다. 선택 자료의 router/docs에 경계 설명이 있어 이름은 남지만 전체 workflow를 재귀 수집하지 않는다."
+    },
+    {
+      "paths_or_group": "skills/productivity/{grill-me,teach,to-questionnaire,wait-what}/ 및 대응 docs",
+      "reason": "직접 dependency인 grilling은 보존하며, 독립 인터뷰 wrapper·교육·설문·설명 복구는 이번 자료 범위에서 제외한다. 설명 복구는 별도 04-02와도 구분한다."
+    },
+    {
+      "paths_or_group": ".github/**, .claude-plugin/**, scripts/**, package*.json, .changeset/**, .out-of-scope/**, AGENTS.md, CLAUDE.md",
+      "reason": "배포·설치·저장소 자체 개발 자동화와 기여자 지침을 복사해 실행 환경으로 만들 목적이 아니다. repo README·SCOPE·LICENSE·CHANGELOG·호출 계약은 provenance로 별도 포함한다. 단 package.json과 .claude-plugin/plugin.json 두 버전·정체 metadata는 provenance에 포함한다."
+    },
+    {
+      "paths_or_group": "README와 docs의 외부 영상·문서·이슈 링크",
+      "reason": "로컬 클론 보존 범위. 외부 본문은 네트워크로 취득하지 않으며 링크만 원문대로 보존한다."
+    }
+  ],
+  "unresolved_dependencies": [],
+  "available_regular_files_at_capture": [
+    ".agents/adr/0001-explicit-setup-pointer-only-for-hard-dependencies.md",
+    ".agents/adr/0002-ship-as-a-claude-code-plugin.md",
+    ".agents/install-block.md",
+    ".agents/invocation.md",
+    ".agents/writing-docs.md",
+    ".changeset/README.md",
+    ".changeset/ask-matt-read-skill-first.md",
+    ".changeset/chief-of-staff-wiki.md",
+    ".changeset/code-review-standards-and-subagents.md",
+    ".changeset/config.json",
+    ".changeset/diagnosing-bugs-prove-mutation.md",
+    ".changeset/github-tracker-external-pr-list.md",
+    ".changeset/grilling-yes-accepts-recommendation.md",
+    ".changeset/handoff-temp-dir.md",
+    ".changeset/implement-skill-tool-wording.md",
+    ".changeset/implement-ticket-reference.md",
+    ".changeset/setup-tracker-fixes.md",
+    ".changeset/tdd-seam-tradeoffs.md",
+    ".changeset/teach-quiz-answer-position.md",
+    ".changeset/teach-workspace-root.md",
+    ".changeset/to-tickets-sub-issues.md",
+    ".changeset/wayfinder-labels-refs-research-prs.md",
+    ".changeset/wizard-template-fixes-2.md",
+    ".changeset/wizard-template-fixes.md",
+    ".claude-plugin/marketplace.json",
+    ".claude-plugin/plugin.json",
+    ".github/ISSUE_TEMPLATE/bug.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
+    ".github/ISSUE_TEMPLATE/idea.yml",
+    ".github/workflows/needs-info.yml",
+    ".github/workflows/release.yml",
+    ".github/workflows/triage-label.yml",
+    ".gitignore",
+    ".out-of-scope/frozen-misc-skills.md",
+    ".out-of-scope/harness-name-collisions.md",
+    ".out-of-scope/lazy-load-writing-for-agents.md",
+    ".out-of-scope/mainstream-issue-trackers-only.md",
+    ".out-of-scope/native-question-tool.md",
+    ".out-of-scope/new-skills.md",
+    ".out-of-scope/question-limits.md",
+    ".out-of-scope/setup-skill-verify-mode.md",
+    ".out-of-scope/subagent-recursion.md",
+    "CHANGELOG.md",
+    "CLAUDE.md",
+    "GLOSSARY.md",
+    "LICENSE",
+    "README.md",
+    "SCOPE.md",
+    "docs/agents/triage-labels.md",
+    "docs/engineering/ask-matt.md",
+    "docs/engineering/code-review.md",
+    "docs/engineering/codebase-design.md",
+    "docs/engineering/diagnosing-bugs.md",
+    "docs/engineering/domain-modeling.md",
+    "docs/engineering/grill-with-docs.md",
+    "docs/engineering/implement-spec.md",
+    "docs/engineering/implement.md",
+    "docs/engineering/improve-codebase-architecture.md",
+    "docs/engineering/pr.md",
+    "docs/engineering/prototype.md",
+    "docs/engineering/research.md",
+    "docs/engineering/resolving-merge-conflicts.md",
+    "docs/engineering/retro.md",
+    "docs/engineering/setup-matt-pocock-skills.md",
+    "docs/engineering/tdd.md",
+    "docs/engineering/to-spec.md",
+    "docs/engineering/to-tickets.md",
+    "docs/engineering/triage.md",
+    "docs/engineering/wayfinder.md",
+    "docs/engineering/wizard.md",
+    "docs/productivity/grill-me.md",
+    "docs/productivity/grilling.md",
+    "docs/productivity/handoff.md",
+    "docs/productivity/teach.md",
+    "docs/productivity/to-questionnaire.md",
+    "docs/productivity/wait-what.md",
+    "docs/productivity/writing-for-agents.md",
+    "package-lock.json",
+    "package.json",
+    "scripts/link-skills.sh",
+    "scripts/list-skills.sh",
+    "scripts/sync-plugin-version.mjs",
+    "skills/deprecated/README.md",
+    "skills/engineering/README.md",
+    "skills/engineering/ask-matt/PHASE-BOUNDARIES.md",
+    "skills/engineering/ask-matt/SKILL.md",
+    "skills/engineering/ask-matt/agents/openai.yaml",
+    "skills/engineering/code-review/SKILL.md",
+    "skills/engineering/code-review/agents/openai.yaml",
+    "skills/engineering/codebase-design/DEEPENING.md",
+    "skills/engineering/codebase-design/DESIGN-IT-TWICE.md",
+    "skills/engineering/codebase-design/SKILL.md",
+    "skills/engineering/codebase-design/agents/openai.yaml",
+    "skills/engineering/diagnosing-bugs/SKILL.md",
+    "skills/engineering/diagnosing-bugs/agents/openai.yaml",
+    "skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh",
+    "skills/engineering/domain-modeling/ADR-FORMAT.md",
+    "skills/engineering/domain-modeling/GLOSSARY-FORMAT.md",
+    "skills/engineering/domain-modeling/SKILL.md",
+    "skills/engineering/domain-modeling/agents/openai.yaml",
+    "skills/engineering/grill-with-docs/SKILL.md",
+    "skills/engineering/grill-with-docs/agents/openai.yaml",
+    "skills/engineering/implement-spec/SKILL.md",
+    "skills/engineering/implement-spec/agents/openai.yaml",
+    "skills/engineering/implement/SKILL.md",
+    "skills/engineering/implement/agents/openai.yaml",
+    "skills/engineering/improve-codebase-architecture/HTML-REPORT.md",
+    "skills/engineering/improve-codebase-architecture/SKILL.md",
+    "skills/engineering/improve-codebase-architecture/agents/openai.yaml",
+    "skills/engineering/pr/CREDITS.md",
+    "skills/engineering/pr/SKILL.md",
+    "skills/engineering/pr/agents/openai.yaml",
+    "skills/engineering/prototype/LOGIC.md",
+    "skills/engineering/prototype/SKILL.md",
+    "skills/engineering/prototype/UI.md",
+    "skills/engineering/prototype/agents/openai.yaml",
+    "skills/engineering/research/SKILL.md",
+    "skills/engineering/research/agents/openai.yaml",
+    "skills/engineering/retro/SKILL.md",
+    "skills/engineering/retro/agents/openai.yaml",
+    "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+    "skills/engineering/setup-matt-pocock-skills/agents/openai.yaml",
+    "skills/engineering/setup-matt-pocock-skills/domain.md",
+    "skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md",
+    "skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md",
+    "skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md",
+    "skills/engineering/setup-matt-pocock-skills/triage-labels.md",
+    "skills/engineering/tdd/SKILL.md",
+    "skills/engineering/tdd/agents/openai.yaml",
+    "skills/engineering/tdd/mocking.md",
+    "skills/engineering/tdd/tests.md",
+    "skills/engineering/to-spec/SKILL.md",
+    "skills/engineering/to-spec/agents/openai.yaml",
+    "skills/engineering/to-tickets/SKILL.md",
+    "skills/engineering/to-tickets/agents/openai.yaml",
+    "skills/engineering/triage/AGENT-BRIEF.md",
+    "skills/engineering/triage/OUT-OF-SCOPE.md",
+    "skills/engineering/triage/SKILL.md",
+    "skills/engineering/triage/agents/openai.yaml",
+    "skills/engineering/wayfinder/SKILL.md",
+    "skills/engineering/wayfinder/agents/openai.yaml",
+    "skills/engineering/wizard/SKILL.md",
+    "skills/engineering/wizard/agents/openai.yaml",
+    "skills/engineering/wizard/template.sh",
+    "skills/in-progress/README.md",
+    "skills/in-progress/chief-of-staff/SKILL.md",
+    "skills/in-progress/chief-of-staff/agents/openai.yaml",
+    "skills/in-progress/claude-handoff/SKILL.md",
+    "skills/in-progress/claude-handoff/agents/openai.yaml",
+    "skills/in-progress/loop-me/SKILL.md",
+    "skills/in-progress/loop-me/agents/openai.yaml",
+    "skills/in-progress/setup-ts-deep-modules/SKILL.md",
+    "skills/in-progress/setup-ts-deep-modules/agents/openai.yaml",
+    "skills/in-progress/setup-ts-deep-modules/dependency-cruiser.config.cjs",
+    "skills/in-progress/writing-beats/SKILL.md",
+    "skills/in-progress/writing-beats/agents/openai.yaml",
+    "skills/in-progress/writing-fragments/SKILL.md",
+    "skills/in-progress/writing-fragments/agents/openai.yaml",
+    "skills/in-progress/writing-shape/SKILL.md",
+    "skills/in-progress/writing-shape/agents/openai.yaml",
+    "skills/misc/README.md",
+    "skills/misc/git-guardrails-claude-code/SKILL.md",
+    "skills/misc/git-guardrails-claude-code/agents/openai.yaml",
+    "skills/misc/git-guardrails-claude-code/scripts/block-dangerous-git.sh",
+    "skills/misc/migrate-to-shoehorn/SKILL.md",
+    "skills/misc/migrate-to-shoehorn/agents/openai.yaml",
+    "skills/misc/scaffold-exercises/SKILL.md",
+    "skills/misc/scaffold-exercises/agents/openai.yaml",
+    "skills/misc/setup-pre-commit/SKILL.md",
+    "skills/misc/setup-pre-commit/agents/openai.yaml",
+    "skills/productivity/README.md",
+    "skills/productivity/grill-me/SKILL.md",
+    "skills/productivity/grill-me/agents/openai.yaml",
+    "skills/productivity/grilling/SKILL.md",
+    "skills/productivity/grilling/agents/openai.yaml",
+    "skills/productivity/handoff/SKILL.md",
+    "skills/productivity/handoff/agents/openai.yaml",
+    "skills/productivity/teach/GLOSSARY-FORMAT.md",
+    "skills/productivity/teach/LEARNING-RECORD-FORMAT.md",
+    "skills/productivity/teach/MISSION-FORMAT.md",
+    "skills/productivity/teach/RESOURCES-FORMAT.md",
+    "skills/productivity/teach/SKILL.md",
+    "skills/productivity/teach/agents/openai.yaml",
+    "skills/productivity/to-questionnaire/SKILL.md",
+    "skills/productivity/to-questionnaire/agents/openai.yaml",
+    "skills/productivity/wait-what/SKILL.md",
+    "skills/productivity/wait-what/agents/openai.yaml",
+    "skills/productivity/writing-for-agents/SKILL-MECHANICS.md",
+    "skills/productivity/writing-for-agents/SKILL.md",
+    "skills/productivity/writing-for-agents/agents/openai.yaml"
+  ],
+  "entries": [
+    {
+      "source_relative_path": ".agents/adr/0001-explicit-setup-pointer-only-for-hard-dependencies.md",
+      "source_repository_relative_path": ".agents/adr/0001-explicit-setup-pointer-only-for-hard-dependencies.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/.agents/adr/0001-explicit-setup-pointer-only-for-hard-dependencies.md",
+      "bytes": 1154,
+      "sha256": "8f60cf9bf19f1ee8cc09a15c2e06e1d7a9cb51f79d9a273dd9b20b8a2a494f80",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": ".agents/invocation.md",
+      "source_repository_relative_path": ".agents/invocation.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/.agents/invocation.md",
+      "bytes": 3850,
+      "sha256": "a8ee3ff9cab8fe247c5de4312320117c001df548960970a2769856349ec09402",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": ".claude-plugin/plugin.json",
+      "source_repository_relative_path": ".claude-plugin/plugin.json",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/.claude-plugin/plugin.json",
+      "bytes": 1690,
+      "sha256": "15a5a7227915917856ea019ad82584ee877309b5bc3cabfb86b83b7e2cc6e238",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": "CHANGELOG.md",
+      "source_repository_relative_path": "CHANGELOG.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/CHANGELOG.md",
+      "bytes": 55476,
+      "sha256": "d1fc00f3751b6ef35935251dd461fb126381631be277aec1d21edd485b4ae89a",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": "GLOSSARY.md",
+      "source_repository_relative_path": "GLOSSARY.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/GLOSSARY.md",
+      "bytes": 1768,
+      "sha256": "4b5291aae26ee0cca5ee31c20b4652d3988a063b2348ed48a751ce9c660a5614",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": "LICENSE",
+      "source_repository_relative_path": "LICENSE",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/LICENSE",
+      "bytes": 1068,
+      "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": "README.md",
+      "source_repository_relative_path": "README.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/README.md",
+      "bytes": 16461,
+      "sha256": "345041d56cf1411b6b3ca1cc54014d26c563890f817f4cb9e2cb193dcd771a3e",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": "SCOPE.md",
+      "source_repository_relative_path": "SCOPE.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/SCOPE.md",
+      "bytes": 2348,
+      "sha256": "4d5c09ef33193d9db3dac2e6e11e5d6b1abcfe08135d20c8a6d9cd3b0d6ed866",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/ask-matt.md",
+      "source_repository_relative_path": "docs/engineering/ask-matt.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/ask-matt.md",
+      "bytes": 11204,
+      "sha256": "ecefe252d5e91a079350d564ebd0a3c3ea8c4dc3274bebb332f3ce5223757bfa",
+      "source_mode": "0o644",
+      "groups": [
+        "phase-and-handoff"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/code-review.md",
+      "source_repository_relative_path": "docs/engineering/code-review.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/code-review.md",
+      "bytes": 10996,
+      "sha256": "2c14aa2f82064132ee3a5ab16cf3ccb0bc5679801b1e3dcdf4e33b4b738c9330",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/codebase-design.md",
+      "source_repository_relative_path": "docs/engineering/codebase-design.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/codebase-design.md",
+      "bytes": 12196,
+      "sha256": "06ae3f8d86a89d0a6cf98d36c36605564c6e219aebe5214aa37b476337573f3d",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/diagnosing-bugs.md",
+      "source_repository_relative_path": "docs/engineering/diagnosing-bugs.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/diagnosing-bugs.md",
+      "bytes": 10767,
+      "sha256": "0d2f5ab04d9c2af36168ab43e30ac63e3156b732c0a445b5b5ddd81d3f98ead0",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/domain-modeling.md",
+      "source_repository_relative_path": "docs/engineering/domain-modeling.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/domain-modeling.md",
+      "bytes": 10572,
+      "sha256": "c5bc4c5cc72814ab242e4a7bc411d44938ec758eba2fcb66a1fb4ebd7f048b37",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/grill-with-docs.md",
+      "source_repository_relative_path": "docs/engineering/grill-with-docs.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/grill-with-docs.md",
+      "bytes": 9857,
+      "sha256": "b15edc0ac4bb4bc2b4cb6f32307d03255108ed282290b10ea83ed9170bbc2181",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/implement-spec.md",
+      "source_repository_relative_path": "docs/engineering/implement-spec.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/implement-spec.md",
+      "bytes": 9764,
+      "sha256": "6778976cfef5fccf6a4b8974f32517e119dd18fe0bbd00f233f13fa1f00194b7",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/implement.md",
+      "source_repository_relative_path": "docs/engineering/implement.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/implement.md",
+      "bytes": 10258,
+      "sha256": "8106f9328412a97f4cad3fad9ff4ccf61e609e9a3d384407c78a4ac6e02609f0",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/improve-codebase-architecture.md",
+      "source_repository_relative_path": "docs/engineering/improve-codebase-architecture.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/improve-codebase-architecture.md",
+      "bytes": 11764,
+      "sha256": "abefc0f2577bbc7cdf586581993f2025b0dc8284f2c2371aa308de567cf5eea8",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/pr.md",
+      "source_repository_relative_path": "docs/engineering/pr.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/pr.md",
+      "bytes": 8079,
+      "sha256": "6ddd7b93d01efc16dfb4e28106f8f75b02b61f3049c22cb39117209549acb226",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/retro.md",
+      "source_repository_relative_path": "docs/engineering/retro.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/retro.md",
+      "bytes": 8828,
+      "sha256": "fbe0893f6e95e6110a18a22246dbfb940f1a0ee9a1c804dce883546c9ef899f8",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/setup-matt-pocock-skills.md",
+      "source_repository_relative_path": "docs/engineering/setup-matt-pocock-skills.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/setup-matt-pocock-skills.md",
+      "bytes": 9132,
+      "sha256": "ee9a734b73a5c0cd851904fd073255248af7889ca8cb03b33f9207bf211227b6",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/tdd.md",
+      "source_repository_relative_path": "docs/engineering/tdd.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/tdd.md",
+      "bytes": 10363,
+      "sha256": "63bc8fe89693efa68ca0859398155c761f031af1fdbc4419d498b78d9cc2cdc9",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/to-spec.md",
+      "source_repository_relative_path": "docs/engineering/to-spec.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/to-spec.md",
+      "bytes": 8502,
+      "sha256": "f623ea0bbe94e9b314657dd0c9da4c4b7dbb71830cba78af7c2bb70ca79ffa90",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "docs/engineering/to-tickets.md",
+      "source_repository_relative_path": "docs/engineering/to-tickets.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/engineering/to-tickets.md",
+      "bytes": 10896,
+      "sha256": "e0f2812c8e47c5951a0efd2715062ed93a4f47e2bfce47cf20960e2ffbb6e72a",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "docs/productivity/grilling.md",
+      "source_repository_relative_path": "docs/productivity/grilling.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/productivity/grilling.md",
+      "bytes": 10243,
+      "sha256": "091d40afb66804d1b7f7e65745ee4b911edddc18d76faf9e9ba9f210f0570bb8",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "docs/productivity/handoff.md",
+      "source_repository_relative_path": "docs/productivity/handoff.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/productivity/handoff.md",
+      "bytes": 8794,
+      "sha256": "8f372c040ce1c785eb1894d5ce2468df29956ed9fb353ac3e0b79449d87bb9a7",
+      "source_mode": "0o644",
+      "groups": [
+        "phase-and-handoff"
+      ]
+    },
+    {
+      "source_relative_path": "docs/productivity/writing-for-agents.md",
+      "source_repository_relative_path": "docs/productivity/writing-for-agents.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/docs/productivity/writing-for-agents.md",
+      "bytes": 7699,
+      "sha256": "c2f3971e2f4bc1c901c59f5dbbb9343276e601f618bee1d40b1927afe3678365",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "package.json",
+      "source_repository_relative_path": "package.json",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/package.json",
+      "bytes": 597,
+      "sha256": "95475078ea00a7d064fed8e296ca6c18022240a0d826d8e63ae8401f2b148d6f",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/README.md",
+      "source_repository_relative_path": "skills/engineering/README.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/README.md",
+      "bytes": 4287,
+      "sha256": "32d9469dda4e6103d952909cb83e657b7bec01bc582b6be4cec3b493f66920fd",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "source_repository_relative_path": "skills/engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/ask-matt/PHASE-BOUNDARIES.md",
+      "bytes": 4249,
+      "sha256": "a8aa20158609ef39e2b308b6ba0660c91066838d07a867202e63a7744a88a3ed",
+      "source_mode": "0o644",
+      "groups": [
+        "phase-and-handoff"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/ask-matt/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/ask-matt/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/ask-matt/SKILL.md",
+      "bytes": 12594,
+      "sha256": "1371f5ce005de0992a44b137748bfb960a56948aa9871b405fe9d90b24332e3c",
+      "source_mode": "0o644",
+      "groups": [
+        "phase-and-handoff"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/ask-matt/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/ask-matt/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/ask-matt/agents/openai.yaml",
+      "bytes": 137,
+      "sha256": "bdffbc5a0a99ed1b6ef3253d251d755fd18162b9845972e380007f844b09b05c",
+      "source_mode": "0o644",
+      "groups": [
+        "phase-and-handoff"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/code-review/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/code-review/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/code-review/SKILL.md",
+      "bytes": 6670,
+      "sha256": "09eb147f793e4647949edd32dbad278f0554dfb56e0d46b699cd4c2c55bf0357",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/code-review/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/code-review/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/code-review/agents/openai.yaml",
+      "bytes": 100,
+      "sha256": "8229ca854e11dc8e6aef2131ee03f31fb1561cf905fab9ccc325180cf3331352",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/codebase-design/DEEPENING.md",
+      "source_repository_relative_path": "skills/engineering/codebase-design/DEEPENING.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/codebase-design/DEEPENING.md",
+      "bytes": 2553,
+      "sha256": "f3dd099ce99289bd213914d8ee3e2429b78309c3957ca4583f7659551b1d53c1",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/codebase-design/DESIGN-IT-TWICE.md",
+      "source_repository_relative_path": "skills/engineering/codebase-design/DESIGN-IT-TWICE.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/codebase-design/DESIGN-IT-TWICE.md",
+      "bytes": 2665,
+      "sha256": "52b52e75655a27aea59c6966b410bac82448968ad46ef1ebb9f07c274e3ae010",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/codebase-design/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/codebase-design/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/codebase-design/SKILL.md",
+      "bytes": 6446,
+      "sha256": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/codebase-design/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/codebase-design/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/codebase-design/agents/openai.yaml",
+      "bytes": 102,
+      "sha256": "edebc9e4fcfe102114012575eaa9600b9b5fd08c311664f389c36e7bc717740f",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/diagnosing-bugs/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/diagnosing-bugs/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/diagnosing-bugs/SKILL.md",
+      "bytes": 8664,
+      "sha256": "849198df88cdb65fd0d97236604c1fca7ff2f22d2f705f9724a800d0266b118d",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/diagnosing-bugs/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/diagnosing-bugs/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/diagnosing-bugs/agents/openai.yaml",
+      "bytes": 103,
+      "sha256": "3e430dbe4334a87597488c060cb3dc3786bb00c9182877d6f5ec41f62490e90b",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh",
+      "source_repository_relative_path": "skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh",
+      "bytes": 1316,
+      "sha256": "35103539fc36873eea36074769ad454f9379d6fc8b2dc0e26ce987fd3bfe5503",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/domain-modeling/ADR-FORMAT.md",
+      "source_repository_relative_path": "skills/engineering/domain-modeling/ADR-FORMAT.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/domain-modeling/ADR-FORMAT.md",
+      "bytes": 2733,
+      "sha256": "944c92aa790e8fbdc9199640b170979abb8a34ba8d0fe18c2a01a63bce140ca0",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/domain-modeling/GLOSSARY-FORMAT.md",
+      "source_repository_relative_path": "skills/engineering/domain-modeling/GLOSSARY-FORMAT.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/domain-modeling/GLOSSARY-FORMAT.md",
+      "bytes": 2300,
+      "sha256": "21dcc40cdec8e151a829b98ab1517c1867bc444e3665134a98c6983411996801",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/domain-modeling/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/domain-modeling/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/domain-modeling/SKILL.md",
+      "bytes": 3346,
+      "sha256": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/domain-modeling/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/domain-modeling/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/domain-modeling/agents/openai.yaml",
+      "bytes": 101,
+      "sha256": "f6bf2aa996c6e6f53fdd0708e18a0d16a56aed8322cca59fedbe3c0d2c75f06b",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/grill-with-docs/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/grill-with-docs/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/grill-with-docs/SKILL.md",
+      "bytes": 247,
+      "sha256": "7de372c13488f1ee96cc11cd8907b56b6809cc93eef776eeddd37de6b6cbe3fe",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/grill-with-docs/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/grill-with-docs/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/grill-with-docs/agents/openai.yaml",
+      "bytes": 145,
+      "sha256": "94cd0ab161fb468a836349f5ed482ba58ce8e709a05c57ce533d739dbd35cca9",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/implement-spec/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/implement-spec/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/implement-spec/SKILL.md",
+      "bytes": 2780,
+      "sha256": "7a22dd2e60b8fcece478ced9d2533582adf3520d695acd3ab715341535c9e56d",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/implement-spec/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/implement-spec/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/implement-spec/agents/openai.yaml",
+      "bytes": 168,
+      "sha256": "fd41efb42c60c96320d6531be7e4bf15cbf5518cd652d57dff27ccffa46988e9",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/implement/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/implement/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/implement/SKILL.md",
+      "bytes": 622,
+      "sha256": "483bdc4ccf4ac31d86ac7beeaa0d0db80313e71e120bb8c59b3196ae5decd53d",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/implement/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/implement/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/implement/agents/openai.yaml",
+      "bytes": 139,
+      "sha256": "8970a8596ade0c28ab427f41a4ea242d6bdf6186c59ebf55e1238dbecaab79dc",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/improve-codebase-architecture/HTML-REPORT.md",
+      "source_repository_relative_path": "skills/engineering/improve-codebase-architecture/HTML-REPORT.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/improve-codebase-architecture/HTML-REPORT.md",
+      "bytes": 6641,
+      "sha256": "581e8bb5a521e46bbda8ca7e19b15948bed882187108092ebb90c62513b77528",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/improve-codebase-architecture/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/improve-codebase-architecture/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/improve-codebase-architecture/SKILL.md",
+      "bytes": 6000,
+      "sha256": "552240a5ab5cec6b67c15dd1ad6e9f6962b1bca6ce870059a8c2713760c20392",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/improve-codebase-architecture/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/improve-codebase-architecture/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/improve-codebase-architecture/agents/openai.yaml",
+      "bytes": 166,
+      "sha256": "c8cb20f68ebf0edb4e497bc11ae5fcaa196004e661cd189015b04f4109ced7f1",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-design"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/pr/CREDITS.md",
+      "source_repository_relative_path": "skills/engineering/pr/CREDITS.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/pr/CREDITS.md",
+      "bytes": 604,
+      "sha256": "a7a087127665d7298a72280ef6e19c41ad8404523712a788c8dc3ab414bc2497",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/pr/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/pr/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/pr/SKILL.md",
+      "bytes": 4169,
+      "sha256": "ab63f1cf78647389edcd386c9427c5dfca27ed2836930c24773ffee834c19bcd",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/pr/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/pr/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/pr/agents/openai.yaml",
+      "bytes": 93,
+      "sha256": "2295b586624db4ef546f3fd4695492f039d941a46d8a1593a702ce3ca511b8ad",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/retro/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/retro/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/retro/SKILL.md",
+      "bytes": 4369,
+      "sha256": "33fbc28568e3146f20fd908b12998bc0ab30aa4f4c87288199a40793efa94696",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/retro/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/retro/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/retro/agents/openai.yaml",
+      "bytes": 146,
+      "sha256": "cb6fb9d7e6b4be5975f41f6def1dd00a1255bad5d9b02696b124c924a8b8745c",
+      "source_mode": "0o644",
+      "groups": [
+        "diagnosis-evidence-report"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/setup-matt-pocock-skills/SKILL.md",
+      "bytes": 6978,
+      "sha256": "f148858ffb7f63c03c06fca06e6fdb1d91a35c6b293244b8fdfacd5f4cc028c4",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/setup-matt-pocock-skills/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/setup-matt-pocock-skills/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/setup-matt-pocock-skills/agents/openai.yaml",
+      "bytes": 152,
+      "sha256": "9527de0110541c45712319025155aeab8dc7d77c6ed6e5e83271bab1851ab939",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/setup-matt-pocock-skills/domain.md",
+      "source_repository_relative_path": "skills/engineering/setup-matt-pocock-skills/domain.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/setup-matt-pocock-skills/domain.md",
+      "bytes": 2042,
+      "sha256": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md",
+      "source_repository_relative_path": "skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md",
+      "bytes": 4117,
+      "sha256": "f0653fe106dd8ee7b33be27bd7fe3104b40555896cb45f61997aed20467020c3",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md",
+      "source_repository_relative_path": "skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md",
+      "bytes": 3816,
+      "sha256": "591a9e7057382aaccdfbed3f7ea3f2ad07e0cd29f012d18b82ee4e485fd81e24",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md",
+      "source_repository_relative_path": "skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md",
+      "bytes": 1810,
+      "sha256": "7dcda20a2eb4bdc89b95d1143423c0691309921cadae3132e6424f371030506e",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/setup-matt-pocock-skills/triage-labels.md",
+      "source_repository_relative_path": "skills/engineering/setup-matt-pocock-skills/triage-labels.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/setup-matt-pocock-skills/triage-labels.md",
+      "bytes": 1057,
+      "sha256": "ae512af838c78b8750471c42cd2b20fa32319553e61d84c9a23d171b40ce14aa",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/tdd/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/tdd/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/tdd/SKILL.md",
+      "bytes": 3629,
+      "sha256": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/tdd/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/tdd/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/tdd/agents/openai.yaml",
+      "bytes": 87,
+      "sha256": "ea6f01cf1b8c06a4b0f5b649d74b1b8ce8685e72af1b38d70d877693e092af0b",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/tdd/mocking.md",
+      "source_repository_relative_path": "skills/engineering/tdd/mocking.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/tdd/mocking.md",
+      "bytes": 1481,
+      "sha256": "3ceb807fdf4a47d6a93d4d9a891e5ba6d362a6247bd08adc451feebfc17361ef",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/tdd/tests.md",
+      "source_repository_relative_path": "skills/engineering/tdd/tests.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/tdd/tests.md",
+      "bytes": 2214,
+      "sha256": "859f9e592c188fda4fc7277dd180e4ce9c7a2e13f6efe1f6f29eccc9d28c106a",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/to-spec/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/to-spec/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/to-spec/SKILL.md",
+      "bytes": 3043,
+      "sha256": "43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/to-spec/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/to-spec/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/to-spec/agents/openai.yaml",
+      "bytes": 135,
+      "sha256": "1c5b4d1e3d8e52287ef19cc2742fdbbfae1914ac75d33af3e4c8174f08cc55bb",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/to-tickets/SKILL.md",
+      "source_repository_relative_path": "skills/engineering/to-tickets/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/to-tickets/SKILL.md",
+      "bytes": 5812,
+      "sha256": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/engineering/to-tickets/agents/openai.yaml",
+      "source_repository_relative_path": "skills/engineering/to-tickets/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/engineering/to-tickets/agents/openai.yaml",
+      "bytes": 146,
+      "sha256": "21bc6215fffcd7614e9f772bb1760e87cc5fc7dcc707e7d282bc9414267a6090",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/productivity/README.md",
+      "source_repository_relative_path": "skills/productivity/README.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/productivity/README.md",
+      "bytes": 1481,
+      "sha256": "8e39d23dc60e4b3e433ea17f0ed79510c73873a2779e9852920c9791a217efc8",
+      "source_mode": "0o644",
+      "groups": [
+        "repository-provenance"
+      ]
+    },
+    {
+      "source_relative_path": "skills/productivity/grilling/SKILL.md",
+      "source_repository_relative_path": "skills/productivity/grilling/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/productivity/grilling/SKILL.md",
+      "bytes": 2049,
+      "sha256": "befdff1e27a1dfe2a294d5871169ac1afe16d983911daa4f32627514a48c1e15",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/productivity/grilling/agents/openai.yaml",
+      "source_repository_relative_path": "skills/productivity/grilling/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/productivity/grilling/agents/openai.yaml",
+      "bytes": 113,
+      "sha256": "1411d7df7d99b7e621a1ff8283c8133cc2464be63d064e52d8ce169c6800ee9b",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-input"
+      ]
+    },
+    {
+      "source_relative_path": "skills/productivity/handoff/SKILL.md",
+      "source_repository_relative_path": "skills/productivity/handoff/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/productivity/handoff/SKILL.md",
+      "bytes": 940,
+      "sha256": "4cbb043950dad2ffd3662ff1a5a0b51ae676004b5cae10e3787e8ee7a4ee69d3",
+      "source_mode": "0o644",
+      "groups": [
+        "phase-and-handoff"
+      ]
+    },
+    {
+      "source_relative_path": "skills/productivity/handoff/agents/openai.yaml",
+      "source_repository_relative_path": "skills/productivity/handoff/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/productivity/handoff/agents/openai.yaml",
+      "bytes": 141,
+      "sha256": "5c479fd562c691851690e8b18c8501045bef0943c10743d636b2fae26add1d28",
+      "source_mode": "0o644",
+      "groups": [
+        "phase-and-handoff"
+      ]
+    },
+    {
+      "source_relative_path": "skills/productivity/writing-for-agents/SKILL-MECHANICS.md",
+      "source_repository_relative_path": "skills/productivity/writing-for-agents/SKILL-MECHANICS.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/productivity/writing-for-agents/SKILL-MECHANICS.md",
+      "bytes": 2629,
+      "sha256": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/productivity/writing-for-agents/SKILL.md",
+      "source_repository_relative_path": "skills/productivity/writing-for-agents/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/productivity/writing-for-agents/SKILL.md",
+      "bytes": 10886,
+      "sha256": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    },
+    {
+      "source_relative_path": "skills/productivity/writing-for-agents/agents/openai.yaml",
+      "source_repository_relative_path": "skills/productivity/writing-for-agents/agents/openai.yaml",
+      "destination_relative_to_workspace": "source/workflow-references/matt-pocock/repository/skills/productivity/writing-for-agents/agents/openai.yaml",
+      "bytes": 102,
+      "sha256": "eacb24b2a618cfb81dacb0416f4fdd75ddf3a8060f8ddb99aae1b1e301907e4b",
+      "source_mode": "0o644",
+      "groups": [
+        "execution-context-dependencies"
+      ]
+    }
+  ]
+}

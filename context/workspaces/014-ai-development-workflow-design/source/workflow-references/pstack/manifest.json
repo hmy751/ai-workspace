@@ -1,0 +1,2231 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-21T16:20:23.986529+09:00",
+  "timezone": "Asia/Seoul",
+  "scope": "사용자가 지정한 로컬 클론에서 구현·검토 및 수정 논의에 필요한 원문과 연결 자료를 선택 보존. 설치·실행한 skill이 아니며 원문은 변경하지 않음.",
+  "source_root": "/Users/hammyeong-yeon/Desktop/plugins/pstack",
+  "repository_root": "/Users/hammyeong-yeon/Desktop/plugins",
+  "repository_url": "https://github.com/cursor/plugins",
+  "git_head": "190d28736eff128ec94f502a22c7fe0c4b56cd37",
+  "git_status_porcelain_in_source_scope": [],
+  "version": "0.15.29",
+  "version_source": ".cursor-plugin/plugin.json",
+  "preservation": "selected regular files, byte-for-byte; source-relative paths retained under repository/",
+  "file_count": 148,
+  "total_bytes": 3391164,
+  "groups": [
+    {
+      "id": "source-identity",
+      "role": "provenance",
+      "purpose_ko": "로컬 클론의 저자·라이선스·플러그인 판본과 공식 진입 안내를 보존한다.",
+      "paths": [
+        ".cursor-plugin/plugin.json",
+        "LICENSE",
+        "README.md",
+        "assets/logo.png",
+        "plugin.json"
+      ],
+      "why": "두 plugin metadata 모두 0.15.29이며 MIT 저작권 고지와 README 재접근 경로를 함께 보존한다."
+    },
+    {
+      "id": "implementation-core",
+      "role": "core",
+      "purpose_ko": "구현 단계에서 lead의 이해·설계·위임·범위·완료 책임을 비교한다.",
+      "paths": [
+        "agents/poteto-agent.md",
+        "skills/architect/SKILL.md",
+        "skills/poteto-mode/SKILL.md",
+        "skills/poteto-mode/playbooks/bug-fix.md",
+        "skills/poteto-mode/playbooks/feature.md",
+        "skills/poteto-mode/playbooks/refactoring.md"
+      ],
+      "why": "사용자가 고른 큰 단계인 구현에 직접 대응하는 진입점, 세 종류 변경 계약, 설계와 실행 담당 agent다."
+    },
+    {
+      "id": "review-and-fix-core",
+      "role": "core",
+      "purpose_ko": "검토 및 수정 단계의 독립 발견·lead 판단·수정·재검증 책임을 비교한다.",
+      "paths": [
+        "agents/comment-sicko.md",
+        "skills/blast-radius/SKILL.md",
+        "skills/correct/SKILL.md",
+        "skills/interrogate/SKILL.md",
+        "skills/no-comments/SKILL.md"
+      ],
+      "why": "읽기 전용 interrogate뿐 아니라 no-comments의 보고+diff 선별과 실제 수정, correct의 반복 오류 개선, blast-radius의 실제 실행 확인을 함께 읽어야 검토를 한 종류로 축소하지 않는다."
+    },
+    {
+      "id": "verification-core",
+      "role": "core",
+      "purpose_ko": "구현과 수정 결과를 실제 사용자 경로에서 증명하고 검증 자료의 drift를 고치는 계약을 확인한다.",
+      "paths": [
+        "skills/create-verification-skill/SKILL.md",
+        "skills/maintain-verification-skill/SKILL.md",
+        "skills/tdd/SKILL.md"
+      ],
+      "why": "도구·Feature Map 생성과 유지, 저렴한 회귀 테스트의 적용 조건을 담당한다. 실제 실행은 하지 않고 원문만 보존한다."
+    },
+    {
+      "id": "workflow-support",
+      "role": "support",
+      "purpose_ko": "핵심 절차가 호출하는 이해·설계 비교·위임·검토 프롬프트와 기록 도구를 원래 경로 관계대로 보존한다.",
+      "paths": [
+        "skills/architect/references/design-red-flags.md",
+        "skills/architect/references/rationale-template.md",
+        "skills/architect/references/runner-prompt.md",
+        "skills/arena/SKILL.md",
+        "skills/benchmark-checklist/SKILL.md",
+        "skills/create-verification-skill/references/feature-map-example/README.md",
+        "skills/create-verification-skill/references/feature-map-example/create-note.md",
+        "skills/create-verification-skill/references/feature-map-example/search.md",
+        "skills/figure-it-out/SKILL.md",
+        "skills/how/SKILL.md",
+        "skills/how/references/explainer-prompt.md",
+        "skills/how/references/explorer-prompt.md",
+        "skills/interrogate/references/code-quality-review.md",
+        "skills/interrogate/references/lead-judgment.md",
+        "skills/interrogate/references/reviewer-prompt.md",
+        "skills/interrogate/references/rubric.md",
+        "skills/show-me-your-work/SKILL.md",
+        "skills/show-me-your-work/references/decision-log-template.tsv",
+        "skills/show-me-your-work/scripts/log.sh",
+        "skills/swarm/SKILL.md",
+        "skills/technical-writing/SKILL.md",
+        "skills/typescript-best-practices/SKILL.md",
+        "skills/typescript-best-practices/references/patterns.md",
+        "skills/unslop/SKILL.md",
+        "skills/why/SKILL.md",
+        "skills/why/references/epistemics.md",
+        "skills/why/references/investigator-prompt.md",
+        "skills/why/references/source-playbook.md",
+        "skills/why/references/sources/code-archaeology.md",
+        "skills/why/references/sources/databricks.md",
+        "skills/why/references/sources/datadog.md",
+        "skills/why/references/sources/incident-postmortem.md",
+        "skills/why/references/sources/linear.md",
+        "skills/why/references/sources/notion.md",
+        "skills/why/references/sources/sentry.md",
+        "skills/why/references/sources/slack.md",
+        "skills/why/references/synthesizer-prompt.md"
+      ],
+      "why": "agent prompt, rationale template, feature-map 예제, source별 조사 지침, 로그 helper가 각 SKILL 본문에 직접 연결되어 있다. 파일 위치만 남기지 않고 실제 의존 본문을 함께 보존한다."
+    },
+    {
+      "id": "principles",
+      "role": "support",
+      "purpose_ko": "poteto-mode가 상황별로 읽도록 연결한 원칙 전체를 보존한다.",
+      "paths": [
+        "skills/principle-attack-the-premise/SKILL.md",
+        "skills/principle-boundary-discipline/SKILL.md",
+        "skills/principle-build-the-lever/SKILL.md",
+        "skills/principle-encode-lessons-in-structure/SKILL.md",
+        "skills/principle-exhaust-the-design-space/SKILL.md",
+        "skills/principle-experience-first/SKILL.md",
+        "skills/principle-explain-the-number/SKILL.md",
+        "skills/principle-fix-root-causes/SKILL.md",
+        "skills/principle-foundational-thinking/SKILL.md",
+        "skills/principle-guard-the-context-window/SKILL.md",
+        "skills/principle-laziness-protocol/SKILL.md",
+        "skills/principle-make-operations-idempotent/SKILL.md",
+        "skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
+        "skills/principle-minimize-reader-load/SKILL.md",
+        "skills/principle-model-the-domain/SKILL.md",
+        "skills/principle-never-block-on-the-human/SKILL.md",
+        "skills/principle-outcome-oriented-execution/SKILL.md",
+        "skills/principle-prove-it-works/SKILL.md",
+        "skills/principle-redesign-from-first-principles/SKILL.md",
+        "skills/principle-separate-before-serializing-shared-state/SKILL.md",
+        "skills/principle-sequence-verifiable-units/SKILL.md",
+        "skills/principle-subtract-before-you-add/SKILL.md",
+        "skills/principle-test-behavior-not-implementation/SKILL.md",
+        "skills/principle-type-system-discipline/SKILL.md"
+      ],
+      "why": "진입점은 적용한 원칙의 leaf 전체를 읽도록 요구한다. 구현·검토·위임·실제 증명과 문서/구조 개선의 조건을 서로 끊지 않기 위해 원칙 catalog 전체를 support로 둔다."
+    },
+    {
+      "id": "mode-navigation-and-runtime",
+      "role": "boundary",
+      "purpose_ko": "핵심 playbook과 연결된 다른 분기·PR 후속 운영·계획 검사·runtime 코드를 탐색 가능한 경계 자료로 보존한다.",
+      "paths": [
+        "skills/poteto-mode/playbooks/authoring-a-skill.md",
+        "skills/poteto-mode/playbooks/autonomous-run.md",
+        "skills/poteto-mode/playbooks/autopilot-full.md",
+        "skills/poteto-mode/playbooks/autopilot-stack.md",
+        "skills/poteto-mode/playbooks/babysit.md",
+        "skills/poteto-mode/playbooks/eval.md",
+        "skills/poteto-mode/playbooks/hillclimb.md",
+        "skills/poteto-mode/playbooks/investigation.md",
+        "skills/poteto-mode/playbooks/multi-phase-plan.md",
+        "skills/poteto-mode/playbooks/opening-a-pr.md",
+        "skills/poteto-mode/playbooks/orchestrate.md",
+        "skills/poteto-mode/playbooks/pause-safely.md",
+        "skills/poteto-mode/playbooks/perf-issue.md",
+        "skills/poteto-mode/playbooks/prototype.md",
+        "skills/poteto-mode/playbooks/runtime-forensics.md",
+        "skills/poteto-mode/playbooks/session-pickup.md",
+        "skills/poteto-mode/playbooks/shipping.md",
+        "skills/poteto-mode/playbooks/trace-forensics.md",
+        "skills/poteto-mode/playbooks/visual-parity.md",
+        "skills/poteto-mode/playbooks/worktree-cleanup.md",
+        "skills/poteto-mode/references/bugbot-triage.md",
+        "skills/poteto-mode/scripts/bootstrap.ts",
+        "skills/poteto-mode/scripts/bun.lock",
+        "skills/poteto-mode/scripts/check-plan.mjs",
+        "skills/poteto-mode/scripts/check-plan.test.ts",
+        "skills/poteto-mode/scripts/orch/orch.test.ts",
+        "skills/poteto-mode/scripts/orch/orch.ts",
+        "skills/poteto-mode/scripts/orch/store.ts",
+        "skills/poteto-mode/scripts/package.json",
+        "skills/poteto-mode/scripts/watch-pr/cli.test.ts",
+        "skills/poteto-mode/scripts/watch-pr/cli.ts",
+        "skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts",
+        "skills/poteto-mode/scripts/watch-pr/github.test.ts",
+        "skills/poteto-mode/scripts/watch-pr/github.ts",
+        "skills/poteto-mode/scripts/watch-pr/policy.test.ts",
+        "skills/poteto-mode/scripts/watch-pr/policy.ts",
+        "skills/poteto-mode/scripts/watch-pr/render.ts",
+        "skills/poteto-mode/scripts/watch-pr/tsconfig.json",
+        "skills/poteto-mode/scripts/watch-pr/types.compile.ts",
+        "skills/poteto-mode/scripts/watch-pr/types.ts",
+        "skills/poteto-mode/scripts/watch-pr/watch-pr",
+        "skills/poteto-mode/scripts/worktree-audit.sh"
+      ],
+      "why": "poteto-mode 전체가 서로를 호출하므로 나머지 playbook과 references/scripts를 원래 상대 경로로 보존한다. 모든 절차를 core reading이나 채택된 워크플로로 올리지 않는다. scripts에는 package/lock/test/tsconfig와 내부 import 대상도 함께 포함한다."
+    },
+    {
+      "id": "setup-reflection-formal-boundary",
+      "role": "boundary",
+      "purpose_ko": "모델 배치 설정, 지침 개선, 형식 검증의 별도 계약을 구별해 보존한다.",
+      "paths": [
+        "skills/create-formal-verification-skill/SKILL.md",
+        "skills/maintain-formal-verification-skill/SKILL.md",
+        "skills/reflect/SKILL.md",
+        "skills/reflect/references/divergent-reviewer.md",
+        "skills/reflect/references/judgment-reviewer.md",
+        "skills/reflect/references/synthesizer.md",
+        "skills/reflect/references/tooling-reviewer.md",
+        "skills/setup-pstack/SKILL.md"
+      ],
+      "why": "setup이 핵심 역할별 모델 선택의 원천이고 reflect가 poteto-mode에서 이름으로 연결된다. 0.15.29의 formal verification 생성/유지는 실제 사용자 경로 검증과 다른 경계 사례이며 이번 설계의 필수 단계로 채택하지 않는다."
+    },
+    {
+      "id": "guide-and-host-context",
+      "role": "support",
+      "purpose_ko": "저자가 설명한 사용 흐름과 host별 차이를 같은 판본으로 보존한다.",
+      "paths": [
+        "docs/guide/01-setup.md",
+        "docs/guide/02-poteto-mode.md",
+        "docs/guide/03-understand.md",
+        "docs/guide/04-design.md",
+        "docs/guide/05-build-and-clean.md",
+        "docs/guide/06-verify-and-ship.md",
+        "docs/guide/07-overnight.md",
+        "docs/guide/08-principles.md",
+        "docs/guide/09-make-it-yours.md",
+        "docs/guide/10-recipes-and-pitfalls.md",
+        "docs/guide/README.md",
+        "docs/guide/images/design.jpg",
+        "docs/guide/images/overnight.jpg",
+        "docs/guide/images/recipes.jpg",
+        "docs/guide/images/router.jpg",
+        "docs/guide/images/understanding.jpg",
+        "docs/guide/images/verification.jpg",
+        "docs/harness/claude-code.md"
+      ],
+      "why": "가이드는 본문 계약과 비교할 이차 설명이다. guide 내 연속 navigation과 이미지 링크를 보존하며 Claude adapter는 Cursor 의존과 generated copy 경계를 설명한다."
+    }
+  ],
+  "excluded": [
+    {
+      "paths_or_group": "automations/benny/",
+      "reason": "특정 외부 이슈 자동화이며 이번 구현·검토 및 수정 일반 workflow 수집의 핵심 의존이 아니다."
+    },
+    {
+      "paths_or_group": "skills/automate-me/",
+      "reason": "사용자의 선호·작업 관례를 개인 mode skill로 만드는 별도 도구이며 현재 구현·검토 절차의 직접 호출 의존이 아니다."
+    },
+    {
+      "paths_or_group": "skills/make-bot-ui/",
+      "reason": "특정 UI 생성 도구로 이번 범위에서 제외한다."
+    },
+    {
+      "paths_or_group": "skills/poteto-help/",
+      "reason": "온보딩/탐색 helper이며 핵심 workflow 본문과 guide가 이미 보존된다."
+    },
+    {
+      "paths_or_group": "skills/bro/",
+      "reason": "말투/동반 응답 기능으로 이번 작업 책임 논의와 직접 관계가 없다."
+    },
+    {
+      "paths_or_group": "skills/ketchup/",
+      "reason": "사용자의 마지막 발언 이후 변경과 필요한 결정을 설명하는 별도 catch-up 도구이며 이번 두 단계의 직접 실행 의존이 아니다."
+    },
+    {
+      "paths_or_group": "skills/recall/",
+      "reason": "별도 과거 대화 회수 도구는 현재 코드 작업 절차의 직접 의존이 아니므로 제외한다."
+    },
+    {
+      "paths_or_group": "skills/teach/",
+      "reason": "사용자 학습/설명 도구는 이번 구현·검토 및 수정 원문 수집에서 제외한다."
+    },
+    {
+      "paths_or_group": "skills/sharpen/",
+      "reason": "프롬프트 품질 개선 별도 도구이며 직접 workflow 의존이 아니다."
+    },
+    {
+      "paths_or_group": "skills/in-your-own-words/",
+      "reason": "설명 이해 확인 별도 도구이며 직접 workflow 의존이 아니다."
+    },
+    {
+      "paths_or_group": [
+        ".gitignore"
+      ],
+      "reason": "핵심 workflow와 직접 연결되지 않아 제외한 잔여 파일."
+    }
+  ],
+  "unresolved_dependencies": [
+    {
+      "target": "./skills/poteto-help/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./skills/in-your-own-words/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./skills/sharpen/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./skills/recall/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./skills/ketchup/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./skills/automate-me/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./skills/make-bot-ui/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./skills/teach/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./skills/bro/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./automations/benny/",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "./automations/benny/FOR_AGENTS.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "README.md"
+    },
+    {
+      "target": "../../skills/in-your-own-words/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/02-poteto-mode.md"
+    },
+    {
+      "target": "../../skills/sharpen/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/02-poteto-mode.md"
+    },
+    {
+      "target": "../../skills/teach/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/03-understand.md"
+    },
+    {
+      "target": "../../skills/recall/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/03-understand.md"
+    },
+    {
+      "target": "../../skills/ketchup/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/07-overnight.md"
+    },
+    {
+      "target": "../../automations/benny/README.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/07-overnight.md"
+    },
+    {
+      "target": "../../automations/benny/FOR_AGENTS.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/07-overnight.md"
+    },
+    {
+      "target": "../../skills/automate-me/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/09-make-it-yours.md"
+    },
+    {
+      "target": "../../skills/make-bot-ui/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/09-make-it-yours.md"
+    },
+    {
+      "target": "../../skills/bro/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/10-recipes-and-pitfalls.md"
+    },
+    {
+      "target": "../../skills/ketchup/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/10-recipes-and-pitfalls.md"
+    },
+    {
+      "target": "../../skills/poteto-help/SKILL.md",
+      "reason": "소스에 있으나 선정에서 제외된 navigation 대상.",
+      "from": "docs/guide/README.md"
+    },
+    {
+      "from": "skills/poteto-mode/SKILL.md",
+      "target": "Cursor built-ins: create-skill, Task, /loop; cloud agents and MCP connectors",
+      "reason": "host 제공 기능으로 pstack 파일만으로 실행이 완결되지 않음."
+    },
+    {
+      "from": "README.md",
+      "target": "repository-root harness/pstack and scripts/generate-pstack-harness-trees.mjs",
+      "reason": "Claude Code generated distribution의 원천 관계를 설명하지만 별도 generated tree를 중복 보존하지 않음."
+    },
+    {
+      "from": "skills/poteto-mode/scripts/package.json",
+      "target": "bun/node runtime; commander; bun-types; typescript",
+      "reason": "실행 의존은 metadata/lock을 보존하되 설치하거나 실행하지 않음."
+    }
+  ],
+  "available_regular_files_at_capture": [
+    ".cursor-plugin/plugin.json",
+    ".gitignore",
+    "LICENSE",
+    "README.md",
+    "agents/comment-sicko.md",
+    "agents/poteto-agent.md",
+    "assets/logo.png",
+    "automations/benny/FOR_AGENTS.md",
+    "automations/benny/README.md",
+    "automations/benny/skills/reproduce-and-fix-issues/SKILL.md",
+    "automations/benny/skills/reproduce-and-fix-issues/references/control-adapter.md",
+    "automations/benny/skills/reproduce-and-fix-issues/references/feature-map.example.md",
+    "automations/benny/skills/reproduce-and-fix-issues/references/verify-existing-fix.md",
+    "automations/benny/skills/setup-benny/SKILL.md",
+    "automations/benny/skills/triage-issue-reports/SKILL.md",
+    "automations/benny/skills/triage-issue-reports/references/routing.example.md",
+    "automations/benny/templates/configuration.example.yaml",
+    "automations/benny/templates/reproduce-automation-prompt.md",
+    "automations/benny/templates/triage-automation-prompt.md",
+    "docs/guide/01-setup.md",
+    "docs/guide/02-poteto-mode.md",
+    "docs/guide/03-understand.md",
+    "docs/guide/04-design.md",
+    "docs/guide/05-build-and-clean.md",
+    "docs/guide/06-verify-and-ship.md",
+    "docs/guide/07-overnight.md",
+    "docs/guide/08-principles.md",
+    "docs/guide/09-make-it-yours.md",
+    "docs/guide/10-recipes-and-pitfalls.md",
+    "docs/guide/README.md",
+    "docs/guide/images/design.jpg",
+    "docs/guide/images/overnight.jpg",
+    "docs/guide/images/recipes.jpg",
+    "docs/guide/images/router.jpg",
+    "docs/guide/images/understanding.jpg",
+    "docs/guide/images/verification.jpg",
+    "docs/harness/claude-code.md",
+    "plugin.json",
+    "skills/architect/SKILL.md",
+    "skills/architect/references/design-red-flags.md",
+    "skills/architect/references/rationale-template.md",
+    "skills/architect/references/runner-prompt.md",
+    "skills/arena/SKILL.md",
+    "skills/automate-me/SKILL.md",
+    "skills/benchmark-checklist/SKILL.md",
+    "skills/blast-radius/SKILL.md",
+    "skills/bro/SKILL.md",
+    "skills/correct/SKILL.md",
+    "skills/create-formal-verification-skill/SKILL.md",
+    "skills/create-verification-skill/SKILL.md",
+    "skills/create-verification-skill/references/feature-map-example/README.md",
+    "skills/create-verification-skill/references/feature-map-example/create-note.md",
+    "skills/create-verification-skill/references/feature-map-example/search.md",
+    "skills/figure-it-out/SKILL.md",
+    "skills/how/SKILL.md",
+    "skills/how/references/explainer-prompt.md",
+    "skills/how/references/explorer-prompt.md",
+    "skills/in-your-own-words/SKILL.md",
+    "skills/interrogate/SKILL.md",
+    "skills/interrogate/references/code-quality-review.md",
+    "skills/interrogate/references/lead-judgment.md",
+    "skills/interrogate/references/reviewer-prompt.md",
+    "skills/interrogate/references/rubric.md",
+    "skills/ketchup/SKILL.md",
+    "skills/maintain-formal-verification-skill/SKILL.md",
+    "skills/maintain-verification-skill/SKILL.md",
+    "skills/make-bot-ui/SKILL.md",
+    "skills/no-comments/SKILL.md",
+    "skills/poteto-help/SKILL.md",
+    "skills/poteto-help/references/prompting.md",
+    "skills/poteto-help/references/recipes.md",
+    "skills/poteto-mode/SKILL.md",
+    "skills/poteto-mode/playbooks/authoring-a-skill.md",
+    "skills/poteto-mode/playbooks/autonomous-run.md",
+    "skills/poteto-mode/playbooks/autopilot-full.md",
+    "skills/poteto-mode/playbooks/autopilot-stack.md",
+    "skills/poteto-mode/playbooks/babysit.md",
+    "skills/poteto-mode/playbooks/bug-fix.md",
+    "skills/poteto-mode/playbooks/eval.md",
+    "skills/poteto-mode/playbooks/feature.md",
+    "skills/poteto-mode/playbooks/hillclimb.md",
+    "skills/poteto-mode/playbooks/investigation.md",
+    "skills/poteto-mode/playbooks/multi-phase-plan.md",
+    "skills/poteto-mode/playbooks/opening-a-pr.md",
+    "skills/poteto-mode/playbooks/orchestrate.md",
+    "skills/poteto-mode/playbooks/pause-safely.md",
+    "skills/poteto-mode/playbooks/perf-issue.md",
+    "skills/poteto-mode/playbooks/prototype.md",
+    "skills/poteto-mode/playbooks/refactoring.md",
+    "skills/poteto-mode/playbooks/runtime-forensics.md",
+    "skills/poteto-mode/playbooks/session-pickup.md",
+    "skills/poteto-mode/playbooks/shipping.md",
+    "skills/poteto-mode/playbooks/trace-forensics.md",
+    "skills/poteto-mode/playbooks/visual-parity.md",
+    "skills/poteto-mode/playbooks/worktree-cleanup.md",
+    "skills/poteto-mode/references/bugbot-triage.md",
+    "skills/poteto-mode/scripts/bootstrap.ts",
+    "skills/poteto-mode/scripts/bun.lock",
+    "skills/poteto-mode/scripts/check-plan.mjs",
+    "skills/poteto-mode/scripts/check-plan.test.ts",
+    "skills/poteto-mode/scripts/orch/orch.test.ts",
+    "skills/poteto-mode/scripts/orch/orch.ts",
+    "skills/poteto-mode/scripts/orch/store.ts",
+    "skills/poteto-mode/scripts/package.json",
+    "skills/poteto-mode/scripts/watch-pr/cli.test.ts",
+    "skills/poteto-mode/scripts/watch-pr/cli.ts",
+    "skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts",
+    "skills/poteto-mode/scripts/watch-pr/github.test.ts",
+    "skills/poteto-mode/scripts/watch-pr/github.ts",
+    "skills/poteto-mode/scripts/watch-pr/policy.test.ts",
+    "skills/poteto-mode/scripts/watch-pr/policy.ts",
+    "skills/poteto-mode/scripts/watch-pr/render.ts",
+    "skills/poteto-mode/scripts/watch-pr/tsconfig.json",
+    "skills/poteto-mode/scripts/watch-pr/types.compile.ts",
+    "skills/poteto-mode/scripts/watch-pr/types.ts",
+    "skills/poteto-mode/scripts/watch-pr/watch-pr",
+    "skills/poteto-mode/scripts/worktree-audit.sh",
+    "skills/principle-attack-the-premise/SKILL.md",
+    "skills/principle-boundary-discipline/SKILL.md",
+    "skills/principle-build-the-lever/SKILL.md",
+    "skills/principle-encode-lessons-in-structure/SKILL.md",
+    "skills/principle-exhaust-the-design-space/SKILL.md",
+    "skills/principle-experience-first/SKILL.md",
+    "skills/principle-explain-the-number/SKILL.md",
+    "skills/principle-fix-root-causes/SKILL.md",
+    "skills/principle-foundational-thinking/SKILL.md",
+    "skills/principle-guard-the-context-window/SKILL.md",
+    "skills/principle-laziness-protocol/SKILL.md",
+    "skills/principle-make-operations-idempotent/SKILL.md",
+    "skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
+    "skills/principle-minimize-reader-load/SKILL.md",
+    "skills/principle-model-the-domain/SKILL.md",
+    "skills/principle-never-block-on-the-human/SKILL.md",
+    "skills/principle-outcome-oriented-execution/SKILL.md",
+    "skills/principle-prove-it-works/SKILL.md",
+    "skills/principle-redesign-from-first-principles/SKILL.md",
+    "skills/principle-separate-before-serializing-shared-state/SKILL.md",
+    "skills/principle-sequence-verifiable-units/SKILL.md",
+    "skills/principle-subtract-before-you-add/SKILL.md",
+    "skills/principle-test-behavior-not-implementation/SKILL.md",
+    "skills/principle-type-system-discipline/SKILL.md",
+    "skills/recall/SKILL.md",
+    "skills/reflect/SKILL.md",
+    "skills/reflect/references/divergent-reviewer.md",
+    "skills/reflect/references/judgment-reviewer.md",
+    "skills/reflect/references/synthesizer.md",
+    "skills/reflect/references/tooling-reviewer.md",
+    "skills/setup-pstack/SKILL.md",
+    "skills/sharpen/SKILL.md",
+    "skills/show-me-your-work/SKILL.md",
+    "skills/show-me-your-work/references/decision-log-template.tsv",
+    "skills/show-me-your-work/scripts/log.sh",
+    "skills/swarm/SKILL.md",
+    "skills/tdd/SKILL.md",
+    "skills/teach/SKILL.md",
+    "skills/technical-writing/SKILL.md",
+    "skills/typescript-best-practices/SKILL.md",
+    "skills/typescript-best-practices/references/patterns.md",
+    "skills/unslop/SKILL.md",
+    "skills/why/SKILL.md",
+    "skills/why/references/epistemics.md",
+    "skills/why/references/investigator-prompt.md",
+    "skills/why/references/source-playbook.md",
+    "skills/why/references/sources/code-archaeology.md",
+    "skills/why/references/sources/databricks.md",
+    "skills/why/references/sources/datadog.md",
+    "skills/why/references/sources/incident-postmortem.md",
+    "skills/why/references/sources/linear.md",
+    "skills/why/references/sources/notion.md",
+    "skills/why/references/sources/sentry.md",
+    "skills/why/references/sources/slack.md",
+    "skills/why/references/synthesizer-prompt.md"
+  ],
+  "entries": [
+    {
+      "source_relative_path": ".cursor-plugin/plugin.json",
+      "source_repository_relative_path": "pstack/.cursor-plugin/plugin.json",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/.cursor-plugin/plugin.json",
+      "bytes": 722,
+      "sha256": "079de0bc2c331df98ecf388b84c938a3a61910f49a1cc37e680d9e2ca9bcd324",
+      "source_mode": "0o644",
+      "groups": [
+        "source-identity"
+      ]
+    },
+    {
+      "source_relative_path": "LICENSE",
+      "source_repository_relative_path": "pstack/LICENSE",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/LICENSE",
+      "bytes": 1067,
+      "sha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+      "source_mode": "0o644",
+      "groups": [
+        "source-identity"
+      ]
+    },
+    {
+      "source_relative_path": "README.md",
+      "source_repository_relative_path": "pstack/README.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/README.md",
+      "bytes": 27003,
+      "sha256": "b928886260bd551b0c8f3e58617a5dc3ad8dfc1293d096b1ef81b84007532486",
+      "source_mode": "0o644",
+      "groups": [
+        "source-identity"
+      ]
+    },
+    {
+      "source_relative_path": "agents/comment-sicko.md",
+      "source_repository_relative_path": "pstack/agents/comment-sicko.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/agents/comment-sicko.md",
+      "bytes": 2230,
+      "sha256": "3e239e40b7b4b9beb2cf7f3ccc57f2388eb8b69bd1ba8ae888ef87ef6e0e2116",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-fix-core"
+      ]
+    },
+    {
+      "source_relative_path": "agents/poteto-agent.md",
+      "source_repository_relative_path": "pstack/agents/poteto-agent.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/agents/poteto-agent.md",
+      "bytes": 1316,
+      "sha256": "979f18abd000d185a0b4c41a2a4111c0910596a7f5c81cbb571885bc721b2bf7",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-core"
+      ]
+    },
+    {
+      "source_relative_path": "assets/logo.png",
+      "source_repository_relative_path": "pstack/assets/logo.png",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/assets/logo.png",
+      "bytes": 361140,
+      "sha256": "672f6791589ef758b0ced2c4c477913fa2758623c438e265639a0d539ce90695",
+      "source_mode": "0o644",
+      "groups": [
+        "source-identity"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/01-setup.md",
+      "source_repository_relative_path": "pstack/docs/guide/01-setup.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/01-setup.md",
+      "bytes": 5431,
+      "sha256": "384655bdecc713122ca69a485723c58462002a1d512415e94e48597d0dce2fa5",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/02-poteto-mode.md",
+      "source_repository_relative_path": "pstack/docs/guide/02-poteto-mode.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/02-poteto-mode.md",
+      "bytes": 7893,
+      "sha256": "d168829def6c410b1afd87d1a6eb297df385f89faa9b31260684074e9e4eb52a",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/03-understand.md",
+      "source_repository_relative_path": "pstack/docs/guide/03-understand.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/03-understand.md",
+      "bytes": 5141,
+      "sha256": "1ac97cbad51c15c18b3aade8634d81c8bbe50d2b3135c75c113ddb2a6dcb7af0",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/04-design.md",
+      "source_repository_relative_path": "pstack/docs/guide/04-design.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/04-design.md",
+      "bytes": 8759,
+      "sha256": "cff616278303b533e617c5c4408af6d28895edbb8687d6ce99bb5dd1f6644a6c",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/05-build-and-clean.md",
+      "source_repository_relative_path": "pstack/docs/guide/05-build-and-clean.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/05-build-and-clean.md",
+      "bytes": 5707,
+      "sha256": "1284e80595ae4f214dfa7c5c5f7758ff90a47b3273aa7b8142e51e574f5c5290",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/06-verify-and-ship.md",
+      "source_repository_relative_path": "pstack/docs/guide/06-verify-and-ship.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/06-verify-and-ship.md",
+      "bytes": 12570,
+      "sha256": "5c16c88bf377bf5ea5ffd4cd9dc1a83f19a0415090cc4645865d16a5500d1cab",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/07-overnight.md",
+      "source_repository_relative_path": "pstack/docs/guide/07-overnight.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/07-overnight.md",
+      "bytes": 9641,
+      "sha256": "b767a5dc5d7257efdb5cc8cfac92acfbb18fe8e023a3438339f4b45ce4a9264a",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/08-principles.md",
+      "source_repository_relative_path": "pstack/docs/guide/08-principles.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/08-principles.md",
+      "bytes": 5868,
+      "sha256": "0b26b85292f0c09768abe727c9e92987dbf81f5b439a4871034c2fd1c4cb1723",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/09-make-it-yours.md",
+      "source_repository_relative_path": "pstack/docs/guide/09-make-it-yours.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/09-make-it-yours.md",
+      "bytes": 7972,
+      "sha256": "50642f7f894988f7c263700f46478e7aed7eb94a257683350d91a9a0d70dc141",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/10-recipes-and-pitfalls.md",
+      "source_repository_relative_path": "pstack/docs/guide/10-recipes-and-pitfalls.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/10-recipes-and-pitfalls.md",
+      "bytes": 8554,
+      "sha256": "006d8282db567aeae57398d5de1f3a802af2e3ac1a1f564198c384183fca3f92",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/README.md",
+      "source_repository_relative_path": "pstack/docs/guide/README.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/README.md",
+      "bytes": 2649,
+      "sha256": "5c888d034d38f380789fad57c2c6fa7307ace803a0622cdde9e57fa2afe182de",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/images/design.jpg",
+      "source_repository_relative_path": "pstack/docs/guide/images/design.jpg",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/images/design.jpg",
+      "bytes": 402373,
+      "sha256": "b8ed07427f6a0c37dd8ba97961fc0eb5071efeee6c4a230648bdb7547f6f2a8f",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/images/overnight.jpg",
+      "source_repository_relative_path": "pstack/docs/guide/images/overnight.jpg",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/images/overnight.jpg",
+      "bytes": 347071,
+      "sha256": "4b4405e4df8925c5b3abbe702f681af0f3b1f5f32271b599f95717f578f1a0c8",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/images/recipes.jpg",
+      "source_repository_relative_path": "pstack/docs/guide/images/recipes.jpg",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/images/recipes.jpg",
+      "bytes": 410550,
+      "sha256": "9fa2d51b476635712737795ddef81806efaa0086bb3bfa9f9f45695d9ab0f8e8",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/images/router.jpg",
+      "source_repository_relative_path": "pstack/docs/guide/images/router.jpg",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/images/router.jpg",
+      "bytes": 450945,
+      "sha256": "525843055a4efd2b10acc50a8652fd02b0834ea733a8a2f895c1eb89036017da",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/images/understanding.jpg",
+      "source_repository_relative_path": "pstack/docs/guide/images/understanding.jpg",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/images/understanding.jpg",
+      "bytes": 376523,
+      "sha256": "b60587e9a9bbe2550e93be9819cf0cd4acf77d90fac769a0c43d82bd8e34e279",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/guide/images/verification.jpg",
+      "source_repository_relative_path": "pstack/docs/guide/images/verification.jpg",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/guide/images/verification.jpg",
+      "bytes": 331450,
+      "sha256": "2a76b52007a1cd2866ba67fd47d7d9ef3e1118bb5a09c4665eee8c3f161bd09a",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "docs/harness/claude-code.md",
+      "source_repository_relative_path": "pstack/docs/harness/claude-code.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/docs/harness/claude-code.md",
+      "bytes": 5678,
+      "sha256": "c79e2283d3a83c6be3dd1cac33f9c074067c95e610ae6e0a16d9fdee84058927",
+      "source_mode": "0o644",
+      "groups": [
+        "guide-and-host-context"
+      ]
+    },
+    {
+      "source_relative_path": "plugin.json",
+      "source_repository_relative_path": "pstack/plugin.json",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/plugin.json",
+      "bytes": 619,
+      "sha256": "8a5811042556a0a981e9fdd08a2c726be76458833d64b484acaa611291308c2a",
+      "source_mode": "0o644",
+      "groups": [
+        "source-identity"
+      ]
+    },
+    {
+      "source_relative_path": "skills/architect/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/architect/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/architect/SKILL.md",
+      "bytes": 5469,
+      "sha256": "31f8e97a52bfa5432edd61f68ade2a8632ef0bacbc2d2a6802d7a0e6821944ac",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/architect/references/design-red-flags.md",
+      "source_repository_relative_path": "pstack/skills/architect/references/design-red-flags.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/architect/references/design-red-flags.md",
+      "bytes": 3009,
+      "sha256": "d0e639e4cc588ec865f930d3a4111faad60987ae36925917e319d7ceca7c69ce",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/architect/references/rationale-template.md",
+      "source_repository_relative_path": "pstack/skills/architect/references/rationale-template.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/architect/references/rationale-template.md",
+      "bytes": 3050,
+      "sha256": "0cedfccdc7b47fc881febd5a8293eecbc542c20f8df825639904a8102d2eb5d3",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/architect/references/runner-prompt.md",
+      "source_repository_relative_path": "pstack/skills/architect/references/runner-prompt.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/architect/references/runner-prompt.md",
+      "bytes": 3092,
+      "sha256": "21dd5314aab778c5007228027a4591d97693fbec6ab86524037772b63f40948e",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/arena/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/arena/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/arena/SKILL.md",
+      "bytes": 4511,
+      "sha256": "ed72f6c132b1ce3974d949581d0adc5dade424fe20793ac3b4c4fae22ecb9354",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/benchmark-checklist/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/benchmark-checklist/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/benchmark-checklist/SKILL.md",
+      "bytes": 5002,
+      "sha256": "ba109e96c8f6c1c391baccf19e5d11e14370df7b3f2605e1572cd565a6c0fca0",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/blast-radius/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/blast-radius/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/blast-radius/SKILL.md",
+      "bytes": 3856,
+      "sha256": "2e10745b97f5862323dcda3b29ca60d56b5c3c98e37020085d26b48efbe0a436",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-fix-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/correct/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/correct/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/correct/SKILL.md",
+      "bytes": 2478,
+      "sha256": "e347045d00c967a0b831ef883cc6ac79d21329aa10b5968637df95de7febf0ba",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-fix-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/create-formal-verification-skill/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/create-formal-verification-skill/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/create-formal-verification-skill/SKILL.md",
+      "bytes": 5141,
+      "sha256": "6c934cd15a9583533ff9b7a9cad62775d7e80402d26d3ba7f74f79ea21a1d8eb",
+      "source_mode": "0o644",
+      "groups": [
+        "setup-reflection-formal-boundary"
+      ]
+    },
+    {
+      "source_relative_path": "skills/create-verification-skill/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/create-verification-skill/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/create-verification-skill/SKILL.md",
+      "bytes": 6533,
+      "sha256": "d353973547bf8ad8977eca645f4cd4feaed0d32f4b43d1448f906b0a76c4d694",
+      "source_mode": "0o644",
+      "groups": [
+        "verification-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/create-verification-skill/references/feature-map-example/README.md",
+      "source_repository_relative_path": "pstack/skills/create-verification-skill/references/feature-map-example/README.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/create-verification-skill/references/feature-map-example/README.md",
+      "bytes": 2601,
+      "sha256": "cb7bd782cf89968a4ba3d58a5151db837430db92d19a6f52a906973b77b516ba",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/create-verification-skill/references/feature-map-example/create-note.md",
+      "source_repository_relative_path": "pstack/skills/create-verification-skill/references/feature-map-example/create-note.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/create-verification-skill/references/feature-map-example/create-note.md",
+      "bytes": 2926,
+      "sha256": "644a44c74f35d38c2feb7cd05a0121fdebbb623e8dc376c185b565a581d1ccf7",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/create-verification-skill/references/feature-map-example/search.md",
+      "source_repository_relative_path": "pstack/skills/create-verification-skill/references/feature-map-example/search.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/create-verification-skill/references/feature-map-example/search.md",
+      "bytes": 3478,
+      "sha256": "6e87b9e7f2791a7776ba1bb83f371cd285c306c67f19d245cc4dd6ca3015c823",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/figure-it-out/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/figure-it-out/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/figure-it-out/SKILL.md",
+      "bytes": 4111,
+      "sha256": "bdb23cdbd82a1e6af094b495691c832a6f7f3ab9706ba9edbeb664ef51a726e1",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/how/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/how/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/how/SKILL.md",
+      "bytes": 2651,
+      "sha256": "08a00079bb15b4258874ac3ff62d4ca7e94350ffedb521d0fd296dc9dd21904e",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/how/references/explainer-prompt.md",
+      "source_repository_relative_path": "pstack/skills/how/references/explainer-prompt.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/how/references/explainer-prompt.md",
+      "bytes": 3085,
+      "sha256": "ddb89cebefc24e2b54517a331aedfe045b6971e101f45c71b8cef4cccff45bff",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/how/references/explorer-prompt.md",
+      "source_repository_relative_path": "pstack/skills/how/references/explorer-prompt.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/how/references/explorer-prompt.md",
+      "bytes": 1135,
+      "sha256": "6300128385ee940fd42ecb84b0e623435440a2dc283eae54ee4a52ba56947ba1",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/interrogate/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/interrogate/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/interrogate/SKILL.md",
+      "bytes": 4548,
+      "sha256": "a16dfe179005abc22a4651b82f25b0c8ab953284276efe4e6dc341958fb63647",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-fix-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/interrogate/references/code-quality-review.md",
+      "source_repository_relative_path": "pstack/skills/interrogate/references/code-quality-review.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/interrogate/references/code-quality-review.md",
+      "bytes": 5217,
+      "sha256": "79162fda183eafd40d51661fbb5e151c7ba250f89e506ba17f5bd135dcbd50a8",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/interrogate/references/lead-judgment.md",
+      "source_repository_relative_path": "pstack/skills/interrogate/references/lead-judgment.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/interrogate/references/lead-judgment.md",
+      "bytes": 2283,
+      "sha256": "355f5195a76bc75a655125292369f2a8231a2b61fabe5188d8f1386060922b87",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/interrogate/references/reviewer-prompt.md",
+      "source_repository_relative_path": "pstack/skills/interrogate/references/reviewer-prompt.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/interrogate/references/reviewer-prompt.md",
+      "bytes": 2275,
+      "sha256": "f6005cc2b535006fca97a96c5bfda49df57312eedf1ffd8d1aaaf3eb33817c25",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/interrogate/references/rubric.md",
+      "source_repository_relative_path": "pstack/skills/interrogate/references/rubric.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/interrogate/references/rubric.md",
+      "bytes": 4772,
+      "sha256": "0f9c6bdb0b96e26dbde5f6407f417e0c02f54080e7a1268d8994f3c3ec6c5ac0",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/maintain-formal-verification-skill/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/maintain-formal-verification-skill/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/maintain-formal-verification-skill/SKILL.md",
+      "bytes": 7012,
+      "sha256": "0c96f54293542d3818b68754562b338073958781a9684454611dca37592e2d2c",
+      "source_mode": "0o644",
+      "groups": [
+        "setup-reflection-formal-boundary"
+      ]
+    },
+    {
+      "source_relative_path": "skills/maintain-verification-skill/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/maintain-verification-skill/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/maintain-verification-skill/SKILL.md",
+      "bytes": 4922,
+      "sha256": "515c0eaa054b3f6be1b1fb06f2c2f173c80fddb58bbcac57576f89c479bc68e8",
+      "source_mode": "0o644",
+      "groups": [
+        "verification-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/no-comments/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/no-comments/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/no-comments/SKILL.md",
+      "bytes": 2693,
+      "sha256": "078ecfe224eafbb017f6476870612838bf6dbe38c0b697e12f0c887d0313f17e",
+      "source_mode": "0o644",
+      "groups": [
+        "review-and-fix-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/SKILL.md",
+      "bytes": 20362,
+      "sha256": "2755f102e7a6d0496b429d1031a22fb353e1f3d523543367caeaae5c4ed6f544",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/authoring-a-skill.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/authoring-a-skill.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/authoring-a-skill.md",
+      "bytes": 831,
+      "sha256": "f6a13a445c360b48d6cd72780ac01955f45b82826476efe0e67c7559329407aa",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/autonomous-run.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/autonomous-run.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/autonomous-run.md",
+      "bytes": 1982,
+      "sha256": "6ac974fd2b09748add56493e89f578a35a6a9289e1026515878d81ef3cf129d1",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/autopilot-full.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/autopilot-full.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/autopilot-full.md",
+      "bytes": 6596,
+      "sha256": "acf4f4a58c11045f9d3e8807d907a877e61ca6432b079f1087d7d30fc931566f",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/autopilot-stack.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/autopilot-stack.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/autopilot-stack.md",
+      "bytes": 2205,
+      "sha256": "c6bcb18b2ce605e77a2a2225854590a4b9a687911f79331746d91a4fe9a52e60",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/babysit.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/babysit.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/babysit.md",
+      "bytes": 7619,
+      "sha256": "e261c1ff5581e0f8fc6c686f34de4b535f87473e77beabea7dd8323021214610",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/bug-fix.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/bug-fix.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/bug-fix.md",
+      "bytes": 2359,
+      "sha256": "66e26542dad131cfd7df80ac0cdf81ed4d85e7b5e3f0eb65b933888760c4831f",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/eval.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/eval.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/eval.md",
+      "bytes": 2628,
+      "sha256": "a93d449a908236afa6645179651844094b1547dbab4e484cffcdda630e4b90bf",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/feature.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/feature.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/feature.md",
+      "bytes": 2870,
+      "sha256": "af8ce700b99953741cb547e34308fde0cf6b98ce67e1652c800d0deedf53aba1",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/hillclimb.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/hillclimb.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/hillclimb.md",
+      "bytes": 4507,
+      "sha256": "942c1565b75ad02a2cb6230dd7c1ebd87e19f59a00319ebac2b6616007bf018f",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/investigation.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/investigation.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/investigation.md",
+      "bytes": 928,
+      "sha256": "dc66bcf6af3a074fc7f67aa5e12b93ef571a4fb4d8e17f2f1af5ae5359f42e46",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/multi-phase-plan.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/multi-phase-plan.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/multi-phase-plan.md",
+      "bytes": 13217,
+      "sha256": "5f239457bfdec3345c92caa06c59bf0257c662b89353f25a1c02ea942dcd00b1",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/opening-a-pr.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/opening-a-pr.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/opening-a-pr.md",
+      "bytes": 5669,
+      "sha256": "a5aef646de8b651306c2d10974623650e4a013a245aec1c00525bbe0e31bfa76",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/orchestrate.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/orchestrate.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/orchestrate.md",
+      "bytes": 17127,
+      "sha256": "08dce6c9e7be1d13bc6944ab9b51665f935c531437f5e088bc53d2a62099ef05",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/pause-safely.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/pause-safely.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/pause-safely.md",
+      "bytes": 1135,
+      "sha256": "77968cfe5f4a71a8cd33e0ae8ffcdbd88dd693a212c240457773e6c40c96c21d",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/perf-issue.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/perf-issue.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/perf-issue.md",
+      "bytes": 1550,
+      "sha256": "c12aa2f82de7651a11676a3d5fea168f539b7f0faaa3a501d279255dd2a469c8",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/prototype.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/prototype.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/prototype.md",
+      "bytes": 2161,
+      "sha256": "7aa1f52c691c3d46d5afc527b23f90977fce869ce33573c73c81a4c7f0cde962",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/refactoring.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/refactoring.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/refactoring.md",
+      "bytes": 3315,
+      "sha256": "0f5dd38113379ea8cf61e2182eca0a7478eea9a869eb40c2dddab3335aeca197",
+      "source_mode": "0o644",
+      "groups": [
+        "implementation-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/runtime-forensics.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/runtime-forensics.md",
+      "bytes": 1314,
+      "sha256": "3463372b578c28f27c236f2627f09b5c5b1e85e86db7399fb984f3892fb450f5",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/session-pickup.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/session-pickup.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/session-pickup.md",
+      "bytes": 1782,
+      "sha256": "d194f2a7ef392c1598ef3f0e3b561370ca25c2c7a78308007af4aa46ada8ee12",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/shipping.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/shipping.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/shipping.md",
+      "bytes": 4387,
+      "sha256": "bf56339bdf7e0223bcff5abf4e8599e3f5b547b3fcc3b4ce9475e6e7dda14a9f",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/trace-forensics.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/trace-forensics.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/trace-forensics.md",
+      "bytes": 1867,
+      "sha256": "ef0bbf79856a4ae1a8993d54c1a1da159cb97623941b652c0069cf75a017e0f5",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/visual-parity.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/visual-parity.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/visual-parity.md",
+      "bytes": 1197,
+      "sha256": "950ca51999a6454c98eee6bcbc3d1bbe501a4e3a5d5439b6f6ddc378991b256c",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/playbooks/worktree-cleanup.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/playbooks/worktree-cleanup.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/worktree-cleanup.md",
+      "bytes": 2947,
+      "sha256": "be04ae0afe19d4a4da5bcc4e94455f68dbebd1cda6eb0f456ca0d358ecf76c00",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/references/bugbot-triage.md",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/references/bugbot-triage.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/references/bugbot-triage.md",
+      "bytes": 9629,
+      "sha256": "b2d146c770d8d3593e1ef3d77b668039b8e1f78093ea1a86f1d45d7f99614309",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/bootstrap.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/bootstrap.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/bootstrap.ts",
+      "bytes": 1737,
+      "sha256": "ccd2ed08fd9da9d0d942e5f2491cfc74bb92d8a08fa51755e0da1ac8de287361",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/bun.lock",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/bun.lock",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/bun.lock",
+      "bytes": 6679,
+      "sha256": "667d9cf7222e9aae3fa42a4be383e657784216e9df115da02227fbc5ac7bbe46",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/check-plan.mjs",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/check-plan.mjs",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/check-plan.mjs",
+      "bytes": 8153,
+      "sha256": "e58c3d871b09d477be00628d69dd23ffa6c2e3a1728f5b867a841baa8e90278b",
+      "source_mode": "0o755",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/check-plan.test.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/check-plan.test.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/check-plan.test.ts",
+      "bytes": 3289,
+      "sha256": "c80f3ea043b81f219b92c4c8a3af6bdd4f8d32ea596ec15b5b9e0252645f2ae8",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/orch/orch.test.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/orch/orch.test.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/orch/orch.test.ts",
+      "bytes": 21801,
+      "sha256": "5e80b416bdcd68e4067690ce857345852fd2e0db3dcf3e25607999cd55b963d2",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/orch/orch.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/orch/orch.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/orch/orch.ts",
+      "bytes": 15737,
+      "sha256": "47c92c57e8276616d8de94665a126bd832e748036afa8d0ffdbacb7946decb5c",
+      "source_mode": "0o755",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/orch/store.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/orch/store.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/orch/store.ts",
+      "bytes": 44466,
+      "sha256": "558cfda533e1ebe7c8d7842604f07e0be7618759cf129b4c2397a8e29516ecea",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/package.json",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/package.json",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/package.json",
+      "bytes": 371,
+      "sha256": "fd511a0c01f522e0c781ddd8eccea0e91697a0856c6e6a3261de78a6a0287c72",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/cli.test.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/cli.test.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/cli.test.ts",
+      "bytes": 6161,
+      "sha256": "a35592b4c6da96caf8d47987e9cd503fab6c7774ab87d11a43f24b4b5df2a9d1",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/cli.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/cli.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/cli.ts",
+      "bytes": 6983,
+      "sha256": "89c08863089181a232be782c4b2ed90a1552f44aeecb0dcb7aac2c623620e680",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts",
+      "bytes": 3357,
+      "sha256": "cf0c5ee61b4a73444c1b775cfb6c81a40d312e055dd21a1f5eae6276e54de13f",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/github.test.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/github.test.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/github.test.ts",
+      "bytes": 13101,
+      "sha256": "70c9f03d8738228763846f2abdd8c7de7be68dba3035041482386a69cbf5639b",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/github.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/github.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/github.ts",
+      "bytes": 25198,
+      "sha256": "a605b8531468dbe4c07b93663c0993a9c11dc7e9179adde970f5c740396451d9",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/policy.test.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/policy.test.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/policy.test.ts",
+      "bytes": 12405,
+      "sha256": "146acabcfee9b6fa3342358eb0a9504aa65fd081bbc15b10adf9c1c5485067d2",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/policy.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/policy.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/policy.ts",
+      "bytes": 25169,
+      "sha256": "f2a3e31223d05edc05e5473cc3f8f3cb9bd20c202c30c6abe7f21f0f7aee8fbb",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/render.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/render.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/render.ts",
+      "bytes": 7083,
+      "sha256": "2b709e86628d5b8fdb61f860e60ababc342b0626c67576305442cf548283a604",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/tsconfig.json",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/tsconfig.json",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/tsconfig.json",
+      "bytes": 270,
+      "sha256": "1ecccc72320b086c63ce3f73c959896fd747363e63553b3b1136296ea4069e45",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/types.compile.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/types.compile.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/types.compile.ts",
+      "bytes": 2258,
+      "sha256": "621af4c9a664fbf699a9737efccdc248abb416df8819c9dc5f824beae2b9b1d6",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/types.ts",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/types.ts",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/types.ts",
+      "bytes": 12649,
+      "sha256": "0cac435294dc85ce1ba755e8e67f6c5ab163dfa252f2722d6e3a2d68c58fec59",
+      "source_mode": "0o644",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/watch-pr/watch-pr",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/watch-pr/watch-pr",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/watch-pr/watch-pr",
+      "bytes": 211,
+      "sha256": "d955603be6cc0e8b8ffcec722f635192b2261410b1f2929abea94480e47eb5d4",
+      "source_mode": "0o755",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/poteto-mode/scripts/worktree-audit.sh",
+      "source_repository_relative_path": "pstack/skills/poteto-mode/scripts/worktree-audit.sh",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/poteto-mode/scripts/worktree-audit.sh",
+      "bytes": 6003,
+      "sha256": "e0a94e5e5b1ff60638916e440600e15851f7b79bc1a1d1f602fde05d465e2ec0",
+      "source_mode": "0o755",
+      "groups": [
+        "mode-navigation-and-runtime"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-attack-the-premise/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-attack-the-premise/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-attack-the-premise/SKILL.md",
+      "bytes": 1916,
+      "sha256": "6a932884daad4aa189e9b5d1665226bbc75621d4d2a398fd4003bebd382f4599",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-boundary-discipline/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-boundary-discipline/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-boundary-discipline/SKILL.md",
+      "bytes": 1883,
+      "sha256": "62ac2862c2caa22dd14531f51c9c6bb445ceb198ca98a687e25b4d47c1f10a28",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-build-the-lever/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-build-the-lever/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-build-the-lever/SKILL.md",
+      "bytes": 2386,
+      "sha256": "3434b0ad0c640c6f1d7960be7a8986c3bcdc14e26060360dec29903df60074ff",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-encode-lessons-in-structure/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-encode-lessons-in-structure/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-encode-lessons-in-structure/SKILL.md",
+      "bytes": 558,
+      "sha256": "228963799189f481827d6f28065f278bc2008ffa37030b1234cbd5814d36b9e9",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-exhaust-the-design-space/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-exhaust-the-design-space/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-exhaust-the-design-space/SKILL.md",
+      "bytes": 395,
+      "sha256": "2de83d99f93f60ec6313455b0bc9aa9f0bfb93dd59f414f403691322db00d4db",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-experience-first/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-experience-first/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-experience-first/SKILL.md",
+      "bytes": 1184,
+      "sha256": "58903529d733b1c1a7c9ccf127d45ef3c7d0d9f0b81164a4dc6b80efe6f2912b",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-explain-the-number/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-explain-the-number/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-explain-the-number/SKILL.md",
+      "bytes": 1663,
+      "sha256": "cd5a25f9e7cf023627ccb470dc5faa97542f29b4319496a32b839a8e1e988047",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-fix-root-causes/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-fix-root-causes/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-fix-root-causes/SKILL.md",
+      "bytes": 1821,
+      "sha256": "8df3c8c3fe57eb0055a5c8efab8ab144557fdf301da70b1cdc77a3a3ef3f3052",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-foundational-thinking/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-foundational-thinking/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-foundational-thinking/SKILL.md",
+      "bytes": 1530,
+      "sha256": "864b827e8199d946ce58beca0f89c4ed4099ed6e426fb698a3aaa45de2a9eea2",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-guard-the-context-window/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-guard-the-context-window/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-guard-the-context-window/SKILL.md",
+      "bytes": 519,
+      "sha256": "af0b9dd70b43628ce4a59a4d332e9d9ad055084e460f430e7a757495c627e81a",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-laziness-protocol/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-laziness-protocol/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-laziness-protocol/SKILL.md",
+      "bytes": 552,
+      "sha256": "1be6e7a435f26a75a76eb848b9c3d611b9977d0f5822361753244da25ca3ca45",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-make-operations-idempotent/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-make-operations-idempotent/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-make-operations-idempotent/SKILL.md",
+      "bytes": 1809,
+      "sha256": "7aa9327cf1f1aa057e95d47a0a78bd88a8f9d556b608866fee939d455a53a019",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
+      "bytes": 637,
+      "sha256": "580ad9bb1a0994ecb924321ba49efc38a2f85c64e22c76fb133f57a78272a2e6",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-minimize-reader-load/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-minimize-reader-load/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-minimize-reader-load/SKILL.md",
+      "bytes": 1996,
+      "sha256": "1ea2b7fef2391cae5844c4efdbd59031f775e8a52d06b7495d707229a200dcca",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-model-the-domain/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-model-the-domain/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-model-the-domain/SKILL.md",
+      "bytes": 1858,
+      "sha256": "52c0d85e0c3827c41c18299b642657d7b47eaf77b7b31609e42e0df42b84c75f",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-never-block-on-the-human/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-never-block-on-the-human/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-never-block-on-the-human/SKILL.md",
+      "bytes": 910,
+      "sha256": "05030a7a083c337676f793881b4e93cd218e8f1dd676529f56e6ac1d3efb8d1f",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-outcome-oriented-execution/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-outcome-oriented-execution/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-outcome-oriented-execution/SKILL.md",
+      "bytes": 1078,
+      "sha256": "10eb91633aa570355ba4bb37088fcade2b22e498df7a58edc749e65bc5a78e2d",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-prove-it-works/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-prove-it-works/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-prove-it-works/SKILL.md",
+      "bytes": 1371,
+      "sha256": "ec79a15025bac8d33d62011c54f3b612733fd2a024e623b531b3637aa75070e2",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-redesign-from-first-principles/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-redesign-from-first-principles/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-redesign-from-first-principles/SKILL.md",
+      "bytes": 758,
+      "sha256": "170e0a658783e43fee8ec5a8c2422a4abb8f69cef621dd1819a95910b8207034",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-separate-before-serializing-shared-state/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-separate-before-serializing-shared-state/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-separate-before-serializing-shared-state/SKILL.md",
+      "bytes": 1565,
+      "sha256": "05294b40448e927c5da1c7b6f5c6b9fed3744637e3833d2d948b9154a9dd00bb",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-sequence-verifiable-units/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-sequence-verifiable-units/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-sequence-verifiable-units/SKILL.md",
+      "bytes": 1705,
+      "sha256": "2ccbbacc56ace5afdfb8670cef19d7bd009fb2a0033b9a741cbdf2b6baf72187",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-subtract-before-you-add/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-subtract-before-you-add/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-subtract-before-you-add/SKILL.md",
+      "bytes": 909,
+      "sha256": "8c93bb9d1a7f38e2ef37655d93f0e790fa59903105af3d500cc8a663ebe45f3f",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-test-behavior-not-implementation/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-test-behavior-not-implementation/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-test-behavior-not-implementation/SKILL.md",
+      "bytes": 2614,
+      "sha256": "f7223698623b6a26fea49c751e466b38e6691b1f32ce841d3983e7ffbe2b74a6",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/principle-type-system-discipline/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/principle-type-system-discipline/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/principle-type-system-discipline/SKILL.md",
+      "bytes": 1557,
+      "sha256": "5cdaf79785e3c12b2592b9469ee8c272143eb86ab7a18d8382197cea5fd30106",
+      "source_mode": "0o644",
+      "groups": [
+        "principles"
+      ]
+    },
+    {
+      "source_relative_path": "skills/reflect/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/reflect/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/reflect/SKILL.md",
+      "bytes": 4766,
+      "sha256": "1f5a8c246cdee8251f8667d85bd5d97f6c2801f505843c26ddbd6c621632519b",
+      "source_mode": "0o644",
+      "groups": [
+        "setup-reflection-formal-boundary"
+      ]
+    },
+    {
+      "source_relative_path": "skills/reflect/references/divergent-reviewer.md",
+      "source_repository_relative_path": "pstack/skills/reflect/references/divergent-reviewer.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/reflect/references/divergent-reviewer.md",
+      "bytes": 3668,
+      "sha256": "f6030d88e20e906ef5e2d9ba44cb013ce610c49c2fe2ef74c377d32e0dc9e939",
+      "source_mode": "0o644",
+      "groups": [
+        "setup-reflection-formal-boundary"
+      ]
+    },
+    {
+      "source_relative_path": "skills/reflect/references/judgment-reviewer.md",
+      "source_repository_relative_path": "pstack/skills/reflect/references/judgment-reviewer.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/reflect/references/judgment-reviewer.md",
+      "bytes": 3107,
+      "sha256": "38f917619fbf346062d643e0ad6b12fc952d58678dfcbbf42ffcf6d8b9c08307",
+      "source_mode": "0o644",
+      "groups": [
+        "setup-reflection-formal-boundary"
+      ]
+    },
+    {
+      "source_relative_path": "skills/reflect/references/synthesizer.md",
+      "source_repository_relative_path": "pstack/skills/reflect/references/synthesizer.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/reflect/references/synthesizer.md",
+      "bytes": 4141,
+      "sha256": "6af816963de74d1a1aef4070273c1ff533d2072732e488e159ddc0b299fec3cd",
+      "source_mode": "0o644",
+      "groups": [
+        "setup-reflection-formal-boundary"
+      ]
+    },
+    {
+      "source_relative_path": "skills/reflect/references/tooling-reviewer.md",
+      "source_repository_relative_path": "pstack/skills/reflect/references/tooling-reviewer.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/reflect/references/tooling-reviewer.md",
+      "bytes": 4448,
+      "sha256": "f81b8697e7366fbbc18feba52c6e3253a101f751091364ebc4396a1d9b5753b4",
+      "source_mode": "0o644",
+      "groups": [
+        "setup-reflection-formal-boundary"
+      ]
+    },
+    {
+      "source_relative_path": "skills/setup-pstack/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/setup-pstack/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/setup-pstack/SKILL.md",
+      "bytes": 6305,
+      "sha256": "b45512f6ca5e96e81681984683b7472bfe892581da3a89a73cca4159438f29ed",
+      "source_mode": "0o644",
+      "groups": [
+        "setup-reflection-formal-boundary"
+      ]
+    },
+    {
+      "source_relative_path": "skills/show-me-your-work/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/show-me-your-work/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/show-me-your-work/SKILL.md",
+      "bytes": 6551,
+      "sha256": "920a8217cbb62f92a2222fb81fc9eab17ecd554a0277e444a95a927195139bd1",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/show-me-your-work/references/decision-log-template.tsv",
+      "source_repository_relative_path": "pstack/skills/show-me-your-work/references/decision-log-template.tsv",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/show-me-your-work/references/decision-log-template.tsv",
+      "bytes": 38,
+      "sha256": "6779378006a2f5225e8c06deb84f1d913fb532041ebbb6e50d94600bfe3f4b76",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/show-me-your-work/scripts/log.sh",
+      "source_repository_relative_path": "pstack/skills/show-me-your-work/scripts/log.sh",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/show-me-your-work/scripts/log.sh",
+      "bytes": 1377,
+      "sha256": "a65a4bc5fb7cdeadbdb7b7ff1ca4682f4d9c42420942b2977cd17b46c4ac338e",
+      "source_mode": "0o755",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/swarm/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/swarm/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/swarm/SKILL.md",
+      "bytes": 2734,
+      "sha256": "031657cb81e490f9aed5c75d6ff2a4fda35ccafbaf72be604e59481cc4080cdc",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/tdd/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/tdd/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/tdd/SKILL.md",
+      "bytes": 3143,
+      "sha256": "eeb868e2dfebee528d730a67d7b17498fac4bb85dec2e38bc5c5176aca4d5d2f",
+      "source_mode": "0o644",
+      "groups": [
+        "verification-core"
+      ]
+    },
+    {
+      "source_relative_path": "skills/technical-writing/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/technical-writing/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/technical-writing/SKILL.md",
+      "bytes": 9093,
+      "sha256": "61fe9c424a798ebf36ad94941f87be049cb8827bdf86d21474a0dde37b513c43",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/typescript-best-practices/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/typescript-best-practices/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/typescript-best-practices/SKILL.md",
+      "bytes": 2765,
+      "sha256": "ec1dac086d3708e5940d45d250c30a37dd953b4e3cb2ca0692f5851d7a039e27",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/typescript-best-practices/references/patterns.md",
+      "source_repository_relative_path": "pstack/skills/typescript-best-practices/references/patterns.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/typescript-best-practices/references/patterns.md",
+      "bytes": 9287,
+      "sha256": "12e70c9419a8b3f5d6a1ab80e272c1f00a43ac0b3bbf72d68199033570e5de77",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/unslop/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/unslop/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/unslop/SKILL.md",
+      "bytes": 5827,
+      "sha256": "ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/SKILL.md",
+      "source_repository_relative_path": "pstack/skills/why/SKILL.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/SKILL.md",
+      "bytes": 8903,
+      "sha256": "144d42e7712723d763e607bc0a969e5f1cdf83ec7228519d87677cc534571bed",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/epistemics.md",
+      "source_repository_relative_path": "pstack/skills/why/references/epistemics.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/epistemics.md",
+      "bytes": 6736,
+      "sha256": "d54a2361b2d5973bc3fe2edf62f446d87935974d4b40d47f23b9529f956ca758",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/investigator-prompt.md",
+      "source_repository_relative_path": "pstack/skills/why/references/investigator-prompt.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/investigator-prompt.md",
+      "bytes": 5554,
+      "sha256": "c44afba186f899094f3694e6c9d6de5d14ff7c4ce28b787a9f50fc789c9a7fc3",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/source-playbook.md",
+      "source_repository_relative_path": "pstack/skills/why/references/source-playbook.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/source-playbook.md",
+      "bytes": 1363,
+      "sha256": "9ae9dcb9d09111c9facc68510331c5aba4aed9b1b057314ff1fc0e166ad3993a",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/sources/code-archaeology.md",
+      "source_repository_relative_path": "pstack/skills/why/references/sources/code-archaeology.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/sources/code-archaeology.md",
+      "bytes": 1440,
+      "sha256": "a4a3970e9db448054aed676f3f7feeee667b4b69f0bd57c8fd72b751be687cc7",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/sources/databricks.md",
+      "source_repository_relative_path": "pstack/skills/why/references/sources/databricks.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/sources/databricks.md",
+      "bytes": 6994,
+      "sha256": "236ede7aab6454662a992db088a5393537a5233a4c26719c93188f9e174488f6",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/sources/datadog.md",
+      "source_repository_relative_path": "pstack/skills/why/references/sources/datadog.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/sources/datadog.md",
+      "bytes": 4971,
+      "sha256": "b139faac5dc11b8f26c8255dce6033c1a6ac143b038d3dd103f2034c5dbec9cd",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/sources/incident-postmortem.md",
+      "source_repository_relative_path": "pstack/skills/why/references/sources/incident-postmortem.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/sources/incident-postmortem.md",
+      "bytes": 372,
+      "sha256": "bf2661f1a81c37700884a45b77d6289be0c802b065febced31990e6564510839",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/sources/linear.md",
+      "source_repository_relative_path": "pstack/skills/why/references/sources/linear.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/sources/linear.md",
+      "bytes": 2996,
+      "sha256": "01304e7f1badfcfb78babbb0edcadeb3cc8dd3f713793420cdff24ba190f907c",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/sources/notion.md",
+      "source_repository_relative_path": "pstack/skills/why/references/sources/notion.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/sources/notion.md",
+      "bytes": 2853,
+      "sha256": "3bcfa695c49dfad4ac036d5d7181c12585f55ac04f1936198d16ab75a2788997",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/sources/sentry.md",
+      "source_repository_relative_path": "pstack/skills/why/references/sources/sentry.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/sources/sentry.md",
+      "bytes": 2089,
+      "sha256": "2d4f83048eac1df530b399e2aed75dd7c9c18577b7665420aaeb96d0ceb0b702",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/sources/slack.md",
+      "source_repository_relative_path": "pstack/skills/why/references/sources/slack.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/sources/slack.md",
+      "bytes": 1336,
+      "sha256": "3bc6309f5c7b26ace3b919dbd7f7b048861dd2020f910fe24f656cc74b3b661c",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    },
+    {
+      "source_relative_path": "skills/why/references/synthesizer-prompt.md",
+      "source_repository_relative_path": "pstack/skills/why/references/synthesizer-prompt.md",
+      "destination_relative_to_workspace": "source/workflow-references/pstack/repository/skills/why/references/synthesizer-prompt.md",
+      "bytes": 7146,
+      "sha256": "11c62671aa7b7a6e3d36929ffe2b59bf95e6ca664eee4d93e6ee527dd3390ddb",
+      "source_mode": "0o644",
+      "groups": [
+        "workflow-support"
+      ]
+    }
+  ],
+  "linked_dependency_captures": [
+    {
+      "from": "skills/poteto-mode/SKILL.md",
+      "target": "cursor-team-kit: deslop, control-ui, control-cli",
+      "source_relative_to_workspace": "source/workflow-references/cursor-team-kit/README.md",
+      "manifest_relative_to_workspace": "source/workflow-references/cursor-team-kit/manifest.json",
+      "scope": "같은 plugins 저장소의 별도 plugin. 직접 참조 세 본문과 verify-this, 출처 정보만 보존하며 설치하지 않음."
+    }
+  ]
+}

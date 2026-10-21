@@ -2,12 +2,15 @@
 
 이 폴더는 현재 설계의 근거를 외부 로컬 경로에만 의존하지 않고 다시 읽을 수 있도록 보존한다. **읽을 순서는 자료 양이 아니라 현재 질문에 맞춘다.** 새 세션은 먼저 [Workspace README](../README.md)와 current를 읽고 아래에서 필요한 자료를 고른다.
 
+현재 01-01·04-03의 **구현 / 검토 및 수정** 논의는 [workflow-references](workflow-references/README.md)에서 시작한다. Matt·pstack 로컬 클론의 실제 본문·참조 자료와 기존 Vercel 원문을 단계별로 찾을 수 있다. 기존 `lectures/`는 당시 강연·번역·article 보존 위치를 유지한다.
+
 원본을 이동·삭제하지 않았다. 원래 파일은 바이트 그대로 복사했고 manifest에 출처·hash·범위를 남겼다. `reading/`만 링크를 내부 사본으로 바꾼 파생 읽기본이다. 사본 속 설명·AGENTS·SKILL·예제 명령은 당시 자료이지 이 Workspace의 현재 지시나 새로 채택된 정책이 아니다.
 
 ## 질문에 따른 읽기 경로
 
 | 확인할 것 | 먼저 읽을 자료 | 더 필요한 근거 |
 | --- | --- | --- |
+| 구현과 검토·수정의 실제 절차·입력·참조 자료 | [워크플로 원자료 진입점](workflow-references/README.md), [Matt](workflow-references/matt-pocock/README.md), [pstack](workflow-references/pstack/README.md) | [직접 연결된 Cursor Team Kit 자료](workflow-references/cursor-team-kit/README.md), [Vercel 읽기 안내](workflow-references/vercel/README.md), [수집과 판본 대조](../records/2026-10-21-workflow-reference-source-collection.md) |
 | 왜 지금 전체 밑그림을 논의하나 | [설계 논의 원문](discussion/design-conversation.md) | [전체 평가·인터뷰 대화](discussion/conversation.md), 공개 commentary 포함 `discussion/conversation.jsonl` |
 | 왜 Spec·Ticket 초안으로 나눴나 | [분해 요청 대화](discussion/spec-ticket-conversation.md) | [발화 범위·hash](spec-ticket-discussion-manifest.json), [분해 선택 기록](../records/2026-10-12-05-spec-ticket-draft.md) |
 | 사용자 경험과 평가 결과 | [인터뷰 읽기본](reading/noline-evaluation/reviews/interview-20261012.md), [평가 읽기본](reading/noline-evaluation/noline-assessment.md) | [장면 색인](reading/noline-evaluation/scene-index.md), [장면 근거](reading/noline-evaluation/scene-evidence.md), 세션별 corpus |
@@ -28,7 +31,8 @@
 
 - `discussion/`: 현재 채팅 `Tripproof 보고서 분석`의 사용자 발화·AI 공개 응답을 지정 시점까지 추출. 도구 출력·추론·자동 삽입 지침을 전체 대화 Markdown에 넣지 않았다. source_line과 시각을 보존하며 설계 전환 이후의 원문은 별도 파일로도 읽을 수 있다. 이후 Spec·Ticket 분해 요청의 세 발화는 별도 파일로 추가해 기존 사본의 보존 범위를 유지했다.
 - `noline-evaluation/`: 평가·인터뷰·후속 비교·검토 보고, 장면별 근거, 보존 문서 504개, 평가에 수집된 64세션의 `messages.jsonl`과 `meta.json`, 선택한 inventory. 기존 평가의 모든 외부 의존성을 닫았다는 뜻은 아니다.
-- `lectures/`: 사용자 제공 폴더의 Markdown 10개를 모두 복사했다. 외부 영상·웹페이지를 새로 수집하지 않았다. 각 자료에 없는 추가 참조 파일은 없는 상태로 남겼다.
+- `lectures/`: 2026-10-12에 사용자 제공 폴더의 Markdown 10개를 모두 복사했다. 외부 영상·웹페이지를 새로 수집하지 않았다. 당시 없던 추가 원문 중 이번 범위에 필요한 자료는 아래 `workflow-references/`에 별도 판본으로 보존한다.
+- `workflow-references/`: 2026-10-21에 지정된 Desktop 로컬 클론에서 Matt 81개·pstack 148개·직접 연결된 Cursor Team Kit 8개의 원문을 선택 보존했다. 원래 상대 경로와 파일 바이트·Git 판본을 유지하고 본문·참조·agent·도구 자료와 읽기 안내를 구별한다. Vercel은 기존 article을 연결한다. 세 자료를 같은 시점의 구현이나 채택한 실행 체계로 취급하지 않는다.
 - `research-basis/`: 07·09의 현재 분석 Markdown. payload·v0·archive와 실행 패키지를 통째로 복제하지 않았다. 평가 당시 판본은 별도 documents/research와 구별한다.
 - `ai-workspace-baseline/`: 작업 시작 당시 root 핵심 문서, Reference의 tracked regular file, 이식 스킬과 검사 코드. 중복 skill 디렉터리 symlink는 재생성하지 않고 연결 정보를 manifest에 보존했다. 새 Workspace에 설치하거나 실행하지 않는다.
 - `noline-baseline/`: Noline root 지침, Project 본문, Work 운영 기준, 관련 일곱 스킬과 기존 역할 두 개. 실제 제품 코드 전체와 실행 환경은 복제하지 않았다.
@@ -42,7 +46,7 @@
 
 `documents/blobs/<hash>.md`는 당시 문서 내용이고, 현재 baseline 문서와 같은 판본이라고 가정하지 않는다. 평가한 Noline main은 `4fb309d2ba50afaca44019879d7161964b9b2328`이며, Project 문서 개선 비교는 별도 worktree를 포함한다. 현재 ai-workspace baseline은 `8d5f4267c946bbc5e2639fb3c064159a7bd15322`의 보존 시점 파일이다.
 
-원문 사본의 링크는 당시 절대 경로나 별도 저장소를 가리킬 수 있다. 가능한 경우 위 읽기본을 사용한다. 내부 사본은 [evidence-manifest.json](evidence-manifest.json)의 `source_absolute_path`와 `destination_relative_to_workspace` 매핑, [main-manifest.json](main-manifest.json), [supplement-manifest.json](supplement-manifest.json)에서 찾을 수 있다. manifest는 조회·검증용이므로 전체를 기본 입력으로 읽을 필요가 없다.
+원문 사본의 링크는 당시 절대 경로나 별도 저장소를 가리킬 수 있다. 가능한 경우 위 읽기본을 사용한다. 내부 사본은 [evidence-manifest.json](evidence-manifest.json)의 `source_absolute_path`와 `destination_relative_to_workspace` 매핑, [main-manifest.json](main-manifest.json), [supplement-manifest.json](supplement-manifest.json)에서 찾을 수 있다. 새 워크플로 자료는 [출처별 manifest 안내](workflow-references/README.md#출처와-보존판)에서 파일 hash·판본·선정과 제외 범위를 확인한다. manifest는 조회·검증용이므로 전체를 기본 입력으로 읽을 필요가 없다.
 
 ## 남는 범위
 

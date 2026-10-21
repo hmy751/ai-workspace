@@ -1,5 +1,7 @@
 # 현재 상태
 
+2026-10-21 워크플로 원자료 보강: 사용자가 큰 논의 단위를 **구현 / 검토 및 수정**으로 두고, 먼저 Desktop의 Matt·pstack 자료를 수집하도록 요청했다. [새 source 진입점](../source/workflow-references/README.md)에 원문 237개와 기존 Vercel article의 읽기 경로를 연결했다. [수집 기록](../records/2026-10-21-workflow-reference-source-collection.md)에 판본·범위·참조와 확인 근거가 있다. 다음은 이 원문에서 두 단계의 실제 행동·입력·수정·확인·반환을 대조하는 논의다. 두 단계는 논의 단위이며 agent 수·고정 관문·최종 확인 담당을 확정한 것은 아니다.01-01·04-03의 상세 설계는 계속 열려 있고04-01 완료·다른 세션의04-02 진행은 유지한다.
+
 2026-10-21 스킬 본문 관리 정책·첫 적용 정리: [마무리 기록](../records/2026-10-21-skills-content-policy-and-work-discussion.md)에 정책 작성, work-discussion의 형성 맥락·기록·근거·읽기 안내 적용, 두 실행의 확인과 커밋 범위를 연결했다. 승인된 실행 문구는 안내 외에 보존했고 인용12개를 대조했다. [새 실행2개](../records/2026-10-21-ticket04-01-background-reading-check.md)는 형성 이유·조건부 수정 판단을 복원하고 소비 시 실행 자료9개만 읽었다. background·정책 본문 읽기는 소비 기록상0회다. 각1회·지시 기반 기록으로 실제 본문 편집·일반 안정성·설치 완료를 뜻하지 않는다. 현재 구성을 유지하며 다른 스킬 적용은 후속이다.
 
 2026-10-21 04-01 설계 결과 완료: work-discussion의 최소 보완을 prototype에 채택하고 reconsider-work는 기존 유지로 마감했다. [완료 조건 대조·두 조건 확인](../records/2026-10-21-ticket04-01-minimal-update-and-two-checks.md)에 근거와 한계를 남겼다. 충분한 정의와 필요한 구체화를 각1회 확인했으며 일반 성능·장기 효과나 실제 설치 완료를 뜻하지 않는다. 공통 설명 기준은 skills/shared로 통합하고 스킬 색인을 정리했다. 호출·실행 연결은01-01·04-03, 기록 인계는02·06, 이식·통합 확인은06·07에서 잇는다. Reference의 이번 수정은 원복한 상태다. 상세는 [04-01](tickets/04-skill-improvements/04-01-work-decision-skills.md)이 소유하며 다른 병렬 작업의 상태는 유지한다.

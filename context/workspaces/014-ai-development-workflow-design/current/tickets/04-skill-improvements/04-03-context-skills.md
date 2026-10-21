@@ -2,6 +2,8 @@
 
 상위 과제: [04 기존 스킬 보완](README.md)
 
+2026-10-21 자료 수집:01-01과 함께 **구현 / 검토 및 수정**을 큰 논의 단위로 보고, 기존 강연뿐 아니라 [Matt·pstack 로컬 원문과 연결 자료](../../../source/workflow-references/README.md)를 확보했다. Vercel은 기존 article의 실제 모드·읽기 조건·확인 절을 연결한다. [수집 기록](../../../records/2026-10-21-workflow-reference-source-collection.md)에 원문·참조·판본과 남은 범위를 구별했다. 이후 실제 행동과 필요한 맥락을 대조하며, 이번 수집을 기존 스킬 보완·설치 완료로 처리하지 않는다.
+
 2026-10-20 후속 입력: [03](../03-project-context.md)의 본문·사례·형성 자료와 읽기·갱신 책임 구체화를 완료 결과로 이어받는다. 현재 CONTENT-POLICY와 SYSTEM-GUIDANCE의 구별, 일반 적용과 의미 수정 시 선택적으로 읽는 자료를 실제 기존 스킬의 조건·입력·행동과 대조한다.01-01과 DEVELOPMENT의 최종 위치·Owner를 판단하며 Work의 새 background 적용은 보류한다. [마감119](../../../records/2026-10-20-119-ticket03-closeout.md)는 결과 연결이며 스킬 수정·설치·호출 효과의 완료가 아니다.
 
 2026-10-19 당시 후속 입력: [103](../../../records/2026-10-19-103-prototype-session-checkpoint.md)에서 사용자는 Development의 최종 위치·역할과 스킬 관계를 워크플로 관련 작업 때 더 구체화하기로 했다.01-01과 함께 스킬 본문 통합 또는 별도 절차 문서 연결을 비교하되 현재 안을 확정하지 않는다. [102](../../../records/2026-10-19-102-personal-project-update-ownership.md)의 Personal·Work·Project별 갱신 기본값과 필요한 설명 중복 허용을 실제 스킬 행동에 연결한다. 이번 세션은 기록·커밋이며 스킬 수정·설치는 하지 않는다.

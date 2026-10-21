@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "linked_at": "2026-10-21T16:24:38.240314+09:00",
+  "action": "link existing preserved source; no new web fetch or article copy",
+  "canonical_url": "https://vercel.com/blog/teaching-agents-product-design-at-vercel",
+  "author": "John Phamous",
+  "published_date": "2026-06-25",
+  "original_provenance": {
+    "relative_path": "source/lectures/vercel-product-design (1).md",
+    "manifest_relative_path": "source/evidence-manifest.json",
+    "manifest_line": 1099,
+    "recorded_origin_path": "/Users/hammyeong-yeon/Desktop/강연_관련_스킬_번역본/vercel-product-design (1).md",
+    "recorded_source_mtime": "2026-10-08T22:42:04.754983+09:00",
+    "captured_at": "2026-10-12T16:38:06.855947+09:00",
+    "recorded_sha256": "e5beaac1e8d0b6c2c0bbefba68c0ca96d088a906a9665848b7a18abab8bf34b4",
+    "current_sha256": "e5beaac1e8d0b6c2c0bbefba68c0ca96d088a906a9665848b7a18abab8bf34b4",
+    "sha256_match": true,
+    "recorded_bytes": 25994,
+    "current_bytes": 25994,
+    "bytes_match": true,
+    "line_count": 486,
+    "origin_reopened": false
+  },
+  "existing_web_comparison_record": "records/2026-10-13-26-vercel-source-investigation.md",
+  "existing_web_comparison_date": "2026-10-13",
+  "missing_materials": [
+    {
+      "material": "내부 product-design skill-local AGENTS.md와 축약 이전 전체 SKILL.md",
+      "status": "기존 보존판은 글의 축약 예시; 내부 전체 본문 없음"
+    },
+    {
+      "material": "product-judgment.md, interface-quality.md, resilience.md, surfaces.md, surfaces-{surface}.md, copy.md, rules.md, glossary.md, patterns.md, coverage-gaps.md, exemplars/pr-{name}.md",
+      "status": "보존 article의 경로 예시는 있지만 독립적인 실제 reference 본문·exemplar 사본 없음"
+    },
+    {
+      "material": "component-guide, design-guidelines, web-interface-guidelines, review-design-system, Geist component APIs, packages/geist/STYLE_GUIDE.md",
+      "status": "article이 읽으라고 연결하는 정본의 전체 본문 사본 없음; 별도 공개 web-design-guidelines 조사 기록과 내부 구현을 동일시하지 않음"
+    },
+    {
+      "material": "copywriting-eval rubric·fixture·holdout·실제 결과 수치 및 전체 product-design eval",
+      "status": "설명만 보존; 내부 실행 자료·결과 없음. article 자체가 copywriting-eval의 범위를 문구·인터페이스 언어로 한정"
+    },
+    {
+      "material": "collector/judge 전체 실행 prompt·수집 코드·권한·누락 탐지·실제 review packet·사람 승인 이력",
+      "status": "역할과 축약 prompt는 있으나 전체 운영 증거 없음"
+    },
+    {
+      "material": "배포된 전체 lint 패키지·테스트·오탐률",
+      "status": "article의 단일 JS 예시만 있으며 production 신뢰도 측정 근거 없음"
+    }
+  ]
+}
