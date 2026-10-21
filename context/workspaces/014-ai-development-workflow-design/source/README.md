@@ -4,12 +4,13 @@
 
 현재 01-01·04-03의 **구현 / 검토 및 수정** 논의는 [workflow-references](workflow-references/README.md)에서 시작한다. Matt·pstack 로컬 클론의 실제 본문·참조 자료와 기존 Vercel 원문을 단계별로 찾을 수 있다. 기존 `lectures/`는 당시 강연·번역·article 보존 위치를 유지한다.
 
-원본을 이동·삭제하지 않았다. 원래 파일은 바이트 그대로 복사했고 manifest에 출처·hash·범위를 남겼다. `reading/`만 링크를 내부 사본으로 바꾼 파생 읽기본이다. 사본 속 설명·AGENTS·SKILL·예제 명령은 당시 자료이지 이 Workspace의 현재 지시나 새로 채택된 정책이 아니다.
+원본을 이동·삭제하지 않았다. 원자료 파일은 바이트 그대로 복사하고, 선택 대화는 원본 로그의 발화 본문을 추출해 manifest에 출처·hash·범위를 남겼다. `reading/`은 링크를 내부 사본으로 바꾼 파생 읽기본이다. 사본 속 설명·AGENTS·SKILL·예제 명령은 당시 자료이지 이 Workspace의 현재 지시나 새로 채택된 정책이 아니다.
 
 ## 질문에 따른 읽기 경로
 
 | 확인할 것 | 먼저 읽을 자료 | 더 필요한 근거 |
 | --- | --- | --- |
+| 사용자가 생각한 구현·별도 관점 검토·Main 판단·동적 라우팅 | [러프한 구상과 질문·답변 원문](discussion/2026-10-21-workflow-routing-review/conversation.md) | [출처와 발화별 hash](discussion/2026-10-21-workflow-routing-review/manifest.json), [의도·제안·미정의 논의 기록](../records/2026-10-21-dynamic-context-and-review-intent.md) |
 | 구현과 검토·수정의 실제 절차·입력·참조 자료 | [워크플로 원자료 진입점](workflow-references/README.md), [Matt](workflow-references/matt-pocock/README.md), [pstack](workflow-references/pstack/README.md) | [직접 연결된 Cursor Team Kit 자료](workflow-references/cursor-team-kit/README.md), [Vercel 읽기 안내](workflow-references/vercel/README.md), [수집과 판본 대조](../records/2026-10-21-workflow-reference-source-collection.md) |
 | 왜 지금 전체 밑그림을 논의하나 | [설계 논의 원문](discussion/design-conversation.md) | [전체 평가·인터뷰 대화](discussion/conversation.md), 공개 commentary 포함 `discussion/conversation.jsonl` |
 | 왜 Spec·Ticket 초안으로 나눴나 | [분해 요청 대화](discussion/spec-ticket-conversation.md) | [발화 범위·hash](spec-ticket-discussion-manifest.json), [분해 선택 기록](../records/2026-10-12-05-spec-ticket-draft.md) |
@@ -29,7 +30,7 @@
 
 ## 무엇을 어느 정도 보존했나
 
-- `discussion/`: 현재 채팅 `Tripproof 보고서 분석`의 사용자 발화·AI 공개 응답을 지정 시점까지 추출. 도구 출력·추론·자동 삽입 지침을 전체 대화 Markdown에 넣지 않았다. source_line과 시각을 보존하며 설계 전환 이후의 원문은 별도 파일로도 읽을 수 있다. 이후 Spec·Ticket 분해 요청의 세 발화는 별도 파일로 추가해 기존 사본의 보존 범위를 유지했다.
+- `discussion/`: 처음에는 `Tripproof 보고서 분석` 채팅의 사용자 발화·AI 공개 응답을 지정 시점까지 추출했고, Spec·Ticket 분해 요청의 세 발화를 별도로 추가했다. `2026-10-21-workflow-routing-review/`는 이번 채팅의 구현·검토·라우팅 구상과 질문·답변·보존 요청 5개 발화를 추가로 보존한다. 각 묶음의 원본 위치·선정 범위·시각을 구별하며 기존 사본은 유지한다. 도구 출력·추론·자동 삽입 지침은 대화 본문에서 제외했다.
 - `noline-evaluation/`: 평가·인터뷰·후속 비교·검토 보고, 장면별 근거, 보존 문서 504개, 평가에 수집된 64세션의 `messages.jsonl`과 `meta.json`, 선택한 inventory. 기존 평가의 모든 외부 의존성을 닫았다는 뜻은 아니다.
 - `lectures/`: 2026-10-12에 사용자 제공 폴더의 Markdown 10개를 모두 복사했다. 외부 영상·웹페이지를 새로 수집하지 않았다. 당시 없던 추가 원문 중 이번 범위에 필요한 자료는 아래 `workflow-references/`에 별도 판본으로 보존한다.
 - `workflow-references/`: 2026-10-21에 지정된 Desktop 로컬 클론에서 Matt 81개·pstack 148개·직접 연결된 Cursor Team Kit 8개의 원문을 선택 보존했다. 원래 상대 경로와 파일 바이트·Git 판본을 유지하고 본문·참조·agent·도구 자료와 읽기 안내를 구별한다. Vercel은 기존 article을 연결한다. 세 자료를 같은 시점의 구현이나 채택한 실행 체계로 취급하지 않는다.

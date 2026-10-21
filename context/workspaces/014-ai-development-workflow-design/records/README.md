@@ -1,5 +1,9 @@
 # 논의와 보존 기록
 
+- [동적 맥락 선택과 별도 관점 검토의 의도](2026-10-21-dynamic-context-and-review-intent.md): [구상과 질문·답변 원문 5개 발화](../source/discussion/2026-10-21-workflow-routing-review/conversation.md)를 근거로 Personal 기반 구현, 다른 선택지를 보는 검토, Main의 유지·적용 판단, 동적 맥락 선택과 의미 있는 검증을 정리했다. 사용자의 목적·입력 후보, Main의 제안, 열린 선택을 구별한다.
+
+- [구현과 검토·수정의 자료 비교](2026-10-21-implementation-review-reference-comparison.md): Matt·pstack·Vercel의 실제 행동과 권한 차이를 대조하고 두 단계의 구현·수정·확인 책임, 기존 스킬 연결, DB·인증 사례의 다음 비교를 제안했다. 상세 운영은 미채택이다.
+
 - [구현·검토 및 수정 원자료 수집](2026-10-21-workflow-reference-source-collection.md): 사용자가 지정한 Desktop의 Matt·pstack과 직접 연결 자료 237개를 보존하고 기존 Vercel 원문을 연결했다. 두 큰 논의 단계, 실제 판본·자료 범위·읽기 경로·원문 보존 확인과 다음 대조를 남겼다.
 
 **04-02 현재 초점:** [첫 보고 책임 재판단](2026-10-21-ticket04-02-first-report-responsibility-review.md)과 [원래 스킬 형성 자료](2026-10-21-ticket04-02-original-skill-background.md). 새 source에서 첫 전달의 책임 공백을 분석하고 두 스킬의 원래 문제·선택 이유·근거를 가까운 background에 구성했다. 기존 수정안은 보류 상태다. 다음은 원래 책임과 실제 수행 기준·실행 연결을 대조하는 것이며, 정확한 실패 단계와 호출 시점의 인과는 미확정이다.

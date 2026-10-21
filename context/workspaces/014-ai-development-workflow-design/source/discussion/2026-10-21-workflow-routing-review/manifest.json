@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-21T17:31:05.634997+09:00",
+  "thread_id": "01a15ce3-aa54-7311-aa1a-cd026cdfdb65",
+  "source_rollout": "/Users/hammyeong-yeon/.codex/sessions/2026/10/21/rollout-2026-10-21T14-16-26-01a15ce3-aa54-7311-aa1a-cd026cdfdb65.jsonl",
+  "source_line_semantics": "one-based physical line in original JSONL",
+  "selection": "러프한 구현·검토 구상, AI의 확인 질문, 사용자 후속 답변·동적 라우팅 구상, AI 이해 응답, 사용자 보존 요청",
+  "selection_method": "exact response_item message rows selected by source_line and verified message prefix; message text copied without normalization",
+  "excluded": "commentary, tools, internal reasoning, system/developer messages and injected environment context",
+  "message_count": 5,
+  "messages": [
+    {
+      "id": "S1",
+      "role": "user",
+      "source_line": 772,
+      "timestamp": "2026-10-21T08:05:24.093Z",
+      "text_sha256": "0951a67a1693b1bf6e03ee1a5ec2bdd5183c15e90105e334e1dc6d314a0df3a3",
+      "characters": 1034
+    },
+    {
+      "id": "S2",
+      "role": "assistant",
+      "source_line": 781,
+      "timestamp": "2026-10-21T08:06:56.722Z",
+      "text_sha256": "665c9083a2b4b6b91817507736f8a823e9617363c358ad9923c474726900c32e",
+      "characters": 1357
+    },
+    {
+      "id": "S3",
+      "role": "user",
+      "source_line": 788,
+      "timestamp": "2026-10-21T08:13:51.762Z",
+      "text_sha256": "41336af6f4d7230c58f36cf0d5ca15a73dde77386d53010cff7c294e6492b0ae",
+      "characters": 816
+    },
+    {
+      "id": "S4",
+      "role": "assistant",
+      "source_line": 855,
+      "timestamp": "2026-10-21T08:19:26.998Z",
+      "text_sha256": "f729b6ac547eae02c5eb62913149cad8081ab14fe34037896d07201025317500",
+      "characters": 1426
+    },
+    {
+      "id": "S5",
+      "role": "user",
+      "source_line": 865,
+      "timestamp": "2026-10-21T08:29:13.376Z",
+      "text_sha256": "39dd290f57886895965c6f96f13db0bfc4e0b7105ee76437a886b04b03bd213c",
+      "characters": 52
+    }
+  ],
+  "files": [
+    {
+      "path": "conversation.md",
+      "bytes": 12426,
+      "sha256": "950589c44dbccaf81ea08727b3ef0e3029ac289fcd5c9ddd4381ed9110d75181"
+    },
+    {
+      "path": "conversation.jsonl",
+      "bytes": 11238,
+      "sha256": "3c6d25096a659dc8db54acb2371dd862ff4669dccbf91b206e596d4c4ff56b86"
+    }
+  ]
+}

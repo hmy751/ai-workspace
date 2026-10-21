@@ -4,7 +4,7 @@
 
 Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용자 인터뷰, 개발 에이전트 관련 강연을 바탕으로 **ai-workspace와 실제 개발 방식을 어떻게 발전시킬지 설계하는 작업**이다. 좋은 구현을 돕는 컨텍스트·코드 기준·절차·도구와 기록·경험 반영을 함께 다룬다. 전체 운영 체계 확정이나 실제 설치·스킬 구현은 아직 끝나지 않았다.
 
-사용자는2026-10-12에 독립 Workspace와 근거 사본을 함께 보존해 새 세션도 논의를 이어가도록 요청했다. 이 폴더는 설계 작업의 기록 단위이며 Reference Harness를 설치·실행한 Workspace가 아니다. [Spec](current/spec.md)이 전체 구상과 미결정을, [Ticket01~07](current/tickets/index.md)이 결과별 책임을 맡는다. 검토자가 필요한 품질 수정을 직접 수행하는 B 방향은 선택했고 상세 인계·검증·운영은 후속에서 구체화한다.
+사용자는2026-10-12에 독립 Workspace와 근거 사본을 함께 보존해 새 세션도 논의를 이어가도록 요청했다. 이 폴더는 설계 작업의 기록 단위이며 Reference Harness를 설치·실행한 Workspace가 아니다. [Spec](current/spec.md)이 전체 구상과 미결정을, [Ticket01~07](current/tickets/index.md)이 결과별 책임을 맡는다. 과거 B 선택 뒤 사용자는 [Personal 기반 구현·별도 관점 검토·Main 적용 판단과 동적 라우팅 구상](records/2026-10-21-dynamic-context-and-review-intent.md)을 설명했다. 역할별 입력·수정·검증은 이 의도와 레퍼런스를 함께 비교해 구체화한다.
 
 04-02는 기존 설명 스킬 수정안을 보류하고 보고서 사건의 연속 대화·당시 Git 자료를 [새 source](source/artifact-explanation-scenes/README.md)로 구성했다. 원문 경계·동일성의 독립 검토는 마쳤으며 당시 실행 전체 재현은 미완료다. 현재 판단과 다음 행동은 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)에서 이어간다.
 

@@ -11,7 +11,7 @@
 | [Project context](../records/prototypes/development-workflow/noline-demo/context/project/README.md) | 기기·세션 계약, 인증 개발 가이드, 코드 표현, 현재 인증 구현과 구성·읽기·관리 지침. 개인 기준의 채택·갱신 관리를 Project에 맡기지 않는다. |
 | [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md) | 지속 본문과 형성 자료의 역할·배치·읽기·갱신. 사례를 필수 서식으로 만들지 않으며 Work는 적용을 보류한다. |
 | [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md) | 체계 지침의 성격, 진입 본문·상세 지침의 책임과 이름·위치. [118](../records/2026-10-20-118-system-guidance-definition-and-entry.md)에 선택 이유와 확인 범위가 있다. |
-| [DEVELOPMENT](../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md) · [작업 장면](../records/prototypes/development-workflow/walkthrough.md) | 필요한 기준·제품 계약을 선택해 구현·검토·갱신에 쓰는 연결 시안. 최종 역할 운영·스킬 관계·위치·Owner는01-01·04-03의 후속 결과다. |
+| [DEVELOPMENT](../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md) · [작업 장면](../records/prototypes/development-workflow/walkthrough.md) | 필요한 기준·제품 계약을 선택해 구현·검토·갱신에 쓰는 기존 연결 시안. [별도 관점 검토·Main 적용 판단·동적 라우팅 구상](../records/2026-10-21-dynamic-context-and-review-intent.md)은 아직 이 본문에 적용하지 않았다. 최종 역할 운영·스킬 관계·위치·Owner는01-01·04-03에서 구체화한다. |
 | [Work 예시](../records/prototypes/development-workflow/noline-demo/context/work/README.md) | 기존 Spec·Ticket·current·source·output·records를 유지한 인증 이름 변경 작업. [116](../records/2026-10-20-116-defer-work-content-policy.md)의 복구 상태이며 새 background 정책을 적용한 표준이 아니다. |
 
 본문의 목적·의미·조건은 대상물 안에서 이해할 수 있게 구성했다. 바깥014 records는 작성·평가·정정의 과정을 보존하며, 대상물 본문을 대신하는 정본이 아니다. 형성 이유를 다시 볼 필요가 있을 때는 본문 가까운 자료에서 시작한다.
@@ -34,7 +34,7 @@
 - [Spec](../current/spec.md): 전체 목적·공통 기준·잠정안·선택·미정.
 - [Ticket 목록](../current/tickets/index.md): 결과별 책임과 후속 연결.01-02·04-03 등의 완료 상태는03 완료로 함께 바꾸지 않는다.
 - [01-02 기준 종합54](../records/2026-10-16-54-code-quality-criteria-and-remaining-work.md)와 [형식 반영72](../records/2026-10-18-72-short-common-and-detail-prototype.md): 코드 기준과 공통·상세·사례의 앞선 입력. [73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md)의 당시 전체 만족 유보를 함께 읽고, 현재 본문은 위 단일 prototype에서 확인한다.
-- [B 방향 선택15](../records/2026-10-12-15-reviewer-editing-choice-and-start.md): 검토자가 필요한 품질 수정을 직접 수행하는 사용자 선택. 상세 인계·최종 확인·스킬 구현은 후속 설계다.
+- [B 방향 선택15](../records/2026-10-12-15-reviewer-editing-choice-and-start.md): 검토자가 필요한 품질 수정을 직접 수행하는 당시 선택. 현재는 [사용자 후속 구상](../records/2026-10-21-dynamic-context-and-review-intent.md)의 별도 관점 검토·Main 적용 판단에 맞춰 상세 권한을 더 비교한다.
 - [원자료 조사27](../records/2026-10-13-27-source-investigation-and-proposal-reset.md)와 [작업 단계 우선순위28](../records/2026-10-13-28-execution-system-priority-and-code-criteria.md): 외부 방식의 실제 계약과 사용자가 우선 구체화할 범위.
 - [설계 논의 지도](../current/design-map.md): 다음 논의에서 필요한 전체 관점. 확정 분류가 아니다.
 
