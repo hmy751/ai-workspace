@@ -2,7 +2,7 @@
 
 작업 정의의 충분성과 필요한 구체화를 판단하는 work-discussion의 채택 본문, 작업물 브리핑·설명 복구의 검토 초안을 함께 둔다. work-discussion은04-01 설계 결과로 채택했고, 두 설명 스킬의 기존 수정안은04-02의 접근법 재검토에 따라 보류한 후보로 보존한다. 첫 전달·조사·기준 적용에서 빠진 책임을 원자료와 대조한 뒤 유지·변경 여부를 다시 판단하며, 현재 본문을 채택한 해법으로 취급하지 않는다. 실제 프로젝트나 전역 스킬에 설치한 상태는 아니다.
 
-스킬을 새로 만들거나 의미·구성을 바꿀 때는 [SKILLS-CONTENT-POLICY](SKILLS-CONTENT-POLICY.md)를 읽는다. 이 지침은 실행 본문·보조 자료·형성 근거의 구성과 갱신을 맡는다. work-discussion에는 [형성 자료와 읽기 경로](work-discussion/_background/README.md)를 구성했다. 다른 스킬의 형성 자료 구성은 후속 작업이다.
+스킬을 새로 만들거나 의미·구성을 바꿀 때는 [SKILLS-CONTENT-POLICY](SKILLS-CONTENT-POLICY.md)를 읽는다. 이 지침은 실행 본문·보조 자료·형성 근거의 구성과 갱신을 맡는다. work-discussion에는 [형성 자료와 읽기 경로](work-discussion/_background/README.md)를 구성했다. 두 설명 스킬에는 원래 연구·품질 보강·공동 적용·Spec/Ticket 연결을 복원한 [브리핑 형성 자료](work-artifact-briefing/_background/README.md)와 [복구 형성 자료](explanation-recovery/_background/README.md)를 구성했다. 원래 의도와04-02의 보류 후보를 구별하며, 이 배경 구성은 후보 채택이나 효과 확인을 뜻하지 않는다.
 
 | 필요한 일 | 읽을 본문 |
 | --- | --- |

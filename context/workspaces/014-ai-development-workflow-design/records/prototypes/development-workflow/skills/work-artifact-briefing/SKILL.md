@@ -9,6 +9,8 @@ description: 사용자가 `/` UI에서 `$work-artifact-briefing` skill을 직접
 
 이 skill은 최근 code 변경, 현재 codebase의 구조와 동작, 특정 commit·시점의 역사 상태, 문서·분석·review 결과와 code 외 산출물을 모두 직접 다룬다.
 
+이 본문은04-02에서 보류 중인 수정안이다. [형성 자료](_background/README.md)는 수정 전 스킬의 목적·선택 이유와 보강 경위를 보존한다. 의도 확인·의미 변경·과거 선택 재검토 때 관련 부분을 읽으며, 일상 실행에 필요한 기준은 이 본문과 해당 조건의 실행 자료에서 확인한다.
+
 ## 시작
 
 1. 실제 적용 프로젝트의 root AI 지침(예: `AGENTS.md`, `CLAUDE.md`)과 그 지침이 안내하는 관련 맥락 위치를 확인하고, 필요한 기존 문서와 공통 [`설명과 근거 기준`](../shared/explanation-and-evidence-criteria.md)을 읽는다.

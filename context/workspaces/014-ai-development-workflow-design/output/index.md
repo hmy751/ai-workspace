@@ -18,6 +18,10 @@
 
 ## 전체 설계와 다른 Ticket의 입력
 
+- [04-02 원래 스킬 형성 자료](../records/2026-10-21-ticket04-02-original-skill-background.md): 두 설명 스킬의 원래 목적·분리·조건부 보강·운영 연결을 각 _background에 복원했다. 기존 수정안은 보류 상태이고 형성 자료 구성은 채택·실제 효과 검증을 뜻하지 않는다.
+
+- [04-02 첫 보고 책임 재판단](../records/2026-10-21-ticket04-02-first-report-responsibility-review.md): 새 source에서 확인한 목적·역할 합의와 실제 교정 근거를 대조한 현재 분석. 빠진 책임과 아직 확인하지 못한 실행 원인을 구별하며 수정안·시험 설계는 후속이다.
+
 - [04-02 원문 중심 source](../source/artifact-explanation-scenes/README.md): 보고서 사건의 연속 발화·Git·작업 기록·현재 산출물 사본을 구분한 자료. [구성 기록](../records/2026-10-21-ticket04-02-source-scene-assembly.md)에 검증과 공백을 연결했다. 사건 요약이나 기대 답을 대신 공급하지 않으며, 당시 실행 전체의 재현 준비·스킬 효과 검증은 완료하지 않았다.
 
 - [04-02 접근법·검증 재검토](../records/2026-10-21-ticket04-02-approach-and-evaluation-reset.md): 현재 판단 진입점. 첫 전달·조사·기준 적용과 사용자 교정 이후 재설명을 구별하고, 원인별 개입과 검증 방법을 다시 정했다. [두 스킬 재수정안](../records/2026-10-21-ticket04-02-original-intent-revision.md)과 기존 prototype은 보류한 후보이며 효과·채택이 확인된 현재 해법이 아니다.

@@ -2,9 +2,13 @@
 
 - [구현·검토 및 수정 원자료 수집](2026-10-21-workflow-reference-source-collection.md): 사용자가 지정한 Desktop의 Matt·pstack과 직접 연결 자료 237개를 보존하고 기존 Vercel 원문을 연결했다. 두 큰 논의 단계, 실제 판본·자료 범위·읽기 경로·원문 보존 확인과 다음 대조를 남겼다.
 
-**04-02 현재 초점:** [원문 source 구성·워크스페이스 정리](2026-10-21-ticket04-02-source-scene-assembly.md)와 [접근법 재검토](2026-10-21-ticket04-02-approach-and-evaluation-reset.md). 기존 수정안은 보류했고, 보고서 사건의 원문·당시 코드와 기록을 구성·확인했다. 역사 실행 전체 재현은 미완료이며 다음은 자료 공백과 개입할 책임을 판단하는 것이다.
+**04-02 현재 초점:** [첫 보고 책임 재판단](2026-10-21-ticket04-02-first-report-responsibility-review.md)과 [원래 스킬 형성 자료](2026-10-21-ticket04-02-original-skill-background.md). 새 source에서 첫 전달의 책임 공백을 분석하고 두 스킬의 원래 문제·선택 이유·근거를 가까운 background에 구성했다. 기존 수정안은 보류 상태다. 다음은 원래 책임과 실제 수행 기준·실행 연결을 대조하는 것이며, 정확한 실패 단계와 호출 시점의 인과는 미확정이다.
 
 **앞선 Personal 보완:** [125](2026-10-20-125-personal-provenance-fresh-worker.md)에 보완한 Personal 자료의 새 워커 읽기·실제 사본 수정과 과거 근거 보존 확인을 남겼다. [124](2026-10-20-124-personal-formation-evidence-completion.md)에 개발 공통·이름 기준의 형성 근거와 연결 보완을 남겼다. 발견·범위 대조는 [123](2026-10-20-123-other-formation-materials-audit.md)에 있다. [122](2026-10-20-122-formation-evidence-integration-and-reentry.md)에 정책의 외부 참고·선택 전환 근거 보완과 새 독자·수정자의 실제 수행을 남겼다. 발견과 권고는 [121](2026-10-20-121-formation-evidence-improvement-review.md)에 있다. [119](2026-10-20-119-ticket03-closeout.md)의03 구성안 마감과 후속 범위는 유지한다. 체계 지침은 [118](2026-10-20-118-system-guidance-definition-and-entry.md), Work의 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에서 읽는다.
+
+- [04-02 첫 보고 책임 재판단](2026-10-21-ticket04-02-first-report-responsibility-review.md): 새 source의 목적·역할 합의·첫 전달·사용자 교정·추가 확인을 대조해 빠진 책임과 인과 판단의 한계를 정리했다.
+
+- [04-02 원래 스킬 형성 자료](2026-10-21-ticket04-02-original-skill-background.md): 외부 원 설계·품질 보강·공동 적용·Spec/Ticket 연결에서 두 스킬의 background를 복원하고 보류 후보와 구별했다.
 
 이 폴더는 이번 설계 작업의 분석·비교·제안·정정·검증 등 보존할 과정을 소유한다. current의 실행 재개에 곧바로 필요하지 않아도 보존 목적이 있으면 남길 수 있다. 과거 기록에 적힌 당시 제안은 현재 채택을 뜻하지 않는다.
 
