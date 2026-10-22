@@ -1,0 +1,37 @@
+{
+  "model_requested": "gpt-6-sol",
+  "reasoning_effort_requested": "medium",
+  "tokens": "not_measured",
+  "runs": {
+    "r36": {
+      "response.md": {
+        "sha256": "8c72d255b9150ceec93f500872e732895cc6776d3eb4206f05c0158f98641bc2",
+        "bytes": 3708,
+        "characters": 1924,
+        "lines": 16
+      },
+      "read-log.md": {
+        "sha256": "a534d28acc7afa619ad01b4b84fba463b99ec69fa36373d902a58f6378ce2b50",
+        "bytes": 437,
+        "characters": 317,
+        "lines": 5
+      },
+      "fenced_code_blocks": 0
+    },
+    "r91": {
+      "response.md": {
+        "sha256": "1708ce848f5a1c2c674ce20ad2a89be9fc2c23528fe837e0abf598bd62082e42",
+        "bytes": 3849,
+        "characters": 2126,
+        "lines": 18
+      },
+      "read-log.md": {
+        "sha256": "40a12da1cc72a910f931bfe406ed81cb38db7787ae2276bcc0f87b52f9f67a7d",
+        "bytes": 400,
+        "characters": 302,
+        "lines": 5
+      },
+      "fenced_code_blocks": 0
+    }
+  }
+}

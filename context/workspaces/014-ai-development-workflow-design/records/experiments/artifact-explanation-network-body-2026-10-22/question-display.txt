@@ -1,0 +1,3 @@
+apps/client/src/shared/store/network.ts
+
+이 코드 설명좀 해줘 이해가 안돼 흐름이

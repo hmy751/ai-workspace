@@ -1,0 +1,3 @@
+- 읽은 파일: `prompt.txt`, `skill/SKILL.md`, `README.md`, `conversation.txt`, `project-guide.md`, `client-guide.md`, `shared/explanation-and-evidence-criteria.md`, `code/consumers.txt`, `code/auth.ts`, `code/auth-transport.ts`, `code/auth-interceptor.ts`.
+- 제공 자료 밖 접근: 없음.
+- 자료 부족: 보존 코드와 발췌 사용처만 있어 현재 앱 실행, 전체 저장소 사용처, 테스트 결과는 확인할 수 없음.

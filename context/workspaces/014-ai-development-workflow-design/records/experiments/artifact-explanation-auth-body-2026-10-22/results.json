@@ -1,0 +1,34 @@
+{
+  "runs": [
+    {
+      "id": "r31",
+      "version": "baseline",
+      "agent": "/root/auth_body_r31",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_effort_requested": "medium",
+      "response_sha256": "aef09decf4a4ce8d989236b8715594fe09a58d1cae57d6fb5a2ea8df5d4b1b48",
+      "response_bytes": 11424,
+      "response_characters": 6609,
+      "input_hashes_unchanged": true,
+      "read_log_sha256": "c15cedb7a1101c5725a22e312cfa95594d75effe963075914dd79fa7069702cd",
+      "outside_access_self_reported": false
+    },
+    {
+      "id": "r74",
+      "version": "candidate",
+      "agent": "/root/auth_body_r74",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_effort_requested": "medium",
+      "response_sha256": "51f66c339787177f59f6c6f9e1c8cb180566028748ad8fddc83feed24948f3b7",
+      "response_bytes": 9337,
+      "response_characters": 5420,
+      "input_hashes_unchanged": true,
+      "read_log_sha256": "1beb9341e586778c714578cc57ffcd6e3f77577d3d930e3a135d5d93a691d314",
+      "outside_access_self_reported": false
+    }
+  ],
+  "response_tests": 2,
+  "main_edited_responses": false,
+  "usage_tokens": "not measured",
+  "isolation": "fresh fork_turns=none context and bounded input instruction, not OS sandbox isolation"
+}

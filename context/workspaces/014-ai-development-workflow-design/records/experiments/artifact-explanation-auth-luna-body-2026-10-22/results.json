@@ -1,0 +1,45 @@
+{
+  "model_requested": "gpt-6-luna",
+  "reasoning_effort_requested": "medium",
+  "tokens": "not_measured",
+  "runs": {
+    "r22": {
+      "response.md": {
+        "sha256": "4d7983354c0c6e9a28d2e0375fd2f41bada964df583321913da1c26c686262d9",
+        "bytes": 6268,
+        "characters": 3225,
+        "lines": 62
+      },
+      "read-log.md": {
+        "sha256": "072a40498e4efbdcd68b0f8f29e448c1eb5e1d0d179adf59583ed4bd7781508f",
+        "bytes": 481,
+        "characters": 340,
+        "lines": 3
+      },
+      "typescript_blocks": [
+        {
+          "line_count": 1
+        }
+      ]
+    },
+    "r87": {
+      "response.md": {
+        "sha256": "6ddd2c90c273abfd06c76df3aaec757570c0ae5e16be8f8b1cd488381620959c",
+        "bytes": 4773,
+        "characters": 2367,
+        "lines": 48
+      },
+      "read-log.md": {
+        "sha256": "70c4f413784106bdc2cdb2b57fef89591f5f4f589e67358b67ffd46b3617f6fa",
+        "bytes": 446,
+        "characters": 336,
+        "lines": 3
+      },
+      "typescript_blocks": [
+        {
+          "line_count": 2
+        }
+      ]
+    }
+  }
+}

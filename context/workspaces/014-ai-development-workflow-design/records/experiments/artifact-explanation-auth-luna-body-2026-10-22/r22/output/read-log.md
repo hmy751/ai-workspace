@@ -1,0 +1,3 @@
+- 읽음: prompt.txt, skill/SKILL.md, README.md, conversation.txt, shared/explanation-and-evidence-criteria.md, project-guide.md, client-guide.md, code/auth-interceptor.ts, code/auth.ts, code/auth-transport.ts, code/consumers.txt.
+- 제공 자료 밖 접근: 없음. 지정된 작업 폴더 밖 자료·웹·다른 대화·원 저장소를 읽지 않음.
+- 자료 부족: 앱 런타임 trace와 테스트 결과는 제공되지 않아 실제 실행 여부는 확인할 수 없음.

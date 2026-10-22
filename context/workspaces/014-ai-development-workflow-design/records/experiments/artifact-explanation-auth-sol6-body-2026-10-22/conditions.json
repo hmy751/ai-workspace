@@ -1,0 +1,47 @@
+{
+  "case": "02-auth-interceptor",
+  "cutoff_source_line": 20,
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "fork_turns": "none",
+  "conditions": [
+    {
+      "id": "r36",
+      "version": "baseline",
+      "execution_path": "/private/tmp/0402-auth-sol6-body-20261022/r36",
+      "copied_from": "context/workspaces/014-ai-development-workflow-design/records/experiments/artifact-explanation-auth-body-2026-10-22/r31/input",
+      "files": {
+        "README.md": "e4e7c238059423d036b2b790a8bb22c8f3d38ed52dd501fcce09353fc9639b4e",
+        "client-guide.md": "faf8dd19a445d66f0b79b528b172408fbd76cdfea1efbd5ad975335b51267aa1",
+        "code/auth-interceptor.ts": "ebf7a16e26e5347518ecc5d2a82a8c4933c62e4c4c08f0ac6a07b2c217553a4f",
+        "code/auth-transport.ts": "629ac9ea294f5882dec0857baba7207482ae1094d0e8616796cac505477dfb7e",
+        "code/auth.ts": "d7fd2d0f2902104d2165636552e325e6f8992d650d3f0c2a432f8d6d784bead3",
+        "code/consumers.txt": "5732e8d9cb961ad9793d6b5313defcfbf7ef07209673efa30e06bd9805cb96f6",
+        "conversation.txt": "3f69574abf568e7235d9a3e42fe37c8c6d59ac24fc1aa2dcc6c6fbf736f2f125",
+        "project-guide.md": "ead3a9a3062131fcf0b89ecdf46808a510c3d77c8377d9200ca577c4ba423820",
+        "prompt.txt": "548fe3d24c3dcf22deeb3e1196619ac150eaeb9d66725b99dca8bbdee23d774f",
+        "shared/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+        "skill/SKILL.md": "40a916e543313333a084da927e3e5200aebc73548fa99eecc4968fa1cb3caff2"
+      }
+    },
+    {
+      "id": "r91",
+      "version": "candidate",
+      "execution_path": "/private/tmp/0402-auth-sol6-body-20261022/r91",
+      "copied_from": "context/workspaces/014-ai-development-workflow-design/records/experiments/artifact-explanation-auth-body-2026-10-22/r74/input",
+      "files": {
+        "README.md": "e4e7c238059423d036b2b790a8bb22c8f3d38ed52dd501fcce09353fc9639b4e",
+        "client-guide.md": "faf8dd19a445d66f0b79b528b172408fbd76cdfea1efbd5ad975335b51267aa1",
+        "code/auth-interceptor.ts": "ebf7a16e26e5347518ecc5d2a82a8c4933c62e4c4c08f0ac6a07b2c217553a4f",
+        "code/auth-transport.ts": "629ac9ea294f5882dec0857baba7207482ae1094d0e8616796cac505477dfb7e",
+        "code/auth.ts": "d7fd2d0f2902104d2165636552e325e6f8992d650d3f0c2a432f8d6d784bead3",
+        "code/consumers.txt": "5732e8d9cb961ad9793d6b5313defcfbf7ef07209673efa30e06bd9805cb96f6",
+        "conversation.txt": "3f69574abf568e7235d9a3e42fe37c8c6d59ac24fc1aa2dcc6c6fbf736f2f125",
+        "project-guide.md": "ead3a9a3062131fcf0b89ecdf46808a510c3d77c8377d9200ca577c4ba423820",
+        "prompt.txt": "548fe3d24c3dcf22deeb3e1196619ac150eaeb9d66725b99dca8bbdee23d774f",
+        "shared/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+        "skill/SKILL.md": "56dfb50dab4f0451beac78f469d9a164b57a69f2cc1cf331864618df1337287d"
+      }
+    }
+  ]
+}

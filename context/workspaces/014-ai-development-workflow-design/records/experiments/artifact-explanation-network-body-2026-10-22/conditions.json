@@ -1,0 +1,111 @@
+{
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "fork_turns": "none",
+  "cutoff": {
+    "session": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30",
+    "source_line": 1209
+  },
+  "runs": {
+    "r18": {
+      "variant": "existing",
+      "execution_directory": "/private/tmp/0402-network-body-20261022/r18",
+      "files": {
+        "README.md": {
+          "sha256": "a1e7e8fbc5c5bda64b21b180ba00939ddd7a4493499200b036547b29651fbd29",
+          "bytes": 1237
+        },
+        "client-guide.md": {
+          "sha256": "1970cb0fabf32f232de269d8a25fc9d7b42f6ce84f0b9a918c44ace09421aa7d",
+          "bytes": 4640
+        },
+        "code/consumers.txt": {
+          "sha256": "b7989ee6625884e728d93beb2bae964b8269dd8c177a29c626beaffc383d1b71",
+          "bytes": 4206
+        },
+        "code/network.ts": {
+          "sha256": "7a5ecf5c29eb1898d5ac8633dab9186eb35ee092a42ea7b22ddcc8f25097de84",
+          "bytes": 7874
+        },
+        "code/tests.txt": {
+          "sha256": "a4c6ec0f7d4cbb3c2522ff75ef9e06f4573cb927c376ce3c90cc3b4d111faab6",
+          "bytes": 8074
+        },
+        "conversation.txt": {
+          "sha256": "cb252e5381b1fa5d54026ce59fd8ad0d701fa37a3978d0313d2c7c32a80fcdc9",
+          "bytes": 30931
+        },
+        "prior-conversation.txt": {
+          "sha256": "47ef15163a601a87f2fee925bf4982423e3aa78c74100769e84ea0174739fb0f",
+          "bytes": 27135
+        },
+        "project-guide.md": {
+          "sha256": "ead3a9a3062131fcf0b89ecdf46808a510c3d77c8377d9200ca577c4ba423820",
+          "bytes": 12195
+        },
+        "prompt.txt": {
+          "sha256": "1b577d290cc75a4a27e5f34b599b42407660d47f3ed850ad917c1717f3204af3",
+          "bytes": 1256
+        },
+        "shared/explanation-and-evidence-criteria.md": {
+          "sha256": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+          "bytes": 6123
+        },
+        "skill/SKILL.md": {
+          "sha256": "40a916e543313333a084da927e3e5200aebc73548fa99eecc4968fa1cb3caff2",
+          "bytes": 11047
+        }
+      }
+    },
+    "r63": {
+      "variant": "candidate",
+      "execution_directory": "/private/tmp/0402-network-body-20261022/r63",
+      "files": {
+        "README.md": {
+          "sha256": "a1e7e8fbc5c5bda64b21b180ba00939ddd7a4493499200b036547b29651fbd29",
+          "bytes": 1237
+        },
+        "client-guide.md": {
+          "sha256": "1970cb0fabf32f232de269d8a25fc9d7b42f6ce84f0b9a918c44ace09421aa7d",
+          "bytes": 4640
+        },
+        "code/consumers.txt": {
+          "sha256": "b7989ee6625884e728d93beb2bae964b8269dd8c177a29c626beaffc383d1b71",
+          "bytes": 4206
+        },
+        "code/network.ts": {
+          "sha256": "7a5ecf5c29eb1898d5ac8633dab9186eb35ee092a42ea7b22ddcc8f25097de84",
+          "bytes": 7874
+        },
+        "code/tests.txt": {
+          "sha256": "a4c6ec0f7d4cbb3c2522ff75ef9e06f4573cb927c376ce3c90cc3b4d111faab6",
+          "bytes": 8074
+        },
+        "conversation.txt": {
+          "sha256": "cb252e5381b1fa5d54026ce59fd8ad0d701fa37a3978d0313d2c7c32a80fcdc9",
+          "bytes": 30931
+        },
+        "prior-conversation.txt": {
+          "sha256": "47ef15163a601a87f2fee925bf4982423e3aa78c74100769e84ea0174739fb0f",
+          "bytes": 27135
+        },
+        "project-guide.md": {
+          "sha256": "ead3a9a3062131fcf0b89ecdf46808a510c3d77c8377d9200ca577c4ba423820",
+          "bytes": 12195
+        },
+        "prompt.txt": {
+          "sha256": "1b577d290cc75a4a27e5f34b599b42407660d47f3ed850ad917c1717f3204af3",
+          "bytes": 1256
+        },
+        "shared/explanation-and-evidence-criteria.md": {
+          "sha256": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+          "bytes": 6123
+        },
+        "skill/SKILL.md": {
+          "sha256": "56dfb50dab4f0451beac78f469d9a164b57a69f2cc1cf331864618df1337287d",
+          "bytes": 11895
+        }
+      }
+    }
+  }
+}

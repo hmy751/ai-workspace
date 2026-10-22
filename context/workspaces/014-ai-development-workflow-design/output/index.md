@@ -1,8 +1,16 @@
 # 현재 선택한 설계 자료와 산출물
 
+04-02 현재 채택 산출물: [브리핑 SKILL.md](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md) — [시험한 후보를 동일하게 prototype에 반영](../records/2026-10-22-ticket04-02-briefing-prototype-adoption.md)했다. 코드 읽기 목적과 코드·값·실행 연결을 본문에 통합했으며 복구 스킬은 유지했다. 아래 후보 작성·비교는 이력이다. 운영 설치·발동 시점 변경은 하지 않았다.
+
 구현·검토 설계의 현재 선택: [관련 기준 공유와 독립 판단](../records/2026-10-22-shared-criteria-and-independent-review-decision.md) — 사용자 수용 방향과 초기안부터의 전환 이유, Main 추천·미정 15항목을 구별한 기록이다. 실제 실행 산출물은 아래 기존 프로토타입이며 새 방향은 아직 적용하지 않았다.
 
-04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](../records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
+04-02 새 후보 시험: [6.0 sol 인증 비교](../records/experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md) — 원래 기존판 대비 새 후보가 요청 코드·값·대기 전후 설명을 보강했다. 각1회이며 일부 개선 관찰, 사용자 이해·일반화·시점 효과 미확인이다. 두 응답 전체와 입력·출력 해시를 보존했다.
+
+04-02 최신 검토 후보: [코드 읽기 목적과 설명 깊이를 본문에 통합](../records/2026-10-22-ticket04-02-briefing-code-depth-candidate.md) — 목적 판별·코드와 값 연결·종료를 교체하고 형식 절의 중복 문장을 제거했다. 후보 작성 당시에는 운영 미적용·응답 효과 미검증이었다. 이후 시험·채택은 위 최신 기록을 따른다.
+
+04-02 최신 실행: [6.0 sol 인증 비교](../records/experiments/artifact-explanation-auth-sol6-body-2026-10-22/comparison.md) · [6.0 luna 인증 비교](../records/experiments/artifact-explanation-auth-luna-body-2026-10-22/comparison.md) — 같은 입력·같은 적용 시점에서 모델별 기존/수정 각1회. 두 모델 모두 요약 중심이고 후보 개선은 미확인이다. [6.1-sol 인증](../records/experiments/artifact-explanation-auth-body-2026-10-22/comparison.md)·[network](../records/experiments/artifact-explanation-network-body-2026-10-22/comparison.md)의 양쪽 상세 설명과 구별한다. 원응답·해시·사실 대조를 보존했고 운영 반영·시점 비교는 미실행이다.
+
+04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](../records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이다. 실행 현황은 위 최신 비교에서 확인한다.
 
 **Ticket 03의 구성안·본문 예시는 완료됐다.** 현재 결과와 한계는 [03](../current/tickets/03-project-context.md), 완료 판단·후속 책임은 [119](../records/2026-10-20-119-ticket03-closeout.md)에서 확인한다. Workspace014 전체의 목표는 컨텍스트·코드 기준·절차·검증·기록·경험 반영이 연결된 개발 체계를 설계하는 것이다.
 

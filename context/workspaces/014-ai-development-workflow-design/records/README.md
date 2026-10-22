@@ -1,8 +1,18 @@
 # 논의와 보존 기록
 
+- [04-02 브리핑 후보의 prototype 반영](2026-10-22-ticket04-02-briefing-prototype-adoption.md): 인증 재시험에서 관찰한 코드·값 설명 개선을 근거로 시험 판본을 현재SKILL.md에 그대로 채택했다. 원래 구성 의도·범위 제한·한 사례 검증의 한계와 복구 유지, 반영 파일의 동일성을 남겼다.
+
 - [관련 기준 공유·독립 검토의 방향 선택과 논의 경로](2026-10-22-shared-criteria-and-independent-review-decision.md): 초기 원칙 공유안, Personal 입력 축소 대안, 자체 구조 대조, 설계 선행 정정, Lauren 구현·검토 재대조와 독립 리뷰를 거쳐 관련 기준 공유·별도 판단 방향을 수용했다. 상세 운영은 추천·미정으로 구별하고, 다음 입력 구체화와 15개 설계 항목을 연결한다. 원문 59개 보존, 실행 지침·실험·커밋 변경 없음.
 
-04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
+04-02 새 후보 시험: [6.0 sol 인증 비교](experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md) — 원래 기존판 대비 새 후보가 요청 코드·값·대기 전후 설명을 보강했다. 각1회이며 일부 개선 관찰, 사용자 이해·일반화·시점 효과 미확인이다. 두 응답 전체와 입력·출력 해시를 보존했다.
+
+04-02 최신 후보: [코드 읽기 목적과 설명 깊이를 본문에 통합](2026-10-22-ticket04-02-briefing-code-depth-candidate.md) — 목적 판별·코드와 값 연결·종료를 교체하고 형식 절의 중복 문장을 제거했다. 후보 작성 당시에는 운영 미적용·응답 효과 미검증이었다. 이후 시험·채택은 위 최신 기록을 따른다.
+
+04-02 최신 분석: [코드 설명 깊이의 문구 공백·미수행 대조](2026-10-22-ticket04-02-code-explanation-depth-gap.md) — 실제 시험 판본·공통 기준·형성 의도와6.0 출력 대조. 요구 부재와 미수행을 구별했고 스킬 수정은 하지 않았다.
+
+04-02 최신 실행: [6.0 sol 인증 비교](experiments/artifact-explanation-auth-sol6-body-2026-10-22/comparison.md) · [6.0 luna 인증 비교](experiments/artifact-explanation-auth-luna-body-2026-10-22/comparison.md) — 같은 입력·같은 적용 시점에서 모델별 기존/수정 각1회. 두 모델 모두 요약 중심이고 후보 개선은 미확인이다. [6.1-sol 인증](experiments/artifact-explanation-auth-body-2026-10-22/comparison.md)·[network](experiments/artifact-explanation-network-body-2026-10-22/comparison.md)의 양쪽 상세 설명과 구별한다. 원응답·해시·사실 대조를 보존했고 운영 반영·시점 비교는 미실행이다.
+
+04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이다. 실행 현황은 위 최신 비교에서 확인한다.
 
 - [04-02 원문 세 장면 추가·시점과 본문 검증 범위](2026-10-22-ticket04-02-source-expansion-and-coverage.md): 기존 보고서와 함께 네 사건을 구성했다. 새 공개 발화210개를 원문 그대로 분리 보존하고, 핵심 두 축을 비교할 범위와 당시 코드·실행 자료 공백을 구별했다. 새 응답 시험은 미실행이다.
 
@@ -28,7 +38,7 @@
 
 - [구현·검토 및 수정 원자료 수집](2026-10-21-workflow-reference-source-collection.md): 사용자가 지정한 Desktop의 Matt·pstack과 직접 연결 자료 237개를 보존하고 기존 Vercel 원문을 연결했다. 두 큰 논의 단계, 실제 판본·자료 범위·읽기 경로·원문 보존 확인과 다음 대조를 남겼다.
 
-**04-02 현재 초점:** [당시 자료 확보와 비교 설계](2026-10-22-ticket04-02-historical-materials-and-comparison-design.md). 네 사건의 압축 원문·당시 코드·최초 diff·검사·관찰을 확보했다. 본문 비교와 첫 보고 전 명시 적용 배치 비교를 나눠 설계했고 새 응답 시험은 미실행이다. 전체 runtime·DB·초판 HTML 전체 바이트 복원과는 구별한다. 우선 인증 본문 두 조건과 저장 용량 적용 배치 두 조건을 비교하는 안이며, 복구 스킬·운영 본문은 유지한다.
+**04-02 현재 초점:** [모델 변경 뒤 인증 비교](experiments/artifact-explanation-auth-sol6-body-2026-10-22/comparison.md).6.1-sol에서는 양쪽 모두 자세했으나6.0 luna·sol에서는 양쪽 모두 코드 연결이 얕았다. 후보 우세는 미확인이고, 차이가 작다는 사실을 충분한 설명으로 해석하지 않는다. 각1회이며 시점·사용자 이해 검증은 미실행이다. 복구 스킬·운영 본문은 유지한다.
 
 **앞선 Personal 보완:** [125](2026-10-20-125-personal-provenance-fresh-worker.md)에 보완한 Personal 자료의 새 워커 읽기·실제 사본 수정과 과거 근거 보존 확인을 남겼다. [124](2026-10-20-124-personal-formation-evidence-completion.md)에 개발 공통·이름 기준의 형성 근거와 연결 보완을 남겼다. 발견·범위 대조는 [123](2026-10-20-123-other-formation-materials-audit.md)에 있다. [122](2026-10-20-122-formation-evidence-integration-and-reentry.md)에 정책의 외부 참고·선택 전환 근거 보완과 새 독자·수정자의 실제 수행을 남겼다. 발견과 권고는 [121](2026-10-20-121-formation-evidence-improvement-review.md)에 있다. [119](2026-10-20-119-ticket03-closeout.md)의03 구성안 마감과 후속 범위는 유지한다. 체계 지침은 [118](2026-10-20-118-system-guidance-definition-and-entry.md), Work의 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에서 읽는다.
 
