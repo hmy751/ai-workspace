@@ -1,0 +1,107 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/17/rollout-2026-09-17T11-41-46-01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30.jsonl",
+  "id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30",
+  "time": "2026-09-17T02:41:46.726Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 18317694,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "dd92d13fdfe3da91561028f69557dee6a905a1affc297fa5fc72d3c3f47a23cc",
+  "classification": "conversation",
+  "messages": 270,
+  "characters": 113627,
+  "user_messages": 95,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md\n\n여기 작업하고 있는데 잘 현황 파악부터 해봐\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 1726,
+    "response_item": 1206,
+    "world_state": 19,
+    "turn_context": 97,
+    "token_usage_record": 393,
+    "inter_agent_communication_metadata": 39,
+    "compacted": 4,
+    "realtime_item": 2
+  },
+  "excluded": {
+    "runtime_wrapper": 4
+  },
+  "tool_events": 602,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2027,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 2283,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2519,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2589,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2628,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      }
+    },
+    {
+      "line": 2736,
+      "settings": {
+        "model": "gpt-6-astra",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 2810,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "medium"
+      }
+    },
+    {
+      "line": 3164,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 47446665,
+    "cached_input_tokens": 45427200,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 167661,
+    "reasoning_output_tokens": 42332,
+    "total_tokens": 47614326
+  },
+  "first_time": "2026-09-17T02:42:02.806Z",
+  "last_time": "2026-09-18T05:21:34.282Z"
+}

@@ -1,0 +1,13 @@
+Script completed
+Wall time 0.3 seconds
+Output:
+
+
+artifacts/ticket-06-simulator/remaining-review-20261004/02-schedule-list-top.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/03-schedule-list-bottom.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/06-schedule-detail.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/01-foreground-home.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/05-foreground-settled-home.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/04-expense-list.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/07-expense-detail.jpg
+cat: artifacts/ticket-06-simulator/remaining-review-20261004/observations.md: No such file or directory

@@ -1,0 +1,263 @@
+--- assistant | source_line=1212 | 2026-09-17T03:31:31.238Z | commentary ---
+
+`work-artifact-briefing` 스킬을 적용해 코드를 읽고, 앱 시작부터 상태 변경·화면 반영까지 실제 호출 순서로 설명하겠습니다.
+
+
+--- assistant | source_line=1239 | 2026-09-17T03:32:37.763Z | final_answer ---
+
+이 파일은 **네트워크 연결을 관측해 상태를 저장하고, 화면이나 동기화 코드가 그 상태를 읽게 하는 코드**입니다. 연결 관측에 사용하는 `NetInfo`는 기기의 네트워크 정보를 제공하는 라이브러리이고, `Zustand`는 그 결과를 보관하는 상태 저장소입니다.
+
+헷갈리는 이유는 **평소 연결 변화를 받는 흐름**과 **사용자가 재확인하는 흐름**이 함께 있고, 이전 요청의 늦은 결과를 무시하는 처리까지 들어 있기 때문입니다. 파일 위에서부터 읽기보다 실행 순서로 보면 이해하기 쉽습니다.
+
+아래는 현재 소스에서 재구성한 흐름입니다. 실기기 실행을 관찰한 설명은 아닙니다.
+
+**1. 먼저, 저장하는 값과 내부에서 관리하는 값을 구분하면 됩니다.**
+
+[network.ts의 저장소](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/store/network.ts:49)에는 네 가지 값이 있습니다.
+
+- `realStatus`: 관측한 연결 상태. `online`, `offline`, `unknown` 중 하나입니다.
+- `overrideStatus`: 디버그에서 화면 상태를 강제로 지정한 값. `null`이면 강제 설정이 없습니다.
+- `checkStatus`: 연결 확인에 관한 안내 상태. `checking`은 확인 중, `unavailable`은 확인 불가, `idle`은 확인 안내가 필요 없는 상태입니다.
+- `isRefreshing`: 명시적인 재확인 요청을 기다리는 중인지 나타냅니다.
+
+처음 값은 다음과 같습니다.
+
+```ts
+realStatus: 'unknown'
+overrideStatus: null
+checkStatus: 'checking'
+isRefreshing: false
+```
+
+아직 관측 결과가 없으므로 연결 여부는 모릅니다. 그리고 화면에는 “확인 중”이라고 안내할 수 있습니다.
+
+반면 `NetworkSession`은 화면에 보여줄 상태가 아니라 **관측을 유지하고 정리하는 데 필요한 내부 값**입니다.
+
+```ts
+unsubscribe         // 연결 관측을 중단하는 함수
+noticeTimer         // 확인 중 안내의 10초 타이머
+observationVersion  // listener로 받은 관측 횟수
+refreshRequest      // 현재 진행 중인 재확인 요청
+```
+
+`currentSession`은 현재 사용 중인 이 묶음을 가리킵니다.
+
+**2. 앱이 시작하면 `init()`으로 관측을 시작합니다.**
+
+실제 시작점은 [RootLayout의 effect](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/app/_layout.tsx:165)입니다.
+
+```ts
+useEffect(() => {
+  networkStore.init();
+  return () => networkStore.cleanup();
+}, []);
+```
+
+여기서 호출한 `networkStore.init()`은 파일 아래쪽의 전달 함수를 거쳐 저장소의 `init()`을 실행합니다.
+
+[실제 init 함수](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/store/network.ts:73)는 다음 순서로 움직입니다.
+
+1. 이미 `currentSession`이 있으면 종료합니다. 중복 관측 등록을 막습니다.
+2. 새 `session`을 만들고 `currentSession`에 저장합니다.
+3. `beginUnknownCheck(session)`으로 확인 중 상태와 안내 타이머를 시작합니다.
+4. `subscribe(session)`으로 NetInfo의 연결 변화 관측을 등록합니다.
+
+여기까지는 **관측을 시작한 것**입니다. `init()` 자체가 연결을 `online`으로 결정하지는 않습니다.
+
+또한 `createNetworkActions()` 안에 함수가 여러 개 선언되어 있다고 해서 전부 순서대로 실행되는 것은 아닙니다. 저장소를 만들 때 함수들을 준비해 두고, `init()` 호출이나 관측 결과 도착 같은 사건이 생길 때 필요한 함수가 실행됩니다.
+
+**3. 연결 정보가 도착하면 `applyObservation()`이 상태를 바꿉니다.**
+
+평소 연결 변화의 중심 흐름은 이것입니다.
+
+```mermaid
+flowchart TD
+    A["앱에서 init 호출"] --> B["NetInfo listener 등록"]
+    B --> C["연결 관측 결과 도착"]
+    C --> D["applyObservation"]
+    D --> E["online · offline · unknown 판정"]
+    E --> F["Zustand 상태 갱신"]
+    F --> G["해당 상태를 구독하는 React 화면 갱신"]
+```
+
+[subscribe 함수](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/store/network.ts:174)의 listener는 결과를 받을 때마다 관측 횟수를 늘리고 상태를 적용합니다.
+
+```ts
+session.observationVersion += 1;
+applyObservation(session, state);
+```
+
+이때 연결 판정은 파일 맨 위의 `resolveNetworkStatus()`가 담당합니다.
+
+```ts
+둘 중 하나라도 false → offline
+둘 다 true           → online
+그 밖의 조합         → unknown
+```
+
+두 입력의 의미는 다음과 같습니다.
+
+- `isConnected`: 기기가 네트워크에 연결되어 있는가
+- `isInternetReachable`: 인터넷에 도달할 수 있는가
+
+예를 들어 Wi-Fi 연결은 확인됐지만 인터넷 도달 여부가 아직 `null`이라면:
+
+```ts
+isConnected: true
+isInternetReachable: null
+
+// 결과
+'unknown'
+```
+
+이를 임의로 온라인이나 오프라인으로 추정하지 않습니다.
+
+`applyObservation()`은 판정 결과가 기존 `realStatus`와 같으면 종료합니다. 달라졌다면:
+
+- `online` 또는 `offline`: 안내 타이머를 없애고 `checkStatus`를 `idle`로 바꿉니다.
+- `unknown`: 확인 중 안내와 10초 타이머를 시작합니다.
+
+**4. 10초가 지나도 모르면 연결 상태 대신 안내만 바뀝니다.**
+
+`beginUnknownCheck()`가 시작한 타이머는 10초 뒤 `markUnavailable()`을 호출합니다.
+
+그때까지도 `realStatus`가 `unknown`이면:
+
+```ts
+realStatus: 'unknown'
+checkStatus: 'unavailable'
+```
+
+이 됩니다.
+
+**“인터넷 연결을 확인할 수 없다”와 “오프라인이다”를 구분하는 것입니다.** 관측은 계속 유지하므로, 이후 온라인 결과가 도착하면 다시 이렇게 바뀝니다.
+
+```ts
+realStatus: 'online'
+checkStatus: 'idle'
+```
+
+동일한 `unknown` 관측이 반복해서 와도 타이머를 계속 다시 시작하지 않습니다. 앞서 `applyObservation()`이 같은 상태에서는 종료하기 때문입니다.
+
+**5. 재확인 버튼을 누르면 `refresh()`라는 별도 흐름이 실행됩니다.**
+
+현재 재확인 버튼은 디버그 화면에서 `useNetworkCheck()`의 `refresh`를 호출합니다.
+
+[refresh 함수](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/store/network.ts:103)는 다음 순서입니다.
+
+1. `init()`을 호출해 관측이 시작되어 있도록 합니다.
+2. 이미 재확인 중이면 **같은 Promise를 반환**합니다. 버튼을 여러 번 눌러도 요청을 추가하지 않습니다.
+3. 현재 상태가 `unknown`이면 확인 중 안내 시간을 다시 시작합니다.
+4. 관측 등록을 확인합니다. 이전 등록이 실패했다면 다시 시도합니다.
+5. `startRefreshRequest()`로 요청 정보를 만들고 `isRefreshing`을 `true`로 바꿉니다.
+6. `NetInfo.refresh()`를 호출합니다.
+7. 결과가 오면 `accept`, 실패하면 `fail`로 처리한 뒤 `finish()`로 대기를 끝냅니다.
+
+이미 `online`이나 `offline`으로 확인된 상태라면, 재확인을 시작한다는 이유만으로 곧바로 `unknown`으로 바꾸지 않습니다.
+
+여기에도 10초 제한이 있는데, 앞서 안내 타이머와 목적이 다릅니다.
+
+- `CHECK_NOTICE_DELAY`: 연결을 모르는 상태에서 **안내를 언제 “확인 불가”로 바꿀지**
+- `REFRESH_WAIT_LIMIT`: 재확인 요청이 응답하지 않을 때 **앱의 기다림을 언제 끝낼지**
+
+재확인이 완료됐다는 것은 기다림이 끝났다는 뜻입니다. 온라인이라는 뜻은 아닙니다.
+
+**6. 가장 복잡한 `canApplyResult()`는 오래된 결과를 막는 부분입니다.**
+
+[startRefreshRequest 함수](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/store/network.ts:197)를 시작할 때, 현재 `observationVersion`을 기억합니다.
+
+```ts
+const startingObservationVersion = session.observationVersion;
+```
+
+재확인 결과가 도착했을 때는 세 가지를 검사합니다.
+
+```ts
+currentSession === session
+session.refreshRequest === request
+session.observationVersion === startingObservationVersion
+```
+
+각 조건의 의미는 다음과 같습니다.
+
+- 아직 같은 관측 session을 사용 중인가?
+- 아직 이 요청이 현재 재확인 요청인가?
+- 요청을 시작한 뒤 listener에서 다른 관측을 받지 않았는가?
+
+예를 들어 이런 순서가 가능합니다.
+
+```text
+재확인 요청 시작
+listener에서 online 관측 도착 → 상태를 online으로 갱신
+먼저 시작한 재확인 요청에서 offline 결과가 뒤늦게 도착
+```
+
+마지막 결과를 그대로 적용하면 새 관측을 덮게 됩니다. 그래서 관측 횟수가 달라졌다면 그 재확인 결과는 적용하지 않고, 기다림만 끝냅니다.
+
+`finish()`는 요청의 타이머를 없애고, 현재 요청을 비우고, `isRefreshing`을 끄고, Promise를 완료시키는 함수입니다.
+
+**7. 파일 아래쪽은 저장된 상태를 읽거나 조작하는 진입점입니다.**
+
+같은 저장소를 용도에 따라 다르게 읽습니다.
+
+```ts
+useRealNetworkStatus()
+// 실제 관측 상태를 구독
+```
+
+```ts
+useDisplayNetworkStatus()
+// 강제 설정이 있으면 그 값, 없으면 실제 상태를 구독
+overrideStatus ?? realStatus
+```
+
+두 훅은 구독한 값이 달라지면 React 화면을 다시 그리게 합니다.
+
+반면:
+
+```ts
+networkStore.realStatus
+```
+
+는 **읽는 순간의 값**을 가져옵니다. 이것만으로 React 화면이 상태 변화를 구독하지는 않습니다.
+
+예를 들어 실제 상태가 `offline`인데 디버그에서 `online`을 강제로 설정하면:
+
+```ts
+networkStore.realStatus     // offline
+useRealNetworkStatus()     // offline
+useDisplayNetworkStatus()  // online
+```
+
+입니다. 강제 설정은 실제 관측 값을 덮지 않습니다. 현재 SyncProvider도 실제 상태와 override 여부를 별도로 읽어 실행 여부를 판단합니다.
+
+마지막으로 `cleanup()`은 관측과 타이머를 중단하고 진행 중인 재확인의 기다림을 끝냅니다. 먼저 `currentSession = null`로 바꾸므로 이전 listener나 요청의 늦은 결과도 반영되지 않습니다. 현재 코드에서 `overrideStatus`는 cleanup으로 초기화하지 않습니다.
+
+이 파일을 다시 읽을 때는 **`init → subscribe → applyObservation`을 먼저 따라가고**, 그다음 **`refresh → startRefreshRequest → accept/fail → finish`를 따로 읽으면** 두 흐름을 분리해서 볼 수 있습니다.
+
+--- user | source_line=1246 | 2026-09-17T03:38:36.372Z |  ---
+
+여기서 세션은 앱 실행되고 네트워크 감지하는 단위인거네 물론 리프레시나 앱이 꺼지면 보통 끝날거고 새로고침같이
+
+
+--- assistant | source_line=1251 | 2026-09-17T03:38:43.093Z | final_answer ---
+
+맞아요. 여기서 `session`은 **네트워크 감지를 시작해서 정리할 때까지의 단위**입니다. 현재는 앱의 RootLayout이 `init()`으로 시작하고, 해제될 때 `cleanup()`으로 끝냅니다.
+
+다만 **`refresh()`는 session을 끝내거나 새로 만들지 않습니다.** 기존 감지를 유지하면서 현재 연결 상태를 한 번 더 확인하는 요청만 추가합니다.
+
+```text
+init() → session 생성 · 감지 시작
+  ├─ 연결 변화 관측
+  ├─ refresh() → 재확인 요청 시작 · 완료
+  └─ 연결 변화 계속 관측
+cleanup() → session 종료
+```
+
+앱 전체가 다시 로드되면 새 실행에서 session도 새로 만들어집니다. 화면의 재확인 버튼을 누르는 것은 같은 session 안에서 이루어집니다.
+
+--- user | source_line=1258 | 2026-09-17T03:54:51.472Z |  ---
+
+조금 더 읽기 좋게 배치해줄수 잇어? 메서드나 위치들? 코드 수정까진 아니고
+
+

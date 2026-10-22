@@ -1,0 +1,120 @@
+import { type AxiosInstance, type InternalAxiosRequestConfig, type AxiosError } from 'axios';
+import { AuthRequiredError, useAuthStore } from '@/shared/store/auth';
+import { refreshTokens } from './auth-transport';
+
+type AuthRequest = InternalAxiosRequestConfig & { sessionId?: symbol; authRetried?: boolean };
+const refreshes = new Map\<symbol, Promise\<void>>();
+
+function assertCurrentSession(sessionId: symbol | undefined): asserts sessionId is symbol {
+&#x20; if (!useAuthStore.isCurrentSession(sessionId ?? null)) {
+&#x20;   throw new AuthRequiredError();
+&#x20; }
+}
+
+async function rejectCredentials(sessionId: symbol): Promise\<never> {
+&#x20; try {
+&#x20;   await useAuthStore.getState().requireReauthentication(sessionId);
+&#x20; } catch (error) {
+&#x20;   // 메모리 상태는 저장보다 먼저 reauth-required가 된다. 저장 실패가
+&#x20;   // API 호출자에게 일반 서버 오류처럼 보이지 않게 인증 오류를 유지한다.
+&#x20;   console.error('[Auth] failed to persist rejected credentials', error);
+&#x20; }
+&#x20; throw new AuthRequiredError();
+}
+
+function renewSession(sessionId: symbol): Promise\<void> {
+&#x20; const existing = refreshes.get(sessionId);
+&#x20; if (existing) {
+&#x20;   return existing;
+&#x20; }
+
+&#x20; const renewal = (async () => {
+&#x20;   assertCurrentSession(sessionId);
+
+&#x20;   const refreshToken = useAuthStore.getRefreshToken(sessionId);
+&#x20;   if (!refreshToken) {
+&#x20;     return rejectCredentials(sessionId);
+&#x20;   }
+
+&#x20;   let tokens;
+
+&#x20;   try {
+&#x20;     tokens = await refreshTokens(refreshToken);
+&#x20;   } catch (error) {
+&#x20;     assertCurrentSession(sessionId);
+
+&#x20;     const status = (error as AxiosError).response?.status;
+&#x20;     if (status === 401 || status === 403) {
+&#x20;       return rejectCredentials(sessionId);
+&#x20;     }
+
+&#x20;     // 연결 실패·서버 장애는 자격 증명이 거부됐다는 증거가 아니다.
+&#x20;     throw error;
+&#x20;   }
+
+&#x20;   const saved = await useAuthStore.getState().refreshTokens(tokens, sessionId);
+&#x20;   if (!saved) {
+&#x20;     throw new AuthRequiredError();
+&#x20;   }
+&#x20; })();
+
+&#x20; refreshes.set(sessionId, renewal);
+&#x20; renewal.finally(() => refreshes.delete(sessionId)).catch(() => undefined);
+&#x20; return renewal;
+}
+
+/\*\* 일반 API와 sync가 같은 세션 확인·갱신·거부 기준을 사용한다. \*/
+export function setupAuthInterceptors(client: AxiosInstance): void {
+&#x20; client.interceptors.request.use(async (config: AuthRequest) => {
+&#x20;   config.sessionId ??= useAuthStore.getState().sessionId ?? undefined;
+&#x20;   assertCurrentSession(config.sessionId);
+
+&#x20;   if (!useAuthStore.getAccessToken(config.sessionId)) {
+&#x20;     await renewSession(config.sessionId);
+&#x20;   }
+
+&#x20;   assertCurrentSession(config.sessionId);
+
+&#x20;   const accessToken = useAuthStore.getAccessToken(config.sessionId);
+&#x20;   if (!accessToken) {
+&#x20;     throw new AuthRequiredError();
+&#x20;   }
+
+&#x20;   config.headers.Authorization = \`Bearer ${accessToken}\`;
+&#x20;   return config;
+&#x20; });
+
+&#x20; client.interceptors.response.use(
+&#x20;   (response) => {
+&#x20;     assertCurrentSession((response.config as AuthRequest).sessionId);
+&#x20;     return response;
+&#x20;   },
+&#x20;   async (error: AxiosError) => {
+&#x20;     const request = error.config as AuthRequest | undefined;
+&#x20;     if (!request || error.response?.status !== 401) {
+&#x20;       throw error;
+&#x20;     }
+
+&#x20;     assertCurrentSession(request.sessionId);
+
+&#x20;     if (request.authRetried) {
+&#x20;       return rejectCredentials(request.sessionId);
+&#x20;     }
+
+&#x20;     request.authRetried = true;
+
+&#x20;     await renewSession(request.sessionId);
+
+&#x20;     assertCurrentSession(request.sessionId);
+
+&#x20;     return client(request);
+&#x20;   },
+&#x20; );
+}
+
+export const setupSyncAuthInterceptors = setupAuthInterceptors;
+
+
+
+여기 동작좀 설명해줄래? 코드 동작이 어려우서
+

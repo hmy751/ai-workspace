@@ -1,0 +1,125 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>⑤ 보류·후속 티켓 경계 · Ticket 06</title><style>*{box-sizing:border-box}body{margin:0;background:#f3f5f8;color:#172238;font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1080px;margin:auto;padding:32px 24px 70px}nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}nav a,.button{background:white;padding:7px 13px;border-radius:9px;text-decoration:none;border:1px solid #d5dce6;color:#184c78}h1{font-size:34px;line-height:1.3;margin:12px 0 20px}h2{font-size:23px;margin:0 0 16px}h3{font-size:18px}p{margin:10px 0 18px}.eyebrow{font-size:13px;letter-spacing:.06em;color:#657188}.lead{font-size:20px;font-weight:600}section{background:white;border:1px solid #e0e5ec;border-radius:16px;padding:25px;margin:20px 0}.limit{background:#fff4dc;border-left:4px solid #cd8a13;padding:15px 20px;border-radius:8px}.status{color:#386a53;font-weight:600}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{vertical-align:top;text-align:left;border-bottom:1px solid #e3e8ee;padding:13px 12px}th{background:#f0f4f8;white-space:nowrap}details{margin:14px 0;border:1px solid #dce3eb;border-radius:9px;padding:10px 14px}summary{cursor:pointer;font-weight:600}.path{font-size:12px;overflow-wrap:anywhere;color:#657188}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#172238;color:#e5edf6;padding:18px;border-radius:9px;font-size:12px;line-height:1.7}footer{font-size:13px;color:#657188}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.card{background:white;border:1px solid #dce3eb;border-radius:12px;padding:22px;color:inherit;text-decoration:none}.card strong{display:block;color:#184c78}.badge{display:inline-block;background:#e6eef8;padding:2px 9px;border-radius:4px;font-size:12px}@media(max-width:600px){main{padding:18px 12px}h1{font-size:27px}section{padding:18px}td,th{min-width:120px}}@media print{nav{display:none}body{background:white}section{break-inside:avoid}details{display:block}}</style></head><body><main><nav><a href="index.html">보고서 모음</a><a href="02-foreground.html">② 앱 복귀 시 네트워크 재확인</a><a href="03-ux.html">③ 목록·상세·폼 종합 UX</a><a href="04-dates.html">④ 홈·목록 날짜 차이</a><a href="05-scope.html">⑤ 보류·후속 티켓 경계</a></nav><div class="eyebrow">TICKET 06 · 제공된 0b3b167 스냅샷 기준</div><h1>⑤ 보류·후속 티켓 경계</h1><p class="lead">보류는 유지하고, 후속 티켓의 선행 개선과 나머지 책임을 구분했습니다.</p><aside class="limit"><strong>화면 증거 미확보</strong><br>시뮬레이터·DB·기존 HTML과 캡처가 제공되지 않았습니다. 새 스크린샷은 없으며, 이 보고서는 제공된 코드·검사 본문·티켓과 제한된 날짜 실행을 근거로 작성했습니다. 과거 대화의 실행 보고는 이번 직접 관찰과 구별합니다.</aside><section><h2>현재 답</h2><p>06은 앱 준비·인증·네트워크 정책의 실제 화면 연결을 마무리하는 범위입니다. 이미 구현한 선행 조각은 후속 티켓에서 재사용하되, 사용자 보류와 다른 담당의 나머지 책임을 모두 06의 필수 구현으로 되살리면 안 됩니다. 범위가 나뉘었다는 이유로 해결된 것으로 기록해서도 안 됩니다.</p></section><section><h2>보류와 현재 추가하지 않을 것</h2><div class="scroll"><table><thead><tr><th>항목</th><th>현재 근거와 의미</th><th>다음 행동</th></tr></thead><tbody><tr><td>경비 삭제 실패 이유 유실</td><td>ExpensesScreen onError가 원인을 받지 않고 일반 실패 Alert 표시. 사용자가 보류</td><td>해결 표시 금지. 이번 필수 선행으로 올리지 않음</td></tr><tr><td>경비 상세 특정 재시도</td><td>대상 없음+이전 오류+display online/real offline이면 retry UI가 보여도 canFetch가 요청을 막는 경계</td><td>보류 유지. 일반적인 online 재시도 전체가 고장났다고 확대 금지</td></tr><tr><td>복구 토스트</td><td>현재 추가하지 않기로 한 선택. 구현 완료와 다름</td><td>헤더·내용 복귀로 인지가 부족한 실제 장면이 있을 때 재검토</td></tr></tbody></table></div></section><section><h2>후속 티켓과 재사용할 결과</h2><div class="scroll"><table><thead><tr><th>담당</th><th>06 등에서 재사용할 것</th><th>남아 있는 책임</th></tr></thead><tbody><tr><td>07 / 17 · API 계약</td><td>입력·응답 검증/직렬화의 선행 개선</td><td>Trip client PATCH와 server PUT 불일치, route 계약 대조</td></tr><tr><td>08 / 003-08 · 날짜</td><td>공통 UTC 일자 범위와 일정·경비 시간 개선</td><td>홈/목록 의미, 대표 여행 계산, 기간 밖 항목 접근</td></tr><tr><td>10 · 일정 폼</td><td>단일 생성 흐름·초안/검색 분리</td><td>수정 전체 수명과 재진입·legacy 검색 실패 등 나머지</td></tr><tr><td>11 / 003-06 · 경비 폼</td><td>날짜와 일정 연결 독립·초안·저장 오류 처리</td><td>늦게 도착한 기본 통화와 사용자 입력 보존, 전체 재진입 조합</td></tr><tr><td>13 / 003-09 · 경로 준비</td><td>저장 자체와 검색 장소 채택의 개선</td><td>500ms 대기·오래된 목록/좌표, 경로 입력에서 정상 0 좌표 유실</td></tr><tr><td>14 · Local transaction</td><td>종료 전 저장 대기·원자성의 선행 검증 기록</td><td>전체 독립 write·payload 타입·cache 계약·실제 SQLite 확인</td></tr><tr><td>15 · Sync</td><td>중복 시작 차단, 실패 전달·HTTP retry·pull parse의 선행 개선 기록</td><td>cleanup 부분 실패 결과, IN_PROGRESS 재개, pull 원자성·충돌·cursor</td></tr><tr><td>16 · 정리</td><td>계정 종료·vacuum의 원본 보존 개선 기록</td><td>여행별 PENDING 중심 조회를 FAILED/IN_PROGRESS까지 연결, 실제 처리 집계</td></tr></tbody></table></div></section><section><h2>과거 지적을 현재 미해결로 복사하면 안 되는 이유</h2><p>15번 초기 분석에는 push 실패의 정상 반환, 재시도와 pull 무검증이 적혀 있지만 같은 티켓의 현재 결과에는 실패 전달·HTTP retry·pull parse 개선이 기록되어 있습니다. 이 보고서는 그 초기 분석을 그대로 미해결 목록으로 쓰지 않았습니다. 다만 이번에는 sync 전체를 실행 검증하지 않았으므로 티켓 기록의 보장 범위로 한정합니다.</p></section><section><h2>실제 코드와 기록</h2><details><summary>경비 삭제의 일반 오류 안내</summary><p class="path">apps/client/src/screens/ExpensesScreen.tsx:133</p><pre> 133         text: &#x27;삭제&#x27;,
+ 134         style: &#x27;destructive&#x27;,
+ 135         onPress: () =&gt; {
+ 136           deleteExpense(
+ 137             { id: selectedExpense.id, tripId: selectedExpense.tripId },
+ 138             {
+ 139               onSuccess: () =&gt; {
+ 140                 Alert.alert(&#x27;성공&#x27;, &#x27;경비가 삭제되었습니다.&#x27;);
+ 141                 setSelectedExpense(null);
+ 142               },
+ 143               onError: () =&gt; {
+ 144                 Alert.alert(&#x27;오류&#x27;, &#x27;경비 삭제에 실패했습니다.&#x27;);
+ 145               },
+ 146             },</pre></details><details><summary>상세 재시도 실행 조건</summary><p class="path">apps/client/src/screens/ExpenseDetailScreen.tsx:13</p><pre>  13 
+  14   const { query: expenseQuery, access, actions, view } = useTripExpensesReadQuery(tripId);
+  15   const expense = view.kind === &#x27;ready&#x27; ? view.data.find((item) =&gt; item.id === id) : undefined;
+  16   const retry = () =&gt; {
+  17     if (access.canFetch) actions.refetch();
+  18   };
+  19 
+  20   // 연결된 일정 조회는 표시할 경비가 있을 때 시작하고 일정의 접근 조건도 적용한다.
+  21   const { view: scheduleView } = useTripSchedulesReadQuery(tripId, {
+  22     enabled: access.canFetch &amp;&amp; !!expense?.scheduleId,
+  23   });</pre></details><details><summary>대상 없음·오류 상태의 재시도 UI</summary><p class="path">apps/client/src/screens/ExpenseDetailScreen.tsx:63</p><pre>  63   }
+  64 
+  65   // 여행 목록 캐시가 있어도 현재 경비가 없다면 최신 조회가 끝나기 전에는 부재를 확정하지 않는다.
+  66   if (
+  67     view.kind === &#x27;loading&#x27; ||
+  68     view.kind === &#x27;error&#x27; ||
+  69     (view.kind === &#x27;ready&#x27; &amp;&amp; !expense &amp;&amp; (expenseQuery.isFetching || expenseQuery.isError))
+  70   ) {
+  71     return (
+  72       &lt;View className=&#x27;flex-1 bg-background&#x27;&gt;
+  73         &lt;MobileHeader title=&#x27;경비 상세&#x27; onLeftPress={() =&gt; router.back()} leftIcon={&lt;ChevronLeft size={24} /&gt;} /&gt;
+  74         &lt;ExpenseQueryFeedback status={expenseQuery.isError ? &#x27;error&#x27; : &#x27;loading&#x27;} retry={retry} /&gt;
+  75       &lt;/View&gt;
+  76     );</pre></details><details><summary>기본 통화의 최초 defaultValues 적용</summary><p class="path">apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts:25</p><pre>  25   const defaultCurrency = selectedTrip?.baseCurrency || &#x27;USD&#x27;;
+  26 
+  27   // Navigation 입력만 호환 처리한다. 잘못된 입력은 폼에서 날짜를 다시 선택하게 한다.
+  28   const initialDate = date ? expenseDateInput.safeParse(date) : undefined;
+  29   const defaultDate = date
+  30     ? (initialDate?.success ? initialDate.data : &#x27;&#x27;)
+  31     : formatISOToLocalDate(new Date().toISOString());
+  32 
+  33   const form = useForm&lt;CreateExpenseFormData&gt;({
+  34     resolver: zodResolver(createExpenseFormSchema),
+  35     defaultValues: {
+  36       title: &#x27;&#x27;,
+  37       amount: &#x27;&#x27;,
+  38       currency: defaultCurrency,
+  39       category: &#x27;&#x27;,
+  40       date: defaultDate,
+  41       scheduleId: scheduleId || undefined,
+  42     },
+  43     mode: &#x27;onChange&#x27;,
+  44   });
+  45 
+  46   // React가 다시 렌더링되기 전의 연속 탭도 차단한다. 표시 상태는 form이 관리한다.
+  47   const submitting = useRef(false);
+  48   const [submitError, setSubmitError] = useState&lt;string | null&gt;(null);
+  49   const { mutateAsync: createExpense } = useCreateExpense();</pre></details><details><summary>저장 뒤 500ms와 route 좌표의 truthy 변환</summary><p class="path">apps/client/src/features/schedule/create-schedule/useSubmitSchedule.ts:29</p><pre>  29         scheduledAt,
+  30         latitude: place?.latitude ?? null,
+  31         longitude: place?.longitude ?? null,
+  32       },
+  33       {
+  34         onSuccess: () =&gt; {
+  35           // 경로 자동 다운로드 (새 일정 포함)
+  36           setTimeout(() =&gt; {
+  37             const newSchedule = {
+  38               id,
+  39               latitude: place?.latitude ? parseFloat(String(place.latitude)) : undefined,
+  40               longitude: place?.longitude ? parseFloat(String(place.longitude)) : undefined,
+  41             };
+  42 
+  43             // scheduledAt 기준으로 정렬된 전체 일정 목록
+  44             const allSchedules = [
+  45               ...schedules.map((s: Schedule) =&gt; ({
+  46                 id: s.id,
+  47                 latitude: s.latitude ? parseFloat(s.latitude) : undefined,
+  48                 longitude: s.longitude ? parseFloat(s.longitude) : undefined,
+  49                 scheduledAt: s.scheduledAt,
+  50               })),
+  51               {
+  52                 ...newSchedule,
+  53                 scheduledAt,
+  54               },
+  55             ]
+  56               .sort((a, b) =&gt; new Date(a.scheduledAt).getTime() - new Date(b.scheduledAt).getTime())
+  57               .map(({ id: scheduleId, latitude, longitude }) =&gt; ({ id: scheduleId, latitude, longitude }));
+  58 
+  59             autoDownloadRoutes({ tripId, schedules: allSchedules });
+  60           }, 500);
+  61 
+  62           onSuccess?.();
+  63         },
+  64       },</pre></details><details><summary>Trip 수정 요청 PATCH</summary><p class="path">apps/client/src/entities/trip/api/trips.ts:57</p><pre>  57 export const fetchUpdateTrip = async (id: string, data: UpdateTripRequest): Promise&lt;UpdateTripResponse&gt; =&gt; {
+  58   try {
+  59     const validatedInput = updateTripRequest.parse(data);
+  60     const responseData = await apiClient.patch(`/api/trips/${id}`, validatedInput);
+  61 
+  62     const validated = tripResponse.parse(responseData);
+  63     return validated.data;</pre></details><details><summary>server 수정 route PUT</summary><p class="path">apps/server/src/routes/trips.ts:158</p><pre> 158 // PUT /api/trips/:id - 여행 수정
+ 159 router.put(&#x27;/:id&#x27;, requireAuth, async (req: Request, res: Response) =&gt; {
+ 160   try {
+ 161     const tripId = req.params.id;
+ 162     const userId = req.userId!;
+ 163 </pre></details><details><summary>Sync의 개선 기록과 나머지 범위</summary><p class="path">context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/15-sync-result-retry-pull-types.md:26</p><pre>  26 ## 현재 상태와 실제 결과
+  27 
+  28 sync engine은 PENDING과 retryCount 3 미만의 FAILED를 FIFO로 전송한다. 한도에 도달한 FAILED 또는 남은 IN_PROGRESS를 건너뛰어 뒤 작업을 전송하지 않는다. 일반 실패는 retryCount를 올려 FAILED로 남기고 뒤 작업을 중단하며, 남은 FAILED·IN_PROGRESS는 SyncIncompleteError로 lifecycle에 실패를 전달한다.
+  29 
+  30 인증 오류는 현재 작업을 PENDING으로 되돌린 뒤 오류를 호출자까지 전달한다. 활성 여행이 없어 pull이 생략되는 경우에도 completed를 반환하지 않으며 성공 시각을 갱신하지 않는다. 큐 원본과 payload의 계정 및 pull 응답의 userId도 현재 계정과 대조한다. 실제 engine·lifecycle을 연결한 인증 중단 검사, 실패 재전송·뒤 작업 중단 검사와 Node SQLite의 재시도 한도 뒤 작업 보존 검사를 추가했다.
+  31 
+  32 HTTP 5xx 재시도는 인증 커밋에서 일반 요청 책임으로 수정했다. 실제 Axios adapter와 fake timer로 최초 요청을 포함해 총 4회 호출(재시도 3회)을 확인했다. 저장된 큐의 다음 실행 재시도와 별개다. 화면 Policy의 미사용 syncStrategy·uiMode 선언은 화면 정책 커밋에서 제거했다.
+  33 
+  34 시간 후속 `d823b41`에서 pull 전체 response/entity/serverTime을 첫 Local 쓰기 전에 검증하고 `as never[]`를 제거했다. malformed envelope·시점과 checkpoint 선반영 방어를 검사했다. 이번 실앱 경비 확인에서는 Local CREATE/UPDATE가 개발 PostgreSQL에 반영되고 해당 큐가 비워지는 제한된 정상 흐름까지 Main이 확인했다. [세션 기록](../../../records/2026-10-02-03-expense-time-decisions-and-verification.md)의 자동 검사와 실앱 범위를 구별한다.
+  35 
+  36 cleanup 부분 실패의 typed result, 중단된 IN_PROGRESS의 명시적 재개, pull 전체 원자성·충돌·cursor 정책과 전체 실패 시나리오는 여전히 남는다. 정상 경비 두 건의 관찰을 Ticket 전체 완료나 사용자 수락으로 확대하지 않는다.</pre></details><details><summary>정리의 개선 기록과 PENDING 중심의 나머지 범위</summary><p class="path">context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/16-unsynced-data-cleanup.md:25</p><pre>  25 ## 현재 상태와 실제 결과
+  26 
+  27 명시적 logout과 account deletion은 PENDING·IN_PROGRESS·FAILED를 미동기화 수량과 보류 조건에 포함한다. FAILED-only logout이 서버 요청·DB reset으로 진행하지 않는 service 회귀 검사를 통과했다. 같은 계정 재로그인은 데이터를 정리하지 않는다.
+  28 
+  29 앞선 소스 검토의 두 위험은 실제 SQLite에서 재현하고 수정했다. 오래된 삭제 row도 sync_queue가 참조하면 vacuum에서 보존한다. 큐 상태와 무관하게 일정·경비 원본을 보호하며, 큐 제거 뒤에는 기존 기간 기준으로 삭제한다. 따라서 vacuum이 미전송 원본을 지워 같은 계정의 소유권 확인을 unresolved로 바꾸던 경로를 막는다.
+  30 
+  31 로그아웃의 최초 확인 뒤 Local 변경이 성공하고 그대로 삭제되던 문제는 06의 전체 세션 변경 절차에서 해결했다. sync·cleanup 종료 후 새 transaction을 막고 접수된 저장을 기다린 뒤 미전송 여부를 확인한다. 보류·실패 뒤에는 저장 차단을 해제한다. DB·큐 삭제 및 스키마 재생성을 함께 롤백하는 보장은 14가 소유한다.
+  32 
+  33 여행별 미전송 조회와 deactivation·cleanup은 아직 PENDING 중심이다. IN_PROGRESS·FAILED·legacy/malformed payload를 하나의 공통 predicate로 연결하고, 실제 정리한 경우만 processed로 집계하며, 즉시·지연 cleanup의 local operation을 합치는 일은 남는다. 이번 결과는 계정 종료·vacuum의 직접 재현 범위이며 Ticket 전체 데이터 보존 완료나 사용자 수락은 아니다.</pre></details></section><section><h2>06 종료 판단에 필요한 것</h2><p>홈 공통 안내, foreground 연결, 종합 사용자 흐름 검증의 결과를 확인하고 날짜 차이의 처리 담당과 영향을 연결해야 합니다. 보류·다른 담당·미확인을 구분한 상태에서 실제 완료 조건과 대조해야 하며, 네 보고서 생성이나 과거 테스트 수치만으로 06을 닫을 수는 없습니다.</p></section><footer>코드·티켓은 읽기 전용으로 조사했습니다. Jest·실앱·서버 DB 검증은 이번에 실행하지 않았습니다. 작성일 2026-10-21. 코드 근거는 접힌 영역에서 원문과 줄 번호로 확인할 수 있습니다.</footer></main></body></html>

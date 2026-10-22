@@ -1,0 +1,221 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>목록·상세·폼 종합 UX | Ticket 06</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#192a35;font:16px/1.75 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}main{max-width:1080px;margin:auto;padding:40px 24px 80px}nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 25px}nav a{padding:6px 12px;background:#fff;border:1px solid #d7dfe5;border-radius:8px}a{color:#175fa2;text-underline-offset:3px}h1{font-size:34px;line-height:1.35;letter-spacing:-1px}h2{font-size:23px;margin-top:0}h3{font-size:18px}section,.hero{background:white;border:1px solid #dce4ea;border-radius:15px;padding:26px;margin:20px 0}.hero{border-top:5px solid #166863}.lead{font-size:20px;font-weight:650}.meta{color:#526572;font-size:14px}.badge{display:inline-block;background:#e2eeeb;color:#1d5b4b;padding:3px 10px;border-radius:6px;font-size:13px;font-weight:650}.warn{background:#fff5df;border-left:4px solid #b28123;padding:17px 20px;margin:18px 0}.table{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid #e1e6eb}th{background:#edf3f6}code{background:#f1f4f7;padding:2px 5px;border-radius:3px;font-size:13px;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f2f5f7;padding:15px;font-size:12px;line-height:1.65}summary{cursor:pointer;color:#175fa2;overflow-wrap:anywhere}details{margin:15px 0;border-top:1px solid #e4e9ed;padding-top:12px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.card{padding:20px;background:#fff;border:1px solid #dce4ea;border-radius:12px}.flow{display:flex;gap:12px;flex-wrap:wrap}.flow div{flex:1;min-width:170px;background:#edf4f3;padding:16px;border-radius:8px}footer{color:#526572;font-size:14px}@media(max-width:600px){main{padding:24px 14px}h1{font-size:27px}section,.hero{padding:19px}th,td{padding:9px}}@media print{body{background:white}nav{display:none}main{max-width:none;padding:0}section{break-inside:avoid}details{display:block}}</style></head><body><main><nav aria-label="보고서 이동"><a href="index.html">전체 보기</a><a href="02-foreground.html">② 앱 복귀</a><a href="03-ux.html">③ 종합 UX</a><a href="04-dates.html">④ 날짜 차이</a><a href="05-scope.html">⑤ 보류·후속</a></nav><div class="hero"><span class="badge">Ticket 06 · 03</span><h1>목록·상세·폼 종합 UX</h1><p class="lead">초안 보존과 조회 복구는 구현됐지만, native 조작과 실제 단절 저장을 포함한 종합 확인은 남아 있습니다.</p><p class="meta">코드 기준: 제공된 HEAD 0b3b167 스냅샷 · 검토 작성: 2026-10-21 · 이어받은 대화 시점: 2026-10-04</p></div><div class="warn"><strong>근거 범위</strong> — 이번에 코드·테스트 본문을 직접 대조했습니다. 앱·시뮬레이터·DB·전체 Jest는 실행하지 않았습니다. 대화와 저장 기록의 과거 통과·관찰은 새 실행 결과와 구별합니다. Git 메타데이터가 없어 branch·working tree는 재확인하지 못했습니다.</div><section><h2>개선된 작성 흐름을 다시 만들 필요는 없습니다</h2><p>일정 생성은 연결 상태가 아니라 사용자 행동으로 search/form/change-place 단계를 바꿉니다. 초안 훅은 분기 UI보다 위에서 유지되고 ScheduleForm은 한 분기에서만 장착됩니다. <a href="#create">현재 생성 화면</a>과 <a href="#flowtests">회귀 테스트 본문</a>이 과거 폼 숨김·동시 표시 문제에 대응합니다. 다만 native picker·취소 경고 소멸은 이번 정적 확인만으로 확정할 수 없습니다.</p></section><section><h2>목록·상세·폼을 연결해서 확인한 결과</h2><div class="table"><table><thead><tr><th>장면</th><th>코드·테스트가 다루는 결과</th><th>이번 판정</th></tr></thead><tbody><tr><td>비활성 여행 단절</td><td>display policy 차단을 data보다 우선해 캐시 숨김; 캐시 별도 삭제 없음</td><td>구현 확인. 실제 화면 전환 미확인</td></tr><tr><td>접근 복구</td><td>성공 또는 갱신 실패 데이터는 ready로 반환</td><td>기존 내용 우선 표시 구조 확인</td></tr><tr><td>처음 조회 실패</td><td>error와 빈 성공 결과 분리</td><td>일정 상세/홈의 관련 테스트 본문 확인</td></tr><tr><td>기존 내용 갱신 실패</td><td>내용 유지 + refreshFailed 안내</td><td>일정 복구 테스트 본문 확인</td></tr><tr><td>한쪽 데이터만 실패</td><td>일정과 경비의 별도 조회·안내</td><td>경비 실패를 0원으로 표시하지 않는 검사 존재</td></tr><tr><td>작성 중 제한·실패</td><td>폼 편집·기존 일정 연결 보존, 저장 순간 Router 차단</td><td>일정·경비 생성 검사 본문 확인</td></tr><tr><td>복구 후 저장</td><td>사용자 명시적 재시도 후 성공 처리</td><td>관련 mock 검사 존재. 실제 통신 단절 저장 미확인</td></tr></tbody></table></div><p>조회 근거: <a href="#query">공통 조회 표시·실행 조합</a> · <a href="#consumer">상세·홈 회귀 검사</a>. “검사 존재”는 이번 통과를 뜻하지 않습니다.</p></section><section><h2>자동 검사에서 실제로 대체하는 것</h2><p>create-schedule-flow는 DatePicker·TimePicker를 null로 대체하고 Local/Remote 저장을 mock으로 연결합니다. create-expense-flow도 picker 선택을 시험용 버튼으로 대체합니다. 따라서 초안과 정책 연결을 확인하는 검사와 실제 native 조작·SQLite·통신을 확인하는 검사는 범위가 다릅니다.</p><p>저장된 current/state에는 client 48 suites / 523 passed / 1 skipped와 제한적인 경비 실앱 확인이 기록돼 있습니다. 이는 10월 2일의 과거 기록이며 이번에는 재실행하지 않았습니다. 전체 테스트 숫자가 아래 미확인을 해소하지는 않습니다.</p></section><section><h2>화면 수집이 필요한 남은 묶음</h2><div class="table"><table><thead><tr><th>순서·준비</th><th>빠르게 수집할 것</th><th>판단 기준</th></tr></thead><tbody><tr><td>1 · 비활성 여행 / 캐시 있는 목록·상세</td><td>online→offline→unknown 확인 중→확인 불가→online, 선택·탭·표시 문구</td><td>내용 제한, 선택 유지, 복구 뒤 기존 내용 우선</td></tr><tr><td>2 · 최초 실패 / 갱신 실패 각각</td><td>빈 화면·실패 화면·재시도 중·성공 후; 일정/경비 한쪽 실패</td><td>없음·0원과 실패 구별, 정상인 영역 유지</td></tr><tr><td>3 · 일정 생성</td><td>직접 작성→연결 복구; 장소 선택→단절; picker 취소·확인; 키보드 표시·저장</td><td>단일 폼·초안 유지, 취소 시 경고·값 변화 확인</td></tr><tr><td>4 · 경비 생성·수정</td><td>기존 일정 연결을 가진 비활성 초안의 제한·해제; 날짜 변경·연결 해제</td><td>입력·연결 유지, 자동 저장 없음, 재시도 1회</td></tr><tr><td>5 · 활성 여행 / 실제 통신 단절 / override 해제</td><td>Local 저장 직전·완료·목록 재진입·연결 복구 뒤 sync와 DB</td><td>Debug 차단과 구별, 행·큐·서버 반영을 각각 확인</td></tr></tbody></table></div><p>새 activation 전체와 지도 준비 완료는 이번 목록·폼 관찰만으로 완료하지 않습니다. 계정·tripId·활성 상태·override·realStatus를 각 묶음에 남겨야 결과를 해석할 수 있습니다.</p></section><section><h2>스크린샷과 판단의 현재 한계</h2><p>화면 원본이 제공되지 않아 이번 보고서에 새 캡처는 없습니다. 대화에 기록된 10월 4일 활성 홈의 2개·EUR 56.00 유지는 홈 관찰의 과거 보고이며 나머지 목록·상세·폼 확인으로 확대하지 않습니다. 각 묶음의 스크린샷과 짧은 조작 순서가 확보되면 동일 보고서의 근거로 연결할 수 있습니다.</p><p>추천은 홈 안내·foreground 연결의 작은 수정 후 위 묶음을 한 시뮬레이터에서 이어 확인하는 것입니다. 수집자는 화면·문구·입력값·요청 결과만 반환하고, 원인·수정 범위는 그 근거를 모아 판단하면 됩니다.</p></section><section><h2>직접 확인한 원자료 발췌</h2><details id="create"><summary>apps/client/src/screens/CreateScheduleScreen.tsx · 24–45행</summary><pre>  24    const { data: trips, isLoading } = useGetTrips();
+  25    const trip = trips?.find((item: TripResponse) =&gt; item.id === tripId);
+  26    // 사용자 행동으로만 단계를 바꾼다. 연결 변화는 각 기능의 가용성에만 반영한다.
+  27    const [step, setStep] = useState&lt;&#x27;search&#x27; | &#x27;form&#x27; | &#x27;change-place&#x27;&gt;(&#x27;search&#x27;);
+  28    const draft = useCreateScheduleForm({ initialDate });
+  29    const submission = useSubmitSchedule({ tripId, onSuccess: exitCreateSchedule });
+  30    const policy = useAppPolicy(tripId);
+  31  
+  32    const search = useCreateScheduleSearch(
+  33      trip
+  34        ? {
+  35            cityName: trip.destination,
+  36            latitude: trip.latitude ? parseFloat(trip.latitude) : undefined,
+  37            longitude: trip.longitude ? parseFloat(trip.longitude) : undefined,
+  38          }
+  39        : undefined,
+  40      !!trip &amp;&amp; step !== &#x27;form&#x27;,
+  41    );
+  42  
+  43    const selectPlace = (place: Location) =&gt; {
+  44      if (!search.canSelectPlace(place)) return;
+  45      Keyboard.dismiss();</pre></details><details id="createform"><summary>apps/client/src/screens/CreateScheduleScreen.tsx · 77–111행</summary><pre>  77        ) : (
+  78          &lt;ScheduleForm
+  79            form={form}
+  80            location={{
+  81              selectedLocation: draft.selectedLocation,
+  82              searchAccess: search.policy,
+  83              isPending: submission.isPending,
+  84              onSearch: () =&gt; setStep(&#x27;change-place&#x27;),
+  85              onEditLocationManually: draft.editLocationManually,
+  86            }}
+  87            submission={{
+  88              creationPolicy: policy.schedule.create,
+  89              submitError: submission.submitError,
+  90              isPending: submission.isPending,
+  91              onSubmit,
+  92              onCancel: exitCreateSchedule,
+  93            }}
+  94            onShowDatePicker={draft.handleShowDatePicker}
+  95            onShowTimePicker={draft.handleShowTimePicker}
+  96          /&gt;
+  97        )}
+  98        &lt;DatePicker
+  99          visible={draft.datePickerVisible}
+ 100          onClose={() =&gt; draft.handleSelectDate(form.getValues(&#x27;date&#x27;))}
+ 101          onSelectDate={draft.handleSelectDate}
+ 102        /&gt;
+ 103        &lt;TimePicker
+ 104          visible={draft.timePickerVisible}
+ 105          onClose={() =&gt; draft.handleSelectTime(form.getValues(&#x27;time&#x27;))}
+ 106          onSelectTime={draft.handleSelectTime}
+ 107          initialTime={form.watch(&#x27;time&#x27;) || &#x27;09:00&#x27;}
+ 108        /&gt;
+ 109      &lt;/KeyboardAvoidingView&gt;
+ 110    );
+ 111  }</pre></details><details id="query"><summary>apps/client/src/shared/services/policy-query/usePolicyReadQuery.ts · 14–36행</summary><pre>  14  export type ReadQueryView&lt;T&gt; =
+  15    | { kind: &#x27;unselected&#x27; }
+  16    | { kind: &#x27;idle&#x27; }
+  17    | { kind: &#x27;blocked&#x27;; policy: OperationPolicy }
+  18    | { kind: &#x27;loading&#x27; }
+  19    | { kind: &#x27;error&#x27; }
+  20    | { kind: &#x27;ready&#x27;; data: T; refreshFailed: boolean };
+  21  
+  22  function getReadQueryView&lt;T, E&gt;(access: TripReadAccess, query: UseQueryResult&lt;T, E&gt;): ReadQueryView&lt;T&gt; {
+  23    if (!access.hasTrip) return { kind: &#x27;unselected&#x27; };
+  24    if (!access.displayPolicy.allowed) return { kind: &#x27;blocked&#x27;, policy: access.displayPolicy };
+  25    // 성공한 undefined나 빈 배열도 유효한 결과다. 재조회 실패로 기존 내용을 가리지 않는다.
+  26    if (query.isSuccess || query.isRefetchError) {
+  27      return { kind: &#x27;ready&#x27;, data: query.data, refreshFailed: query.isError &amp;&amp; !query.isFetching };
+  28    }
+  29    if (!access.consumerEnabled) return { kind: &#x27;idle&#x27; };
+  30    if (!access.actualPolicy.allowed) return { kind: &#x27;blocked&#x27;, policy: access.actualPolicy };
+  31    return { kind: query.isError ? &#x27;error&#x27; : &#x27;loading&#x27; };
+  32  }
+  33  
+  34  /** refetch를 실제 객체에서도 빼고, 나머지 필드는 접근할 때 원본에서 읽는다. */
+  35  function toQueryState&lt;T, E&gt;(query: UseQueryResult&lt;T, E&gt;): ReadQueryState&lt;T, E&gt; {
+  36    const state = {};</pre></details><details id="consumer"><summary>apps/client/tests/screens/read-query-consumers.test.tsx · 238–284행</summary><pre> 238  it(&#x27;일정 상세는 비활성 여행의 캐시를 제한 중 숨기고 복귀 시 조회 없이 다시 표시한다&#x27;, () =&gt; {
+ 239    const view = setup(detail);
+ 240    connect(&#x27;offline&#x27;);
+ 241    expect(view.queryByText(&#x27;기존 일정&#x27;)).toBeNull();
+ 242    expect(view.queryByText(&#x27;기존 경비&#x27;)).toBeNull();
+ 243    expect(view.client.getQueryData(scheduleQueryKeys.detail(&#x27;s&#x27;))).toEqual(schedule);
+ 244    connect(&#x27;online&#x27;);
+ 245    expect(view.getByText(&#x27;기존 일정&#x27;)).toBeTruthy();
+ 246    expect(view.getByText(&#x27;기존 경비&#x27;)).toBeTruthy();
+ 247    expect(ScheduleRepository.getById).not.toHaveBeenCalled();
+ 248  });
+ 249  it(&#x27;일정 상세는 단건 일정과 일정별 경비만 조회한다&#x27;, async () =&gt; {
+ 250    const view = setup(detail, false);
+ 251    await waitFor(() =&gt; expect(view.getByText(&#x27;기존 경비&#x27;)).toBeTruthy());
+ 252    expect(ScheduleRepository.getById).toHaveBeenCalledWith(&#x27;s&#x27;, &#x27;trip&#x27;);
+ 253    expect(ExpenseRepository.getByScheduleId).toHaveBeenCalledWith(&#x27;s&#x27;, &#x27;trip&#x27;);
+ 254    expect(ScheduleRepository.getByTripId).not.toHaveBeenCalled();
+ 255    expect(ExpenseRepository.getByTripId).not.toHaveBeenCalled();
+ 256  });
+ 257  it(&#x27;일정 상세 최초 오류를 부재와 구분하고 다시 조회한다&#x27;, async () =&gt; {
+ 258    jest.mocked(ScheduleRepository.getById).mockRejectedValueOnce(new Error(&#x27;server&#x27;));
+ 259    const view = setup(detail, false);
+ 260    await waitFor(() =&gt; expect(view.getByText(&#x27;일정을 불러오지 못했어요.&#x27;)).toBeTruthy());
+ 261    expect(view.queryByText(&#x27;일정을 찾을 수 없습니다.&#x27;)).toBeNull();
+ 262    fireEvent.press(view.getByRole(&#x27;button&#x27;, { name: &#x27;다시 불러오기&#x27; }));
+ 263    await waitFor(() =&gt; expect(view.getByText(&#x27;기존 일정&#x27;)).toBeTruthy());
+ 264  });
+ 265  it(&#x27;일정 상세의 경비만 실패하면 일정은 유지하고 빈 경비로 표시하지 않는다&#x27;, async () =&gt; {
+ 266    jest.mocked(ExpenseRepository.getByScheduleId).mockRejectedValue(new Error(&#x27;server&#x27;));
+ 267    const view = setup(detail, false);
+ 268    await waitFor(() =&gt; expect(view.getByText(&#x27;경비를 불러오지 못했어요.&#x27;)).toBeTruthy());
+ 269    expect(view.getByText(&#x27;기존 일정&#x27;)).toBeTruthy();
+ 270    expect(view.queryByText(&#x27;경비 내역이 없습니다&#x27;)).toBeNull();
+ 271    expect(view.queryByText(&#x27;USD 0.00&#x27;)).toBeNull();
+ 272  });
+ 273  it(&#x27;홈은 비활성 요약을 숨기면서 여행 카드를 유지하고 복귀 시 캐시를 표시한다&#x27;, () =&gt; {
+ 274    const view = setup(home);
+ 275    connect(&#x27;offline&#x27;);
+ 276    expect(view.getByText(&#x27;파리, 프랑스&#x27;)).toBeTruthy();
+ 277    expect(view.queryByText(&#x27;1개&#x27;)).toBeNull();
+ 278    expect(view.queryByText(&#x27;USD 12.00&#x27;)).toBeNull();
+ 279    expect(view.queryByText(&#x27;USD 0.00&#x27;)).toBeNull();
+ 280    connect(&#x27;online&#x27;);
+ 281    expect(view.getByText(&#x27;1개&#x27;)).toBeTruthy();
+ 282    expect(view.getByText(&#x27;USD 12.00&#x27;)).toBeTruthy();
+ 283    expect(ScheduleRepository.getByTripId).not.toHaveBeenCalled();
+ 284  });</pre></details><details id="flowtests"><summary>apps/client/tests/screens/create-schedule-flow.test.tsx · 20–36행</summary><pre>  20  jest.mock(&#x27;@/shared/components&#x27;, () =&gt; {
+  21    const ReactRuntime = jest.requireActual&lt;typeof import(&#x27;react&#x27;)&gt;(&#x27;react&#x27;);
+  22    const { Text, Pressable } = jest.requireActual&lt;typeof import(&#x27;react-native&#x27;)&gt;(&#x27;react-native&#x27;);
+  23    return {
+  24      MobileHeader: ({ title, onLeftPress }: { title: string; onLeftPress: () =&gt; void }) =&gt;
+  25        ReactRuntime.createElement(
+  26          Pressable,
+  27          { onPress: onLeftPress, accessibilityLabel: &#x27;뒤로 가기&#x27; },
+  28          ReactRuntime.createElement(Text, null, title),
+  29        ),
+  30      DatePicker: () =&gt; null,
+  31      TimePicker: () =&gt; null,
+  32      PolicyBasedMapView: ({ locations, selectedLocation }: { locations: unknown[]; selectedLocation: unknown }) =&gt;
+  33        ReactRuntime.createElement(Text, { testID: &#x27;map-region&#x27; }, JSON.stringify({ locations, selectedLocation })),
+  34      PolicyErrorDisplay: jest.requireActual&lt;typeof import(&#x27;@/shared/components/ErrorBoundary/PolicyErrorDisplay&#x27;)&gt;(
+  35        &#x27;@/shared/components/ErrorBoundary/PolicyErrorDisplay&#x27;,
+  36      ).PolicyErrorDisplay,</pre></details><details id="expensetests"><summary>apps/client/tests/screens/create-expense-flow.test.tsx · 141–197행</summary><pre> 141  it(&#x27;활성 offline 초안은 다른 날짜 일정으로 연결을 바꾸고 경비 날짜 변경에도 연결을 유지해 Local 저장한다&#x27;, async () =&gt; {
+ 142    const view = await open();
+ 143    connect(&#x27;offline&#x27;);
+ 144    expect(view.getByDisplayValue(&#x27;작성 중 경비&#x27;)).toBeTruthy();
+ 145    fireEvent.press(view.getByText(/첫날 일정 ·/));
+ 146    expect(view.getByText(&#x27;2026-10-02&#x27;)).toBeTruthy();
+ 147    fireEvent.press(view.getByText(&#x27;다음날 일정&#x27;));
+ 148    fireEvent.press(view.getByText(&#x27;2026-10-01&#x27;));
+ 149    fireEvent.press(view.getByText(&#x27;다른 날짜 선택&#x27;));
+ 150    expect(view.getByText(/다음날 일정 · 2026-10-02/)).toBeTruthy();
+ 151    await act(async () =&gt; fireEvent.press(view.getByText(&#x27;저장&#x27;)));
+ 152    await waitFor(() =&gt; expect(local).toHaveBeenCalledTimes(1));
+ 153    expect(local).toHaveBeenCalledWith(
+ 154      expect.objectContaining({ title: &#x27;작성 중 경비&#x27;, amount: &#x27;37&#x27;, date: &#x27;2026-10-03&#x27;, scheduleId: &#x27;01ARZ3NDEKTSV4RRFFQ69G5FAX&#x27; }),
+ 155    );
+ 156    expect(remote).not.toHaveBeenCalled();
+ 157  });
+ 158  
+ 159  it(&#x27;활성 unknown에서도 연결 안 함을 명시하여 Local에 null을 저장한다&#x27;, async () =&gt; {
+ 160    const view = await open();
+ 161    connect(&#x27;unknown&#x27;);
+ 162    fireEvent.press(view.getByText(/첫날 일정 ·/));
+ 163    fireEvent.press(view.getByText(&#x27;연결 안 함&#x27;));
+ 164    await act(async () =&gt; fireEvent.press(view.getByText(&#x27;저장&#x27;)));
+ 165    await waitFor(() =&gt; expect(local).toHaveBeenCalledWith(expect.objectContaining({ scheduleId: null })));
+ 166    expect(remote).not.toHaveBeenCalled();
+ 167  });
+ 168  
+ 169  it(&#x27;비활성 unknown은 초안과 연결을 표시하고 Router가 저장을 막으며 online 복구 후 명시적 재시도만 저장한다&#x27;, async () =&gt; {
+ 170    mockActive = false;
+ 171    const view = await open();
+ 172    connect(&#x27;unknown&#x27;);
+ 173    fireEvent.changeText(view.getByPlaceholderText(&#x27;예: 에펠탑 입장권&#x27;), &#x27;확인 중에도 수정&#x27;);
+ 174    expect(view.getByText(/첫날 일정 ·/)).toBeTruthy();
+ 175    await act(async () =&gt; fireEvent.press(view.getByText(&#x27;저장&#x27;)));
+ 176    await waitFor(() =&gt; expect(view.getByText(/마지막 저장 실패: 인터넷 연결을 아직 확인하지 못했어요/)).toBeTruthy());
+ 177    expect(local).not.toHaveBeenCalled();
+ 178    expect(remote).not.toHaveBeenCalled();
+ 179    expect(mockExit).not.toHaveBeenCalled();
+ 180    connect(&#x27;online&#x27;);
+ 181    expect(view.getByDisplayValue(&#x27;확인 중에도 수정&#x27;)).toBeTruthy();
+ 182    expect(remote).not.toHaveBeenCalled();
+ 183    await act(async () =&gt; fireEvent.press(view.getByText(&#x27;저장&#x27;)));
+ 184    await waitFor(() =&gt; expect(remote).toHaveBeenCalledTimes(1));
+ 185    expect(remote).toHaveBeenCalledWith(expect.objectContaining({ title: &#x27;확인 중에도 수정&#x27;, scheduleId: &#x27;01ARZ3NDEKTSV4RRFFQ69G5FAW&#x27; }));
+ 186  });
+ 187  
+ 188  it(&#x27;비활성의 실제 offline/display online 캐시도 새 후보 선택을 제한하지만 연결 해제는 가능하다&#x27;, async () =&gt; {
+ 189    mockActive = false;
+ 190    const view = await open();
+ 191    connect(&#x27;offline&#x27;, &#x27;online&#x27;);
+ 192    expect(view.getByText(/첫날 일정 ·/)).toBeTruthy();
+ 193    expect(view.queryByText(&#x27;다음날 일정&#x27;)).toBeNull();
+ 194    await act(async () =&gt; fireEvent.press(view.getByText(&#x27;연결 안 함&#x27;)));
+ 195    expect(view.getByText(&#x27;연결된 일정이 없습니다.&#x27;)).toBeTruthy();
+ 196    expect(view.getByDisplayValue(&#x27;작성 중 경비&#x27;)).toBeTruthy();
+ 197  });</pre></details><details id="connection"><summary>apps/client/src/features/expense/expense-form/ExpenseScheduleField.tsx · 39–64행</summary><pre>  39  export function ExpenseScheduleField({ tripId, expenseDate, value, onChange, error, enabled = true }: Props) {
+  40    const { view, access, actions } = useTripSchedulesReadQuery(tripId, { enabled });
+  41    const schedules = view.kind === &#x27;ready&#x27; ? view.data : [];
+  42    const selected = schedules.find((schedule) =&gt; schedule.id === value);
+  43    const selectedLabel = selected ? scheduleLabel(selected) : undefined;
+  44    const remembered = useRef&lt;{ tripId: string; id: string; label: string } | null&gt;(null);
+  45    useLayoutEffect(() =&gt; {
+  46      if (selectedLabel &amp;&amp; value) remembered.current = { tripId, id: value, label: selectedLabel };
+  47    }, [tripId, value, selectedLabel]);
+  48    const canSelect = view.kind === &#x27;ready&#x27; &amp;&amp; access.canFetch;
+  49    const blockedPolicy = access.block?.reason === &#x27;policy&#x27; ? access.block.policy : undefined;
+  50    const label =
+  51      selectedLabel ??
+  52      (remembered.current?.tripId === tripId &amp;&amp; remembered.current.id === value
+  53        ? remembered.current.label
+  54        : &#x27;기존 일정 연결을 유지합니다.&#x27;);
+  55    const scheduleList = useRef&lt;ScrollView&gt;(null);
+  56    const groupOffsets = useRef&lt;Record&lt;string, number&gt;&gt;({});
+  57    const hasScrolledToExpenseDate = useRef(false);
+  58    const expenseDay = expenseDate;
+  59    const groups = groupSchedulesByDate(schedules);
+  60  
+  61    const scrollToExpenseDate = () =&gt; {
+  62      scheduleList.current?.scrollTo({ y: groupOffsets.current[expenseDay] ?? 0, animated: false });
+  63    };
+  64  </pre></details></section><footer>제품 코드와 Ticket 상태는 변경하지 않았습니다. 이 보고서는 Ticket 완료·사용자 수락을 선언하지 않습니다.</footer></main></body></html>

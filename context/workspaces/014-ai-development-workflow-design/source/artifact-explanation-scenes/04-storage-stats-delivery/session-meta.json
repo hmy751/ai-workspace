@@ -1,0 +1,50 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-06-01a08ff3-0e91-7921-afe4-69f0968638ef.jsonl",
+  "id": "01a08ff3-0e91-7921-afe4-69f0968638ef",
+  "time": "2026-09-11T10:11:06.024Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 15784433,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "8fa8db87418cb661d0a8fcf07152198b633060be09253aceb7793bb7657517a2",
+  "classification": "conversation",
+  "messages": 164,
+  "characters": 72070,
+  "user_messages": 37,
+  "first_prompt": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/03-storage-stats.md\n\n여기 티켓 확인해봐 \n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 1525,
+    "response_item": 1327,
+    "world_state": 12,
+    "turn_context": 35,
+    "token_usage_record": 365,
+    "inter_agent_communication_metadata": 8,
+    "compacted": 3
+  },
+  "excluded": {
+    "runtime_wrapper": 3
+  },
+  "tool_events": 662,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 46969038,
+    "cached_input_tokens": 46277888,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 181088,
+    "reasoning_output_tokens": 78478,
+    "total_tokens": 47150126
+  },
+  "first_time": "2026-09-11T10:11:14.998Z",
+  "last_time": "2026-09-11T13:53:18.448Z"
+}

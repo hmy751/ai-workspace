@@ -1,0 +1,108 @@
+{
+  "session_id": "01a0c6c9-a603-77a2-8abe-50fc7e0814b0",
+  "compressed_source": {
+    "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T10-44-59-01a0c6c9-a603-77a2-8abe-50fc7e0814b0.jsonl.zst",
+    "sha256": "adaa94404bb026f1181344d28f17f3e4f36516f15e92c60967c4fe4f83b29e67",
+    "physical_source_lines": [
+      25,
+      27,
+      32,
+      34,
+      37,
+      39,
+      42,
+      44
+    ],
+    "record_ordinals": [
+      24,
+      26,
+      31,
+      33,
+      36,
+      38,
+      41,
+      43
+    ]
+  },
+  "decoded_sha256": "e29a556e9414932a40850ee2d0d4ffbcef67abe9e93b83f94ee39fde1a50fa0c",
+  "matches_corpus_meta": true,
+  "files": [
+    {
+      "file": "observed/auth-selected-raw-events.jsonl",
+      "status": "raw_exact",
+      "provenance": "auth_compressed_rollout; physical source_lines 25,27,32,34,37,39,42,44; original JSONL records byte-for-byte",
+      "sha256": "aea39169ac72de2643a74e9e520e695b23dcc1ae40b736e433e9ba5f34d9f6cf",
+      "bytes": 55039
+    },
+    {
+      "file": "observed/auth-interceptor-user20.raw.txt",
+      "status": "text_extraction",
+      "provenance": "auth_user_corpus source_line 20; extracted user text; not original JSONL bytes",
+      "sha256": "96172e8f174de49f53f66369b69ddd11270bb71addadd4d5c3a7689fb5381441",
+      "bytes": 3998
+    },
+    {
+      "file": "observed/auth-interceptor-observed-20260922-0155Z.ts",
+      "status": "observed_output_extraction",
+      "provenance": "auth_compressed_rollout source_line 39; payload.output result for sed -n 1,180p apps/client/src/shared/services/auth/auth-interceptor.ts; full printed file; extraction adds trailing newline",
+      "sha256": "ebf7a16e26e5347518ecc5d2a82a8c4933c62e4c4c08f0ac6a07b2c217553a4f",
+      "bytes": 3547
+    },
+    {
+      "file": "observed/auth-store-observed-part1.txt",
+      "status": "observed_output_extraction",
+      "provenance": "auth_compressed_rollout source_line 39; sed -n 1,250p apps/client/src/shared/store/auth.ts",
+      "sha256": "7755f36a45fa8be93e13927d28f120e80fd1cd85e1877471e909dc92eaac2dee",
+      "bytes": 8761
+    },
+    {
+      "file": "observed/auth-store-observed-part2.txt",
+      "status": "observed_output_extraction",
+      "provenance": "auth_compressed_rollout source_line 44; sed -n 240,310p apps/client/src/shared/store/auth.ts",
+      "sha256": "87ae42bfe03d6c45690f562626c835b6c3b296c17162dbec277404eb0e371a60",
+      "bytes": 826
+    },
+    {
+      "file": "observed/auth-store-observed-20260922-0155Z.ts",
+      "status": "stitched_observed_output",
+      "provenance": "first 239 lines of part1 plus part2 lines 240 through end; overlapping source lines 240-250 byte-identical; complete as printed in two reads, not original working-tree byte copy",
+      "sha256": "d7fd2d0f2902104d2165636552e325e6f8992d650d3f0c2a432f8d6d784bead3",
+      "bytes": 9290
+    },
+    {
+      "file": "observed/auth-transport-observed-20260922-0155Z.ts",
+      "status": "observed_output_extraction",
+      "provenance": "auth_compressed_rollout source_line 39; sed -n 1,110p apps/client/src/shared/services/auth/auth-transport.ts; full 15-line printed file",
+      "sha256": "629ac9ea294f5882dec0857baba7207482ae1094d0e8616796cac505477dfb7e",
+      "bytes": 665
+    },
+    {
+      "file": "observed/auth-consumers-observed-excerpts-20260922-0155Z.txt",
+      "status": "observed_output_excerpts",
+      "provenance": "auth_compressed_rollout source_lines 39 and 44; selected command headers/results for sync/auth APIs, fetcher and Axios instances; partial file ranges",
+      "sha256": "5732e8d9cb961ad9793d6b5313defcfbf7ef07209673efa30e06bd9805cb96f6",
+      "bytes": 9105
+    },
+    {
+      "file": "later-reference/auth-interceptor-62ce226.ts",
+      "status": "git_later_proxy",
+      "provenance": "git show 62ce226792b5dfa03158a044cbed0a405f7e172a:apps/client/src/shared/services/auth/auth-interceptor.ts; commit after explanation",
+      "sha256": "c62a57c1feed8b9d5f16b73f39514399cc8657fa6a284defca0343a4b6685b6f",
+      "bytes": 3533
+    },
+    {
+      "file": "later-reference/auth-store-62ce226.ts",
+      "status": "git_later_proxy",
+      "provenance": "git show 62ce226792b5dfa03158a044cbed0a405f7e172a:apps/client/src/shared/store/auth.ts; commit after explanation",
+      "sha256": "a43f2155bab99557b75149cb7df1646e02a71bff2f0f16368b3b6568ede3c975",
+      "bytes": 9235
+    },
+    {
+      "file": "later-reference/auth-transport-62ce226.ts",
+      "status": "git_later_proxy",
+      "provenance": "git show 62ce226792b5dfa03158a044cbed0a405f7e172a:apps/client/src/shared/services/auth/auth-transport.ts; commit after explanation",
+      "sha256": "8febccb75142680ba9eaea3bba7724db49417a52f02fe6e856fadda4537f5105",
+      "bytes": 664
+    }
+  ]
+}

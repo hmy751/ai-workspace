@@ -1,0 +1,142 @@
+{
+  "checked_at": "2026-10-22T03:48:30.982728+00:00",
+  "purpose": "source preservation verification, not response generation or skill effectiveness test",
+  "new_scenes": [
+    {
+      "scene": "02-auth-interceptor",
+      "selections": [
+        {
+          "part": "input",
+          "count": 3,
+          "source_lines": [
+            9,
+            20
+          ]
+        },
+        {
+          "part": "evaluation",
+          "count": 8,
+          "source_lines": [
+            24,
+            77
+          ]
+        }
+      ],
+      "byte_identity": true,
+      "contiguous_coverage": true,
+      "reading_copy_only_delimiters": true,
+      "metadata_identity": true,
+      "manifest_hashes": true,
+      "nontext_references": []
+    },
+    {
+      "scene": "03-network-flow",
+      "selections": [
+        {
+          "part": "prior-context",
+          "count": 34,
+          "source_lines": [
+            9,
+            844
+          ]
+        },
+        {
+          "part": "input",
+          "count": 23,
+          "source_lines": [
+            895,
+            1209
+          ]
+        },
+        {
+          "part": "evaluation",
+          "count": 5,
+          "source_lines": [
+            1212,
+            1258
+          ]
+        }
+      ],
+      "byte_identity": true,
+      "contiguous_coverage": true,
+      "reading_copy_only_delimiters": true,
+      "metadata_identity": true,
+      "manifest_hashes": true,
+      "nontext_references": []
+    },
+    {
+      "scene": "04-storage-stats-delivery",
+      "selections": [
+        {
+          "part": "prior-context",
+          "count": 73,
+          "source_lines": [
+            9,
+            1542
+          ]
+        },
+        {
+          "part": "input",
+          "count": 50,
+          "source_lines": [
+            1549,
+            2456
+          ]
+        },
+        {
+          "part": "evaluation",
+          "count": 14,
+          "source_lines": [
+            2464,
+            2645
+          ]
+        }
+      ],
+      "byte_identity": true,
+      "contiguous_coverage": true,
+      "reading_copy_only_delimiters": true,
+      "metadata_identity": true,
+      "manifest_hashes": true,
+      "nontext_references": [
+        {
+          "part": "input",
+          "source_line": 1720,
+          "types": [
+            "input_image"
+          ]
+        },
+        {
+          "part": "input",
+          "source_line": 1933,
+          "types": [
+            "input_image"
+          ]
+        },
+        {
+          "part": "input",
+          "source_line": 2089,
+          "types": [
+            "input_image"
+          ]
+        }
+      ]
+    }
+  ],
+  "existing_01_manifest_files_verified": 58,
+  "new_public_messages": 210,
+  "errors": [],
+  "administrative_relative_links_checked": 46,
+  "broken_links": [],
+  "missing_image_payloads_documented": [
+    1720,
+    1933,
+    2089
+  ],
+  "updated_manifest_hashes_verified": true,
+  "review_record": "../../2026-10-22-ticket04-02-source-expansion-review.md",
+  "review_resolution": {
+    "network_prior_context_added_and_verified": true,
+    "missing_image_payloads_documented": true,
+    "unresolved_boundary_findings": 0
+  }
+}

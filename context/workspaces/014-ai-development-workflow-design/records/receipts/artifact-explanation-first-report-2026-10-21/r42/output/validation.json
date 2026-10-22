@@ -1,0 +1,41 @@
+{
+  "checks": [
+    {
+      "file": "02-foreground.html",
+      "bytes": 15376,
+      "links": 9,
+      "evidence_sections": 5,
+      "status": "static structure and local links checked"
+    },
+    {
+      "file": "03-ux.html",
+      "bytes": 23846,
+      "links": 9,
+      "evidence_sections": 7,
+      "status": "static structure and local links checked"
+    },
+    {
+      "file": "04-dates.html",
+      "bytes": 16050,
+      "links": 11,
+      "evidence_sections": 6,
+      "status": "static structure and local links checked"
+    },
+    {
+      "file": "05-scope.html",
+      "bytes": 23510,
+      "links": 12,
+      "evidence_sections": 10,
+      "status": "static structure and local links checked"
+    },
+    {
+      "file": "index.html",
+      "bytes": 4770,
+      "links": 5,
+      "evidence_sections": 0,
+      "status": "static structure and local links checked"
+    }
+  ],
+  "browser_rendered": false,
+  "screenshots_present": false
+}

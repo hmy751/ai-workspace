@@ -1,0 +1,61 @@
+--- original/CLAUDE.md
++++ r63/CLAUDE.md
+@@ -181,3 +181,7 @@
+ - 작업 생성·논의·재판단·작업물 설명·설명 복구는 [skill 색인](.claude/skills/README.md)의 각 호출 조건을 따른다. 새 독립·후속 Workspace 생성에는 create-context-workspace를 사용하고 기존 Workspace 수정에는 다시 호출하지 않는다.
+ - Spec·Ticket·state와 Main·Maintain의 역할은 [운영 기준](context/work/workspaces/spec-and-tickets/README.md)이 소유한다. 스킬 호출을 session activation이나 실제 문서 반영으로 간주하지 않는다.
+ - Maintain 연결·전환·해제는 [session binding 계약](context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md)을 따른다. Main은 사용자가 명시한 현재 session에만 control을 실행하며 subagent에게 위임하지 않는다. active index나 대화 주제로 binding을 추론하지 않는다.
++
++## 조사·검토·구현의 첫 결과 전달
++
++조사·검토·구현을 수행해 첫 결과를 전달할 때는 [.claude/runbooks/first-result-report.md](.claude/runbooks/first-result-report.md)를 읽고 적용한다.
+--- original/.claude/runbooks/first-result-report.md
++++ r63/.claude/runbooks/first-result-report.md
+@@ -0,0 +1,17 @@
++# 조사·검토의 첫 결과보고
++
++Main은 작업을 시작하고 결과를 받는 과정에서, 이번 판단이 답해야 할 질문과 확보한 근거를 대조한다.
++
++- 위임할 때는 필요한 대상·조건과 수집·해석의 담당을 전달한다.
++- 반환된 자료가 그 질문에 답하는지 확인한다.
++- 중요한 간극이 남으면 결론에 미치는 영향, 허용 범위와 확인 비용·제약을 따져 필요한 확인을 이어가거나 현재 결론의 범위를 제한한다.
++- 미확인 표시는 조사 종료의 이유를 대신하지 않는다.
++
++첫 결과를 전달할 때는 원래 문제와 이번 결과를 연결해 현재 답·근거·남은 문제와 그에 따른 행동을 종합한다.
++
++- 실제로 마친 조사·수정·확인과 남은 작업을 구별한다.
++- 자료 수집이나 보고서 파일 생성만으로 맡은 검토가 끝났다고 보고하지 않는다.
++- 이 설명은 사용자 재질문을 기다리지 않고 작업 결과의 일부로 수행한다.
++
++
++첫 결과를 설명할 때 [설명과 근거 기준](../../context/project/guidance/explanation-and-evidence-criteria.md)을 읽고 적용한다.
+--- original/context/project/guidance/explanation-and-evidence-criteria.md
++++ r63/context/project/guidance/explanation-and-evidence-criteria.md
+@@ -2,9 +2,9 @@
+ 
+ ## 적용과 수명
+ 
+-이 문서는 `work-discussion`, `explanation-recovery`, `work-artifact-briefing` 중 하나가 현재 요청에 적용돼 이 기준을 읽을 때만 사용한다. Skill별 호출 조건과 실행 방법은 각 `SKILL.md`가 소유하며, 이 문서가 일반 대화나 모든 AI 응답에 자동 적용되는 상위 workflow가 되지 않는다.
++이 문서는 `work-discussion`, `explanation-recovery`, `work-artifact-briefing`이 적용되거나, 작업 수행 절차가 조사·검토·구현의 첫 결과를 설명하는 기준으로 명시해 사용할 때 적용한다. Skill별 호출과 행동은 각 SKILL.md가, 조사·구현·검토의 수행과 종료는 해당 작업 절차가 소유한다. 이 문서가 일반 대화와 모든 응답의 자동 적용 workflow가 되지는 않는다.
+ 
+-Project의 source·authority 계약이나 세 skill의 역할이 바뀌거나, 실제 사용에서 이 기준이 중요한 차이를 반복해서 놓치거나 불필요한 부담을 만들면 다시 판단한다. 세 consumer가 모두 없어지거나 같은 책임을 더 가까운 current canonical이 소유하면 제거하거나 그 Owner로 합친다.
++Project의 source·authority 계약이나 세 skill의 역할이 바뀌거나, 실제 사용에서 이 기준이 중요한 차이를 반복해서 놓치거나 불필요한 부담을 만들면 다시 판단한다. 이 기준을 사용하는 스킬과 작업 절차가 모두 없어지거나 같은 책임을 더 가까운 current canonical이 소유하면 제거하거나 그 Owner로 합친다.
+ 
+ 관련 Project-wide 설명 계약을 바꾸는 작업 주체가 이 문서와 [`guidance index`](README.md), consumer link를 함께 유지한다. 제품 의미·중요 제약·최종 acceptance를 새로 정하거나 바꾸려면 사용자 결정이 먼저다.
+ 
+@@ -53,7 +53,7 @@
+ 
+ 직접 답부터 주고, 답을 바꾸는 전제·현재성·근거 한계만 필요한 깊이로 펼친다. 작은 작업이라는 이유만으로 중요한 조건을 삭제하지 않고, 정확하다는 이유로 관련 없는 배경까지 모두 펼치지 않는다.
+ 
+-현재 질문에 답했고, 결론의 의미를 바꾸는 미확정·미수행·사람 판단이 있다면 그것이 보이면 현재 응답을 끝낸다. 구체적인 조사 순서와 결과 형상은 호출된 skill의 종료 조건을 따른다. 사용자의 침묵이나 짧은 동의를 `이해 완료`로 저장하거나 quiz·재진술·형식적 승인을 기본으로 요구하지 않는다.
++현재 질문에 답했고, 결론의 의미를 바꾸는 미확정·미수행·사람 판단이 있다면 그것이 보이면 현재 응답을 끝낸다. 구체적인 조사 순서와 결과 형상은 적용된 skill 또는 작업 절차의 종료 조건을 따른다. 사용자의 침묵이나 짧은 동의를 `이해 완료`로 저장하거나 quiz·재진술·형식적 승인을 기본으로 요구하지 않는다.
+ 
+ ## 판단과 부작용 경계
+ 
+--- original/.claude/skills/README.md
++++ r63/.claude/skills/README.md
+@@ -34,3 +34,5 @@
+ 다른 Project에 이식할 때는 이 목록과 실제 디렉터리·호출 설정·연결·공통 기준을 함께 확인한다. 기존 동명 또는 같은 책임의 스킬과 비교해 설치·적응·제외를 정하고, 기존 guidance 색인을 병합한다. 이 색인과 스킬 본문이 다른 Project의 현재 제품 맥락을 소유하지 않는다.
+ 
+ 스킬을 제거하거나 교체해도 Spec·Ticket·state와 Project·Workspace 운영 계약은 그대로 남는다. 관련 스킬·도구 연결·이 색인을 함께 정리하고, 공통 설명 기준은 해당 문서의 consumer와 제거 조건을 따른다.
++
++조사·검토·구현의 첫 결과보고는 [작업 절차](../runbooks/first-result-report.md)를 통해 공통 설명과 근거 기준을 사용한다.

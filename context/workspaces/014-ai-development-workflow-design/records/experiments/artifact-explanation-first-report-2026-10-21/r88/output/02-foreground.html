@@ -1,0 +1,142 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>② 앱 복귀 시 네트워크 재확인 · Ticket 06</title><style>*{box-sizing:border-box}body{margin:0;background:#f3f5f8;color:#172238;font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1080px;margin:auto;padding:32px 24px 70px}nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}nav a,.button{background:white;padding:7px 13px;border-radius:9px;text-decoration:none;border:1px solid #d5dce6;color:#184c78}h1{font-size:34px;line-height:1.3;margin:12px 0 20px}h2{font-size:23px;margin:0 0 16px}h3{font-size:18px}p{margin:10px 0 18px}.eyebrow{font-size:13px;letter-spacing:.06em;color:#657188}.lead{font-size:20px;font-weight:600}section{background:white;border:1px solid #e0e5ec;border-radius:16px;padding:25px;margin:20px 0}.limit{background:#fff4dc;border-left:4px solid #cd8a13;padding:15px 20px;border-radius:8px}.status{color:#386a53;font-weight:600}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{vertical-align:top;text-align:left;border-bottom:1px solid #e3e8ee;padding:13px 12px}th{background:#f0f4f8;white-space:nowrap}details{margin:14px 0;border:1px solid #dce3eb;border-radius:9px;padding:10px 14px}summary{cursor:pointer;font-weight:600}.path{font-size:12px;overflow-wrap:anywhere;color:#657188}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#172238;color:#e5edf6;padding:18px;border-radius:9px;font-size:12px;line-height:1.7}footer{font-size:13px;color:#657188}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.card{background:white;border:1px solid #dce3eb;border-radius:12px;padding:22px;color:inherit;text-decoration:none}.card strong{display:block;color:#184c78}.badge{display:inline-block;background:#e6eef8;padding:2px 9px;border-radius:4px;font-size:12px}@media(max-width:600px){main{padding:18px 12px}h1{font-size:27px}section{padding:18px}td,th{min-width:120px}}@media print{nav{display:none}body{background:white}section{break-inside:avoid}details{display:block}}</style></head><body><main><nav><a href="index.html">보고서 모음</a><a href="02-foreground.html">② 앱 복귀 시 네트워크 재확인</a><a href="03-ux.html">③ 목록·상세·폼 종합 UX</a><a href="04-dates.html">④ 홈·목록 날짜 차이</a><a href="05-scope.html">⑤ 보류·후속 티켓 경계</a></nav><div class="eyebrow">TICKET 06 · 제공된 0b3b167 스냅샷 기준</div><h1>② 앱 복귀 시 네트워크 재확인</h1><p class="lead">앱 복귀 사건과 재확인 기능을 잇는 작업이 남아 있습니다.</p><aside class="limit"><strong>화면 증거 미확보</strong><br>시뮬레이터·DB·기존 HTML과 캡처가 제공되지 않았습니다. 새 스크린샷은 없으며, 이 보고서는 제공된 코드·검사 본문·티켓과 제한된 날짜 실행을 근거로 작성했습니다. 과거 대화의 실행 보고는 이번 직접 관찰과 구별합니다.</aside><section><h2>현재 답</h2><p>기존 네트워크 재확인 기능은 있지만, 앱이 백그라운드에서 돌아올 때 호출하는 연결은 없습니다. 따라서 Store의 중복·지연 응답 방어가 있어도 앱 복귀 시의 오래된 관측을 적극 갱신하는 경로는 완성되지 않았습니다.</p><p>앱 소스와 테스트에서 AppState 사용을 검색했으며 찾지 못했습니다. NetInfo 자체 listener가 상태 변화를 전달할 수 있으므로 “복귀하면 반드시 stale하다”는 재현 결론까지 내릴 수는 없습니다.</p></section><section><h2>어디까지 연결되어 있나</h2><div class="scroll"><table><thead><tr><th>경계</th><th>확인한 구현</th><th>보장 한계</th></tr></thead><tbody><tr><td>앱 수명</td><td>AppInitialization이 mount 시 networkStore.init(), 해제 시 cleanup()</td><td>background → active 사건의 구독과 refresh 호출 없음</td></tr><tr><td>재확인</td><td>Network Store의 refresh()가 NetInfo.refresh() 호출</td><td>완료 자체를 online으로 간주하지 않음</td></tr><tr><td>동시 호출</td><td>activeRefresh.promise 공유</td><td>foreground 호출과의 결합 검사는 새로 필요</td></tr><tr><td>늦은 응답</td><td>세션·작업 identity와 observationRevision 대조</td><td>구현·mock 검사 본문 확인, native 실행 미확인</td></tr><tr><td>화면과 sync</td><td>조회 조합은 정책을 소비하고 SyncProvider는 realStatus 변화로 eligibility 계산</td><td>복귀 사건부터 실제 화면·sync까지의 실행 관찰 없음</td></tr></tbody></table></div></section><section><h2>구현할 결과와 확인 순서</h2><p>앱 수명을 맡는 application 경계에서 background/inactive에서 active로 돌아오는 전환을 감지해 기존 refresh()를 호출하는 것이 적절합니다. 초기 mount와 반복 active 알림을 전환으로 오인하지 않고, 해제 시 listener를 정리해야 합니다. 이전 상태가 online·offline·unknown 어느 것이든 같은 재확인 경로를 사용합니다.</p><p>새 polling·강제 unknown 전환은 필요하지 않습니다. 수동 재확인과 겹침, 빠른 왕복, 해제 후 응답, refresh 뒤 더 최신 listener 도착을 결합 검사하고, 실제 한 번의 앱 왕복에서 관측·화면 제한·sync 시작을 함께 확인하면 됩니다.</p></section><section><h2>증거</h2><details><summary>앱 수명은 시작·정리만 연결</summary><p class="path">apps/client/src/application/AppInitialization.tsx:62</p><pre>  62 
+  63   useEffect(() =&gt; {
+  64     networkStore.init();
+  65     void initializeApp();
+  66 
+  67     return () =&gt; {
+  68       // 이전 실행의 늦은 완료가 다음 실행이나 해제된 화면에 반영되지 않게 한다.
+  69       activeAttempt.current = null;
+  70       networkStore.cleanup();
+  71     };
+  72   }, [initializeApp]);
+  73 
+  74   useEffect(() =&gt; {
+  75     if (startupStatus === &#x27;preparing&#x27;) {
+  76       return;
+  77     }
+  78 </pre></details><details><summary>동시 재확인 공유와 unknown 안내 재시작</summary><p class="path">apps/client/src/shared/store/network.ts:128</p><pre> 128       startUnknownCheck(session);
+ 129     }
+ 130 
+ 131     if (!ensureSubscribed(session)) {
+ 132       return Promise.resolve();
+ 133     }
+ 134 
+ 135     const operation = createRefreshOperation(session);
+ 136 
+ 137     // refresh()의 반환 Promise는 operation.promise가 담당한다.
+ 138     // 실제 NetInfo 조회는 별도로 시작한다.
+ 139     void performRefresh(operation);
+ 140 
+ 141     return operation.promise;
+ 142   }
+ 143 
+ 144   /*
+ 145    * ---------------------------------------------------------------------------
+ 146    * Session
+ 147    * ---------------------------------------------------------------------------
+ 148    */
+ 149 
+ 150   function createSession(): NetworkSession {
+ 151     return {
+ 152       unsubscribe: null,
+ 153       unknownCheckTimer: null,
+ 154       observationRevision: 0,
+ 155       activeRefresh: null,
+ 156     };
+ 157   }
+ 158 </pre></details><details><summary>최신 listener 관측을 지키는 조건</summary><p class="path">apps/client/src/shared/store/network.ts:301</p><pre> 301         session.activeRefresh === operation &amp;&amp;
+ 302         session.observationRevision === startingRevision
+ 303       );
+ 304     }
+ 305 
+ 306     function finish() {
+ 307       if (finished) {
+ 308         return;
+ 309       }
+ 310 
+ 311       finished = true;
+ 312 
+ 313       if (timeout !== null) {
+ 314         clearTimeout(timeout);
+ 315         timeout = null;
+ 316       }
+ 317 
+ 318       if (session.activeRefresh === operation) {</pre></details><details><summary>동시 refresh 검사 본문 — 이번 실행 없음</summary><p class="path">apps/client/tests/shared/store/network.test.ts:222</p><pre> 222 describe(&#x27;재확인 작업과 완료 처리&#x27;, () =&gt; {
+ 223   it(&#x27;동시 refresh는 같은 완료 Promise를 공유하며 미확정 응답을 online으로 추정하지 않는다&#x27;, async () =&gt; {
+ 224     networkStore.init();
+ 225     const pendingRefreshResult = createDeferredRefreshResult();
+ 226     refreshMock.mockReturnValue(pendingRefreshResult.promise);
+ 227 
+ 228     const firstRefreshPromise = networkStore.refresh();
+ 229 
+ 230     // 요청 횟수뿐 아니라 호출자들이 같은 완료 Promise를 받는지도 확인한다.
+ 231     expect(networkStore.refresh()).toBe(firstRefreshPromise);
+ 232     expect(refreshMock).toHaveBeenCalledTimes(1);
+ 233     expect(useNetworkStore.getState().isRefreshing).toBe(true);
+ 234 
+ 235     pendingRefreshResult.resolve(createObservation(true, null));
+ 236     await firstRefreshPromise;
+ 237 
+ 238     expect(networkStore.realStatus).toBe(&#x27;unknown&#x27;);
+ 239     expect(useNetworkStore.getState().isRefreshing).toBe(false);
+ 240 
+ 241     jest.advanceTimersByTime(10_000);
+ 242 
+ 243     expect(useNetworkStore.getState().checkStatus).toBe(&#x27;unavailable&#x27;);
+ 244 
+ 245     emitObservation(true, true);
+ 246 
+ 247     expect(networkStore.realStatus).toBe(&#x27;online&#x27;);
+ 248   });</pre></details><details><summary>오래된 결과 검사 본문 — 이번 실행 없음</summary><p class="path">apps/client/tests/shared/store/network.test.ts:297</p><pre> 297   it(&#x27;새 listener 관측 뒤 도착한 오래된 refresh 결과나 실패는 상태를 덮지 않는다&#x27;, async () =&gt; {
+ 298     networkStore.init();
+ 299     const olderRefreshResult = createDeferredRefreshResult();
+ 300     refreshMock.mockReturnValueOnce(olderRefreshResult.promise);
+ 301 
+ 302     const firstRefreshPromise = networkStore.refresh();
+ 303     // listener의 새 관측을 먼저 반영한 뒤, 이전 요청의 상반된 결과를 도착시킨다.
+ 304     emitObservation(true, true);
+ 305     olderRefreshResult.resolve(createObservation(false, false));
+ 306     await firstRefreshPromise;
+ 307 
+ 308     expect(networkStore.realStatus).toBe(&#x27;online&#x27;);
+ 309 
+ 310     const failedRefreshResult = createDeferredRefreshResult();
+ 311     refreshMock.mockReturnValueOnce(failedRefreshResult.promise);
+ 312 
+ 313     const secondRefreshPromise = networkStore.refresh();
+ 314     emitObservation(true, null);
+ 315     failedRefreshResult.reject(new Error(&#x27;이전 확인 실패&#x27;));
+ 316     await secondRefreshPromise;
+ 317 
+ 318     expect(useNetworkStore.getState().checkStatus).toBe(&#x27;checking&#x27;);
+ 319   });</pre></details><details><summary>실제 연결 변화의 sync 소비</summary><p class="path">apps/client/src/shared/services/sync/provider.tsx:35</p><pre>  35   const authStatus = useAuthStore((state) =&gt; state.status);
+  36   const sessionId = useAuthStore((state) =&gt; state.sessionId);
+  37   const networkStatus = useNetworkStore((state) =&gt; state.realStatus);
+  38   const overrideStatus = useNetworkStore((state) =&gt; state.overrideStatus);
+  39   const isPaused = useSyncLifecycleStore((state) =&gt; state.isPaused);
+  40   const isSyncing = useSyncLifecycleStore((state) =&gt; state.isSyncing);
+  41   const lastSyncedAt = useSyncLifecycleStore((state) =&gt; state.lastSyncedAt);
+  42   const previousEligibilityRef = useRef&lt;boolean | null&gt;(null);
+  43   const previousSessionRef = useRef(sessionId);
+  44 
+  45   useEffect(() =&gt; {
+  46     const eligible = getSyncBlockReason() === null;
+  47     const previousEligibility = previousSessionRef.current === sessionId ? previousEligibilityRef.current : null;
+  48     previousSessionRef.current = sessionId;
+  49     previousEligibilityRef.current = eligible;
+  50 
+  51     if (!eligible || previousEligibility === true) {
+  52       return;
+  53     }
+  54 
+  55     void executeSync(previousEligibility === null ? &#x27;app-startup&#x27; : &#x27;conditions-ready&#x27;);
+  56   }, [authStatus, sessionId, networkStatus, overrideStatus, isPaused]);
+  57 
+  58   useEffect(() =&gt; {
+  59     if (!enablePeriodicSync) {
+  60       return;
+  61     }
+  62 
+  63     console.info(&#x27;[Sync] periodic sync enabled&#x27;, { intervalMs: syncInterval });
+  64     const intervalId = setInterval(() =&gt; {
+  65       void executeSync(&#x27;periodic&#x27;);</pre></details></section><section><h2>수집해야 할 화면과 기록</h2><p>동일한 여행을 유지한 채 online으로 나가기 → 연결을 바꾸고 돌아오기 → 제한 안내 → 다시 online 복귀를 수집합니다. 스크린샷만으로 refresh 횟수나 sync 중복은 판별하기 어려우므로 AppState·재확인 호출 횟수·최신 realStatus 기록도 필요합니다. 이 자료는 이번에는 수집하지 못했습니다.</p></section><footer>코드·티켓은 읽기 전용으로 조사했습니다. Jest·실앱·서버 DB 검증은 이번에 실행하지 않았습니다. 작성일 2026-10-21. 코드 근거는 접힌 영역에서 원문과 줄 번호로 확인할 수 있습니다.</footer></main></body></html>

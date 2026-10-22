@@ -1,0 +1,57 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>⑤ 보류·후속 티켓 경계</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#1e293b;font:16px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}main{max-width:1080px;margin:auto;padding:35px 24px 80px}a{color:#235ca7}nav{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;margin-bottom:28px}header{padding:28px 32px;background:#153f42;color:white;border-radius:20px}header p{color:#deefec}h1{font-size:32px;line-height:1.35;margin:12px 0}h2{font-size:23px;margin:0 0 16px}h3{font-size:18px}section{background:white;border:1px solid #dce3e8;padding:28px;border-radius:16px;margin-top:22px}.tag{display:inline-block;padding:3px 10px;background:#d9ede6;color:#145642;border-radius:6px;font-size:13px}.warning{background:#fff5df;border-left:4px solid #bd8522;padding:16px;margin-top:18px}.lead{font-size:19px;font-weight:600}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;vertical-align:top;padding:13px;border-bottom:1px solid #dce3e8}th{background:#edf3f5}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.6;background:#edf2f6;padding:16px;border-radius:8px}summary{cursor:pointer;font-weight:600}details{margin:14px 0}.muted,figcaption,footer{font-size:13px;color:#536779}.empty{padding:22px;border:2px dashed #b8c4cd;border-radius:12px;background:#f8fafc}ul,ol{padding-left:22px}code{overflow-wrap:anywhere}td:first-child{min-width:140px}@media(max-width:650px){main{padding:18px 12px 40px}section,header{padding:19px}h1{font-size:25px}.table{overflow-x:auto}table{min-width:580px}}@media print{body{background:white}section{break-inside:avoid}nav{display:none}}</style></head><body><main><nav><a href="index.html">보고서 모음</a><a href="02-foreground.html">② 앱 복귀 시 네트워크 재확인</a><a href="03-ux-flows.html">③ 목록·상세·폼 종합 UX</a><a href="04-dates.html">④ 홈·목록 날짜 차이</a><a href="05-scope.html">⑤ 보류·후속 티켓 경계</a></nav><header><span class="tag">Ticket 06 · 조사 보고서</span><h1>⑤ 보류·후속 티켓 경계</h1><p>명시적 보류와 후속 담당을 유지하면서, 이미 해결된 선행 조각과 남은 책임을 나눴습니다.</p></header><p class="muted">대상: 제공된 HEAD 0b3b167의 tracked snapshot. Git 메타데이터·당시 실행 환경은 제공되지 않았습니다. 제품 코드 변경 없음.</p><section><h2>판단과 작업 범위</h2><p class="lead">보류는 해결이 아니며, 후속 티켓 전체를 06번에 합칠 필요도 없습니다.</p><p>06은 관측·화면·실행 조건이 같은 정책으로 이어지는지 마무리합니다. 이미 개선한 날짜·폼·sync 조각은 재사용하고 각 티켓이 맡는 나머지 책임을 남깁니다. 기록의 “최초 조사”와 “현재 상태”를 구별해야 이미 고친 문제를 다시 미해결로 올리지 않을 수 있습니다.</p></section><section><h2>사용자가 결정한 보류·비채택</h2><div class="table"><table><thead><tr><th>항목</th><th>현재 근거</th><th>이번 처리</th></tr></thead><tbody><tr><td>경비 삭제 실패 이유 유실</td><td>ExpensesScreen 143~144행 onError가 원인을 받지 않고 일반 실패 문구 표시.</td><td>명시적 보류 유지. 해결 또는 다음 실행 필수 선행으로 처리하지 않음.</td></tr><tr><td>경비 상세 특정 재시도 불일치</td><td>기존 목록 캐시에 대상 ID 없음+Query 오류+Debug online/실제 offline에서 재시도 UI 가능. callback은 canFetch false이면 종료.</td><td>해당 조건의 보류 유지. 모든 재시도 경로가 실패한다고 확대하지 않음.</td></tr><tr><td>복구 토스트</td><td>9월 30일 결정: 네트워크 표시와 제한 해제·내용 복귀를 사용.</td><td>현재 추가하지 않음. 실제 복귀 인지가 어려운 장면이 있어야 재검토.</td></tr></tbody></table></div></section><section><h2>후속 티켓과 재사용할 선행 결과</h2><div class="table"><table><thead><tr><th>담당</th><th>이미 있는 결과</th><th>남은 책임</th></tr></thead><tbody><tr><td>08 날짜·그룹·대표 여행</td><td>공통 UTC 범위, Date 입력 비변경, DST 누락 시각 거부.</td><td>대표 여행 계산·미래 상대시간·날짜 없는 여행·기간 밖 일정·모든 grouping 의미.</td></tr><tr><td>10 일정 폼 수명</td><td>생성 단일 초안·검색 경계·시각 검사·실제 변경만 전송.</td><td>picker 확인·취소·같은/다른 ID 재열기·늦은 데이터와 native modal 조합.</td></tr><tr><td>11 경비 폼 수명</td><td>날짜와 일정 연결 독립, 모든 날짜 후보·해제, 저장 오류·입력 보존.</td><td>늦은 기본 통화·사용자 통화 변경 관계, 재열기·외부 갱신·실제 무효 연결.</td></tr><tr><td>13 저장 후 경로 준비</td><td>입력과 저장 경계의 개선을 재사용.</td><td>500ms 지연·오래된 query 목록·좌표 0 유실·최신 segment와 실패 결과. 이번 source에서도 timer·truthy 좌표 변환 확인.</td></tr><tr><td>14 Local mutation·Router</td><td>대상 여행 분기, row+queue transaction 및 날짜 반환 검사 롤백 등 선행 조각.</td><td>전체 entity write·타입·cache invalidation 계약 대조.</td></tr><tr><td>15 sync 결과·재시도</td><td>FAILED 재전송·뒤 작업 중단, SyncIncompleteError, HTTP 5xx 재시도 기록, pull envelope 검증이 이미 있음.</td><td>cleanup 부분 실패 typed result·IN_PROGRESS 재개·pull 전체 원자성·충돌·cursor. 앞선 결함 전부가 그대로 남은 것은 아님.</td></tr><tr><td>16 미전송 보존·정리</td><td>계정 종료의 PENDING/IN_PROGRESS/FAILED 보호와 vacuum 원본 보존 개선.</td><td>여행별 deactivation/cleanup은 PENDING 중심. 공통 predicate·실제 processed 수·즉시/지연 정리 공통화.</td></tr><tr><td>07·17 HTTP 계약</td><td>Trip·Expense serializer 등 선행 조각.</td><td>Trip client PATCH/server PUT 불일치와 요청·응답·ownership 나머지. 실제 수정 책임 조율 필요.</td></tr></tbody></table></div></section><section><h2>06을 닫기 위한 판단</h2><p>홈 공통 안내, foreground 연결, 목록·상세·폼 UX를 실제 확인 범위와 대조하고 날짜 차이의 처리 경계를 기록해야 합니다. 새 문제가 06이 약속한 사용자 흐름을 직접 막는다면 원인과 담당을 다시 연결합니다. 후속 티켓이 있다는 이유만으로 막힌 흐름을 완료로 처리해서도 안 됩니다.</p><p>최종 수락에는 수정 결과, 자동 검사 범위, native·통신·DB 확인 장면, 명시적 보류와 후속 범위가 구별돼야 합니다. 이번 보고서 작성은 구현·제품 Verify·사용자 acceptance나 티켓 완료가 아닙니다.</p></section><section><h2>스크린샷과 다음 수집</h2><div class="empty"><strong>이번 보고서에는 앱 스크린샷이 없습니다.</strong><br>기존 HTML·캡처·시뮬레이터가 입력에 포함되지 않았습니다. 대화 속 관찰은 이전 보고로만 인용하며, 코드 발췌나 설명용 예제를 실제 화면으로 대체하지 않았습니다.</div><ol><li>이 보고서는 범위·담당 문서이므로 티켓 표 자체의 가짜 앱 캡처는 만들지 않습니다.</li><li>보류 문제를 재검토할 때만 실패 이유·재시도 조건의 실제 화면과 요청 로그를 수집합니다.</li></ol></section><section><h2>직접 근거</h2><details><summary>apps/client/src/screens/ExpensesScreen.tsx · 136–146행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>136:           deleteExpense(
+137:             { id: selectedExpense.id, tripId: selectedExpense.tripId },
+138:             {
+139:               onSuccess: () =&gt; {
+140:                 Alert.alert(&#x27;성공&#x27;, &#x27;경비가 삭제되었습니다.&#x27;);
+141:                 setSelectedExpense(null);
+142:               },
+143:               onError: () =&gt; {
+144:                 Alert.alert(&#x27;오류&#x27;, &#x27;경비 삭제에 실패했습니다.&#x27;);
+145:               },
+146:             },</pre></details><details><summary>apps/client/src/screens/ExpenseDetailScreen.tsx · 14–18행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>14:   const { query: expenseQuery, access, actions, view } = useTripExpensesReadQuery(tripId);
+15:   const expense = view.kind === &#x27;ready&#x27; ? view.data.find((item) =&gt; item.id === id) : undefined;
+16:   const retry = () =&gt; {
+17:     if (access.canFetch) actions.refetch();
+18:   };</pre></details><details><summary>apps/client/src/features/schedule/create-schedule/useSubmitSchedule.ts · 34–61행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>34:         onSuccess: () =&gt; {
+35:           // 경로 자동 다운로드 (새 일정 포함)
+36:           setTimeout(() =&gt; {
+37:             const newSchedule = {
+38:               id,
+39:               latitude: place?.latitude ? parseFloat(String(place.latitude)) : undefined,
+40:               longitude: place?.longitude ? parseFloat(String(place.longitude)) : undefined,
+41:             };
+42: 
+43:             // scheduledAt 기준으로 정렬된 전체 일정 목록
+44:             const allSchedules = [
+45:               ...schedules.map((s: Schedule) =&gt; ({
+46:                 id: s.id,
+47:                 latitude: s.latitude ? parseFloat(s.latitude) : undefined,
+48:                 longitude: s.longitude ? parseFloat(s.longitude) : undefined,
+49:                 scheduledAt: s.scheduledAt,
+50:               })),
+51:               {
+52:                 ...newSchedule,
+53:                 scheduledAt,
+54:               },
+55:             ]
+56:               .sort((a, b) =&gt; new Date(a.scheduledAt).getTime() - new Date(b.scheduledAt).getTime())
+57:               .map(({ id: scheduleId, latitude, longitude }) =&gt; ({ id: scheduleId, latitude, longitude }));
+58: 
+59:             autoDownloadRoutes({ tripId, schedules: allSchedules });
+60:           }, 500);
+61: </pre></details><details><summary>apps/client/src/shared/services/sync/queue.ts · 220–235행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>220:  * 특정 여행의 PENDING 작업 조회
+221:  *
+222:  * 여행 비활성화 전 동기화되지 않은 데이터 확인용
+223:  *
+224:  * @param tripId - 여행 ID
+225:  * @returns 해당 여행의 PENDING 상태 sync_queue 항목 배열
+226:  *
+227:  */
+228: export async function getPendingTasksForTrip(tripId: string): Promise&lt;SyncQueueItem[]&gt; {
+229:   const tasks = await runDatabaseOperation(() =&gt;
+230:     getDatabase().select().from(syncQueue).where(eq(syncQueue.status, &#x27;PENDING&#x27;)).orderBy(syncQueue.createdAt).all(),
+231:   );
+232: 
+233:   // Trip 자체 또는 Child Entity (schedules, expenses) 필터링
+234:   return tasks.filter((task) =&gt; {
+235:     if (task.tableName === &#x27;trips&#x27; &amp;&amp; task.recordId === tripId) {</pre></details></section><footer><p>코드 직접 확인 / 기존 검증 기록 / 이번 제한된 실행 / 미확인을 구분했습니다. Jest·native·DB 통과 및 티켓 완료를 새로 선언하지 않습니다.</p></footer></main></body></html>

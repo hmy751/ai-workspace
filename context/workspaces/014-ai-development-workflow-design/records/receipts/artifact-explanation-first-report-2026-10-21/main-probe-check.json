@@ -1,0 +1,42 @@
+[
+  {
+    "run": "r17",
+    "script": "date-check.js",
+    "timezone": "Asia/Seoul",
+    "exit_code": 0,
+    "matches_saved_result": true
+  },
+  {
+    "run": "r17",
+    "script": "date-check.js",
+    "timezone": "America/Los_Angeles",
+    "exit_code": 0,
+    "matches_saved_result": true
+  },
+  {
+    "run": "r42",
+    "script": "date-probe.cjs",
+    "timezone": null,
+    "exit_code": 0,
+    "matches_saved_result": true
+  },
+  {
+    "run": "r63",
+    "script": "date-check.cjs",
+    "timezone": null,
+    "exit_code": 0,
+    "matches_saved_result": true
+  },
+  {
+    "run": "r88",
+    "script": "check-dates.mjs",
+    "exit_code": 0,
+    "matches_saved_result": false,
+    "calculation_results_match": true,
+    "assertions_match": true,
+    "metadata_difference": {
+      "runtime_original": "v23.11.0",
+      "runtime_main": "v24.16.0"
+    }
+  }
+]

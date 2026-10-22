@@ -1,0 +1,28 @@
+      },
+    };
+  });
+
+  function isCurrentSession(sessionId: symbol | null): sessionId is symbol {
+    const state = store.getState();
+    return (
+      sessionId !== null &&
+      sessionId === sessionGeneration &&
+      state.sessionId === sessionId &&
+      state.status === 'signed-in' &&
+      state.userId === currentSession?.userId
+    );
+  }
+
+  function getToken(sessionId: symbol | null, kind: 'accessToken' | 'refreshToken'): string | null {
+    return isCurrentSession(sessionId) ? (currentSession?.[kind] ?? null) : null;
+  }
+
+  return Object.assign(store, {
+    isCurrentSession,
+    getAccessToken: (sessionId: symbol | null) => getToken(sessionId, 'accessToken'),
+    getRefreshToken: (sessionId: symbol | null) => getToken(sessionId, 'refreshToken'),
+  });
+}
+
+export const useAuthStore = createAuthStore();
+

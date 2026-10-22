@@ -1,0 +1,42 @@
+[
+  {
+    "file": "02-foreground.html",
+    "ko": true,
+    "h1": 1,
+    "missing_links": [],
+    "image_count": 0,
+    "bytes": 10037
+  },
+  {
+    "file": "03-ux-flows.html",
+    "ko": true,
+    "h1": 1,
+    "missing_links": [],
+    "image_count": 0,
+    "bytes": 13115
+  },
+  {
+    "file": "04-dates.html",
+    "ko": true,
+    "h1": 1,
+    "missing_links": [],
+    "image_count": 0,
+    "bytes": 9361
+  },
+  {
+    "file": "05-scope.html",
+    "ko": true,
+    "h1": 1,
+    "missing_links": [],
+    "image_count": 0,
+    "bytes": 11601
+  },
+  {
+    "file": "index.html",
+    "ko": true,
+    "h1": 1,
+    "missing_links": [],
+    "image_count": 0,
+    "bytes": 4327
+  }
+]

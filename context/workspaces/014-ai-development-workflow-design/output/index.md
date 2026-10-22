@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](../records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
+
 **Ticket 03의 구성안·본문 예시는 완료됐다.** 현재 결과와 한계는 [03](../current/tickets/03-project-context.md), 완료 판단·후속 책임은 [119](../records/2026-10-20-119-ticket03-closeout.md)에서 확인한다. Workspace014 전체의 목표는 컨텍스트·코드 기준·절차·검증·기록·경험 반영이 연결된 개발 체계를 설계하는 것이다.
 
 ## 현재 결과를 읽는 곳
@@ -22,7 +24,7 @@
 
 - [04-02 첫 보고 책임 재판단](../records/2026-10-21-ticket04-02-first-report-responsibility-review.md): 새 source에서 확인한 목적·역할 합의와 실제 교정 근거를 대조한 현재 분석. 빠진 책임과 아직 확인하지 못한 실행 원인을 구별하며 수정안·시험 설계는 후속이다.
 
-- [04-02 원문 중심 source](../source/artifact-explanation-scenes/README.md): 보고서 사건의 연속 발화·Git·작업 기록·현재 산출물 사본을 구분한 자료. [구성 기록](../records/2026-10-21-ticket04-02-source-scene-assembly.md)에 검증과 공백을 연결했다. 사건 요약이나 기대 답을 대신 공급하지 않으며, 당시 실행 전체의 재현 준비·스킬 효과 검증은 완료하지 않았다.
+- [04-02 원문 중심 source](../source/artifact-explanation-scenes/README.md): 보고서·interceptor·network·코드 변경 첫 보고의 연속 발화와 자료 출처를 구분한 네 사건. [최초 구성](../records/2026-10-21-ticket04-02-source-scene-assembly.md)과 [추가 구성·시점/본문 비교 범위](../records/2026-10-22-ticket04-02-source-expansion-and-coverage.md)에 검증과 공백을 연결했다. 사건 요약이나 기대 답을 대신 공급하지 않으며, 당시 실행 전체의 재현 준비·스킬 효과 검증은 완료하지 않았다.
 
 - [04-02 접근법·검증 재검토](../records/2026-10-21-ticket04-02-approach-and-evaluation-reset.md): 현재 판단 진입점. 첫 전달·조사·기준 적용과 사용자 교정 이후 재설명을 구별하고, 원인별 개입과 검증 방법을 다시 정했다. [두 스킬 재수정안](../records/2026-10-21-ticket04-02-original-intent-revision.md)과 기존 prototype은 보류한 후보이며 효과·채택이 확인된 현재 해법이 아니다.
 

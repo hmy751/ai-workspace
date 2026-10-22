@@ -678,5 +678,11 @@
       "result": "원문·연속 범위·파일 동일성 확인. 이후 답변의 입력 유입 없음. 당시 홈 HTML 판본과 실행 상태 미복원 한계 유지.",
       "record": "../../../records/2026-10-21-ticket04-02-source-scene-assembly.md"
     }
+  },
+  "historical_materials_addendum": {
+    "date": "2026-10-22",
+    "manifest": "historical-materials/manifest.json",
+    "readme": "historical-materials/README.md",
+    "note": "Compressed original rollout recovered; decoded SHA-256 matches corpus meta. Earlier missing-path findings refer to uncompressed path."
   }
 }

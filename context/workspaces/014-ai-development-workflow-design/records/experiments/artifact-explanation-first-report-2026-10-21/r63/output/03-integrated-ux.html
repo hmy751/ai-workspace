@@ -1,0 +1,157 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>③ 목록·상세·폼 종합 UX</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f6fa;color:#192338;font:16px/1.75 system-ui,-apple-system,sans-serif}main{max-width:1080px;margin:auto;padding:38px 24px 80px}h1{font-size:34px;line-height:1.35}h2{font-size:23px;margin-top:36px}h3{font-size:18px}a{color:#185ab3}nav{display:flex;gap:16px;flex-wrap:wrap;font-size:14px}.lead{font-size:21px;background:#fff;border-left:5px solid #226453;padding:22px}.note{padding:18px 22px;background:#fff5dc;border-radius:12px}.meta{font-size:13px;color:#52617a}section{background:white;border:1px solid #dce2eb;border-radius:14px;padding:22px;margin:20px 0}table{width:100%;border-collapse:collapse;font-size:14px}th,td{vertical-align:top;text-align:left;padding:13px;border-bottom:1px solid #dce2eb}th{background:#edf3f9}pre{font:13px/1.65 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#172235;color:#e4ebf5;padding:18px;border-radius:8px}code{overflow-wrap:anywhere}details{padding:10px 0}summary{cursor:pointer;color:#185ab3}.scroll{overflow:auto}.badge{display:inline-block;border-radius:20px;padding:3px 12px;background:#e8f0f7;font-size:13px}li{margin:7px 0}.missing{border:2px dashed #b8c3d0;border-radius:10px;padding:20px;color:#52617a}@media(max-width:650px){main{padding:20px 14px}h1{font-size:27px}section{padding:14px}table{min-width:600px}}@media print{body{background:white}main{padding:0}section{break-inside:avoid}nav{display:none}}</style><main><nav><a href="index.html">전체 결과</a><a href="02-foreground.html">② 앱 복귀 시 네트워크 재확인</a><a href="03-integrated-ux.html">③ 목록·상세·폼 종합 UX</a><a href="04-date-consistency.html">④ 홈·목록 날짜 차이</a><a href="05-scope-boundaries.html">⑤ 보류·후속 티켓 경계</a></nav><p class="badge">Ticket 06 · 검토 보고서</p><h1>③ 목록·상세·폼 종합 UX</h1><p class="lead">초안 유지와 제한·복구를 잇는 코드는 이미 있습니다. 남은 핵심은 실제 단절·native 조작에서도 그 경험이 성립하는지 확인하는 것입니다.</p><p class="meta">대조 기준: 제공된 HEAD 0b3b167 tracked snapshot · 조사 방식: 읽기 전용 · 제품 코드 변경 없음</p><p class="note">코드·테스트 본문을 직접 읽었습니다. Jest·시뮬레이터·DB 검증은 이번에 실행하지 않았습니다. 날짜 보고서의 독립 계산만 별도로 실행했습니다. 원래 요청의 6.1 sol 병렬 운영은 이번 환경 제약으로 수행하지 못했습니다.</p><section><h2>이미 만든 흐름을 다시 구현할 단계는 아닙니다</h2><p>조회 조합은 여행 없음, 제한, 최초 로딩·실패, 정상 데이터, 기존 데이터를 유지하는 갱신 실패를 나눕니다. 제한 중에도 Query 캐시는 별도로 지우지 않습니다. 사용자는 같은 여행·탭을 유지하고, 접근이 허용되면 기존 내용을 먼저 볼 수 있습니다.</p><p>일정 생성은 검색·작성·장소 변경 단계를 사용자 행동으로 바꾸고 초안을 조건부 폼보다 위에 둡니다. 연결 복귀가 작성 단계를 바꾸거나 두 폼을 동시에 붙이는 과거 문제는 코드와 기존 테스트 본문에서 개선 근거를 확인했습니다. 실제 취소 경고가 없어졌다고 이번에 관찰한 것은 아닙니다.</p></section><section><h2>장면별 확인 결과와 빈칸</h2><div class="scroll"><table><thead><tr><th>사용자 장면</th><th>직접 읽은 근거</th><th>아직 필요한 확인</th></tr></thead><tbody><tr><td>비활성 목록·상세에서 단절 → 복구</td><td>정책을 우선해 캐시를 가리고, ready에서는 캐시를 다시 사용. schedule-recovery·expense-recovery·read-query-consumers에 관련 assertions.</td><td>같은 여행과 지도 선택을 유지하는 실제 화면 전환.</td></tr><tr><td>최초 조회 실패</td><td>첫 실패를 error로 표시. 일정 상세 오류·경비만 실패·홈 경비 실패를 빈 결과나 0원과 구별하는 검사 본문.</td><td>서버 실패를 만든 실제 화면에서 문구·버튼 가시성 확인.</td></tr><tr><td>기존 내용 갱신 실패</td><td>ready + refreshFailed로 내용을 유지하고 갱신 실패 안내. retry 가능 여부를 따로 전달.</td><td>좁은 폭에서 본문·재시도, 연속 단절·재시도 경험.</td></tr><tr><td>일정 작성 중 연결 변화</td><td>create-schedule-flow가 단일 폼·제목·장소 유지, unknown 저장 차단, 복구 후 명시적 저장을 검사.</td><td>native 날짜/시간 picker 확인·취소, 키보드, 전체 저장·재진입.</td></tr><tr><td>경비 작성·수정</td><td>날짜와 일정 연결을 독립적으로 유지. 생성 flow는 다른 날짜 연결, null 해제, 저장 실패 후 입력 유지와 명시적 재시도를 표현.</td><td>비활성 기존 연결 보유 초안의 제한·해제·복구를 실제 앱에서 수집.</td></tr><tr><td>활성 Local 저장</td><td>Router·생성 flow가 활성 offline/unknown의 Local 경로를 표현. native DB·HTTP는 대체됨.</td><td>실제 통신 단절에서 저장 → 재진입 → 복구 sync 후 서버 반영. Debug override로는 입증할 수 없음.</td></tr></tbody></table></div></section><section><h2>Debug 화면 검증과 실제 단절을 구분합니다</h2><p>Debug override는 표시 제한을 재현하지만 Router 쓰기를 Local·Remote 모두 막는 계약입니다. 따라서 Debug offline에서 입력이 남았다는 사실은 실제 offline Local 저장 성공의 근거가 아닙니다. 과거 대화의 활성 홈 일정 2개·EUR 56 유지도 홈의 표시 대조 결과에 한정됩니다.</p><p>이전 기록에는 개발 DB에 반영된 경비 두 건과 날짜·연결·명시적 재시도 확인이 있습니다. 현재 환경에는 그 DB와 로그가 없으므로 과거 보고로만 취급합니다. 기존 523 passed / 1 skipped 기록 역시 이번 실행 결과가 아닙니다.</p></section><section><h2>수집은 한 여행·상태 묶음으로</h2><ol><li>비활성 여행을 online에서 열어 목록·상세와 기존 연결이 있는 폼을 준비합니다.</li><li>offline·unknown에서 각 화면의 제한 문구, 선택 유지, 폼 값을 빠르게 수집합니다. 수집자는 원인 판정을 보류하고 조건·조작·보이는 결과를 남깁니다.</li><li>online 복구 직후 기존 내용, 자동 저장 없음, 명시적 재시도 결과를 수집합니다.</li><li>활성 여행은 별도 실제 단절 세션에서 Local 저장과 복구 후 반영을 확인합니다. 쓰기 환경을 고정해야 합니다.</li></ol><p>우선 캡처는 전체 화면과 오류 영역의 확대를 함께 확보하면 됩니다. native picker·실제 단절 저장은 입력과 결과가 바뀌는 별도 실행이라 후순위 수집 묶음으로 둡니다.</p></section><section><h2>스크린샷·실행 증거</h2><div class="missing"><strong>이 보고서에는 앱 스크린샷이 없습니다.</strong><p>앞선 홈 보고서와 9월 30일 HTML·캡처는 Git 제외 자료로, 이번 입력에 제공되지 않았습니다. 시뮬레이터·DB도 없습니다. 과거 대화의 관찰 보고를 이번 직접 관찰로 바꾸거나 화면을 재구성해 캡처처럼 제시하지 않았습니다.</p></div><p>목록·상세는 정상/제한/복구 세 장면을 같은 여행으로, 폼은 연결 전 입력과 차단 후 입력·복구 후 재시도 결과를 쌍으로 수집해야 합니다. 이번에는 그 이미지를 확보하지 못했습니다.</p></section><section><h2>06 종료 판단에 미치는 영향</h2><p>검사 본문에 시나리오가 있다는 이유로 전체 UX 완료로 닫을 수 없습니다. 우선 native 흐름과 실제 단절 저장의 빈칸을 채우고, 발견한 문제가 06의 제한·복구 약속을 직접 막는지 판단해야 합니다. 경비 삭제 실패 이유와 특정 상세 재시도 문제의 기존 보류는 유지합니다.</p></section><section><h2>근거를 직접 확인하기</h2><details><summary>apps/client/src/shared/services/policy-query/usePolicyReadQuery.ts:20 — 코드·문서 발췌</summary><p><a href="../repository/apps/client/src/shared/services/policy-query/usePolicyReadQuery.ts">원문 파일</a></p><pre>  20   | { kind: &#x27;ready&#x27;; data: T; refreshFailed: boolean };
+  21 
+  22 function getReadQueryView&lt;T, E&gt;(access: TripReadAccess, query: UseQueryResult&lt;T, E&gt;): ReadQueryView&lt;T&gt; {
+  23   if (!access.hasTrip) return { kind: &#x27;unselected&#x27; };
+  24   if (!access.displayPolicy.allowed) return { kind: &#x27;blocked&#x27;, policy: access.displayPolicy };
+  25   // 성공한 undefined나 빈 배열도 유효한 결과다. 재조회 실패로 기존 내용을 가리지 않는다.
+  26   if (query.isSuccess || query.isRefetchError) {
+  27     return { kind: &#x27;ready&#x27;, data: query.data, refreshFailed: query.isError &amp;&amp; !query.isFetching };
+  28   }
+  29   if (!access.consumerEnabled) return { kind: &#x27;idle&#x27; };
+  30   if (!access.actualPolicy.allowed) return { kind: &#x27;blocked&#x27;, policy: access.actualPolicy };
+  31   return { kind: query.isError ? &#x27;error&#x27; : &#x27;loading&#x27; };
+  32 }
+  33 
+  34 /** refetch를 실제 객체에서도 빼고, 나머지 필드는 접근할 때 원본에서 읽는다. */
+  35 function toQueryState&lt;T, E&gt;(query: UseQueryResult&lt;T, E&gt;): ReadQueryState&lt;T, E&gt; {
+  36   const state = {};</pre></details><details><summary>apps/client/src/screens/CreateScheduleScreen.tsx:24 — 코드·문서 발췌</summary><p><a href="../repository/apps/client/src/screens/CreateScheduleScreen.tsx">원문 파일</a></p><pre>  24   const { data: trips, isLoading } = useGetTrips();
+  25   const trip = trips?.find((item: TripResponse) =&gt; item.id === tripId);
+  26   // 사용자 행동으로만 단계를 바꾼다. 연결 변화는 각 기능의 가용성에만 반영한다.
+  27   const [step, setStep] = useState&lt;&#x27;search&#x27; | &#x27;form&#x27; | &#x27;change-place&#x27;&gt;(&#x27;search&#x27;);
+  28   const draft = useCreateScheduleForm({ initialDate });
+  29   const submission = useSubmitSchedule({ tripId, onSuccess: exitCreateSchedule });
+  30   const policy = useAppPolicy(tripId);
+  31 
+  32   const search = useCreateScheduleSearch(
+  33     trip
+  34       ? {
+  35           cityName: trip.destination,
+  36           latitude: trip.latitude ? parseFloat(trip.latitude) : undefined,
+  37           longitude: trip.longitude ? parseFloat(trip.longitude) : undefined,
+  38         }
+  39       : undefined,
+  40     !!trip &amp;&amp; step !== &#x27;form&#x27;,
+  41   );
+  42 
+  43   const selectPlace = (place: Location) =&gt; {
+  44     if (!search.canSelectPlace(place)) return;
+  45     Keyboard.dismiss();</pre></details><details><summary>apps/client/tests/screens/read-query-consumers.test.tsx:238 — 코드·문서 발췌</summary><p><a href="../repository/apps/client/tests/screens/read-query-consumers.test.tsx">원문 파일</a></p><pre> 238 it(&#x27;일정 상세는 비활성 여행의 캐시를 제한 중 숨기고 복귀 시 조회 없이 다시 표시한다&#x27;, () =&gt; {
+ 239   const view = setup(detail);
+ 240   connect(&#x27;offline&#x27;);
+ 241   expect(view.queryByText(&#x27;기존 일정&#x27;)).toBeNull();
+ 242   expect(view.queryByText(&#x27;기존 경비&#x27;)).toBeNull();
+ 243   expect(view.client.getQueryData(scheduleQueryKeys.detail(&#x27;s&#x27;))).toEqual(schedule);
+ 244   connect(&#x27;online&#x27;);
+ 245   expect(view.getByText(&#x27;기존 일정&#x27;)).toBeTruthy();
+ 246   expect(view.getByText(&#x27;기존 경비&#x27;)).toBeTruthy();
+ 247   expect(ScheduleRepository.getById).not.toHaveBeenCalled();
+ 248 });
+ 249 it(&#x27;일정 상세는 단건 일정과 일정별 경비만 조회한다&#x27;, async () =&gt; {
+ 250   const view = setup(detail, false);
+ 251   await waitFor(() =&gt; expect(view.getByText(&#x27;기존 경비&#x27;)).toBeTruthy());
+ 252   expect(ScheduleRepository.getById).toHaveBeenCalledWith(&#x27;s&#x27;, &#x27;trip&#x27;);
+ 253   expect(ExpenseRepository.getByScheduleId).toHaveBeenCalledWith(&#x27;s&#x27;, &#x27;trip&#x27;);
+ 254   expect(ScheduleRepository.getByTripId).not.toHaveBeenCalled();
+ 255   expect(ExpenseRepository.getByTripId).not.toHaveBeenCalled();
+ 256 });
+ 257 it(&#x27;일정 상세 최초 오류를 부재와 구분하고 다시 조회한다&#x27;, async () =&gt; {
+ 258   jest.mocked(ScheduleRepository.getById).mockRejectedValueOnce(new Error(&#x27;server&#x27;));
+ 259   const view = setup(detail, false);
+ 260   await waitFor(() =&gt; expect(view.getByText(&#x27;일정을 불러오지 못했어요.&#x27;)).toBeTruthy());
+ 261   expect(view.queryByText(&#x27;일정을 찾을 수 없습니다.&#x27;)).toBeNull();
+ 262   fireEvent.press(view.getByRole(&#x27;button&#x27;, { name: &#x27;다시 불러오기&#x27; }));
+ 263   await waitFor(() =&gt; expect(view.getByText(&#x27;기존 일정&#x27;)).toBeTruthy());
+ 264 });
+ 265 it(&#x27;일정 상세의 경비만 실패하면 일정은 유지하고 빈 경비로 표시하지 않는다&#x27;, async () =&gt; {
+ 266   jest.mocked(ExpenseRepository.getByScheduleId).mockRejectedValue(new Error(&#x27;server&#x27;));
+ 267   const view = setup(detail, false);
+ 268   await waitFor(() =&gt; expect(view.getByText(&#x27;경비를 불러오지 못했어요.&#x27;)).toBeTruthy());
+ 269   expect(view.getByText(&#x27;기존 일정&#x27;)).toBeTruthy();
+ 270   expect(view.queryByText(&#x27;경비 내역이 없습니다&#x27;)).toBeNull();
+ 271   expect(view.queryByText(&#x27;USD 0.00&#x27;)).toBeNull();
+ 272 });
+ 273 it(&#x27;홈은 비활성 요약을 숨기면서 여행 카드를 유지하고 복귀 시 캐시를 표시한다&#x27;, () =&gt; {
+ 274   const view = setup(home);
+ 275   connect(&#x27;offline&#x27;);
+ 276   expect(view.getByText(&#x27;파리, 프랑스&#x27;)).toBeTruthy();
+ 277   expect(view.queryByText(&#x27;1개&#x27;)).toBeNull();
+ 278   expect(view.queryByText(&#x27;USD 12.00&#x27;)).toBeNull();
+ 279   expect(view.queryByText(&#x27;USD 0.00&#x27;)).toBeNull();
+ 280   connect(&#x27;online&#x27;);
+ 281   expect(view.getByText(&#x27;1개&#x27;)).toBeTruthy();
+ 282   expect(view.getByText(&#x27;USD 12.00&#x27;)).toBeTruthy();
+ 283   expect(ScheduleRepository.getByTripId).not.toHaveBeenCalled();
+ 284 });</pre></details><details><summary>apps/client/tests/screens/create-schedule-flow.test.tsx:129 — 코드·문서 발췌</summary><p><a href="../repository/apps/client/tests/screens/create-schedule-flow.test.tsx">원문 파일</a></p><pre> 129 it(&#x27;오프라인 직접 작성 후 온라인 복귀에도 입력과 단일 폼을 유지하고 검색으로 이동하지 않는다&#x27;, async () =&gt; {
+ 130   connect(&#x27;offline&#x27;);
+ 131   const view = open();
+ 132   fireEvent.press(view.getByText(&#x27;장소 직접 입력&#x27;));
+ 133   fireEvent.changeText(view.getByLabelText(&#x27;일정 제목&#x27;), &#x27;작성 중 제목&#x27;);
+ 134   fireEvent.changeText(view.getByLabelText(&#x27;장소 이름&#x27;), &#x27;직접 적은 장소&#x27;);
+ 135   fireEvent.changeText(view.getByLabelText(&#x27;장소 주소&#x27;), &#x27;직접 적은 주소&#x27;);
+ 136   connect(&#x27;online&#x27;);
+ 137   expect(view.getByDisplayValue(&#x27;작성 중 제목&#x27;)).toBeTruthy();
+ 138   expect(view.getByDisplayValue(&#x27;직접 적은 장소&#x27;)).toBeTruthy();
+ 139   expect(view.getByDisplayValue(&#x27;직접 적은 주소&#x27;)).toBeTruthy();
+ 140   expect(view.queryByPlaceholderText(&#x27;장소를 검색해주세요 (예: 에펠탑)&#x27;)).toBeNull();
+ 141   expect(view.getAllByText(&#x27;저장&#x27;)).toHaveLength(1);
+ 142   expect(mockSearch).not.toHaveBeenCalled();
+ 143   expect(mockLocal).not.toHaveBeenCalled();
+ 144 });
+ 145 
+ 146 it(&#x27;장소 선택 후 단절되어도 같은 폼과 장소를 유지하고 활성 Local로 저장한다&#x27;, async () =&gt; {
+ 147   const view = open();
+ 148   await searchPlace(view);
+ 149   fireEvent.changeText(view.getByLabelText(&#x27;일정 제목&#x27;), &#x27;수정한 제목&#x27;);
+ 150   connect(&#x27;offline&#x27;);
+ 151   expect(view.getByDisplayValue(&#x27;수정한 제목&#x27;)).toBeTruthy();
+ 152   expect(view.getByText(&#x27;에펠탑&#x27;)).toBeTruthy();
+ 153   expect(view.queryByLabelText(&#x27;장소 이름&#x27;)).toBeNull();
+ 154   expect(view.getAllByText(&#x27;저장&#x27;)).toHaveLength(1);
+ 155   await act(async () =&gt; fireEvent.press(view.getByText(&#x27;저장&#x27;)));
+ 156   await waitFor(() =&gt;
+ 157     expect(mockLocal).toHaveBeenCalledWith(
+ 158       expect.objectContaining({ title: &#x27;수정한 제목&#x27;, latitude: 48.858, longitude: 2.294 }),
+ 159     ),
+ 160   );
+ 161   expect(mockRemote).not.toHaveBeenCalled();
+ 162 });
+ 163 </pre></details><details><summary>apps/client/tests/screens/create-expense-flow.test.tsx:169 — 코드·문서 발췌</summary><p><a href="../repository/apps/client/tests/screens/create-expense-flow.test.tsx">원문 파일</a></p><pre> 169 it(&#x27;비활성 unknown은 초안과 연결을 표시하고 Router가 저장을 막으며 online 복구 후 명시적 재시도만 저장한다&#x27;, async () =&gt; {
+ 170   mockActive = false;
+ 171   const view = await open();
+ 172   connect(&#x27;unknown&#x27;);
+ 173   fireEvent.changeText(view.getByPlaceholderText(&#x27;예: 에펠탑 입장권&#x27;), &#x27;확인 중에도 수정&#x27;);
+ 174   expect(view.getByText(/첫날 일정 ·/)).toBeTruthy();
+ 175   await act(async () =&gt; fireEvent.press(view.getByText(&#x27;저장&#x27;)));
+ 176   await waitFor(() =&gt; expect(view.getByText(/마지막 저장 실패: 인터넷 연결을 아직 확인하지 못했어요/)).toBeTruthy());
+ 177   expect(local).not.toHaveBeenCalled();
+ 178   expect(remote).not.toHaveBeenCalled();
+ 179   expect(mockExit).not.toHaveBeenCalled();
+ 180   connect(&#x27;online&#x27;);
+ 181   expect(view.getByDisplayValue(&#x27;확인 중에도 수정&#x27;)).toBeTruthy();
+ 182   expect(remote).not.toHaveBeenCalled();
+ 183   await act(async () =&gt; fireEvent.press(view.getByText(&#x27;저장&#x27;)));
+ 184   await waitFor(() =&gt; expect(remote).toHaveBeenCalledTimes(1));
+ 185   expect(remote).toHaveBeenCalledWith(expect.objectContaining({ title: &#x27;확인 중에도 수정&#x27;, scheduleId: &#x27;01ARZ3NDEKTSV4RRFFQ69G5FAW&#x27; }));
+ 186 });
+ 187 
+ 188 it(&#x27;비활성의 실제 offline/display online 캐시도 새 후보 선택을 제한하지만 연결 해제는 가능하다&#x27;, async () =&gt; {
+ 189   mockActive = false;
+ 190   const view = await open();
+ 191   connect(&#x27;offline&#x27;, &#x27;online&#x27;);
+ 192   expect(view.getByText(/첫날 일정 ·/)).toBeTruthy();
+ 193   expect(view.queryByText(&#x27;다음날 일정&#x27;)).toBeNull();
+ 194   await act(async () =&gt; fireEvent.press(view.getByText(&#x27;연결 안 함&#x27;)));
+ 195   expect(view.getByText(&#x27;연결된 일정이 없습니다.&#x27;)).toBeTruthy();
+ 196   expect(view.getByDisplayValue(&#x27;작성 중 경비&#x27;)).toBeTruthy();
+ 197 });</pre></details><details><summary>apps/client/src/screens/ScheduleQueryFeedback.tsx:28 — 코드·문서 발췌</summary><p><a href="../repository/apps/client/src/screens/ScheduleQueryFeedback.tsx">원문 파일</a></p><pre>  28     &lt;View className=&#x27;flex-row items-center justify-between gap-sm px-md py-sm&#x27;&gt;
+  29       &lt;Text className=&#x27;flex-1 text-body text-muted-foreground&#x27;&gt;
+  30         일정을 갱신하지 못했어요. 이전 내용을 표시하고 있어요.
+  31       &lt;/Text&gt;
+  32       {retry &amp;&amp; (
+  33         &lt;Pressable variant=&#x27;outline&#x27; size=&#x27;sm&#x27; accessibilityRole=&#x27;button&#x27; onPress={retry}&gt;
+  34           다시 불러오기
+  35         &lt;/Pressable&gt;
+  36       )}
+  37     &lt;/View&gt;
+  38   );
+  39 }</pre></details></section><p class="meta">이 결과는 제공된 snapshot의 검토이며 현재 앱 상태·사용자 acceptance·티켓 완료를 뜻하지 않습니다.</p></main></html>

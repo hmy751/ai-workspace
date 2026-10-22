@@ -1,0 +1,64 @@
+{
+  "kind": "synthetic-fixture",
+  "runtime": "v24.16.0",
+  "checks": "6 assertions passed",
+  "results": [
+    {
+      "zone": "Asia/Seoul",
+      "input": {
+        "start": "2026-09-29T15:00:00Z",
+        "end": "2026-10-01T15:00:00Z",
+        "scheduledAt": "2026-10-02T03:00:00Z"
+      },
+      "home": [
+        "2026-09-30",
+        "2026-10-02"
+      ],
+      "range": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "scheduleDate": "2026-10-02",
+      "scheduleIncluded": false
+    },
+    {
+      "zone": "UTC",
+      "input": {
+        "start": "2026-09-29T15:00:00Z",
+        "end": "2026-10-01T15:00:00Z",
+        "scheduledAt": "2026-10-02T03:00:00Z"
+      },
+      "home": [
+        "2026-09-29",
+        "2026-10-01"
+      ],
+      "range": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "scheduleDate": "2026-10-02",
+      "scheduleIncluded": false
+    },
+    {
+      "zone": "America/Los_Angeles",
+      "input": {
+        "start": "2026-09-29T15:00:00Z",
+        "end": "2026-10-01T15:00:00Z",
+        "scheduledAt": "2026-10-02T03:00:00Z"
+      },
+      "home": [
+        "2026-09-29",
+        "2026-10-01"
+      ],
+      "range": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "scheduleDate": "2026-10-01",
+      "scheduleIncluded": true
+    }
+  ]
+}

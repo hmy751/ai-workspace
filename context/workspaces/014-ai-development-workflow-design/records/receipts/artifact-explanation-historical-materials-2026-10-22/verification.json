@@ -1,0 +1,47 @@
+{
+  "source_manifests": [
+    {
+      "case": "01-report-delivery",
+      "files_hashed": 52,
+      "decoded_rollout_matches_corpus": true
+    },
+    {
+      "case": "02-auth-interceptor",
+      "files_hashed": 11,
+      "decoded_rollout_matches_corpus": true
+    },
+    {
+      "case": "03-network-flow",
+      "files_hashed": 8,
+      "decoded_rollout_matches_corpus": true
+    },
+    {
+      "case": "04-storage-stats-delivery",
+      "files_hashed": 33,
+      "decoded_rollout_matches_corpus": true
+    }
+  ],
+  "original_record_files_verified": [
+    "source/artifact-explanation-scenes/01-report-delivery/historical-materials/first-report-authoring/events.jsonl",
+    "source/artifact-explanation-scenes/01-report-delivery/historical-materials/pre-779-observations/events.jsonl",
+    "source/artifact-explanation-scenes/01-report-delivery/historical-materials/pre-619-tool-evidence/events.jsonl",
+    "source/artifact-explanation-scenes/02-auth-interceptor/historical-materials/observed/auth-selected-raw-events.jsonl",
+    "source/artifact-explanation-scenes/03-network-flow/historical-materials/preceding-change/tool-events.jsonl",
+    "source/artifact-explanation-scenes/03-network-flow/historical-materials/observed/network-selected-raw-events.jsonl",
+    "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/prior-images/1933.jsonl",
+    "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/prior-images/1720.jsonl",
+    "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/prior-images/2089.jsonl",
+    "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/first-change/tool-events.jsonl"
+  ],
+  "links_checked": 74,
+  "storage_original_diff_applied_matches_final": true,
+  "app_or_response_tests_run": false,
+  "verification_scope": "material hashes, raw record membership, original diff on temporary copy, admin links; not full historical runtime",
+  "derived_code_checks": {
+    "auth_interceptor_vs_raw39": "content equal; terminal newline normalization",
+    "auth_transport_vs_raw39": "content equal; terminal newline normalization",
+    "auth_store_overlap_239_250": "11 lines equal; stitched content equal after trailing blank line removal",
+    "network_vs_raw1218": "307 numbered lines consecutive and equal after line number removal",
+    "storage_before_plus_actual_diff": "byte equal to raw2555 derived final file"
+  }
+}

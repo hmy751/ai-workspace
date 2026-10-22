@@ -1,0 +1,497 @@
+diff --git a/apps/client/src/features/profile/hooks/useStorageStats.ts b/apps/client/src/features/profile/hooks/useStorageStats.ts
+index d424dd4..74ffa0e 100644
+--- a/apps/client/src/features/profile/hooks/useStorageStats.ts
++++ b/apps/client/src/features/profile/hooks/useStorageStats.ts
+@@ -1,4 +1,4 @@
+-import { useState, useEffect } from 'react';
++import { useCallback, useEffect, useRef, useState } from 'react';
+ import * as FileSystem from 'expo-file-system';
+ import MapboxGL from '@rnmapbox/maps';
+ 
+@@ -8,80 +8,133 @@ export interface StorageStats {
+   totalSize: string;
+ }
+ 
+-export function useStorageStats() {
+-  const [stats, setStats] = useState<StorageStats>({
+-    dbSize: '0 B',
+-    mapPackSize: '0 B',
+-    totalSize: '0 B',
+-  });
++interface DatabaseSizeResult {
++  bytes: number;
++  completed: boolean;
++}
+ 
+-  useEffect(() => {
+-    calculateStorage();
+-  }, []);
++const DATABASE_DIRECTORY_NAME = 'SQLite';
++const DATABASE_FILE_SUFFIXES = ['.db', '.db-wal', '.db-shm'] as const;
++const BYTE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB'] as const;
++const BYTES_PER_UNIT = 1024;
++
++function isValidByteCount(value: unknown): value is number {
++  return typeof value === 'number' && Number.isFinite(value) && value >= 0;
++}
++
++function formatBytes(bytes: number): string {
++  if (!isValidByteCount(bytes) || bytes === 0) {
++    return '0 B';
++  }
+ 
+-  const formatBytes = (bytes: number, decimals = 1) => {
+-    if (bytes === 0) return '0 B';
+-    const k = 1024;
+-    const dm = decimals < 0 ? 0 : decimals;
+-    const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+-    const i = Math.floor(Math.log(bytes) / Math.log(k));
+-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
++  const unitIndex = Math.min(Math.floor(Math.log(bytes) / Math.log(BYTES_PER_UNIT)), BYTE_UNITS.length - 1);
++  const value = Number((bytes / BYTES_PER_UNIT ** unitIndex).toFixed(1));
++  return `${value} ${BYTE_UNITS[unitIndex]}`;
++}
++
++function createStorageStats(databaseBytes: number, mapPackBytes: number): StorageStats {
++  return {
++    dbSize: formatBytes(databaseBytes),
++    mapPackSize: formatBytes(mapPackBytes),
++    totalSize: formatBytes(databaseBytes + mapPackBytes),
+   };
++}
+ 
+-  const calculateStorage = async () => {
+-    let dbSizeBytes = 0;
+-    let mapSizeBytes = 0;
++function isDatabaseStorageFile(fileName: string): boolean {
++  return DATABASE_FILE_SUFFIXES.some((suffix) => fileName.endsWith(suffix));
++}
+ 
+-    try {
+-      // 1. SQLite DB 용량
+-      // Expo SQLite는 문서 디렉토리의 SQLite 폴더에 .db 확장자로 파일을 생성합니다.
+-      // 보통 경로는 ${FileSystem.documentDirectory}SQLite/noline.db 입니다.
+-      const dbDir = `${FileSystem.documentDirectory}SQLite`;
+-      const dbInfo = await FileSystem.getInfoAsync(dbDir);
+-
+-      if (dbInfo.exists && dbInfo.isDirectory) {
+-        const files = await FileSystem.readDirectoryAsync(dbDir);
+-        for (const file of files) {
+-          if (file.endsWith('.db') || file.endsWith('.db-wal') || file.endsWith('.db-shm')) {
+-            const fileInfo = await FileSystem.getInfoAsync(`${dbDir}/${file}`);
+-            if (fileInfo.exists) {
+-              dbSizeBytes += fileInfo.size;
+-            }
+-          }
+-        }
++async function collectDatabaseSize(): Promise<DatabaseSizeResult> {
++  let bytes = 0;
++  const documentsDirectory = FileSystem.documentDirectory;
++
++  if (!documentsDirectory) {
++    console.warn('Failed to collect SQLite storage size: document directory is unavailable');
++    return { bytes, completed: false };
++  }
++
++  const dbDirectory = `${documentsDirectory}${DATABASE_DIRECTORY_NAME}`;
++  try {
++    const directoryInfo = await FileSystem.getInfoAsync(dbDirectory);
++    if (!directoryInfo.exists || !directoryInfo.isDirectory) {
++      return { bytes, completed: true };
++    }
++
++    const files = await FileSystem.readDirectoryAsync(dbDirectory);
++    for (const file of files) {
++      if (!isDatabaseStorageFile(file)) {
++        continue;
+       }
+ 
+-      // 2. Mapbox 오프라인 팩 용량 (Mapbox에서 직접 조회)
+-      // MapboxGL.offlineManager.getPacks()로 팩 목록을 가져온 후,
+-      // 각 팩의 status()를 호출하여 completedResourceSize를 합산합니다.
+-      const packs = await MapboxGL.offlineManager.getPacks();
+-
+-      for (const pack of packs) {
+-        try {
+-          const status = await pack.status();
+-          if (status && typeof status.completedResourceSize === 'number') {
+-            mapSizeBytes += status.completedResourceSize;
+-          }
+-        } catch (err) {
+-          console.warn('Failed to get status for pack:', pack.name, err);
+-        }
++      const fileInfo = await FileSystem.getInfoAsync(`${dbDirectory}/${file}`);
++      if (fileInfo.exists && isValidByteCount(fileInfo.size)) {
++        bytes += fileInfo.size;
+       }
++    }
++  } catch (error) {
++    console.warn('Failed to collect SQLite storage size:', error);
++    return { bytes, completed: false };
++  }
++
++  return { bytes, completed: true };
++}
+ 
+-      setStats({
+-        dbSize: formatBytes(dbSizeBytes),
+-        mapPackSize: formatBytes(mapSizeBytes),
+-        totalSize: formatBytes(dbSizeBytes + mapSizeBytes),
+-      });
++async function collectMapPackSize(): Promise<number> {
++  let bytes = 0;
++  const packs = await MapboxGL.offlineManager.getPacks();
++
++  for (const pack of packs) {
++    try {
++      const status = await pack.status();
++      if (status && isValidByteCount(status.completedResourceSize)) {
++        bytes += status.completedResourceSize;
++      }
+     } catch (error) {
+-      console.warn('Failed to calculate storage stats:', error);
+-      // Fallback display
+-      setStats({
+-        dbSize: formatBytes(dbSizeBytes),
+-        mapPackSize: formatBytes(mapSizeBytes),
+-        totalSize: formatBytes(dbSizeBytes + mapSizeBytes),
+-      });
++      console.warn('Failed to get status for pack:', pack.name, error);
+     }
+-  };
++  }
++
++  return bytes;
++}
++
++async function calculateStorageStats(): Promise<StorageStats> {
++  const database = await collectDatabaseSize();
++
++  // DB 집계가 중단되면 부분 합계를 보존하고 Mapbox 조회는 시작하지 않습니다.
++  if (!database.completed) {
++    return createStorageStats(database.bytes, 0);
++  }
++
++  try {
++    const mapPackBytes = await collectMapPackSize();
++    return createStorageStats(database.bytes, mapPackBytes);
++  } catch (error) {
++    console.warn('Failed to collect offline map storage size:', error);
++    return createStorageStats(database.bytes, 0);
++  }
++}
++
++export function useStorageStats() {
++  const [stats, setStats] = useState<StorageStats>(() => createStorageStats(0, 0));
++  const latestRequestId = useRef(0);
++
++  const refresh = useCallback(async () => {
++    const requestId = ++latestRequestId.current;
++    const nextStats = await calculateStorageStats();
++
++    if (requestId === latestRequestId.current) {
++      setStats(nextStats);
++    }
++  }, []);
++
++  useEffect(() => {
++    refresh();
++
++    return () => {
++      // unmount 뒤 늦게 끝난 native 조회 결과는 상태에 반영하지 않습니다.
++      latestRequestId.current += 1;
++    };
++  }, [refresh]);
+ 
+-  return { stats, refresh: calculateStorage };
++  return { stats, refresh };
+ }
+diff --git a/apps/client/tests/features/profile/hooks/useStorageStats.test.ts b/apps/client/tests/features/profile/hooks/useStorageStats.test.ts
+new file mode 100644
+index 0000000..1ff75ff
+--- /dev/null
++++ b/apps/client/tests/features/profile/hooks/useStorageStats.test.ts
+@@ -0,0 +1,283 @@
++import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
++import * as FileSystem from 'expo-file-system';
++import type { FileInfo } from 'expo-file-system';
++import MapboxGL from '@rnmapbox/maps';
++import { act, renderHook, waitFor } from '@testing-library/react-native';
++
++import { useStorageStats } from '@/features/profile/hooks/useStorageStats';
++
++jest.mock('expo-file-system', () => ({
++  documentDirectory: 'file:///documents/',
++  getInfoAsync: jest.fn(),
++  readDirectoryAsync: jest.fn(),
++}));
++
++jest.mock('@rnmapbox/maps', () => ({
++  __esModule: true,
++  default: {
++    offlineManager: {
++      getPacks: jest.fn(),
++    },
++  },
++}));
++
++const dbDirectory = 'file:///documents/SQLite';
++const getInfoAsyncMock = FileSystem.getInfoAsync as jest.MockedFunction<typeof FileSystem.getInfoAsync>;
++const readDirectoryAsyncMock = FileSystem.readDirectoryAsync as jest.MockedFunction<
++  typeof FileSystem.readDirectoryAsync
++>;
++
++interface TestPack {
++  name: string;
++  status: jest.Mock<() => Promise<{ completedResourceSize: number }>>;
++}
++
++const getPacksMock = MapboxGL.offlineManager.getPacks as unknown as jest.Mock<() => Promise<TestPack[]>>;
++
++function existingInfo(uri: string, size: number, isDirectory = false): FileInfo {
++  return {
++    exists: true,
++    uri,
++    size,
++    isDirectory,
++    modificationTime: 0,
++  };
++}
++
++function arrangeDbFiles(files: Array<[name: string, result: number | Error]>) {
++  readDirectoryAsyncMock.mockResolvedValue(files.map(([name]) => name));
++  getInfoAsyncMock.mockImplementation(async (uri: string) => {
++    if (uri === dbDirectory) {
++      return existingInfo(uri, 0, true);
++    }
++
++    const name = uri.slice(`${dbDirectory}/`.length);
++    const result = files.find(([fileName]) => fileName === name)?.[1];
++
++    if (result instanceof Error) {
++      throw result;
++    }
++
++    return existingInfo(uri, result ?? 0);
++  });
++}
++
++function createPack(name: string, completedResourceSize: number | Error) {
++  return {
++    name,
++    status: jest.fn(async () => {
++      if (completedResourceSize instanceof Error) {
++        throw completedResourceSize;
++      }
++
++      return { completedResourceSize };
++    }),
++  };
++}
++
++function createDeferred<T>() {
++  let resolve!: (value: T) => void;
++  const promise = new Promise<T>((resolvePromise) => {
++    resolve = resolvePromise;
++  });
++
++  return { promise, resolve };
++}
++
++describe('저장 용량 통계', () => {
++  beforeEach(() => {
++    jest.spyOn(console, 'warn').mockImplementation(() => undefined);
++  });
++
++  afterEach(() => {
++    jest.restoreAllMocks();
++  });
++
++  it('DB 디렉터리와 지도 팩이 비어 있으면 모든 용량을 0 B로 표시한다', async () => {
++    arrangeDbFiles([]);
++    getPacksMock.mockResolvedValue([]);
++
++    const { result } = renderHook(() => useStorageStats());
++
++    await waitFor(() => expect(getPacksMock).toHaveBeenCalledTimes(1));
++
++    expect(result.current.stats).toEqual({
++      dbSize: '0 B',
++      mapPackSize: '0 B',
++      totalSize: '0 B',
++    });
++  });
++
++  it('DB 관련 파일과 지도 팩만 합산하고 무관한 파일은 제외한다', async () => {
++    arrangeDbFiles([
++      ['noline.db', 1024],
++      ['noline.db-wal', 512],
++      ['noline.db-shm', 0],
++      ['notes.txt', 9999],
++    ]);
++    getPacksMock.mockResolvedValue([createPack('seoul', 1024)]);
++
++    const { result } = renderHook(() => useStorageStats());
++
++    await waitFor(() => {
++      expect(result.current.stats).toEqual({
++        dbSize: '1.5 KB',
++        mapPackSize: '1 KB',
++        totalSize: '2.5 KB',
++      });
++    });
++    expect(getInfoAsyncMock).not.toHaveBeenCalledWith(`${dbDirectory}/notes.txt`);
++  });
++
++  it('DB 디렉터리가 없어도 지도 팩 용량은 계산한다', async () => {
++    getInfoAsyncMock.mockResolvedValue({ exists: false, uri: dbDirectory, isDirectory: false });
++    getPacksMock.mockResolvedValue([createPack('seoul', 1024)]);
++
++    const { result } = renderHook(() => useStorageStats());
++
++    await waitFor(() => {
++      expect(result.current.stats).toEqual({
++        dbSize: '0 B',
++        mapPackSize: '1 KB',
++        totalSize: '1 KB',
++      });
++    });
++    expect(readDirectoryAsyncMock).not.toHaveBeenCalled();
++  });
++
++  it('native module이 반환한 유효하지 않은 용량은 합산하지 않는다', async () => {
++    arrangeDbFiles([
++      ['valid.db', 1024],
++      ['invalid.db-wal', Number.NaN],
++      ['negative.db-shm', -1],
++    ]);
++    getPacksMock.mockResolvedValue([
++      createPack('valid', 512),
++      createPack('invalid', Number.NaN),
++      createPack('negative', -1),
++    ]);
++
++    const { result } = renderHook(() => useStorageStats());
++
++    await waitFor(() => {
++      expect(result.current.stats).toEqual({
++        dbSize: '1 KB',
++        mapPackSize: '512 B',
++        totalSize: '1.5 KB',
++      });
++    });
++  });
++
++  it('DB 파일 조회 중 실패하면 부분 합계를 보존하고 Mapbox 조회를 시작하지 않는다', async () => {
++    arrangeDbFiles([
++      ['noline.db', 1024],
++      ['noline.db-wal', new Error('WAL 파일을 읽을 수 없음')],
++      ['noline.db-shm', 2048],
++    ]);
++
++    const { result } = renderHook(() => useStorageStats());
++
++    await waitFor(() => {
++      expect(result.current.stats).toEqual({
++        dbSize: '1 KB',
++        mapPackSize: '0 B',
++        totalSize: '1 KB',
++      });
++    });
++    expect(getInfoAsyncMock).not.toHaveBeenCalledWith(`${dbDirectory}/noline.db-shm`);
++    expect(getPacksMock).not.toHaveBeenCalled();
++  });
++
++  it('지도 팩 목록 조회가 실패해도 DB 합계를 보존한다', async () => {
++    arrangeDbFiles([['noline.db', 2048]]);
++    getPacksMock.mockRejectedValue(new Error('지도 팩 목록을 불러올 수 없음'));
++
++    const { result } = renderHook(() => useStorageStats());
++
++    await waitFor(() => {
++      expect(result.current.stats).toEqual({
++        dbSize: '2 KB',
++        mapPackSize: '0 B',
++        totalSize: '2 KB',
++      });
++    });
++  });
++
++  it('개별 지도 팩 상태 조회가 실패해도 다음 팩을 계속 합산한다', async () => {
++    arrangeDbFiles([]);
++    const failedPack = createPack('failed', new Error('지도 팩 상태를 불러올 수 없음'));
++    const availablePack = createPack('available', 512);
++    getPacksMock.mockResolvedValue([failedPack, availablePack]);
++
++    const { result } = renderHook(() => useStorageStats());
++
++    await waitFor(() => {
++      expect(result.current.stats).toEqual({
++        dbSize: '0 B',
++        mapPackSize: '512 B',
++        totalSize: '512 B',
++      });
++    });
++    expect(failedPack.status).toHaveBeenCalledTimes(1);
++    expect(availablePack.status).toHaveBeenCalledTimes(1);
++  });
++
++  it('새로고침하면 DB와 지도 팩 용량을 다시 계산한다', async () => {
++    let dbSize = 1024;
++    let mapSize = 2048;
++
++    readDirectoryAsyncMock.mockResolvedValue(['noline.db']);
++    getInfoAsyncMock.mockImplementation(async (uri: string) =>
++      existingInfo(uri, uri === dbDirectory ? 0 : dbSize, uri === dbDirectory),
++    );
++    getPacksMock.mockImplementation(async () => [createPack('seoul', mapSize)]);
++
++    const { result } = renderHook(() => useStorageStats());
++
++    await waitFor(() => expect(result.current.stats.totalSize).toBe('3 KB'));
++
++    dbSize = 2048;
++    mapSize = 3072;
++
++    await act(async () => {
++      await result.current.refresh();
++    });
++
++    expect(result.current.stats).toEqual({
++      dbSize: '2 KB',
++      mapPackSize: '3 KB',
++      totalSize: '5 KB',
++    });
++    expect(getPacksMock).toHaveBeenCalledTimes(2);
++  });
++
++  it('겹친 새로고침에서는 가장 최근 요청의 결과를 유지한다', async () => {
++    arrangeDbFiles([]);
++    getPacksMock.mockResolvedValueOnce([]);
++
++    const { result } = renderHook(() => useStorageStats());
++
++    await waitFor(() => expect(getPacksMock).toHaveBeenCalledTimes(1));
++
++    const olderPacks = createDeferred<TestPack[]>();
++    getPacksMock.mockReturnValueOnce(olderPacks.promise).mockResolvedValueOnce([createPack('latest', 2048)]);
++
++    let olderRefresh!: Promise<void>;
++    act(() => {
++      olderRefresh = result.current.refresh();
++    });
++    await waitFor(() => expect(getPacksMock).toHaveBeenCalledTimes(2));
++
++    await act(async () => {
++      await result.current.refresh();
++    });
++    expect(result.current.stats.mapPackSize).toBe('2 KB');
++
++    olderPacks.resolve([createPack('older', 1024)]);
++    await act(async () => {
++      await olderRefresh;
++    });
++
++    expect(result.current.stats.mapPackSize).toBe('2 KB');
++  });
++});

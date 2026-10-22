@@ -1,5 +1,7 @@
 # 이 Workspace 안에 보존한 근거
 
+04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](../records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
+
 이 폴더는 현재 설계의 근거를 외부 로컬 경로에만 의존하지 않고 다시 읽을 수 있도록 보존한다. **읽을 순서는 자료 양이 아니라 현재 질문에 맞춘다.** 새 세션은 먼저 [Workspace README](../README.md)와 current를 읽고 아래에서 필요한 자료를 고른다.
 
 현재 01-01·04-03의 **구현 / 검토 및 수정** 논의는 [workflow-references](workflow-references/README.md)에서 시작한다. Matt·pstack 로컬 클론의 실제 본문·참조 자료와 기존 Vercel 원문을 단계별로 찾을 수 있다. 기존 `lectures/`는 당시 강연·번역·article 보존 위치를 유지한다.
@@ -26,7 +28,7 @@
 
 ## 원문 중심의 후속 구성
 
-[artifact-explanation-scenes](artifact-explanation-scenes/README.md)는04-02에서 필요한 사건의 연속 공개 발화와 당시 Git·산출물 출처를 따로 보존한 후속 묶음이다. 현재 보고서 작성 사건 하나를 구성했고, 기존 corpus·원본 사본은 변경하지 않았다. 입력 이전 원문과 이후 평가용 원문, 역사 Git 사본과 판본 미확인 현재 산출물을 분리한다. 분석·판단은 [구성 기록](../records/2026-10-21-ticket04-02-source-scene-assembly.md)이 소유한다.
+[artifact-explanation-scenes](artifact-explanation-scenes/README.md)는04-02에서 필요한 사건의 연속 공개 발화와 당시 Git·산출물 출처를 따로 보존한 후속 묶음이다. 보고서 작성, 인증 interceptor 코드 설명, network.ts 흐름 설명, 저장 용량 코드 변경 보고의 네 사건이 있고 기존 corpus·원본 사본은 변경하지 않았다. 입력 이전 원문과 이후 평가용 원문, 역사 Git 사본과 판본 미확인 현재 산출물을 분리한다. 분석·판단은 [최초 구성 기록](../records/2026-10-21-ticket04-02-source-scene-assembly.md)과 [추가 구성·검증 범위](../records/2026-10-22-ticket04-02-source-expansion-and-coverage.md)가 소유한다. 사본 보존과 당시 코드·실행 재현 준비를 구별한다.
 
 ## 무엇을 어느 정도 보존했나
 

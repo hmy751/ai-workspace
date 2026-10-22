@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-22T03:41:06.172791+00:00",
+  "session_id": "01a0c6c9-a603-77a2-8abe-50fc7e0814b0",
+  "source_file": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/source/noline-evaluation/corpus/01a0c6c9-a603-77a2-8abe-50fc7e0814b0/messages.jsonl",
+  "source_sha256": "0993dae07db8a1bccf7fc173a105e021793e08778d020d4defb6e3823eb137bd",
+  "selection": {
+    "input": {
+      "from_source_line": 9,
+      "through_source_line": 20,
+      "count": 3,
+      "last_timestamp": "2026-09-22T01:54:50.839Z"
+    },
+    "evaluation": {
+      "from_source_line": 24,
+      "through_source_line": 77,
+      "count": 8,
+      "last_timestamp": "2026-09-22T02:10:55.312Z"
+    },
+    "selection_rule": "all public corpus messages in inclusive ranges, original order, no inner deletion; entire JSONL records preserved byte-for-byte"
+  },
+  "original_rollout": {
+    "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T10-44-59-01a0c6c9-a603-77a2-8abe-50fc7e0814b0.jsonl",
+    "available_at_recorded_path": false
+  },
+  "historical_repository": {
+    "snapshot_in_bundle": false,
+    "working_tree_reconstructed": false,
+    "code_in_user_message": 20
+  },
+  "files": {
+    "README.md": {
+      "bytes": 2282,
+      "sha256": "c621fd8061073b169f91ed818d886f53ad152f7d45269e29291e9e58f022cecb"
+    },
+    "evaluation/conversation.txt": {
+      "bytes": 17625,
+      "sha256": "3a11d485370e52be8d68653761bcb5b5738eba7e35b77dd2d7d918628f7ce8ad"
+    },
+    "evaluation/messages.jsonl": {
+      "bytes": 19358,
+      "sha256": "d7b30234ef6bd44e8d338c788b7036540ca49685b4de9e463a0ab51f81be35e9"
+    },
+    "input/conversation.txt": {
+      "bytes": 5207,
+      "sha256": "3f69574abf568e7235d9a3e42fe37c8c6d59ac24fc1aa2dcc6c6fbf736f2f125"
+    },
+    "input/messages.jsonl": {
+      "bytes": 5894,
+      "sha256": "064e28b6908b056f51a91603e100742812947f2ac7edd0dadfa951948e2999e9"
+    },
+    "session-meta.json": {
+      "bytes": 1437,
+      "sha256": "90c655baaf075b59e85c80e6667ffe6d2c93594393c8a572e346c974e0ee8ca6"
+    }
+  },
+  "historical_materials_addendum": {
+    "date": "2026-10-22",
+    "manifest": "historical-materials/manifest.json",
+    "readme": "historical-materials/README.md",
+    "note": "Compressed original rollout recovered; decoded SHA-256 matches corpus meta. Earlier missing-path findings refer to uncompressed path."
+  }
+}

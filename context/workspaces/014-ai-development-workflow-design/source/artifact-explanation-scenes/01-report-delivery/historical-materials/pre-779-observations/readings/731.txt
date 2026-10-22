@@ -1,0 +1,28 @@
+Script completed
+Wall time 0.5 seconds
+Output:
+
+
+01-expense-totals.md
+02-city-search.md
+03-storage-stats.md
+04-expense-api.md
+05-schedule-response.md
+06-app-startup-lifecycle.md
+07-client-api-boundaries.md
+08-date-selection-grouping.md
+09-activation-readiness.md
+10-schedule-form-lifecycle.md
+11-expense-form-lifecycle.md
+12-expense-presentation-ownership.md
+13-schedule-route-preparation.md
+14-local-mutation-router-transaction.md
+15-sync-result-retry-pull-types.md
+16-server-data-route-boundaries.md
+16-unsynced-data-cleanup.md
+17-server-data-route-boundaries.md
+18-spec-coverage-closure.md
+index.md
+context/work/workspaces/002-code-readability-refactoring/records/2026-09-14-02-trip-expense-serialization.md
+context/work/workspaces/002-code-readability-refactoring/records/2026-09-29-06-expense-query-recovery.md
+context/work/workspaces/002-code-readability-refactoring/records/2026-10-02-03-expense-time-decisions-and-verification.md

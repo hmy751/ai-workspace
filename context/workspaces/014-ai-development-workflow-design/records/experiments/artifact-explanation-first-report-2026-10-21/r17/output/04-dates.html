@@ -1,0 +1,34 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>④ 홈·목록 날짜 차이</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#1e293b;font:16px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}main{max-width:1080px;margin:auto;padding:35px 24px 80px}a{color:#235ca7}nav{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;margin-bottom:28px}header{padding:28px 32px;background:#153f42;color:white;border-radius:20px}header p{color:#deefec}h1{font-size:32px;line-height:1.35;margin:12px 0}h2{font-size:23px;margin:0 0 16px}h3{font-size:18px}section{background:white;border:1px solid #dce3e8;padding:28px;border-radius:16px;margin-top:22px}.tag{display:inline-block;padding:3px 10px;background:#d9ede6;color:#145642;border-radius:6px;font-size:13px}.warning{background:#fff5df;border-left:4px solid #bd8522;padding:16px;margin-top:18px}.lead{font-size:19px;font-weight:600}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;vertical-align:top;padding:13px;border-bottom:1px solid #dce3e8}th{background:#edf3f5}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.6;background:#edf2f6;padding:16px;border-radius:8px}summary{cursor:pointer;font-weight:600}details{margin:14px 0}.muted,figcaption,footer{font-size:13px;color:#536779}.empty{padding:22px;border:2px dashed #b8c4cd;border-radius:12px;background:#f8fafc}ul,ol{padding-left:22px}code{overflow-wrap:anywhere}td:first-child{min-width:140px}@media(max-width:650px){main{padding:18px 12px 40px}section,header{padding:19px}h1{font-size:25px}.table{overflow-x:auto}table{min-width:580px}}@media print{body{background:white}section{break-inside:avoid}nav{display:none}}</style></head><body><main><nav><a href="index.html">보고서 모음</a><a href="02-foreground.html">② 앱 복귀 시 네트워크 재확인</a><a href="03-ux-flows.html">③ 목록·상세·폼 종합 UX</a><a href="04-dates.html">④ 홈·목록 날짜 차이</a><a href="05-scope.html">⑤ 보류·후속 티켓 경계</a></nav><header><span class="tag">Ticket 06 · 조사 보고서</span><h1>④ 홈·목록 날짜 차이</h1><p>홈의 현지 날짜와 목록의 UTC 날짜가 병존합니다. 설명용 입력 계산은 실행했으며 당시 DB·화면 재현은 미확인입니다.</p></header><p class="muted">대상: 제공된 HEAD 0b3b167의 tracked snapshot. Git 메타데이터·당시 실행 환경은 제공되지 않았습니다. 제품 코드 변경 없음.</p><section><h2>판단과 사용자에게 미치는 영향</h2><p class="lead">홈과 목록의 날짜 기준은 지금도 다릅니다. 같은 입력에서 다른 날짜를 표시할 수 있음을 제한된 계산 실행으로 확인했습니다.</p><p>홈은 기기 현지 날짜의 월·일을 표시합니다. 일정·경비 목록은 Trip timestamp의 UTC 날짜 범위를 공유합니다. 일정은 그 범위 안에서 scheduledAt의 현지 날짜로 묶으므로 범위와 항목 묶기에도 기준 차이가 있습니다. 실제 과거 여행 데이터·기기 시간대는 제공되지 않아 당시 화면의 원인을 단일 입력으로 확정하지는 않습니다.</p></section><section><h2>이번에 실행한 설명용 사례</h2><p><strong>사용자 DB에서 얻은 데이터가 아닌 설명용 입력입니다.</strong> 시작 <code>2026-09-29T15:00:00Z</code>, 종료 <code>2026-10-01T15:00:00Z</code>를 썼습니다. 실제 getUTCDateRange 함수에서 타입 표기만 제거해 실행했고 홈의 getMonth/getDate 계산을 함께 대조했습니다.</p><div class="table"><table><thead><tr><th>실행 시간대</th><th>홈 시작~종료</th><th>목록의 날짜 범위</th></tr></thead><tbody><tr><td>Asia/Seoul</td><td>9월 30일 ~ 10월 2일</td><td>2026-09-29 / 2026-09-30 / 2026-10-01</td></tr><tr><td>America/Los_Angeles</td><td>9월 29일 ~ 10월 1일</td><td>2026-09-29 / 2026-09-30 / 2026-10-01</td></tr></tbody></table></div><p>서울 시간대에서는 홈이 9월 30일~10월 2일이지만 목록은 9월 29일부터 10월 1일까지입니다. LA 시간대에서는 이 입력의 홈과 목록 날짜가 일치합니다. 즉 모든 여행에서 항상 하루 어긋나는 문제가 아니라 저장 시점과 기기 시간대에 따라 나타나는 경계 차이입니다.</p><p>추가로 3월 7~10일 UTC 범위를 두 시간대에서 계산해 각각 네 날짜가 중복·누락 없이 나왔습니다. 이 계산의 정상성은 홈과 목록의 날짜 의미가 일치한다는 뜻은 아닙니다.</p></section><section><h2>책임과 해결 범위</h2><div class="table"><table><thead><tr><th>대상</th><th>현재 기준</th><th>판단</th></tr></thead><tbody><tr><td>Trip startDate/endDate</td><td>schema·저장에서는 ISO datetime, UI는 여행 시작일/종료일처럼 사용.</td><td>달력 날짜인지 한 시점인지 장기 의미는 미결정. 임의 전면 변경 금지.</td></tr><tr><td>일정·경비 목록</td><td>getUTCDateRange 공통 사용.</td><td>DST 일자 순회 개선을 완료 결과로 재사용. 홈 일치까지 해결됐다고 확대하지 않음.</td></tr><tr><td>Schedule scheduledAt</td><td>한 시점이며 현지 날짜·시각 표시.</td><td>기간 밖 일정 접근은 Ticket 08 및 기존 날짜 결함 담당과 연결.</td></tr><tr><td>Expense date</td><td>YYYY-MM-DD 달력 날짜.</td><td>다시 현지 시간으로 이동시키지 않음. Trip 날짜 해결에 끌려 변경할 이유 없음.</td></tr></tbody></table></div></section><section><h2>다음 행동</h2><p>우선 실제 문제 여행의 원본 startDate/endDate, 기기 시간대, 홈·일정·경비 날짜 캡처를 같은 시각에 수집해야 합니다. 그다음 여행 시작·종료가 사용자의 달력 날짜를 뜻하는지 기준을 정하고 표시·입력·대표 여행 선택·DB/API 영향까지 대조합니다.</p><p>06에서는 차이의 현재 근거와 사용자 영향을 확인하고 처리 담당을 연결합니다. 계산 구조는 08, 기존 날짜/기간 밖 접근 결함은 003-08이 맡는 관계를 유지합니다. 이번 계산 예제로 Trip 데이터 계약 변경이나 티켓 종료를 승인한 것은 아닙니다.</p></section><section><h2>스크린샷과 다음 수집</h2><div class="empty"><strong>이번 보고서에는 앱 스크린샷이 없습니다.</strong><br>기존 HTML·캡처·시뮬레이터가 입력에 포함되지 않았습니다. 대화 속 관찰은 이전 보고로만 인용하며, 코드 발췌나 설명용 예제를 실제 화면으로 대체하지 않았습니다.</div><ol><li>같은 여행의 홈 기간과 일정·경비 날짜 탭을 나란히 캡처하고 Trip raw ISO와 기기 timezone을 함께 기록.</li><li>일정이 여행 기간 경계 밖 현지 날짜에 놓인 조건에서 접근 가능 여부를 별도 수집.</li></ol></section><section><h2>직접 근거</h2><details><summary>apps/client/src/screens/HomeScreen/MainTripSection.tsx · 32–38행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>32:   // 날짜 포맷팅 함수
+33:   const formatDate = (dateString: string | null) =&gt; {
+34:     if (!dateString) return &#x27;&#x27;;
+35:     const date = new Date(dateString);
+36:     return `${date.getMonth() + 1}월 ${date.getDate()}일`;
+37:   };
+38: </pre></details><details><summary>apps/client/src/shared/lib/datetime.ts · 80–98행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>80: /** 기존 Trip timestamp의 UTC 날짜 기준으로 달력 날짜를 나열한다. */
+81: export function getUTCDateRange(startISO: string, endISO: string): string[] {
+82:   const current = new Date(startISO);
+83:   const end = new Date(endISO);
+84: 
+85:   if (!Number.isFinite(current.getTime()) || !Number.isFinite(end.getTime())) return [];
+86: 
+87:   current.setUTCHours(0, 0, 0, 0);
+88:   end.setUTCHours(0, 0, 0, 0);
+89: 
+90:   const dates: string[] = [];
+91: 
+92:   while (current &lt;= end) {
+93:     dates.push(current.toISOString().split(&#x27;T&#x27;)[0]);
+94:     current.setUTCDate(current.getUTCDate() + 1);
+95:   }
+96: 
+97:   return dates;
+98: }</pre></details><details><summary>apps/client/src/screens/ScheduleScreen.tsx · 173–182행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>173:   const schedulesByDate: ScheduleByDate[] =
+174:     visibleSchedules !== undefined
+175:       ? dateRange.map((date) =&gt; {
+176:           const daySchedules = visibleSchedules
+177:             .filter((schedule) =&gt; {
+178:               return formatISOToLocalDate(schedule.scheduledAt) === date;
+179:             })
+180:             .map((schedule) =&gt; {
+181:               return {
+182:                 id: schedule.id,</pre></details><p><a href="date-seoul.json">서울 실행 결과</a> · <a href="date-la.json">LA 실행 결과</a>. 전체 Jest 및 실제 기기 시간대 변경 검증은 실행하지 않았습니다.</p></section><footer><p>코드 직접 확인 / 기존 검증 기록 / 이번 제한된 실행 / 미확인을 구분했습니다. Jest·native·DB 통과 및 티켓 완료를 새로 선언하지 않습니다.</p></footer></main></body></html>

@@ -1,12 +1,28 @@
 # 논의와 보존 기록
 
+04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
+
+- [04-02 원문 세 장면 추가·시점과 본문 검증 범위](2026-10-22-ticket04-02-source-expansion-and-coverage.md): 기존 보고서와 함께 네 사건을 구성했다. 새 공개 발화210개를 원문 그대로 분리 보존하고, 핵심 두 축을 비교할 범위와 당시 코드·실행 자료 공백을 구별했다. 새 응답 시험은 미실행이다.
+
+- [04-02 보고서 외 장면 선정](2026-10-22-ticket04-02-nonreport-scene-selection.md): 자연어 interceptor 코드 질문을 본문 비교 우선 후보로, network 흐름 질문을 자동 선택의 보조 사례로 선정. 첫 답 전 적용 선언과 후속 교정을 원문 대조했으며 시점 원인은 미확정, 새 시험은 미실행이다.
+
+- [04-02 적용 시점·스킬 평가 범위 정정](2026-10-22-ticket04-02-timing-and-skill-evaluation-clarification.md): 별도 보고 지침 추가와 조기 호출의 혼동, 원문15의 적용 선언,216 비교안의 미채택 상태, 다른 source 탐색 전 보존할 사용자 정정과 현재 판단.
+
+- [04-02 첫 보고 전 네 조건 비교](experiments/artifact-explanation-first-report-2026-10-21/comparison.md): 새 원문·동일 코드에서 기존/수정 스킬과 별도 보고 지침 추가를 조합한 각1회 실행의 원자료. 조기 호출 비교가 아니며, 현재 해석은 2026-10-22 정정을 따른다.
+
+- [04-02 브리핑 전체 통합 후보](2026-10-21-ticket04-02-briefing-integrated-candidate.md): 유지할 내용을 보존하면서 문서 결과 연결·질문별 종료와 읽기 쉬운 형식을 통합했다. 복구는 유지하고 작업 흐름·공통 기준 연결은 별도로 제시했다.
+
 - [동적 맥락 선택과 별도 관점 검토의 의도](2026-10-21-dynamic-context-and-review-intent.md): [구상과 질문·답변 원문 5개 발화](../source/discussion/2026-10-21-workflow-routing-review/conversation.md)를 근거로 Personal 기반 구현, 다른 선택지를 보는 검토, Main의 유지·적용 판단, 동적 맥락 선택과 의미 있는 검증을 정리했다. 사용자의 목적·입력 후보, Main의 제안, 열린 선택을 구별한다.
+
+- [04-02 유지·스킬 보완·첫 보고 실행 연결](2026-10-21-ticket04-02-skill-and-workflow-change-proposal.md): 기존 briefing 두 문단의 교체 후보, recovery 유지, 조사·반환·추가 확인·첫 전달 책임과 공통 기준의 소비 연결을 구체화했다. 실행 본문은 미반영이다.
+
+- [04-02 새 source와 원래 형성 배경 대조](2026-10-21-ticket04-02-source-and-background-reassessment.md): 조사·판단 형성과 전달을 구별하고 기존 기준·첫 보고의 합의된 책임·호출 시점의 미확정을 함께 재판단했다.
 
 - [구현과 검토·수정의 자료 비교](2026-10-21-implementation-review-reference-comparison.md): Matt·pstack·Vercel의 실제 행동과 권한 차이를 대조하고 두 단계의 구현·수정·확인 책임, 기존 스킬 연결, DB·인증 사례의 다음 비교를 제안했다. 상세 운영은 미채택이다.
 
 - [구현·검토 및 수정 원자료 수집](2026-10-21-workflow-reference-source-collection.md): 사용자가 지정한 Desktop의 Matt·pstack과 직접 연결 자료 237개를 보존하고 기존 Vercel 원문을 연결했다. 두 큰 논의 단계, 실제 판본·자료 범위·읽기 경로·원문 보존 확인과 다음 대조를 남겼다.
 
-**04-02 현재 초점:** [첫 보고 책임 재판단](2026-10-21-ticket04-02-first-report-responsibility-review.md)과 [원래 스킬 형성 자료](2026-10-21-ticket04-02-original-skill-background.md). 새 source에서 첫 전달의 책임 공백을 분석하고 두 스킬의 원래 문제·선택 이유·근거를 가까운 background에 구성했다. 기존 수정안은 보류 상태다. 다음은 원래 책임과 실제 수행 기준·실행 연결을 대조하는 것이며, 정확한 실패 단계와 호출 시점의 인과는 미확정이다.
+**04-02 현재 초점:** [당시 자료 확보와 비교 설계](2026-10-22-ticket04-02-historical-materials-and-comparison-design.md). 네 사건의 압축 원문·당시 코드·최초 diff·검사·관찰을 확보했다. 본문 비교와 첫 보고 전 명시 적용 배치 비교를 나눠 설계했고 새 응답 시험은 미실행이다. 전체 runtime·DB·초판 HTML 전체 바이트 복원과는 구별한다. 우선 인증 본문 두 조건과 저장 용량 적용 배치 두 조건을 비교하는 안이며, 복구 스킬·운영 본문은 유지한다.
 
 **앞선 Personal 보완:** [125](2026-10-20-125-personal-provenance-fresh-worker.md)에 보완한 Personal 자료의 새 워커 읽기·실제 사본 수정과 과거 근거 보존 확인을 남겼다. [124](2026-10-20-124-personal-formation-evidence-completion.md)에 개발 공통·이름 기준의 형성 근거와 연결 보완을 남겼다. 발견·범위 대조는 [123](2026-10-20-123-other-formation-materials-audit.md)에 있다. [122](2026-10-20-122-formation-evidence-integration-and-reentry.md)에 정책의 외부 참고·선택 전환 근거 보완과 새 독자·수정자의 실제 수행을 남겼다. 발견과 권고는 [121](2026-10-20-121-formation-evidence-improvement-review.md)에 있다. [119](2026-10-20-119-ticket03-closeout.md)의03 구성안 마감과 후속 범위는 유지한다. 체계 지침은 [118](2026-10-20-118-system-guidance-definition-and-entry.md), Work의 복구 경계는 [116](2026-10-20-116-defer-work-content-policy.md)에서 읽는다.
 

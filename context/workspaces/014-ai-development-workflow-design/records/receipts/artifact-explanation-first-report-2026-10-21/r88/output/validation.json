@@ -1,0 +1,42 @@
+{
+  "html_static_check": "passed",
+  "visual_browser_check": "not performed",
+  "reports": [
+    {
+      "file": "02-foreground.html",
+      "bytes": 13073,
+      "local_links": 5,
+      "missing_links": [],
+      "screenshots": 0
+    },
+    {
+      "file": "03-ux.html",
+      "bytes": 21890,
+      "local_links": 5,
+      "missing_links": [],
+      "screenshots": 0
+    },
+    {
+      "file": "04-dates.html",
+      "bytes": 13442,
+      "local_links": 6,
+      "missing_links": [],
+      "screenshots": 0
+    },
+    {
+      "file": "05-scope.html",
+      "bytes": 18147,
+      "local_links": 5,
+      "missing_links": [],
+      "screenshots": 0
+    },
+    {
+      "file": "index.html",
+      "bytes": 4768,
+      "local_links": 9,
+      "missing_links": [],
+      "screenshots": 0
+    }
+  ],
+  "source_excerpt_ranges": 28
+}

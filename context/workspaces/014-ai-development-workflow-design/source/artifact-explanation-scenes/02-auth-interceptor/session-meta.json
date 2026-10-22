@@ -1,0 +1,48 @@
+{
+  "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/22/rollout-2026-09-22T10-44-59-01a0c6c9-a603-77a2-8abe-50fc7e0814b0.jsonl",
+  "id": "01a0c6c9-a603-77a2-8abe-50fc7e0814b0",
+  "time": "2026-09-22T01:44:59.174Z",
+  "cwd": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "source": "vscode",
+  "thread_source": "user",
+  "parent": null,
+  "bytes": 336994,
+  "discovery_reason": "noline_cwd_or_root",
+  "source_sha256": "e29a556e9414932a40850ee2d0d4ffbcef67abe9e93b83f94ee39fde1a50fa0c",
+  "classification": "conversation",
+  "messages": 11,
+  "characters": 15349,
+  "user_messages": 4,
+  "first_prompt": "```ruby\nconfig.sessionId ??= useAuthStore.getState().sessionId ?? undefined;\n\n이거문법이 뭐야? ??= 이랑 좀 설명해줘\n```\n",
+  "type_counts": {
+    "session_meta": 1,
+    "event_msg": 31,
+    "response_item": 34,
+    "world_state": 1,
+    "turn_context": 4,
+    "token_usage_record": 9
+  },
+  "excluded": {
+    "runtime_wrapper": 1
+  },
+  "tool_events": 10,
+  "model_settings": [
+    {
+      "line": 8,
+      "settings": {
+        "model": "gpt-5.6-sol",
+        "effort": "medium"
+      }
+    }
+  ],
+  "last_runtime_usage": {
+    "input_tokens": 330089,
+    "cached_input_tokens": 246528,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5210,
+    "reasoning_output_tokens": 524,
+    "total_tokens": 335299
+  },
+  "first_time": "2026-09-22T01:45:01.472Z",
+  "last_time": "2026-09-22T02:10:55.312Z"
+}

@@ -1,0 +1,76 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>② 앱 복귀 시 네트워크 재확인</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#1e293b;font:16px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}main{max-width:1080px;margin:auto;padding:35px 24px 80px}a{color:#235ca7}nav{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;margin-bottom:28px}header{padding:28px 32px;background:#153f42;color:white;border-radius:20px}header p{color:#deefec}h1{font-size:32px;line-height:1.35;margin:12px 0}h2{font-size:23px;margin:0 0 16px}h3{font-size:18px}section{background:white;border:1px solid #dce3e8;padding:28px;border-radius:16px;margin-top:22px}.tag{display:inline-block;padding:3px 10px;background:#d9ede6;color:#145642;border-radius:6px;font-size:13px}.warning{background:#fff5df;border-left:4px solid #bd8522;padding:16px;margin-top:18px}.lead{font-size:19px;font-weight:600}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;vertical-align:top;padding:13px;border-bottom:1px solid #dce3e8}th{background:#edf3f5}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.6;background:#edf2f6;padding:16px;border-radius:8px}summary{cursor:pointer;font-weight:600}details{margin:14px 0}.muted,figcaption,footer{font-size:13px;color:#536779}.empty{padding:22px;border:2px dashed #b8c4cd;border-radius:12px;background:#f8fafc}ul,ol{padding-left:22px}code{overflow-wrap:anywhere}td:first-child{min-width:140px}@media(max-width:650px){main{padding:18px 12px 40px}section,header{padding:19px}h1{font-size:25px}.table{overflow-x:auto}table{min-width:580px}}@media print{body{background:white}section{break-inside:avoid}nav{display:none}}</style></head><body><main><nav><a href="index.html">보고서 모음</a><a href="02-foreground.html">② 앱 복귀 시 네트워크 재확인</a><a href="03-ux-flows.html">③ 목록·상세·폼 종합 UX</a><a href="04-dates.html">④ 홈·목록 날짜 차이</a><a href="05-scope.html">⑤ 보류·후속 티켓 경계</a></nav><header><span class="tag">Ticket 06 · 조사 보고서</span><h1>② 앱 복귀 시 네트워크 재확인</h1><p>기존 refresh를 복귀 수명에 연결할 작업이 남았습니다. 실제 foreground 전환은 이번에 실행하지 않았습니다.</p></header><p class="muted">대상: 제공된 HEAD 0b3b167의 tracked snapshot. Git 메타데이터·당시 실행 환경은 제공되지 않았습니다. 제품 코드 변경 없음.</p><section><h2>판단과 사용자에게 미치는 영향</h2><p class="lead">재확인 동작은 구현됐지만, 앱으로 돌아온 사건에 연결된 앱 코드는 없습니다.</p><p>다른 앱에 있는 동안 네트워크가 바뀌었을 때 복귀 시 관측을 다시 요청하는 연결이 남았습니다. 다만 NetInfo 자체 listener가 관측을 전달할 수 있으므로, “복귀하면 반드시 오래된 상태가 남는다”는 실제 결함 재현까지 확인한 것은 아닙니다.</p></section><section><h2>현재 연결</h2><div class="table"><table><thead><tr><th>부분</th><th>직접 확인한 코드</th><th>남은 일</th></tr></thead><tbody><tr><td>앱 수명</td><td>AppInitialization mount에서 networkStore.init(), unmount에서 cleanup(). DB→인증 복원→앱 진입은 네트워크 확정과 별개.</td><td>background/inactive→active 변화에서 refresh를 호출할 앱 수명 연결.</td></tr><tr><td>재확인</td><td>networkStore.refresh()가 NetInfo.refresh()를 요청. 동시 호출은 같은 Promise 공유.</td><td>복귀 이벤트와 수동 버튼이 겹칠 때 실제 integration 확인.</td></tr><tr><td>늦은 관측</td><td>refresh 시작 시 revision과 listener 최신 revision을 비교하고 cleanup된 session 응답 무시.</td><td>연속 복귀·해제·재진입까지 AppState 소비 테스트로 연결.</td></tr><tr><td>화면·sync</td><td>화면 표시 override와 실제 요청 관측은 분리.</td><td>복귀 결과가 비활성 화면 제한과 실제 online sync 시작 조건에 전달되는지 관찰.</td></tr></tbody></table></div></section><section><h2>검증 근거의 범위</h2><p><strong>직접 확인:</strong> 앱 source 전체에서 AppState 참조를 찾지 못했습니다. Network Store와 관련 테스트 본문에서 중복 Promise 공유, 오래된 refresh 배제, cleanup 후 응답 무시를 확인했습니다.</p><p><strong>테스트 파일의 존재와 검사 내용 확인:</strong> tests/shared/store/network.test.ts 223행·297행·356행. 이번에 Jest를 실행한 것은 아닙니다. Store 단위의 검사는 아직 없는 앱 복귀 연결의 검증이 될 수 없습니다.</p><p><strong>이전 기록:</strong> 06 티켓은 foreground 후속과 전체 UX 수락을 남겨 두었습니다. 대화의 홈 online/offline/unknown 관찰은 background 복귀 검증이 아닙니다.</p></section><section><h2>수정한다면 지켜야 할 경계</h2><p>앱 실행 수명을 소유하는 AppInitialization에서 실제 복귀 전환을 구별해 기존 refresh를 호출하는 방향이 적절합니다. 현재 active 상태로의 단순 rerender와 실제 복귀를 구별하고 listener 정리도 같은 수명에 둡니다. 인증 복원·DB 준비·Splash를 다시 시작할 이유로 삼지 않습니다.</p><p>복귀 직후 강제로 unknown으로 바꾸거나 polling을 추가하지 않습니다. unknown일 때만 확인하는 것으로 한정하지도 않습니다. 이미 Store가 맡는 중복·timeout·늦은 결과 방어를 새로 복제할 필요는 없습니다.</p></section><section><h2>스크린샷과 다음 수집</h2><div class="empty"><strong>이번 보고서에는 앱 스크린샷이 없습니다.</strong><br>기존 HTML·캡처·시뮬레이터가 입력에 포함되지 않았습니다. 대화 속 관찰은 이전 보고로만 인용하며, 코드 발췌나 설명용 예제를 실제 화면으로 대체하지 않았습니다.</div><ol><li>앱 online 화면을 기준 캡처한 뒤 background 이동 → 실제 연결 변경 → foreground 복귀 화면·상태 로그를 같은 여행에서 수집.</li><li>빠른 복귀 반복과 수동 재확인을 겹치고 요청 수·최종 관측·화면을 함께 수집.</li><li>활성 여행은 Local 이용 유지, 비활성 여행은 제한 해제 또는 유지, 실제 online 복구는 sync 시작 조건까지 별도 로그 확인.</li></ol></section><section><h2>직접 근거</h2><details><summary>apps/client/src/application/AppInitialization.tsx · 66–86행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>66: 
+67:     return () =&gt; {
+68:       // 이전 실행의 늦은 완료가 다음 실행이나 해제된 화면에 반영되지 않게 한다.
+69:       activeAttempt.current = null;
+70:       networkStore.cleanup();
+71:     };
+72:   }, [initializeApp]);
+73: 
+74:   useEffect(() =&gt; {
+75:     if (startupStatus === &#x27;preparing&#x27;) {
+76:       return;
+77:     }
+78: 
+79:     // 성공하면 앱을, 실패하면 재시도 화면을 보여준다.
+80:     void SplashScreen.hideAsync();
+81:   }, [startupStatus]);
+82: 
+83:   if (startupStatus === &#x27;ready&#x27;) {
+84:     return &lt;&gt;{children}&lt;/&gt;;
+85:   }
+86: </pre></details><details><summary>apps/client/src/shared/store/network.ts · 142–170행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>142:   }
+143: 
+144:   /*
+145:    * ---------------------------------------------------------------------------
+146:    * Session
+147:    * ---------------------------------------------------------------------------
+148:    */
+149: 
+150:   function createSession(): NetworkSession {
+151:     return {
+152:       unsubscribe: null,
+153:       unknownCheckTimer: null,
+154:       observationRevision: 0,
+155:       activeRefresh: null,
+156:     };
+157:   }
+158: 
+159:   function isActiveSession(session: NetworkSession): boolean {
+160:     return currentSession === session;
+161:   }
+162: 
+163:   /*
+164:    * ---------------------------------------------------------------------------
+165:    * Network observation
+166:    * ---------------------------------------------------------------------------
+167:    */
+168: 
+169:   function ensureSubscribed(session: NetworkSession): boolean {
+170:     if (session.unsubscribe) {</pre></details><details><summary>apps/client/src/shared/store/network.ts · 278–305행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>278:    * ---------------------------------------------------------------------------
+279:    * Refresh
+280:    * ---------------------------------------------------------------------------
+281:    */
+282: 
+283:   function createRefreshOperation(session: NetworkSession): RefreshOperation {
+284:     const startingRevision = session.observationRevision;
+285: 
+286:     let resolvePromise!: () =&gt; void;
+287:     let timeout: ReturnType&lt;typeof setTimeout&gt; | null = null;
+288:     let finished = false;
+289: 
+290:     const promise = new Promise&lt;void&gt;((resolve) =&gt; {
+291:       resolvePromise = resolve;
+292:     });
+293: 
+294:     /**
+295:      * refresh를 시작한 뒤 listener에서 더 최신 관측이 들어왔다면
+296:      * refresh 결과는 오래된 결과일 수 있으므로 적용하지 않는다.
+297:      */
+298:     function canApplyResult() {
+299:       return (
+300:         isActiveSession(session) &amp;&amp;
+301:         session.activeRefresh === operation &amp;&amp;
+302:         session.observationRevision === startingRevision
+303:       );
+304:     }
+305: </pre></details></section><footer><p>코드 직접 확인 / 기존 검증 기록 / 이번 제한된 실행 / 미확인을 구분했습니다. Jest·native·DB 통과 및 티켓 완료를 새로 선언하지 않습니다.</p></footer></main></body></html>

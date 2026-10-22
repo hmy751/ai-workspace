@@ -1,0 +1,47 @@
+{
+  "kind": "source-derived isolated date calculation; no app or database execution",
+  "input": {
+    "start": "2026-09-30T00:00:00+09:00",
+    "end": "2026-10-02T00:00:00+09:00"
+  },
+  "schedule": "2026-10-02T09:00:00+09:00",
+  "cases": [
+    {
+      "zone": "Asia/Seoul",
+      "homeStart": "9월 30일",
+      "homeEnd": "10월 2일",
+      "listDates": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "scheduleLocalDate": "2026-10-02",
+      "scheduleInListRange": false
+    },
+    {
+      "zone": "UTC",
+      "homeStart": "9월 29일",
+      "homeEnd": "10월 1일",
+      "listDates": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "scheduleLocalDate": "2026-10-02",
+      "scheduleInListRange": false
+    },
+    {
+      "zone": "America/Los_Angeles",
+      "homeStart": "9월 29일",
+      "homeEnd": "10월 1일",
+      "listDates": [
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01"
+      ],
+      "scheduleLocalDate": "2026-10-01",
+      "scheduleInListRange": true
+    }
+  ],
+  "assertions": "passed"
+}

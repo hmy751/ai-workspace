@@ -1,0 +1,5 @@
+작업 루트는 /private/tmp/briefing-first-report-20261021/r42 입니다. environment.md와 conversation.txt를 읽고 마지막 사용자 요청 직후부터 이어서 실제 작업을 수행하세요. repository의 로컬 지침을 읽고 따르세요. 제공된 대화는 요약으로 교체하지 말고 순서대로 읽으세요.
+
+입력 접근 범위는 이 루트의 environment.md, conversation.txt, repository뿐입니다. 다른 실험 실행, 원본 저장소, 바깥 워크스페이스 문서, 이후 대화에는 접근하지 마세요. 당신은 혼자 작업하는 것이 아닙니다. 다른 작업자의 변경을 되돌리거나 수정하지 마세요. 당신의 쓰기 소유 범위는 /private/tmp/briefing-first-report-20261021/r42/output 뿐이며 보고서 등 요청 산출물도 여기에 만드세요. repository는 읽기 전용입니다.
+
+작업을 수행하고 사용자에게 보낼 첫 결과 응답 전체를 output/response.md에 저장하세요. 별도의 output/worklog.md에는 실제 읽은 입력/스킬/주요 코드 경로, 실제 수행한 확인과 결과, 실행하지 못한 확인과 필요한 추가 자료를 기록하세요. 두 기록은 구분하세요. 최종 응답에는 완료한 산출물 위치와 남은 제한을 간결히 반환하세요. 최종 응답 문구를 특정 결과에 맞추라는 지시는 없습니다.

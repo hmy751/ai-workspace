@@ -1,0 +1,54 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>③ 목록·상세·폼 종합 UX</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#1e293b;font:16px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}main{max-width:1080px;margin:auto;padding:35px 24px 80px}a{color:#235ca7}nav{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;margin-bottom:28px}header{padding:28px 32px;background:#153f42;color:white;border-radius:20px}header p{color:#deefec}h1{font-size:32px;line-height:1.35;margin:12px 0}h2{font-size:23px;margin:0 0 16px}h3{font-size:18px}section{background:white;border:1px solid #dce3e8;padding:28px;border-radius:16px;margin-top:22px}.tag{display:inline-block;padding:3px 10px;background:#d9ede6;color:#145642;border-radius:6px;font-size:13px}.warning{background:#fff5df;border-left:4px solid #bd8522;padding:16px;margin-top:18px}.lead{font-size:19px;font-weight:600}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;vertical-align:top;padding:13px;border-bottom:1px solid #dce3e8}th{background:#edf3f5}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.6;background:#edf2f6;padding:16px;border-radius:8px}summary{cursor:pointer;font-weight:600}details{margin:14px 0}.muted,figcaption,footer{font-size:13px;color:#536779}.empty{padding:22px;border:2px dashed #b8c4cd;border-radius:12px;background:#f8fafc}ul,ol{padding-left:22px}code{overflow-wrap:anywhere}td:first-child{min-width:140px}@media(max-width:650px){main{padding:18px 12px 40px}section,header{padding:19px}h1{font-size:25px}.table{overflow-x:auto}table{min-width:580px}}@media print{body{background:white}section{break-inside:avoid}nav{display:none}}</style></head><body><main><nav><a href="index.html">보고서 모음</a><a href="02-foreground.html">② 앱 복귀 시 네트워크 재확인</a><a href="03-ux-flows.html">③ 목록·상세·폼 종합 UX</a><a href="04-dates.html">④ 홈·목록 날짜 차이</a><a href="05-scope.html">⑤ 보류·후속 티켓 경계</a></nav><header><span class="tag">Ticket 06 · 조사 보고서</span><h1>③ 목록·상세·폼 종합 UX</h1><p>자동 검사로 다룬 흐름과 실제 기기에서 남은 장면을 구분했습니다. 새 앱 캡처·Jest 실행은 없습니다.</p></header><p class="muted">대상: 제공된 HEAD 0b3b167의 tracked snapshot. Git 메타데이터·당시 실행 환경은 제공되지 않았습니다. 제품 코드 변경 없음.</p><section><h2>판단과 현재 상태</h2><p class="lead">화면별 제한·복구·입력 유지의 자동 검사 근거는 있습니다. 남은 일은 native 화면에서 같은 흐름이 자연스럽게 이어지는지 확인하는 것입니다.</p><p>연결 변화 자체로 여행·탭·작성 초안을 바꾸지 않고, 비활성 내용만 제한합니다. 복구하면 같은 여행의 캐시를 먼저 표시하며 저장은 사용자가 다시 실행합니다. 활성 여행의 Local 이용과 지도·검색처럼 인터넷이 필요한 서비스는 구별합니다.</p></section><section><h2>장면별 근거와 남은 확인</h2><div class="table"><table><thead><tr><th>장면</th><th>확인된 자료</th><th>아직 필요한 확인</th></tr></thead><tbody><tr><td>비활성 목록 제한·복구</td><td>schedule-recovery / expense-recovery에 캐시 숨김·복귀·최초 오류·갱신 오류 테스트.</td><td>목록→상세 이동·탭·선택 유지와 안내 중복, 좁은 화면 가독성.</td></tr><tr><td>최초 실패와 빈 결과</td><td>schedule-recovery 529행: 최초 오류 뒤 재시도 성공일 때 빈 목록. 상세도 오류와 부재 분리.</td><td>서버 실패를 실제 요청으로 만들어 빈 일정·0원 오인 없는지 캡처.</td></tr><tr><td>기존 내용 갱신 실패</td><td>usePolicyReadQuery는 isRefetchError일 때 data 유지와 refreshFailed 반환.</td><td>내용·실패 안내·재시도 버튼이 함께 보이는지와 복구 성공 확인.</td></tr><tr><td>일정 작성 중 연결 변경</td><td>create-schedule-flow 129행: 직접 작성 후 복귀에도 단일 폼과 입력 유지. 146행: 선택 장소 유지.</td><td>native 취소 React 경고, picker 확인·취소, 키보드 포함 전체 작성.</td></tr><tr><td>경비 작성·일정 연결</td><td>create-expense-flow 169행: unknown 저장 거부→초안 유지→online에서 명시적 재시도. 날짜와 연결 독립.</td><td>기존 일정 연결이 있는 비활성 초안의 제한·해제, 후보 표시·연결 설명·저장까지.</td></tr><tr><td>실제 단절 중 활성 Local 저장</td><td>검사는 Router 흐름을 쓰되 Local/Remote 함수가 mock. 기존 기록의 Debug 검사와 별개.</td><td>실제 통신 단절 상태에서 저장→목록/상세 재진입→연결 복구→서버 반영.</td></tr><tr><td>새 activation 전체</td><td>기존 제한적 정상 경비 관찰은 전체 activation 검증이 아님.</td><td>준비된 계정·여행으로 native 전체 흐름과 실패·복구를 별도 확인.</td></tr></tbody></table></div></section><section><h2>무엇을 실제로 확인했는가</h2><p>화면 조회 조합의 구현과 관련 테스트 본문을 직접 대조했습니다. useTripReadAccess는 표시 정책과 실제 관측 정책을 함께 적용하며, refetch callback은 최신 commit의 접근 조건을 다시 확인합니다. UI 제한으로 Query 캐시를 삭제하거나 별도 데이터 복제본을 만드는 구조가 아닙니다.</p><p>테스트는 네트워크·DB·Repository·native Drawer 등의 일부를 대체합니다. 실제 입력 흐름을 쓰는 검사도 iOS picker·키보드·HTTP·SQLite의 실제 작동을 모두 보장하지 않습니다.</p><p><strong>이전 실행 기록:</strong> 10월 2일 티켓·세션 기록에는 client 523 passed / 1 skipped와 날짜가 다른 일정 연결·연결 해제·Debug 초안 유지·명시적 재시도·두 경비 서버 반영이 보고돼 있습니다. 이번 실행의 통과 결과나 제공되지 않은 캡처 재검토로 말하지 않습니다.</p></section><section><h2>효율적인 후속 수집 순서</h2><ol><li>비활성 여행 한 개를 online에서 열고 목록·상세를 기준 수집합니다.</li><li>같은 여행·탭에서 offline→unknown 확인 중→확인 불가→online으로 전환하며 선택·내용·안내를 수집합니다. 모든 화면에서 같은 초기 상태를 반복 준비하지 않습니다.</li><li>작성 초안 하나에 기존 일정 연결을 두고 제한·복구·명시적 저장을 수집합니다. 일정 폼은 취소·picker·키보드만 별도 보충합니다.</li><li>실제 통신 단절과 서버 실패는 Debug 전환과 나누어 실행합니다. 계정 종료·여행 해제처럼 데이터에 영향을 주는 조작은 수집을 위해 임의 수행하지 않습니다.</li></ol><p>실행 환경이 확보되면 화면 조작은 한 수집 담당이 독점하고 관찰값·문구·캡처만 먼저 반환하는 방식이 적절합니다. 이번 환경에서는 추가 워커·시뮬레이터를 실행하지 않았습니다.</p></section><section><h2>스크린샷과 다음 수집</h2><div class="empty"><strong>이번 보고서에는 앱 스크린샷이 없습니다.</strong><br>기존 HTML·캡처·시뮬레이터가 입력에 포함되지 않았습니다. 대화 속 관찰은 이전 보고로만 인용하며, 코드 발췌나 설명용 예제를 실제 화면으로 대체하지 않았습니다.</div><ol><li>목록·상세 각각 정상/제한/복구 비교 캡처. 최초 조회 실패는 기존 데이터가 없는 조건과 구분.</li><li>작성 전 입력 → 제한 중 입력·기존 연결 → 복구 후 저장 전 → 명시적 저장 성공의 네 장면.</li><li>일정 취소 경고는 화면만이 아니라 console 로그, picker 확인·취소 값은 전후 값을 함께 수집.</li></ol></section><section><h2>직접 근거</h2><details><summary>apps/client/src/shared/services/policy-query/usePolicyReadQuery.ts · 23–35행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>23:   if (!access.hasTrip) return { kind: &#x27;unselected&#x27; };
+24:   if (!access.displayPolicy.allowed) return { kind: &#x27;blocked&#x27;, policy: access.displayPolicy };
+25:   // 성공한 undefined나 빈 배열도 유효한 결과다. 재조회 실패로 기존 내용을 가리지 않는다.
+26:   if (query.isSuccess || query.isRefetchError) {
+27:     return { kind: &#x27;ready&#x27;, data: query.data, refreshFailed: query.isError &amp;&amp; !query.isFetching };
+28:   }
+29:   if (!access.consumerEnabled) return { kind: &#x27;idle&#x27; };
+30:   if (!access.actualPolicy.allowed) return { kind: &#x27;blocked&#x27;, policy: access.actualPolicy };
+31:   return { kind: query.isError ? &#x27;error&#x27; : &#x27;loading&#x27; };
+32: }
+33: 
+34: /** refetch를 실제 객체에서도 빼고, 나머지 필드는 접근할 때 원본에서 읽는다. */
+35: function toQueryState&lt;T, E&gt;(query: UseQueryResult&lt;T, E&gt;): ReadQueryState&lt;T, E&gt; {</pre></details><details><summary>apps/client/tests/screens/create-expense-flow.test.tsx · 169–197행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>169: it(&#x27;비활성 unknown은 초안과 연결을 표시하고 Router가 저장을 막으며 online 복구 후 명시적 재시도만 저장한다&#x27;, async () =&gt; {
+170:   mockActive = false;
+171:   const view = await open();
+172:   connect(&#x27;unknown&#x27;);
+173:   fireEvent.changeText(view.getByPlaceholderText(&#x27;예: 에펠탑 입장권&#x27;), &#x27;확인 중에도 수정&#x27;);
+174:   expect(view.getByText(/첫날 일정 ·/)).toBeTruthy();
+175:   await act(async () =&gt; fireEvent.press(view.getByText(&#x27;저장&#x27;)));
+176:   await waitFor(() =&gt; expect(view.getByText(/마지막 저장 실패: 인터넷 연결을 아직 확인하지 못했어요/)).toBeTruthy());
+177:   expect(local).not.toHaveBeenCalled();
+178:   expect(remote).not.toHaveBeenCalled();
+179:   expect(mockExit).not.toHaveBeenCalled();
+180:   connect(&#x27;online&#x27;);
+181:   expect(view.getByDisplayValue(&#x27;확인 중에도 수정&#x27;)).toBeTruthy();
+182:   expect(remote).not.toHaveBeenCalled();
+183:   await act(async () =&gt; fireEvent.press(view.getByText(&#x27;저장&#x27;)));
+184:   await waitFor(() =&gt; expect(remote).toHaveBeenCalledTimes(1));
+185:   expect(remote).toHaveBeenCalledWith(expect.objectContaining({ title: &#x27;확인 중에도 수정&#x27;, scheduleId: &#x27;01ARZ3NDEKTSV4RRFFQ69G5FAW&#x27; }));
+186: });
+187: 
+188: it(&#x27;비활성의 실제 offline/display online 캐시도 새 후보 선택을 제한하지만 연결 해제는 가능하다&#x27;, async () =&gt; {
+189:   mockActive = false;
+190:   const view = await open();
+191:   connect(&#x27;offline&#x27;, &#x27;online&#x27;);
+192:   expect(view.getByText(/첫날 일정 ·/)).toBeTruthy();
+193:   expect(view.queryByText(&#x27;다음날 일정&#x27;)).toBeNull();
+194:   await act(async () =&gt; fireEvent.press(view.getByText(&#x27;연결 안 함&#x27;)));
+195:   expect(view.getByText(&#x27;연결된 일정이 없습니다.&#x27;)).toBeTruthy();
+196:   expect(view.getByDisplayValue(&#x27;작성 중 경비&#x27;)).toBeTruthy();
+197: });</pre></details><details><summary>apps/client/tests/screens/schedule-recovery.test.tsx · 529–542행</summary><p class="muted">제공된 코드 원문 발췌 · 실행 화면이 아닙니다.</p><pre>529: it(&#x27;첫 조회 실패를 빈 일정으로 표시하지 않고 재시도 성공 후에만 빈 목록을 표시한다&#x27;, async () =&gt; {
+530:   const request = deferred();
+531:   fetchSchedules.mockReturnValueOnce(request.promise);
+532:   const view = setup(undefined, null);
+533:   expect(view.getByText(&#x27;일정을 불러오고 있어요.&#x27;)).toBeTruthy();
+534:   expect(view.queryAllByText(&#x27;이 날의 일정을 추가해보세요&#x27;)).toHaveLength(0);
+535:   await act(async () =&gt; request.reject(new Error(&#x27;server unavailable&#x27;)));
+536:   await waitFor(() =&gt; expect(view.getByText(&#x27;일정을 불러오지 못했어요.&#x27;)).toBeTruthy());
+537:   expect(view.queryAllByText(&#x27;이 날의 일정을 추가해보세요&#x27;)).toHaveLength(0);
+538:   fetchSchedules.mockResolvedValueOnce([]);
+539:   fireEvent.press(view.getByRole(&#x27;button&#x27;, { name: &#x27;다시 불러오기&#x27; }));
+540:   await waitFor(() =&gt; expect(view.getAllByText(&#x27;이 날의 일정을 추가해보세요&#x27;)).toHaveLength(3));
+541:   expect(view.queryByText(&#x27;일정을 불러오지 못했어요.&#x27;)).toBeNull();
+542: });</pre></details></section><footer><p>코드 직접 확인 / 기존 검증 기록 / 이번 제한된 실행 / 미확인을 구분했습니다. Jest·native·DB 통과 및 티켓 완료를 새로 선언하지 않습니다.</p></footer></main></body></html>

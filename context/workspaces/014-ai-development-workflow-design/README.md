@@ -1,12 +1,14 @@
 # AI 개발 작업 체계의 개선 설계
 
+04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
+
 **현재 상태: Ticket03의 구성안·대표 본문·읽기와 갱신 책임 구체화를 완료했다.** [마무리119](records/2026-10-20-119-ticket03-closeout.md)와 [03 완료 조건](current/tickets/03-project-context.md)에서 판단 근거와 후속 범위를 확인한다. Workspace014 전체는 계속 진행 중이며, 이번 마무리에서 다음 Ticket을 착수하지 않았다.
 
 Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용자 인터뷰, 개발 에이전트 관련 강연을 바탕으로 **ai-workspace와 실제 개발 방식을 어떻게 발전시킬지 설계하는 작업**이다. 좋은 구현을 돕는 컨텍스트·코드 기준·절차·도구와 기록·경험 반영을 함께 다룬다. 전체 운영 체계 확정이나 실제 설치·스킬 구현은 아직 끝나지 않았다.
 
 사용자는2026-10-12에 독립 Workspace와 근거 사본을 함께 보존해 새 세션도 논의를 이어가도록 요청했다. 이 폴더는 설계 작업의 기록 단위이며 Reference Harness를 설치·실행한 Workspace가 아니다. [Spec](current/spec.md)이 전체 구상과 미결정을, [Ticket01~07](current/tickets/index.md)이 결과별 책임을 맡는다. 과거 B 선택 뒤 사용자는 [Personal 기반 구현·별도 관점 검토·Main 적용 판단과 동적 라우팅 구상](records/2026-10-21-dynamic-context-and-review-intent.md)을 설명했다. 역할별 입력·수정·검증은 이 의도와 레퍼런스를 함께 비교해 구체화한다.
 
-04-02는 기존 설명 스킬 수정안을 보류하고 보고서 사건의 연속 대화·당시 Git 자료를 [새 source](source/artifact-explanation-scenes/README.md)로 구성했다. 원문 경계·동일성의 독립 검토는 마쳤으며 당시 실행 전체 재현은 미완료다. 현재 판단과 다음 행동은 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)에서 이어간다.
+04-02는 [새 source](source/artifact-explanation-scenes/README.md)에 보고서·interceptor·network·코드 변경 첫 보고의 네 사건을 구성했다. [시점·본문 비교 범위](records/2026-10-22-ticket04-02-source-expansion-and-coverage.md)에서 사건별 역할과 당시 자료 공백을 구별했다. 원문 보존과 당시 실행 재현 준비·스킬 효과 검증은 별개이며 새 응답 시험은 아직 실행하지 않았다. 현재 판단과 다음 행동은 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)에서 이어간다.
 
 ## 지금 읽을 결과
 

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "r17",
+    "skill": "original",
+    "workflow_connected": false,
+    "root": "/private/tmp/briefing-first-report-20261021/r17",
+    "prompt_sha256": "0959cb000edc7249b43bd3bdc916c713f3e0057bd2ced00bca4c075f4205a1c4"
+  },
+  {
+    "id": "r42",
+    "skill": "candidate",
+    "workflow_connected": false,
+    "root": "/private/tmp/briefing-first-report-20261021/r42",
+    "prompt_sha256": "832d84179355fceb1137213142dd3822afa763fc22c74530920d8fd1d52fb4e5"
+  },
+  {
+    "id": "r63",
+    "skill": "original",
+    "workflow_connected": true,
+    "root": "/private/tmp/briefing-first-report-20261021/r63",
+    "prompt_sha256": "3f776b05815575aa9a2ecda4cb3971ddb843d36b5c6680d58528fc9102cd2230"
+  },
+  {
+    "id": "r88",
+    "skill": "candidate",
+    "workflow_connected": true,
+    "root": "/private/tmp/briefing-first-report-20261021/r88",
+    "prompt_sha256": "a1a4c029b31a2da080ed80284f64e84f61e718cbd292997429647b5a2de817fe"
+  }
+]

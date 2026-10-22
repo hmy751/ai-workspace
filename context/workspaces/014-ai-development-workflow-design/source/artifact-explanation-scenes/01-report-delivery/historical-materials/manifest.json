@@ -1,0 +1,434 @@
+{
+  "session_id": "01a1052a-4e61-7072-9b81-ff44449e5b85",
+  "source_path": "/Users/hammyeong-yeon/.codex/sessions/2026/10/04/rollout-2026-10-04T13-27-01-01a1052a-4e61-7072-9b81-ff44449e5b85.jsonl.zst",
+  "decoded_sha256": "77797b50e485a1b94ef39aea8149f96a05de039cf716425660e948321707ea28",
+  "matches_corpus_meta": true,
+  "files": [
+    {
+      "file": "pre-619-tool-evidence/events.jsonl",
+      "sha256": "c134f12c5ac4a610329d8cb7c762559aa08c9211553997ee2084b8d5f3c23c07",
+      "bytes": 316273,
+      "source": "/private/tmp/0402-historical-materials/report-rollout.jsonl",
+      "source_lines": [
+        16,
+        19,
+        21,
+        25,
+        53,
+        58,
+        62,
+        65,
+        76,
+        79,
+        152,
+        156,
+        160,
+        163,
+        169,
+        174,
+        193,
+        196,
+        201,
+        204,
+        510,
+        513,
+        546,
+        549,
+        555,
+        558
+      ],
+      "original_records": true
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/19.txt",
+      "sha256": "1cdfcb5e57ede05123302b1f77a3ebd34194611c7572c80826e719634c6311da",
+      "bytes": 28798,
+      "source": "raw:19:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/25.txt",
+      "sha256": "a33fe83cc6c50280f4c58670a30faeb7b0beb1601b305308e64d35dd3d4841c9",
+      "bytes": 40157,
+      "source": "raw:25:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/58.txt",
+      "sha256": "c4460d445920d343216f5acde500eeefd7957e178914806c3be859ec2a8e8b40",
+      "bytes": 40155,
+      "source": "raw:58:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/65.txt",
+      "sha256": "139676c49ade67feabe66fe2e0c078cd1d5c4c5cbe538bf08ac23b3ddf01cff8",
+      "bytes": 7243,
+      "source": "raw:65:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/79.txt",
+      "sha256": "144629ad6cb68636b9146762d228cc875b8962f9dd38207642170cc36281972d",
+      "bytes": 13812,
+      "source": "raw:79:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/156.txt",
+      "sha256": "78429de32094bddaa6a4a7491062d33ad75f6be105aa2f485b9e4cdcfae13f48",
+      "bytes": 40156,
+      "source": "raw:156:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/163.txt",
+      "sha256": "e421e60ab528c213a1c2cc3aa920d519e634c6f87d0f1af4f39ccaba1d041edf",
+      "bytes": 14209,
+      "source": "raw:163:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/images/174-3.jpg",
+      "sha256": "8a8f38cd82f124358ac0694decfb000076249767e675ff91131d27975bb4a8dc",
+      "bytes": 39656,
+      "source": "raw:174:output[3]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/174.txt",
+      "sha256": "cbd07ef454a83e2aa4bd5bd2c8565e02da62314f666d3d560ae819b814ddce6f",
+      "bytes": 18933,
+      "source": "raw:174:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/196.txt",
+      "sha256": "fc05c15d309991abae57d1c0ea7ab67f1a8844830e07bf7268ea0041a9ffc93c",
+      "bytes": 7357,
+      "source": "raw:196:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/204.txt",
+      "sha256": "ae9c064d9633217b55d4a1e1e411113b2bdf29f4356a6dd12e7742235d9dc34e",
+      "bytes": 794,
+      "source": "raw:204:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/513.txt",
+      "sha256": "781bfef39ea3beee4e7969889558a2734b59902bf11260b0b6f97ad7b81b0350",
+      "bytes": 2129,
+      "source": "raw:513:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/549.txt",
+      "sha256": "17d720d255339c491821858a5ee43aecfd052269a099d7190e0b67de25cffd40",
+      "bytes": 9174,
+      "source": "raw:549:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/readings/558.txt",
+      "sha256": "5fc311f33b923bee2ef067b2355e495472709e30a5ec2aa9a01467845c6a7afb",
+      "bytes": 195,
+      "source": "raw:558:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-779-observations/events.jsonl",
+      "sha256": "5d8b59365619a8cd6c9801018e4c800a3df0df9278fd50755604b230e5fd98a4",
+      "bytes": 308699,
+      "source": "/private/tmp/0402-historical-materials/report-rollout.jsonl",
+      "source_lines": [
+        660,
+        663,
+        667,
+        672,
+        697,
+        703,
+        727,
+        731
+      ],
+      "original_records": true
+    },
+    {
+      "file": "pre-779-observations/readings/663.txt",
+      "sha256": "16ace8fd4035e733621dffa2cb2dece38e1030389681c268adfb82325da1f178",
+      "bytes": 717,
+      "source": "raw:663:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-779-observations/images/672-1.jpg",
+      "sha256": "93cd3b6422d7a5fc83a55e799ae69a770349dc191f1dc14ece9a6504af59faab",
+      "bytes": 33942,
+      "source": "raw:672:output[1]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "pre-779-observations/images/672-2.jpg",
+      "sha256": "1e561347f5ab80a55e797b27fd65d203b4dd00ab28f7e7223a9986388cb28b7f",
+      "bytes": 33585,
+      "source": "raw:672:output[2]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "pre-779-observations/images/672-3.jpg",
+      "sha256": "98ff263e81cf343827f9eb682d24d5e84903c040302b8fcc89a8d2047150375b",
+      "bytes": 36005,
+      "source": "raw:672:output[3]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "pre-779-observations/readings/672.txt",
+      "sha256": "2aa58ff052b0da472326b0b04b8674484914be0905a46d49dd429f8175ed6c9d",
+      "bytes": 47,
+      "source": "raw:672:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-779-observations/images/703-2.jpg",
+      "sha256": "e6dcc80a50b005de2166737dbc13cf25e5fe59ac6ffd5100f49eae62d114d1cc",
+      "bytes": 33648,
+      "source": "raw:703:output[2]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "pre-779-observations/images/703-3.jpg",
+      "sha256": "cf9fd915ce885b049ce2d18e48f757a73f7f307927c0db1481351faed79027e3",
+      "bytes": 30637,
+      "source": "raw:703:output[3]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "pre-779-observations/images/703-4.jpg",
+      "sha256": "130bca5b63e04cff74f2f762309ac5e8db253ee637e4b6e383489e87feb704b8",
+      "bytes": 24174,
+      "source": "raw:703:output[4]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "pre-779-observations/readings/703.txt",
+      "sha256": "951894b28c1476f2cba854966b51a5b6a185e4676309b46067f70619289e39c0",
+      "bytes": 4355,
+      "source": "raw:703:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-779-observations/images/731-1.jpg",
+      "sha256": "cf9fd915ce885b049ce2d18e48f757a73f7f307927c0db1481351faed79027e3",
+      "bytes": 30637,
+      "source": "raw:731:output[1]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "pre-779-observations/readings/731.txt",
+      "sha256": "101f2e02b6df802fdefb3e3590098f8d091165e52b87f5e1df2a0082fe8aba5f",
+      "bytes": 938,
+      "source": "raw:731:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/events.jsonl",
+      "sha256": "dfe61204ae00cdc4a2e6d52315c78a9f8693f1eb7d8d5a3f8e6c97f361f6912e",
+      "bytes": 681176,
+      "source": "/private/tmp/0402-historical-materials/report-rollout.jsonl",
+      "source_lines": [
+        640,
+        643,
+        684,
+        687,
+        712,
+        715,
+        721,
+        725,
+        733,
+        736,
+        743,
+        746,
+        748,
+        752,
+        754,
+        757,
+        761,
+        764,
+        766,
+        769,
+        773,
+        776
+      ],
+      "original_records": true
+    },
+    {
+      "file": "first-report-authoring/readings/643.txt",
+      "sha256": "1e97f82a565c2ea03aa78a4b453e0ef44ea72707b027f6dc1a9494348e6ded4b",
+      "bytes": 49,
+      "source": "raw:643:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/readings/687.txt",
+      "sha256": "647ad35a462fb37aca074712be6317a279142f0ba2ba5255e354db5f5e9d39eb",
+      "bytes": 68,
+      "source": "raw:687:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/readings/715.txt",
+      "sha256": "364309162ba5c302d51d9af9dc8ee0fceaf6871cf7043bed5d276e33492064f7",
+      "bytes": 23108,
+      "source": "raw:715:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/readings/725.txt",
+      "sha256": "0fd8ba9f27b178a4c31a43a8fb5838b6cfe515d29c87550076eb8cb13da490e2",
+      "bytes": 12021,
+      "source": "raw:725:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/readings/736.txt",
+      "sha256": "b3dd6760047ce9479571adab001aa7eb824a2f8733fac4174062a3906fc4182a",
+      "bytes": 179,
+      "source": "raw:736:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/readings/746.txt",
+      "sha256": "c27219a48688b07978b24964a57e75cbed65dd8ea27558415973427dd13698a4",
+      "bytes": 3929,
+      "source": "raw:746:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/readings/752.txt",
+      "sha256": "eb17868069c5a6502f46d93a29579ef6d4ee4307f6db5fe362b3f6c360de596d",
+      "bytes": 289,
+      "source": "raw:752:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/images/757-1.jpg",
+      "sha256": "669aa209e122cd389869009c5a356811b0e1dd731cfffea7f2c2eb25e15dc5a9",
+      "bytes": 82469,
+      "source": "raw:757:output[1]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "first-report-authoring/readings/757.txt",
+      "sha256": "7d87c8a5263dcfa88407f651f4124384003c8b5272252ae9f19abe4a3652dc9b",
+      "bytes": 33,
+      "source": "raw:757:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/images/764-2.jpg",
+      "sha256": "adf578779f5a414bfd19447c10c01e04dcf1415293cf42c55af443ba85c7e696",
+      "bytes": 102228,
+      "source": "raw:764:output[2]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "first-report-authoring/readings/764.txt",
+      "sha256": "397e67c6fcc7efc5d51cb0823f74da302284de07a0517e81e815d4c079c37a6d",
+      "bytes": 317,
+      "source": "raw:764:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/images/769-1.jpg",
+      "sha256": "1addfe472e4a89648310f36dc3961ae71a390844c7802b2403301c2188b1800f",
+      "bytes": 89726,
+      "source": "raw:769:output[1]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "first-report-authoring/images/769-2.jpg",
+      "sha256": "e887db78594ac028aa7c80f619894ee0d97da590d02c8d7bcd15e035176a97db",
+      "bytes": 91626,
+      "source": "raw:769:output[2]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "first-report-authoring/readings/769.txt",
+      "sha256": "231ca721120128e224773c8b2d88a70af94bedef730f55a3fcda3a6fbacdae7b",
+      "bytes": 33,
+      "source": "raw:769:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "first-report-authoring/images/776-1.jpg",
+      "sha256": "7539d0cc3a881aef5f4e887761c615f74263c0a31f750fbf199bf540831bb586",
+      "bytes": 76449,
+      "source": "raw:776:output[1]",
+      "derivation": "base64 decode only"
+    },
+    {
+      "file": "first-report-authoring/readings/776.txt",
+      "sha256": "77b9a782619ef2b7cad0a13178502a34cfabf4675e30391043e9a70c59303efb",
+      "bytes": 33,
+      "source": "raw:776:output",
+      "derivation": "text blocks and nested command output unwrapped, no summary"
+    },
+    {
+      "file": "pre-619-tool-evidence/commands/555.txt",
+      "sha256": "0b1ffafed010756b0050ec75bb6891b0500a77dc3d1b53593b3e07b1a5c90b21",
+      "bytes": 17713,
+      "source": "raw:555:input:cmd",
+      "derivation": "JSON string decode only; not executed"
+    },
+    {
+      "file": "pre-619-tool-evidence/scripts/555.py",
+      "sha256": "edcfeb6e1847d8ec8f43801a4e13a4ee3000f57da11208f6693b5abd30e293fe",
+      "bytes": 17694,
+      "source": "raw:555:input:cmd",
+      "derivation": "heredoc payload, trailing newline retained; not executed"
+    },
+    {
+      "file": "first-report-authoring/commands/640.txt",
+      "sha256": "689238867586e23ae539448b4cbcb6352661c4d8582a65efe288e23cf779a66a",
+      "bytes": 8631,
+      "source": "raw:640:input:cmd",
+      "derivation": "JSON string decode only; not executed"
+    },
+    {
+      "file": "first-report-authoring/scripts/640.py",
+      "sha256": "b7d10f0817d17f6c4d089ab67e4ac7050dae4ace78b40f2afcef5bd6ece8012b",
+      "bytes": 8583,
+      "source": "raw:640:input:cmd",
+      "derivation": "heredoc payload, trailing newline retained; not executed"
+    },
+    {
+      "file": "first-report-authoring/commands/684.txt",
+      "sha256": "281d03ca933ffb9bd2d9cab4452ea6c94a8e4a187478aec7bb5dc60e603a09e4",
+      "bytes": 23164,
+      "source": "raw:684:input:cmd",
+      "derivation": "JSON string decode only; not executed"
+    },
+    {
+      "file": "first-report-authoring/scripts/684.py",
+      "sha256": "d03e95a561bbab480f44cec502f2295d20ccb826cf55d16f73f6315742a28f3b",
+      "bytes": 23059,
+      "source": "raw:684:input:cmd",
+      "derivation": "heredoc payload, trailing newline retained; not executed"
+    },
+    {
+      "file": "first-report-authoring/commands/733.txt",
+      "sha256": "84b65d4cf0e43d399fdb8006ed7b7557c4a3b0ceba243b5f787c352be6215b1f",
+      "bytes": 2700,
+      "source": "raw:733:input:cmd",
+      "derivation": "JSON string decode only; not executed"
+    },
+    {
+      "file": "first-report-authoring/scripts/733.py",
+      "sha256": "f0d8989dcf3f468e8947ca9031b0da3212dd1a35f102f22216bfdf6c22e9fc3f",
+      "bytes": 2640,
+      "source": "raw:733:input:cmd",
+      "derivation": "heredoc payload, trailing newline retained; not executed"
+    }
+  ]
+}

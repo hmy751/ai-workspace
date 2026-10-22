@@ -1,0 +1,40 @@
+Wall time: 3.7577 seconds
+Output:
+
+Browser tab: 1, Title: "Ticket 06 · 남은 작업 보고서 모음", URL: "http://127.0.0.1:8766/remaining-review-20261004/index.html".
+0 AXWebArea Ticket 06 · 남은 작업 보고서 모음, URL: 127.0.0.1:8766/remaining-review-20261004/index.html
+	1 container
+		2 text NOLINE / TICKET 06 / 2026.10.04
+		3 heading 남은 작업을 네 갈래로 확인했습니다, Value: 1
+			4 text 남은 작업을 네 갈래로 확인했습니다
+		5 text 홈 안내 보고서에 이어 foreground 복귀, 목록·상세·폼 UX, 날짜 표시 차이, 보류·후속 범위를 각각 정리했습니다. 시뮬레이터 한 명은 화면만 수집하고 코드·기존 검증 대조는 병렬로 진행했습니다. 관찰된 화면, 코드로 확인한 연결, 과거 기록과 아직 확인하지 않은 범위를 구분합니다. 문제를 새로 구현하거나 보류 항목을 다시 착수한 결과는 아닙니다.
+	6 container
+		7 text 앞서 만든 보고서
+		8 link Description: ① 홈 안내, Value: 127.0.0.1:8766/home-review-20261004/report.html
+		9 text 활성 홈의 현재 수집과 비활성 홈의 과거 안내 문제, 공통 안내의 수정 방향.
+		10 text 추가 보고서
+		11 link Description: ② 앱 복귀와 네트워크 재확인, Value: 127.0.0.1:8766/remaining-review-20261004/02-foreground.html
+		12 image Home 버튼 이후 앱 아이콘으로 복귀한 온라인 홈
+		13 text 앱 코드에는 foreground 진입을 명시적으로 감지해 refresh를 호출하는 연결이 없습니다.
+		14 text 홈이 다시 보이는 것만으로 네트워크 재확인·서버 통신·sync가 실행됐다고 판단하지 않습니다. 제품 코드는 수정하지 않았습니다.
+		15 text 추가 보고서
+		16 link Description: ③ 목록·상세·폼 종합 UX, Value: 127.0.0.1:8766/remaining-review-20261004/03-journey-ux.html
+		17 image 보고서 참고 화면
+		18 text 정상 목록·상세·작성 기본값은 새로 확인했습니다. 제한·복귀·실패 경험 전체를 완료한 것은 아닙니다.
+		19 text 개선된 일정·경비 작성 흐름을 과거 결함 목록으로 되돌리지 않습니다. 현재 캡처와 자동 검사·과거 실앱 기록을 나누어 판단합니다.
+		20 text 추가 보고서
+		21 link Description: ④ 홈과 목록의 날짜 차이, Value: 127.0.0.1:8766/remaining-review-20261004/04-date-consistency.html
+		22 image 보고서 참고 화면
+		23 text 현재 화면에서도 홈은 9월 30일~10월 2일, 일정 목록은 9월 29일~10월 1일로 다릅니다.
+		24 text 경비의 10월 2일 항목도 여행 기간 외로 분류됩니다. 원본 timestamp·기기 시간대를 대조하지 않았으므로 데이터 생성 원인은 아직 확정하지 않았습니다.
+		25 text 추가 보고서
+		26 link Description: ⑤ 보류·후속 작업과 06번의 종료 경계, Value: 127.0.0.1:8766/remaining-review-20261004/05-deferred-scope.html
+		27 image 보고서 참고 화면
+		28 text 보류 두 문제와 다른 티켓의 모든 잔여 작업을 06번 완료의 필수 선행으로 올리지 않습니다.
+		29 text 06번은 아직 미완료입니다. 남은 홈·종합 UX·foreground 결과와 날짜 차이의 담당, 실제 검증 한계를 드러낸 뒤 종료 여부를 판단해야 합니다.
+		30 heading 읽는 방법, Value: 2
+			31 text 읽는 방법
+		32 text 각 보고서의 첫 문장에서 핵심 결과를 보고, 이미지 캡션의 날짜·조건·한계를 함께 읽어주세요. 서로 다른 시점과 조건의 화면을 수정 전후로 해석하지 않습니다. 이미지를 누르면 확대됩니다.
+		33 text HTML 파일에 스크린샷을 포함했습니다. 현재 보고서 네 편과 앞선 홈 보고서를 함께 연결합니다.
+
+The focused UI element is 0 AXWebArea Ticket 06 · 남은 작업 보고서 모음, URL: 127.0.0.1:8766/remaining-review-20261004/index.html

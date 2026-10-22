@@ -1,0 +1,95 @@
+{
+  "session_id": "01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30",
+  "compressed_source": {
+    "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/17/rollout-2026-09-17T11-41-46-01a0ad3d-d8d0-7f33-a3fa-c9eaf01d3f30.jsonl.zst",
+    "sha256": "19712dd822ae158fdd002ad0564535283cf3bdf780d0fe1b89dec985a20a199e",
+    "physical_source_lines": [
+      1213,
+      1218,
+      1222,
+      1227
+    ],
+    "record_ordinals": [
+      1212,
+      1217,
+      1221,
+      1226
+    ]
+  },
+  "decoded_sha256": "dd92d13fdfe3da91561028f69557dee6a905a1affc297fa5fc72d3c3f47a23cc",
+  "matches_corpus_meta": true,
+  "files": [
+    {
+      "file": "observed/network-selected-raw-events.jsonl",
+      "status": "raw_exact",
+      "provenance": "network_compressed_rollout; physical source_lines 1213,1218,1222,1227; original JSONL records byte-for-byte",
+      "sha256": "9e606c72158aec460fbe88f54d38585fd3e00a9679251f5b0c21d067e2964102",
+      "bytes": 54404
+    },
+    {
+      "file": "observed/network-observed-20260917-0331Z.ts",
+      "status": "observed_output_reconstruction",
+      "provenance": "network_compressed_rollout source_line 1218; output item i=1 for nl -ba apps/client/src/shared/store/network.ts; remove displayed line numbers 1-307; not original working-tree byte copy",
+      "sha256": "7a5ecf5c29eb1898d5ac8633dab9186eb35ee092a42ea7b22ddcc8f25097de84",
+      "bytes": 7874
+    },
+    {
+      "file": "observed/network-observed-20260917-0228Z.ts",
+      "status": "observed_output_reconstruction",
+      "provenance": "network_earlier_collector_artifact body.payload.tool_response; strip leading tool/HEAD text and nl -ba numbers; byte-identical to 0331 reconstruction",
+      "sha256": "7a5ecf5c29eb1898d5ac8633dab9186eb35ee092a42ea7b22ddcc8f25097de84",
+      "bytes": 7874
+    },
+    {
+      "file": "observed/network-consumers-observed-20260917-0331Z.txt",
+      "status": "observed_output_excerpts",
+      "provenance": "network_compressed_rollout source_line 1227; output item i=1; RootLayout/Debug/status selected code ranges",
+      "sha256": "b7989ee6625884e728d93beb2bae964b8269dd8c177a29c626beaffc383d1b71",
+      "bytes": 4206
+    },
+    {
+      "file": "observed/network-tests-observed-excerpts-20260917-0331Z.txt",
+      "status": "observed_output_excerpts",
+      "provenance": "network_compressed_rollout source_line 1227; output item i=2; selected test ranges",
+      "sha256": "a4c6ec0f7d4cbb3c2522ff75ef9e06f4573cb927c376ce3c90cc3b4d111faab6",
+      "bytes": 8074
+    },
+    {
+      "file": "git-baseline/network-head-7cfa7db.ts",
+      "status": "git_committed_proxy",
+      "provenance": "git show 7cfa7db:apps/client/src/shared/store/network.ts; before explanation but omits uncommitted 307-line code",
+      "sha256": "265b680ae6917d40b014a000505f4a66a4016c213c013fd981c7b891b30bb82c",
+      "bytes": 3311
+    },
+    {
+      "file": "later-reference/network-c578446.ts",
+      "status": "git_later_proxy",
+      "provenance": "git show c5784461979186c25203c4d08aca52dbcdb3c9a2:apps/client/src/shared/store/network.ts; commit after explanation",
+      "sha256": "dc53f2fdb498a8958db38c72734efb1123665db22fb827ee2916682f457bfcf3",
+      "bytes": 11527
+    },
+    {
+      "file": "preceding-change/tool-events.jsonl",
+      "sha256": "e1e2c0d2a4542ce1f19f957aed26f6e8221156fd1e8026793258a83ee2961f3d",
+      "bytes": 73897,
+      "source_lines": [
+        1115,
+        1118,
+        1122,
+        1126,
+        1130,
+        1133,
+        1142,
+        1147,
+        1159,
+        1163,
+        1169,
+        1173,
+        1183,
+        1187
+      ],
+      "status": "raw_exact",
+      "provenance": "Original tool records before user1209: five-file edit and checks, not a new network.ts edit"
+    }
+  ]
+}

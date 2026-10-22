@@ -1,0 +1,68 @@
+*** Begin Patch
+*** Update File: /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/profile/hooks/useStorageStats.ts
+@@
+ export interface StorageStats {
+   dbSize: string;
+   mapPackSize: string;
+   totalSize: string;
+ }
+ 
+-export function useStorageStats() {
+-  const [stats, setStats] = useState<StorageStats>({
+-    dbSize: '0 B',
+-    mapPackSize: '0 B',
+-    totalSize: '0 B',
+-  });
++function formatBytes(bytes: number, decimals = 1) {
++  if (bytes === 0) return '0 B';
++  const k = 1024;
++  const dm = decimals < 0 ? 0 : decimals;
++  const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
++  const i = Math.floor(Math.log(bytes) / Math.log(k));
++  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
++}
+ 
+-  useEffect(() => {
+-    calculateStorage();
+-  }, []);
++function createStorageStats(dbSizeBytes: number, mapSizeBytes: number): StorageStats {
++  return {
++    dbSize: formatBytes(dbSizeBytes),
++    mapPackSize: formatBytes(mapSizeBytes),
++    totalSize: formatBytes(dbSizeBytes + mapSizeBytes),
++  };
++}
+ 
+-  const formatBytes = (bytes: number, decimals = 1) => {
+-    if (bytes === 0) return '0 B';
+-    const k = 1024;
+-    const dm = decimals < 0 ? 0 : decimals;
+-    const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+-    const i = Math.floor(Math.log(bytes) / Math.log(k));
+-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+-  };
++export function useStorageStats() {
++  const [stats, setStats] = useState<StorageStats>(() => createStorageStats(0, 0));
++
++  useEffect(() => {
++    calculateStorage();
++  }, []);
+@@
+-      setStats({
+-        dbSize: formatBytes(dbSizeBytes),
+-        mapPackSize: formatBytes(mapSizeBytes),
+-        totalSize: formatBytes(dbSizeBytes + mapSizeBytes),
+-      });
+     } catch (error) {
+       console.warn('Failed to calculate storage stats:', error);
+-      // Fallback display
+-      setStats({
+-        dbSize: formatBytes(dbSizeBytes),
+-        mapPackSize: formatBytes(mapSizeBytes),
+-        totalSize: formatBytes(dbSizeBytes + mapSizeBytes),
+-      });
++    } finally {
++      setStats(createStorageStats(dbSizeBytes, mapSizeBytes));
+     }
+   };
+*** End Patch

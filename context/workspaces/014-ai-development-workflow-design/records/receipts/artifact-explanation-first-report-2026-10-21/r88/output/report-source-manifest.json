@@ -1,0 +1,142 @@
+[
+  {
+    "path": "apps/client/src/application/AppInitialization.tsx",
+    "start": 62,
+    "end": 78
+  },
+  {
+    "path": "apps/client/src/shared/store/network.ts",
+    "start": 128,
+    "end": 158
+  },
+  {
+    "path": "apps/client/src/shared/store/network.ts",
+    "start": 301,
+    "end": 318
+  },
+  {
+    "path": "apps/client/tests/shared/store/network.test.ts",
+    "start": 222,
+    "end": 248
+  },
+  {
+    "path": "apps/client/tests/shared/store/network.test.ts",
+    "start": 297,
+    "end": 319
+  },
+  {
+    "path": "apps/client/src/shared/services/sync/provider.tsx",
+    "start": 35,
+    "end": 65
+  },
+  {
+    "path": "apps/client/src/shared/services/policy-query/usePolicyReadQuery.ts",
+    "start": 19,
+    "end": 39
+  },
+  {
+    "path": "apps/client/tests/screens/read-query-consumers.test.tsx",
+    "start": 238,
+    "end": 272
+  },
+  {
+    "path": "apps/client/tests/screens/schedule-recovery.test.tsx",
+    "start": 325,
+    "end": 365
+  },
+  {
+    "path": "apps/client/tests/screens/expense-recovery.test.tsx",
+    "start": 180,
+    "end": 230
+  },
+  {
+    "path": "apps/client/src/screens/CreateScheduleScreen.tsx",
+    "start": 24,
+    "end": 40
+  },
+  {
+    "path": "apps/client/tests/screens/create-schedule-flow.test.tsx",
+    "start": 129,
+    "end": 144
+  },
+  {
+    "path": "apps/client/tests/screens/create-expense-flow.test.tsx",
+    "start": 169,
+    "end": 186
+  },
+  {
+    "path": "apps/client/src/screens/HomeScreen/MainTripSection.tsx",
+    "start": 32,
+    "end": 39
+  },
+  {
+    "path": "apps/client/src/shared/lib/datetime.ts",
+    "start": 77,
+    "end": 101
+  },
+  {
+    "path": "apps/client/src/screens/ScheduleScreen.tsx",
+    "start": 98,
+    "end": 105
+  },
+  {
+    "path": "apps/client/src/screens/ScheduleScreen.tsx",
+    "start": 178,
+    "end": 191
+  },
+  {
+    "path": "context/project/common/date-and-time.md",
+    "start": 43,
+    "end": 55
+  },
+  {
+    "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/08-date-selection-grouping.md",
+    "start": 9,
+    "end": 15
+  },
+  {
+    "path": "apps/client/src/screens/ExpensesScreen.tsx",
+    "start": 133,
+    "end": 146
+  },
+  {
+    "path": "apps/client/src/screens/ExpenseDetailScreen.tsx",
+    "start": 13,
+    "end": 23
+  },
+  {
+    "path": "apps/client/src/screens/ExpenseDetailScreen.tsx",
+    "start": 63,
+    "end": 76
+  },
+  {
+    "path": "apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts",
+    "start": 25,
+    "end": 49
+  },
+  {
+    "path": "apps/client/src/features/schedule/create-schedule/useSubmitSchedule.ts",
+    "start": 29,
+    "end": 64
+  },
+  {
+    "path": "apps/client/src/entities/trip/api/trips.ts",
+    "start": 57,
+    "end": 63
+  },
+  {
+    "path": "apps/server/src/routes/trips.ts",
+    "start": 158,
+    "end": 163
+  },
+  {
+    "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/15-sync-result-retry-pull-types.md",
+    "start": 26,
+    "end": 36
+  },
+  {
+    "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/16-unsynced-data-cleanup.md",
+    "start": 25,
+    "end": 33
+  }
+]

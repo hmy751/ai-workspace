@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-22T03:42:30.097847+00:00",
+  "session_id": "01a08ff3-0e91-7921-afe4-69f0968638ef",
+  "source_file": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/source/noline-evaluation/corpus/01a08ff3-0e91-7921-afe4-69f0968638ef/messages.jsonl",
+  "source_sha256": "38eac1d375b22a6e9a92ee868ac9389df445779f4708db0f36ce4444d3d593f8",
+  "selection": {
+    "prior-context": {
+      "from_source_line": 9,
+      "through_source_line": 1542,
+      "count": 73,
+      "last_timestamp": "2026-09-11T12:53:15.411Z"
+    },
+    "input": {
+      "from_source_line": 1549,
+      "through_source_line": 2456,
+      "count": 50,
+      "last_timestamp": "2026-09-11T13:22:41.364Z"
+    },
+    "evaluation": {
+      "from_source_line": 2464,
+      "through_source_line": 2645,
+      "count": 14,
+      "last_timestamp": "2026-09-11T13:29:01.990Z"
+    },
+    "selection_rule": "all public corpus messages in inclusive ranges, original order, no inner deletion; entire JSONL records preserved byte-for-byte",
+    "complete_prefix_before_execution": [
+      "prior-context",
+      "input"
+    ],
+    "shorter_input_requires_historical_context": true
+  },
+  "historical_repository": {
+    "snapshot_in_bundle": false,
+    "working_tree_reconstructed": false,
+    "reported_setup_commit": "653f8b8",
+    "basis_message_source_line": 1542
+  },
+  "original_rollout": {
+    "path": "/Users/hammyeong-yeon/.codex/sessions/2026/09/11/rollout-2026-09-11T19-11-06-01a08ff3-0e91-7921-afe4-69f0968638ef.jsonl",
+    "available_at_recorded_path": false
+  },
+  "files": {
+    "README.md": {
+      "bytes": 3798,
+      "sha256": "39121b7ad4cfc7e46b931fe42150babbfb9989a1a14d272836b34c71414161f2"
+    },
+    "evaluation/conversation.txt": {
+      "bytes": 6588,
+      "sha256": "2066b149e804815c7a5680d3037446ef6baff00f510601557b3488759dfba909"
+    },
+    "evaluation/messages.jsonl": {
+      "bytes": 9150,
+      "sha256": "09f5fbe2452146ad59bbdc10b1c178e0649cd0f004a75c2d8b84fd0c81725e07"
+    },
+    "input/conversation.txt": {
+      "bytes": 30476,
+      "sha256": "8eec9ecf0b2d9315b0763f6921a80239ddf47d7ae3fa506d719c064f137108cf"
+    },
+    "input/messages.jsonl": {
+      "bytes": 39793,
+      "sha256": "e6e84665d723000355adeab0e6e67b841e9cde131ccbc724fc6a17e4224fcd69"
+    },
+    "prior-context/conversation.txt": {
+      "bytes": 85566,
+      "sha256": "0b92705eacfd2d8c4b86c40f169455d793edc1d773921433dab106372069f76f"
+    },
+    "prior-context/messages.jsonl": {
+      "bytes": 100073,
+      "sha256": "45ac0c308821f2a4c3e287a656424da3e3961a6e035f100ab9601394f8a93482"
+    },
+    "session-meta.json": {
+      "bytes": 1516,
+      "sha256": "9aa9505aa6f5c33350a1674bd7315622fad309f5b86e9b4ea036888f4b6a8004"
+    }
+  },
+  "missing_nontext_payloads": [
+    {
+      "source_line": 1720,
+      "type": "input_image",
+      "payload_available_in_bundle": false
+    },
+    {
+      "source_line": 1933,
+      "type": "input_image",
+      "payload_available_in_bundle": false
+    },
+    {
+      "source_line": 2089,
+      "type": "input_image",
+      "payload_available_in_bundle": false
+    }
+  ],
+  "historical_materials_addendum": {
+    "date": "2026-10-22",
+    "manifest": "historical-materials/manifest.json",
+    "readme": "historical-materials/README.md",
+    "note": "Compressed original rollout recovered; decoded SHA-256 matches corpus meta. Earlier missing-path findings refer to uncompressed path."
+  }
+}

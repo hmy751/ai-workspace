@@ -1,0 +1,34 @@
+Script completed
+Wall time 2.0 seconds
+Output:
+
+
+RESULT 1
+exit=0
+
+> @apps/client@1.0.0 test /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client
+> jest --config jest.config.cjs "--runInBand"
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+PASS tests/features/profile/hooks/useStorageStats.test.ts
+PASS tests/setup/jest-environment.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       7 passed, 7 total
+Snapshots:   0 total
+Time:        0.836 s, estimated 1 s
+Ran all test suites.
+
+
+RESULT 2
+exit=0
+
+
+RESULT 3
+exit=0
+Checking formatting...
+All matched files use Prettier code style!
+
+
+RESULT 4
+exit=0

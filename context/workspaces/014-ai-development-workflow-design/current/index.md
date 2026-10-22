@@ -4,7 +4,7 @@
 
 현재 산출물은 [development-workflow](../records/prototypes/development-workflow/README.md)의 본문·사례·코드·작업 장면이다. [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)는 본문과 형성 자료의 관리를, [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)는 체계 지침과 진입·상세의 역할을 설명한다. 실제 운영 Noline·스킬·하네스 설치는 하지 않았다.
 
-04-02를 이어갈 때는 [해당 Ticket](tickets/04-skill-improvements/04-02-artifact-explanation.md)과 [원문 중심 source](../source/artifact-explanation-scenes/README.md)를 먼저 읽는다. 기존 설명 스킬 수정안은 보류했고, 보고서 사건의 원문·Git 자료 구성과 독립 검토를 마쳤다. 당시 홈 HTML·전체 실행 상태의 공백을 고려해 검증 가능한 범위와 개입할 책임을 정하는 단계다.
+04-02를 이어갈 때는 [해당 Ticket](tickets/04-skill-improvements/04-02-artifact-explanation.md)과 [원문 중심 source](../source/artifact-explanation-scenes/README.md)를 먼저 읽는다. 네 장면의 원문과 당시 코드·최초 diff·도구 기록을 확보했고 [비교 설계](../records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md)를 준비했다. 첫 보고 전 적용 배치와 같은 시점의 본문 비교를 구별하며 아직 응답 시험을 실행하지 않았다. 전체 실행·DB 복원과의 차이도 유지한다.
 
 ## 재진입
 

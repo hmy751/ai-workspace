@@ -1,0 +1,45 @@
+{
+  "method": "HTMLParser and local link existence; browser render not performed",
+  "reports": [
+    {
+      "file": "02-foreground.html",
+      "links_checked": 11,
+      "missing_links": [],
+      "one_h1": true,
+      "language": "ko",
+      "images": 0
+    },
+    {
+      "file": "03-integrated-ux.html",
+      "links_checked": 11,
+      "missing_links": [],
+      "one_h1": true,
+      "language": "ko",
+      "images": 0
+    },
+    {
+      "file": "04-date-consistency.html",
+      "links_checked": 13,
+      "missing_links": [],
+      "one_h1": true,
+      "language": "ko",
+      "images": 0
+    },
+    {
+      "file": "05-scope-boundaries.html",
+      "links_checked": 14,
+      "missing_links": [],
+      "one_h1": true,
+      "language": "ko",
+      "images": 0
+    },
+    {
+      "file": "index.html",
+      "links_checked": 6,
+      "missing_links": [],
+      "one_h1": true,
+      "language": "ko",
+      "images": 0
+    }
+  ]
+}
