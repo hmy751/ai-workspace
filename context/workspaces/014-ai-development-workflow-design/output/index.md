@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+구현·검토 설계의 현재 선택: [관련 기준 공유와 독립 판단](../records/2026-10-22-shared-criteria-and-independent-review-decision.md) — 사용자 수용 방향과 초기안부터의 전환 이유, Main 추천·미정 15항목을 구별한 기록이다. 실제 실행 산출물은 아래 기존 프로토타입이며 새 방향은 아직 적용하지 않았다.
+
 04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](../records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
 
 **Ticket 03의 구성안·본문 예시는 완료됐다.** 현재 결과와 한계는 [03](../current/tickets/03-project-context.md), 완료 판단·후속 책임은 [119](../records/2026-10-20-119-ticket03-closeout.md)에서 확인한다. Workspace014 전체의 목표는 컨텍스트·코드 기준·절차·검증·기록·경험 반영이 연결된 개발 체계를 설계하는 것이다.

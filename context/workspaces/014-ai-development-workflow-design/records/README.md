@@ -1,10 +1,16 @@
 # 논의와 보존 기록
 
+- [관련 기준 공유·독립 검토의 방향 선택과 논의 경로](2026-10-22-shared-criteria-and-independent-review-decision.md): 초기 원칙 공유안, Personal 입력 축소 대안, 자체 구조 대조, 설계 선행 정정, Lauren 구현·검토 재대조와 독립 리뷰를 거쳐 관련 기준 공유·별도 판단 방향을 수용했다. 상세 운영은 추천·미정으로 구별하고, 다음 입력 구체화와 15개 설계 항목을 연결한다. 원문 59개 보존, 실행 지침·실험·커밋 변경 없음.
+
 04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
 
 - [04-02 원문 세 장면 추가·시점과 본문 검증 범위](2026-10-22-ticket04-02-source-expansion-and-coverage.md): 기존 보고서와 함께 네 사건을 구성했다. 새 공개 발화210개를 원문 그대로 분리 보존하고, 핵심 두 축을 비교할 범위와 당시 코드·실행 자료 공백을 구별했다. 새 응답 시험은 미실행이다.
 
+- [검토 입력 축소와 lead의 적용 판단](2026-10-22-light-context-review-and-lead-judgment.md): 사용자 대안을 pstack interrogate·lead judgment, Matt·Vercel과 대조했다. 일반 코드 관점과 전체 정책 대조의 분업을 권고하되 객관성·총비용 효과는 미확인으로 남겼다.
+
 - [04-02 보고서 외 장면 선정](2026-10-22-ticket04-02-nonreport-scene-selection.md): 자연어 interceptor 코드 질문을 본문 비교 우선 후보로, network 흐름 질문을 자동 선택의 보조 사례로 선정. 첫 답 전 적용 선언과 후속 교정을 원문 대조했으며 시점 원인은 미확정, 새 시험은 미실행이다.
+
+- [구현자·검토자의 실제 입력과 동적 맥락 선택](2026-10-22-role-inputs-and-dynamic-context-proposal.md): 구현 단계 검토자와 별도 검증자의 구별, 서브 모델·medium 기본 방향, 실제 Personal·Project·Spec/Ticket의 선택·사례 혼재를 대조했다. 역할별 첫 입력·추가 읽기·Main 반환 조건은 Main 후보이며 실행 본문 반영·효과 검증은 미수행이다.
 
 - [04-02 적용 시점·스킬 평가 범위 정정](2026-10-22-ticket04-02-timing-and-skill-evaluation-clarification.md): 별도 보고 지침 추가와 조기 호출의 혼동, 원문15의 적용 선언,216 비교안의 미채택 상태, 다른 source 탐색 전 보존할 사용자 정정과 현재 판단.
 

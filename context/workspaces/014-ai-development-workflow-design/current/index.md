@@ -1,5 +1,7 @@
 # 현재 논의의 진입점
 
+구현·검토 논의의 현재 선택은 [관련 기준 공유·별도 판단](../records/2026-10-22-shared-criteria-and-independent-review-decision.md)이다. 입력을 숨기는 방식보다 관련 기준을 공유하면서 현재 선택과 적용을 재검토하고 Main이 종합하는 방향을 받아들였다. 상세 입력·권한·수정·반복 조건은 미정이다. 실제 문서로 공통·차등·조건부 입력을 정하는 것은 Main의 다음 추천이며, 1~5번 전체가 확정된 것은 아니다. 재개 시 해당 기록의 ‘다른 세션이 이어받아야 할 대화의 뉘앙스’와 ‘재개할 때 필요한 최소 경로’를 먼저 읽고 사용자가 지목한 항목을 이어간다. 아래 과거 03 마감의 재진입 설명과 구별한다.
+
 **Ticket 03의 구성안·본문 예시 구체화를 완료했다.** [state](state.md)에서 마감 상태와 후속 범위, [03](tickets/03-project-context.md)에서 완료 조건별 근거, [119](../records/2026-10-20-119-ticket03-closeout.md)에서 이번 마무리 판단을 읽는다. Workspace014 전체와 다른 Ticket은 계속 열려 있다.
 
 현재 산출물은 [development-workflow](../records/prototypes/development-workflow/README.md)의 본문·사례·코드·작업 장면이다. [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)는 본문과 형성 자료의 관리를, [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)는 체계 지침과 진입·상세의 역할을 설명한다. 실제 운영 Noline·스킬·하네스 설치는 하지 않았다.

@@ -1,5 +1,7 @@
 # AI 개발 작업 체계의 개선 설계
 
+구현·검토 논의는 [관련 기준 공유·독립 판단 방향](records/2026-10-22-shared-criteria-and-independent-review-decision.md)을 받아들인 상태다. 구현자·검토자가 관련 판단 기준을 공유하되 현재 구현과 기준의 적용을 별도로 판단하고 Main이 종합한다. 상세 입력·수정·호출·종료는 미정이며 다음은 실제 문서에서 역할별 입력을 정하는 것이다. 실행 프로토타입·스킬 적용과 효과 확인은 아직 하지 않았다.
+
 04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
 
 **현재 상태: Ticket03의 구성안·대표 본문·읽기와 갱신 책임 구체화를 완료했다.** [마무리119](records/2026-10-20-119-ticket03-closeout.md)와 [03 완료 조건](current/tickets/03-project-context.md)에서 판단 근거와 후속 범위를 확인한다. Workspace014 전체는 계속 진행 중이며, 이번 마무리에서 다음 Ticket을 착수하지 않았다.

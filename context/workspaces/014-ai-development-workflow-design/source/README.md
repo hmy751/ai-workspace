@@ -1,5 +1,7 @@
 # 이 Workspace 안에 보존한 근거
 
+[기준 공유와 독립 검토 논의의 선택 발화 원문](discussion/2026-10-22-shared-criteria-independent-review/conversation.md): 초기 의도와 역할 구체화부터 기준 공유 재비교·기록 요청까지 사용자·Main 발화 59개를 보존했다. 전체 세션 전사가 아니며 선택 범위·원본 행·본문 해시는 [manifest](discussion/2026-10-22-shared-criteria-independent-review/manifest.json)에 있다.
+
 04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](../records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이며 응답 시험은 아직 하지 않았다.
 
 이 폴더는 현재 설계의 근거를 외부 로컬 경로에만 의존하지 않고 다시 읽을 수 있도록 보존한다. **읽을 순서는 자료 양이 아니라 현재 질문에 맞춘다.** 새 세션은 먼저 [Workspace README](../README.md)와 current를 읽고 아래에서 필요한 자료를 고른다.
