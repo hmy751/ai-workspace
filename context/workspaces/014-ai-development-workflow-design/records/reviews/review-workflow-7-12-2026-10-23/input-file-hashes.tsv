@@ -1,0 +1,26 @@
+path	sha256
+context/workspaces/014-ai-development-workflow-design/records/2026-10-23-review-workflow-7-12-proposal.md	fe9b671627692a47e75fe8bd683e88ff7945da4eb7449edf2ecc993497e4996c
+context/workspaces/014-ai-development-workflow-design/records/2026-10-23-implementation-completion-and-handoff-proposal.md	eb481127dcbb14c3e2562627223528f7da502e805692f8b466599a0f54df0408
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/references/review.md	88492dc208b942008c13269993df5773520d732ba9dcba7eefbab26f98b6d99c
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/current/memory/index.md	f7cbb31e0dcbb68302f8007193bb7562700cca59792193556d6bd33308e2a892
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md	2a37a813cf0ecad6eab7037fc57ba7883a80a245310b388a700157cfb93fd6ae
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/INDEX.md	a15505a272f8829859e73e2c659e129dfed4447097d0c67479de86ff26d79f5f
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md	f96fb8be71a8f3fe29b4ba65b0c08d86705855cfe5d53498db64143be44ad100
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/project/common/device-session/INDEX.md	df1f0cf8b809a2de41ba27cd30ee44787efa5ead82c4e77347e137b32ce37ad8
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/project/guidance/authentication-and-session/INDEX.md	dc631c66f1522dbf5ee46e26a65afa21f99607d5e8c9361fe496ac40832cddb4
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/INDEX.md	20fff46a639ba5eeef3cd45224c981d28b8efad3335a66329f0933dc001d4c85
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/project/current/authentication-flow/INDEX.md	8d1d099f1788ac942a6b758d1dd38f6298d4a39a8a2756400b5cf8c9e9dab37a
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/examples/authentication/README.md	03b766aee6dcc5ee8ec1b084e8a0e9f8a40839b66aad852f7cfe90891b46d1b5
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-03-execution.md	3b7485d5014ae102a9c686df89a9dafdabe7f0dcedbbbaf2fb8b0a5fb64311d5
+context/workspaces/014-ai-development-workflow-design/current/tickets/01-development-workflow/01-03-behavior-verification.md	4e4546854ff542540dbc7dbcd6a85c9035d2754df30206df39e36904e1fdeba0
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/SKILL.md	5afc3903d9d6201e732add0d049c58808456c7cf1b23a8e7b4e096b25a985640
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/README.md	e54addf638b47779d702dc6ca90e5cc6bc0804498fc3c7daf9047377860d755f
+context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/project/REFERENCE/reading.md	e5b637ab200446a42dfc1e172d12d68f7bbbe521e2b07a10c06b465f3addd131
+context/workspaces/014-ai-development-workflow-design/source/workflow-references/matt-pocock/repository/skills/engineering/code-review/SKILL.md	09eb147f793e4647949edd32dbad278f0554dfb56e0d46b699cd4c2c55bf0357
+context/workspaces/014-ai-development-workflow-design/source/workflow-references/matt-pocock/repository/skills/engineering/implement-spec/SKILL.md	7a22dd2e60b8fcece478ced9d2533582adf3520d695acd3ab715341535c9e56d
+context/workspaces/014-ai-development-workflow-design/source/workflow-references/pstack/repository/skills/interrogate/SKILL.md	a16dfe179005abc22a4651b82f25b0c8ab953284276efe4e6dc341958fb63647
+context/workspaces/014-ai-development-workflow-design/source/workflow-references/pstack/repository/skills/interrogate/references/reviewer-prompt.md	f6005cc2b535006fca97a96c5bfda49df57312eedf1ffd8d1aaaf3eb33817c25
+context/workspaces/014-ai-development-workflow-design/source/workflow-references/pstack/repository/skills/interrogate/references/lead-judgment.md	355f5195a76bc75a655125292369f2a8231a2b61fabe5188d8f1386060922b87
+context/workspaces/014-ai-development-workflow-design/source/lectures/vercel-product-design (1).md	e5beaac1e8d0b6c2c0bbefba68c0ca96d088a906a9665848b7a18abab8bf34b4
+context/workspaces/014-ai-development-workflow-design/source/workflow-references/pstack/repository/skills/poteto-mode/SKILL.md	2755f102e7a6d0496b429d1031a22fb353e1f3d523543367caeaae5c4ed6f544
+context/workspaces/014-ai-development-workflow-design/records/2026-10-22-role-inputs-and-dynamic-context-proposal.md	6297c93b945516f82930fe0bcb1ef0b2a5b8a2c9bec489d1bc0357a740fb3a77

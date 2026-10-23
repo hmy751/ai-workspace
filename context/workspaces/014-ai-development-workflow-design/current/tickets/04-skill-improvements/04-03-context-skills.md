@@ -1,5 +1,11 @@
 # 04-03 — 맥락 읽기·갱신·Workspace 생성 스킬을 보완한다
 
+2026-10-23 **7번 첫 입력 확정.** [확정안·원문·레퍼런스 반영](../../../records/2026-10-23-review-workflow-7-12-proposal.md)에 관련 본문 읽기·자료 선택, 구현 대안과 이유 제공·독립 재판단을 정리했다. 다음 논의는8번 동적 탐색·Main 반환이다.8~12번은 개선 리뷰를 거친 추천안이며6~7번 실행 본문 연결·효과 확인과Ticket 전체 완료는 후속이다. 아래7번 논의 전 표기는 당시 경과다.
+
+2026-10-23 7~12번 연결안·리뷰 종합: [전체 추천안](../../../records/2026-10-23-review-workflow-7-12-proposal.md)과 [두 개선 리뷰](../../../records/2026-10-23-review-workflow-7-12-improvement-reviews.md)에서 관련 본문·시작 원문·실제 결과를 첫 입력으로 연결하고, 검토자가 비교 질문을 스스로 세워 자료를 더 찾는 행동을 구체화했다. 내용 정본의 Owner는 유지한다. 다음은7번 사용자 논의이며7~12번 운영 선택의 확정·실제 읽기/갱신 스킬 수정·호출 설정은 아직 후속이다.
+
+2026-10-23 6번 연결: [통합된 구현 완성·인계안](../../../records/2026-10-23-implementation-completion-and-handoff-proposal.md)에서 관련 자료·지침의 선택·이해·적용과 필요한 재탐색을 구현자의 수행 책임으로 명시했다. 내용 정본은 Personal·Project·Work가 유지하고, 인계는 판단을 가른 자료·적용 이유를 연결한다. 실제 읽기·갱신 스킬 본문이나 호출 설정은 변경하지 않았으며7번 초기 입력·8번 동적 탐색과 함께 후속 구체화한다.
+
 2026-10-23 prototype 적용: [development SKILL.md](../../../records/prototypes/development-workflow/skills/development/SKILL.md)와 검토 상세에 확정1~5번·구성 개선 리뷰를 반영하고 DEVELOPMENT 진입을 이전했다. [적용 기록](../../../records/2026-10-23-development-skill-prototype-adoption.md)을 따른다. Personal·Project·Work의 내용 Owner와 일반 수행의 Owner를 구별하며 상세 인계·호출·수정·종료·모델·기존 맥락 스킬 연결은 후속이다. 다음은6번 구현 완성·인계다. 아래 날짜별 미적용·위치 미정은 당시 상태이며 Ticket 전체·운영 설치는 아직 완료가 아니다.
 
 2026-10-22 연결 방향: [관련 기준 공유·별도 판단의 선택](../../../records/2026-10-22-shared-criteria-and-independent-review-decision.md)에 맞춰 Main 초기 선택과 서브의 질문별 추가 탐색을 구체화한다. 검토자에게 Personal을 기본적으로 숨기는 안 대신 관련 기준을 공유하는 방향이며, 정확한 본문·사례·형성 자료의 읽기 범위는 미정이다. 기존 Project 읽기의 질문별 선택을 살리고 일반 재진입과 한정 검토 위임·실제 대화/지침 상속·갱신 Owner를 대조한다. 이번에는 논의만 기록했고 스킬·DEVELOPMENT·설정은 변경하지 않았다.

@@ -1,10 +1,14 @@
 # 현재 선택한 설계 자료와 산출물
 
+7번 확정·8~12번 추천안: [첫 입력부터 수정·검증 인계까지](../records/2026-10-23-review-workflow-7-12-proposal.md). [두 개선 리뷰](../records/2026-10-23-review-workflow-7-12-improvement-reviews.md)를 거친 뒤 사용자가 관련 본문 읽기·대안 제공·레퍼런스 반영을 확인하고7번을 확정했다. 다음은8번 논의이며8~12번의 운영 선택 전체를 확정한 것은 아니다. 실행 본문 반영은 후속이다.
+
+6번 현재 설계안: [맥락 이해·적용부터 구현 완성·인계까지](../records/2026-10-23-implementation-completion-and-handoff-proposal.md). 사용자 요청에 따라 맥락 적용과 개선 리뷰 두 보완을 통합했다. 실제 사용·변경 장면으로 자기 설계를 판단하고, 요구·계약에서 가져온 기대 결과로 자기 확인하며, Main에게 결과와 판단 근거를 연결한다. 아래 development 실행 prototype은1~5번 반영 상태이고6번 연결·수행 효과 확인은 후속이다.
+
 04-02 준비 자료: [Network 첫 완료 보고의 실제 대화·변경 전후 코드와 비교 조건](../records/2026-10-23-ticket04-02-network-first-report-preparation.md). 원문·코드는 확보했고 조건은 제안·미실행이다. 후속 질문으로 현황 파악과 완료 보고에서의 스킬 적용 적절성이 열렸다. 현재 재개 지점은 [04-02](../current/tickets/04-skill-improvements/04-02-artifact-explanation.md)이며, 이 자료 준비는 적용 승인이나 효과 확인이 아니다.
 
 04-02 현재 산출물: [브리핑 SKILL.md](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md) — 사용자 요청으로 책임·상태의 구별, 실제 코드 선정, 현재 구조의 이유와 설명 비중을 기존 본문에 통합했다. [직전 채택판과 새 통합판 비교](../records/experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md)에서는 양쪽 실제 코드 발췌가 없어 핵심 개선은 나타나지 않았다. 본문 반영과 효과 확인을 구별하며 아래 후보·비교는 이력이다. 복구 유지, 운영 설치·발동 시점 변경은 하지 않았다.
 
-구현·검토의 현재 산출물: [development SKILL.md](../records/prototypes/development-workflow/skills/development/SKILL.md)와 [review.md](../records/prototypes/development-workflow/skills/development/references/review.md). 확정1~5번과 구성 개선 리뷰를 반영하고 DEVELOPMENT 진입을 이전했다. [적용·확인 범위](../records/2026-10-23-development-skill-prototype-adoption.md)를 읽는다. 전체 실행 운영·효과 검증이나 Ticket 완료를 뜻하지 않으며6번 이후를 이 본문에서 이어 구체화한다.
+구현·검토의 현재 산출물: [development SKILL.md](../records/prototypes/development-workflow/skills/development/SKILL.md)와 [review.md](../records/prototypes/development-workflow/skills/development/references/review.md). 확정1~5번과 구성 개선 리뷰를 반영하고 DEVELOPMENT 진입을 이전했다. [적용·확인 범위](../records/2026-10-23-development-skill-prototype-adoption.md)를 읽는다. 전체 실행 운영·효과 검증이나 Ticket 완료를 뜻하지 않는다.6번 통합안과7~12번 추천안은 위 별도 설계 기록에서 이어가며 실행 본문에 아직 반영하지 않았다.
 
 04-02 새 후보 시험: [6.0 sol 인증 비교](../records/experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md) — 원래 기존판 대비 새 후보가 요청 코드·값·대기 전후 설명을 보강했다. 각1회이며 일부 개선 관찰, 사용자 이해·일반화·시점 효과 미확인이다. 두 응답 전체와 입력·출력 해시를 보존했다.
 

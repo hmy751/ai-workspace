@@ -1,5 +1,7 @@
 # AI 개발 작업 체계의 개선 설계 — Spec 초안
 
+2026-10-23 현재 설계: [6번 통합안](../records/2026-10-23-implementation-completion-and-handoff-proposal.md)을 이어 [7번 첫 입력을 사용자 확정](../records/2026-10-23-review-workflow-7-12-proposal.md)했다. 관련 기준 본문 읽기·구현 대안과 이유 제공·문제 정의의 원자료 접근·레퍼런스 적용 관계를 정리했다. 다음은8번 동적 탐색·Main 반환이다. [두 개선 리뷰](../records/2026-10-23-review-workflow-7-12-improvement-reviews.md)를 거친8~12번은 추천안이며13~15번 상세·6~7번 실행 본문 연결·효과 확인은 후속이다.
+
 2026-10-23 최신 적용: [development 스킬과 검토 상세](../records/prototypes/development-workflow/skills/development/SKILL.md)에 확정1~5번과 구성 개선 리뷰를 반영했다. DEVELOPMENT 진입 이전·Personal 범위 설명·Main의 전체 책임·역할별 독자를 함께 맞췄다. [적용 기록](../records/2026-10-23-development-skill-prototype-adoption.md). 상세 전달·권한·호출·수정·종료·운영 배치는 남아 있으며 아래 이전 시점의 미적용·위치 미정 표기와 구별한다.
 
 이 Spec은 **014에서 설계하는 AI 개발 작업 체계의 목표·범위와 현재 전체 구상**을 소유한다. 목표와 주의할 점만 남기는 문서가 아니라, 다음 세션에서도 무엇을 만들려 하며 어떤 선택이 남았는지 복원할 기준이다. 현재 전체 잠정안과 Ticket을 연결하는 방법은 3절, 선택과 미정은 5절에서 확인한다.

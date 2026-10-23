@@ -1,10 +1,14 @@
 # 현재 논의의 진입점
 
+**7번 검토자 첫 입력을 확정했다. 다음 논의는8번 동적 탐색·Main 반환이다.** [7번 확정안과8~12번 추천안](../records/2026-10-23-review-workflow-7-12-proposal.md)에서 관련 본문을 실제로 읽게 하는 의미, 구현자의 대안·선택 이유 제공, 레퍼런스 반영·비채택을 정리했다. [두 개선 리뷰](../records/2026-10-23-review-workflow-7-12-improvement-reviews.md)는 완료했으며8~12번은 아직 사용자 논의 전 추천이다.6~7번 실행 본문 연결·효과 확인은 후속이다.
+
+6번 통합안: [맥락 이해·적용부터 구현 완성·인계까지](../records/2026-10-23-implementation-completion-and-handoff-proposal.md)에 사용자 요청의 맥락 범위와 개선 리뷰 두 보완을 반영했다. 관련 자료·지침의 선택·이해·적용, 실제 사용·변경 장면으로 자기 설계 판단, 요구·계약에 근거한 자기 확인과 인계를 연결한다. **6번 설계안 통합 완료, 실행 스킬 반영·수행 효과 확인은 후속**이다. 후속으로7~12번 전체안과 두 개선 리뷰를 작성했으며 후속7번 확정을 거쳐 현재 논의는 위 추천안의8번부터 이어간다.
+
 04-02 현재 준비: [Network 첫 완료 보고 자료와 적용 배치 비교 조건](../records/2026-10-23-ticket04-02-network-first-report-preparation.md).895 직전 상태의 원문·변경 전후 코드와 검사 기록을 확보했지만 조건은 제안·미실행 상태다. 대화9부터 입력하는 것과9부터 브리핑을 적용하는 것은 다르다. 사용자의 적용 적절성 의문을 받아, 다음은 현황 파악·완료 보고·작업물 이해 요청을 구별하고895에 이 스킬을 적용할 이유와 비교 목적부터 판단한다. 사례별 상태와 재개 순서는 [04-02 첫머리](tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
 
 04-02 최신 반영·비교: [책임 설명 통합판과 직전 채택판 시험](../records/experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md). 현재 [브리핑 본문](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md)에 핵심 구별·실제 코드 선정·현재 구조의 이유·설명 비중을 통합했다. 같은 자료·시점에서 GPT-6-sol medium 각1회 비교했지만 양쪽 코드 발췌가 없어 핵심 개선은 미관찰이다. 아래 이전 비교와 본문 반영·효과 확인을 구별한다. 복구·운영 유지, 일반화·시점 효과와04-02 전체 완료는 미확인이다.
 
-구현·검토의 확정1~5번과 개선 리뷰를 [development 스킬](../records/prototypes/development-workflow/skills/development/SKILL.md)과 검토 상세에 적용했다. [적용 기록](../records/2026-10-23-development-skill-prototype-adoption.md)에 실제 반영과 확인 범위가 있다. 공통 본문은 Main의 전체 조율을, 검토 상세는 공유 목적·검토자·Main의 판단을 구별한다. DEVELOPMENT의 진입은 옮겼고6~12번·13~15번의 상세 실행과 A·B Personal 본문 통합은 후속이다. 다음 추천은6번 구현 완성·인계다.
+실행 prototype은 [development 스킬](../records/prototypes/development-workflow/skills/development/SKILL.md)과 [검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md)이며1~5번과 구성 개선 리뷰를 반영한 상태다. [적용 기록](../records/2026-10-23-development-skill-prototype-adoption.md)에 실제 반영·확인 범위가 있다.6번은 위 설계안에 통합했고 실행 본문 연결은 후속이다.7~12번은 위 추천안으로 논의하고13~15번 상세 설계와 A·B Personal 본문 통합은 남아 있다.
 
 **Ticket 03의 구성안·본문 예시 구체화를 완료했다.** [state](state.md)에서 마감 상태와 후속 범위, [03](tickets/03-project-context.md)에서 완료 조건별 근거, [119](../records/2026-10-20-119-ticket03-closeout.md)에서 이번 마무리 판단을 읽는다. Workspace014 전체와 다른 Ticket은 계속 열려 있다.
 
@@ -18,7 +22,7 @@
 
 1. [state](state.md)와 [output](../output/index.md)에서 이번에 끝낸 결과·현재 실물·다음 행동을 확인하고 Git 상태를 대조한다.
 2. [memory](memory.md)의 대상물 경계·독립 책임·형성 자료·체계 지침에 관한 지속 기준과 [Spec](spec.md)의 전체 목표·3절·5절을 읽는다.
-3. 구현·검토를 이어갈 때는 [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[04-03](tickets/04-skill-improvements/04-03-context-skills.md), 현재 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md)를 읽는다. [적용 기록의 다음 작업](../records/2026-10-23-development-skill-prototype-adoption.md#다음-작업)에서 확정 범위와 남은 항목을 구별하고, **6번 구현자의 검토 전 완성 책임·인계**부터 논의한다. 1~5번을 다시 미정으로 열거나02 완료를 선행 조건으로 두지 않는다.
+3. 구현·검토를 이어갈 때는 [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[04-03](tickets/04-skill-improvements/04-03-context-skills.md), 현재 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md)를 읽는다. [6번 통합안](../records/2026-10-23-implementation-completion-and-handoff-proposal.md)을 이어받은 [7번 확정안과8~12번 추천안](../records/2026-10-23-review-workflow-7-12-proposal.md)의8번부터 사용자와 논의한다. 두 개선 리뷰는 완료했으며7번은 확정,8~12번은 후보 상태다.1~5번 확정과6번 보완 채택을 다시 미정으로 열거나02 완료를 선행 조건으로 두지 않는다.
 
 ## 문서별 책임
 
