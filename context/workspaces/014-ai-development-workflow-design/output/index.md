@@ -2,7 +2,7 @@
 
 04-02 현재 채택 산출물: [브리핑 SKILL.md](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md) — [시험한 후보를 동일하게 prototype에 반영](../records/2026-10-22-ticket04-02-briefing-prototype-adoption.md)했다. 코드 읽기 목적과 코드·값·실행 연결을 본문에 통합했으며 복구 스킬은 유지했다. 아래 후보 작성·비교는 이력이다. 운영 설치·발동 시점 변경은 하지 않았다.
 
-구현·검토 설계의 현재 선택: [관련 기준 공유와 독립 판단](../records/2026-10-22-shared-criteria-and-independent-review-decision.md) — 사용자 수용 방향과 초기안부터의 전환 이유, Main 추천·미정 15항목을 구별한 기록이다. 실제 실행 산출물은 아래 기존 프로토타입이며 새 방향은 아직 적용하지 않았다.
+구현·검토 설계의 현재 선택: [관련 기준 공유·독립 판단과 전체15항목](../records/2026-10-22-shared-criteria-and-independent-review-decision.md), [4번 책임·내용 배치](../records/2026-10-23-personal-review-ownership-proposal.md), [5번 Main 판단·사용자 참여 확정](../records/2026-10-23-main-review-disposition-proposal.md#후속-확정--5번과-판단책임-묶음의-마무리).1~5번 판단·책임 설계를 마무리했고 다음 추천은6번 구현 완성·인계다.6~12번 전달·작업 흐름과13~15번 시스템 연결, A·B의 정확한 본문 편집은 남아 있다. 아래 기존 prototype은 새 합의가 반영된 실행 산출물이 아니다.
 
 04-02 새 후보 시험: [6.0 sol 인증 비교](../records/experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md) — 원래 기존판 대비 새 후보가 요청 코드·값·대기 전후 설명을 보강했다. 각1회이며 일부 개선 관찰, 사용자 이해·일반화·시점 효과 미확인이다. 두 응답 전체와 입력·출력 해시를 보존했다.
 

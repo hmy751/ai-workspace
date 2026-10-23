@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-구현·검토 논의는 [관련 기준 공유·독립 판단 방향](records/2026-10-22-shared-criteria-and-independent-review-decision.md)을 받아들인 상태다. 구현자·검토자가 관련 판단 기준을 공유하되 현재 구현과 기준의 적용을 별도로 판단하고 Main이 종합한다. 상세 입력·수정·호출·종료는 미정이며 다음은 실제 문서에서 역할별 입력을 정하는 것이다. 실행 프로토타입·스킬 적용과 효과 확인은 아직 하지 않았다.
+구현·검토 논의는 [관련 기준 공유·독립 판단 방향](records/2026-10-22-shared-criteria-and-independent-review-decision.md)을 유지하며 **1~5번 판단·책임 설계를 마무리했다.** [5번 최종 확정과 리뷰 보완](records/2026-10-23-main-review-disposition-proposal.md#후속-확정--5번과-판단책임-묶음의-마무리)에서 Main의 종합·선택, 계약 문제와 개선 비교의 근거, 추가 확인의 영향·비용, 사용자 결정과 의미 있는 논의를 구별했다. [4번](records/2026-10-23-personal-review-ownership-proposal.md)은 Personal·검토 workflow 소유와 A·B의 반영 방향을 정했다. 다음 묶음은6~12번 실제 전달·작업 흐름이며6번 구현자의 검토 전 완성 책임·인계부터 이어갈 것을 추천한다.13~15번 시스템 연결, 정확한 본문 편집·실행 적용은 남아 있다. 전체 Ticket 완료나 운영 효과 확인을 뜻하지 않는다.
 
 04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이다. 이후 인증·network 본문 비교와 코드 설명 보완안 재시험을 진행했고 [검증한 브리핑 본문을 prototype에 반영](records/2026-10-22-ticket04-02-briefing-prototype-adoption.md)했다. 복구는 유지하며 시점 효과·일반화는 미확인이다.
 
