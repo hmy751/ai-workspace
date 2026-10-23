@@ -1,0 +1,76 @@
+diff --git a/apps/client/src/entities/trip/repository/trip-repository.ts b/apps/client/src/entities/trip/repository/trip-repository.ts
+index d770b57..b8c6529 100644
+--- a/apps/client/src/entities/trip/repository/trip-repository.ts
++++ b/apps/client/src/entities/trip/repository/trip-repository.ts
+@@ -2,7 +2,12 @@
+ // Trip Repository - 활성화 상태에 따른 Local/Remote 분기
+ // ========================================
+ 
+-import { routeTripQuery, routeTripMutation } from '@/shared/services/offline-prep/router';
++import {
++  routeTripListQuery,
++  routeTripQuery,
++  routeTripCreate,
++  routeTripMutation,
++} from '@/shared/services/offline-prep/router';
+ import * as TripLocal from '../lib/trip-local';
+ import * as TripApi from '../api/trips';
+ import type { Trip, CreateTripRequest, UpdateTripRequest, DeleteTripResponse } from '../model';
+@@ -10,16 +15,15 @@ import type { Trip, CreateTripRequest, UpdateTripRequest, DeleteTripResponse } f
+ /**
+  * Trip Repository
+  *
+- * - 활성화된 Trip 있음: Local DB 사용
+- * - 비활성 상태: Server API 사용
+- * - Router가 활성화 상태에 따라 자동 분기
++ * 목록은 기존 전역 활성 상태로, 단건 조회·수정·삭제는 대상 여행으로 분기한다.
++ * 새 여행 생성은 서버에서 처리하고 이후 별도 활성화한다.
+  */
+ export const TripRepository = {
+   /**
+    * 모든 여행 조회
+    */
+   getAll: async (): Promise<Trip[]> => {
+-    return await routeTripQuery({
++    return await routeTripListQuery({
+       local: () => TripLocal.getTripsLocal(),
+       remote: async () => {
+         const response = await TripApi.fetchAllTrips();
+@@ -32,7 +36,7 @@ export const TripRepository = {
+    * 특정 여행 조회
+    */
+   getById: async (id: string): Promise<Trip | undefined> => {
+-    return await routeTripQuery({
++    return await routeTripQuery(id, {
+       local: () => TripLocal.getTripByIdLocal(id),
+       remote: async () => {
+         // TODO: fetchTripById API 필요시 추가
+@@ -46,17 +50,14 @@ export const TripRepository = {
+    * 여행 생성
+    */
+   create: async (data: CreateTripRequest): Promise<Trip> => {
+-    return await routeTripMutation({
+-      local: () => TripLocal.createTripLocal(data),
+-      remote: () => TripApi.fetchCreateTrip(data),
+-    });
++    return await routeTripCreate(() => TripApi.fetchCreateTrip(data));
+   },
+ 
+   /**
+    * 여행 수정
+    */
+   update: async (id: string, data: UpdateTripRequest): Promise<Trip> => {
+-    return await routeTripMutation({
++    return await routeTripMutation(id, {
+       local: () => TripLocal.updateTripLocal(id, data),
+       remote: () => TripApi.fetchUpdateTrip(id, data),
+     });
+@@ -66,7 +67,7 @@ export const TripRepository = {
+    * 여행 삭제 (Soft Delete)
+    */
+   delete: async (id: string): Promise<DeleteTripResponse> => {
+-    return await routeTripMutation({
++    return await routeTripMutation(id, {
+       local: () => TripLocal.deleteTripLocal(id),
+       remote: () => TripApi.fetchDeleteTrip(id),
+     });

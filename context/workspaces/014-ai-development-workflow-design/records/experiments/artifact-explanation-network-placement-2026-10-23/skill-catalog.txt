@@ -1,0 +1,3 @@
+work-artifact-briefing
+사용자가 `/` UI에서 `$work-artifact-briefing` skill을 직접 호출했거나, 이미 존재하는 코드·변경·문서·분석·review 결과의 전체 역할·대표 흐름·실제 연결·현재 상태 또는 근거가 보장하는 범위를 이해하려 할 때 원자료를 조사해 설명한다. 한 값·위치 조회, 단순 요약·진행 보고, 구현·수정·진단·review·acceptance 판정이 주목적인 요청에는 자동 적용하지 않는다.
+경로: frozen/skill/SKILL.md

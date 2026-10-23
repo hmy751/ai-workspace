@@ -1,0 +1,1 @@
+cat apps/client/src/entities/trip/repository/trip-repository.ts; cat apps/client/src/entities/trip/data/useGetTrips.ts; rg -n 'useCreateTrip|useUpdateTrip|useDeleteTrip|setSelectedTripId|mutate|onSuccess' apps/client/src/features/trip/create-trip/TripDateForm.tsx apps/client/src/features/trip/update-trip/EditTripDrawer.tsx apps/client/src/screens/HomeScreen/TripsSection.tsx

@@ -1,0 +1,252 @@
+ M .claude/context/policy-architecture.md
+ M apps/client/app/_layout.tsx
+ M apps/client/src/features/debug/ui/DashboardView.tsx
+ M apps/client/src/features/trip/create-trip/TripDateForm.tsx
+ M apps/client/src/screens/HomeScreen/index.tsx
+ M apps/client/src/shared/components/Card/ScheduleCard.tsx
+ M apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx
+ M apps/client/src/shared/policy/types.ts
+ M apps/client/src/shared/policy/useAppPolicy.ts
+ M apps/client/src/shared/services/offline-prep/router.ts
+ M apps/client/src/shared/services/sync/provider.tsx
+ M apps/client/src/shared/store/network.ts
+ M context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md
+ M context/work/workspaces/002-code-readability-refactoring/current/state/index.md
+ M context/work/workspaces/002-code-readability-refactoring/output/index.md
+ M context/work/workspaces/002-code-readability-refactoring/records/README.md
+?? .pnpm-store/
+?? apps/client/tests/shared/
+?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-16-02-network-store-first-step.md
+?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-16-03-network-store-readability.md
+?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-17-01-network-quality-review-and-handoff.md
+
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [lastSyncedAt, setLastSyncedAt] = useState<Date | null>(null);
+  // null은 첫 effect 미처리이며, 실제 네트워크의 unknown과 구분한다.
+  const previousStatusRef = useRef<NetworkStatus | null>(null);
+
+  /**
+   * 동기화 실행 함수 (중복 실행 방지)
+   */
+  const executeSync = useCallback(
+    async (reason: string) => {
+      if (networkStore.realStatus !== 'online' || networkStore.override !== null) {
+        return;
+      }
+
+      if (isSyncing) {
+        console.log('⏭️ [SyncProvider] Sync already in progress, skipping...');
+        return;
+      }
+
+      try {
+        setIsSyncing(true);
+        console.log(`🔄 [SyncProvider] Sync triggered: ${reason}`);
+
+        await syncData(); // Push + Pull
+
+        const now = new Date();
+        setLastSyncedAt(now);
+
+        console.log(`✅ [SyncProvider] Sync completed: ${reason}`, {
+          lastSyncedAt: now.toISOString(),
+        });
+      } catch (error) {
+        console.error(`❌ [SyncProvider] Sync failed: ${reason}`, error);
+      } finally {
+        setIsSyncing(false);
+      }
+    },
+    [isSyncing],
+  );
+
+  /**
+   * 수동 동기화 트리거 (UI에서 호출)
+   */
+  const triggerManualSync = useCallback(async () => {
+    await executeSync('Manual trigger');
+  }, [executeSync]);
+
+  /**
+   * 최초 online과 이후 online 전환마다 한 번 동기화
+   */
+  useEffect(() => {
+    const previousStatus = previousStatusRef.current;
+    previousStatusRef.current = networkStatus;
+
+    // 최초 unknown 확정과 오프라인 복구 모두 실제 online에서 시작한다.
+    if (previousStatus !== 'online' && networkStatus === 'online') {
+      if (previousStatus === null) {
+        console.log('🚀 [SyncProvider] Initial sync on app start');
+        executeSync('App startup');
+      } else {
+        console.log('🌐 [SyncProvider] Network recovered → Starting sync');
+        executeSync('Network recovery');
+      }
+    }
+
+    // 온라인 → 오프라인 전환 로그
+    if (previousStatus === 'online' && networkStatus === 'offline') {
+      console.log('📴 [SyncProvider] Network offline → Sync paused');
+    }
+  }, [networkStatus, executeSync]);
+
+  return null;
+}
+
+export default function RootLayout() {
+  const colorScheme = useColorScheme();
+  const [isAppReady, setIsAppReady] = useState(false);
+  const { init: initAuth } = useAuthStore();
+
+  useEffect(() => {
+    networkStore.init();
+
+    return () => networkStore.cleanup();
+  }, []);
+
+  // 앱 초기화 (DB, 폰트, 인증 등)
+  useEffect(() => {
+    const prepareApp = async () => {
+      try {
+        console.log('🚀 Preparing app...');
+
+        // 1. 로컬 DB 초기화
+        await initializeDatabase();
+
+        // 2. Auth Store 초기화 (SecureStore에서 토큰 복원)
+        await initAuth();
+
+        console.log('✅ App is ready!');
+      } catch (error) {
+        console.error('❌ Failed to prepare app:', error);
+      } finally {
+        // 초기화 완료 (성공/실패 무관)
+        setIsAppReady(true);
+      }
+    };
+
+    prepareApp();
+  }, [initAuth]);
+
+  // 앱 준비 완료 시 Splash 화면 숨기기
+  useEffect(() => {
+    if (isAppReady) {
+      SplashScreen.hideAsync();
+    }
+  }, [isAppReady]);
+
+  // Splash 화면 유지 (초기화 완료 전까지)
+  if (!isAppReady) {
+    return null;
+  }
+
+  return (
+    <SafeAreaProvider>
+      <QueryClientProvider client={queryClient}>
+        <SyncProvider>
+          {/* 세션 만료 배너 (상단에 표시) */}
+  );
+}
+
+function assertWritesAllowed() {
+  if (networkStore.override !== null) {
+    throw new OfflineError('네트워크 화면 테스트 중에는 저장·삭제할 수 없어요. 강제 설정을 해제해주세요.', {
+      action: 'ONLINE_REQUIRED',
+    });
+  }
+}
+
+/** Trip 조회의 기존 분기는 전역 활성 여행 존재 여부를 사용한다. */
+export async function routeTripQuery<T>(operations: RouteOperations<T>): Promise<T> {
+  const hasActivated = await hasAnyActivatedTrip();
+
+  if (hasActivated) {
+    return await operations.local();
+  }
+
+  assertRemoteAvailable('오프라인에서는 활성화된 여행만 볼 수 있어요');
+  return await operations.remote();
+}
+
+/** Schedule·Expense 조회는 소속 여행의 활성 여부로 분기한다. */
+export async function routeChildQuery<T>(tripId: string, operations: RouteOperations<T>): Promise<T> {
+  const isActivated = await getTripActivationStatus(tripId);
+
+  if (isActivated) {
+    return await operations.local();
+  }
+
+  assertRemoteAvailable('오프라인에서는 활성화된 여행만 볼 수 있어요', tripId);
+  return await operations.remote();
+}
+
+/** Trip 쓰기의 기존 분기는 전역 활성 여행 존재 여부를 사용한다. */
+export async function routeTripMutation<T>(operations: RouteOperations<T>): Promise<T> {
+  const hasActivated = await hasAnyActivatedTrip();
+
+  assertWritesAllowed();
+
+  if (hasActivated) {
+    return await operations.local();
+  }
+
+  assertRemoteAvailable('오프라인에서는 활성화된 여행만 수정할 수 있어요');
+  return await operations.remote();
+}
+
+/** Schedule·Expense 쓰기는 소속 여행의 활성 여부로 분기한다. */
+export async function routeChildMutation<T>(tripId: string, operations: RouteOperations<T>): Promise<T> {
+  const isActivated = await getTripActivationStatus(tripId);
+
+  assertWritesAllowed();
+
+  if (isActivated) {
+    return await operations.local();
+  }
+
+  assertRemoteAvailable('오프라인에서는 활성화된 여행만 수정할 수 있어요', tripId);
+  return await operations.remote();
+}
+diff --git a/.claude/context/policy-architecture.md b/.claude/context/policy-architecture.md
+index f35e192..abd4758 100644
+--- a/.claude/context/policy-architecture.md
++++ b/.claude/context/policy-architecture.md
+@@ -26,7 +26,9 @@ offline_active
+ offline_inactive
+ ```
+ 
+-`useAppPolicy(tripId)`는 현재 `useNetworkStatus()`와 `useGetTripActivation(tripId)`를 조합해 `PolicyKey`를 만들고, `TRIP_POLICIES`, `SCHEDULE_POLICIES`, `EXPENSE_POLICIES`, `SERVICE_POLICIES`에서 현재 권한을 반환한다.
++Network Store의 관측 상태는 `online/offline/unknown`이다. 현재 `useAppPolicy(tripId)`는 화면용 `useNetworkStatus()`와 `useGetTripActivation(tripId)`를 조합하되, unknown의 권한 모드는 기존 offline 항목을 재사용한다. 따라서 미확정 상태에서 없는 policy key를 조회하거나 온라인 서비스 모드를 열지 않는다. unknown의 안내 시간·재확인은 Store의 `checkStatus`·`refresh`가 따로 제공한다.
++
++이 4-state 표의 재사용은 권한 모드에 한정된다. 실제 unknown을 offline으로 바꾸지 않으며, 비활성 여행의 내용 제한·이유 표시와 활성 여부 로딩의 연결은 [Ticket 06](../../context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md)의 후속 구현에 남아 있다. 실제 요청 판단은 화면 override와 구별하며 Router는 실제 online에서만 Remote를 실행한다.
+ 
+ ## 책임 경계
+ 
+diff --git a/apps/client/app/_layout.tsx b/apps/client/app/_layout.tsx
+index 2d28123..a69ffd7 100644
+--- a/apps/client/app/_layout.tsx
++++ b/apps/client/app/_layout.tsx
+@@ -166,15 +166,18 @@ export default function RootLayout() {
+   const [isAppReady, setIsAppReady] = useState(false);
+   const { init: initAuth } = useAuthStore();
+ 
++  useEffect(() => {
++    networkStore.init();
++
++    return () => networkStore.cleanup();
++  }, []);
++
+   // 앱 초기화 (DB, 폰트, 인증 등)
+   useEffect(() => {
+     const prepareApp = async () => {
+       try {
+         console.log('🚀 Preparing app...');
+ 
+-        // 0. 네트워크 스토어 초기화
+-        networkStore.init();
+-
+         // 1. 로컬 DB 초기화
+         await initializeDatabase();
+apps/server/src/routes/trips.ts:159:router.put('/:id', requireAuth, async (req: Request, res: Response) => {
+apps/server/src/routes/trips.ts:159:router.put('/:id', requireAuth, async (req: Request, res: Response) => {

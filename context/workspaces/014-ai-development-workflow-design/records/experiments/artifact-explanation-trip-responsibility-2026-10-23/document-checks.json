@@ -1,0 +1,6 @@
+{
+  "frontmatter_unchanged": true,
+  "prototype_equals_trial": true,
+  "missing_local_links": [],
+  "quick_validate": "system・repo venv・bundled Python에 PyYAML이 없어 실행 불가. 기존 메타데이터 동일성·링크·실제 본문 diff는 별도 확인했다."
+}

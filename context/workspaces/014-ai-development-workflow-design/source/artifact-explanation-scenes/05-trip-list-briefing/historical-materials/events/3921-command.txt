@@ -1,0 +1,1 @@
+git status --short; git log -5 --oneline; rg --files context/work/workspaces/002-code-readability-refactoring/current | rg 'spec|README'; rg -n '^#|날짜|foreground|2026-10-04|Trip|홈' context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md

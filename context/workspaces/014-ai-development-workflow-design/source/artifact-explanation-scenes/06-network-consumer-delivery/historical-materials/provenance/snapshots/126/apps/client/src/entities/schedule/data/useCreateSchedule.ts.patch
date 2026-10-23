@@ -1,0 +1,22 @@
+diff --git a/apps/client/src/entities/schedule/data/useCreateSchedule.ts b/apps/client/src/entities/schedule/data/useCreateSchedule.ts
+index 84a77d9..2c35f63 100644
+--- a/apps/client/src/entities/schedule/data/useCreateSchedule.ts
++++ b/apps/client/src/entities/schedule/data/useCreateSchedule.ts
+@@ -10,7 +10,7 @@ import { routeQueryKeys } from '@/entities/route/data/keys';
+  * - Repository를 통해 활성화 상태에 따라 Local/Remote 자동 분기
+  * - Client-Side ID: 외부에서 ID 생성하여 전달
+  *
+- * ⚠️ 주의: Policy 체크는 컴포넌트에서 useAppPolicy()로 수행
++ * 실행 순간의 쓰기 제한은 Repository의 Router가 확인한다.
+  *
+  * @example
+  * ```tsx
+@@ -47,8 +47,5 @@ export const useCreateSchedule = () => {
+         queryKey: routeQueryKeys.byTrip(variables.tripId),
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to create schedule:', error);
+-    },
+   });
+ };

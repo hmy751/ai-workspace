@@ -1,0 +1,58 @@
+{
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "fork_turns": "none",
+  "chunk_characters": 4000,
+  "conditions": [
+    {
+      "id": "r14",
+      "condition": "available-without-explicit-call",
+      "files": {
+        "README.md": "bf694aa973af11beceba746e85124a3b336329b7e9aafd0e0cc38f0a6ed82b7e",
+        "conversation.txt": "8eec9ecf0b2d9315b0763f6921a80239ddf47d7ae3fa506d719c064f137108cf",
+        "documents/spec-quality.md": "9d13de78269fb7cca486ba2cd07bb44b84cccfb90d80b74edca5b9bc56d08e9f",
+        "documents/ticket03.md": "7fbcb9ab48c0f000762f564ff9a5662cf39c6696a23f743293c77c911af99b2d",
+        "materials.json": "ada2ae4ed7c2f345860cc162ce893f7f2ca22f7252390d0f784ba5dd92d63d8a",
+        "pre-change/useStorageStats.test.ts": "2f74a2a75348d839512c3a11f70c620b33d8415db5f4e81409fdc69862c53438",
+        "pre-change/useStorageStats.ts": "b747559e4f8c0d08b39d5fa9b1e61f3ad30a74d93da2f88ca004623cebae6913",
+        "prior-conversation.txt": "0b92705eacfd2d8c4b86c40f169455d793edc1d773921433dab106372069f76f",
+        "prior-images/1720-2.png": "8ba04f958c583414f9fb7add6352b354b357e08aebac3f0dadcf0770b9fbc51c",
+        "prior-images/1933-2.png": "2db1a3f1e4548eb27fa0be6892f583fbaf8e091b69fa22145417d977b064fa72",
+        "prior-images/2089-1.png": "b8bb94e3c0f828c747125789a5067e1f0b6bad8f73b8c3391d523739124d2489",
+        "prompt.txt": "d32c07c0e2a25ee726c29136b6a2935a39946b0b44ae98d86ce6fdcc0936b5c7",
+        "read_material.py": "c62fa9f2bcef567e1e8ece19cf957880c9c1380d5b8d34e250193982769bcd92",
+        "result/change.diff": "ab01624759e540e1256441aa996b2a38eb4b2cf05ece56d879c9c588da3ebbd6",
+        "result/checks-2513.txt": "0653c2c2062a79666d684ac7215adbaa5043049b7f18f45d0f8e21b35a0a29cf",
+        "result/checks-2523.txt": "00ed40dc4448ffec0bac453126d700d74b1894698044979dfa62256d47135072",
+        "result/useStorageStats.ts": "4466b5dd3f5fdbe8c9ff3dc9bae43df250afdb4384676240b962dd22c0acc2c1",
+        "shared/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+        "skill/SKILL.md": "40a916e543313333a084da927e3e5200aebc73548fa99eecc4968fa1cb3caff2"
+      }
+    },
+    {
+      "id": "r59",
+      "condition": "explicit-before-result",
+      "files": {
+        "README.md": "bf694aa973af11beceba746e85124a3b336329b7e9aafd0e0cc38f0a6ed82b7e",
+        "conversation.txt": "8eec9ecf0b2d9315b0763f6921a80239ddf47d7ae3fa506d719c064f137108cf",
+        "documents/spec-quality.md": "9d13de78269fb7cca486ba2cd07bb44b84cccfb90d80b74edca5b9bc56d08e9f",
+        "documents/ticket03.md": "7fbcb9ab48c0f000762f564ff9a5662cf39c6696a23f743293c77c911af99b2d",
+        "materials.json": "ada2ae4ed7c2f345860cc162ce893f7f2ca22f7252390d0f784ba5dd92d63d8a",
+        "pre-change/useStorageStats.test.ts": "2f74a2a75348d839512c3a11f70c620b33d8415db5f4e81409fdc69862c53438",
+        "pre-change/useStorageStats.ts": "b747559e4f8c0d08b39d5fa9b1e61f3ad30a74d93da2f88ca004623cebae6913",
+        "prior-conversation.txt": "0b92705eacfd2d8c4b86c40f169455d793edc1d773921433dab106372069f76f",
+        "prior-images/1720-2.png": "8ba04f958c583414f9fb7add6352b354b357e08aebac3f0dadcf0770b9fbc51c",
+        "prior-images/1933-2.png": "2db1a3f1e4548eb27fa0be6892f583fbaf8e091b69fa22145417d977b064fa72",
+        "prior-images/2089-1.png": "b8bb94e3c0f828c747125789a5067e1f0b6bad8f73b8c3391d523739124d2489",
+        "prompt.txt": "503d2965114b9abaad1be72bf8da637571a1bccbdf85e9272c02e4cb82dd3fcc",
+        "read_material.py": "c62fa9f2bcef567e1e8ece19cf957880c9c1380d5b8d34e250193982769bcd92",
+        "result/change.diff": "ab01624759e540e1256441aa996b2a38eb4b2cf05ece56d879c9c588da3ebbd6",
+        "result/checks-2513.txt": "0653c2c2062a79666d684ac7215adbaa5043049b7f18f45d0f8e21b35a0a29cf",
+        "result/checks-2523.txt": "00ed40dc4448ffec0bac453126d700d74b1894698044979dfa62256d47135072",
+        "result/useStorageStats.ts": "4466b5dd3f5fdbe8c9ff3dc9bae43df250afdb4384676240b962dd22c0acc2c1",
+        "shared/explanation-and-evidence-criteria.md": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+        "skill/SKILL.md": "40a916e543313333a084da927e3e5200aebc73548fa99eecc4968fa1cb3caff2"
+      }
+    }
+  ]
+}

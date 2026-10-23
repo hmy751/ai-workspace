@@ -1,0 +1,96 @@
+diff --git a/apps/client/app/_layout.tsx b/apps/client/app/_layout.tsx
+index 2d28123..c233881 100644
+--- a/apps/client/app/_layout.tsx
++++ b/apps/client/app/_layout.tsx
+@@ -1,6 +1,6 @@
+ import '../styles/global.css';
+ import { Stack, useRouter, useSegments } from 'expo-router';
+-import { useColorScheme } from 'react-native';
++import { AppState, useColorScheme } from 'react-native';
+ import { SafeAreaProvider } from 'react-native-safe-area-context';
+ import { PortalHost } from '@rn-primitives/portal';
+ import { QueryClientProvider } from '@tanstack/react-query';
+@@ -50,29 +50,15 @@ function AuthenticatedInitializers() {
+ }
+ 
+ function InitializeMainTrip() {
+-  const { setSelectedTripId } = useTripStore();
+-  const { data: trips = [], isLoading, isError, error } = useGetTrips();
++  const { selectedTripId, setSelectedTripId } = useTripStore();
++  const { data: trips = [] } = useGetTrips();
+ 
+   useEffect(() => {
+-    console.log(`📋 [InitializeMainTrip] isLoading=${isLoading}, isError=${isError}, trips.length=${trips.length}`);
+-
+-    if (isError) {
+-      console.log('📋 [InitializeMainTrip] Error loading trips:', error);
+-    }
+-
+-    if (trips.length > 0) {
+-      const mainTrip = selectMainTrip(trips);
+-      if (mainTrip) {
+-        setSelectedTripId(mainTrip.id);
+-        console.log('✅ Main trip selected:', mainTrip.name);
+-      } else {
+-        setSelectedTripId(trips[0].id);
+-        console.log('✅ First trip selected:', trips[0].name);
+-      }
+-    } else if (!isLoading && !isError) {
+-      console.log('📋 [InitializeMainTrip] No trips found (empty array returned from query)');
++    // 기본 선택은 한 번만 정한다. 재조회와 네트워크 복구는 사용자 선택을 바꾸지 않는다.
++    if (selectedTripId === null && trips.length > 0) {
++      setSelectedTripId((selectMainTrip(trips) ?? trips[0]).id);
+     }
+-  }, [trips, setSelectedTripId, isLoading, isError, error]);
++  }, [trips, selectedTripId, setSelectedTripId]);
+ 
+   return null;
+ }
+@@ -164,19 +150,35 @@ function AuthRouter() {
+ export default function RootLayout() {
+   const colorScheme = useColorScheme();
+   const [isAppReady, setIsAppReady] = useState(false);
++  const [isDatabaseReady, setIsDatabaseReady] = useState(false);
+   const { init: initAuth } = useAuthStore();
+ 
++  useEffect(() => {
++    networkStore.init();
++
++    let previousState = AppState.currentState;
++    const subscription = AppState.addEventListener('change', (nextState) => {
++      if ((previousState === 'background' || previousState === 'inactive') && nextState === 'active') {
++        void networkStore.refresh();
++      }
++      previousState = nextState;
++    });
++
++    return () => {
++      subscription.remove();
++      networkStore.cleanup();
++    };
++  }, []);
++
+   // 앱 초기화 (DB, 폰트, 인증 등)
+   useEffect(() => {
+     const prepareApp = async () => {
+       try {
+         console.log('🚀 Preparing app...');
+ 
+-        // 0. 네트워크 스토어 초기화
+-        networkStore.init();
+-
+         // 1. 로컬 DB 초기화
+         await initializeDatabase();
++        setIsDatabaseReady(true);
+ 
+         // 2. Auth Store 초기화 (SecureStore에서 토큰 복원)
+         await initAuth();
+@@ -208,7 +210,7 @@ export default function RootLayout() {
+   return (
+     <SafeAreaProvider>
+       <QueryClientProvider client={queryClient}>
+-        <SyncProvider>
++        <SyncProvider isDatabaseReady={isDatabaseReady}>
+           {/* 세션 만료 배너 (상단에 표시) */}
+           <SessionExpiredBanner />
+           <Stack

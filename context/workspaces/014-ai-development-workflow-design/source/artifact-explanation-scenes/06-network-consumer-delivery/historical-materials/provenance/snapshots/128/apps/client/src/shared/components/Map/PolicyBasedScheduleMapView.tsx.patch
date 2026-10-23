@@ -1,0 +1,48 @@
+diff --git a/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx b/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx
+index 5a6561b..b2c424a 100644
+--- a/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx
++++ b/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx
+@@ -12,6 +12,8 @@ import { GoogleScheduleMapView } from './GoogleScheduleMapView';
+ import { MapboxScheduleMapView } from './MapboxScheduleMapView';
+ import { MapUnavailableView } from './MapUnavailableView';
+ import type { ScheduleMapViewProps } from './types';
++import { useRealNetworkStatus } from '@/shared/store/network';
++import { getOnlineServicePermission } from '@/shared/services/network-access';
+ 
+ /**
+  * 정책 기반으로 적절한 지도 제공자를 자동 선택
+@@ -20,20 +22,20 @@ import type { ScheduleMapViewProps } from './types';
+ export function PolicyBasedScheduleMapView(props: ScheduleMapViewProps) {
+   const { tripId, ...mapProps } = props;
+   const policy = useAppPolicy(tripId);
++  const permission = getOnlineServicePermission(useRealNetworkStatus());
+ 
+-  console.log('🗺️ Map Provider Policy:', policy.service.mapProvider);
++  if (policy.service.mapProvider === 'google' && !permission.allowed) {
++    return <MapUnavailableView message={permission.reason} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;
++  }
+ 
+   switch (policy.service.mapProvider) {
+     case 'google':
+-      console.log('📍 Using Google Maps (Online)');
+       return <GoogleScheduleMapView {...mapProps} tripId={tripId} />;
+ 
+     case 'mapbox':
+-      console.log('📦 Using Mapbox (Offline-Ready)');
+       return <MapboxScheduleMapView {...mapProps} tripId={tripId} />;
+ 
+     case 'none':
+-      console.log('❌ Map unavailable (Offline + Inactive)');
+       return (
+         <MapUnavailableView
+           message='오프라인 상태에서는 지도를 사용할 수 없습니다'
+@@ -42,8 +44,6 @@ export function PolicyBasedScheduleMapView(props: ScheduleMapViewProps) {
+       );
+ 
+     default:
+-      // Fallback to Google Maps
+-      console.warn('⚠️ Unknown map provider, falling back to Google Maps');
+-      return <GoogleScheduleMapView {...mapProps} tripId={tripId} />;
++      return <MapUnavailableView message='지도를 사용할 수 없어요' />;
+   }
+ }

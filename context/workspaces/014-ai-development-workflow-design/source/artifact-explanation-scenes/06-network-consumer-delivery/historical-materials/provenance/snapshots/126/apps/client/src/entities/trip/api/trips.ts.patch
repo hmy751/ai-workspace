@@ -1,0 +1,82 @@
+diff --git a/apps/client/src/entities/trip/api/trips.ts b/apps/client/src/entities/trip/api/trips.ts
+index c3b5a2d..74ddfd8 100644
+--- a/apps/client/src/entities/trip/api/trips.ts
++++ b/apps/client/src/entities/trip/api/trips.ts
+@@ -19,15 +19,10 @@ import type {
+  * @returns 모든 여행 정보
+  */
+ export const fetchAllTrips = async (): Promise<GetAllTripsResponse> => {
+-  try {
+-    const data = await apiClient.get('/api/trips');
++  const data = await apiClient.get('/api/trips');
+ 
+-    const validated = tripListResponse.parse(data);
+-    return validated;
+-  } catch (error) {
+-    console.error('❌ error', error);
+-    throw error;
+-  }
++  const validated = tripListResponse.parse(data);
++  return validated;
+ };
+ 
+ /**
+@@ -36,16 +31,11 @@ export const fetchAllTrips = async (): Promise<GetAllTripsResponse> => {
+  * @returns 생성된 여행 정보
+  */
+ export const fetchCreateTrip = async (data: CreateTripRequest): Promise<CreateTripResponse> => {
+-  try {
+-    const validatedInput = createTripRequest.parse(data);
+-    const responseData = await apiClient.post('/api/trips', validatedInput);
++  const validatedInput = createTripRequest.parse(data);
++  const responseData = await apiClient.post('/api/trips', validatedInput);
+ 
+-    const validated = tripResponse.parse(responseData);
+-    return validated.data;
+-  } catch (error) {
+-    console.error('❌ error', error);
+-    throw error;
+-  }
++  const validated = tripResponse.parse(responseData);
++  return validated.data;
+ };
+ 
+ /**
+@@ -55,16 +45,11 @@ export const fetchCreateTrip = async (data: CreateTripRequest): Promise<CreateTr
+  * @returns 수정된 여행 정보
+  */
+ export const fetchUpdateTrip = async (id: string, data: UpdateTripRequest): Promise<UpdateTripResponse> => {
+-  try {
+-    const validatedInput = updateTripRequest.parse(data);
+-    const responseData = await apiClient.patch(`/api/trips/${id}`, validatedInput);
++  const validatedInput = updateTripRequest.parse(data);
++  const responseData = await apiClient.put(`/api/trips/${id}`, validatedInput);
+ 
+-    const validated = tripResponse.parse(responseData);
+-    return validated.data;
+-  } catch (error) {
+-    console.error('❌ error', error);
+-    throw error;
+-  }
++  const validated = tripResponse.parse(responseData);
++  return validated.data;
+ };
+ 
+ /**
+@@ -73,13 +58,8 @@ export const fetchUpdateTrip = async (id: string, data: UpdateTripRequest): Prom
+  * @returns 삭제된 여행 정보 (id, deletedAt)
+  */
+ export const fetchDeleteTrip = async (id: string): Promise<DeleteTripResponse> => {
+-  try {
+-    const responseData = await apiClient.delete(`/api/trips/${id}`);
++  const responseData = await apiClient.delete(`/api/trips/${id}`);
+ 
+-    const validated = deleteTripResponse.parse(responseData);
+-    return validated.data;
+-  } catch (error) {
+-    console.error('❌ error', error);
+-    throw error;
+-  }
++  const validated = deleteTripResponse.parse(responseData);
++  return validated.data;
+ };

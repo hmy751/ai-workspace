@@ -1,0 +1,26 @@
+diff --git a/apps/client/app/_layout.tsx b/apps/client/app/_layout.tsx
+index 2d28123..a69ffd7 100644
+--- a/apps/client/app/_layout.tsx
++++ b/apps/client/app/_layout.tsx
+@@ -166,15 +166,18 @@ export default function RootLayout() {
+   const [isAppReady, setIsAppReady] = useState(false);
+   const { init: initAuth } = useAuthStore();
+ 
++  useEffect(() => {
++    networkStore.init();
++
++    return () => networkStore.cleanup();
++  }, []);
++
+   // 앱 초기화 (DB, 폰트, 인증 등)
+   useEffect(() => {
+     const prepareApp = async () => {
+       try {
+         console.log('🚀 Preparing app...');
+ 
+-        // 0. 네트워크 스토어 초기화
+-        networkStore.init();
+-
+         // 1. 로컬 DB 초기화
+         await initializeDatabase();
+ 

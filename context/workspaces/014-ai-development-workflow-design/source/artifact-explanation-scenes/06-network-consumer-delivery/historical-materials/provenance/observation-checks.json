@@ -1,0 +1,478 @@
+[
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/app/_layout.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/src/features/trip/create-trip/TripDateForm.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/src/screens/HomeScreen/index.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/src/shared/components/Card/ScheduleCard.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/src/shared/policy/types.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/src/shared/policy/useAppPolicy.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/src/shared/services/offline-prep/router.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/src/shared/services/sync/provider.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 22,
+    "timestamp": "2026-09-17T02:45:14.012Z",
+    "path": "apps/client/src/shared/store/network.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 42,
+    "timestamp": "2026-09-17T02:45:39.461Z",
+    "path": "apps/client/src/features/debug/ui/DashboardView.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 42,
+    "timestamp": "2026-09-17T02:45:39.461Z",
+    "path": "apps/client/src/features/trip/create-trip/TripDateForm.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 42,
+    "timestamp": "2026-09-17T02:45:39.461Z",
+    "path": "apps/client/src/screens/HomeScreen/index.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 42,
+    "timestamp": "2026-09-17T02:45:39.461Z",
+    "path": "apps/client/src/shared/components/Card/ScheduleCard.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 42,
+    "timestamp": "2026-09-17T02:45:39.461Z",
+    "path": "apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 53,
+    "timestamp": "2026-09-17T02:45:49.481Z",
+    "path": "apps/client/src/features/debug/ui/DashboardView.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 53,
+    "timestamp": "2026-09-17T02:45:49.481Z",
+    "path": "apps/client/src/features/trip/create-trip/TripDateForm.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 53,
+    "timestamp": "2026-09-17T02:45:49.481Z",
+    "path": "apps/client/src/screens/HomeScreen/index.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 53,
+    "timestamp": "2026-09-17T02:45:49.481Z",
+    "path": "apps/client/src/shared/components/Card/ScheduleCard.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 53,
+    "timestamp": "2026-09-17T02:45:49.481Z",
+    "path": "apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/sync_startup_worker",
+    "source_line": 85,
+    "timestamp": "2026-09-17T02:58:23.225Z",
+    "path": "apps/client/app/_layout.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/sync_startup_worker",
+    "source_line": 85,
+    "timestamp": "2026-09-17T02:58:23.225Z",
+    "path": "apps/client/src/features/debug/ui/DebugScreen.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/sync_startup_worker",
+    "source_line": 85,
+    "timestamp": "2026-09-17T02:58:23.225Z",
+    "path": "apps/client/src/shared/services/sync/provider.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/expense/data/useCreateExpense.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/expense/data/useDeleteExpense.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/expense/data/useGetScheduleExpenses.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/expense/data/useUpdateExpense.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/expense/repository/expense-repository.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/schedule/data/useCreateSchedule.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/schedule/data/useDeleteSchedule.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/schedule/data/useUpdateSchedule.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/schedule/repository/schedule-repository.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/trip/api/trips.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/trip/data/useCreateTrip.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/trip/data/useDeleteTrip.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/trip/data/useUpdateTrip.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/trip/repository/trip-repository.ts",
+    "matches_replay": false
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 164,
+    "timestamp": "2026-09-17T03:02:53.041Z",
+    "path": "apps/client/src/entities/trip/ui/TripSelector.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 172,
+    "timestamp": "2026-09-17T03:03:02.068Z",
+    "path": "apps/client/src/features/debug/ui/DebugScreen.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 172,
+    "timestamp": "2026-09-17T03:03:02.068Z",
+    "path": "apps/client/src/features/schedule/create-schedule/useLocationSearch.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 172,
+    "timestamp": "2026-09-17T03:03:02.068Z",
+    "path": "apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 172,
+    "timestamp": "2026-09-17T03:03:02.068Z",
+    "path": "apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 172,
+    "timestamp": "2026-09-17T03:03:02.068Z",
+    "path": "apps/client/src/shared/services/directions/mapbox.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 179,
+    "timestamp": "2026-09-17T03:03:19.753Z",
+    "path": "apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 179,
+    "timestamp": "2026-09-17T03:03:19.753Z",
+    "path": "apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 179,
+    "timestamp": "2026-09-17T03:03:19.753Z",
+    "path": "apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 179,
+    "timestamp": "2026-09-17T03:03:19.753Z",
+    "path": "apps/client/src/features/schedule/update-schedule/UpdateScheduleDrawer.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 179,
+    "timestamp": "2026-09-17T03:03:19.753Z",
+    "path": "apps/client/src/features/trip/create-trip/TripDateForm.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 179,
+    "timestamp": "2026-09-17T03:03:19.753Z",
+    "path": "apps/client/src/features/trip/create-trip/useCreateTripForm.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 179,
+    "timestamp": "2026-09-17T03:03:19.753Z",
+    "path": "apps/client/src/features/trip/update-trip/EditTripDrawer.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 180,
+    "timestamp": "2026-09-17T03:03:20.068Z",
+    "path": "apps/client/src/entities/trip/ui/TripSelector.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 180,
+    "timestamp": "2026-09-17T03:03:20.068Z",
+    "path": "apps/client/src/screens/CreateExpenseScreen.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 180,
+    "timestamp": "2026-09-17T03:03:20.068Z",
+    "path": "apps/client/src/screens/CreateScheduleScreen.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 180,
+    "timestamp": "2026-09-17T03:03:20.068Z",
+    "path": "apps/client/src/screens/ExpensesScreen.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 180,
+    "timestamp": "2026-09-17T03:03:20.068Z",
+    "path": "apps/client/src/screens/ScheduleDetailScreen.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 180,
+    "timestamp": "2026-09-17T03:03:20.068Z",
+    "path": "apps/client/src/screens/ScheduleScreen.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 223,
+    "timestamp": "2026-09-17T03:04:29.891Z",
+    "path": "apps/client/src/screens/HomeScreen/index.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 223,
+    "timestamp": "2026-09-17T03:04:29.891Z",
+    "path": "apps/client/src/shared/components/Card/ScheduleCard.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 223,
+    "timestamp": "2026-09-17T03:04:29.891Z",
+    "path": "apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 223,
+    "timestamp": "2026-09-17T03:04:29.891Z",
+    "path": "apps/client/src/shared/services/offline-prep/index.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 223,
+    "timestamp": "2026-09-17T03:04:29.891Z",
+    "path": "apps/client/src/shared/store/network.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "main",
+    "source_line": 758,
+    "timestamp": "2026-09-17T03:06:53.322Z",
+    "path": "apps/client/src/entities/trip/data/useGetTrips.ts",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 306,
+    "timestamp": "2026-09-17T03:07:35.947Z",
+    "path": "apps/client/jest.config.cjs",
+    "matches_replay": false
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 306,
+    "timestamp": "2026-09-17T03:07:35.947Z",
+    "path": "apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 306,
+    "timestamp": "2026-09-17T03:07:35.947Z",
+    "path": "apps/client/src/screens/HomeScreen/TripsSection.tsx",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 333,
+    "timestamp": "2026-09-17T03:08:07.787Z",
+    "path": ".claude/context/policy-architecture.md",
+    "matches_replay": true
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 378,
+    "timestamp": "2026-09-17T03:09:51.510Z",
+    "path": ".claude/context/policy-architecture.md",
+    "matches_replay": false
+  },
+  {
+    "source": "/root/independent_code_quality_review",
+    "source_line": 378,
+    "timestamp": "2026-09-17T03:09:51.510Z",
+    "path": "apps/client/src/entities/trip/data/useGetTrips.ts",
+    "matches_replay": true
+  }
+]

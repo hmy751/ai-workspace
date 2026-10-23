@@ -1,0 +1,416 @@
+[
+  {
+    "path": "apps/client/app/_layout.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/jest.config.cjs",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/expense/data/useCreateExpense.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/expense/data/useDeleteExpense.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/expense/data/useGetScheduleExpenses.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/expense/data/useUpdateExpense.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/expense/repository/expense-repository.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/schedule/data/useCreateSchedule.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/schedule/data/useDeleteSchedule.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/schedule/data/useUpdateSchedule.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/schedule/repository/schedule-repository.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/trip/api/trips.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/entities/trip/data/useCreateTrip.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/entities/trip/data/useDeleteTrip.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/trip/data/useGetTrips.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/trip/data/useUpdateTrip.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/trip/repository/trip-repository.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/entities/trip/ui/TripSelector.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/features/debug/ui/DashboardView.tsx",
+    "before_exists": true,
+    "changed_by_this_work": false,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/features/debug/ui/DebugScreen.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/features/schedule/create-schedule/useLocationSearch.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/features/schedule/update-schedule/UpdateScheduleDrawer.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/features/trip/create-trip/TripDateForm.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/src/features/trip/create-trip/useCreateTripForm.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/features/trip/update-trip/EditTripDrawer.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/screens/CreateExpenseScreen.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/screens/CreateScheduleScreen.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/screens/ExpenseDetailScreen.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/src/screens/ExpensesScreen.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/screens/HomeScreen/TripsSection.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/screens/HomeScreen/index.tsx",
+    "before_exists": true,
+    "changed_by_this_work": false,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/screens/ScheduleDetailScreen.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/src/screens/ScheduleScreen.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/src/shared/components/Card/ScheduleCard.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/shared/components/ErrorBoundary/TripContentStatus.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx",
+    "before_exists": true,
+    "changed_by_this_work": false,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/src/shared/policy/mutationErrorMessage.ts",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/policy/types.ts",
+    "before_exists": true,
+    "changed_by_this_work": false,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/policy/useAppPolicy.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/policy/useTripContentAccess.ts",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/services/directions/mapbox.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/shared/services/network-access.ts",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/services/offline-prep/index.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-diff-git-blob-match"
+  },
+  {
+    "path": "apps/client/src/shared/services/offline-prep/router.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/services/sync/provider.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/src/shared/store/network.ts",
+    "before_exists": true,
+    "changed_by_this_work": false,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/app/startup-sync.test.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/entities/mutation-routing-hooks.test.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/tests/entities/repository-routing.test.ts",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/entities/trip-api-contract.test.ts",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/entities/trip-list-recovery.test.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/tests/features/debug/manual-sync.test.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/features/schedule/useLocationSearch-network.test.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/screens/detail-content-access.test.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/shared/policy/content-query-concurrency.test.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/shared/policy/map-service-network.test.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/tests/shared/policy/policy-ui.test.tsx",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "recorded-transform-reconstruction"
+  },
+  {
+    "path": "apps/client/tests/shared/policy/useAppPolicy-network.test.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/shared/policy/useTripContentAccess.test.ts",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/shared/services/directions/network.test.ts",
+    "before_exists": false,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/shared/services/offline-prep/router-network.test.ts",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/shared/services/sync/provider-network.test.tsx",
+    "before_exists": true,
+    "changed_by_this_work": true,
+    "final_evidence": "observed-full-text-match"
+  },
+  {
+    "path": "apps/client/tests/shared/store/network.test.ts",
+    "before_exists": true,
+    "changed_by_this_work": false,
+    "final_evidence": "observed-full-text-match"
+  }
+]

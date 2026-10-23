@@ -1,0 +1,1 @@
+nl -ba apps/client/src/entities/trip/data/useGetTrips.ts | head -40; nl -ba apps/client/src/shared/services/offline-prep/router.ts | head -80; nl -ba apps/client/src/entities/trip/data/useUpdateTrip.ts | tail -15

@@ -2,7 +2,7 @@
 
 구현·검토의 확정1~5번과 개선 리뷰를 [development 스킬과 검토 상세](records/prototypes/development-workflow/skills/development/SKILL.md)에 반영했다. [적용 기록](records/2026-10-23-development-skill-prototype-adoption.md)에서 Personal 범위 정정, Main의 전체 책임, 역할별 독자와 DEVELOPMENT 진입 이전을 확인한다. 현재는 공통 수행 계약·검토 상세의 prototype이며6~12번 인계·호출·수정·종료와13~15번 실행 연결은 계속 구체화한다. 다음은6번 구현자의 검토 전 완성 책임·인계다.
 
-04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이다. 이후 인증·network 본문 비교와 코드 설명 보완안 재시험을 진행했고 [검증한 브리핑 본문을 prototype에 반영](records/2026-10-22-ticket04-02-briefing-prototype-adoption.md)했다. 복구는 유지하며 시점 효과·일반화는 미확인이다.
+04-02는 [Ticket 첫머리의 현재 상태·사례 표·재개 순서](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)에서 이어간다. 브리핑 본문은 보완·반영했으나 최신 여행 사례에서 핵심 개선은 관찰하지 못했다. Network 첫 완료 보고 자료와 비교 조건은 준비했으며 미실행이다. 현재 열린 질문은 현황 파악·완료 보고에 이 스킬을 적용하는 것이 적절한지다. 대화 자료를 처음부터 제공하는 것과 처음부터 스킬을 적용하는 것을 구별한다. 복구 유지·운영 설치 전·Ticket 미완료다.
 
 **현재 상태: Ticket03의 구성안·대표 본문·읽기와 갱신 책임 구체화를 완료했다.** [마무리119](records/2026-10-20-119-ticket03-closeout.md)와 [03 완료 조건](current/tickets/03-project-context.md)에서 판단 근거와 후속 범위를 확인한다. Workspace014 전체는 계속 진행 중이며, 이번 마무리에서 다음 Ticket을 착수하지 않았다.
 
@@ -10,7 +10,7 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 사용자는2026-10-12에 독립 Workspace와 근거 사본을 함께 보존해 새 세션도 논의를 이어가도록 요청했다. 이 폴더는 설계 작업의 기록 단위이며 Reference Harness를 설치·실행한 Workspace가 아니다. [Spec](current/spec.md)이 전체 구상과 미결정을, [Ticket01~07](current/tickets/index.md)이 결과별 책임을 맡는다. 과거 B 선택 뒤 사용자는 [Personal 기반 구현·별도 관점 검토·Main 적용 판단과 동적 라우팅 구상](records/2026-10-21-dynamic-context-and-review-intent.md)을 설명했다. 역할별 입력·수정·검증은 이 의도와 레퍼런스를 함께 비교해 구체화한다.
 
-04-02는 [새 source](source/artifact-explanation-scenes/README.md)에 보고서·interceptor·network·코드 변경 첫 보고의 네 사건을 구성했다. [시점·본문 비교 범위](records/2026-10-22-ticket04-02-source-expansion-and-coverage.md)에서 사건별 역할과 당시 자료 공백을 구별했다. 원문 보존과 당시 실행 재현·스킬 효과 검증은 별개다. 본문 비교에서 확인한 국소 개선과 미실행인 적용 배치 비교를 구별한다. 현재 판단과 다음 행동은 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)에서 이어간다.
+04-02는 [새 source](source/artifact-explanation-scenes/README.md)에 보고서·interceptor·network 흐름·저장 용량·여행 브리핑·Network 첫 완료 보고의 여섯 묶음을 구성했다. [시점·본문 비교 범위](records/2026-10-22-ticket04-02-source-expansion-and-coverage.md)에서 사건별 역할과 당시 자료 공백을 구별했다. 원문 보존과 당시 실행 재현·스킬 효과 검증은 별개다. 본문 비교에서 확인한 국소 개선과 미실행인 적용 배치 비교를 구별한다. 현재 판단과 다음 행동은 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)에서 이어간다.
 
 ## 지금 읽을 결과
 

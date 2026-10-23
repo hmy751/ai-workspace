@@ -2,7 +2,7 @@
 
 [development](development/SKILL.md)는 개발 작업의 공통 수행 계약과 [독립 검토 상세](development/references/review.md)를 소유한다. 기존 DEVELOPMENT의 진입·본문을 옮기고 Main의 맥락 선택·재탐색·종합·전달·갱신을 연결했다. Personal은 개인의 판단 기준을, Project와 Work는 제품 맥락과 이번 작업을 계속 소유한다. [형성 자료](development/_background/README.md)에 사용자 목적·정정·독립 리뷰·이전 근거와 남은 설계를 보존했다. 상세 인계·호출·수정·종료는 후속이며 실제 운영 설치는 하지 않았다.
 
-04-02 브리핑은 [현재 SKILL.md](work-artifact-briefing/SKILL.md)에 최신 통합안을 반영했다. [반영 근거·검증 한계](../../../2026-10-22-ticket04-02-briefing-prototype-adoption.md)에 사용자의 반영 요청과 인증 비교 결과가 있다. [시험 판본](../../../experiments/artifact-explanation-auth-depth-sol6-2026-10-22/r85/input/skill/SKILL.md)는 시험에 사용한 동일 판본 보존용이다. 실제 Noline·전역 운영 설치는 하지 않았고 복구 스킬은 유지한다.
+04-02 브리핑은 [현재 SKILL.md](work-artifact-briefing/SKILL.md)에 책임·상태의 구별과 실제 코드 선정, 현재 구조의 이유와 설명 비중을 통합했다. [반영 근거](work-artifact-briefing/_background/records/2026-10-23-responsibility-explanation-integration.md)와 [직전판·통합판 비교](../../../experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md)를 구별한다. 같은 자료의 응답 비교에서는 양쪽 실제 코드 발췌가 없어 핵심 개선은 미관찰이다. 판본은 해당 실험 입력에 보존하며 실제 Noline·전역 운영 설치는 하지 않았고 복구 스킬은 유지한다.
 
 작업 정의의 충분성과 필요한 구체화를 판단하는 work-discussion의 채택 본문, 작업물 브리핑의 현재prototype 본문과 설명 복구의 보류 후보를 함께 둔다. work-discussion은04-01 설계 결과로 채택했고, 브리핑은04-02의 설명 깊이 비교 뒤 최신 통합안을 반영했다. 첫 전달·적용 시점·일반화 검증은 남아 있으며 실제 프로젝트나 전역 스킬에 설치한 상태는 아니다.
 

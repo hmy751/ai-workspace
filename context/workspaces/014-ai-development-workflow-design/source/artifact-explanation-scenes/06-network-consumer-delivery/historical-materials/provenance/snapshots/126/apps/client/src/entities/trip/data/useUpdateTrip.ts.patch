@@ -1,0 +1,13 @@
+diff --git a/apps/client/src/entities/trip/data/useUpdateTrip.ts b/apps/client/src/entities/trip/data/useUpdateTrip.ts
+index 164bb2b..dedc07a 100644
+--- a/apps/client/src/entities/trip/data/useUpdateTrip.ts
++++ b/apps/client/src/entities/trip/data/useUpdateTrip.ts
+@@ -30,8 +30,5 @@ export const useUpdateTrip = () => {
+         queryKey: tripQueryKeys.all(),
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to update trip:', error);
+-    },
+   });
+ };

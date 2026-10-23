@@ -1,0 +1,9 @@
+      at _next (../../node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS apps/client/tests/entities/trip/api/trips.test.ts
+
+Test Suites: 51 passed, 51 total
+Tests:       1 skipped, 578 passed, 579 total
+Snapshots:   0 total
+Time:        8.265 s
+Ran all test suites.

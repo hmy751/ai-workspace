@@ -1,0 +1,1 @@
+cat apps/client/src/shared/api/fetcher.ts apps/client/src/entities/trip/api/trips.ts apps/client/src/shared/lib/query-refresh.ts

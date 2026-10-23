@@ -1,0 +1,18 @@
+669aad1 refactor(client): 수정 폼 조회 수명과 Query 갱신 연산 정리
+apps/client/src/entities/trip/data/useActivateTrip.ts:21:import { cancelAndInvalidateQueries } from '@/shared/lib/query-refresh';
+apps/client/src/entities/trip/data/useActivateTrip.ts:210:      await cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.base });
+apps/client/src/entities/trip/data/useActivateTrip.ts:215:        await cancelAndInvalidateQueries(queryClient, { queryKey: scheduleQueryKeys.list(data.tripId) });
+apps/client/src/entities/trip/data/useActivateTrip.ts:216:        await cancelAndInvalidateQueries(queryClient, { queryKey: expenseQueryKeys.byTrip(data.tripId) });
+apps/client/src/entities/trip/data/useDeleteTrip.ts:4:import { cancelAndInvalidateQueries } from '@/shared/lib/query-refresh';
+apps/client/src/entities/trip/data/useDeleteTrip.ts:23:    onSuccess: () => cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.all() }),
+apps/client/src/entities/trip/data/useDeactivateTrip.ts:12:import { cancelAndInvalidateQueries } from '@/shared/lib/query-refresh';
+apps/client/src/entities/trip/data/useDeactivateTrip.ts:136:      await cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.base });
+apps/client/src/entities/trip/data/useDeactivateTrip.ts:141:        await cancelAndInvalidateQueries(queryClient, { queryKey: scheduleQueryKeys.base });
+apps/client/src/entities/trip/data/useDeactivateTrip.ts:142:        await cancelAndInvalidateQueries(queryClient, { queryKey: expenseQueryKeys.base });
+apps/client/src/entities/trip/data/useUpdateTrip.ts:5:import { cancelAndInvalidateQueries } from '@/shared/lib/query-refresh';
+apps/client/src/entities/trip/data/useUpdateTrip.ts:29:    onSuccess: () => cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.all() }),
+apps/client/src/entities/trip/data/useCreateTrip.ts:5:import { cancelAndInvalidateQueries } from '@/shared/lib/query-refresh';
+apps/client/src/entities/trip/data/useCreateTrip.ts:30:    onSuccess: () => cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.all() }),
+apps/client/src/shared/lib/query-refresh.ts:4:export async function cancelAndInvalidateQueries(client: QueryClient, filters: QueryFilters): Promise<void> {
+apps/client/src/shared/services/sync/engine.ts:6:import { cancelAndInvalidateQueries } from '@/shared/lib/query-refresh';
+apps/client/src/shared/services/sync/engine.ts:40:  await cancelAndInvalidateQueries(queryClient, filters);

@@ -1,0 +1,21 @@
+ M .claude/context/policy-architecture.md
+ M apps/client/app/_layout.tsx
+ M apps/client/src/features/debug/ui/DashboardView.tsx
+ M apps/client/src/features/trip/create-trip/TripDateForm.tsx
+ M apps/client/src/screens/HomeScreen/index.tsx
+ M apps/client/src/shared/components/Card/ScheduleCard.tsx
+ M apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx
+ M apps/client/src/shared/policy/types.ts
+ M apps/client/src/shared/policy/useAppPolicy.ts
+ M apps/client/src/shared/services/offline-prep/router.ts
+ M apps/client/src/shared/services/sync/provider.tsx
+ M apps/client/src/shared/store/network.ts
+ M context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md
+ M context/work/workspaces/002-code-readability-refactoring/current/state/index.md
+ M context/work/workspaces/002-code-readability-refactoring/output/index.md
+ M context/work/workspaces/002-code-readability-refactoring/records/README.md
+?? .pnpm-store/
+?? apps/client/tests/shared/
+?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-16-02-network-store-first-step.md
+?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-16-03-network-store-readability.md
+?? context/work/workspaces/002-code-readability-refactoring/records/2026-09-17-01-network-quality-review-and-handoff.md

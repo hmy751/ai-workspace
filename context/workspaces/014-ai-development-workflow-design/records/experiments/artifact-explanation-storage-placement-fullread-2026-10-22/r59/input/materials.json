@@ -1,0 +1,54 @@
+{
+  "README.md": {
+    "characters": 849,
+    "chunks": 1
+  },
+  "conversation.txt": {
+    "characters": 19835,
+    "chunks": 5
+  },
+  "documents/spec-quality.md": {
+    "characters": 2781,
+    "chunks": 1
+  },
+  "documents/ticket03.md": {
+    "characters": 2649,
+    "chunks": 1
+  },
+  "pre-change/useStorageStats.test.ts": {
+    "characters": 5760,
+    "chunks": 2
+  },
+  "pre-change/useStorageStats.ts": {
+    "characters": 2732,
+    "chunks": 1
+  },
+  "prior-conversation.txt": {
+    "characters": 53048,
+    "chunks": 14
+  },
+  "result/change.diff": {
+    "characters": 2444,
+    "chunks": 1
+  },
+  "result/checks-2513.txt": {
+    "characters": 725,
+    "chunks": 1
+  },
+  "result/checks-2523.txt": {
+    "characters": 1426,
+    "chunks": 1
+  },
+  "result/useStorageStats.ts": {
+    "characters": 2614,
+    "chunks": 1
+  },
+  "shared/explanation-and-evidence-criteria.md": {
+    "characters": 2989,
+    "chunks": 1
+  },
+  "skill/SKILL.md": {
+    "characters": 5480,
+    "chunks": 2
+  }
+}

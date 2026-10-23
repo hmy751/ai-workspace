@@ -1,0 +1,33 @@
+diff --git a/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx b/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx
+index a2b7f06..627f550 100644
+--- a/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx
++++ b/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx
+@@ -15,6 +15,9 @@ import { useAppPolicy } from '@/shared/policy';
+ import { OfflineMapView } from './OfflineMapView';
+ import { useMyLocation } from '@/shared/hooks/map/useMyLocation';
+ import { MyLocationButton } from '@/shared/components/Map/MyLocationButton';
++import { MapUnavailableView } from '@/shared/components/Map/MapUnavailableView';
++import { useRealNetworkStatus } from '@/shared/store/network';
++import { getOnlineServicePermission } from '@/shared/services/network-access';
+ 
+ interface Location {
+   latitude: number;
+@@ -57,6 +60,7 @@ export function PolicyBasedMapView({ tripId, locations, selectedLocation }: Smar
+ 
+   // Policy Layer로 지도 제공자 결정
+   const policy = useAppPolicy(tripId ?? undefined);
++  const permission = getOnlineServicePermission(useRealNetworkStatus());
+ 
+   // 오프라인 지도 조회 (mapbox 모드에서만 필요)
+   const { data: offlineCity, isLoading } = useOfflineCity(tripId);
+@@ -91,6 +95,10 @@ export function PolicyBasedMapView({ tripId, locations, selectedLocation }: Smar
+     }
+   }, [locations, selectedLocation, policy.service.mapProvider]);
+ 
++  if (policy.service.mapProvider === 'google' && !permission.allowed) {
++    return <MapUnavailableView message={permission.reason} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;
++  }
++
+   // 빈 상태
+   if (locations.length === 0 && !selectedLocation) {
+     return (

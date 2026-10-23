@@ -1,0 +1,36 @@
+{
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "fork_turns": "none",
+  "source_archive": "source/artifact-explanation-scenes/01-report-delivery/repository/noline-0b3b167.tar.gz",
+  "archive_sha256": "e656bb00c7b9d56edf80fd36c7cab823e488d4125aa1bb5b0ec965d30034bb23",
+  "only_repository_difference": [
+    ".claude/skills/work-artifact-briefing/SKILL.md"
+  ],
+  "candidate_source_sha256": "6bb8a65b6cb8b00758e6219e9307b3d77b5022c9f9795f37d9c5a6ef8e1efcdd",
+  "candidate_transform": "common criteria relative link changed to existing repository location only",
+  "conditions": [
+    {
+      "id": "r23",
+      "version": "baseline",
+      "files": {
+        "question.txt": "46b5a2db77f5fe8563a80b0569b45e43cc394696825b8dfa0c4712c25e69733c",
+        "prompt.txt": "2aa7f4c58a7cdee2769f2897289260f39ca343aa4ceba93fa5c2a47f93a03b4d",
+        "README.md": "71c3dc4cdfc4e5328ce43e13e2f3b0930f76bc67e1cb1f2a3356afce05d73ad5",
+        "read_material.py": "a7dade82f48ec6d56593691e53e0d62412744b70b81ef06cc94bc11f2b0fead6"
+      },
+      "skill_sha256": "5ccf61c506591e4f34df09c997738aa60b3bb3cb6c937100606b600c72b3a5fb"
+    },
+    {
+      "id": "r76",
+      "version": "current-prototype",
+      "files": {
+        "question.txt": "46b5a2db77f5fe8563a80b0569b45e43cc394696825b8dfa0c4712c25e69733c",
+        "prompt.txt": "2aa7f4c58a7cdee2769f2897289260f39ca343aa4ceba93fa5c2a47f93a03b4d",
+        "README.md": "71c3dc4cdfc4e5328ce43e13e2f3b0930f76bc67e1cb1f2a3356afce05d73ad5",
+        "read_material.py": "a7dade82f48ec6d56593691e53e0d62412744b70b81ef06cc94bc11f2b0fead6"
+      },
+      "skill_sha256": "a8c628268a57ea7d94cb2ab7a6e7a35a3ef5833b4f5b70a7b67cda67a7a4c806"
+    }
+  ]
+}

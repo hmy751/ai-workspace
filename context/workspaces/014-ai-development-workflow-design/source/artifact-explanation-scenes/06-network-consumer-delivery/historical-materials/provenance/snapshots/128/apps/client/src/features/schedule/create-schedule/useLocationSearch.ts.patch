@@ -1,0 +1,63 @@
+diff --git a/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts b/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts
+index c7b4d64..11caccd 100644
+--- a/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts
++++ b/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts
+@@ -5,6 +5,9 @@ import { z } from 'zod';
+ import apiClient from '@/shared/api/fetcher';
+ import { useDebounce } from '@/shared/hooks/useDebounce';
+ import type { Location } from './types';
++import { useRealNetworkStatus } from '@/shared/store/network';
++import { assertOnlineServiceAccess } from '@/shared/services/network-access';
++import { PolicyError } from '@/shared/policy/errors';
+ 
+ // Infer types from schemas
+ type PlacesSearchResponse = z.infer<typeof placesSearchResponse>;
+@@ -37,6 +40,7 @@ export const placeQueryKeys = {
+  * 장소 검색 API 함수
+  */
+ const searchPlaces = async (query: string, cityContext?: CityContext): Promise<Location[]> => {
++  assertOnlineServiceAccess();
+   // Google Places API 호출
+   const response = (await apiClient.post('/api/places/search', {
+     query: query.trim(),
+@@ -51,6 +55,7 @@ const searchPlaces = async (query: string, cityContext?: CityContext): Promise<L
+   const locations = await Promise.all(
+     response.data.results.map(async (result: PlacesSearchResponse['data']['results'][0]) => {
+       try {
++        assertOnlineServiceAccess();
+         // Place Details API로 좌표 정보 가져오기
+         // Query string으로 language 전달
+         const detailResponse = (await apiClient.get(`/api/places/${result.placeId}?language=en`)) as PlaceDetail;
+@@ -66,6 +71,7 @@ const searchPlaces = async (query: string, cityContext?: CityContext): Promise<L
+           rating: detailResponse.rating,
+         };
+       } catch (error) {
++        if (error instanceof PolicyError) throw error;
+         console.error('Failed to fetch place details:', error);
+         // 실패 시 기본값 사용
+         return {
+@@ -87,6 +93,8 @@ const searchPlaces = async (query: string, cityContext?: CityContext): Promise<L
+  */
+ export const useLocationSearch = (cityContext?: CityContext) => {
+   const [searchQuery, setSearchQuery] = useState('');
++  const realNetworkStatus = useRealNetworkStatus();
++  const canRequest = realNetworkStatus === 'online';
+ 
+   // 500ms debounce 적용
+   const debouncedSearchQuery = useDebounce(searchQuery, 500);
+@@ -95,13 +103,13 @@ export const useLocationSearch = (cityContext?: CityContext) => {
+   const { data, isFetching: isSearching } = useQuery({
+     queryKey: placeQueryKeys.search(debouncedSearchQuery, cityContext),
+     queryFn: () => searchPlaces(debouncedSearchQuery, cityContext),
+-    enabled: !!debouncedSearchQuery.trim(),
++    enabled: !!debouncedSearchQuery.trim() && canRequest,
+     staleTime: 1000 * 60 * 5, // 5분
+     placeholderData: keepPreviousData, // 이전 데이터 유지
+   });
+ 
+   // 검색어가 비어있으면 빈 배열, 아니면 데이터 반환
+-  const results = debouncedSearchQuery.trim() ? data || [] : [];
++  const results = canRequest && debouncedSearchQuery.trim() ? data || [] : [];
+ 
+   const handleSearch = (query: string) => {
+     setSearchQuery(query);

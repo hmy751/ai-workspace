@@ -1,0 +1,1 @@
+git diff -- apps/client/src apps/server/src; cat apps/client/src/shared/lib/query-refresh.ts; cat apps/client/src/shared/services/sync/query-refresh.ts 2>/dev/null; cat apps/client/src/screens/HomeScreen/TripsSection.tsx; cat apps/client/src/entities/trip/data/useGetTrips.ts

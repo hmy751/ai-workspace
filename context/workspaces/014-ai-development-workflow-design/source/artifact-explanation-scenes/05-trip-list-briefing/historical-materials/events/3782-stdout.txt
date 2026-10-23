@@ -1,0 +1,319 @@
+diff --git a/apps/client/src/entities/trip/data/keys.ts b/apps/client/src/entities/trip/data/keys.ts
+index c609042..da60884 100644
+--- a/apps/client/src/entities/trip/data/keys.ts
++++ b/apps/client/src/entities/trip/data/keys.ts
+@@ -8,6 +8,7 @@
+ export const tripQueryKeys = {
+   base: ['trip'] as const,
+   all: () => [...tripQueryKeys.base, 'all'] as const,
++  list: (canQueryServer: boolean) => [...tripQueryKeys.all(), { canQueryServer }] as const,
+   activation: (tripId: string) => [...tripQueryKeys.base, 'activation', tripId] as const,
+   activeTrip: () => [...tripQueryKeys.base, 'active'] as const,
+ };
+diff --git a/apps/client/src/entities/trip/data/useActivateTrip.ts b/apps/client/src/entities/trip/data/useActivateTrip.ts
+index 32bf217..4b765d3 100644
+--- a/apps/client/src/entities/trip/data/useActivateTrip.ts
++++ b/apps/client/src/entities/trip/data/useActivateTrip.ts
+@@ -207,8 +207,7 @@ export const useActivateTrip = () => {
+     },
+     onSuccess: async (data) => {
+       // 캐시 무효화 - 여행 목록 및 활성화 상태 다시 조회
+-      queryClient.invalidateQueries({ queryKey: tripQueryKeys.base });
+-      queryClient.invalidateQueries({ queryKey: tripQueryKeys.activeTrip() });
++      await cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.base });
+ 
+       // Pull된 데이터 반영 (Schedule, Expense, Route)
+       if (!data.alreadyActivated) {
+diff --git a/apps/client/src/entities/trip/data/useCreateTrip.ts b/apps/client/src/entities/trip/data/useCreateTrip.ts
+index f6638ca..7d89a48 100644
+--- a/apps/client/src/entities/trip/data/useCreateTrip.ts
++++ b/apps/client/src/entities/trip/data/useCreateTrip.ts
+@@ -2,11 +2,12 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
+ import { TripRepository } from '../repository/trip-repository';
+ import type { CreateTripRequest } from '../model';
+ import { tripQueryKeys } from './keys';
++import { cancelAndInvalidateQueries } from '@/shared/lib/query-refresh';
+ 
+ /**
+  * 여행 생성 Mutation Hook
+  *
+- * - Repository를 통해 활성화 상태에 따라 Local/Remote 자동 분기
++ * - Repository를 통해 서버에 생성하고 목록 재조회
+  * - Client-Side ID: 외부에서 ID 생성하여 전달
+  *
+  * @example
+@@ -26,11 +27,7 @@ export const useCreateTrip = () => {
+ 
+   return useMutation({
+     mutationFn: (data: CreateTripRequest) => TripRepository.create(data),
+-    onSuccess: () => {
+-      queryClient.invalidateQueries({
+-        queryKey: tripQueryKeys.all(),
+-      });
+-    },
++    onSuccess: () => cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.all() }),
+     onError: (error) => {
+       console.error('❌ Failed to create trip:', error);
+     },
+diff --git a/apps/client/src/entities/trip/data/useDeactivateTrip.ts b/apps/client/src/entities/trip/data/useDeactivateTrip.ts
+index 2640eb1..78927e2 100644
+--- a/apps/client/src/entities/trip/data/useDeactivateTrip.ts
++++ b/apps/client/src/entities/trip/data/useDeactivateTrip.ts
+@@ -133,8 +133,7 @@ export const useDeactivateTrip = () => {
+     },
+     onSuccess: async (data) => {
+       // 캐시 무효화 - 여행 목록 및 활성화 상태 다시 조회
+-      queryClient.invalidateQueries({ queryKey: tripQueryKeys.base });
+-      queryClient.invalidateQueries({ queryKey: tripQueryKeys.activeTrip() });
++      await cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.base });
+ 
+       // 정리된 데이터 반영 (Soft delete된 Schedule, Expense, Route)
+       if (!data.alreadyDeactivated) {
+diff --git a/apps/client/src/entities/trip/data/useDeleteTrip.ts b/apps/client/src/entities/trip/data/useDeleteTrip.ts
+index dc1d95e..75fbe62 100644
+--- a/apps/client/src/entities/trip/data/useDeleteTrip.ts
++++ b/apps/client/src/entities/trip/data/useDeleteTrip.ts
+@@ -1,6 +1,7 @@
+ import { useMutation, useQueryClient } from '@tanstack/react-query';
+ import { TripRepository } from '../repository/trip-repository';
+ import { tripQueryKeys } from './keys';
++import { cancelAndInvalidateQueries } from '@/shared/lib/query-refresh';
+ 
+ /**
+  * 여행 삭제 Mutation Hook
+@@ -19,11 +20,7 @@ export const useDeleteTrip = () => {
+ 
+   return useMutation({
+     mutationFn: (id: string) => TripRepository.delete(id),
+-    onSuccess: () => {
+-      queryClient.invalidateQueries({
+-        queryKey: tripQueryKeys.all(),
+-      });
+-    },
++    onSuccess: () => cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.all() }),
+     onError: (error) => {
+       console.error('❌ Failed to delete trip:', error);
+     },
+diff --git a/apps/client/src/entities/trip/data/useGetTrips.ts b/apps/client/src/entities/trip/data/useGetTrips.ts
+index c3e2560..a85e26a 100644
+--- a/apps/client/src/entities/trip/data/useGetTrips.ts
++++ b/apps/client/src/entities/trip/data/useGetTrips.ts
+@@ -1,13 +1,20 @@
++import { useRealNetworkStatus } from '@/shared/store/network';
++import { useAuthStore } from '@/shared/store/auth';
+ import { useQuery } from '@tanstack/react-query';
+ import { TripRepository } from '../repository/trip-repository';
+ import { tripQueryKeys } from './keys';
+ 
+ /** 여행 목록을 조회하며 실제 Local/Remote 출처를 함께 제공한다. */
+ export const useGetTrips = () => {
++  const networkStatus = useRealNetworkStatus();
++  const authStatus = useAuthStore((state) => state.status);
++  const canQueryServer = networkStatus === 'online' && authStatus === 'signed-in';
++
+   const query = useQuery({
+-    queryKey: tripQueryKeys.all(),
+-    queryFn: () => TripRepository.getAllWithSource(),
+-    staleTime: 5 * 60 * 1000, // 5분
++    queryKey: tripQueryKeys.list(canQueryServer),
++    queryFn: ({ signal }) => TripRepository.getAllWithSource(signal),
++    // 연결 복구로 이전 서버 Query를 다시 구독할 때도 최신 목록을 확인한다.
++    staleTime: 0,
+     gcTime: 10 * 60 * 1000, // 10분
+   });
+ 
+diff --git a/apps/client/src/entities/trip/data/useTripSelection.ts b/apps/client/src/entities/trip/data/useTripSelection.ts
+index 4cf7e4f..96416b4 100644
+--- a/apps/client/src/entities/trip/data/useTripSelection.ts
++++ b/apps/client/src/entities/trip/data/useTripSelection.ts
+@@ -20,7 +20,7 @@ export function useTripSelection() {
+       }
+ 
+       // 로컬 목록이나 연결이 끊긴 동안 남은 캐시만으로 삭제를 판정하지 않는다.
+-      if (dataSource !== 'remote' || networkStore.realStatus !== 'online') {
++      if ((dataSource !== 'remote' && dataSource !== 'mixed') || networkStore.realStatus !== 'online') {
+         return;
+       }
+     }
+diff --git a/apps/client/src/entities/trip/data/useUpdateTrip.ts b/apps/client/src/entities/trip/data/useUpdateTrip.ts
+index 164bb2b..52a0ef8 100644
+--- a/apps/client/src/entities/trip/data/useUpdateTrip.ts
++++ b/apps/client/src/entities/trip/data/useUpdateTrip.ts
+@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
+ import { TripRepository } from '../repository/trip-repository';
+ import type { UpdateTripRequest } from '../model';
+ import { tripQueryKeys } from './keys';
++import { cancelAndInvalidateQueries } from '@/shared/lib/query-refresh';
+ 
+ /**
+  * 여행 수정 Mutation Hook
+@@ -25,11 +26,7 @@ export const useUpdateTrip = () => {
+ 
+   return useMutation({
+     mutationFn: ({ id, data }: { id: string; data: UpdateTripRequest }) => TripRepository.update(id, data),
+-    onSuccess: () => {
+-      queryClient.invalidateQueries({
+-        queryKey: tripQueryKeys.all(),
+-      });
+-    },
++    onSuccess: () => cancelAndInvalidateQueries(queryClient, { queryKey: tripQueryKeys.all() }),
+     onError: (error) => {
+       console.error('❌ Failed to update trip:', error);
+     },
+diff --git a/apps/client/src/entities/trip/repository/trip-repository.ts b/apps/client/src/entities/trip/repository/trip-repository.ts
+index 8174fac..cec0bda 100644
+--- a/apps/client/src/entities/trip/repository/trip-repository.ts
++++ b/apps/client/src/entities/trip/repository/trip-repository.ts
+@@ -3,33 +3,30 @@
+ import { createTripRequest, updateTripRequest } from '@repo/schema/requests/trip';
+ import {
+   routeTripQuery,
+-  routeTripMutation,
++  routeTripCreation,
+   routeChildQuery,
+   routeChildMutation,
+ } from '@/shared/services/offline-prep/router';
++import { useAuthStore } from '@/shared/store/auth';
+ import * as TripLocal from '../lib/trip-local';
+ import * as TripApi from '../api/trips';
+ import type { Trip, CreateTripRequest, UpdateTripRequest, DeleteTripResponse } from '../model';
+ 
+ interface TripListResult {
+   trips: Trip[];
+-  source: 'local' | 'remote';
++  source: 'local' | 'remote' | 'mixed';
+ }
+ 
+-/**
+- * Trip Repository
+- *
+- * - 활성화된 Trip 있음: Local DB 사용
+- * - 비활성 상태: Server API 사용
+- * - Router가 활성화 상태에 따라 자동 분기
+- */
++/** 목록 조회가 서버 목록과 보존할 로컬 여행을 조합한다. 변경은 대상 여행의 저장소만 갱신한다. */
+ export const TripRepository = {
+-  getAllWithSource: async (): Promise<TripListResult> => {
++  getAllWithSource: async (signal?: AbortSignal): Promise<TripListResult> => {
+     return await routeTripQuery<TripListResult>({
+       local: async () => ({ trips: await TripLocal.getTripsLocal(), source: 'local' }),
+       remote: async () => {
++        const sessionId = useAuthStore.getState().sessionId;
+         const response = await TripApi.fetchAllTrips();
+-        return { trips: response.data, source: 'remote' };
++        const result = await TripLocal.refreshTripListLocal(response.data, sessionId, signal);
++        return { trips: result.trips, source: result.hasLocalTrips ? 'mixed' : 'remote' };
+       },
+     });
+   },
+@@ -47,10 +44,7 @@ export const TripRepository = {
+ 
+   create: async (data: CreateTripRequest): Promise<Trip> => {
+     const input = createTripRequest.parse(data);
+-    return await routeTripMutation({
+-      local: () => TripLocal.createTripLocal(input),
+-      remote: () => TripApi.fetchCreateTrip(input),
+-    });
++    return await routeTripCreation(() => TripApi.fetchCreateTrip(input));
+   },
+ 
+   update: async (id: string, data: UpdateTripRequest): Promise<Trip> => {
+diff --git a/apps/client/src/shared/services/offline-prep/router.ts b/apps/client/src/shared/services/offline-prep/router.ts
+index 8d19d69..f7dd5be 100644
+--- a/apps/client/src/shared/services/offline-prep/router.ts
++++ b/apps/client/src/shared/services/offline-prep/router.ts
+@@ -1,14 +1,19 @@
+ import { getTripActivationStatus, hasAnyActivatedTrip } from './metadata';
+-import { OfflineError } from './errors';
++import { OfflineError, type OfflineErrorOptions } from './errors';
++import { APIError } from '@/shared/api/fetcher';
+ import { networkStore } from '@/shared/store/network';
+-import { requireLocalUserId, requireRemoteSession } from '@/shared/store/auth';
++import { requireLocalUserId, requireRemoteSession, useAuthStore } from '@/shared/store/auth';
+ 
+ interface RouteOperations<T> {
+   local: () => Promise<T>;
+   remote: () => Promise<T>;
+ }
+ 
+-function assertRemoteAvailable(offlineMessage: string, tripId?: string) {
++function assertRemoteAvailable(
++  offlineMessage: string,
++  tripId?: string,
++  action: OfflineErrorOptions['action'] = 'ACTIVATE_PROMPT',
++) {
+   requireRemoteSession();
+   const status = networkStore.realStatus;
+ 
+@@ -18,7 +23,7 @@ function assertRemoteAvailable(offlineMessage: string, tripId?: string) {
+ 
+   throw new OfflineError(
+     status === 'unknown' ? '인터넷 연결을 아직 확인하지 못했어요. 잠시 후 다시 시도해주세요.' : offlineMessage,
+-    { action: status === 'unknown' ? 'ONLINE_REQUIRED' : 'ACTIVATE_PROMPT', tripId },
++    { action: status === 'unknown' ? 'ONLINE_REQUIRED' : action, tripId },
+   );
+ }
+ 
+@@ -30,20 +35,27 @@ function assertWritesAllowed() {
+   }
+ }
+ 
+-/** Trip 조회의 기존 분기는 전역 활성 여행 존재 여부를 사용한다. */
++/** 온라인 목록은 서버에서 갱신하고, 연결·인증이 제한되면 활성 여행의 로컬 목록을 사용한다. */
+ export async function routeTripQuery<T>(operations: RouteOperations<T>): Promise<T> {
+   requireLocalUserId();
+-  const hasActivated = await hasAnyActivatedTrip();
+-
+-  if (hasActivated) {
+-    return await operations.local();
++  if (networkStore.realStatus === 'online' && useAuthStore.getState().status === 'signed-in') {
++    const sessionId = useAuthStore.getState().sessionId;
++    try {
++      return await operations.remote();
++    } catch (error) {
++      // 연결 감지는 API 서버의 응답까지 보장하지 않는다. 원격 접근 실패에만 로컬 이용을 유지한다.
++      const unavailable =
++        error instanceof APIError && (error.status === 0 || error.status === 408 || error.status >= 500);
++      if (!unavailable || !(await hasAnyActivatedTrip()) || !useAuthStore.isCurrentSession(sessionId)) throw error;
++      return await operations.local();
++    }
+   }
+-
++  if (await hasAnyActivatedTrip()) return await operations.local();
+   assertRemoteAvailable('오프라인에서는 활성화된 여행만 볼 수 있어요');
+   return await operations.remote();
+ }
+ 
+-/** Schedule·Expense 조회는 소속 여행의 활성 여부로 분기한다. */
++/** Trip 단건·Schedule·Expense 조회는 대상 여행의 활성 여부로 분기한다. */
+ export async function routeChildQuery<T>(tripId: string, operations: RouteOperations<T>): Promise<T> {
+   requireLocalUserId();
+   const isActivated = await getTripActivationStatus(tripId);
+@@ -56,22 +68,15 @@ export async function routeChildQuery<T>(tripId: string, operations: RouteOperat
+   return await operations.remote();
+ }
+ 
+-/** Trip 쓰기의 기존 분기는 전역 활성 여행 존재 여부를 사용한다. */
+-export async function routeTripMutation<T>(operations: RouteOperations<T>): Promise<T> {
++/** 새 여행은 아직 활성화되지 않았으므로 서버에서 생성한다. */
++export async function routeTripCreation<T>(remote: () => Promise<T>): Promise<T> {
+   requireLocalUserId();
+-  const hasActivated = await hasAnyActivatedTrip();
+-
+   assertWritesAllowed();
+-
+-  if (hasActivated) {
+-    return await operations.local();
+-  }
+-
+-  assertRemoteAvailable('오프라인에서는 활성화된 여행만 수정할 수 있어요');
+-  return await operations.remote();
++  assertRemoteAvailable('여행을 만들려면 인터넷 연결이 필요해요', undefined, 'ONLINE_REQUIRED');
++  return await remote();
+ }
+ 
+-/** Schedule·Expense 쓰기는 소속 여행의 활성 여부로 분기한다. */
++/** Trip 수정·삭제와 Schedule·Expense 쓰기는 대상 여행의 활성 여부로 분기한다. */
+ export async function routeChildMutation<T>(tripId: string, operations: RouteOperations<T>): Promise<T> {
+   requireLocalUserId();
+   const isActivated = await getTripActivationStatus(tripId);

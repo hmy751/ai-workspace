@@ -1,0 +1,38 @@
+[
+  {
+    "command_index": 83,
+    "path": "apps/client/app/_layout.tsx",
+    "range": [
+      40,
+      225
+    ],
+    "match": true
+  },
+  {
+    "command_index": 152,
+    "path": "apps/client/src/screens/ScheduleDetailScreen.tsx",
+    "range": [
+      24,
+      86
+    ],
+    "match": true
+  },
+  {
+    "command_index": 152,
+    "path": "apps/client/src/screens/ExpenseDetailScreen.tsx",
+    "range": [
+      13,
+      83
+    ],
+    "match": true
+  },
+  {
+    "command_index": 152,
+    "path": "apps/client/src/screens/ScheduleScreen.tsx",
+    "range": [
+      195,
+      250
+    ],
+    "match": true
+  }
+]

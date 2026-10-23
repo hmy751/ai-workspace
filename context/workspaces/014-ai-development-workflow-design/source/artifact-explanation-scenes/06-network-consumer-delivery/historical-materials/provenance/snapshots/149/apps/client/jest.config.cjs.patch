@@ -1,0 +1,18 @@
+diff --git a/apps/client/jest.config.cjs b/apps/client/jest.config.cjs
+index 9b3e7ae..db6c608 100644
+--- a/apps/client/jest.config.cjs
++++ b/apps/client/jest.config.cjs
+@@ -5,6 +5,13 @@ module.exports = {
+   clearMocks: true,
+   watchman: false,
+   testMatch: ['<rootDir>/tests/**/*.test.[jt]s?(x)'],
++  // 환경 fixture를 런타임에 바꿀 수 있게 Expo의 빌드 시 env 치환만 제외한다.
++  transform: {
++    '\\.[jt]sx?$': [
++      'babel-jest',
++      { caller: { name: 'metro', bundler: 'metro', platform: 'ios', preserveEnvVars: true } },
++    ],
++  },
+   moduleNameMapper: {
+     '^@/(.*)$': '<rootDir>/src/$1',
+   },

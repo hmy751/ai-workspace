@@ -1,0 +1,105 @@
+diff --git a/apps/client/src/screens/CreateScheduleScreen.tsx b/apps/client/src/screens/CreateScheduleScreen.tsx
+index dd173d8..6341cff 100644
+--- a/apps/client/src/screens/CreateScheduleScreen.tsx
++++ b/apps/client/src/screens/CreateScheduleScreen.tsx
+@@ -127,20 +127,6 @@ export default function CreateScheduleScreen() {
+     );
+   }
+ 
+-  // ✅ Policy 체크: Schedule 생성이 허용되지 않는 경우
+-  if (!policy.schedule.create.allowed) {
+-    return (
+-      <View className='flex-1 bg-background'>
+-        <MobileHeader
+-          title='새 일정 추가'
+-          leftIcon={<ArrowLeft size={20} color='#1F1F1F' />}
+-          onLeftPress={handleBackPress}
+-        />
+-        <PolicyErrorDisplay permission={policy.schedule.create} variant='block' />
+-      </View>
+-    );
+-  }
+-
+   return (
+     <View className='flex-1 bg-background'>
+       {/* Header */}
+@@ -150,9 +136,11 @@ export default function CreateScheduleScreen() {
+         onLeftPress={handleBackPress}
+       />
+ 
++      {!policy.schedule.create.allowed && <PolicyErrorDisplay permission={policy.schedule.create} variant='banner' />}
++
+       {/* 검색창 (검색 단계에만 표시) */}
+       {/* ⚠️ Policy: manual-only mode에서는 검색창 숨김 */}
+-      {currentStep === STEPS.SEARCH && policy.schedule.create.mode !== 'manual-only' && (
++      {currentStep === STEPS.SEARCH && policy.service.searchMode === 'api' && (
+         <LocationSearchBar value={searchQuery} onChangeText={handleSearch} onClear={clearSearch} autoFocus />
+       )}
+ 
+@@ -167,15 +155,9 @@ export default function CreateScheduleScreen() {
+ 
+         {/* 검색 결과 리스트 (검색 단계 + 검색 중이거나 결과 있을 때) */}
+         {/* ⚠️ Policy: manual-only mode에서는 검색 결과 숨김 */}
+-        {currentStep === STEPS.SEARCH &&
+-          policy.schedule.create.mode !== 'manual-only' &&
+-          (isSearching || results.length > 0) && (
+-            <LocationSearchResults
+-              results={results}
+-              onSelectLocation={handleSelectLocation}
+-              isSearching={isSearching}
+-            />
+-          )}
++        {currentStep === STEPS.SEARCH && policy.service.searchMode === 'api' && (isSearching || results.length > 0) && (
++          <LocationSearchResults results={results} onSelectLocation={handleSelectLocation} isSearching={isSearching} />
++        )}
+ 
+         {/* 일정 입력 폼 (폼 단계일 때) */}
+         {currentStep === STEPS.FORM && selectedLocation && (
+@@ -190,8 +172,8 @@ export default function CreateScheduleScreen() {
+           />
+         )}
+ 
+-        {/* Manual Input 폼 (manual-only 모드일 때) */}
+-        {policy.schedule.create.mode === 'manual-only' && (
++        {/* 장소 선택 전에도 입력 가능하며, 네트워크 변화로 폼을 교체하지 않는다. */}
++        {!(currentStep === STEPS.FORM && selectedLocation) && (
+           <ManualScheduleForm
+             form={form}
+             onShowTimePicker={handleShowTimePicker}
+@@ -202,24 +184,19 @@ export default function CreateScheduleScreen() {
+         )}
+       </View>
+ 
+-      {/* Date Picker (폼 단계 또는 manual-only 모드에서 활성) */}
+-      {(currentStep === STEPS.FORM || policy.schedule.create.mode === 'manual-only') && (
+-        <DatePicker
+-          visible={datePickerVisible}
+-          onClose={() => handleSelectDate(watch('date') || '')}
+-          onSelectDate={handleSelectDate}
+-        />
+-      )}
++      {/* 날짜와 시간 입력은 네트워크 변화에도 유지한다. */}
++      <DatePicker
++        visible={datePickerVisible}
++        onClose={() => handleSelectDate(watch('date') || '')}
++        onSelectDate={handleSelectDate}
++      />
+ 
+-      {/* Time Picker (폼 단계 또는 manual-only 모드에서 활성) */}
+-      {(currentStep === STEPS.FORM || policy.schedule.create.mode === 'manual-only') && (
+-        <TimePicker
+-          visible={timePickerVisible}
+-          onClose={() => handleSelectTime(watch('time') || '09:00')}
+-          onSelectTime={handleSelectTime}
+-          initialTime={watch('time') || '09:00'}
+-        />
+-      )}
++      <TimePicker
++        visible={timePickerVisible}
++        onClose={() => handleSelectTime(watch('time') || '09:00')}
++        onSelectTime={handleSelectTime}
++        initialTime={watch('time') || '09:00'}
++      />
+     </View>
+   );
+ }

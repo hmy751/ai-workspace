@@ -1,0 +1,1 @@
+rg --files context/work/workspaces/002-code-readability-refactoring | rg 'spec|README'; cat apps/client/src/entities/trip/repository/trip-repository.ts; cat apps/client/src/entities/trip/data/useGetTrips.ts

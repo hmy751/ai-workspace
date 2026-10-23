@@ -1,0 +1,58 @@
+{
+  "runs": {
+    "r27": {
+      "files": {
+        "read-events.jsonl": {
+          "sha256": "5d0ecfc3cb44a7b844f2e1f2c996c4a71192bfee4eceff6ea610290f5927aa33",
+          "bytes": 1855
+        },
+        "read-log.md": {
+          "sha256": "186023f44b4b94a80dc58b43589a6d2a3150fcd4d9450a861a3ef2fbb0192b27",
+          "bytes": 1367
+        },
+        "response.md": {
+          "sha256": "9688672f62ecfc3d7438f39d450370f8e53d0461ccdcc08d4bb26d4e356f3950",
+          "bytes": 1552
+        }
+      },
+      "skill_read_event": null,
+      "first_result_read_event": {
+        "at": "2026-10-22T14:08:41.766766+00:00",
+        "file": "result/change.diff",
+        "sha256": "ab01624759e540e1256441aa996b2a38eb4b2cf05ece56d879c9c588da3ebbd6"
+      },
+      "response_file_mtime_utc": "2026-10-22T14:09:02.759410+00:00",
+      "input_hashes_unchanged": true
+    },
+    "r68": {
+      "files": {
+        "read-events.jsonl": {
+          "sha256": "1b108eec33c9de5cb8ce4c29ffafe62039a60c9a94830cae0ff6cacdbd1402f4",
+          "bytes": 2809
+        },
+        "read-log.md": {
+          "sha256": "6349fbed619ed95f9d7ec610c539ab6e5fb16c93d6305aafe85cb38364aa35f1",
+          "bytes": 1355
+        },
+        "response.md": {
+          "sha256": "6ba7df7c6b24137606be662314fb4b606ad0a0c3a7116c6d0c326273025aa2be",
+          "bytes": 1404
+        }
+      },
+      "skill_read_event": {
+        "at": "2026-10-22T14:08:42.274549+00:00",
+        "file": "skill/SKILL.md",
+        "sha256": "40a916e543313333a084da927e3e5200aebc73548fa99eecc4968fa1cb3caff2"
+      },
+      "first_result_read_event": {
+        "at": "2026-10-22T14:08:57.243014+00:00",
+        "file": "result/change.diff",
+        "sha256": "ab01624759e540e1256441aa996b2a38eb4b2cf05ece56d879c9c588da3ebbd6"
+      },
+      "response_file_mtime_utc": "2026-10-22T14:09:27.318019+00:00",
+      "input_hashes_unchanged": true
+    }
+  },
+  "tokens": "not_measured",
+  "read_trace_scope": "provided text reader log; not OS-wide access enforcement; tool output truncation reported in both runs"
+}

@@ -1,0 +1,51 @@
+diff --git a/apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx b/apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx
+index 937a3af..fa30f78 100644
+--- a/apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx
++++ b/apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx
+@@ -1,6 +1,6 @@
+ import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+ import { Controller, UseFormReturn } from 'react-hook-form';
+-import { Calendar, Clock, AlertCircle } from 'lucide-react-native';
++import { Calendar, Clock } from 'lucide-react-native';
+ import { Pressable } from '@repo/ui';
+ import { Field } from '@/shared/components/Form';
+ import type { CreateScheduleFormData } from './schema';
+@@ -13,37 +13,12 @@ type ManualScheduleFormProps = {
+   isPending: boolean;
+ };
+ 
+-/**
+- * Manual Schedule Form (오프라인 전용)
+- *
+- * 동작:
+- * - 장소 검색 없이 텍스트 입력만 받음
+- * - latitude/longitude는 null로 저장
+- * - 온라인 복구 시 일정 수정에서 장소 재검색 가능
+- *
+- * 사용 시나리오:
+- * - offline_active 상태 (policy.schedule.create.mode === 'manual-only')
+- * - 장소 이름과 주소만 텍스트로 입력
+- * - 온라인 복구되면 UpdateScheduleDrawer에서 수동으로 장소 재검색
+- */
++/** 장소를 직접 입력하는 일정 폼. 연결 제한 안내는 화면의 PolicyErrorDisplay가 담당한다. */
+ export function ManualScheduleForm({ form, onShowTimePicker, onSubmit, onCancel, isPending }: ManualScheduleFormProps) {
+   const { control } = form;
+ 
+   return (
+     <View style={styles.container}>
+-      {/* 오프라인 안내 배너 */}
+-      <View className='bg-yellow-50 px-md py-sm border-b border-yellow-200'>
+-        <View className='flex-row items-start gap-xs'>
+-          <AlertCircle size={16} color='#D97706' style={{ marginTop: 2 }} />
+-          <View className='flex-1'>
+-            <Text className='text-small font-medium text-yellow-800 mb-3xs'>오프라인 모드</Text>
+-            <Text className='text-small text-yellow-700'>
+-              장소 검색을 사용할 수 없어요. 온라인으로 복구되면 일정 수정에서 장소를 검색할 수 있습니다.
+-            </Text>
+-          </View>
+-        </View>
+-      </View>
+-
+       {/* 입력 폼 */}
+       <View className='px-md py-sm gap-md'>
+         {/* 제목 */}

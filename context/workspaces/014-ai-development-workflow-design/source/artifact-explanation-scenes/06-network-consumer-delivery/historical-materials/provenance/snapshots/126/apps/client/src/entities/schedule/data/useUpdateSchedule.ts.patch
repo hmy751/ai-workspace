@@ -1,0 +1,31 @@
+diff --git a/apps/client/src/entities/schedule/data/useUpdateSchedule.ts b/apps/client/src/entities/schedule/data/useUpdateSchedule.ts
+index e13ae34..a87783f 100644
+--- a/apps/client/src/entities/schedule/data/useUpdateSchedule.ts
++++ b/apps/client/src/entities/schedule/data/useUpdateSchedule.ts
+@@ -14,6 +14,7 @@ import { routeQueryKeys } from '@/entities/route/data/keys';
+  * const { mutate, isPending } = useUpdateSchedule();
+  * mutate({
+  *   id: 'schedule-id',
++ *   tripId: 'trip-id',
+  *   data: {
+  *     title: 'Updated Schedule',
+  *     scheduledAt: '2024-03-15T14:30:00.000Z',
+@@ -25,7 +26,8 @@ export const useUpdateSchedule = () => {
+   const queryClient = useQueryClient();
+ 
+   return useMutation({
+-    mutationFn: ({ id, data }: { id: string; data: UpdateScheduleRequest }) => ScheduleRepository.update(id, data),
++    mutationFn: ({ id, tripId, data }: { id: string; tripId: string; data: UpdateScheduleRequest }) =>
++      ScheduleRepository.update(id, tripId, data),
+     onSuccess: () => {
+       queryClient.invalidateQueries({
+         queryKey: scheduleQueryKeys.base,
+@@ -35,8 +37,5 @@ export const useUpdateSchedule = () => {
+         queryKey: routeQueryKeys.base,
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to update schedule:', error);
+-    },
+   });
+ };

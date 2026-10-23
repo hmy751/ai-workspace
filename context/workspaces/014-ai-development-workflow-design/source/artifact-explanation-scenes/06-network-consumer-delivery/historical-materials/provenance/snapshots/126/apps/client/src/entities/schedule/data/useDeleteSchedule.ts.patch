@@ -1,0 +1,30 @@
+diff --git a/apps/client/src/entities/schedule/data/useDeleteSchedule.ts b/apps/client/src/entities/schedule/data/useDeleteSchedule.ts
+index 226f14c..3461159 100644
+--- a/apps/client/src/entities/schedule/data/useDeleteSchedule.ts
++++ b/apps/client/src/entities/schedule/data/useDeleteSchedule.ts
+@@ -12,14 +12,14 @@ import { expenseQueryKeys } from '@/entities/expense/data/keys';
+  * @example
+  * ```tsx
+  * const { mutate, isPending } = useDeleteSchedule();
+- * mutate('schedule-id');
++ * mutate({ id: 'schedule-id', tripId: 'trip-id' });
+  * ```
+  */
+ export const useDeleteSchedule = () => {
+   const queryClient = useQueryClient();
+ 
+   return useMutation({
+-    mutationFn: (id: string) => ScheduleRepository.delete(id),
++    mutationFn: ({ id, tripId }: { id: string; tripId: string }) => ScheduleRepository.delete(id, tripId),
+     onSuccess: () => {
+       queryClient.invalidateQueries({
+         queryKey: scheduleQueryKeys.base,
+@@ -33,8 +33,5 @@ export const useDeleteSchedule = () => {
+         queryKey: expenseQueryKeys.base,
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to delete schedule:', error);
+-    },
+   });
+ };

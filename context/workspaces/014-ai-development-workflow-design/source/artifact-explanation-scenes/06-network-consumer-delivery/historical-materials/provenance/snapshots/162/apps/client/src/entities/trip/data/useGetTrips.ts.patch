@@ -1,0 +1,35 @@
+diff --git a/apps/client/src/entities/trip/data/useGetTrips.ts b/apps/client/src/entities/trip/data/useGetTrips.ts
+index daa69dc..2ed15ce 100644
+--- a/apps/client/src/entities/trip/data/useGetTrips.ts
++++ b/apps/client/src/entities/trip/data/useGetTrips.ts
+@@ -1,4 +1,6 @@
+ import { useQuery } from '@tanstack/react-query';
++import { useEffect, useRef } from 'react';
++import { useRealNetworkStatus } from '@/shared/store/network';
+ import { TripRepository } from '../repository/trip-repository';
+ import { tripQueryKeys } from './keys';
+ 
+@@ -16,10 +18,22 @@ import { tripQueryKeys } from './keys';
+  * ```
+  */
+ export const useGetTrips = () => {
+-  return useQuery({
++  const realStatus = useRealNetworkStatus();
++  const previousStatus = useRef(realStatus);
++  const query = useQuery({
+     queryKey: tripQueryKeys.all(),
+     queryFn: () => TripRepository.getAll(),
+     staleTime: 5 * 60 * 1000, // 5분
+     gcTime: 10 * 60 * 1000, // 10분
+   });
++  const { refetch } = query;
++
++  useEffect(() => {
++    const becameOnline = previousStatus.current !== 'online' && realStatus === 'online';
++    previousStatus.current = realStatus;
++    // 초기 unknown에서 거부된 목록도 회복한다. 이미 보낸 조회는 취소하거나 다시 보내지 않는다.
++    if (becameOnline) refetch({ cancelRefetch: false });
++  }, [realStatus, refetch]);
++
++  return query;
+ };

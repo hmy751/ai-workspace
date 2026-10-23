@@ -1,14 +1,30 @@
 # 논의와 보존 기록
 
+- [04-02 Network 첫 완료 보고의 자료 확보·비교 준비](2026-10-23-ticket04-02-network-first-report-preparation.md):895 직전의34개 원문과 작업 전52개·후69개 파일을 보존했다. 동일 기존판의 자연 선택/명시 조기 적용 조건을 제안했으며 새 시험은 미실행이다. 후속 사용자 발화와 현황 파악·완료 보고의 적용 적절성 의문, 입력 시작9와 재개895의 구별을 함께 보존했다.
+
+- [04-02 책임 설명 통합판 반영·비교](experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md): 개선 리뷰 방향을 기존 본문·background에 통합하고 직전 채택판과 GPT-6-sol medium 각1회 비교했다. 같은60개 파일·108조각을 읽었으나 양쪽 실제 코드 발췌가 없어 핵심 개선은 미관찰이다. 본문 반영과 효과 확인을 구별한다.
+
 - [Development 스킬·검토 상세와 진입점 이전 적용](2026-10-23-development-skill-prototype-adoption.md): Personal 범위 정정과 Astra high 리뷰의 네 보완을 실제 prototype에 반영했다. 공통 SKILL.md·검토 상세·형성 자료를 작성하고 DEVELOPMENT의 현재 진입을 옮겼다. 이전 원문·기록 의미를 보존하며6번 이후 미정과 기존04-02 링크 검사 실패를 구별한다.
 
+- [04-02 Astra high 개선 리뷰](2026-10-23-ticket04-02-astra-improvement-review.md): 사용자가 요청한 목표 중심 개선 조언. 선행 질문의 핵심 구별, 책임 경계를 보여 주는 코드, 현재 구조의 이유와 효과, 중심 설명과 세부 비중을 기존 본문에 통합할 것을 권고했다. 검증 판정·새 시험·스킬 수정은 하지 않았다.
+
+- [04-02 여행 저장·목록 갱신의 첫 브리핑 비교](experiments/artifact-explanation-trip-list-body-2026-10-23/comparison.md): 교정 전3905에서 GPT-6-sol medium 두 판본을 같은 자료로 비교했다. 완독 확인·두 최초 응답·원문 source05를 보존했고, 현재 수정판에서도 실제 코드 연결은 나타나지 않았다.
+
 - [Development 스킬 진입점·상세 구성 제안](2026-10-23-development-skill-structure-proposal.md): 사용자의 전용 스킬·계층적 구성과 DEVELOPMENT 이전 구상을 실제 prototype·Lauren·Matt·Vercel 구성에 대조했다. 공통 실행 계약과 역할별 상세, 기존 기준 소유, 이전할 연결과 남은6~15번의 관계를 제안한 당시 기록이다. 후속 리뷰·정정 뒤 실제 생성·이전한 결과는 위 적용 기록에서 이어 본다.
+
+- [04-02 다음 비교 장면 선정](2026-10-23-ticket04-02-next-scene-selection.md): 여행 저장·목록 갱신의 교정 전 첫 브리핑을 우선 추천하고 network·보고서와 비교했다. 실제 원문 순서·반대 근거·당시 코드 공백을 보존했으며 새 시험은 하지 않았다.
+
+- [04-02 최초 Ticket 파악의 기존판·현재 수정판 비교](experiments/artifact-explanation-ticket-start-body-2026-10-23/comparison.md): 원 질문12와 같은 저장소에서 조사 시작에 적용했다. 선택 파일 완독·두 최초 응답·실제 읽기 범위와 국소 사실 오류를 보존했다.
 
 - [5번 Main 판단·사용자 논의의 제안·리뷰·확정](2026-10-23-main-review-disposition-proposal.md): 최초 비교안과 Astra high 리뷰에서 보완한 사용자 결정/의미 있는 논의, 최종 선택의 일관성, 확인의 영향·비용을 보존했다. 사용자 확정으로1~5번 판단·책임 묶음 마무리. 원래6~12/13~15 경계와 다음6번 추천을 연결하며 실행 본문 적용은 후속이다.
 
 - [Personal·검토 workflow 책임 구분과4번 최종 합의](2026-10-23-personal-review-ownership-proposal.md): 실제 내용 배치, Astra high 개선 리뷰, 과도한 보류에 대한 사용자 정정과 현재 근거에 따른 선별·채택을 보존한다. A는 기존 기준 통합, B는 조건부 기준 반영 방향을 확정했다.4번 설계 완료·다음5번이며 본문 편집·실행 연결은 후속이다.
 
 - [4번 외부 관점의 실제 본문 대조·보완 배치](2026-10-22-review-criteria-coverage-and-placement.md): 내용 대조 없이 완료한 판단을 바로잡고 당시 충분성·후보A·B·후속 Owner를 비교했다. 당시 미채택 후보의 최신 처리 방향은 [10월23일 최종 합의](2026-10-23-personal-review-ownership-proposal.md#후속-확정--과도한-보류를-바로잡고4번을-마무리한다)를 따른다.
+
+- [04-02 저장 용량 완독 재시험](experiments/artifact-explanation-storage-placement-fullread-2026-10-22/comparison.md): 이전 출력 잘림을 효과 판단에서 제외하고, 조각별 전체 읽기를 확인했다. 기존판 비선택/결과 전 적용의 두 응답과 실제 읽기 시점·한계를 보존했다.
+
+- [04-02 저장 용량의 첫 보고 전 스킬 적용 배치 비교](experiments/artifact-explanation-storage-placement-2026-10-22/comparison.md): 같은 기존판에서 자연 선택과 명시 적용을 비교했다. 실제 읽기 시점·두 최초 응답·출력 잘림 한계를 보존하며 뚜렷한 개선은 확인하지 못했다.
 
 - [스킬 정책의 판본 보존·채택 후 정리](2026-10-22-skill-policy-revision-lifecycle.md): 내용 분할과 수정 판본을 구별하고 기존 관리 절에 채택 후 정리를 통합했다. 가까운 형성 자료에 실제 발화·이유·허용 범위를 보존했다.
 

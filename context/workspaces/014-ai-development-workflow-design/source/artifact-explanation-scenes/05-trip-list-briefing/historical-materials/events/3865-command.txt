@@ -1,0 +1,1 @@
+./node_modules/.bin/tsc --noEmit -p apps/client/tsconfig.json > /tmp/noline-review-types-final.log 2>&1

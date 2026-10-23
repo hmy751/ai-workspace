@@ -1,0 +1,40 @@
+{
+  "r26": {
+    "required_files": 60,
+    "unique_chunks_read": 108,
+    "missing_chunks": [],
+    "extra_chunks": [],
+    "chunk_hashes_match": true,
+    "input_drift": [],
+    "response_characters": 3907,
+    "code_fences": 0,
+    "response_sha256": "930ac17718ff000e3a2df489794966dbb38fe9c43f117b6df06267ffbe0980b7",
+    "read_log_sha256": "40245b4090a1266b6a0f6afce82b0b2cd722b841bf9d9743076ca57056a81c45",
+    "read_events_sha256": "e11c17376bcd2627da10f6db028848405a871b1f00237262a96ba66881f39d76",
+    "skill_read_times": [
+      "2026-10-23T03:40:49.318998+00:00",
+      "2026-10-23T03:40:52.198065+00:00"
+    ],
+    "skill_before_repository": true,
+    "runtime_scope": "양쪽 실행자가 출력 잘림·외부 접근이 없다고 보고했다. OS 격리 증명은 아니다."
+  },
+  "r71": {
+    "required_files": 60,
+    "unique_chunks_read": 108,
+    "missing_chunks": [],
+    "extra_chunks": [],
+    "chunk_hashes_match": true,
+    "input_drift": [],
+    "response_characters": 5644,
+    "code_fences": 0,
+    "response_sha256": "30687d43ddd766ceada12a83eb5380a05a41b416fb69e438fcfe2332c11b8469",
+    "read_log_sha256": "7814a8cc1171535def661813c365e5527de9457081da4dec135b087b9c2bca2a",
+    "read_events_sha256": "dc52116055bb643806554083f4d4f12c11d576358e14f719897daaf8d23a4419",
+    "skill_read_times": [
+      "2026-10-23T03:40:56.210604+00:00",
+      "2026-10-23T03:41:00.318208+00:00"
+    ],
+    "skill_before_repository": true,
+    "runtime_scope": "양쪽 실행자가 출력 잘림·외부 접근이 없다고 보고했다. OS 격리 증명은 아니다."
+  }
+}

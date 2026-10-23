@@ -1,0 +1,17 @@
+diff --git a/apps/client/src/shared/services/offline-prep/index.ts b/apps/client/src/shared/services/offline-prep/index.ts
+index 9cbb482..1eee709 100644
+--- a/apps/client/src/shared/services/offline-prep/index.ts
++++ b/apps/client/src/shared/services/offline-prep/index.ts
+@@ -6,4 +6,11 @@
+ 
+ export { OfflineError, isOfflineError, type OfflineErrorOptions } from './errors';
+ export { getTripActivationStatus, getTripMetadata } from './metadata';
+-export { routeTripQuery, routeChildQuery, routeTripMutation, routeChildMutation } from './router';
++export {
++  routeTripListQuery,
++  routeTripCreate,
++  routeTripQuery,
++  routeChildQuery,
++  routeTripMutation,
++  routeChildMutation,
++} from './router';

@@ -1,0 +1,458 @@
+{
+  "runs": {
+    "r23": {
+      "read_files": 29,
+      "read_chunks": 51,
+      "coverage": {
+        "repository/.claude/skills/work-artifact-briefing/SKILL.md": {
+          "expected": 2,
+          "seen": [
+            1,
+            2
+          ]
+        },
+        "repository/.claude/skills/read-project-context/SKILL.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "question.txt": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "README.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/CLAUDE.md": {
+          "expected": 3,
+          "seen": [
+            1,
+            2,
+            3
+          ]
+        },
+        "repository/context/work/AGENTS.md": {
+          "expected": 3,
+          "seen": [
+            1,
+            2,
+            3
+          ]
+        },
+        "repository/context/project/README.md": {
+          "expected": 2,
+          "seen": [
+            1,
+            2
+          ]
+        },
+        "repository/context/project/REFERENCE/reading.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/project/guidance/explanation-and-evidence-criteria.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md": {
+          "expected": 11,
+          "seen": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        },
+        "repository/context/work/workspaces/README.md": {
+          "expected": 2,
+          "seen": [
+            1,
+            2
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/README.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/state/index.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/memory/index.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/project/guidance/behavior-preserving-refactoring.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/project/current/architecture.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/apps/client/CLAUDE.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md": {
+          "expected": 2,
+          "seen": [
+            1,
+            2
+          ]
+        },
+        "repository/apps/client/src/application/AppInitialization.tsx": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/apps/client/src/shared/store/network.ts": {
+          "expected": 3,
+          "seen": [
+            1,
+            2,
+            3
+          ]
+        },
+        "repository/apps/client/src/shared/services/sync/provider.tsx": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/apps/client/src/shared/policy/useAppPolicy.ts": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/records/2026-10-02-03-expense-time-decisions-and-verification.md": {
+          "expected": 3,
+          "seen": [
+            1,
+            2,
+            3
+          ]
+        },
+        "repository/apps/client/app/_layout.tsx": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/apps/client/src/screens/HomeScreen/index.tsx": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/apps/client/src/shared/services/policy-query/useTripReadAccess.ts": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/apps/client/src/shared/services/policy-query/usePolicyReadQuery.ts": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        }
+      },
+      "repository_unchanged": true,
+      "first_read": {
+        "at": "2026-10-23T01:16:58.635616+00:00",
+        "file": "repository/.claude/skills/work-artifact-briefing/SKILL.md",
+        "chunk": 1,
+        "total_chunks": 2,
+        "sha256": "ebb55857351e31e9013a72ee035af14c17641d2abb66db1b23b43dd1877faa40"
+      },
+      "last_read": {
+        "at": "2026-10-23T01:19:39.260515+00:00",
+        "file": "repository/apps/client/src/shared/services/policy-query/usePolicyReadQuery.ts",
+        "chunk": 1,
+        "total_chunks": 1,
+        "sha256": "3af3c9b287adb9093cb645be3fef7b77be47ad7b932f3507f7a2d82cfd1fce90"
+      },
+      "skill_events": [
+        {
+          "at": "2026-10-23T01:16:58.635616+00:00",
+          "file": "repository/.claude/skills/work-artifact-briefing/SKILL.md",
+          "chunk": 1,
+          "total_chunks": 2,
+          "sha256": "ebb55857351e31e9013a72ee035af14c17641d2abb66db1b23b43dd1877faa40"
+        },
+        {
+          "at": "2026-10-23T01:17:01.005521+00:00",
+          "file": "repository/.claude/skills/work-artifact-briefing/SKILL.md",
+          "chunk": 2,
+          "total_chunks": 2,
+          "sha256": "d20ea0804d3ef82b01a7936d97b96665f9a354842739d2dc7688e33eccd9896f"
+        }
+      ],
+      "output": {
+        "read-events.jsonl": {
+          "sha256": "764dad5a5023a118c287cb96a9ba43367c361fb8ccb9ed13643d3bc5ede8dbe2",
+          "bytes": 12157
+        },
+        "read-log.md": {
+          "sha256": "9a013d685daa0a028d5624ec9a720e4a519bbbae347bceaa71299eab67e2223a",
+          "bytes": 1989
+        },
+        "response.md": {
+          "sha256": "945aa3ef4639ac9b3ee2f108862ce301cddd53c8b754fa1d86431db76479d2d5",
+          "bytes": 5068
+        }
+      }
+    },
+    "r76": {
+      "read_files": 22,
+      "read_chunks": 43,
+      "coverage": {
+        "repository/.claude/skills/work-artifact-briefing/SKILL.md": {
+          "expected": 2,
+          "seen": [
+            1,
+            2
+          ]
+        },
+        "repository/.claude/skills/read-project-context/SKILL.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "question.txt": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "README.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/CLAUDE.md": {
+          "expected": 3,
+          "seen": [
+            1,
+            2,
+            3
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md": {
+          "expected": 11,
+          "seen": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        },
+        "repository/context/project/README.md": {
+          "expected": 2,
+          "seen": [
+            1,
+            2
+          ]
+        },
+        "repository/context/project/REFERENCE/reading.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/project/guidance/explanation-and-evidence-criteria.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/AGENTS.md": {
+          "expected": 3,
+          "seen": [
+            1,
+            2,
+            3
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/README.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/state/index.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/project/current/architecture.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/apps/client/CLAUDE.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/apps/client/src/application/AppInitialization.tsx": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/apps/client/src/shared/store/network.ts": {
+          "expected": 3,
+          "seen": [
+            1,
+            2,
+            3
+          ]
+        },
+        "repository/apps/client/app/_layout.tsx": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/records/2026-10-02-03-expense-time-decisions-and-verification.md": {
+          "expected": 3,
+          "seen": [
+            1,
+            2,
+            3
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/project/common/product.md": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/context/work/workspaces/002-code-readability-refactoring/current/state/status.json": {
+          "expected": 1,
+          "seen": [
+            1
+          ]
+        },
+        "repository/.claude/context/policy-architecture.md": {
+          "expected": 2,
+          "seen": [
+            1,
+            2
+          ]
+        }
+      },
+      "repository_unchanged": true,
+      "first_read": {
+        "at": "2026-10-23T01:17:06.117013+00:00",
+        "file": "repository/.claude/skills/work-artifact-briefing/SKILL.md",
+        "chunk": 1,
+        "total_chunks": 2,
+        "sha256": "ee561ddc6f58caa8a41e024361b06967d33074ceead37662727b92f7bc7c9065"
+      },
+      "last_read": {
+        "at": "2026-10-23T01:20:00.590348+00:00",
+        "file": "repository/.claude/context/policy-architecture.md",
+        "chunk": 2,
+        "total_chunks": 2,
+        "sha256": "dc63f62720ab4fc36609966f40e76978fb1a26bff2dc7db1e3ca38525d5379fb"
+      },
+      "skill_events": [
+        {
+          "at": "2026-10-23T01:17:06.117013+00:00",
+          "file": "repository/.claude/skills/work-artifact-briefing/SKILL.md",
+          "chunk": 1,
+          "total_chunks": 2,
+          "sha256": "ee561ddc6f58caa8a41e024361b06967d33074ceead37662727b92f7bc7c9065"
+        },
+        {
+          "at": "2026-10-23T01:17:08.185247+00:00",
+          "file": "repository/.claude/skills/work-artifact-briefing/SKILL.md",
+          "chunk": 2,
+          "total_chunks": 2,
+          "sha256": "cbb11f39b806e048460aa9554f275e41db08f2c547466b65cf524ce9d064d787"
+        }
+      ],
+      "output": {
+        "read-events.jsonl": {
+          "sha256": "c5b149075a5ba89c75b439176f2d14e06dfe7624db7a75ed91c38094c2c28e88",
+          "bytes": 10143
+        },
+        "read-log.md": {
+          "sha256": "bc528939a8ce41acb8b3952b566b0fb56300c7734e567f9ed780860bf57b0374",
+          "bytes": 1238
+        },
+        "response.md": {
+          "sha256": "6c42b1ebd434c431963bd852c3426bb7c671759c596db50baa501d76b04b909e",
+          "bytes": 5320
+        }
+      }
+    }
+  },
+  "tokens": "not_measured",
+  "truncation": "none reported; chunks and hashes verified",
+  "scope": "reader logs plus self-report, not OS isolation"
+}

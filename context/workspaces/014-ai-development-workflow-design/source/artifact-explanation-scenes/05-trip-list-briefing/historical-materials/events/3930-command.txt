@@ -1,0 +1,1 @@
+git show HEAD:apps/client/src/shared/services/offline-prep/router.ts | head -100; sed -n '35,85p' apps/client/src/features/trip/create-trip/TripDateForm.tsx; sed -n '60,93p' apps/client/src/features/trip/update-trip/EditTripDrawer.tsx; cat .claude/decisions/2026-10-04-inactive-trip-creation.md

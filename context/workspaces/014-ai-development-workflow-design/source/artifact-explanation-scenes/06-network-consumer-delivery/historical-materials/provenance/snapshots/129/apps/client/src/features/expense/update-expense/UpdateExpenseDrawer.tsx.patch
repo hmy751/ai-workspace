@@ -1,0 +1,56 @@
+diff --git a/apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx b/apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx
+index eb2af8e..95ba03f 100644
+--- a/apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx
++++ b/apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx
+@@ -1,5 +1,8 @@
++import { useAppPolicy } from '@/shared/policy';
++import { PolicyErrorDisplay } from '@/shared/components';
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import { useEffect, useState, useMemo } from 'react';
+-import { View, Text, TextInput, Alert, TouchableOpacity, ScrollView } from 'react-native';
++import { View, Text, Alert, TouchableOpacity, ScrollView } from 'react-native';
+ import { Controller, useForm } from 'react-hook-form';
+ import { zodResolver } from '@hookform/resolvers/zod';
+ import { Wallet, ChevronDown, Calendar as CalendarIcon, MapPin } from 'lucide-react-native';
+@@ -56,6 +59,7 @@ export const UpdateExpenseDrawer = ({ isOpen, onClose, expenseData }: UpdateExpe
+   const selectedDate = watch('date');
+ 
+   // 여행의 모든 일정 조회
++  const policy = useAppPolicy(expenseData?.tripId);
+   const { data: schedules = [] } = useGetSchedules(expenseData?.tripId || '');
+ 
+   // 선택한 날짜의 일정만 필터링
+@@ -91,6 +95,7 @@ export const UpdateExpenseDrawer = ({ isOpen, onClose, expenseData }: UpdateExpe
+     updateExpense(
+       {
+         id: expenseData.id,
++        tripId: expenseData.tripId,
+         data: {
+           title: data.title,
+           amount: data.amount,
+@@ -105,8 +110,8 @@ export const UpdateExpenseDrawer = ({ isOpen, onClose, expenseData }: UpdateExpe
+           Alert.alert('성공', '경비가 수정되었습니다.');
+           onClose();
+         },
+-        onError: () => {
+-          Alert.alert('오류', '경비 수정에 실패했습니다.');
++        onError: (error) => {
++          Alert.alert('오류', mutationErrorMessage(error, '경비 수정에 실패했습니다.'));
+         },
+       },
+     );
+@@ -327,6 +332,14 @@ export const UpdateExpenseDrawer = ({ isOpen, onClose, expenseData }: UpdateExpe
+             control={control}
+             name='scheduleId'
+             render={({ field: { value, onChange }, fieldState: { error } }) => {
++              if (!policy.schedule.read.allowed) {
++                return (
++                  <Field>
++                    <Field.Title>연결된 일정 (선택)</Field.Title>
++                    <PolicyErrorDisplay permission={policy.schedule.read} variant='inline' />
++                  </Field>
++                );
++              }
+               const selectedSchedule = schedulesOnSelectedDate.find((s) => s.id === value);
+ 
+               return (

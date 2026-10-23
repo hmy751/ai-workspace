@@ -1,0 +1,13 @@
+diff --git a/apps/client/src/entities/trip/data/useDeleteTrip.ts b/apps/client/src/entities/trip/data/useDeleteTrip.ts
+index dc1d95e..86d9024 100644
+--- a/apps/client/src/entities/trip/data/useDeleteTrip.ts
++++ b/apps/client/src/entities/trip/data/useDeleteTrip.ts
+@@ -24,8 +24,5 @@ export const useDeleteTrip = () => {
+         queryKey: tripQueryKeys.all(),
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to delete trip:', error);
+-    },
+   });
+ };

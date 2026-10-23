@@ -1,0 +1,638 @@
+{
+  "source_session": "01a1052a-4e61-7072-9b81-ff44449e5b85",
+  "cutoff_source_line": 3932,
+  "head": "ee798e7",
+  "files": [
+    {
+      "path": ".claude/decisions/2026-10-04-inactive-trip-creation.md",
+      "source": {
+        "source_line": 3930,
+        "repository_path": ".claude/decisions/2026-10-04-inactive-trip-creation.md"
+      },
+      "method": "recorded-cat-output",
+      "sha256": "ed2537a9defdefaca4880cf7b809e5c4adad062243d4ea2642bf37c4cfe63c32",
+      "incomplete": false
+    },
+    {
+      "path": "AGENTS.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "AGENTS.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "6ebdb617a8104a7756d0cf36578ab01103dc9f07e4dc6feb751296b9c402faf7",
+      "incomplete": false,
+      "file_type": "symlink",
+      "symlink_target": "CLAUDE.md"
+    },
+    {
+      "path": "CLAUDE.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "CLAUDE.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "ead3a9a3062131fcf0b89ecdf46808a510c3d77c8377d9200ca577c4ba423820",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/AGENTS.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/AGENTS.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "6ebdb617a8104a7756d0cf36578ab01103dc9f07e4dc6feb751296b9c402faf7",
+      "incomplete": false,
+      "file_type": "symlink",
+      "symlink_target": "CLAUDE.md"
+    },
+    {
+      "path": "apps/client/CLAUDE.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/CLAUDE.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "faf8dd19a445d66f0b79b528b172408fbd76cdfea1efbd5ad975335b51267aa1",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/api/trips.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3696,
+        "repository_path": "apps/client/src/entities/trip/api/trips.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "f010a509ac6f195fdb7f778227e989b1e666e0277b6f6a7b1a0ce608393272cd",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/keys.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3782,
+        "repository_path": "apps/client/src/entities/trip/data/keys.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "ec06b4e81b5d76fe2b69b4c65d762e22841caf85a013857603d89f27fd4957b5",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useActivateTrip.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3782,
+        "repository_path": "apps/client/src/entities/trip/data/useActivateTrip.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "495f7245cac86721866b1140b99ee346a5f7a6ef463d2bfa4fa070f06577380f",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useCreateTrip.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3782,
+        "repository_path": "apps/client/src/entities/trip/data/useCreateTrip.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "6ae75eed8921338da5a77054775c76ebf8394a6af7c1fe9061f24382a9407a58",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useDeactivateTrip.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3782,
+        "repository_path": "apps/client/src/entities/trip/data/useDeactivateTrip.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "bbb4069417c313cdcb89cc890fc92c6757b8cd157d2f34cb338c62fb5a0db5a9",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useDeleteTrip.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3782,
+        "repository_path": "apps/client/src/entities/trip/data/useDeleteTrip.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "3ae62363fda092af755162d9967b7265b070a91e09f7707fdb12d8462327576f",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useGetTrips.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3782,
+        "repository_path": "apps/client/src/entities/trip/data/useGetTrips.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "43ca1e5d47198807cf069b0cda2fc5fc21118ed62e6ba5e4ee995a9629975097",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useTripSelection.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3782,
+        "repository_path": "apps/client/src/entities/trip/data/useTripSelection.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "e2dfcd82a83ada74537091126a6932ff5e7e77cda17d53d32000c03a80ae4f68",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useUpdateTrip.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3782,
+        "repository_path": "apps/client/src/entities/trip/data/useUpdateTrip.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "c648cf6d64e35c3afe616f1c6c46dc8abd680e95fda706d656091c9bdc6c2bce",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/lib/trip-local.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3781,
+        "repository_path": "apps/client/src/entities/trip/lib/trip-local.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "6e8eaab594813bc8cf6702e8702f6e7e3ac7e80ece02606a98e0aa6cea00b710",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/model/index.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/entities/trip/model/index.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "57464724c181ca37b7e51320d80861b2a61b54e8544642afc438e8bed0f58094",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/entities/trip/repository/trip-repository.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3782,
+        "repository_path": "apps/client/src/entities/trip/repository/trip-repository.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "d9078036de2d04d1d249d61234128a159b043151e143da04917cacd4db45e4d5",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/features/trip/create-trip/TripDateForm.tsx",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/features/trip/create-trip/TripDateForm.tsx",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "a6fff795052bae809c897691a7794bc683b188cf41e02bfed671c4f92d791178",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/features/trip/update-trip/EditTripDrawer.tsx",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/features/trip/update-trip/EditTripDrawer.tsx",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "c45d2ea0ae14355cc203b791e4f76b874d64bc3e091d87d70e2c032eac193138",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/screens/HomeScreen/MainTripSection.tsx",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/screens/HomeScreen/MainTripSection.tsx",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "cacba7e961a970bb7a9d1ada11f546adab6dc8c233110c893e7fbcb0a5308972",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/screens/HomeScreen/OtherTripsSection.tsx",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/screens/HomeScreen/OtherTripsSection.tsx",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "c067ba9fbb00c967233ff86a1ddc487b82359d4b0b3e0e509b098ec5fb529fbf",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/screens/HomeScreen/TripsSection.tsx",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/screens/HomeScreen/TripsSection.tsx",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "c028fd39999ea3d73f0fafd3a3c3140851bacee9187681f21623e45244247203",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/api/errors.ts",
+      "source": {
+        "source_line": 3832,
+        "repository_path": "apps/client/src/shared/api/errors.ts"
+      },
+      "method": "recorded-apply-patch",
+      "sha256": "c792978a9556c466b7d657ea568e44b2de6eb8ae7a8bb4611029d5005d8c180e",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/api/fetcher.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3832,
+        "repository_path": "apps/client/src/shared/api/fetcher.ts"
+      },
+      "method": "git-show+recorded-apply-patch",
+      "sha256": "3dd0f545bc37a793f89cb96f4862d9c9a063e90292adf0430fd05d50915aaa41",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/db/schema.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/shared/db/schema.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "dea30b5755819889ac06264127010256317192c4a9890c3048a9b30e75e30fe4",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/db/utils.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/shared/db/utils.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show; unchanged in recorded status 3921",
+      "sha256": "49106649671426ba9b6ce0e6237bb335b9ae34858ef4af8aefa0ba336584a223",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/lib/query-refresh.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/shared/lib/query-refresh.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "ac9e1a8b234daf2325b9aac89c21c3ff6ae4120d0ce0cb21f929264d93a31441",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/services/auth/local-access.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/shared/services/auth/local-access.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show; unchanged in recorded status 3921",
+      "sha256": "f790ee798c08469f68f46f68a5daca81cafceb6086f55b96aeb967a8a7b122cb",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/services/offline-prep/errors.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/shared/services/offline-prep/errors.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "9231d8d16f99d2ed722b52588f974cb9b151b0502ba46f90e6497003c6215cd2",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/services/offline-prep/index.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3696,
+        "repository_path": "apps/client/src/shared/services/offline-prep/index.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "30db454679de18046d191ad83f0294d833e12c31325f18134d367141923287a8",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/services/offline-prep/metadata.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/shared/services/offline-prep/metadata.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "b6a7599228b6a6cf2e8c71942293ac6169d0f1f56312c318fa6b43c4a3ef309e",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/services/offline-prep/router.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": [
+          3782,
+          3832
+        ],
+        "repository_path": "apps/client/src/shared/services/offline-prep/router.ts"
+      },
+      "method": "git-show+recorded-diff+recorded-apply-patch",
+      "sha256": "fe081674e5454ab002b6fc22437c7c6e060969570152ff0d2fc21582bc251f50",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/services/sync/queue.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/shared/services/sync/queue.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "b97592d6f614bcf09c6f8b67e20b5f05ade4216a8dfb3d630bdef08c30749fe5",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/store/auth.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/shared/store/auth.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "5bfa4f08868ddef38471371309e3936263b7acedacabdfd3ece6c6d37d299e6c",
+      "incomplete": false
+    },
+    {
+      "path": "apps/client/src/shared/store/network.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/client/src/shared/store/network.ts",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "7d2506d7d621820d0685430d63ce1541816d6c2a37d013a25e39b67cd752443a",
+      "incomplete": false
+    },
+    {
+      "path": "apps/server/AGENTS.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/server/AGENTS.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "6ebdb617a8104a7756d0cf36578ab01103dc9f07e4dc6feb751296b9c402faf7",
+      "incomplete": false,
+      "file_type": "symlink",
+      "symlink_target": "CLAUDE.md"
+    },
+    {
+      "path": "apps/server/CLAUDE.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "apps/server/CLAUDE.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "44b0bbe69e2d65de3ef1abdf3588933e17bbdaea4ac0aa2af91a745f0d439a25",
+      "incomplete": false
+    },
+    {
+      "path": "apps/server/src/routes/trips.ts",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3696,
+        "repository_path": "apps/server/src/routes/trips.ts"
+      },
+      "method": "git-show+recorded-diff",
+      "sha256": "da19de2232d473a46187568d0349d028ce67ab801935ae4eb92c3a261a1b0190",
+      "incomplete": false
+    },
+    {
+      "path": "context/project/guidance/explanation-and-evidence-criteria.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/project/guidance/explanation-and-evidence-criteria.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/AGENTS.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/AGENTS.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "904c729324df8ae6bd4dcefd7768635bb72dbbec5770e91c869848fd7fa85bd8",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/README.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/README.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show; unchanged in recorded status 3921",
+      "sha256": "aa3e1a3d599c3cd5e365ffe6422cb3031b0b1a23e48ef5c345a5902360af2383",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/README.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/README.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show; unchanged in recorded status 3921",
+      "sha256": "c3e534ca72635f88c07593142c135542ba55e6c7d93e89625dbb385ab3befac2",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/analysis-items.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/current/memory/analysis-items.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show; unchanged in recorded status 3921",
+      "sha256": "ed7dbbf6cc5eedfdcb9ecbe452643bd7935e3a21df5dcebe5e0f352b2120ede2",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/index.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/current/memory/index.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show; unchanged in recorded status 3921",
+      "sha256": "27dad642ffd3456df56c08f8cfd912b0a7ecff9b2b26995fd664d389dbf38713",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "a4e6153671e6d4a0daacb2abfd04f3986942ac6fe954967df0725605096e95ef",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/02-behavior-and-cases.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/02-behavior-and-cases.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "403387e45680a5ed79f36ffe8dd527fba8e35094aff13070d423eff3e40ce793",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/03-concepts-and-contracts.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/03-concepts-and-contracts.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "a10d08a4ecc7c163a7ea79fb3b72924f46b34d00c9f7b8c04e8c211d2272908a",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "6f1f690ecd29fe3e38a5eb7ce5c3987194f8f48884a3b4f68d2e8f03d0bfb821",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "2a69812d11e6ca6ca159abf80d455b70503cd973c531ca34e573c95e40d6ce2c",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show",
+      "sha256": "988a1d0843c1b48f7417eaa18fd3c0f8f4888ab5cefbe4dd619f615e59f3f45a",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/002-code-readability-refactoring/current/state/index.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/002-code-readability-refactoring/current/state/index.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show; unchanged in recorded status 3921",
+      "sha256": "e107a38ca23b0c3e0053a6224a67dfbe80b3c716a49476b01f1a4bba695bac1b",
+      "incomplete": false
+    },
+    {
+      "path": "context/work/workspaces/README.md",
+      "source": {
+        "commit": "ee798e7",
+        "source_line": 3921,
+        "repository_path": "context/work/workspaces/README.md",
+        "status_observation_line": 3921
+      },
+      "method": "git-show; unchanged in recorded status 3921",
+      "sha256": "43c2fc7ea3b159f7addbf1c2b382495b7772f2e5be3563f653f9730730cd7b06",
+      "incomplete": false
+    }
+  ],
+  "missing_full_files": [
+    "apps/client/tests/entities/trip/trip-lifecycle.test.ts",
+    "apps/client/tests/entities/trip/api/trips.test.ts",
+    "apps/server/tests/routes/trips.list.test.ts",
+    "apps/client/tests/entities/trip/data/useGetTrips.test.tsx",
+    "apps/client/tests/entities/trip/data/useTripSelection.test.tsx",
+    "apps/client/tests/entities/trip/activation-query-refresh.test.ts",
+    "apps/client/tests/shared/services/offline-prep/router-network.test.ts",
+    ".claude/context/activation-system.md",
+    ".claude/context/selective-activation-architecture.md"
+  ],
+  "evidence": {
+    "status": "events/3921-stdout.txt",
+    "tests": "events/3853-stdout.txt",
+    "final_read": "events/3931-stdout.txt",
+    "composed_diff": "related-source-reconstructed.diff"
+  }
+}

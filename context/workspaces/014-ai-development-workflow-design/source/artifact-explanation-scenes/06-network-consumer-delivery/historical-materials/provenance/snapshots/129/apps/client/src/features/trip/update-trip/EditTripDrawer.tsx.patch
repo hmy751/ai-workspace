@@ -1,0 +1,31 @@
+diff --git a/apps/client/src/features/trip/update-trip/EditTripDrawer.tsx b/apps/client/src/features/trip/update-trip/EditTripDrawer.tsx
+index 842bbc7..67b7b93 100644
+--- a/apps/client/src/features/trip/update-trip/EditTripDrawer.tsx
++++ b/apps/client/src/features/trip/update-trip/EditTripDrawer.tsx
+@@ -1,3 +1,4 @@
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import React, { useEffect } from 'react';
+ import { View, Text, Alert, TouchableOpacity } from 'react-native';
+ import { Controller, useForm } from 'react-hook-form';
+@@ -83,8 +84,8 @@ export const EditTripDrawer = ({ isOpen, onClose, trip }: EditTripDrawerProps) =
+           Alert.alert('성공', '여행 정보가 수정되었습니다.');
+           onClose();
+         },
+-        onError: () => {
+-          Alert.alert('오류', '여행 정보 수정에 실패했습니다.');
++        onError: (error) => {
++          Alert.alert('오류', mutationErrorMessage(error, '여행 정보 수정에 실패했습니다.'));
+         },
+       },
+     );
+@@ -112,8 +113,8 @@ export const EditTripDrawer = ({ isOpen, onClose, trip }: EditTripDrawerProps) =
+               Alert.alert('성공', '여행이 삭제되었습니다.');
+               onClose();
+             },
+-            onError: () => {
+-              Alert.alert('오류', '여행 삭제에 실패했습니다.');
++            onError: (error) => {
++              Alert.alert('오류', mutationErrorMessage(error, '여행 삭제에 실패했습니다.'));
+             },
+           });
+         },

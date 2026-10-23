@@ -1,0 +1,333 @@
+[
+  {
+    "source": "main",
+    "line": 457,
+    "timestamp": "2026-09-17T02:58:22.404Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-762d2d27-d017-4104-bc38-66d3385d6be9",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/features/schedule/useLocationSearch-network.test.tsx": {
+          "type": "add",
+          "content": "import React from 'react';\nimport { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';\nimport { act, renderHook, waitFor } from '@testing-library/react-native';\nimport { QueryClient, QueryClientProvider } from '@tanstack/react-query';\nimport apiClient from '@/shared/api/fetcher';\nimport { useLocationSearch } from '@/features/schedule/create-schedule/useLocationSearch';\nimport { networkStore, useNetworkStore } from '@/shared/store/network';\n\njest.mock('@react-native-community/netinfo', () => ({\n  __esModule: true,\n  default: { addEventListener: jest.fn(), refresh: jest.fn() },\n}));\njest.mock('@/shared/api/fetcher', () => ({ __esModule: true, default: { post: jest.fn(), get: jest.fn() } }));\njest.mock('@/shared/hooks/useDebounce', () => ({ useDebounce: (value: unknown) => value }));\n\nconst postMock = jest.mocked(apiClient.post);\nconst getMock = jest.mocked(apiClient.get);\nconst response = { data: { results: [{ id: 'place', placeId: 'place', name: 'Place', address: 'Address' }] } };\nlet client: QueryClient;\n\nfunction Wrapper({ children }: { children: React.ReactNode }) {\n  return <QueryClientProvider client={client}>{children}</QueryClientProvider>;\n}\n\nbeforeEach(() => {\n  client = new QueryClient({ defaultOptions: { queries: { retry: false, gcTime: 0 } } });\n  useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });\n  postMock.mockResolvedValue(response);\n  getMock.mockResolvedValue({ id: 'place', name: 'Place', address: 'Address', latitude: 1, longitude: 2 });\n});\n\nafterEach(() => {\n  client.clear();\n  networkStore.cleanup();\n  jest.restoreAllMocks();\n});\n\ndescribe('장소 검색의 실제 네트워크 요청 경계', () => {\n  it.each(['unknown', 'offline'] as const)('강제 online이어도 실제 %s에서는 검색 요청을 시작하지 않는다', async (realStatus) => {\n    useNetworkStore.setState({ realStatus, overrideStatus: 'online' });\n    const { result } = renderHook(() => useLocationSearch(), { wrapper: Wrapper });\n    await act(async () => result.current.handleSearch('Paris'));\n    expect(postMock).not.toHaveBeenCalled();\n    expect(getMock).not.toHaveBeenCalled();\n    expect(result.current.searchQuery).toBe('Paris');\n  });\n\n  it('offline 동안 입력과 캐시는 유지하면서 이전 결과의 서비스 접근을 제한한다', async () => {\n    useNetworkStore.setState({ realStatus: 'online' });\n    const { result } = renderHook(() => useLocationSearch(), { wrapper: Wrapper });\n    act(() => result.current.handleSearch('Paris'));\n    await waitFor(() => expect(result.current.results).toHaveLength(1));\n    const cached = client.getQueryCache().getAll()[0].state.data;\n    act(() => useNetworkStore.setState({ realStatus: 'offline' }));\n    expect(result.current.results).toEqual([]);\n    expect(result.current.searchQuery).toBe('Paris');\n    expect(client.getQueryCache().getAll()[0].state.data).toBe(cached);\n    expect(postMock).toHaveBeenCalledTimes(1);\n  });\n\n  it('검색 전송 뒤 unknown 관측이 오면 후속 상세 요청을 새로 시작하지 않는다', async () => {\n    useNetworkStore.setState({ realStatus: 'online' });\n    let resolveSearch!: (value: typeof response) => void;\n    postMock.mockReturnValueOnce(new Promise((resolve) => { resolveSearch = resolve; }));\n    const { result } = renderHook(() => useLocationSearch(), { wrapper: Wrapper });\n    act(() => result.current.handleSearch('Paris'));\n    await waitFor(() => expect(postMock).toHaveBeenCalledTimes(1));\n    await act(async () => {\n      useNetworkStore.setState({ realStatus: 'unknown' });\n      resolveSearch(response);\n    });\n    await waitFor(() => expect(client.isFetching()).toBe(0));\n    expect(getMock).not.toHaveBeenCalled();\n    expect(result.current.searchQuery).toBe('Paris');\n  });\n});\n"
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts": {
+          "type": "add",
+          "content": "import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';\nimport { getDirections } from '@/shared/services/directions/mapbox';\nimport { networkStore, useNetworkStore } from '@/shared/store/network';\n\njest.mock('@react-native-community/netinfo', () => ({\n  __esModule: true,\n  default: { addEventListener: jest.fn(), refresh: jest.fn() },\n}));\n\nconst originalFetch = global.fetch;\nconst originalToken = process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN;\nconst fetchMock = jest.fn<typeof fetch>();\nconst coordinates = { from: { latitude: 1, longitude: 2 }, to: { latitude: 3, longitude: 4 } };\n\nbeforeEach(() => {\n  useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });\n  process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN = 'fixture-token';\n  global.fetch = fetchMock;\n  fetchMock.mockResolvedValue({\n    ok: true,\n    json: async () => ({ code: 'Ok', routes: [{ geometry: 'route', distance: 10, duration: 20 }] }),\n  } as Response);\n  jest.spyOn(console, 'log').mockImplementation(() => undefined);\n  jest.spyOn(console, 'error').mockImplementation(() => undefined);\n});\n\nafterEach(() => {\n  global.fetch = originalFetch;\n  if (originalToken === undefined) delete process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN;\n  else process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN = originalToken;\n  networkStore.cleanup();\n  jest.restoreAllMocks();\n});\n\ndescribe('길찾기의 실제 네트워크 요청 경계', () => {\n  it.each(['unknown', 'offline'] as const)('강제 online이어도 실제 %s에서는 HTTP를 시작하지 않는다', async (realStatus) => {\n    useNetworkStore.setState({ realStatus, overrideStatus: 'online' });\n    await expect(getDirections(coordinates)).rejects.toMatchObject({ name: 'PolicyError' });\n    expect(fetchMock).not.toHaveBeenCalled();\n  });\n\n  it('실제 online에서는 화면 override와 관계없이 조회할 수 있다', async () => {\n    useNetworkStore.setState({ realStatus: 'online', overrideStatus: 'offline' });\n    await expect(getDirections(coordinates)).resolves.toEqual({ geometry: 'route', distance: 10, duration: 20 });\n    expect(fetchMock).toHaveBeenCalledTimes(1);\n  });\n\n  it('서버 오류가 실제 네트워크 관측을 offline으로 바꾸지 않는다', async () => {\n    useNetworkStore.setState({ realStatus: 'online' });\n    fetchMock.mockResolvedValueOnce({ ok: false, status: 503, statusText: 'Unavailable' } as Response);\n    await expect(getDirections(coordinates)).rejects.toThrow('HTTP 503');\n    expect(networkStore.realStatus).toBe('online');\n  });\n});\n"
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nA /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts\nA /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/features/schedule/useLocationSearch-network.test.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 472,
+    "timestamp": "2026-09-17T02:59:33.814Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-1e017777-b773-4800-b20c-e99b4ad8cc10",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/network-access.ts": {
+          "type": "add",
+          "content": "import { createPolicyError } from '@/shared/policy/errors';\nimport type { CRUDPermission } from '@/shared/policy/types';\nimport { networkStore, type NetworkStatus } from '@/shared/store/network';\n\n/** Service 요청은 화면용 override가 아닌 실제 관측을 사용한다. */\nexport function getOnlineServicePermission(realStatus: NetworkStatus): CRUDPermission {\n  if (realStatus === 'online') return { allowed: true };\n\n  return {\n    allowed: false,\n    reason:\n      realStatus === 'unknown'\n        ? '인터넷 연결을 아직 확인하지 못했어요. 잠시 후 다시 시도해주세요.'\n        : '인터넷 연결이 필요해요. 연결 후 다시 시도해주세요.',\n  };\n}\n\nexport function assertOnlineServiceAccess() {\n  const permission = getOnlineServicePermission(networkStore.realStatus);\n  if (!permission.allowed) throw createPolicyError('NETWORK', permission);\n}\n"
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/ScheduleDetailScreen.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -21,7 +21,6 @@\n \n-  // ✅ 로컬 DB에서 일정 상세 정보 조회\n+  // 일정과 경비 조회는 같은 대상 여행으로 라우팅한다.\n   const { data: schedule, isLoading: isLoadingSchedule } = useGetScheduleById(scheduleId, tripId);\n \n-  // ✅ 일정의 경비 목록 조회 (라우팅 레이어 적용)\n-  const { data: expenses = [], isLoading: isLoadingExpenses } = useGetScheduleExpenses(scheduleId);\n+  const { data: expenses = [], isLoading: isLoadingExpenses } = useGetScheduleExpenses(scheduleId, tripId);\n \n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -14,2 +14,4 @@\n import type { ScheduleMapViewProps } from './types';\n+import { useRealNetworkStatus } from '@/shared/store/network';\n+import { getOnlineServicePermission } from '@/shared/services/network-access';\n \n@@ -22,4 +24,7 @@\n   const policy = useAppPolicy(tripId);\n+  const permission = getOnlineServicePermission(useRealNetworkStatus());\n \n-  console.log('🗺️ Map Provider Policy:', policy.service.mapProvider);\n+  if (policy.service.mapProvider === 'google' && !permission.allowed) {\n+    return <MapUnavailableView message={permission.reason!} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;\n+  }\n \n@@ -27,3 +32,2 @@\n     case 'google':\n-      console.log('📍 Using Google Maps (Online)');\n       return <GoogleScheduleMapView {...mapProps} tripId={tripId} />;\n@@ -31,3 +35,2 @@\n     case 'mapbox':\n-      console.log('📦 Using Mapbox (Offline-Ready)');\n       return <MapboxScheduleMapView {...mapProps} tripId={tripId} />;\n@@ -35,3 +38,2 @@\n     case 'none':\n-      console.log('❌ Map unavailable (Offline + Inactive)');\n       return (\n@@ -44,5 +46,3 @@\n     default:\n-      // Fallback to Google Maps\n-      console.warn('⚠️ Unknown map provider, falling back to Google Maps');\n-      return <GoogleScheduleMapView {...mapProps} tripId={tripId} />;\n+      return <MapUnavailableView message='지도를 사용할 수 없어요' />;\n   }\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts": {
+          "type": "update",
+          "unified_diff": "@@ -1,3 +1,2 @@\n-import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';\n-import { getDirections } from '@/shared/services/directions/mapbox';\n+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, jest } from '@jest/globals';\n import { networkStore, useNetworkStore } from '@/shared/store/network';\n@@ -10,3 +9,5 @@\n const originalFetch = global.fetch;\n-const originalToken = process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN;\n+const tokenKey = 'EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN';\n+const originalToken = process.env[tokenKey];\n+let getDirections: typeof import('@/shared/services/directions/mapbox')['getDirections'];\n const fetchMock = jest.fn<typeof fetch>();\n@@ -14,5 +15,14 @@\n \n+beforeAll(async () => {\n+  process.env[tokenKey] = 'fixture-token';\n+  ({ getDirections } = await import('@/shared/services/directions/mapbox'));\n+});\n+\n+afterAll(() => {\n+  if (originalToken === undefined) delete process.env[tokenKey];\n+  else process.env[tokenKey] = originalToken;\n+});\n+\n beforeEach(() => {\n   useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });\n-  process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN = 'fixture-token';\n   global.fetch = fetchMock;\n@@ -28,4 +38,2 @@\n   global.fetch = originalFetch;\n-  if (originalToken === undefined) delete process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN;\n-  else process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN = originalToken;\n   networkStore.cleanup();\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/directions/mapbox.ts": {
+          "type": "update",
+          "unified_diff": "@@ -7,2 +7,4 @@\n \n+import { assertOnlineServiceAccess } from '@/shared/services/network-access';\n+\n // Mapbox 교통수단 프로필\n@@ -39,2 +41,3 @@\n }): Promise<DirectionsResponse> {\n+  assertOnlineServiceAccess();\n   const accessToken = process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN;\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -17,2 +17,5 @@\n import { MyLocationButton } from '@/shared/components/Map/MyLocationButton';\n+import { MapUnavailableView } from '@/shared/components/Map/MapUnavailableView';\n+import { useRealNetworkStatus } from '@/shared/store/network';\n+import { getOnlineServicePermission } from '@/shared/services/network-access';\n \n@@ -59,2 +62,3 @@\n   const policy = useAppPolicy(tripId ?? undefined);\n+  const permission = getOnlineServicePermission(useRealNetworkStatus());\n \n@@ -93,2 +97,6 @@\n \n+  if (policy.service.mapProvider === 'google' && !permission.allowed) {\n+    return <MapUnavailableView message={permission.reason!} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;\n+  }\n+\n   // 빈 상태\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts": {
+          "type": "update",
+          "unified_diff": "@@ -7,2 +7,5 @@\n import type { Location } from './types';\n+import { useRealNetworkStatus } from '@/shared/store/network';\n+import { assertOnlineServiceAccess } from '@/shared/services/network-access';\n+import { PolicyError } from '@/shared/policy/errors';\n \n@@ -39,2 +42,3 @@\n const searchPlaces = async (query: string, cityContext?: CityContext): Promise<Location[]> => {\n+  assertOnlineServiceAccess();\n   // Google Places API 호출\n@@ -53,2 +57,3 @@\n       try {\n+        assertOnlineServiceAccess();\n         // Place Details API로 좌표 정보 가져오기\n@@ -68,2 +73,3 @@\n       } catch (error) {\n+        if (error instanceof PolicyError) throw error;\n         console.error('Failed to fetch place details:', error);\n@@ -89,2 +95,4 @@\n   const [searchQuery, setSearchQuery] = useState('');\n+  const realNetworkStatus = useRealNetworkStatus();\n+  const canRequest = realNetworkStatus === 'online';\n \n@@ -97,3 +105,3 @@\n     queryFn: () => searchPlaces(debouncedSearchQuery, cityContext),\n-    enabled: !!debouncedSearchQuery.trim(),\n+    enabled: !!debouncedSearchQuery.trim() && canRequest,\n     staleTime: 1000 * 60 * 5, // 5분\n@@ -103,3 +111,3 @@\n   // 검색어가 비어있으면 빈 배열, 아니면 데이터 반환\n-  const results = debouncedSearchQuery.trim() ? data || [] : [];\n+  const results = canRequest && debouncedSearchQuery.trim() ? data || [] : [];\n \n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/offline-prep/index.ts": {
+          "type": "update",
+          "unified_diff": "@@ -8,2 +8,9 @@\n export { getTripActivationStatus, getTripMetadata } from './metadata';\n-export { routeTripQuery, routeChildQuery, routeTripMutation, routeChildMutation } from './router';\n+export {\n+  routeTripListQuery,\n+  routeTripCreate,\n+  routeTripQuery,\n+  routeChildQuery,\n+  routeTripMutation,\n+  routeChildMutation,\n+} from './router';\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nA /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/network-access.ts\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/directions/mapbox.ts\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/offline-prep/index.ts\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/ScheduleDetailScreen.tsx\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 492,
+    "timestamp": "2026-09-17T03:00:11.517Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-47e3a027-58c0-40ee-aa84-5e5ae3d07dc9",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts": {
+          "type": "update",
+          "unified_diff": "@@ -15,5 +15,7 @@\n \n-beforeAll(async () => {\n+beforeAll(() => {\n   process.env[tokenKey] = 'fixture-token';\n-  ({ getDirections } = await import('@/shared/services/directions/mapbox'));\n+  ({ getDirections } = jest.requireActual<typeof import('@/shared/services/directions/mapbox')>(\n+    '@/shared/services/directions/mapbox',\n+  ));\n });\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -98,3 +98,3 @@\n   if (policy.service.mapProvider === 'google' && !permission.allowed) {\n-    return <MapUnavailableView message={permission.reason!} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;\n+    return <MapUnavailableView message={permission.reason} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;\n   }\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -27,3 +27,3 @@\n   if (policy.service.mapProvider === 'google' && !permission.allowed) {\n-    return <MapUnavailableView message={permission.reason!} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;\n+    return <MapUnavailableView message={permission.reason} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;\n   }\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/network-access.ts": {
+          "type": "update",
+          "unified_diff": "@@ -1,7 +1,8 @@\n import { createPolicyError } from '@/shared/policy/errors';\n-import type { CRUDPermission } from '@/shared/policy/types';\n import { networkStore, type NetworkStatus } from '@/shared/store/network';\n \n+type OnlineServicePermission = { allowed: true } | { allowed: false; reason: string };\n+\n /** Service 요청은 화면용 override가 아닌 실제 관측을 사용한다. */\n-export function getOnlineServicePermission(realStatus: NetworkStatus): CRUDPermission {\n+export function getOnlineServicePermission(realStatus: NetworkStatus): OnlineServicePermission {\n   if (realStatus === 'online') return { allowed: true };\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/network-access.ts\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 539,
+    "timestamp": "2026-09-17T03:01:20.144Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-e625c245-e1b0-48ba-8858-a3c16d33be75",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts": {
+          "type": "update",
+          "unified_diff": "@@ -9,4 +9,6 @@\n const originalFetch = global.fetch;\n+// Expo의 env 치환은 Jest VM 밖의 Babel에서 실행된다.\n+const runtimeProcess = jest.requireActual<typeof import('node:process')>('node:process');\n const tokenKey = 'EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN';\n-const originalToken = process.env[tokenKey];\n+const originalToken = runtimeProcess.env[tokenKey];\n let getDirections: typeof import('@/shared/services/directions/mapbox')['getDirections'];\n@@ -16,3 +18,3 @@\n beforeAll(() => {\n-  process.env[tokenKey] = 'fixture-token';\n+  runtimeProcess.env[tokenKey] = 'fixture-token';\n   ({ getDirections } = jest.requireActual<typeof import('@/shared/services/directions/mapbox')>(\n@@ -23,4 +25,4 @@\n afterAll(() => {\n-  if (originalToken === undefined) delete process.env[tokenKey];\n-  else process.env[tokenKey] = originalToken;\n+  if (originalToken === undefined) delete runtimeProcess.env[tokenKey];\n+  else runtimeProcess.env[tokenKey] = originalToken;\n });\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 599,
+    "timestamp": "2026-09-17T03:02:44.712Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-ced33432-adde-4f47-8a31-e649b886f218",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/jest.config.cjs": {
+          "type": "update",
+          "unified_diff": "@@ -7,2 +7,6 @@\n   testMatch: ['<rootDir>/tests/**/*.test.[jt]s?(x)'],\n+  // 환경 fixture를 런타임에 바꿀 수 있게 Expo의 빌드 시 env 치환만 제외한다.\n+  transform: {\n+    '\\\\.[jt]sx?$': ['babel-jest', { caller: { name: 'metro', bundler: 'metro', platform: 'ios', preserveEnvVars: true } }],\n+  },\n   moduleNameMapper: {\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts": {
+          "type": "update",
+          "unified_diff": "@@ -1,2 +1,3 @@\n-import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, jest } from '@jest/globals';\n+import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';\n+import { getDirections } from '@/shared/services/directions/mapbox';\n import { networkStore, useNetworkStore } from '@/shared/store/network';\n@@ -9,7 +10,4 @@\n const originalFetch = global.fetch;\n-// Expo의 env 치환은 Jest VM 밖의 Babel에서 실행된다.\n-const runtimeProcess = jest.requireActual<typeof import('node:process')>('node:process');\n const tokenKey = 'EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN';\n-const originalToken = runtimeProcess.env[tokenKey];\n-let getDirections: typeof import('@/shared/services/directions/mapbox')['getDirections'];\n+const originalToken = process.env[tokenKey];\n const fetchMock = jest.fn<typeof fetch>();\n@@ -17,16 +15,5 @@\n \n-beforeAll(() => {\n-  runtimeProcess.env[tokenKey] = 'fixture-token';\n-  ({ getDirections } = jest.requireActual<typeof import('@/shared/services/directions/mapbox')>(\n-    '@/shared/services/directions/mapbox',\n-  ));\n-});\n-\n-afterAll(() => {\n-  if (originalToken === undefined) delete runtimeProcess.env[tokenKey];\n-  else runtimeProcess.env[tokenKey] = originalToken;\n-});\n-\n beforeEach(() => {\n   useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });\n+  process.env[tokenKey] = 'fixture-token';\n   global.fetch = fetchMock;\n@@ -42,2 +29,4 @@\n   global.fetch = originalFetch;\n+  if (originalToken === undefined) delete process.env[tokenKey];\n+  else process.env[tokenKey] = originalToken;\n   networkStore.cleanup();\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/jest.config.cjs\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/services/directions/network.test.ts\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 668,
+    "timestamp": "2026-09-17T03:04:59.383Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-155e4361-82f0-4293-9f37-41cefb160c40",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/entities/trip/data/useGetTrips.ts": {
+          "type": "update",
+          "unified_diff": "@@ -1,2 +1,4 @@\n import { useQuery } from '@tanstack/react-query';\n+import { useEffect, useRef } from 'react';\n+import { useRealNetworkStatus } from '@/shared/store/network';\n import { TripRepository } from '../repository/trip-repository';\n@@ -18,3 +20,5 @@\n export const useGetTrips = () => {\n-  return useQuery({\n+  const realStatus = useRealNetworkStatus();\n+  const previousStatus = useRef(realStatus);\n+  const query = useQuery({\n     queryKey: tripQueryKeys.all(),\n@@ -24,2 +28,11 @@\n   });\n+\n+  useEffect(() => {\n+    const becameOnline = previousStatus.current !== 'online' && realStatus === 'online';\n+    previousStatus.current = realStatus;\n+    // 초기 unknown에서 거부된 목록도 회복한다. 이미 보낸 조회는 취소하거나 다시 보내지 않는다.\n+    if (becameOnline) query.refetch({ cancelRefetch: false });\n+  }, [realStatus, query.refetch]);\n+\n+  return query;\n };\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/ErrorBoundary/TripContentStatus.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -10,3 +10,9 @@\n \n-export function TripContentStatus({ access }: { access: Access }) {\n+export function TripContentStatus({\n+  access,\n+  onReturnToActiveTrip,\n+}: {\n+  access: Access;\n+  onReturnToActiveTrip?: () => void;\n+}) {\n   const { checkStatus, isRefreshing, refresh } = useNetworkCheck();\n@@ -39,3 +45,10 @@\n           {activeTrip ? (\n-            <Pressable onPress={() => setSelectedTripId(activeTrip.tripId)}>활성 여행으로 돌아가기</Pressable>\n+            <Pressable\n+              onPress={() => {\n+                setSelectedTripId(activeTrip.tripId);\n+                onReturnToActiveTrip?.();\n+              }}\n+            >\n+              활성 여행으로 돌아가기\n+            </Pressable>\n           ) : (\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/entities/trip/data/useGetTrips.ts\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/ErrorBoundary/TripContentStatus.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 689,
+    "timestamp": "2026-09-17T03:05:32.404Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-49ecfaeb-1695-4cf9-a299-d4aac172a35e",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/entities/trip-list-recovery.test.tsx": {
+          "type": "add",
+          "content": "import React from 'react';\nimport { act, renderHook, waitFor } from '@testing-library/react-native';\nimport { QueryClient, QueryClientProvider } from '@tanstack/react-query';\nimport { useGetTrips } from '@/entities/trip/data/useGetTrips';\nimport { TripRepository } from '@/entities/trip/repository/trip-repository';\nimport { networkStore, useNetworkStore } from '@/shared/store/network';\n\njest.mock('@react-native-community/netinfo', () => ({\n  __esModule: true,\n  default: { addEventListener: jest.fn(), refresh: jest.fn() },\n}));\njest.mock('@/entities/trip/repository/trip-repository', () => ({ TripRepository: { getAll: jest.fn() } }));\n\nconst getAll = jest.mocked(TripRepository.getAll);\nlet client: QueryClient;\nfunction Wrapper({ children }: { children: React.ReactNode }) {\n  return <QueryClientProvider client={client}>{children}</QueryClientProvider>;\n}\n\nbeforeEach(() => {\n  client = new QueryClient({ defaultOptions: { queries: { retry: false, gcTime: 0, refetchOnReconnect: false } } });\n  useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });\n});\nafterEach(() => { client.clear(); networkStore.cleanup(); });\n\nit('초기 unknown에서 실패한 목록은 실제 online 관측 후 다시 조회한다', async () => {\n  getAll.mockRejectedValueOnce(new Error('아직 연결을 확인하지 못했어요')).mockResolvedValueOnce([]);\n  const { result } = renderHook(() => useGetTrips(), { wrapper: Wrapper });\n  await waitFor(() => expect(result.current.isError).toBe(true));\n  act(() => networkStore.setOverride('online'));\n  expect(getAll).toHaveBeenCalledTimes(1);\n  act(() => useNetworkStore.setState({ realStatus: 'online' }));\n  await waitFor(() => expect(result.current.isSuccess).toBe(true));\n  expect(getAll).toHaveBeenCalledTimes(2);\n});\n\nit('실제 offline→online 전환은 이미 전송한 목록 조회를 취소하거나 중복 전송하지 않는다', async () => {\n  useNetworkStore.setState({ realStatus: 'online' });\n  let finish!: (value: Awaited<ReturnType<typeof TripRepository.getAll>>) => void;\n  getAll.mockReturnValueOnce(new Promise((resolve) => { finish = resolve; }));\n  const { result } = renderHook(() => useGetTrips(), { wrapper: Wrapper });\n  await waitFor(() => expect(getAll).toHaveBeenCalledTimes(1));\n  act(() => useNetworkStore.setState({ realStatus: 'offline' }));\n  act(() => useNetworkStore.setState({ realStatus: 'online' }));\n  await act(async () => finish([]));\n  await waitFor(() => expect(result.current.isSuccess).toBe(true));\n  expect(getAll).toHaveBeenCalledTimes(1);\n});\n"
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nA /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/entities/trip-list-recovery.test.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 710,
+    "timestamp": "2026-09-17T03:05:48.755Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-e8dd53a7-1fda-47ac-b97c-e4ba57254f8d",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/entities/trip-list-recovery.test.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -20,2 +20,3 @@\n beforeEach(() => {\n+  getAll.mockReset();\n   client = new QueryClient({ defaultOptions: { queries: { retry: false, gcTime: 0, refetchOnReconnect: false } } });\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/entities/trip-list-recovery.test.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 718,
+    "timestamp": "2026-09-17T03:06:13.586Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-81351dd6-4e71-4b17-b47b-d0874498f5bf",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/policy/map-service-network.test.tsx": {
+          "type": "add",
+          "content": "import React from 'react';\nimport { render, screen, act } from '@testing-library/react-native';\nimport { PolicyBasedMapView } from '@/shared/components/PolicyBasedMapView/PolicyBasedMapView';\nimport { PolicyBasedScheduleMapView } from '@/shared/components/Map/PolicyBasedScheduleMapView';\nimport { networkStore, useNetworkStore } from '@/shared/store/network';\n\njest.mock('@react-native-community/netinfo', () => ({\n  __esModule: true,\n  default: { addEventListener: jest.fn(), refresh: jest.fn() },\n}));\njest.mock('@/shared/policy', () => ({\n  useAppPolicy: () => {\n    const { useDisplayNetworkStatus } = jest.requireActual('@/shared/store/network');\n    return { service: { mapProvider: useDisplayNetworkStatus() === 'online' ? 'google' : 'mapbox' } };\n  },\n}));\njest.mock('@/entities/offline-city', () => ({\n  useOfflineCity: () => ({ data: { cityName: 'Paris', cityId: 'paris' }, isLoading: false }),\n}));\njest.mock('@/shared/hooks/map/useMyLocation', () => ({ useMyLocation: () => ({ moveToCurrentLocation: jest.fn() }) }));\njest.mock('@/shared/components/Map/MyLocationButton', () => ({ MyLocationButton: () => null }));\njest.mock('react-native-maps', () => {\n  const React = require('react');\n  const { Text } = require('react-native');\n  return { __esModule: true, default: React.forwardRef(() => <Text>Google search map</Text>), Marker: () => null };\n});\njest.mock('@/shared/components/Map/GoogleScheduleMapView', () => ({\n  GoogleScheduleMapView: () => { const { Text } = require('react-native'); return <Text>Google schedule map</Text>; },\n}));\njest.mock('@/shared/components/Map/MapboxScheduleMapView', () => ({\n  MapboxScheduleMapView: () => { const { Text } = require('react-native'); return <Text>Local schedule map</Text>; },\n}));\njest.mock('@/shared/components/PolicyBasedMapView/OfflineMapView', () => ({\n  OfflineMapView: () => { const { Text } = require('react-native'); return <Text>Local search map</Text>; },\n}));\n\nconst location = { latitude: 1, longitude: 2, name: 'Place', address: 'Address' };\nfunction Maps() {\n  return <>\n    <PolicyBasedMapView tripId='active' locations={[location]} selectedLocation={null} />\n    <PolicyBasedScheduleMapView tripId='active' schedules={[]} />\n  </>;\n}\nafterEach(() => networkStore.cleanup());\n\nit.each(['unknown', 'offline'] as const)('표시 online·실측 %s는 Google native 지도를 마운트하지 않는다', (realStatus) => {\n  useNetworkStore.setState({ realStatus, overrideStatus: 'online' });\n  render(<Maps />);\n  expect(screen.queryByText('Google search map')).toBeNull();\n  expect(screen.queryByText('Google schedule map')).toBeNull();\n  expect(screen.getAllByText('실제 연결이 확인되면 지도를 다시 사용할 수 있어요')).toHaveLength(2);\n  act(() => useNetworkStore.setState({ realStatus: 'online' }));\n  expect(screen.getByText('Google search map')).toBeTruthy();\n  expect(screen.getByText('Google schedule map')).toBeTruthy();\n});\n\nit('실측 online·표시 offline은 기존 Local 지도 선택을 유지한다', () => {\n  useNetworkStore.setState({ realStatus: 'online', overrideStatus: 'offline' });\n  render(<Maps />);\n  expect(screen.getByText('Local search map')).toBeTruthy();\n  expect(screen.getByText('Local schedule map')).toBeTruthy();\n  expect(screen.queryByText('Google search map')).toBeNull();\n});\n"
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nA /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/policy/map-service-network.test.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 733,
+    "timestamp": "2026-09-17T03:06:24.464Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-76832074-3074-4860-8d20-952b9c92d0eb",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/entities/trip-list-recovery.test.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -46,2 +46,3 @@\n   await act(async () => finish([]));\n+  console.log('list-state', result.current.status, result.current.fetchStatus, result.current.error, getAll.mock.calls.length, client.getQueryCache().getAll().map(q => q.state));\n   await waitFor(() => expect(result.current.isSuccess).toBe(true));\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/entities/trip-list-recovery.test.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 739,
+    "timestamp": "2026-09-17T03:06:34.468Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-87be2f5a-de61-4e33-982b-98f8bbb7a3ee",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -129,3 +129,2 @@\n       if (offlineCity && !isLoading) {\n-        console.log('🗺️ Using Mapbox offline map for city:', offlineCity.cityName);\n         return <OfflineMapView locations={locations} selectedLocation={selectedLocation} cityId={offlineCity.cityId} />;\n@@ -171,3 +170,2 @@\n       // Google Maps 사용 (react-native-maps)\n-      console.log('🌐 Using Google Maps (online)');\n       return (\n",
+          "move_path": null
+        },
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/HomeScreen/TripsSection.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -16,2 +16,3 @@\n import { useDeactivateTrip } from '@/entities/trip/data/useDeactivateTrip';\n+import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';\n \n@@ -267,4 +268,4 @@\n             },\n-            onError: () => {\n-              Alert.alert('오류', '여행 삭제에 실패했습니다.');\n+            onError: (error) => {\n+              Alert.alert('오류', mutationErrorMessage(error, '여행 삭제에 실패했습니다.'));\n             },\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/HomeScreen/TripsSection.tsx\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 747,
+    "timestamp": "2026-09-17T03:06:46.954Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-8ed8a1c7-585f-4c40-9746-94daf2cc268e",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/entities/trip-list-recovery.test.tsx": {
+          "type": "update",
+          "unified_diff": "@@ -28,3 +28,3 @@\n   getAll.mockRejectedValueOnce(new Error('아직 연결을 확인하지 못했어요')).mockResolvedValueOnce([]);\n-  const { result } = renderHook(() => useGetTrips(), { wrapper: Wrapper });\n+  const { result } = renderHook(() => { const query = useGetTrips(); return { isError: query.isError, isSuccess: query.isSuccess }; }, { wrapper: Wrapper });\n   await waitFor(() => expect(result.current.isError).toBe(true));\n@@ -41,3 +41,3 @@\n   getAll.mockReturnValueOnce(new Promise((resolve) => { finish = resolve; }));\n-  const { result } = renderHook(() => useGetTrips(), { wrapper: Wrapper });\n+  const { result } = renderHook(() => { const query = useGetTrips(); return { isSuccess: query.isSuccess }; }, { wrapper: Wrapper });\n   await waitFor(() => expect(getAll).toHaveBeenCalledTimes(1));\n@@ -46,3 +46,2 @@\n   await act(async () => finish([]));\n-  console.log('list-state', result.current.status, result.current.fetchStatus, result.current.error, getAll.mock.calls.length, client.getQueryCache().getAll().map(q => q.state));\n   await waitFor(() => expect(result.current.isSuccess).toBe(true));\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/entities/trip-list-recovery.test.tsx\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 770,
+    "timestamp": "2026-09-17T03:07:07.248Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-5901d959-b4c4-491f-9775-7c257355285b",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/policy/useTripContentAccess.ts": {
+          "type": "update",
+          "unified_diff": "@@ -7,3 +7,3 @@\n   isError: boolean;\n-  refetch: () => Promise<{ isError: boolean; error: unknown }>;\n+  refetch: (options?: { cancelRefetch: boolean }) => Promise<{ isError: boolean; error: unknown }>;\n };\n@@ -59,3 +59,3 @@\n     setRecovery((current) => ({ ...current, phase: 'pending' }));\n-    refetch.current().then(\n+    refetch.current({ cancelRefetch: false }).then(\n       (result) => {\n@@ -120,3 +120,3 @@\n     else if (awaitingRecovery) setRecovery((current) => ({ ...current, phase: 'idle' }));\n-    else query.refetch();\n+    else query.refetch({ cancelRefetch: false });\n   };\n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/policy/useTripContentAccess.ts\n",
+      "stderr": ""
+    }
+  },
+  {
+    "source": "main",
+    "line": 830,
+    "timestamp": "2026-09-17T03:08:08.522Z",
+    "item": {
+      "type": "FileChange",
+      "id": "exec-8032aa08-8361-4e18-9772-9a1e02b9dbb4",
+      "changes": {
+        "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/entities/trip/data/useGetTrips.ts": {
+          "type": "update",
+          "unified_diff": "@@ -28,2 +28,3 @@\n   });\n+  const { refetch } = query;\n \n@@ -33,4 +34,4 @@\n     // 초기 unknown에서 거부된 목록도 회복한다. 이미 보낸 조회는 취소하거나 다시 보내지 않는다.\n-    if (becameOnline) query.refetch({ cancelRefetch: false });\n-  }, [realStatus, query.refetch]);\n+    if (becameOnline) refetch({ cancelRefetch: false });\n+  }, [realStatus, refetch]);\n \n",
+          "move_path": null
+        }
+      },
+      "status": "completed",
+      "stdout": "Success. Updated the following files:\nM /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/entities/trip/data/useGetTrips.ts\n",
+      "stderr": ""
+    }
+  }
+]

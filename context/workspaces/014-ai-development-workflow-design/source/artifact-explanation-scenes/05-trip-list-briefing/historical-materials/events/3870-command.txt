@@ -1,0 +1,1 @@
+rg '^.*error TS' /tmp/noline-review-types-final.log

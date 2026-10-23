@@ -1,0 +1,72 @@
+{
+  "finished_at": "2026-10-23T02:25:00.544908+00:00",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "runs_per_version": 1,
+  "results": {
+    "r35": {
+      "version": "baseline",
+      "agent": "/root/trip_brief_r35",
+      "response_sha256": "1dd7baaedc22ec2301964a87e3a97db10a2e09cc620712c4246a67f2f884ee1e",
+      "response_characters": 4388,
+      "required_files": 60,
+      "required_chunks": 108,
+      "verified_unique_chunks": 108,
+      "input_hashes_unchanged": true,
+      "skill_chunk_reads": [
+        {
+          "at": "2026-10-23T02:15:51.934214+00:00",
+          "file": "skill/SKILL.md",
+          "chunk": 1,
+          "total_chunks": 2,
+          "sha256": "803d6f28813e3013db054e220ad8558a0a5055334b51a437b88e322b4554b7d4"
+        },
+        {
+          "at": "2026-10-23T02:15:54.184036+00:00",
+          "file": "skill/SKILL.md",
+          "chunk": 2,
+          "total_chunks": 2,
+          "sha256": "3d2d2b2753af76958e912e311c90680675e5687107a63293c12de1aa812c9ac2"
+        }
+      ],
+      "truncation": "none self-reported; all chunk hashes and coverage verified",
+      "external_access": "none self-reported; filesystem isolation not enforced",
+      "code_fences": 0,
+      "regeneration_count": 0
+    },
+    "r82": {
+      "version": "adopted-2026-10-22",
+      "agent": "/root/trip_brief_r82",
+      "response_sha256": "af1dc22e5e05f3898bac17a79a080f25c347cce3e38aa2f6185e8cb14945488b",
+      "response_characters": 5007,
+      "required_files": 60,
+      "required_chunks": 108,
+      "verified_unique_chunks": 108,
+      "input_hashes_unchanged": true,
+      "skill_chunk_reads": [
+        {
+          "at": "2026-10-23T02:15:59.514141+00:00",
+          "file": "skill/SKILL.md",
+          "chunk": 1,
+          "total_chunks": 2,
+          "sha256": "4aca04b9d02adb999751b3a10987bf0959dbd2b1208016ac39259a2fc7b8d157"
+        },
+        {
+          "at": "2026-10-23T02:16:01.885586+00:00",
+          "file": "skill/SKILL.md",
+          "chunk": 2,
+          "total_chunks": 2,
+          "sha256": "0e390487255429d8a2eb887af7825eec939ca81a4201fa000519cb16b67259c1"
+        }
+      ],
+      "truncation": "none self-reported; all chunk hashes and coverage verified",
+      "external_access": "none self-reported; filesystem isolation not enforced",
+      "code_fences": 0,
+      "regeneration_count": 0
+    }
+  },
+  "token_usage_measured": false,
+  "operating_skill_changed": false,
+  "recovery_changed": false,
+  "product_tests_rerun": false
+}

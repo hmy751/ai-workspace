@@ -1,0 +1,22 @@
+diff --git a/apps/client/src/entities/trip/data/useCreateTrip.ts b/apps/client/src/entities/trip/data/useCreateTrip.ts
+index f6638ca..06d2f4a 100644
+--- a/apps/client/src/entities/trip/data/useCreateTrip.ts
++++ b/apps/client/src/entities/trip/data/useCreateTrip.ts
+@@ -6,7 +6,7 @@ import { tripQueryKeys } from './keys';
+ /**
+  * 여행 생성 Mutation Hook
+  *
+- * - Repository를 통해 활성화 상태에 따라 Local/Remote 자동 분기
++ * - 아직 활성화되지 않은 새 여행은 서버에 생성한다.
+  * - Client-Side ID: 외부에서 ID 생성하여 전달
+  *
+  * @example
+@@ -31,8 +31,5 @@ export const useCreateTrip = () => {
+         queryKey: tripQueryKeys.all(),
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to create trip:', error);
+-    },
+   });
+ };

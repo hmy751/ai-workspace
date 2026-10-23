@@ -1,0 +1,58 @@
+diff --git a/apps/client/src/entities/trip/ui/TripSelector.tsx b/apps/client/src/entities/trip/ui/TripSelector.tsx
+index c881073..d2a44c0 100644
+--- a/apps/client/src/entities/trip/ui/TripSelector.tsx
++++ b/apps/client/src/entities/trip/ui/TripSelector.tsx
+@@ -1,6 +1,7 @@
++import { useDisplayNetworkStatus } from '@/shared/store/network';
+ import { useState } from 'react';
+-import { View, Text } from 'react-native';
+-import { Plane, ChevronDown, Check, WifiOff } from 'lucide-react-native';
++import { View, Text, Alert } from 'react-native';
++import { Plane, ChevronDown, Check } from 'lucide-react-native';
+ import { Badge, Drawer, Pressable } from '@repo/ui';
+ import { useGetTrips } from '../data';
+ import { useGetActiveTrip } from '../data/useGetTripActivation';
+@@ -39,6 +40,7 @@ interface TripSelectorProps {
+ export function TripSelector({ className = '' }: TripSelectorProps) {
+   // ✨ Zustand 전역 상태
+   const { selectedTripId, setSelectedTripId } = useTripStore();
++  const networkStatus = useDisplayNetworkStatus();
+   const [isOpen, setIsOpen] = useState(false);
+ 
+   // 실제 여행 데이터 가져오기
+@@ -46,7 +48,7 @@ export function TripSelector({ className = '' }: TripSelectorProps) {
+   const mainTrip = selectMainTrip(allTrips);
+ 
+   // 활성화된 여행 정보 (React Query로 관리 - 캐시 무효화 시 자동 갱신)
+-  const { data: activeTrip } = useGetActiveTrip();
++  const { data: activeTrip, isLoading: isLoadingActivation, isError: activationError } = useGetActiveTrip();
+   const activatedTrip = activeTrip
+     ? {
+         tripId: activeTrip.tripId,
+@@ -55,7 +57,7 @@ export function TripSelector({ className = '' }: TripSelectorProps) {
+     : null;
+ 
+   // TripData를 Trip 형태로 변환하는 함수
+-  const convertTripDataToTrip = (tripData: TripData, isMain: boolean = false): Trip => {
++  const convertTripDataToTrip = (tripData: TripData, isMain = false): Trip => {
+     const label = tripData.country ? `${tripData.destination}, ${tripData.country}` : tripData.destination;
+     const isActivated = activatedTrip?.tripId === tripData.id;
+ 
+@@ -78,6 +80,17 @@ export function TripSelector({ className = '' }: TripSelectorProps) {
+   };
+ 
+   const handleTripChange = (trip: Trip) => {
++    if (trip.value !== selectedTripId && networkStatus !== 'online' && !trip.isActivated) {
++      const reason = isLoadingActivation
++        ? '이 기기의 여행 준비 상태를 확인하는 중이에요.'
++        : activationError
++          ? '여행 준비 상태를 확인하지 못했어요. 다시 시도해주세요.'
++          : networkStatus === 'unknown'
++            ? '인터넷 연결을 아직 확인하지 못했어요. 연결 후 이 여행을 선택해주세요.'
++            : '오프라인에서는 활성 여행만 선택할 수 있어요. 연결 후 이 여행을 선택해주세요.';
++      Alert.alert('여행 선택', reason);
++      return;
++    }
+     setSelectedTripId(trip.value);
+     setIsOpen(false);
+   };

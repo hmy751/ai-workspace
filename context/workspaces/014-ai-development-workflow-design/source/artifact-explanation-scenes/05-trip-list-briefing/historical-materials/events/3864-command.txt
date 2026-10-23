@@ -1,0 +1,8 @@
+python3 - <<'PY'
+import subprocess
+files=subprocess.check_output(['git','diff','--name-only','--','apps/client'],text=True).splitlines()+subprocess.check_output(['git','ls-files','--others','--exclude-standard','apps/client'],text=True).splitlines()
+files=[f for f in files if f.endswith(('.ts','.tsx'))]
+for command in [['./node_modules/.bin/eslint',*files,'--rule','prettier/prettier: off'],['./node_modules/.bin/prettier','--check',*files]]:
+    result=subprocess.run(command)
+    if result.returncode: raise SystemExit(result.returncode)
+PY

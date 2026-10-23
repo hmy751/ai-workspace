@@ -1,0 +1,103 @@
+// Trip Repository - 활성화 상태에 따른 Local/Remote 분기
+
+import { createTripRequest, updateTripRequest } from '@repo/schema/requests/trip';
+import {
+  routeTripQuery,
+  routeTripCreation,
+  routeChildQuery,
+  routeChildMutation,
+} from '@/shared/services/offline-prep/router';
+import { useAuthStore } from '@/shared/store/auth';
+import * as TripLocal from '../lib/trip-local';
+import * as TripApi from '../api/trips';
+import type { Trip, CreateTripRequest, UpdateTripRequest, DeleteTripResponse } from '../model';
+
+interface TripListResult {
+  trips: Trip[];
+  source: 'local' | 'remote' | 'mixed';
+}
+
+/** 목록 조회가 서버 목록과 보존할 로컬 여행을 조합한다. 변경은 대상 여행의 저장소만 갱신한다. */
+export const TripRepository = {
+  getAllWithSource: async (signal?: AbortSignal): Promise<TripListResult> => {
+    return await routeTripQuery<TripListResult>({
+      local: async () => ({ trips: await TripLocal.getTripsLocal(), source: 'local' }),
+      remote: async () => {
+        const sessionId = useAuthStore.getState().sessionId;
+        const response = await TripApi.fetchAllTrips();
+        const result = await TripLocal.refreshTripListLocal(response.data, sessionId, signal);
+        return { trips: result.trips, source: result.hasLocalTrips ? 'mixed' : 'remote' };
+      },
+    });
+  },
+
+  getById: async (id: string): Promise<Trip | undefined> => {
+    return await routeChildQuery(id, {
+      local: () => TripLocal.getTripByIdLocal(id),
+      remote: async () => {
+        // TODO: fetchTripById API 필요시 추가
+        const response = await TripApi.fetchAllTrips();
+        return response.data.find((trip) => trip.id === id);
+      },
+    });
+  },
+
+  create: async (data: CreateTripRequest): Promise<Trip> => {
+    const input = createTripRequest.parse(data);
+    return await routeTripCreation(() => TripApi.fetchCreateTrip(input));
+  },
+
+  update: async (id: string, data: UpdateTripRequest): Promise<Trip> => {
+    const input = updateTripRequest.parse(data);
+    return await routeChildMutation(id, {
+      local: () => TripLocal.updateTripLocal(id, input),
+      remote: () => TripApi.fetchUpdateTrip(id, input),
+    });
+  },
+
+  delete: async (id: string): Promise<DeleteTripResponse> => {
+    return await routeChildMutation(id, {
+      local: () => TripLocal.deleteTripLocal(id),
+      remote: () => TripApi.fetchDeleteTrip(id),
+    });
+  },
+};
+import { useRealNetworkStatus } from '@/shared/store/network';
+import { useAuthStore } from '@/shared/store/auth';
+import { useQuery } from '@tanstack/react-query';
+import { TripRepository } from '../repository/trip-repository';
+import { tripQueryKeys } from './keys';
+
+/** 여행 목록을 조회하며 실제 Local/Remote 출처를 함께 제공한다. */
+export const useGetTrips = () => {
+  const networkStatus = useRealNetworkStatus();
+  const authStatus = useAuthStore((state) => state.status);
+  const canQueryServer = networkStatus === 'online' && authStatus === 'signed-in';
+
+  const query = useQuery({
+    queryKey: tripQueryKeys.list(canQueryServer),
+    queryFn: ({ signal }) => TripRepository.getAllWithSource(signal),
+    // 연결 복구로 이전 서버 Query를 다시 구독할 때도 최신 목록을 확인한다.
+    staleTime: 0,
+    gcTime: 10 * 60 * 1000, // 10분
+  });
+
+  // 데이터와 실제 조회 출처를 함께 보존한다. 현재 네트워크 상태로 출처를 추정하지 않는다.
+  return { ...query, data: query.data?.trips, dataSource: query.data?.source };
+};
+apps/client/src/features/trip/create-trip/TripDateForm.tsx:11:import { useCreateTrip } from '@/entities/trip';
+apps/client/src/features/trip/create-trip/TripDateForm.tsx:38:  const { mutate: createTrip, isPending } = useCreateTrip();
+apps/client/src/features/trip/create-trip/TripDateForm.tsx:72:        onSuccess: () => {
+apps/client/src/screens/HomeScreen/TripsSection.tsx:5:  useDeleteTrip,
+apps/client/src/screens/HomeScreen/TripsSection.tsx:45:  const { mutate: deleteTrip } = useDeleteTrip();
+apps/client/src/screens/HomeScreen/TripsSection.tsx:46:  const { mutate: deactivateTrip } = useDeactivateTrip();
+apps/client/src/screens/HomeScreen/TripsSection.tsx:47:  const { mutate: activateTrip } = useActivateTrip();
+apps/client/src/screens/HomeScreen/TripsSection.tsx:96:        onSuccess: () => {
+apps/client/src/screens/HomeScreen/TripsSection.tsx:208:                    onSuccess: () => {
+apps/client/src/screens/HomeScreen/TripsSection.tsx:265:            onSuccess: () => {
+apps/client/src/screens/HomeScreen/TripsSection.tsx:308:              onSuccess: () => {
+apps/client/src/features/trip/update-trip/EditTripDrawer.tsx:9:import { type TripData, useUpdateTrip, useDeleteTrip } from '@/entities/trip';
+apps/client/src/features/trip/update-trip/EditTripDrawer.tsx:36:  const { mutate: updateTrip, isPending: isUpdating } = useUpdateTrip();
+apps/client/src/features/trip/update-trip/EditTripDrawer.tsx:37:  const { mutate: deleteTrip, isPending: isDeleting } = useDeleteTrip();
+apps/client/src/features/trip/update-trip/EditTripDrawer.tsx:82:        onSuccess: () => {
+apps/client/src/features/trip/update-trip/EditTripDrawer.tsx:111:            onSuccess: () => {

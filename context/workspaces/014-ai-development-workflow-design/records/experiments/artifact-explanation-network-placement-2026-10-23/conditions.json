@@ -1,0 +1,45 @@
+{
+  "status": "prepared-proposal-applicability-open-not-run",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "fork_turns": "none",
+  "runs_per_condition": 1,
+  "historical_source": "source/artifact-explanation-scenes/06-network-consumer-delivery",
+  "dialogue_start_source_line": 9,
+  "dialogue_end_source_line": 844,
+  "dialogue_messages": 34,
+  "resume_before_source_line": 895,
+  "common_results_cutoff": "2026-09-17T03:10:48.083Z",
+  "fixed_skill_sha256": "40a916e543313333a084da927e3e5200aebc73548fa99eecc4968fa1cb3caff2",
+  "conditions": [
+    {
+      "id": "A",
+      "placement": "available-natural-selection",
+      "prompt": "condition-a.txt"
+    },
+    {
+      "id": "B",
+      "placement": "explicit-before-reading-result-materials",
+      "prompt": "condition-b.txt"
+    }
+  ],
+  "only_prompt_difference": "B adds one explicit skill-application sentence; no extra reporting requirements",
+  "held_out": "original response895 and every subsequent utterance, including901,913,920,963,970,1209",
+  "limits": [
+    "Tests call placement, not pure timing with guaranteed identical selection",
+    "If A also applies before result reading, no early/late contrast is established",
+    "Fixed completed implementation cannot show that earlier briefing prevented scope expansion",
+    "No current revised skill in this timing comparison",
+    "No simulated user follow-up; no favorable reruns"
+  ],
+  "generation_inputs_pending": "After applicability and comparison purpose are resolved and execution is requested, create identical isolated allowlisted runtime copies; full source directory and provenance must not be exposed",
+  "source_manifest_sha256": "805425dd28b69acf75b7a2177e5d1fecf22515c9057b352a042ac3dc19941e0a",
+  "condition_prompt_hashes": {
+    "common-prompt.txt": "0562f8f09d650f1efcc9937ed06cde7f0601f392b9fb771b623cd4a9d75b09a4",
+    "condition-a.txt": "0562f8f09d650f1efcc9937ed06cde7f0601f392b9fb771b623cd4a9d75b09a4",
+    "condition-b.txt": "9ee7988aba0df348f263ae55ee8f87d84d1e94781f1adcccda0a431e3e30a086",
+    "skill-catalog.txt": "79eee28dac2f1bded699e81923ce01a0eb2f656a30bc8f16f36b6015ae7cde42"
+  },
+  "dialogue_start_is_context_not_skill_invocation": true,
+  "open_question": "Distinguish initial status understanding from completion reporting and artifact understanding; assess skill applicability at895 and the comparison question before selecting this proposal for execution."
+}

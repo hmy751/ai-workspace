@@ -1,6 +1,8 @@
 # 현재 논의의 진입점
 
-04-02 최신 선택: [검증한 브리핑 후보의 prototype 반영](../records/2026-10-22-ticket04-02-briefing-prototype-adoption.md). 현재 [브리핑 본문](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md)에 코드 읽기 목적·코드와 값 연결·목적별 종료를 통합했다. 아래 비교는 이전 후보 이력이며 새 후보 인증 재시험에서는 국소 개선을 관찰했다. 복구 스킬 유지, 일반화·시점 효과와04-02 전체 완료는 미확인이다.
+04-02 현재 준비: [Network 첫 완료 보고 자료와 적용 배치 비교 조건](../records/2026-10-23-ticket04-02-network-first-report-preparation.md).895 직전 상태의 원문·변경 전후 코드와 검사 기록을 확보했지만 조건은 제안·미실행 상태다. 대화9부터 입력하는 것과9부터 브리핑을 적용하는 것은 다르다. 사용자의 적용 적절성 의문을 받아, 다음은 현황 파악·완료 보고·작업물 이해 요청을 구별하고895에 이 스킬을 적용할 이유와 비교 목적부터 판단한다. 사례별 상태와 재개 순서는 [04-02 첫머리](tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
+
+04-02 최신 반영·비교: [책임 설명 통합판과 직전 채택판 시험](../records/experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md). 현재 [브리핑 본문](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md)에 핵심 구별·실제 코드 선정·현재 구조의 이유·설명 비중을 통합했다. 같은 자료·시점에서 GPT-6-sol medium 각1회 비교했지만 양쪽 코드 발췌가 없어 핵심 개선은 미관찰이다. 아래 이전 비교와 본문 반영·효과 확인을 구별한다. 복구·운영 유지, 일반화·시점 효과와04-02 전체 완료는 미확인이다.
 
 구현·검토의 확정1~5번과 개선 리뷰를 [development 스킬](../records/prototypes/development-workflow/skills/development/SKILL.md)과 검토 상세에 적용했다. [적용 기록](../records/2026-10-23-development-skill-prototype-adoption.md)에 실제 반영과 확인 범위가 있다. 공통 본문은 Main의 전체 조율을, 검토 상세는 공유 목적·검토자·Main의 판단을 구별한다. DEVELOPMENT의 진입은 옮겼고6~12번·13~15번의 상세 실행과 A·B Personal 본문 통합은 후속이다. 다음 추천은6번 구현 완성·인계다.
 
@@ -8,7 +10,7 @@
 
 현재 산출물은 [development-workflow](../records/prototypes/development-workflow/README.md)의 본문·사례·코드·작업 장면이다. [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)는 본문과 형성 자료의 관리를, [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)는 체계 지침과 진입·상세의 역할을 설명한다. 실제 운영 Noline·스킬·하네스 설치는 하지 않았다.
 
-04-02를 이어갈 때는 [해당 Ticket](tickets/04-skill-improvements/04-02-artifact-explanation.md)과 [원문 중심 source](../source/artifact-explanation-scenes/README.md)를 먼저 읽는다. 네 장면의 원문과 당시 코드·최초 diff·도구 기록을 확보했고 [비교 설계](../records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md)를 준비했다. 첫 보고 전 적용 배치와 같은 시점의 본문 비교를 구별한다. [인증 본문 비교](../records/experiments/artifact-explanation-auth-body-2026-10-22/comparison.md)와 [network 본문 비교](../records/experiments/artifact-explanation-network-body-2026-10-22/comparison.md)를 각 한 쌍 실행했으며 두 장면에서 후보 우세는 확인하지 못했다. 추가 [6.0 luna·sol 인증 비교](../records/experiments/artifact-explanation-auth-sol6-body-2026-10-22/comparison.md)에서는 양쪽 모두 요약 중심이어서, 차이 작음을 충분한 설명으로 해석하지 않는다. 저장 용량 적용 배치·보고서 비교는 미실행이다. 전체 실행·DB 복원과의 차이도 유지한다.
+04-02를 이어갈 때는 [해당 Ticket](tickets/04-skill-improvements/04-02-artifact-explanation.md)과 [원문 중심 source](../source/artifact-explanation-scenes/README.md)를 먼저 읽는다. 보고서·인증·network 흐름·저장 용량·여행 전체 브리핑과 Network 첫 완료 보고의 여섯 묶음을 보존했다. 인증·network 본문, 저장 용량 적용 배치, 최초 티켓 파악과 여행 브리핑 비교를 실행했으며 결과와 한계는 Ticket에서 이어 본다. 차이 작음을 충분한 설명으로 해석하지 않는다. 보고서 작성 뒤 본문 비교와 안정된 시점 효과는 미확인이며 전체 실행·DB 복원과의 차이도 유지한다.
 
 4번을 재확인할 때는 [소유 구분부터 최종 확정까지의 경과](../records/2026-10-23-personal-review-ownership-proposal.md)를 읽는다. 최초 제안과 독립 리뷰 직후의 후보 유지 권고는 이력이다. A·B는 반영 방향이 정해졌고 정확한 본문 통합은01-02의 후속이며, 미채택 상태로 되돌려 시작하지 않는다.
 

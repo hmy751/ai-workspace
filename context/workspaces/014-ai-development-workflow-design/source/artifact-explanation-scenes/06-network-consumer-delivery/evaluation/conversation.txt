@@ -1,0 +1,209 @@
+[assistant] 2026-09-17T03:10:48.083Z — source_line 895
+
+이번 네트워크 범위의 품질 개선과 독립 검증까지 마쳤습니다. 티켓·합의와 대조했고, 검증자는 남은 주요 수정 사항이 없다고 판단했습니다.
+
+- sync 중복 실행·debug 우회, 여행별 Router 분기 개선
+- 제한·복구 화면과 폼 입력·오류 이유 유지
+- 전체 테스트 **205개 통과**
+- 기존 지도 타입 오류 3개와 실기기 검증은 남음
+
+커밋은 하지 않았습니다. [변경·검증 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/records/2026-09-17-02-network-consumer-quality-improvements.md)에 정리했습니다.
+
+[user] 2026-09-17T03:10:48.550Z — source_line 901
+
+근데 지금 개선한게 우리 기존 범위를 벗어나려고 한건 아니지? 설명해봐
+
+
+[assistant] 2026-09-17T03:10:53.903Z — source_line 906
+
+기존 합의와 이번 변경을 다시 대조하겠습니다. 특히 Router·API·상세 화면·서비스 요청까지 손댄 이유가 원래 범위에서 필요한 연결이었는지 확인하겠습니다.
+
+
+[assistant] 2026-09-17T03:11:10.459Z — source_line 913
+
+**기존에 합의한 Ticket 06의 첫 네트워크 범위 안에서 진행했습니다.** 다만 단순한 코드 정리뿐 아니라, 합의한 동작을 막던 결함 수정도 포함됐습니다.
+
+원래 범위가 “네트워크 관측을 실제 요청·화면·sync 시작까지 연결한다”였기 때문에 다음 변경이 필요했습니다.
+
+- **sync·Root·debug:** DB와 인증 준비, 실제 online 확인, 동시 실행 방지 조건을 실제 수동 버튼까지 적용했습니다.
+- **Router·repository·API:** 대상 여행으로 분기하고 inactive 데이터의 Local 선조회를 제거했습니다. PATCH→PUT도 기존 서버 계약과의 불일치를 수정한 것입니다.
+- **목록·상세·폼:** 캐시가 있어도 비활성 내용을 제한하고, 복구 조회 성공 뒤 공개하며, 실패해도 입력과 선택을 유지하도록 연결했습니다. 상세 화면을 빠뜨리면 같은 제한을 우회할 수 있었습니다.
+- **검색·길찾기·지도:** 강제 online 표시가 실제 offline 요청을 열지 않도록 했습니다. 이것도 기존 debug 합의에 포함됩니다.
+
+반면 transaction 원자성, sync engine의 결과·재시도, cleanup, DB/auth 실패 화면과 인증 guard 전체 재설계는 진행하지 않았습니다. 별도 draft·자동 저장·캐시 관리 시스템도 추가하지 않았습니다.
+
+이 범위 판단은 제가 [기존 합의 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/records/2026-09-16-01-network-policy-and-implementation-boundaries.md)과 수정 전 코드를 대조해서 했고, 독립 검증자도 같은 경계를 확인했습니다. 수정 파일은 넓어졌지만, 맡은 결과 자체를 넓히지는 않았다는 판단입니다.
+
+[user] 2026-09-17T03:14:40.431Z — source_line 920
+
+[$work-artifact-briefing](/Users/hammyeong-yeon/Desktop/10_work/noline/.claude/skills/work-artifact-briefing/SKILL.md)  자세히 설명해줘
+
+
+[assistant] 2026-09-17T03:14:51.071Z — source_line 926
+
+`work-artifact-briefing` 스킬을 적용해 이번 변경의 역할과 실제 연결을 자세히 설명하겠습니다. 합의한 범위, 코드에서 달라진 흐름, 품질이 좋아진 이유, 검사로 확인한 범위를 구분해서 읽겠습니다.
+
+
+[assistant] 2026-09-17T03:15:32.359Z — source_line 954
+
+현재 코드를 따라보니 핵심은 Store를 더 나누는 데 있지 않습니다. 이미 만든 네트워크 상태를 요청·화면·sync가 각자의 책임에 맞게 사용하도록 연결한 작업입니다. 기존 합의의 동작을 완성한 부분과, 그 동작을 막던 결함을 고친 부분을 나누어 설명하겠습니다.
+
+
+[assistant] 2026-09-17T03:16:58.393Z — source_line 963
+
+작업물 이해 브리핑 — Ticket 06의 네트워크 소비 연결 개선
+
+**이번 작업은 이미 만든 네트워크 상태를 실제 데이터 요청·화면·동기화가 일관되게 사용하도록 연결한 것입니다.** 코드의 책임을 정리하는 개선과, 합의한 동작을 막던 결함 수정이 함께 들어갔습니다.
+
+현재 설명 기준은 `refactor/app-startup-lifecycle` 브랜치의 미커밋 코드입니다. HEAD는 정책 문서 커밋 `7cfa7db`이고, 앞선 Store 구현도 이미 작업 트리에 있었습니다. 따라서 아래에서는 **기존 Store 단계에서 확보한 기반**과 **이번 워커 작업에서 보완한 연결**을 구별하겠습니다. 흐름은 현재 소스와 테스트로 재구성한 것이며 실기기 실행 기록은 아닙니다.
+
+먼저 범위의 출발점은 [기존 합의 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/records/2026-09-16-01-network-policy-and-implementation-boundaries.md:5)에 있는 “Network Store 내부 동작과 Router·Policy·화면·sync 시작까지 연결하는 데 필요한 수정”입니다. 그래서 Store 파일 내부만 고쳐서는 맡은 결과를 충족할 수 없었습니다. 상태를 읽는 실제 버튼·폼·조회 화면까지 같은 기준으로 동작해야 했습니다.
+
+1. **네트워크 상태를 관측하는 책임과 사용하는 책임을 구별했습니다.**
+
+   Network Store는 인터넷 연결 신호를 받아 `online`, `offline`, `unknown`으로 표현합니다. `unknown`은 초기 확인 전뿐 아니라 사용 중 관측이 다시 불확실해진 경우에도 사용합니다.
+
+   판정은 기존에 합의한 그대로입니다. 두 신호 중 하나라도 명시적으로 false이면 offline, 둘 다 true이면 online, 나머지는 unknown입니다. 10초가 지나도 unknown을 offline으로 바꾸지 않습니다. “확인 중” 안내를 “확인하지 못했음”으로 바꾸는 시간일 뿐입니다.
+
+   이번 품질 개선에서는 이 Store를 더 분할하지 않았습니다. 구독·타이머·재확인 요청을 같은 파일의 private action factory가 소유하는 기존 구조를 유지했습니다.
+
+   소비자는 목적에 맞는 값을 읽습니다.
+
+   - 실제 요청과 sync는 실제 관측값을 읽습니다.
+   - 화면 표시와 제한 시뮬레이션은 debug 강제 설정을 반영한 값을 읽습니다.
+   - 재확인 안내는 연결 상태와 별도의 확인 진행 상태를 읽습니다.
+
+   이 차이는 [Store의 실제·표시 API](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/store/network.ts:257)에 드러납니다. 예를 들어 debug에서 online으로 표시해도 실제 상태가 unknown이면 서버 요청을 허용하지 않습니다.
+
+   품질 측면에서는 “이 online이 실제 관측인지 화면용 강제 값인지”를 호출하는 곳마다 추측하는 부담을 줄였습니다.
+
+2. **앱 진입 준비와 sync 실행 준비를 구별했습니다.**
+
+   앱을 켰을 때 네트워크 확인과 DB·인증 준비는 독립적으로 시작합니다. 네트워크 결과가 늦다고 DB 초기화나 인증 복원을 기다리게 하지 않습니다.
+
+   Root에는 의미가 다른 두 값이 있습니다.
+
+   - `isAppReady`: 준비 시도가 끝났으므로 Splash를 해제할 수 있는가.
+   - `isDatabaseReady`: DB 초기화가 실제로 성공했는가.
+
+   이 구분이 필요한 이유는 준비 시도가 실패해도 종료될 수 있기 때문입니다. “준비가 끝났다”는 값 하나를 DB 사용 가능의 증거로 사용하면 실패한 DB를 대상으로 sync를 시작할 수 있습니다. 현재 Root는 실제 DB 성공을 Provider에 전달합니다. [Root의 준비 처리와 Provider 연결](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/app/_layout.tsx:173)
+
+   SyncProvider는 다음 조건이 모두 맞을 때 새 실행을 시작합니다. DB 성공, 인증 초기화 완료, 로그인 상태, 실제 online, debug 강제 설정 해제입니다. 최초 준비 완료·로그인·연결 복구·강제 설정 해제가 같은 시작 조건을 사용합니다.
+
+   **중복 실행 방지도 표시 상태와 구별했습니다.** 이전 코드의 `isSyncing`은 React가 다음 렌더에서 반영하는 값이라 같은 순간의 두 호출이 모두 false를 읽을 수 있었습니다. 지금은 첫 호출이 진행 중 Promise를 즉시 저장하고, 다음 호출은 그 Promise를 반환합니다. 자동 실행과 수동 버튼이 겹쳐도 하나의 실행 완료를 기다립니다. [Provider의 실행 조건과 Promise 소유](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/sync/provider.tsx:44)
+
+   실제 debug 버튼도 engine을 직접 호출하지 않고 이 Provider를 사용합니다. 그래서 Provider에 보호 조건이 있어도 버튼이 우회하던 문제를 해결했습니다. 버튼은 실행 거부·실행 실패·engine 반환을 구별해 안내합니다. [수동 sync 버튼 연결](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/debug/ui/DebugScreen.tsx:126)
+
+   이미 시작한 실행은 중간에 offline이 되거나 override가 켜졌다는 이유로 취소하지 않습니다. 그때 추가 호출이 오면 기존 실행을 기다립니다. 또 `completed`는 engine 함수가 반환했다는 뜻이며, queue의 모든 항목이 서버에 반영됐다는 보장은 아닙니다. 그 결과 의미는 15번의 후속 범위입니다.
+
+3. **데이터를 어느 여행 기준으로 처리하는지 호출부에서 명확하게 전달했습니다.**
+
+   Activation Router는 여행 데이터의 Local/Remote 분기를 맡습니다. 활성 여행은 Local SQLite, 비활성 여행은 실제 online에서 Server API를 사용합니다.
+
+   이전에는 Trip 수정·삭제가 “앱에 활성 여행이 하나라도 있는가”에 영향을 받았습니다. 활성 여행 A가 있다는 이유로 비활성 여행 B의 수정이 Local로 갈 수 있는 구조였습니다. 지금은 **수정하려는 B의 tripId**로 B의 활성 여부를 판단합니다.
+
+   Schedule·Expense 수정과 삭제에도 문제가 있었습니다. 소속 여행을 알아내려고 데이터를 먼저 Local에서 찾았습니다. 하지만 비활성 여행의 데이터는 서버에만 있을 수 있습니다. 그러면 서버 작업을 해야 하는데 Local 선조회에서 먼저 실패합니다.
+
+   지금은 화면이 이미 알고 있는 tripId를 mutation hook과 repository에 전달합니다. 예를 들어 경비 수정은 `update(id, tripId, data)`이고 일정별 경비 조회도 `getByScheduleId(scheduleId, tripId)`입니다. [Expense repository의 명시적 여행 입력](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/entities/expense/repository/expense-repository.ts:36)
+
+   Router는 대상 여행의 활성 여부를 조회한 뒤 최신 네트워크와 override를 확인합니다. 활성 여행은 unknown/offline에서도 기존 Local 저장·queue 경로를 사용합니다. 비활성 여행은 실제 online에서만 서버 작업을 시작합니다. override 중에는 두 쓰기 경로 모두 거부합니다. [대상 여행 mutation 분기](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/offline-prep/router.ts:76)
+
+   여기에는 두 가지 구별도 남겼습니다. 전체 여행 목록은 기존 “활성 여행이 있으면 Local 목록” 계약을 유지했습니다. 새 여행은 아직 활성화된 대상이 없으므로 실제 online에서 Remote로 생성합니다.
+
+   Trip 수정의 PATCH→PUT은 기존 서버가 제공하는 PUT과 맞춘 작은 계약 수정입니다. 새로운 서버 API를 만든 것이 아닙니다. [클라이언트 수정 요청](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/entities/trip/api/trips.ts:47), [기존 서버 PUT](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/server/src/routes/trips.ts:159)
+
+   품질 개선의 핵심은 소속 여행을 내부에서 다시 찾아 추론하던 전제를 없애고, 분기에 필요한 입력을 함수 인자에 드러낸 것입니다.
+
+4. **서버 캐시가 남아 있는 것과 지금 내용을 볼 수 있는 것을 구별했습니다.**
+
+   React Query는 이전 서버 응답을 앱 메모리에 보관합니다. 서버 요청을 차단해도 그 응답은 남아 있습니다. 따라서 `data`가 있다는 이유만으로 일정·경비를 렌더하면 비활성 여행의 내용이 offline에서도 계속 보일 수 있습니다.
+
+   합의한 방식은 캐시를 삭제하지 않고 화면에서 접근 정책을 적용하는 것입니다. 이를 위해 역할을 세 부분으로 나눴습니다.
+
+   `useAppPolicy`는 현재 여행의 활성 여부와 화면 네트워크 상태를 해석해 내용 접근 권한·제한 이유를 제공합니다. 활성 여부를 아직 읽는 중인 상태도 inactive로 단정하지 않고 로딩으로 구별합니다. [내용 접근 정책](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/policy/useAppPolicy.ts:85)
+
+   `useTripContentAccess`는 조회 상태와 복구 과정을 다룹니다. 같은 비활성 여행에서 실제 연결이 회복되면 다시 조회하고 성공 뒤 내용을 엽니다. 실패하면 일반 오류와 재시도 상태를 보여 줍니다. [내용 복구 처리](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/policy/useTripContentAccess.ts:30)
+
+   `TripContentStatus`는 그 결과를 기존 정책 안내와 버튼으로 표시합니다. 일정·경비 화면은 본문을 내용 또는 제한 안내 중 하나로 선택하고 여행 선택 UI와 수정 Drawer는 밖에 유지합니다. [일정 화면의 실제 본문 연결](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/ScheduleScreen.tsx:228)
+
+   설명용으로 비활성 여행 B의 경비를 보고 있다고 가정하면, 현재 코드는 다음 흐름을 만듭니다.
+
+   1. 실제 offline이 되면 B의 선택과 캐시는 유지하고 경비 내용 대신 제한 안내를 보여 줍니다.
+   2. 실제 online으로 돌아오면 B의 경비를 다시 조회하며, 성공 전에는 이전 내용을 공개하지 않습니다.
+   3. 성공하면 최신 내용을 열고 복구 안내를 표시합니다. 실패하면 재시도를 제공합니다.
+   4. 사용자가 그 사이 다른 여행으로 이동했다면 B의 늦은 완료가 현재 화면의 복구 상태나 안내를 바꾸지 않습니다.
+
+   초기 unknown이 처음 online으로 확인되는 경우에는 장애 복구 안내를 붙이지 않습니다. 실제 offline을 겪은 뒤 조회가 성공한 경우를 구별합니다.
+
+   상세 화면에도 이 연결이 필요한 이유가 있습니다. 목록에서 내용을 가려도 이미 열려 있는 상세가 캐시를 그대로 보여 주면 같은 정책을 우회합니다. 일정 상세는 일정과 연결 경비의 조회가 모두 성공해야 복구 내용을 엽니다. [상세 화면의 두 조회 연결](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/ScheduleDetailScreen.tsx:24)
+
+   목록과 상세가 같은 query를 동시에 관찰할 수도 있습니다. 복구 조회에는 `cancelRefetch: false`를 사용해 이미 진행 중인 요청을 취소하고 새 요청을 만드는 대신 완료를 공유합니다. 이 부분은 실제 React Query를 사용하는 [다중 소비자 회귀 검사](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tests/shared/policy/content-query-concurrency.test.tsx:51)로 확인했습니다.
+
+5. **저장 차단과 입력 보존을 서로 다른 책임으로 유지했습니다.**
+
+   화면의 정책 안내는 현재 제한을 설명합니다. 실제 저장·삭제 차단은 Router가 실행 순간에 합니다. 버튼마다 unknown 조건을 복제하지 않았습니다.
+
+   예를 들어 비활성 여행의 경비를 입력하다가 unknown이 되어 저장을 누르면, Router가 서버 전송 전에 거부합니다. 폼은 그대로 있고 기존 오류 처리에서 “연결을 아직 확인하지 못했다”는 이유를 보여 줍니다. 연결이 회복돼도 자동 저장하지 않으며 사용자가 다시 누릅니다.
+
+   이전 화면은 정책에 따라 폼 대신 제한 화면을 반환하거나 다른 폼 컴포넌트로 교체할 수 있었습니다. 이번에는 현재 폼을 유지하면서 안내를 붙이도록 바꿨습니다. 경비 생성 화면에서도 같은 폼을 계속 렌더합니다. [폼을 유지하는 화면 연결](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/CreateExpenseScreen.tsx:44)
+
+   오류 메시지도 구별합니다. Router가 전달한 제한 이유는 그대로 사용하고, 일반 서버 오류에는 기존 “생성에 실패했습니다” 같은 문구를 사용합니다. 이를 작은 공통 helper에 모아 각 폼과 삭제 경로가 같은 규칙을 사용하게 했습니다. [오류 메시지 처리](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/policy/mutationErrorMessage.ts:3)
+
+   입력 보존은 현재 열려 있는 폼을 유지한다는 뜻입니다. 별도 draft 저장, 앱 종료 후 복원, 쓰기 예약 기능을 추가한 것은 아닙니다.
+
+6. **지도·검색·길찾기는 실제 연결을 확인하는 서비스로 연결했습니다.**
+
+   여행 데이터와 달리 장소 검색·지도·길찾기는 외부 서비스를 사용하는 기능입니다. 여행 Data Router의 Local/Remote 저장 계약에 넣지 않았습니다.
+
+   장소 검색은 실제 online일 때 query를 열고, 요청 함수에서도 최신 상태를 확인합니다. 검색 응답 뒤 장소별 상세 요청을 시작하기 전에도 확인합니다. 검색을 보낸 뒤 unknown으로 바뀌었다면 이미 보낸 검색은 취소하지 않지만 새 상세 요청은 시작하지 않습니다.
+
+   길찾기도 fetch 전에 실제 연결을 확인합니다. 지도 두 소비부는 표시 정책이 Google 지도를 골랐더라도 실제 online이 아니면 Google 컴포넌트를 마운트하지 않습니다. 이 공통 판단은 [서비스 접근 함수](/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/services/network-access.ts:7)에 있습니다.
+
+   따라서 debug 강제 online은 실제 offline 요청을 열지 않습니다. 반대로 실제 online에서 화면을 offline으로 강제하면 기존 표시 정책에 따라 Local 지도를 선택할 수 있습니다. 표시 정책과 실제 요청 허용값이 각자의 역할을 유지합니다.
+
+이 설명의 normal mode, 즉 override가 없는 상태에서 핵심 동작은 다음과 같습니다. sync 허용에는 DB·인증 준비 조건도 필요합니다.
+
+| 실제 연결 | 활성 여행 데이터 | 비활성 여행 데이터 | 온라인 서비스·새 sync |
+|---|---|---|---|
+| online | Local 조회·쓰기 | Remote 조회·쓰기, 복구 중이면 성공 뒤 내용 공개 | 서비스 허용, 준비 조건을 만족하면 sync |
+| unknown | Local 조회·쓰기 유지 | Remote 차단, 내용에 확인 안내 | 시작 차단 |
+| offline | Local 조회·쓰기 유지 | Remote 차단, 내용에 제한 안내 | 시작 차단 |
+
+**품질이 좋아졌다는 근거는 이 책임들이 코드에서 더 직접적으로 읽힌다는 점입니다.** sync의 표시 상태와 실행 소유권, 준비 시도 종료와 DB 성공, 캐시 존재와 내용 접근 권한, 화면 표시와 실제 요청 상태를 구별했습니다. 또 대상 여행을 찾기 위한 우회를 제거하고, 복구·오류 처리의 공통 규칙을 실제 소비부에 연결했습니다. 줄 수나 새 helper 개수를 개선 근거로 삼지는 않았습니다.
+
+검증에서는 구현자가 아닌 코드 전문가가 합의·수정 전 코드·현재 호출부를 대조했습니다. 그 과정에서 초기 unknown 뒤 여행 목록이 회복되지 않는 문제, 제한 안내 중복, 삭제 이유 누락, 여러 화면의 복구 조회가 서로 취소하는 문제를 찾아 보완했습니다. 최종 판정은 이번 범위에서 남은 주요 수정 사항을 발견하지 못했다는 것이었습니다.
+
+앞선 구현 종료 시 Main이 실행한 전체 검사는 **20개 suite의 205개 테스트 통과**였습니다. 여기에는 실제 React와 React Query를 사용하는 폼·화면·경쟁 실행 검사도 있고, DB·HTTP·native 경계를 mock으로 대체한 검사도 있습니다. 이번 브리핑에서는 현재 소스를 다시 읽었으며 전체 테스트를 다시 실행하지는 않았습니다.
+
+남은 경계도 분명합니다. 실제 SQLite 원자성·외부 API·native 지도·실기기 NetInfo·navigation stack은 실행하지 않았습니다. 기존 지도 타입 오류 세 개도 남아 있습니다. Root에는 실패해도 준비 종료로 처리하는 기존 흐름이 있고, cleanup의 고정 지연 같은 나머지 startup 연결도 후속 범위입니다. transaction은 14번, engine 결과·재시도는 15번, cleanup은 16번에 남습니다.
+
+따라서 현재 결과는 **합의한 첫 네트워크 범위의 실제 소비 연결을 구현하고 검사한 상태**입니다. Ticket 06 전체 완료나 제품 최종 수락까지 의미하지는 않습니다. 구체적인 변경·독립 검증·검사 한계는 [이번 실행 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/002-code-readability-refactoring/records/2026-09-17-02-network-consumer-quality-improvements.md)에 연결해 두었습니다.
+
+[user] 2026-09-17T03:20:40.384Z — source_line 970
+
+지금 음 뭔가 작업의 범위가 너무 커진것 같아 다시 되돌려놓자 니가 처음 본 코드로 코드 전문가도 동작의 개선보다 가독성 응집도 뭐 파악쉬운 등의 spec 목표정도의 코드 퀄리티 였는데 이렇게 하면 계속 범위가 커질 것 같아 그냥 다시 되돌려놓자
+
+
+[assistant] 2026-09-17T03:20:53.101Z — source_line 975
+
+제가 가독성·응집도 중심의 품질 개선을 동작 개선까지 넓혔습니다. 워커 작업 전 보존한 코드와 당시 변경 목록을 기준으로 이번 변경을 되돌리겠습니다. 기존에 작업 중이던 변경은 그대로 보존하겠습니다.
+
+
+[assistant] 2026-09-17T03:21:16.522Z — source_line 991
+
+`reconsider-work` 스킬의 기준으로도 목표를 다시 확인했습니다. 이번 검증은 동작이 맞는지를 확인했지만, 가독성·응집도라는 원래 목적에 비해 변경 부담이 적절한지는 충분히 판단하지 못했습니다. 복구 기준 사본이 남아 있어 이번 구현과 추가 테스트를 정확히 회수할 수 있습니다.
+
+
+[assistant] 2026-09-17T03:22:29.714Z — source_line 1013
+
+제가 가독성·응집도 개선을 동작 개선까지 넓힌 판단이 과했습니다.
+
+**워커 작업 전 보존한 코드로 되돌렸습니다.** 이번 구현과 추가 테스트를 회수했고, 처음부터 있던 미커밋 변경은 보존했습니다.
+
+- 보존 사본과 코드 일치 확인
+- 기존 테스트 **90개 통과**
+- 작업 기록에도 구현 철회 반영
+- 커밋 없음
+
+품질 리뷰는 기존 동작을 유지하면서 읽기 쉬움·책임 응집도·수정 부담을 개선하는 기준으로 돌아가겠습니다.
+

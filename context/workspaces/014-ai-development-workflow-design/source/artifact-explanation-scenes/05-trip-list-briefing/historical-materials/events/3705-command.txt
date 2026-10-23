@@ -1,0 +1,1 @@
+cat apps/client/tests/shared/services/sync/provider-network.test.tsx | head -155; cat apps/client/tests/entities/trip/activation-query-refresh.test.ts; cat apps/client/src/shared/services/offline-prep/errors.ts; cat apps/client/src/shared/policy/errors.ts 2>/dev/null; rg -n 'isCurrentSession' apps/client/src/shared/store/auth.ts; git status --short

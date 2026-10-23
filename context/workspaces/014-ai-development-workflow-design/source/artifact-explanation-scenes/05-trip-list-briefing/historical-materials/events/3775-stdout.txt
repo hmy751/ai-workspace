@@ -1,0 +1,25 @@
+ M .claude/context/activation-system.md
+ M .claude/context/selective-activation-architecture.md
+ M apps/client/src/entities/trip/api/trips.ts
+ M apps/client/src/entities/trip/data/keys.ts
+ M apps/client/src/entities/trip/data/useActivateTrip.ts
+ M apps/client/src/entities/trip/data/useCreateTrip.ts
+ M apps/client/src/entities/trip/data/useDeactivateTrip.ts
+ M apps/client/src/entities/trip/data/useDeleteTrip.ts
+ M apps/client/src/entities/trip/data/useGetTrips.ts
+ M apps/client/src/entities/trip/data/useTripSelection.ts
+ M apps/client/src/entities/trip/data/useUpdateTrip.ts
+ M apps/client/src/entities/trip/lib/trip-local.ts
+ M apps/client/src/entities/trip/repository/trip-repository.ts
+ M apps/client/src/shared/services/offline-prep/index.ts
+ M apps/client/src/shared/services/offline-prep/router.ts
+ M apps/client/tests/entities/trip/activation-query-refresh.test.ts
+ M apps/client/tests/entities/trip/data/useGetTrips.test.tsx
+ M apps/client/tests/entities/trip/data/useTripSelection.test.tsx
+ M apps/client/tests/shared/services/offline-prep/router-network.test.ts
+ M apps/server/src/routes/trips.ts
+?? .claude/decisions/2026-10-04-inactive-trip-creation.md
+?? .pnpm-store/
+?? apps/client/tests/entities/trip/api/
+?? apps/client/tests/entities/trip/trip-lifecycle.test.ts
+?? apps/server/tests/routes/trips.list.test.ts

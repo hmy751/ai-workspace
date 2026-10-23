@@ -1,0 +1,38 @@
+diff --git a/apps/client/src/features/debug/ui/DebugScreen.tsx b/apps/client/src/features/debug/ui/DebugScreen.tsx
+index bc32aa0..941fd9e 100644
+--- a/apps/client/src/features/debug/ui/DebugScreen.tsx
++++ b/apps/client/src/features/debug/ui/DebugScreen.tsx
+@@ -8,7 +8,7 @@ import { db, trips, schedules, expenses, syncQueue, offlineCities, tripActivatio
+ import type { Trip, Schedule, Expense, SyncQueueItem, OfflineCity, TripActivation } from '@/shared/db/schema';
+ import { resetDatabase } from '@/shared/db';
+ import { getSyncQueueStats } from '@/shared/services/sync/queue';
+-import { triggerSync } from '@/shared/services/sync/engine';
++import { useSyncContext } from '@/shared/services/sync/provider';
+ import { DashboardView } from './DashboardView';
+ import { DataInspectorView } from './DataInspectorView';
+ import { ToolsView } from './ToolsView';
+@@ -18,6 +18,7 @@ import { Text } from 'react-native';
+ type ViewMode = 'dashboard' | 'inspector' | 'tools';
+ 
+ export default function DebugScreen() {
++  const { triggerManualSync } = useSyncContext();
+   const [refreshing, setRefreshing] = useState(false);
+   const [viewMode, setViewMode] = useState<ViewMode>('dashboard');
+ 
+@@ -124,13 +125,13 @@ export default function DebugScreen() {
+ 
+   const handleManualSync = async () => {
+     try {
+-      const result = await triggerSync();
++      const result = await triggerManualSync();
+ 
+-      if (result.success) {
++      if (result.status === 'completed') {
+         await loadData(); // 데이터 새로고침
+         Alert.alert('✅ 성공', result.message);
+       } else {
+-        Alert.alert('❌ 실패', result.message);
++        Alert.alert(result.status === 'blocked' ? '동기화할 수 없습니다' : '❌ 실패', result.message);
+       }
+     } catch (error) {
+       console.error('❌ Manual sync error:', error);

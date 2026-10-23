@@ -1,0 +1,199 @@
+     1	import { requireLocalUserId } from '@/shared/store/auth';
+     2	// Trip Local DataSource - SQLite 로컬 DB 작업
+     3	
+     4	import { getDatabase, trips, schedules, expenses, syncQueue } from '@/shared/db';
+     5	import { eq, isNull, desc, sql, or, and, inArray } from 'drizzle-orm';
+     6	import { withTransaction, getCurrentISOString } from '@/shared/db/utils';
+     7	import { addToSyncQueue } from '@/shared/services/sync/queue';
+     8	import { AuthRequiredError, selectLocalUserId, useAuthStore } from '@/shared/store/auth';
+     9	import { ownedRow, activeTripScope, assertActiveLocalTrip } from '@/shared/services/auth/local-access';
+    10	import type { Trip, UpdateTripRequest } from '../model';
+    11	
+    12	/**
+    13	 * 로컬 DB에서 현재 사용자의 여행 조회
+    14	 * - userId 필터링 적용 (계정별 데이터 분리)
+    15	 * - deletedAt이 null인 항목만 조회 (Soft Delete)
+    16	 * - updatedAt 기준 내림차순 정렬
+    17	 */
+    18	export const getTripsLocal = async (): Promise<Trip[]> => {
+    19	  const userId = selectLocalUserId(useAuthStore.getState());
+    20	  if (!userId) {
+    21	    console.log('[TripLocal] No authenticated user, returning empty trips');
+    22	    return [];
+    23	  }
+    24	
+    25	  const tripList = await getDatabase()
+    26	    .select()
+    27	    .from(trips)
+    28	    .where(
+    29	      ownedRow(
+    30	        trips.userId,
+    31	        isNull(trips.deletedAt),
+    32	        useAuthStore.getState().status === 'reauth-required' ? activeTripScope(trips.id) : undefined,
+    33	      ),
+    34	    )
+    35	    .orderBy(desc(trips.updatedAt))
+    36	    .all();
+    37	
+    38	  console.log(`[TripLocal] Trips loaded from local DB: ${tripList.length} items for user ${userId}`);
+    39	  return tripList;
+    40	};
+    41	
+    42	/**
+    43	 * 로컬 DB에서 특정 여행 조회
+    44	 */
+    45	export const getTripByIdLocal = async (id: string): Promise<Trip | undefined> => {
+    46	  return await getDatabase()
+    47	    .select()
+    48	    .from(trips)
+    49	    .where(
+    50	      ownedRow(
+    51	        trips.userId,
+    52	        eq(trips.id, id),
+    53	        useAuthStore.getState().status === 'reauth-required' ? activeTripScope(trips.id) : undefined,
+    54	      ),
+    55	    )
+    56	    .get();
+    57	};
+    58	
+    59	/** 활성 여행과 전송 대기·진행·실패 작업의 부모 여행은 서버 목록으로 덮지 않는다. */
+    60	function protectedTripScope() {
+    61	  const db = getDatabase();
+    62	  return or(
+    63	    activeTripScope(trips.id),
+    64	    inArray(trips.id, db.select({ id: syncQueue.recordId }).from(syncQueue).where(eq(syncQueue.tableName, 'trips'))),
+    65	    inArray(
+    66	      trips.id,
+    67	      db
+    68	        .select({ id: schedules.tripId })
+    69	        .from(schedules)
+    70	        .innerJoin(syncQueue, and(eq(syncQueue.tableName, 'schedules'), eq(syncQueue.recordId, schedules.id))),
+    71	    ),
+    72	    inArray(
+    73	      trips.id,
+    74	      db
+    75	        .select({ id: expenses.tripId })
+    76	        .from(expenses)
+    77	        .innerJoin(syncQueue, and(eq(syncQueue.tableName, 'expenses'), eq(syncQueue.recordId, expenses.id))),
+    78	    ),
+    79	  );
+    80	}
+    81	
+    82	/** 서버의 전체 목록을 반영하고 로컬이 책임지는 여행을 보존한다. sync_queue는 변경하지 않는다. */
+    83	export const refreshTripListLocal = async (serverTrips: Trip[], sessionId: symbol | null, signal?: AbortSignal) => {
+    84	  return await withTransaction(async () => {
+    85	    if (!useAuthStore.isCurrentSession(sessionId)) throw new AuthRequiredError();
+    86	    if (signal?.aborted) throw new Error('취소된 여행 목록 조회입니다');
+    87	
+    88	    const userId = requireLocalUserId();
+    89	
+    90	    if (serverTrips.some((trip) => trip.userId !== userId)) throw new Error('다른 계정의 여행 목록입니다');
+    91	
+    92	    const localTrips = await getDatabase().select().from(trips).where(ownedRow(trips.userId)).all();
+    93	    const protectedTrips = await getDatabase()
+    94	      .select()
+    95	      .from(trips)
+    96	      .where(ownedRow(trips.userId, protectedTripScope()))
+    97	      .all();
+    98	    const protectedIds = new Set(protectedTrips.map((trip) => trip.id));
+    99	    const serverIds = new Set(serverTrips.map((trip) => trip.id));
+   100	
+   101	    for (const trip of serverTrips) {
+   102	      if (protectedIds.has(trip.id)) continue;
+   103	
+   104	      const record = { ...trip, userId, deletedAt: trip.deletedAt ?? null, version: trip.version ?? 1 };
+   105	      await getDatabase()
+   106	        .insert(trips)
+   107	        .values(record)
+   108	        .onConflictDoUpdate({
+   109	          target: trips.id,
+   110	          set: record,
+   111	          setWhere: ownedRow(trips.userId),
+   112	        });
+   113	    }
+   114	    // 서버에서 사라진 비활성 사본을 숨긴다. 미전송 삭제를 포함한 로컬 원본은 보존한다.
+   115	    const now = getCurrentISOString();
+   116	    for (const trip of localTrips) {
+   117	      if (!serverIds.has(trip.id) && !protectedIds.has(trip.id) && trip.deletedAt === null) {
+   118	        await getDatabase()
+   119	          .update(trips)
+   120	          .set({ deletedAt: now, updatedAt: now })
+   121	          .where(ownedRow(trips.userId, eq(trips.id, trip.id)));
+   122	      }
+   123	    }
+   124	    if (!useAuthStore.isCurrentSession(sessionId)) throw new AuthRequiredError();
+   125	    if (signal?.aborted) throw new Error('취소된 여행 목록 조회입니다');
+   126	    return { trips: await getTripsLocal(), hasLocalTrips: protectedTrips.length > 0 };
+   127	  });
+   128	};
+   129	
+   130	/**
+   131	 * 로컬 DB에서 여행 수정 + sync_queue 기록
+   132	 * - latitude/longitude: number → string 변환
+   133	 */
+   134	export const updateTripLocal = async (id: string, data: UpdateTripRequest): Promise<Trip> => {
+   135	  const now = getCurrentISOString();
+   136	
+   137	  const dbData = {
+   138	    ...data,
+   139	    latitude: data.latitude?.toString() ?? null,
+   140	    longitude: data.longitude?.toString() ?? null,
+     1	import { useEffect } from 'react';
+     2	import { useTripStore } from '@/shared/store/useTripStore';
+     3	import { networkStore } from '@/shared/store/network';
+     4	import { useGetTrips } from './useGetTrips';
+     5	import { selectMainTrip } from '../utils';
+     6	
+     7	/** 사용자 선택을 유지하며, 선택이 없거나 서버 목록에서 제거된 경우에만 기본 여행을 선택한다. */
+     8	export function useTripSelection() {
+     9	  const { selectedTripId, setSelectedTripId } = useTripStore();
+    10	  const { data: trips, dataSource, isSuccess, isFetching } = useGetTrips();
+    11	
+    12	  useEffect(() => {
+    13	    if (!isSuccess || isFetching || !trips) {
+    14	      return;
+    15	    }
+    16	
+    17	    if (selectedTripId !== null) {
+    18	      if (trips.some((trip) => trip.id === selectedTripId)) {
+    19	        return;
+    20	      }
+    21	
+    22	      // 로컬 목록이나 연결이 끊긴 동안 남은 캐시만으로 삭제를 판정하지 않는다.
+    23	      if ((dataSource !== 'remote' && dataSource !== 'mixed') || networkStore.realStatus !== 'online') {
+    24	        return;
+    25	      }
+    26	    }
+    27	
+    28	    const nextTripId = (selectMainTrip(trips) ?? trips[0])?.id ?? null;
+    29	    if (nextTripId !== selectedTripId) {
+    30	      setSelectedTripId(nextTripId);
+    31	    }
+    32	  }, [trips, dataSource, isSuccess, isFetching, selectedTripId, setSelectedTripId]);
+    33	}
+diff --git a/apps/server/src/routes/trips.ts b/apps/server/src/routes/trips.ts
+index befb4bb..85987db 100644
+--- a/apps/server/src/routes/trips.ts
++++ b/apps/server/src/routes/trips.ts
+@@ -40,13 +40,6 @@ router.get('/', requireAuth, async (req: Request, res: Response) => {
+       .where(and(eq(trips.userId, userId), isNull(trips.deletedAt)))
+       .orderBy(desc(trips.createdAt));
+ 
+-    if (!allTrips || allTrips.length === 0) {
+-      return res.status(404).json({
+-        error: 'Not found',
+-        message: 'No trips found',
+-      });
+-    }
+-
+     // Zod로 응답 데이터 검증
+     const validatedTrips = allTrips.map((trip) => {
+       const validated = tripEntity.safeParse(serializeTrip(trip));
+
+PASS apps/client/tests/entities/trip/api/trips.test.ts
+
+Test Suites: 51 passed, 51 total
+Tests:       1 skipped, 578 passed, 579 total
+Snapshots:   0 total
+Time:        8.265 s
+Ran all test suites.

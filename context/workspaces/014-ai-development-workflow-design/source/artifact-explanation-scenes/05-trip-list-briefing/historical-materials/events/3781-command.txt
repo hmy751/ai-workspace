@@ -1,0 +1,1 @@
+git diff -- apps/client/src/entities/trip/lib/trip-local.ts

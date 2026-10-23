@@ -1,0 +1,1 @@
+nl -ba apps/client/src/entities/trip/lib/trip-local.ts | head -140; nl -ba apps/client/src/entities/trip/data/useTripSelection.ts; git diff -- apps/server/src/routes/trips.ts; tail -8 /tmp/noline-review-alltests-final.log

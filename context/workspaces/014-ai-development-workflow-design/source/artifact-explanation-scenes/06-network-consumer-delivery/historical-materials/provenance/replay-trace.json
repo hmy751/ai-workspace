@@ -1,0 +1,2000 @@
+{
+  "apps/client/tests/shared/policy/useAppPolicy-network.test.ts": [
+    {
+      "source": "main+independent_code_quality_review",
+      "source_lines": [
+        54,
+        134,
+        141,
+        34,
+        35,
+        63
+      ],
+      "kind": "repeated-initial-cat"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 69,
+      "timestamp": "2026-09-17T02:57:02.172Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/tests/shared/services/offline-prep/router-network.test.ts": [
+    {
+      "source": "main+independent_code_quality_review",
+      "source_lines": [
+        54,
+        134,
+        141,
+        34,
+        35,
+        63
+      ],
+      "kind": "repeated-initial-cat"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 61,
+      "timestamp": "2026-09-17T02:56:43.077Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 165,
+      "timestamp": "2026-09-17T03:00:56.894Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 165,
+      "timestamp": "2026-09-17T03:00:56.894Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/tests/shared/services/sync/provider-network.test.tsx": [
+    {
+      "source": "main+independent_code_quality_review",
+      "source_lines": [
+        54,
+        134,
+        141,
+        34,
+        35,
+        63
+      ],
+      "kind": "repeated-initial-cat"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 47,
+      "timestamp": "2026-09-17T02:56:27.708Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 104,
+      "timestamp": "2026-09-17T02:58:37.693Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 121,
+      "timestamp": "2026-09-17T02:58:59.350Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 121,
+      "timestamp": "2026-09-17T02:58:59.350Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 153,
+      "timestamp": "2026-09-17T03:00:10.009Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 153,
+      "timestamp": "2026-09-17T03:00:10.009Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/tests/shared/store/network.test.ts": [
+    {
+      "source": "main+independent_code_quality_review",
+      "source_lines": [
+        54,
+        134,
+        141,
+        34,
+        35,
+        63
+      ],
+      "kind": "repeated-initial-cat"
+    }
+  ],
+  "apps/client/app/_layout.tsx": [
+    {
+      "source": "main",
+      "source_line": 62,
+      "timestamp": "2026-09-17T02:42:53.347Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 57,
+      "timestamp": "2026-09-17T02:57:07.969Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 85,
+      "timestamp": "2026-09-17T02:58:23.225Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 104,
+      "timestamp": "2026-09-17T02:58:37.693Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 135,
+      "timestamp": "2026-09-17T02:59:28.521Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 135,
+      "timestamp": "2026-09-17T02:59:28.521Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/src/features/trip/create-trip/TripDateForm.tsx": [
+    {
+      "source": "main",
+      "source_line": 62,
+      "timestamp": "2026-09-17T02:42:53.347Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 42,
+      "timestamp": "2026-09-17T02:45:39.461Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 53,
+      "timestamp": "2026-09-17T02:45:49.481Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 179,
+      "timestamp": "2026-09-17T03:03:19.753Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 218,
+      "timestamp": "2026-09-17T03:03:46.971Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 218,
+      "timestamp": "2026-09-17T03:03:46.971Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/src/screens/HomeScreen/index.tsx": [
+    {
+      "source": "main",
+      "source_line": 62,
+      "timestamp": "2026-09-17T02:42:53.347Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 42,
+      "timestamp": "2026-09-17T02:45:39.461Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 53,
+      "timestamp": "2026-09-17T02:45:49.481Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 223,
+      "timestamp": "2026-09-17T03:04:29.891Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/shared/components/Card/ScheduleCard.tsx": [
+    {
+      "source": "main",
+      "source_line": 62,
+      "timestamp": "2026-09-17T02:42:53.347Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 42,
+      "timestamp": "2026-09-17T02:45:39.461Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 53,
+      "timestamp": "2026-09-17T02:45:49.481Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 74,
+      "timestamp": "2026-09-17T02:57:23.423Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 223,
+      "timestamp": "2026-09-17T03:04:29.891Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx": [
+    {
+      "source": "main",
+      "source_line": 62,
+      "timestamp": "2026-09-17T02:42:53.347Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 42,
+      "timestamp": "2026-09-17T02:45:39.461Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 53,
+      "timestamp": "2026-09-17T02:45:49.481Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 223,
+      "timestamp": "2026-09-17T03:04:29.891Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/shared/policy/types.ts": [
+    {
+      "source": "main",
+      "source_line": 62,
+      "timestamp": "2026-09-17T02:42:53.347Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/shared/policy/useAppPolicy.ts": [
+    {
+      "source": "main",
+      "source_line": 62,
+      "timestamp": "2026-09-17T02:42:53.347Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 74,
+      "timestamp": "2026-09-17T02:57:23.423Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 90,
+      "timestamp": "2026-09-17T02:58:21.091Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 162,
+      "timestamp": "2026-09-17T03:01:54.757Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 218,
+      "timestamp": "2026-09-17T03:03:46.971Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 218,
+      "timestamp": "2026-09-17T03:03:46.971Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/src/shared/services/offline-prep/router.ts": [
+    {
+      "source": "main",
+      "source_line": 125,
+      "timestamp": "2026-09-17T02:45:03.267Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 165,
+      "timestamp": "2026-09-17T03:00:56.894Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 165,
+      "timestamp": "2026-09-17T03:00:56.894Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/src/shared/services/sync/provider.tsx": [
+    {
+      "source": "main",
+      "source_line": 125,
+      "timestamp": "2026-09-17T02:45:03.267Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 57,
+      "timestamp": "2026-09-17T02:57:07.969Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 64,
+      "timestamp": "2026-09-17T02:57:14.730Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 85,
+      "timestamp": "2026-09-17T02:58:23.225Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 104,
+      "timestamp": "2026-09-17T02:58:37.693Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 135,
+      "timestamp": "2026-09-17T02:59:28.521Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 135,
+      "timestamp": "2026-09-17T02:59:28.521Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/src/shared/store/network.ts": [
+    {
+      "source": "main",
+      "source_line": 125,
+      "timestamp": "2026-09-17T02:45:03.267Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 223,
+      "timestamp": "2026-09-17T03:04:29.891Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/features/debug/ui/DashboardView.tsx": [
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 22,
+      "timestamp": "2026-09-17T02:45:14.012Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 42,
+      "timestamp": "2026-09-17T02:45:39.461Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 53,
+      "timestamp": "2026-09-17T02:45:49.481Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  ".claude/context/policy-architecture.md": [
+    {
+      "source": "main",
+      "source_line": 157,
+      "timestamp": "2026-09-17T02:45:34.346Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 333,
+      "timestamp": "2026-09-17T03:08:07.787Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 378,
+      "timestamp": "2026-09-17T03:09:51.510Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/features/debug/ui/DebugScreen.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 57,
+      "timestamp": "2026-09-17T02:57:07.969Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 85,
+      "timestamp": "2026-09-17T02:58:23.225Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 104,
+      "timestamp": "2026-09-17T02:58:37.693Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 172,
+      "timestamp": "2026-09-17T03:03:02.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/tests/entities/repository-routing.test.ts": [
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 71,
+      "timestamp": "2026-09-17T02:57:26.421Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 132,
+      "timestamp": "2026-09-17T03:00:02.078Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 165,
+      "timestamp": "2026-09-17T03:00:56.894Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/tests/features/debug/manual-sync.test.tsx": [
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 71,
+      "timestamp": "2026-09-17T02:57:47.335Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 104,
+      "timestamp": "2026-09-17T02:58:37.693Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 104,
+      "timestamp": "2026-09-17T02:58:37.693Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 121,
+      "timestamp": "2026-09-17T02:58:59.350Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 121,
+      "timestamp": "2026-09-17T02:58:59.350Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 135,
+      "timestamp": "2026-09-17T02:59:28.521Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 135,
+      "timestamp": "2026-09-17T02:59:28.521Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 153,
+      "timestamp": "2026-09-17T03:00:10.009Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 153,
+      "timestamp": "2026-09-17T03:00:10.009Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/src/shared/policy/useTripContentAccess.ts": [
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 83,
+      "timestamp": "2026-09-17T02:58:00.050Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 90,
+      "timestamp": "2026-09-17T02:58:21.091Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 132,
+      "timestamp": "2026-09-17T03:00:58.827Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 162,
+      "timestamp": "2026-09-17T03:01:54.757Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "main",
+      "source_line": 770,
+      "timestamp": "2026-09-17T03:07:07.248Z",
+      "kind": "recorded-file-update"
+    }
+  ],
+  "apps/client/src/shared/components/ErrorBoundary/TripContentStatus.tsx": [
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 83,
+      "timestamp": "2026-09-17T02:58:00.050Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 90,
+      "timestamp": "2026-09-17T02:58:21.091Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 162,
+      "timestamp": "2026-09-17T03:01:54.757Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "main",
+      "source_line": 668,
+      "timestamp": "2026-09-17T03:04:59.383Z",
+      "kind": "recorded-file-update"
+    }
+  ],
+  "apps/client/src/entities/trip/repository/trip-repository.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/schedule/repository/schedule-repository.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/expense/repository/expense-repository.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/trip/data/useCreateTrip.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/trip/data/useUpdateTrip.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/trip/data/useDeleteTrip.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/schedule/data/useCreateSchedule.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/schedule/data/useUpdateSchedule.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/schedule/data/useDeleteSchedule.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/expense/data/useCreateExpense.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/expense/data/useUpdateExpense.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/expense/data/useDeleteExpense.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/expense/data/useGetScheduleExpenses.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 165,
+      "timestamp": "2026-09-17T03:00:56.894Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/trip/api/trips.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 81,
+      "timestamp": "2026-09-17T02:58:05.663Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 165,
+      "timestamp": "2026-09-17T03:00:56.894Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/tests/app/startup-sync.test.tsx": [
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 78,
+      "timestamp": "2026-09-17T02:58:19.728Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 104,
+      "timestamp": "2026-09-17T02:58:37.693Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 121,
+      "timestamp": "2026-09-17T02:58:59.350Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 121,
+      "timestamp": "2026-09-17T02:58:59.350Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/src/screens/ScheduleScreen.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 90,
+      "timestamp": "2026-09-17T02:58:21.091Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 180,
+      "timestamp": "2026-09-17T03:03:20.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 256,
+      "timestamp": "2026-09-17T03:04:30.912Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 256,
+      "timestamp": "2026-09-17T03:04:30.912Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/src/screens/ExpensesScreen.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 90,
+      "timestamp": "2026-09-17T02:58:21.091Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 180,
+      "timestamp": "2026-09-17T03:03:20.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/shared/policy/mutationErrorMessage.ts": [
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 90,
+      "timestamp": "2026-09-17T02:58:21.091Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/tests/features/schedule/useLocationSearch-network.test.tsx": [
+    {
+      "source": "main",
+      "source_line": 457,
+      "timestamp": "2026-09-17T02:58:22.404Z",
+      "kind": "recorded-file-add"
+    }
+  ],
+  "apps/client/tests/shared/services/directions/network.test.ts": [
+    {
+      "source": "main",
+      "source_line": 457,
+      "timestamp": "2026-09-17T02:58:22.404Z",
+      "kind": "recorded-file-add"
+    },
+    {
+      "source": "main",
+      "source_line": 472,
+      "timestamp": "2026-09-17T02:59:33.814Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "main",
+      "source_line": 492,
+      "timestamp": "2026-09-17T03:00:11.517Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "main",
+      "source_line": 539,
+      "timestamp": "2026-09-17T03:01:20.144Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "main",
+      "source_line": 599,
+      "timestamp": "2026-09-17T03:02:44.712Z",
+      "kind": "recorded-file-update"
+    }
+  ],
+  "apps/client/tests/entities/trip-api-contract.test.ts": [
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 102,
+      "timestamp": "2026-09-17T02:58:37.370Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 165,
+      "timestamp": "2026-09-17T03:00:56.894Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 179,
+      "timestamp": "2026-09-17T03:01:19.627Z",
+      "kind": "recorded-python-transform"
+    }
+  ],
+  "apps/client/src/features/schedule/update-schedule/UpdateScheduleDrawer.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 179,
+      "timestamp": "2026-09-17T03:03:19.753Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 132,
+      "timestamp": "2026-09-17T03:00:58.827Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 179,
+      "timestamp": "2026-09-17T03:03:19.753Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/features/trip/update-trip/EditTripDrawer.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 179,
+      "timestamp": "2026-09-17T03:03:19.753Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 179,
+      "timestamp": "2026-09-17T03:03:19.753Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 218,
+      "timestamp": "2026-09-17T03:03:46.971Z",
+      "kind": "recorded-python-transform"
+    }
+  ],
+  "apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 179,
+      "timestamp": "2026-09-17T03:03:19.753Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 218,
+      "timestamp": "2026-09-17T03:03:46.971Z",
+      "kind": "recorded-python-transform"
+    }
+  ],
+  "apps/client/src/features/trip/create-trip/useCreateTripForm.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 179,
+      "timestamp": "2026-09-17T03:03:19.753Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 218,
+      "timestamp": "2026-09-17T03:03:46.971Z",
+      "kind": "recorded-python-transform"
+    }
+  ],
+  "apps/client/src/entities/trip/ui/TripSelector.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 164,
+      "timestamp": "2026-09-17T03:02:53.041Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 180,
+      "timestamp": "2026-09-17T03:03:20.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/screens/CreateExpenseScreen.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 180,
+      "timestamp": "2026-09-17T03:03:20.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/screens/CreateScheduleScreen.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 106,
+      "timestamp": "2026-09-17T02:59:22.385Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 132,
+      "timestamp": "2026-09-17T03:00:58.827Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 180,
+      "timestamp": "2026-09-17T03:03:20.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/shared/services/network-access.ts": [
+    {
+      "source": "main",
+      "source_line": 472,
+      "timestamp": "2026-09-17T02:59:33.814Z",
+      "kind": "recorded-file-add"
+    },
+    {
+      "source": "main",
+      "source_line": 492,
+      "timestamp": "2026-09-17T03:00:11.517Z",
+      "kind": "recorded-file-update"
+    }
+  ],
+  "apps/client/src/screens/ScheduleDetailScreen.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 472,
+      "timestamp": "2026-09-17T02:59:33.814Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 180,
+      "timestamp": "2026-09-17T03:03:20.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 201,
+      "timestamp": "2026-09-17T03:05:13.907Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 227,
+      "timestamp": "2026-09-17T03:06:23.512Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 254,
+      "timestamp": "2026-09-17T03:07:01.292Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 254,
+      "timestamp": "2026-09-17T03:07:01.292Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 261,
+      "timestamp": "2026-09-17T03:07:11.624Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 261,
+      "timestamp": "2026-09-17T03:07:11.624Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 472,
+      "timestamp": "2026-09-17T02:59:33.814Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "main",
+      "source_line": 492,
+      "timestamp": "2026-09-17T03:00:11.517Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 172,
+      "timestamp": "2026-09-17T03:03:02.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/shared/services/directions/mapbox.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 472,
+      "timestamp": "2026-09-17T02:59:33.814Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 172,
+      "timestamp": "2026-09-17T03:03:02.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 472,
+      "timestamp": "2026-09-17T02:59:33.814Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "main",
+      "source_line": 492,
+      "timestamp": "2026-09-17T03:00:11.517Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 172,
+      "timestamp": "2026-09-17T03:03:02.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "main",
+      "source_line": 739,
+      "timestamp": "2026-09-17T03:06:34.468Z",
+      "kind": "recorded-file-update"
+    }
+  ],
+  "apps/client/src/features/schedule/create-schedule/useLocationSearch.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 472,
+      "timestamp": "2026-09-17T02:59:33.814Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 172,
+      "timestamp": "2026-09-17T03:03:02.068Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/shared/services/offline-prep/index.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 472,
+      "timestamp": "2026-09-17T02:59:33.814Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 223,
+      "timestamp": "2026-09-17T03:04:29.891Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/tests/shared/policy/useTripContentAccess.test.ts": [
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 125,
+      "timestamp": "2026-09-17T03:00:10.179Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 162,
+      "timestamp": "2026-09-17T03:01:54.757Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/tests/shared/policy/policy-ui.test.tsx": [
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 132,
+      "timestamp": "2026-09-17T03:00:58.827Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 139,
+      "timestamp": "2026-09-17T03:01:09.606Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 146,
+      "timestamp": "2026-09-17T03:01:30.707Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 162,
+      "timestamp": "2026-09-17T03:01:54.757Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 169,
+      "timestamp": "2026-09-17T03:02:05.909Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 183,
+      "timestamp": "2026-09-17T03:02:35.697Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 197,
+      "timestamp": "2026-09-17T03:03:06.235Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 197,
+      "timestamp": "2026-09-17T03:03:06.235Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 263,
+      "timestamp": "2026-09-17T03:05:02.433Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 279,
+      "timestamp": "2026-09-17T03:05:25.999Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/tests/entities/mutation-routing-hooks.test.tsx": [
+    {
+      "source": "/root/router_repository_worker",
+      "source_line": 194,
+      "timestamp": "2026-09-17T03:02:12.357Z",
+      "kind": "recorded-heredoc"
+    }
+  ],
+  "apps/client/jest.config.cjs": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 599,
+      "timestamp": "2026-09-17T03:02:44.712Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 306,
+      "timestamp": "2026-09-17T03:07:35.947Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 232,
+      "timestamp": "2026-09-17T03:04:09.326Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 232,
+      "timestamp": "2026-09-17T03:04:09.326Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 306,
+      "timestamp": "2026-09-17T03:07:35.947Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/entities/trip/data/useGetTrips.ts": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 668,
+      "timestamp": "2026-09-17T03:04:59.383Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "main",
+      "source_line": 758,
+      "timestamp": "2026-09-17T03:06:53.322Z",
+      "kind": "git-diff-hash-verified-observation"
+    },
+    {
+      "source": "main",
+      "source_line": 830,
+      "timestamp": "2026-09-17T03:08:08.522Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 378,
+      "timestamp": "2026-09-17T03:09:51.510Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/src/screens/ExpenseDetailScreen.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 201,
+      "timestamp": "2026-09-17T03:05:13.907Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 227,
+      "timestamp": "2026-09-17T03:06:23.512Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 254,
+      "timestamp": "2026-09-17T03:07:01.292Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 254,
+      "timestamp": "2026-09-17T03:07:01.292Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 261,
+      "timestamp": "2026-09-17T03:07:11.624Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 261,
+      "timestamp": "2026-09-17T03:07:11.624Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/tests/entities/trip-list-recovery.test.tsx": [
+    {
+      "source": "main",
+      "source_line": 689,
+      "timestamp": "2026-09-17T03:05:32.404Z",
+      "kind": "recorded-file-add"
+    },
+    {
+      "source": "main",
+      "source_line": 710,
+      "timestamp": "2026-09-17T03:05:48.755Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "main",
+      "source_line": 733,
+      "timestamp": "2026-09-17T03:06:24.464Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "main",
+      "source_line": 747,
+      "timestamp": "2026-09-17T03:06:46.954Z",
+      "kind": "recorded-file-update"
+    }
+  ],
+  "apps/client/tests/screens/detail-content-access.test.tsx": [
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 215,
+      "timestamp": "2026-09-17T03:06:02.831Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 227,
+      "timestamp": "2026-09-17T03:06:23.512Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 234,
+      "timestamp": "2026-09-17T03:06:31.434Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 234,
+      "timestamp": "2026-09-17T03:06:31.434Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 254,
+      "timestamp": "2026-09-17T03:07:01.292Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 254,
+      "timestamp": "2026-09-17T03:07:01.292Z",
+      "kind": "prettier-3.6.2"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 261,
+      "timestamp": "2026-09-17T03:07:11.624Z",
+      "kind": "recorded-python-transform"
+    },
+    {
+      "source": "/root/sync_startup_worker",
+      "source_line": 261,
+      "timestamp": "2026-09-17T03:07:11.624Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "apps/client/tests/shared/policy/map-service-network.test.tsx": [
+    {
+      "source": "main",
+      "source_line": 718,
+      "timestamp": "2026-09-17T03:06:13.586Z",
+      "kind": "recorded-file-add"
+    }
+  ],
+  "apps/client/src/screens/HomeScreen/TripsSection.tsx": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 739,
+      "timestamp": "2026-09-17T03:06:34.468Z",
+      "kind": "recorded-file-update"
+    },
+    {
+      "source": "/root/independent_code_quality_review",
+      "source_line": 306,
+      "timestamp": "2026-09-17T03:07:35.947Z",
+      "kind": "git-diff-hash-verified-observation"
+    }
+  ],
+  "apps/client/tests/shared/policy/content-query-concurrency.test.tsx": [
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 325,
+      "timestamp": "2026-09-17T03:08:45.870Z",
+      "kind": "recorded-heredoc"
+    },
+    {
+      "source": "/root/policy_ui_worker",
+      "source_line": 325,
+      "timestamp": "2026-09-17T03:08:45.870Z",
+      "kind": "prettier-3.6.2"
+    }
+  ],
+  "context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 838,
+      "timestamp": "2026-09-17T03:08:59.510Z",
+      "kind": "recorded-python-transform"
+    }
+  ],
+  "context/work/workspaces/002-code-readability-refactoring/current/state/index.md": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    },
+    {
+      "source": "main",
+      "source_line": 838,
+      "timestamp": "2026-09-17T03:08:59.510Z",
+      "kind": "recorded-python-transform"
+    }
+  ],
+  "context/work/workspaces/002-code-readability-refactoring/output/index.md": [
+    {
+      "kind": "git",
+      "commit": "7cfa7db7f4a56f05f618163b80c77848032e28a3"
+    }
+  ]
+}

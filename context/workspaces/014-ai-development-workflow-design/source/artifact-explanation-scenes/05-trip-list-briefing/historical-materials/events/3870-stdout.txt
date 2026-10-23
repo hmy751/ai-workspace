@@ -1,0 +1,7 @@
+apps/client/src/shared/lib/mapbox.ts(61,26): error TS2345: Argument of type 'number[][]' is not assignable to parameter of type '[number, number][]'.
+apps/client/src/shared/services/offline-map/download.ts(171,22): error TS2339: Property 'size' does not exist on type 'OfflinePack'.
+apps/client/src/shared/services/offline-map/download.ts(172,22): error TS2339: Property 'tileCount' does not exist on type 'OfflinePack'.
+packages/ui/src/index.tsx(2,20): error TS6059: File '/Users/hammyeong-yeon/Desktop/10_work/noline/packages/ui/src/lib/utils.ts' is not under 'rootDir' '/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client'. 'rootDir' is expected to contain all source files.
+packages/ui/src/index.tsx(2,20): error TS6307: File '/Users/hammyeong-yeon/Desktop/10_work/noline/packages/ui/src/lib/utils.ts' is not listed within the file list of project '/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/ui/src/index.tsx(35,24): error TS6059: File '/Users/hammyeong-yeon/Desktop/10_work/noline/packages/ui/src/components/Select.tsx' is not under 'rootDir' '/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client'. 'rootDir' is expected to contain all source files.
+packages/ui/src/index.tsx(35,24): error TS6307: File '/Users/hammyeong-yeon/Desktop/10_work/noline/packages/ui/src/components/Select.tsx' is not listed within the file list of project '/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/tsconfig.json'. Projects must list all files or use an 'include' pattern.

@@ -1,0 +1,22 @@
+ .claude/context/activation-system.md               |  14 ++-
+ .../context/selective-activation-architecture.md   |  17 ++-
+ apps/client/src/entities/trip/api/trips.ts         |   2 +-
+ apps/client/src/entities/trip/data/keys.ts         |   1 +
+ .../src/entities/trip/data/useActivateTrip.ts      |   3 +-
+ .../client/src/entities/trip/data/useCreateTrip.ts |   9 +-
+ .../src/entities/trip/data/useDeactivateTrip.ts    |   3 +-
+ .../client/src/entities/trip/data/useDeleteTrip.ts |   7 +-
+ apps/client/src/entities/trip/data/useGetTrips.ts  |  13 ++-
+ .../src/entities/trip/data/useTripSelection.ts     |   2 +-
+ .../client/src/entities/trip/data/useUpdateTrip.ts |   7 +-
+ apps/client/src/entities/trip/lib/trip-local.ts    | 126 +++++++++++---------
+ .../entities/trip/repository/trip-repository.ts    |  24 ++--
+ apps/client/src/shared/api/fetcher.ts              |  14 +--
+ .../src/shared/services/offline-prep/index.ts      |   2 +-
+ .../src/shared/services/offline-prep/router.ts     |  52 +++++----
+ .../entities/trip/activation-query-refresh.test.ts |  21 ++++
+ .../tests/entities/trip/data/useGetTrips.test.tsx  |  67 ++++++++++-
+ .../entities/trip/data/useTripSelection.test.tsx   |   9 +-
+ .../services/offline-prep/router-network.test.ts   | 130 ++++++++++++++-------
+ apps/server/src/routes/trips.ts                    |   7 --
+ 21 files changed, 339 insertions(+), 191 deletions(-)

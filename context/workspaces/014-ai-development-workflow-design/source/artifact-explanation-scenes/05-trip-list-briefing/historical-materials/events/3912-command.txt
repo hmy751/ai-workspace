@@ -1,0 +1,1 @@
+cat context/project/guidance/explanation-and-evidence-criteria.md; cat context/work/AGENTS.md

@@ -1,0 +1,1 @@
+./node_modules/.bin/jest --config apps/client/jest.config.cjs --runInBand > /tmp/noline-review-alltests-final.log 2>&1

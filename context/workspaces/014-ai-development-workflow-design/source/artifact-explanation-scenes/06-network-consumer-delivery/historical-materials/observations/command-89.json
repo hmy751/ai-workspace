@@ -1,0 +1,13 @@
+{
+  "source": "main",
+  "line": 864,
+  "timestamp": "2026-09-17T03:10:06.347Z",
+  "command": [
+    "/bin/zsh",
+    "-lc",
+    "node node_modules/jest/bin/jest.js --config apps/client/jest.config.cjs --runInBand --no-cache"
+  ],
+  "stdout": "[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`\nPASS apps/client/tests/shared/store/network.test.ts\nPASS apps/client/tests/shared/services/offline-prep/router-network.test.ts\nPASS apps/client/tests/shared/policy/policy-ui.test.tsx\nPASS apps/client/tests/screens/detail-content-access.test.tsx\nPASS apps/client/tests/shared/services/sync/provider-network.test.tsx\nPASS apps/client/tests/features/profile/hooks/useStorageStats.test.ts\nPASS apps/client/tests/entities/repository-routing.test.ts\nPASS apps/client/tests/shared/policy/useTripContentAccess.test.ts\nPASS apps/client/tests/app/startup-sync.test.tsx\nPASS apps/client/tests/features/debug/manual-sync.test.tsx\nPASS apps/client/tests/entities/expense/api/expenses.test.ts\nPASS apps/client/tests/entities/mutation-routing-hooks.test.tsx\nPASS apps/client/tests/shared/policy/content-query-concurrency.test.tsx\nPASS apps/client/tests/features/schedule/useLocationSearch-network.test.tsx\nPASS apps/client/tests/shared/policy/map-service-network.test.tsx\nPASS apps/client/tests/entities/trip-list-recovery.test.tsx\nPASS apps/client/tests/shared/policy/useAppPolicy-network.test.ts\nPASS apps/client/tests/shared/services/directions/network.test.ts\nPASS apps/client/tests/entities/trip-api-contract.test.ts\nPASS apps/client/tests/setup/jest-environment.test.ts\n\nTest Suites: 20 passed, 20 total\nTests:       205 passed, 205 total\nSnapshots:   0 total\nTime:        6.057 s\nRan all test suites.\n",
+  "stderr": "",
+  "exit_code": 0
+}

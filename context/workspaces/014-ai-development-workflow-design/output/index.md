@@ -1,6 +1,8 @@
 # 현재 선택한 설계 자료와 산출물
 
-04-02 현재 채택 산출물: [브리핑 SKILL.md](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md) — [시험한 후보를 동일하게 prototype에 반영](../records/2026-10-22-ticket04-02-briefing-prototype-adoption.md)했다. 코드 읽기 목적과 코드·값·실행 연결을 본문에 통합했으며 복구 스킬은 유지했다. 아래 후보 작성·비교는 이력이다. 운영 설치·발동 시점 변경은 하지 않았다.
+04-02 준비 자료: [Network 첫 완료 보고의 실제 대화·변경 전후 코드와 비교 조건](../records/2026-10-23-ticket04-02-network-first-report-preparation.md). 원문·코드는 확보했고 조건은 제안·미실행이다. 후속 질문으로 현황 파악과 완료 보고에서의 스킬 적용 적절성이 열렸다. 현재 재개 지점은 [04-02](../current/tickets/04-skill-improvements/04-02-artifact-explanation.md)이며, 이 자료 준비는 적용 승인이나 효과 확인이 아니다.
+
+04-02 현재 산출물: [브리핑 SKILL.md](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md) — 사용자 요청으로 책임·상태의 구별, 실제 코드 선정, 현재 구조의 이유와 설명 비중을 기존 본문에 통합했다. [직전 채택판과 새 통합판 비교](../records/experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md)에서는 양쪽 실제 코드 발췌가 없어 핵심 개선은 나타나지 않았다. 본문 반영과 효과 확인을 구별하며 아래 후보·비교는 이력이다. 복구 유지, 운영 설치·발동 시점 변경은 하지 않았다.
 
 구현·검토의 현재 산출물: [development SKILL.md](../records/prototypes/development-workflow/skills/development/SKILL.md)와 [review.md](../records/prototypes/development-workflow/skills/development/references/review.md). 확정1~5번과 구성 개선 리뷰를 반영하고 DEVELOPMENT 진입을 이전했다. [적용·확인 범위](../records/2026-10-23-development-skill-prototype-adoption.md)를 읽는다. 전체 실행 운영·효과 검증이나 Ticket 완료를 뜻하지 않으며6번 이후를 이 본문에서 이어 구체화한다.
 
@@ -34,7 +36,7 @@
 
 - [04-02 첫 보고 책임 재판단](../records/2026-10-21-ticket04-02-first-report-responsibility-review.md): 새 source에서 확인한 목적·역할 합의와 실제 교정 근거를 대조한 현재 분석. 빠진 책임과 아직 확인하지 못한 실행 원인을 구별하며 수정안·시험 설계는 후속이다.
 
-- [04-02 원문 중심 source](../source/artifact-explanation-scenes/README.md): 보고서·interceptor·network·코드 변경 첫 보고의 연속 발화와 자료 출처를 구분한 네 사건. [최초 구성](../records/2026-10-21-ticket04-02-source-scene-assembly.md)과 [추가 구성·시점/본문 비교 범위](../records/2026-10-22-ticket04-02-source-expansion-and-coverage.md)에 검증과 공백을 연결했다. 사건 요약이나 기대 답을 대신 공급하지 않으며, 당시 실행 전체의 재현 준비·스킬 효과 검증은 완료하지 않았다.
+- [04-02 원문 중심 source](../source/artifact-explanation-scenes/README.md): 보고서·interceptor·network 흐름·저장 용량·여행 브리핑·Network 첫 완료 보고의 여섯 원문 묶음. 아래 최초 구성·추가 구성 기록은 당시 네 사건까지의 이력이며 최신 사례 상태는04-02에서 확인한다. [최초 구성](../records/2026-10-21-ticket04-02-source-scene-assembly.md)과 [추가 구성·시점/본문 비교 범위](../records/2026-10-22-ticket04-02-source-expansion-and-coverage.md)에 검증과 공백을 연결했다. 사건 요약이나 기대 답을 대신 공급하지 않으며, 당시 실행 전체의 재현 준비·스킬 효과 검증은 완료하지 않았다.
 
 - [04-02 접근법·검증 재검토](../records/2026-10-21-ticket04-02-approach-and-evaluation-reset.md): 현재 판단 진입점. 첫 전달·조사·기준 적용과 사용자 교정 이후 재설명을 구별하고, 원인별 개입과 검증 방법을 다시 정했다. [두 스킬 재수정안](../records/2026-10-21-ticket04-02-original-intent-revision.md)과 기존 prototype은 보류한 후보이며 효과·채택이 확인된 현재 해법이 아니다.
 

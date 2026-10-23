@@ -1,0 +1,284 @@
+{
+  "diff_apply_exit": 0,
+  "files": 69,
+  "matched": 69,
+  "checks": [
+    {
+      "path": "apps/client/jest.config.cjs",
+      "match": true
+    },
+    {
+      "path": "apps/client/app/_layout.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/screens/CreateExpenseScreen.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/screens/CreateScheduleScreen.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/screens/ExpenseDetailScreen.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/screens/ScheduleDetailScreen.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/screens/ExpensesScreen.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/screens/ScheduleScreen.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/trip/ui/TripSelector.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/trip/repository/trip-repository.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/trip/api/trips.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useCreateTrip.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useUpdateTrip.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useDeleteTrip.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/trip/data/useGetTrips.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/schedule/repository/schedule-repository.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/schedule/data/useUpdateSchedule.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/schedule/data/useCreateSchedule.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/schedule/data/useDeleteSchedule.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/expense/repository/expense-repository.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/expense/data/useCreateExpense.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/expense/data/useUpdateExpense.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/expense/data/useGetScheduleExpenses.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/entities/expense/data/useDeleteExpense.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/screens/HomeScreen/index.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/screens/HomeScreen/TripsSection.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/services/network-access.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/policy/useAppPolicy.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/policy/mutationErrorMessage.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/policy/types.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/policy/useTripContentAccess.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/store/network.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/services/directions/mapbox.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/services/offline-prep/router.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/services/offline-prep/index.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/services/sync/provider.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/components/Card/ScheduleCard.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/components/ErrorBoundary/TripContentStatus.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/debug/ui/DashboardView.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/debug/ui/DebugScreen.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/trip/create-trip/TripDateForm.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/trip/create-trip/useCreateTripForm.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/trip/update-trip/EditTripDrawer.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/schedule/update-schedule/UpdateScheduleDrawer.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/schedule/create-schedule/useLocationSearch.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/app/startup-sync.test.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/screens/detail-content-access.test.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/entities/trip-list-recovery.test.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/entities/mutation-routing-hooks.test.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/entities/repository-routing.test.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/entities/trip-api-contract.test.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/shared/policy/useTripContentAccess.test.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/shared/policy/useAppPolicy-network.test.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/shared/policy/policy-ui.test.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/shared/policy/map-service-network.test.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/shared/policy/content-query-concurrency.test.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/shared/store/network.test.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/shared/services/directions/network.test.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/shared/services/offline-prep/router-network.test.ts",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/shared/services/sync/provider-network.test.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/features/schedule/useLocationSearch-network.test.tsx",
+      "match": true
+    },
+    {
+      "path": "apps/client/tests/features/debug/manual-sync.test.tsx",
+      "match": true
+    }
+  ],
+  "source_manifest_hashes": true
+}

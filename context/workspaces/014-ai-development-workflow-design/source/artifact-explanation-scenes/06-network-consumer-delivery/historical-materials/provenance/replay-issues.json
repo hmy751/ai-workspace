@@ -1,0 +1,18 @@
+[
+  {
+    "source": "/root/policy_ui_worker",
+    "source_line": 97,
+    "timestamp": "2026-09-17T02:58:51.711Z",
+    "command_index": 235,
+    "kind": "transform-error",
+    "detail": "unexpected indent (<unknown>, line 28)"
+  },
+  {
+    "source": "main",
+    "source_line": 838,
+    "timestamp": "2026-09-17T03:08:59.510Z",
+    "command_index": 84,
+    "kind": "transform-error",
+    "detail": "substring not found"
+  }
+]

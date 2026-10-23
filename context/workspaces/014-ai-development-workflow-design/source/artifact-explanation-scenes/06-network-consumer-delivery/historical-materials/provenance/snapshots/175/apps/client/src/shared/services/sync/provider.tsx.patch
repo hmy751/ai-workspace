@@ -1,0 +1,250 @@
+diff --git a/apps/client/src/shared/services/sync/provider.tsx b/apps/client/src/shared/services/sync/provider.tsx
+index 3fb12af..fc45d52 100644
+--- a/apps/client/src/shared/services/sync/provider.tsx
++++ b/apps/client/src/shared/services/sync/provider.tsx
+@@ -1,30 +1,21 @@
+ import React, { createContext, useContext, useEffect, useRef, useState, useCallback } from 'react';
+-import { useNetworkStatus } from '@/shared/store/network';
++import { networkStore, useNetworkStore, useRealNetworkStatus } from '@/shared/store/network';
++import { authStore, useAuthStore } from '@/shared/store/auth';
+ import { syncData } from './engine';
+ 
+-/**
+- * SyncProvider Context
+- *
+- * 동기화 상태와 수동 트리거 제공
+- */
++export type SyncRunResult =
++  | { status: 'completed'; message: string }
++  | { status: 'failed'; message: string }
++  | { status: 'blocked'; message: string };
++
+ interface SyncContextValue {
+   isSyncing: boolean;
+   lastSyncedAt: Date | null;
+-  triggerManualSync: () => Promise<void>;
++  triggerManualSync: () => Promise<SyncRunResult>;
+ }
+ 
+ const SyncContext = createContext<SyncContextValue | undefined>(undefined);
+ 
+-/**
+- * useSyncContext Hook
+- *
+- * 컴포넌트에서 동기화 상태와 수동 트리거 접근
+- *
+- * @example
+- * ```tsx
+- * const { isSyncing, triggerManualSync } = useSyncContext();
+- * ```
+- */
+ export function useSyncContext() {
+   const context = useContext(SyncContext);
+   if (!context) {
+@@ -33,138 +24,96 @@ export function useSyncContext() {
+   return context;
+ }
+ 
+-/**
+- * 동기화 Provider
+- *
+- * 앱 전체를 감싸서 자동 동기화 기능 제공 (Push + Pull)
+- * - 네트워크 상태 감지
+- * - 오프라인 → 온라인 전환 시 자동 동기화
+- * - 앱 시작 시 한 번 동기화
+- * - 주기적 동기화 (선택적)
+- * - 디버그 모드: 강제 온라인/오프라인 설정 가능
+- *
+- * @example
+- * ```tsx
+- * <SyncProvider enablePeriodicSync={false}>
+- *   <App />
+- * </SyncProvider>
+- * ```
+- */
+ interface SyncProviderProps {
+   children: React.ReactNode;
+-  enablePeriodicSync?: boolean; // 주기적 동기화 활성화 (기본: false)
+-  syncInterval?: number; // 주기적 동기화 간격 (ms, 기본: 5분)
++  isDatabaseReady: boolean;
++  enablePeriodicSync?: boolean;
++  syncInterval?: number;
+ }
+ 
+ export function SyncProvider({
+   children,
++  isDatabaseReady,
+   enablePeriodicSync = false,
+-  syncInterval = 5 * 60 * 1000, // 5분
++  syncInterval = 5 * 60 * 1000,
+ }: SyncProviderProps) {
+-  // useNetworkStatus가 이제 Override 상태까지 포함하여 반환함
+-  const networkStatus = useNetworkStatus();
++  const networkStatus = useRealNetworkStatus();
++  const overrideStatus = useNetworkStore((state) => state.overrideStatus);
++  const isAuthInitialized = useAuthStore((state) => state.isInitialized);
++  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
++  const canSync = isDatabaseReady && isAuthInitialized && isAuthenticated && networkStatus === 'online' && overrideStatus === null;
+ 
+   const [isSyncing, setIsSyncing] = useState(false);
+   const [lastSyncedAt, setLastSyncedAt] = useState<Date | null>(null);
+-  const previousStatusRef = useRef<'online' | 'offline'>('online');
+-
+-  /**
+-   * 동기화 실행 함수 (중복 실행 방지)
+-   */
+-  const executeSync = useCallback(
+-    async (reason: string) => {
+-      if (isSyncing) {
+-        console.log('⏭️ [SyncProvider] Sync already in progress, skipping...');
+-        return;
+-      }
+-
+-      try {
+-        setIsSyncing(true);
+-        console.log(`🔄 [SyncProvider] Sync triggered: ${reason}`);
++  const inFlightRef = useRef<Promise<SyncRunResult> | null>(null);
++  const databaseReadyRef = useRef(isDatabaseReady);
++  databaseReadyRef.current = isDatabaseReady;
++  const previouslyEligibleRef = useRef(false);
++
++  const executeSync = useCallback((): Promise<SyncRunResult> => {
++    // 이전 render의 callback과 자동/수동 호출도 같은 진행 중 실행을 기다린다.
++    if (inFlightRef.current) {
++      return inFlightRef.current;
++    }
+ 
+-        await syncData(); // Push + Pull
++    let blockedMessage: string | null = null;
++    if (!databaseReadyRef.current) {
++      blockedMessage = '데이터베이스가 준비되지 않아 동기화할 수 없습니다.';
++    } else if (!authStore.isInitialized || !authStore.isAuthenticated) {
++      blockedMessage = '로그인 준비가 완료된 뒤 동기화할 수 있습니다.';
++    } else if (networkStore.override !== null) {
++      blockedMessage = '네트워크 강제 설정 중에는 동기화할 수 없습니다. 실제 상태로 되돌려 주세요.';
++    } else if (networkStore.realStatus !== 'online') {
++      blockedMessage = '인터넷 연결이 확인된 뒤 동기화할 수 있습니다.';
++    }
++    if (blockedMessage) {
++      return Promise.resolve({ status: 'blocked', message: blockedMessage });
++    }
+ 
+-        const now = new Date();
+-        setLastSyncedAt(now);
++    let resolveRun!: (result: SyncRunResult) => void;
++    const run = new Promise<SyncRunResult>((resolve) => { resolveRun = resolve; });
++    // React 표시 상태를 갱신하기 전에 실행 소유권을 선점한다.
++    inFlightRef.current = run;
++    previouslyEligibleRef.current = true;
++    setIsSyncing(true);
+ 
+-        console.log(`✅ [SyncProvider] Sync completed: ${reason}`, {
+-          lastSyncedAt: now.toISOString(),
+-        });
+-      } catch (error) {
+-        console.error(`❌ [SyncProvider] Sync failed: ${reason}`, error);
+-      } finally {
+-        setIsSyncing(false);
++    void (async () => {
++      let result: SyncRunResult;
++      try {
++        await syncData();
++        setLastSyncedAt(new Date());
++        result = { status: 'completed', message: '동기화가 완료되었습니다.' };
++      } catch {
++        result = { status: 'failed', message: '동기화에 실패했습니다.' };
+       }
+-    },
+-    [isSyncing],
+-  );
++      inFlightRef.current = null;
++      setIsSyncing(false);
++      resolveRun(result);
++    })();
+ 
+-  /**
+-   * 수동 동기화 트리거 (UI에서 호출)
+-   */
+-  const triggerManualSync = useCallback(async () => {
+-    await executeSync('Manual trigger');
+-  }, [executeSync]);
++    return run;
++  }, []);
+ 
+-  /**
+-   * 1️⃣ 앱 시작 시 동기화 (온라인 상태일 때)
+-   */
++  // 최초 준비 완료, 로그인, 연결 복구, 강제 설정 해제가 같은 시작 경계를 사용한다.
+   useEffect(() => {
+-    if (networkStatus === 'online') {
+-      console.log('🚀 [SyncProvider] Initial sync on app start');
+-      executeSync('App startup');
++    const wasEligible = previouslyEligibleRef.current;
++    previouslyEligibleRef.current = canSync;
++    if (canSync && !wasEligible) {
++      void executeSync();
+     }
+-    // eslint-disable-next-line react-hooks/exhaustive-deps
+-  }, []); // 빈 배열: 앱 시작 시 한 번만
++  }, [canSync, executeSync]);
+ 
+-  /**
+-   * 2️⃣ 네트워크 상태 변경 감지 → 복구 시 동기화
+-   */
+   useEffect(() => {
+-    const previousStatus = previousStatusRef.current;
+-
+-    // 오프라인 → 온라인 전환 감지
+-    if (previousStatus === 'offline' && networkStatus === 'online') {
+-      console.log('🌐 [SyncProvider] Network recovered → Starting sync');
+-      executeSync('Network recovery');
++    if (!enablePeriodicSync) {
++      return;
+     }
+-
+-    // 온라인 → 오프라인 전환 로그
+-    if (previousStatus === 'online' && networkStatus === 'offline') {
+-      console.log('📴 [SyncProvider] Network offline → Sync paused');
+-    }
+-
+-    // 현재 상태 저장
+-    previousStatusRef.current = networkStatus;
+-  }, [networkStatus, executeSync]);
+-
+-  /**
+-   * 3️⃣ 주기적 동기화 (선택적)
+-   */
+-  useEffect(() => {
+-    if (!enablePeriodicSync) return;
+-
+-    console.log(`⏰ [SyncProvider] Periodic sync enabled (${syncInterval / 1000}s interval)`);
+-
+-    const intervalId = setInterval(() => {
+-      if (networkStatus === 'online') {
+-        executeSync('Periodic sync');
+-      } else {
+-        console.log('⏭️ [SyncProvider] Skipping periodic sync (offline)');
+-      }
+-    }, syncInterval);
+-
++    const intervalId = setInterval(() => { void executeSync(); }, syncInterval);
+     return () => clearInterval(intervalId);
+-  }, [enablePeriodicSync, syncInterval, networkStatus, executeSync]);
++  }, [enablePeriodicSync, syncInterval, executeSync]);
+ 
+-  /**
+-   * Context Value
+-   */
+-  const value: SyncContextValue = {
+-    isSyncing,
+-    lastSyncedAt,
+-    triggerManualSync,
+-  };
+-
+-  return <SyncContext.Provider value={value}>{children}</SyncContext.Provider>;
++  return (
++    <SyncContext.Provider value={{ isSyncing, lastSyncedAt, triggerManualSync: executeSync }}>
++      {children}
++    </SyncContext.Provider>
++  );
+ }

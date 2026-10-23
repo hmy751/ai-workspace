@@ -1,0 +1,1 @@
+cat context/work/workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md; sed -n '1,100p' context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md; sed -n '233,255p' context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md
