@@ -2,9 +2,9 @@
 
 ## 적용과 수명
 
-이 문서는 `work-discussion`, `explanation-recovery`, `work-artifact-briefing` 중 하나가 현재 요청에 적용돼 이 기준을 읽을 때만 사용한다. Skill별 호출 조건과 실행 방법은 각 `SKILL.md`가 소유하며, 이 문서가 일반 대화나 모든 AI 응답에 자동 적용되는 상위 workflow가 되지 않는다.
+이 문서는 현재 consumer인 `work-discussion` 또는 `explain`이 해당 요청에서 이 기준을 읽을 때 사용한다. Skill별 호출 조건과 실행 방법은 각 `SKILL.md`가 소유하며, 이 문서가 일반 대화나 모든 AI 응답에 자동 적용되는 상위 workflow가 되지 않는다. 이전 `work-artifact-briefing`·`explanation-recovery`의 실행 책임은 explain으로 통합됐고 당시 판본·형성 기록은 보존 자료다.
 
-Project의 source·authority 계약이나 세 skill의 역할이 바뀌거나, 실제 사용에서 이 기준이 중요한 차이를 반복해서 놓치거나 불필요한 부담을 만들면 다시 판단한다. 세 consumer가 모두 없어지거나 같은 책임을 더 가까운 current canonical이 소유하면 제거하거나 그 Owner로 합친다.
+Project의 source·authority 계약이나 consumer의 역할이 바뀌거나, 실제 사용에서 이 기준이 중요한 차이를 반복해서 놓치거나 불필요한 부담을 만들면 다시 판단한다. consumer가 모두 없어지거나 같은 책임을 더 가까운 current canonical이 소유하면 제거하거나 그 Owner로 합친다.
 
 관련 Project-wide 설명 계약을 바꾸는 작업 주체가 이 문서와 [공통 기준과 consumer 안내](../README.md), consumer link를 함께 유지한다. 제품 의미·중요 제약·최종 acceptance를 새로 정하거나 바꾸려면 사용자 결정이 먼저다.
 

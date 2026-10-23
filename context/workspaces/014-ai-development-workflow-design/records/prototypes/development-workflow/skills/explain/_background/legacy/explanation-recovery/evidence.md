@@ -55,11 +55,11 @@
 2026-09-05 반영 기록. 같은 문서에 사용자 승인 발화 “좋네 반영하자”가 보존돼 있다.
 
 ```text
-- [`explanation-recovery`](../../../context/analysis/09-tripproof-cognitive-debt/v0/payload/.agents/skills/explanation-recovery/SKILL.md): 뜻 질문과 이의 제기가 함께 있으면 모두 답한다. 실제 오류·모순·잘못된 추론이나 재설명 중 의미 변경이 보이면 무엇을 유지·정정·철회하거나 아직 판단하지 못하는지 밝힌다. 추가 source 조사는 사실 부족·의심되는 사실 오류가 현재 답을 바꾸며 대화로 확인할 수 없는 부분에 한정한다. 혼란만으로 앞선 응답을 틀렸다고 단정하거나 과거 전체 감사·구현·문서 수정·작업 범위 재합의로 확대하지 않는다.
-- [`work-discussion`](../../../context/analysis/09-tripproof-cognitive-debt/v0/payload/.agents/skills/work-discussion/SKILL.md): 원하는 결과나 완료 경계를 여러 방식으로 해석할 수 있을 때 같은 대표 입력·장면에서 원하는 결과와 비슷하지만 부족한 결과를 대비한다. 이미 정한 차이는 이해안에 남기고 재질문하지 않는다. 모든 작업의 사례·acceptance 문서 의무는 만들지 않았다.
-- [`work-artifact-briefing`](../../../context/analysis/09-tripproof-cognitive-debt/v0/payload/.agents/skills/work-artifact-briefing/SKILL.md): 중요한 이름의 데이터·책임을 사용자 일과 연결하고, 필요할 때 입력·중간 값·결과와 중요한 조건 차이를 보여 준다. 실제 값과 설명용 값, source 재구성과 관찰·제안의 지위를 구별하고 핵심 주장 가까이에 무엇을 확인한 source인지 둔다.
-- [`OUTPUT-PREVIEW.md`](../../../context/analysis/09-tripproof-cognitive-debt/v0/OUTPUT-PREVIEW.md): 작업 이해안에 대표 질문의 결과 대비, 설명 복구에 잘못된 앞선 주장을 정정하는 예시, 브리핑에 역할·값·근거 한계의 연결을 반영했다. 단순한 `verdict` 뜻 질문 예시는 유지했다. 새 값과 대화는 실제 skill 실행이 아니라 설명용 예시로 표시했다.
-- [`Package README`](../../../context/analysis/09-tripproof-cognitive-debt/v0/README.md): 보강의 의미와 기존 호출·설치 경계 유지를 설명했다.
+- [`explanation-recovery`](../../../../../context/analysis/09-tripproof-cognitive-debt/v0/payload/.agents/skills/explanation-recovery/SKILL.md): 뜻 질문과 이의 제기가 함께 있으면 모두 답한다. 실제 오류·모순·잘못된 추론이나 재설명 중 의미 변경이 보이면 무엇을 유지·정정·철회하거나 아직 판단하지 못하는지 밝힌다. 추가 source 조사는 사실 부족·의심되는 사실 오류가 현재 답을 바꾸며 대화로 확인할 수 없는 부분에 한정한다. 혼란만으로 앞선 응답을 틀렸다고 단정하거나 과거 전체 감사·구현·문서 수정·작업 범위 재합의로 확대하지 않는다.
+- [`work-discussion`](../../../../../context/analysis/09-tripproof-cognitive-debt/v0/payload/.agents/skills/work-discussion/SKILL.md): 원하는 결과나 완료 경계를 여러 방식으로 해석할 수 있을 때 같은 대표 입력·장면에서 원하는 결과와 비슷하지만 부족한 결과를 대비한다. 이미 정한 차이는 이해안에 남기고 재질문하지 않는다. 모든 작업의 사례·acceptance 문서 의무는 만들지 않았다.
+- [`work-artifact-briefing`](../../../../../context/analysis/09-tripproof-cognitive-debt/v0/payload/.agents/skills/work-artifact-briefing/SKILL.md): 중요한 이름의 데이터·책임을 사용자 일과 연결하고, 필요할 때 입력·중간 값·결과와 중요한 조건 차이를 보여 준다. 실제 값과 설명용 값, source 재구성과 관찰·제안의 지위를 구별하고 핵심 주장 가까이에 무엇을 확인한 source인지 둔다.
+- [`OUTPUT-PREVIEW.md`](../../../../../context/analysis/09-tripproof-cognitive-debt/v0/OUTPUT-PREVIEW.md): 작업 이해안에 대표 질문의 결과 대비, 설명 복구에 잘못된 앞선 주장을 정정하는 예시, 브리핑에 역할·값·근거 한계의 연결을 반영했다. 단순한 `verdict` 뜻 질문 예시는 유지했다. 새 값과 대화는 실제 skill 실행이 아니라 설명용 예시로 표시했다.
+- [`Package README`](../../../../../context/analysis/09-tripproof-cognitive-debt/v0/README.md): 보강의 의미와 기존 호출·설치 경계 유지를 설명했다.
 ```
 
 ## 설명 정정과 작업 재판단 구별
@@ -151,7 +151,7 @@
 
 **Main 판단: 우선 보강 제안으로 타당하되, 오류 확인 전체가 누락됐다는 판정은 아니다.**
 
-기존 [장면별 합성](../../../context/analysis/09-tripproof-cognitive-debt/02-three-scenes-reference-synthesis.md) 141~147행은 명료한 설명이 사실성 증명이 아니며 주장이 틀렸다고 의심되면 source나 실행 근거를 확인하라고 명시한다. 현재 [설명 복구 skill](../../../context/analysis/09-tripproof-cognitive-debt/v0/payload/.agents/skills/explanation-recovery/SKILL.md) 14·37~38·54행에도 현재성, 사실·해석의 구별과 사실 부족에 대한 조사 경계가 있다.
+기존 [장면별 합성](../../../../../context/analysis/09-tripproof-cognitive-debt/02-three-scenes-reference-synthesis.md) 141~147행은 명료한 설명이 사실성 증명이 아니며 주장이 틀렸다고 의심되면 source나 실행 근거를 확인하라고 명시한다. 현재 [설명 복구 skill](../../../../../context/analysis/09-tripproof-cognitive-debt/v0/payload/.agents/skills/explanation-recovery/SKILL.md) 14·37~38·54행에도 현재성, 사실·해석의 구별과 사실 부족에 대한 조사 경계가 있다.
 
 그럼에도 원래 뜻을 복원하는 일과 원래 주장을 계속 정당화하는 일은 다르다. 실제 정보가 충분해도 앞선 추론이 잘못됐을 수 있고, 사용자의 질문이 이해 요청이면서 반박일 수도 있다. 이 경우 무엇을 잘못 연결했고 무엇을 유지·철회하는지 드러내는 행동은 현재 skill에서 덜 명시적이다.
 

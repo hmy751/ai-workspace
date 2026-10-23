@@ -2,7 +2,7 @@
 
 구현·검토의 **7번 첫 입력 설계를 확정했다. 다음은8번 동적 탐색·Main 반환이다.** [현재안과 확정 경과](records/2026-10-23-review-workflow-7-12-proposal.md)에 관련 본문 읽기·대안 제공·레퍼런스 반영을 정리했다.1~5번 합의와 [6번 통합](records/2026-10-23-implementation-completion-and-handoff-proposal.md)은 유지한다. [두 개선 리뷰](records/2026-10-23-review-workflow-7-12-improvement-reviews.md)를 거친8~12번은 추천안,13~15번 상세는 후속이다. 실행 [development 스킬](records/prototypes/development-workflow/skills/development/SKILL.md)은1~5번 반영 상태이며6~7번 실행 연결·효과 확인과 설계 확정을 구별한다.
 
-04-02는 [Ticket 첫머리의 현재 상태·사례 표·재개 순서](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)에서 이어간다. 브리핑 본문은 보완·반영했으나 최신 여행 사례에서 핵심 개선은 관찰하지 못했다. Network 첫 완료 보고 자료와 비교 조건은 준비했으며 미실행이다. 현재 열린 질문은 현황 파악·완료 보고에 이 스킬을 적용하는 것이 적절한지다. 대화 자료를 처음부터 제공하는 것과 처음부터 스킬을 적용하는 것을 구별한다. 복구 유지·운영 설치 전·Ticket 미완료다.
+04-02는 리뷰 반영 구성으로 [explain 본체·상세·형성 자료](records/prototypes/development-workflow/skills/explain/SKILL.md)를 만들고 기존 두 실행 본문과 호출 연결을 정리했다. [적용·확인 기록](records/2026-10-23-ticket04-02-explain-prototype-adoption.md)에 생성 요청과 “기존 제거를 감안하되 모든 조항을 무조건 채우는 것은 아니다”라는 정정, 보존·검사 범위를 남겼다. prototype 생성·연결 정리 완료이며 운영 설치·실제 수행 효과 확인은 별도다. 현재 상태와 재개는 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
 
 **현재 상태: Ticket03의 구성안·대표 본문·읽기와 갱신 책임 구체화를 완료했다.** [마무리119](records/2026-10-20-119-ticket03-closeout.md)와 [03 완료 조건](current/tickets/03-project-context.md)에서 판단 근거와 후속 범위를 확인한다. Workspace014 전체는 계속 진행 중이며, 이번 마무리에서 다음 Ticket을 착수하지 않았다.
 

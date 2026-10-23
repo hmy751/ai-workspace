@@ -4,9 +4,9 @@
 
 6번 통합안: [맥락 이해·적용부터 구현 완성·인계까지](../records/2026-10-23-implementation-completion-and-handoff-proposal.md)에 사용자 요청의 맥락 범위와 개선 리뷰 두 보완을 반영했다. 관련 자료·지침의 선택·이해·적용, 실제 사용·변경 장면으로 자기 설계 판단, 요구·계약에 근거한 자기 확인과 인계를 연결한다. **6번 설계안 통합 완료, 실행 스킬 반영·수행 효과 확인은 후속**이다. 후속으로7~12번 전체안과 두 개선 리뷰를 작성했으며 후속7번 확정을 거쳐 현재 논의는 위 추천안의8번부터 이어간다.
 
-04-02 현재 준비: [Network 첫 완료 보고 자료와 적용 배치 비교 조건](../records/2026-10-23-ticket04-02-network-first-report-preparation.md).895 직전 상태의 원문·변경 전후 코드와 검사 기록을 확보했지만 조건은 제안·미실행 상태다. 대화9부터 입력하는 것과9부터 브리핑을 적용하는 것은 다르다. 사용자의 적용 적절성 의문을 받아, 다음은 현황 파악·완료 보고·작업물 이해 요청을 구별하고895에 이 스킬을 적용할 이유와 비교 목적부터 판단한다. 사례별 상태와 재개 순서는 [04-02 첫머리](tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
+04-02 현재 산출물: [explain](../records/prototypes/development-workflow/skills/explain/SKILL.md)의 본체·두 상세·형성 자료를 생성하고 기존 두 스킬 폴더를 삭제하고 배경·원문을 explain/_background/legacy에 보존했다. [사용자 요청·정정과 적용 확인](../records/2026-10-23-ticket04-02-explain-prototype-adoption.md)을 읽는다. 기존 두 스킬 제거를 전제로 하되 조항 전수 이식이나 분량 확대를 목표로 하지 않았다. prototype 반영 완료, 운영 설치·새 응답 시험은 미실행이며 재개 순서는 [04-02](tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
 
-04-02 최신 반영·비교: [책임 설명 통합판과 직전 채택판 시험](../records/experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md). 현재 [브리핑 본문](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md)에 핵심 구별·실제 코드 선정·현재 구조의 이유·설명 비중을 통합했다. 같은 자료·시점에서 GPT-6-sol medium 각1회 비교했지만 양쪽 코드 발췌가 없어 핵심 개선은 미관찰이다. 아래 이전 비교와 본문 반영·효과 확인을 구별한다. 복구·운영 유지, 일반화·시점 효과와04-02 전체 완료는 미확인이다.
+04-02 이전 본문 비교: [책임 설명 통합판과 직전 채택판 시험](../records/experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md)은 통합 전 브리핑의 관찰이다. 양쪽 코드 발췌가 없어 핵심 개선은 미관찰이었다. 현재 explain의 수행 효과로 해석하지 않으며, 기존 입력·응답·당시 판본은 보존한다.
 
 실행 prototype은 [development 스킬](../records/prototypes/development-workflow/skills/development/SKILL.md)과 [검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md)이며1~5번과 구성 개선 리뷰를 반영한 상태다. [적용 기록](../records/2026-10-23-development-skill-prototype-adoption.md)에 실제 반영·확인 범위가 있다.6번은 위 설계안에 통합했고 실행 본문 연결은 후속이다.7~12번은 위 추천안으로 논의하고13~15번 상세 설계와 A·B Personal 본문 통합은 남아 있다.
 

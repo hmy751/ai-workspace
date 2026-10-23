@@ -7,7 +7,7 @@
 | Ticket | 다룰 스킬과 결과 |
 | --- | --- |
 | [04-01 작업 정의·재판단](04-01-work-decision-skills.md) | work-discussion·reconsider-work의 조건·동작·본문 보완 |
-| [04-02 작업물 브리핑·설명 복구](04-02-artifact-explanation.md) | work-artifact-briefing·explanation-recovery의 설명·조사·판단 대응 |
+| [04-02 설명 구성·적용](04-02-artifact-explanation.md) | explain 본체·실행 상세·형성 자료와 기존 두 스킬 연결 통합 |
 | [04-03 맥락 읽기·갱신·Workspace 생성](04-03-context-skills.md) | read-project-context·update-project-context·create-context-workspace의 실제 적용·관리 연결 |
 
 각 스킬의 전체 재작성을 전제하지 않는다. 같은 장면의 근거를 재사용하고, 작업 정의·설명·맥락 관리 사이에 책임이 겹치거나 비는지 대조한다. 글로벌 문서·설명 기준은 연결을 확인하는 참고 범위이며 여기서 실제 글로벌 개편을 수행하지 않는다.

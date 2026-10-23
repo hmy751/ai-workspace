@@ -54,7 +54,7 @@
 
 기존 description은 이미 존재하는 코드·문서·분석·review 결과의 이해를 다루지만, 구현·수정·진단·review·acceptance 판정이 주목적인 요청은 자동 적용에서 제외한다. 한편 기존 본문에도 목적 설정, 원자료 조사, 계획/실제 확인 구별, 주장과 근거 연결이 있다. 필요한 행동이 이미 있는지 확인하지 않고 외부 지침으로 중복 보강하지 않는다.
 
-원래 [_background의 호출 시점 대안](prototypes/development-workflow/skills/work-artifact-briefing/_background/context.md#호출-시점을-포함해-검토했던-대안)도 사용자 이해 요청, AI 자발적 호출, 완료 보고 시 호출, 독립 검토를 구별했다. 대안이 검토됐다는 사실은 자동 예방 동작이 구현됐다는 뜻이 아니다.
+원래 [_background의 호출 시점 대안](prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/context.md#호출-시점을-포함해-검토했던-대안)도 사용자 이해 요청, AI 자발적 호출, 완료 보고 시 호출, 독립 검토를 구별했다. 대안이 검토됐다는 사실은 자동 예방 동작이 구현됐다는 뜻이 아니다.
 
 ## 구별할 평가 대상
 

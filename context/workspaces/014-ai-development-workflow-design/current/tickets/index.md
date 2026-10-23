@@ -7,7 +7,7 @@
 | [01 개발 작업 방식](01-development-workflow/README.md) | [01-01 진행·사람 판단](01-development-workflow/01-01-development-flow.md), [01-02 품질·검토·수정](01-development-workflow/01-02-code-design-quality.md), [01-03 동작 검증·도구](01-development-workflow/01-03-behavior-verification.md) |
 | [02 기록·Workspace 구성·Maintain](02-work-records.md) | — |
 | [03 Project context](03-project-context.md) | — |
-| [04 기존 스킬 보완](04-skill-improvements/README.md) | [04-01 작업 정의·재판단](04-skill-improvements/04-01-work-decision-skills.md), [04-02 브리핑·설명 복구](04-skill-improvements/04-02-artifact-explanation.md), [04-03 맥락 관리](04-skill-improvements/04-03-context-skills.md) |
+| [04 기존 스킬 보완](04-skill-improvements/README.md) | [04-01 작업 정의·재판단](04-skill-improvements/04-01-work-decision-skills.md), [04-02 설명 구성·적용](04-skill-improvements/04-02-artifact-explanation.md), [04-03 맥락 관리](04-skill-improvements/04-03-context-skills.md) |
 | [05 경험 반영 루프](05-learning-loop.md) | — |
 | [06 기반 전환·프로젝트 간 개선 반영](06-framework-transition.md) | — |
 | [07 전체 연결과 후속 적용](07-integrated-rehearsal.md) | — |

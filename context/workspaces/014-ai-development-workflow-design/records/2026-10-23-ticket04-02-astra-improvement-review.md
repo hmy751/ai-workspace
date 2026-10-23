@@ -16,7 +16,7 @@ GPT-6-astra, high, 새 컨텍스트의 내부 리뷰어 `briefing_improvement_as
 
 ## 직접 대조한 목표와 근거
 
-원래 [형성 맥락](prototypes/development-workflow/skills/work-artifact-briefing/_background/context.md)은 사용자가 작업물의 역할·실제 연결·근거의 범위를 이해해 자기 질문과 판단을 만들게 하는 것을 목표로 둔다. 역할 설명, 대표 흐름, 실제 코드·값 연결은 새로 발견한 요구가 아니다.
+원래 [형성 맥락](prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/context.md)은 사용자가 작업물의 역할·실제 연결·근거의 범위를 이해해 자기 질문과 판단을 만들게 하는 것을 목표로 둔다. 역할 설명, 대표 흐름, 실제 코드·값 연결은 새로 발견한 요구가 아니다.
 
 [선행 대화](../source/artifact-explanation-scenes/05-trip-list-briefing/input/conversation.txt)에서 사용자는 전체 브리핑 전에 이미 책임 배치를 물었다.
 

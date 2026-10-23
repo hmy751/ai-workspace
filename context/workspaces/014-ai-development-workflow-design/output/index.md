@@ -4,9 +4,9 @@
 
 6번 현재 설계안: [맥락 이해·적용부터 구현 완성·인계까지](../records/2026-10-23-implementation-completion-and-handoff-proposal.md). 사용자 요청에 따라 맥락 적용과 개선 리뷰 두 보완을 통합했다. 실제 사용·변경 장면으로 자기 설계를 판단하고, 요구·계약에서 가져온 기대 결과로 자기 확인하며, Main에게 결과와 판단 근거를 연결한다. 아래 development 실행 prototype은1~5번 반영 상태이고6번 연결·수행 효과 확인은 후속이다.
 
-04-02 준비 자료: [Network 첫 완료 보고의 실제 대화·변경 전후 코드와 비교 조건](../records/2026-10-23-ticket04-02-network-first-report-preparation.md). 원문·코드는 확보했고 조건은 제안·미실행이다. 후속 질문으로 현황 파악과 완료 보고에서의 스킬 적용 적절성이 열렸다. 현재 재개 지점은 [04-02](../current/tickets/04-skill-improvements/04-02-artifact-explanation.md)이며, 이 자료 준비는 적용 승인이나 효과 확인이 아니다.
+04-02 현재 적용 기록: [explain 생성과 기존 두 실행 경로의 통합](../records/2026-10-23-ticket04-02-explain-prototype-adoption.md). 사용자 요청으로 리뷰 반영 구성을 prototype에 적용했다. 기존 두 스킬 제거를 감안하되 조항 전수 이식을 요구한 것은 아니라는 정정, 보존·검사·미확인 범위를 함께 읽는다. 운영 설치·새 응답 비교는 하지 않았으며 현재 재개 지점은 [04-02](../current/tickets/04-skill-improvements/04-02-artifact-explanation.md)다.
 
-04-02 현재 산출물: [브리핑 SKILL.md](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md) — 사용자 요청으로 책임·상태의 구별, 실제 코드 선정, 현재 구조의 이유와 설명 비중을 기존 본문에 통합했다. [직전 채택판과 새 통합판 비교](../records/experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md)에서는 양쪽 실제 코드 발췌가 없어 핵심 개선은 나타나지 않았다. 본문 반영과 효과 확인을 구별하며 아래 후보·비교는 이력이다. 복구 유지, 운영 설치·발동 시점 변경은 하지 않았다.
+04-02 현재 산출물: [explain 본체](../records/prototypes/development-workflow/skills/explain/SKILL.md) · [설명 작성 상세](../records/prototypes/development-workflow/skills/explain/references/constructing-explanations.md) · [앞선 발화 상세](../records/prototypes/development-workflow/skills/explain/references/prior-explanation.md) · [형성 자료](../records/prototypes/development-workflow/skills/explain/_background/README.md). 기존 두 스킬 폴더는 삭제하고 당시 본문·형성 자료는 explain/_background/legacy에 보존했다. 아래 브리핑 비교·후보는 과거 판본의 이력이며 현재 explain 효과를 확인한 결과가 아니다.
 
 구현·검토의 현재 산출물: [development SKILL.md](../records/prototypes/development-workflow/skills/development/SKILL.md)와 [review.md](../records/prototypes/development-workflow/skills/development/references/review.md). 확정1~5번과 구성 개선 리뷰를 반영하고 DEVELOPMENT 진입을 이전했다. [적용·확인 범위](../records/2026-10-23-development-skill-prototype-adoption.md)를 읽는다. 전체 실행 운영·효과 검증이나 Ticket 완료를 뜻하지 않는다.6번 통합안과7~12번 추천안은 위 별도 설계 기록에서 이어가며 실행 본문에 아직 반영하지 않았다.
 

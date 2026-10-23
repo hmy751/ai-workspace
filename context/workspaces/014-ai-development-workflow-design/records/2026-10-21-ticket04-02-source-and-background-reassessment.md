@@ -11,7 +11,7 @@
 - [첫 보고 전 연속 대화](../source/artifact-explanation-scenes/01-report-delivery/input/conversation.txt): source_line12~619. 아래 번호는 TXT 물리행이 아니라 원 로그의 source_line이다.
 - [첫 수행·교정·후속 대화](../source/artifact-explanation-scenes/01-report-delivery/evaluation/conversation.txt):634~1119.
 - [당시 Git archive와 작업 기록](../source/artifact-explanation-scenes/01-report-delivery/repository/README.md): archive 내부의 두 SKILL.md를 직접 읽어 당시 실행 계약을 확인했다. 현재 prototype의 보류 문구를 당시 기준으로 쓰지 않았다.
-- [브리핑 형성 맥락](prototypes/development-workflow/skills/work-artifact-briefing/_background/context.md), [복구 형성 맥락](prototypes/development-workflow/skills/explanation-recovery/_background/context.md)과 형성 기록: 원래 문제, 채택·미채택 대안, 품질 보강 이유를 대조했다. 이 자료의 작성 예시는 효과 검증이 아니다.
+- [브리핑 형성 맥락](prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/context.md), [복구 형성 맥락](prototypes/development-workflow/skills/explain/_background/legacy/explanation-recovery/context.md)과 형성 기록: 원래 문제, 채택·미채택 대안, 품질 보강 이유를 대조했다. 이 자료의 작성 예시는 효과 검증이 아니다.
 - [사용자 인터뷰](../source/reading/noline-evaluation/reviews/interview-20261012.md): 처음부터 검토·설명하길 바랐고 재작성 뒤 개선도 부분적이었다는 평가를 확인했다.
 
 새 source는 보고서 사건 한 건이다. 다른 인증·일정 장면은 기존 장면 근거의 범위와 한계만 참고했으며 이번에 동일 수준의 역사 자료를 재구성·검증하지 않았다. 보고서의 진단을 모든 설명 문제의 공통 원인으로 확대하지 않는다.

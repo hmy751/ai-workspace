@@ -4,7 +4,7 @@
 
 ## 반영 범위
 
-- [현재 브리핑 SKILL.md](prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md)를 [시험 판본](experiments/artifact-explanation-auth-depth-sol6-2026-10-22/r85/input/skill/SKILL.md)와 동일 바이트로 교체했다. 현재 수정은 SKILL.md가 소유하며 과거 판본은 실험 입력 사본이 보존한다.
+- [현재 브리핑 SKILL.md](prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-before-explain.txt)를 [시험 판본](experiments/artifact-explanation-auth-depth-sol6-2026-10-22/r85/input/skill/SKILL.md)와 동일 바이트로 교체했다. 현재 수정은 SKILL.md가 소유하며 과거 판본은 실험 입력 사본이 보존한다.
 - 변경 내용은 [통합 후보와 정확한 diff](2026-10-22-ticket04-02-briefing-code-depth-candidate.md)에 있다. 현재·앞선 대화에서 코드 읽기 목적을 판단하고, 실제 코드·값·다음 처리의 대응을 설명하며, 목적별로 충분성을 확인한다.
 - 원래 역할 우선·실제 연결·근거 구별·조건부 도식과 현재 질문에 필요한 범위를 유지한다. 모든 코드의 줄별 해설이나 형식적 이해 확인을 요구하지 않는다.
 - 공통 기준·복구 스킬·작업 흐름·발동 시점·전역 및Noline 운영 설치는 변경하지 않았다.04-02 전체 완료로 처리하지 않는다.

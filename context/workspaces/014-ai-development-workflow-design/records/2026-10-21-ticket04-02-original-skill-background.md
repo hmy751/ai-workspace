@@ -1,6 +1,6 @@
 # 04-02 — 두 설명 스킬의 원래 형성 자료 구성
 
-사용자는 다음 작업에 앞서 SKILLS-CONTENT-POLICY를 읽고, 앞서 지정한 외부 자료를 이용해 두 스킬이 원래 가졌던 background를 먼저 구성하도록 요청했다. [브리핑 배경](prototypes/development-workflow/skills/work-artifact-briefing/_background/README.md)과 [설명 복구 배경](prototypes/development-workflow/skills/explanation-recovery/_background/README.md)에 각각 맥락·발췌 근거·과정 기록·읽기 안내를 만들었다.
+사용자는 다음 작업에 앞서 SKILLS-CONTENT-POLICY를 읽고, 앞서 지정한 외부 자료를 이용해 두 스킬이 원래 가졌던 background를 먼저 구성하도록 요청했다. [브리핑 배경](prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/README.md)과 [설명 복구 배경](prototypes/development-workflow/skills/explain/_background/legacy/explanation-recovery/README.md)에 각각 맥락·발췌 근거·과정 기록·읽기 안내를 만들었다.
 
 ## 자료와 구성 판단
 

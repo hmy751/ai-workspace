@@ -21,7 +21,7 @@ description: 사용자가 `/` UI에서 `$work-artifact-briefing` skill을 직접
 
 최근 코드 변경, 현재 구조와 동작, 특정 시점의 과거 상태, 문서·분석·review 결과와 코드 외 산출물을 다룬다. 파일 목록·diff 통계·test 숫자를 나열하는 것으로 설명을 대신하지 않는다.
 
-목적·선택 이유를 확인하거나 스킬의 의미를 바꿀 때는 [형성 자료](prototypes/development-workflow/skills/work-artifact-briefing/_background/README.md)에서 관련 배경과 근거를 읽는다. 현재 요청의 실행 기준은 이 본문과 해당 조건의 실행 자료를 따른다.
+목적·선택 이유를 확인하거나 스킬의 의미를 바꿀 때는 [형성 자료](prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/README.md)에서 관련 배경과 근거를 읽는다. 현재 요청의 실행 기준은 이 본문과 해당 조건의 실행 자료를 따른다.
 
 ## 시작
 

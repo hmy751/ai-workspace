@@ -8,4 +8,4 @@
 
 이 비교는 판본별1회이며 설계에 사용한 사건의 재시험이다. 실제 이해·일반화·시점 효과는 미확인이고 갱신 함수 내부의 코드 설명은 여전히 제한적이었다. 원래 기존판 대비 비교와 이전 후보에서 이번 변경만의 효과를 구별한다. 복구·공통 기준·작업 흐름·운영 설치는 변경하지 않았다.
 
-상세 원자료와 해시는 [Workspace 반영 기록](../../../../../../2026-10-22-ticket04-02-briefing-prototype-adoption.md), [실제 두 응답과 대조](../../../../../../experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md)에 보존한다. 본 기록은 선택의 배경이며 현재 실행 기준은SKILL.md가 소유한다.
+상세 원자료와 해시는 Workspace014의 `records/2026-10-22-ticket04-02-briefing-prototype-adoption.md`와 `records/experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md`에 보존한다. 이 식별자는 추가 재접근용이며 위 발췌로 당시 선택의 핵심과 한계를 확인할 수 있다. 본 기록은 당시 선택의 배경이며 최신 실행 위치는 [형성 자료 진입](../README.md)에서 확인한다.

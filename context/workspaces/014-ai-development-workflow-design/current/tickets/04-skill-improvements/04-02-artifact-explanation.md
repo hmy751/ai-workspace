@@ -1,13 +1,16 @@
-# 04-02 — 작업물 브리핑·설명 복구 스킬을 보완한다
+# 04-02 — 설명 스킬의 구성과 적용
 
 ## 지금 이어갈 지점 — 2026-10-23
 
-**브리핑 prototype은 보완·반영됐지만 효과는 국소적이며, Ticket은 미완료다.** 복구 스킬은 유지하고 운영 설치는 하지 않았다. 최신 사용자 질문은 “현황 파악부터 아티팩트 브리핑으로 해야 하나”라는 적용 적절성의 의문이며, 이번 요청은 기록 정리다. 조기 적용·비적용 어느 쪽도 새 원칙으로 확정하지 않는다.
+**리뷰 반영 구성으로 explain prototype 생성·연결 정리를 완료했다.** 사용자가 본체·상세·_background 생성과 기존 두 스킬 연결 정리를 요청했다. 생성 중 “기존 제거를 감안했는지”를 확인했으며 모든 옛 조항을 무조건 채우라는 뜻은 아니라고 정정했다. [적용·정정·확인 기록](../../../records/2026-10-23-ticket04-02-explain-prototype-adoption.md)이 현재 상태를 보존한다. 운영 설치·새 응답 시험과04-02 전체 완료는 별도다.
 
-- **현재 본문:** [work-artifact-briefing/SKILL.md](../../../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md). 인증에서 코드·값·대기 전후 설명 개선을 관찰해 채택한 뒤, 책임·상태 구별과 실제 구현 대응을 추가 통합했다. 최신 여행 사례에서는 그 핵심 개선이 나타나지 않았다. 반영 사실과 효과 확인은 별개다.
-- **지금 확보한 자료:** [Network 첫 완료 보고 준비 기록](../../../records/2026-10-23-ticket04-02-network-first-report-preparation.md). source06에 대화9~844의34개 발화, 작업 전52개·후69개 코드/테스트/설정과 당시 검사·검토를 보존했다. 대화9는 맥락 입력의 시작이고, 제안한 응답 시험의 재개 위치는 **첫 완료 보고895 직전**이다.
-- **조건의 지위:** 같은 원래 기존판에서 A 자연 선택·B 결과 자료 읽기 전 명시 적용, GPT-6-sol medium 각1회라는 제안만 준비했다. 새 응답은 생성하지 않았다. A도 같은 때 적용하면 시점 차이가 성립하지 않으며, 자연 선택/명시 호출 비교를 순수 시간 차이로 부르지 않는다.
-- **다음 판단:** 현황 파악·완료 보고·작업물 이해 요청의 목적을 구별하고,895의 설명 책임에 이 스킬을 적용하는 것이 적절한지부터 본다. 준비된 A/B가 무엇을 검증할지도 그 판단에 맞춰 정한다. 단순히 실행 요청만 기다리는 단계로 넘기지 않는다.
+- **현재 실행 본문:** [explain/SKILL.md](../../../records/prototypes/development-workflow/skills/explain/SKILL.md). 설명의 공통 수행을 소유하며 [작성 상세](../../../records/prototypes/development-workflow/skills/explain/references/constructing-explanations.md)와 [앞선 발화 상세](../../../records/prototypes/development-workflow/skills/explain/references/prior-explanation.md)를 조건에 따라 사용한다.
+- **선택 이유:** [형성 자료](../../../records/prototypes/development-workflow/skills/explain/_background/README.md)에 목적·기존 구분·source·사용자 정정·리뷰·현재 선택을 구별했다. [구성 제안](../../../records/2026-10-23-ticket04-02-explanation-skill-composition-proposal.md)과 [한 번의 개선 리뷰](../../../records/2026-10-23-ticket04-02-composition-improvement-review.md)는 적용 전 판단 이력이다.
+- **기존 두 스킬:** 기존 두 스킬 폴더를 삭제했다. 배경·직전 본문은 explain/_background/legacy에 보존했고 txt 사본은 바이트 그대로 유지했다. 당시 브리핑 채택판과 복구 보류 후보의 지위를 구별한다. 전역·실제 제품의 같은 이름 스킬은 변경하지 않았다.
+- **연결:** development의 결과 전달 문단, 공통 기준의 work-discussion·explain consumer, prototype 진입과 열람 화면을 맞췄다. 다른 세션의 개발·검토 역할 설계는 변경하지 않았다.
+- **확인:** 대체 YAML 검사·현재 실행 선언·이전 본문 해시·코드 예시 원문·링크를 확인하고 viewer 검사를 통과했다. quick_validate는 PyYAML 부재로 실행하지 못했다. 정적 확인을 실제 설명 효과로 취급하지 않는다.
+- **준비 자료:** [Network 첫 완료 보고](../../../records/2026-10-23-ticket04-02-network-first-report-preparation.md)의 원자료와 기존판 A/B는 준비·미실행으로 남긴다. 통합안 수행이나 구현 범위 개선을 검증한 결과가 아니다.
+- **다음 판단:** 생성본을 읽거나 사용한 결과에서 필요한 판단을 이어간다. 구성 선택을 미채택으로 되돌리거나, 옛 조항 전체를 채우거나, 새 사례·문구·비교 시험을 자동 반복하지 않는다. 사용 효과와 운영 이식은 실제 요청·관찰에 따라 구별한다.
 
 ## 사례와 현재 확인 범위
 
@@ -24,10 +27,10 @@
 
 ## 다른 세션의 재개 순서
 
-1. 위 현재 상태와 [준비 기록의 후속 논의](../../../records/2026-10-23-ticket04-02-network-first-report-preparation.md)를 읽어 열린 질문을 복원한다. 세부 자료가 필요할 때만 source06과 실험 준비 폴더로 내려간다.
-2. 본문 변경을 판단한다면 현재 SKILL과 그 [_background](../../../records/prototypes/development-workflow/skills/work-artifact-briefing/_background/README.md), 최신 여행 책임 비교를 함께 읽는다. 배경은 형성 의도이며 수정 불가능한 정답이 아니다. 과거 판본은 실험 입력 사본에서 찾는다.
-3. 시험을 다시 설계·실행할 때는 본문 효과와 호출 배치 효과를 분리하고, 같은 원자료·당시 코드·전문 읽기·교정 제외를 유지한다. 기존 결과가 비슷하다는 이유로 유리한 답이 나올 때까지 재생성하지 않는다.
-4. 다른 세션의01-01·04-03 development/6번 완성·인계 논의는 별도 진행이다. 설명 책임의 연결 후보를 협의 없이 해당 본문에 반영하지 않는다. 공유 작업 트리의 수정·미추적 파일을 먼저 확인하고 현재 기록만으로 커밋 완료를 가정하지 않는다.
+1. 위 상태와 [적용 기록](../../../records/2026-10-23-ticket04-02-explain-prototype-adoption.md), 현재 explain 본체를 읽는다. 이 요청의 생성·연결 정리는 완료했으며 효과 확인·운영 설치와 구별한다.
+2. 목적이나 구성을 바꾸려면 explain의 형성 자료와 필요한 원자료를 읽는다. 배경의 과거 의도나 기존 두 스킬의 조항을 현재 제약으로 고정하지 않는다. 이전 두 본문은 legacy의 원문 사본으로 확인한다.
+3. 응답 시험이 요청된다면 실제 열린 결정과 판별할 행동을 먼저 구별한다. 기존 source·당시 상태·교정 제외·전문 보존을 유지하고 원하는 답이 나올 때까지 재생성하지 않는다. 과거 비교를 새 explain 효과로 옮기지 않는다.
+4. 다른 세션의01-01·04-03 논의는 별도 진행이다. 이번 연결 변경은 development 결과 전달 문단에 한정했다. 공유 작업 트리의 수정·미추적 파일을 먼저 확인하고 현재 기록만으로 커밋 완료를 가정하지 않는다.
 
 ## 진행 이력과 상세 근거
 
@@ -43,7 +46,7 @@
 
 최신 추가 시험: [저장 용량 첫 보고 적용 배치 비교](../../../records/experiments/artifact-explanation-storage-placement-2026-10-22/comparison.md). 같은 기존판에서 A는 비선택, B는 결과 자료 전 읽기가 확인됐으나 두 답은 요약 중심이었다. 긴 출력 일부 잘림과 각1회·고정 결과 인수의 한계를 유지한다. 저장 용량 비교는 이제 실행했으며 아래 미실행 표기는 당시 상태다. 최신 수정판 추가 시험이나 보고서 본문 비교는 하지 않았다.
 
-현재 선택: [시험한 브리핑 후보를 prototype에 반영](../../../records/2026-10-22-ticket04-02-briefing-prototype-adoption.md)했다. 현재 본문은 [work-artifact-briefing/SKILL.md](../../../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md)이며 시험 판본은 해당 실험의 입력 사본으로 보존한다. 실제 코드·값·대기 전후 설명의 국소 개선을 근거로 채택했고 복구 스킬은 유지한다. 아래 분석·후보·시험 설명은 당시 이력이며 현재 채택 상태와 구별한다. 일반화·사용자 이해·발동 시점 효과는 미확인이다.
+현재 선택: [시험한 브리핑 후보를 prototype에 반영](../../../records/2026-10-22-ticket04-02-briefing-prototype-adoption.md)했다. 현재 본문은 [work-artifact-briefing/SKILL.md](../../../records/prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-before-explain.txt)이며 시험 판본은 해당 실험의 입력 사본으로 보존한다. 실제 코드·값·대기 전후 설명의 국소 개선을 근거로 채택했고 복구 스킬은 유지한다. 아래 분석·후보·시험 설명은 당시 이력이며 현재 채택 상태와 구별한다. 일반화·사용자 이해·발동 시점 효과는 미확인이다.
 
 최신 시험: [새 후보 인증 비교](../../../records/experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md).6.0 sol medium 기존판·새 후보 각1회에서 후보의 요청 코드·값·대기 전후 설명이 나타났다. 전체 갱신 흐름의 코드 해설·사용자 이해 개선·안정된 효과는 미확인이다. 후보 문구·운영·recovery 유지.
 

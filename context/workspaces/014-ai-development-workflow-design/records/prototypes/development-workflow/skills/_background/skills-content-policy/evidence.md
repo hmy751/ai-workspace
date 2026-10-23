@@ -34,4 +34,4 @@ Main은 내용 분할과 수정 이력 보존의 구별, 채택 후 임시 후�
 
 > _background에 잘남겨
 
-이 발화는 제안한 정책 보완과 형성 근거 보존의 승인이다. 모든 후보 파일이나 점을 포함한 이름을 금지하는 요구로 해석하지 않는다. 당시 `SKILL.candidate.md`는 Main이 정한 이름으로, 기존 정책에서 요구한 배치가 아니었다. 삭제된 중복과 동일한 판본은 [실험 입력](../../../../../experiments/artifact-explanation-auth-depth-sol6-2026-10-22/r85/input/skill/SKILL.md)에 보존돼 있다.
+이 발화는 제안한 정책 보완과 형성 근거 보존의 승인이다. 모든 후보 파일이나 점을 포함한 이름을 금지하는 요구로 해석하지 않는다. 당시 `SKILL.candidate.md`는 Main이 정한 이름으로, 기존 정책에서 요구한 배치가 아니었다. 삭제된 중복과 동일한 판본의 추가 재접근 위치는 Workspace014의 `records/experiments/artifact-explanation-auth-depth-sol6-2026-10-22/r85/input/skill/SKILL.md`다.
