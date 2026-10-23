@@ -2,7 +2,7 @@
 
 **후속 설명 반영:** 아래는 사용자의 러프한 구상과 답변을 듣기 전 Main의 비교·권고다. 현재 논의는 [동적 맥락 선택과 별도 관점 검토의 의도](2026-10-21-dynamic-context-and-review-intent.md)에서 이어간다. Personal을 구현의 바탕으로 삼고 별도 역할의 검토 결과를 Main이 비교·판단하는 관계를 우선 구체화하며, 아래의 같은 기준 전달·검토자 선행 수정안을 그대로 확정하지 않는다. 자료별 사실 비교는 참고 근거로 유지한다.
 
-2026-10-21. 수집 커밋 `232200d`의 Matt·pstack 원문과 기존 Vercel 글을 현재 [DEVELOPMENT](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)에 대조했다. **구현은 목표·구조·동작의 첫 완성을 맡고, 검토 및 수정은 원요구와 실제 결과를 다시 대조해 부족한 부분을 직접 고치는 두 단계**를 권고한다. 아래는 논의를 위한 제안이다. B의 검토자 직접 수정 방향은 기존 선택이며, 이번 상세 책임·종료·스킬 배치를 새로 채택한 것은 아니다.
+2026-10-21. 수집 커밋 `232200d`의 Matt·pstack 원문과 기존 Vercel 글을 현재 [DEVELOPMENT](prototypes/development-workflow/skills/development/_background/evidence/development-before-skill.txt)에 대조했다. **구현은 목표·구조·동작의 첫 완성을 맡고, 검토 및 수정은 원요구와 실제 결과를 다시 대조해 부족한 부분을 직접 고치는 두 단계**를 권고한다. 아래는 논의를 위한 제안이다. B의 검토자 직접 수정 방향은 기존 선택이며, 이번 상세 책임·종료·스킬 배치를 새로 채택한 것은 아니다.
 
 ## 이번 질문과 기존 출발점
 

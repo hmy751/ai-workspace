@@ -16,7 +16,7 @@ Astra는 기준의 출처를 품질 영역과 일대일로 묶지 않고, 대안
 
 ### 중복 관리 우려로 바로잡은 부분
 
-사용자는 “personal 에 추가할 원칙이나 이런데 둘어가던 개발 원칙들이 여기에 들어가니까 뭔가 중복관리? 같은게 될 것 같은 우려가 들어 읽기 좋은가 라는 뭐 그런 원칙들도 그렇고”라고 지적하고 리뷰어와 Main의 재검토를 요청했다. 같은 Astra 리뷰어가 후속 검토했고 Main은 기존 [SYSTEM-GUIDANCE](prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md), [Personal의 역할](prototypes/development-workflow/noline-demo/context/personal/README.md), [CONTENT-POLICY](prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md), [DEVELOPMENT](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)의 소유·연결 관계와 대조했다.
+사용자는 “personal 에 추가할 원칙이나 이런데 둘어가던 개발 원칙들이 여기에 들어가니까 뭔가 중복관리? 같은게 될 것 같은 우려가 들어 읽기 좋은가 라는 뭐 그런 원칙들도 그렇고”라고 지적하고 리뷰어와 Main의 재검토를 요청했다. 같은 Astra 리뷰어가 후속 검토했고 Main은 기존 [SYSTEM-GUIDANCE](prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md), [Personal의 역할](prototypes/development-workflow/noline-demo/context/personal/README.md), [CONTENT-POLICY](prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md), [DEVELOPMENT](prototypes/development-workflow/skills/development/_background/evidence/development-before-skill.txt)의 소유·연결 관계와 대조했다.
 
 Main과 리뷰어는 앞선 제안에 개발 원칙의 내용과 검토 수행 계약이 섞였음을 인정했다. 사용자는 설명 뒤 “그래 좋아 근데 기록할때 이점도 잘 적어 놔야 나중에 적용할 때 혼란이 없을 것 같아 그럼 정리된건가 4번은?”이라고 답했다. 이에 **4번을 개발 원칙 목록의 추가가 아니라 기준의 사용 방식과 검토 강도를 정하는 수준에서 마무리**한다. 이번 후속 발화와 Astra의 직접 반환은 앞서 보존한 59개 원문 묶음 이후이며 그 묶음에 포함됐다고 간주하지 않는다.
 

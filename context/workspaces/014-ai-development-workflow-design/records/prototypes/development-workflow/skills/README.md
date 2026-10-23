@@ -1,4 +1,6 @@
-# 작업 판단·설명 스킬 prototype
+# 개발·작업 판단·설명 스킬 prototype
+
+[development](development/SKILL.md)는 개발 작업의 공통 수행 계약과 [독립 검토 상세](development/references/review.md)를 소유한다. 기존 DEVELOPMENT의 진입·본문을 옮기고 Main의 맥락 선택·재탐색·종합·전달·갱신을 연결했다. Personal은 개인의 판단 기준을, Project와 Work는 제품 맥락과 이번 작업을 계속 소유한다. [형성 자료](development/_background/README.md)에 사용자 목적·정정·독립 리뷰·이전 근거와 남은 설계를 보존했다. 상세 인계·호출·수정·종료는 후속이며 실제 운영 설치는 하지 않았다.
 
 04-02 브리핑은 [현재 SKILL.md](work-artifact-briefing/SKILL.md)에 최신 통합안을 반영했다. [반영 근거·검증 한계](../../../2026-10-22-ticket04-02-briefing-prototype-adoption.md)에 사용자의 반영 요청과 인증 비교 결과가 있다. [시험 판본](../../../experiments/artifact-explanation-auth-depth-sol6-2026-10-22/r85/input/skill/SKILL.md)는 시험에 사용한 동일 판본 보존용이다. 실제 Noline·전역 운영 설치는 하지 않았고 복구 스킬은 유지한다.
 
@@ -8,6 +10,7 @@
 
 | 필요한 일 | 읽을 본문 |
 | --- | --- |
+| 개발 작업을 맡아 관련 맥락·구현·검토·확인과 결과를 조율한다 | [development](development/SKILL.md) |
 | 기존 정의가 충분한지, 무엇을 더 구체화할지 판단한다 | [work-discussion](work-discussion/SKILL.md) |
 | 기존 코드·변경·문서의 전체 역할, 실제 연결과 확인 범위를 이해한다 | [work-artifact-briefing](work-artifact-briefing/SKILL.md) |
 | 앞선 응답의 뜻·지시 대상·빠진 전제나 결론의 연결을 복구한다 | [explanation-recovery](explanation-recovery/SKILL.md) |

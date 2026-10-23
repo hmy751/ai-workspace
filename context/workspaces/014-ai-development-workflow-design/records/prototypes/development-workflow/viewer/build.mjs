@@ -26,7 +26,7 @@ const namingRoot = personalRoot + 'development/naming-and-completion/';
 const personal = namingRoot + 'INDEX.md';
 const personalCases = namingRoot + 'INDEX.cases.md';
 const personalCommon = personalRoot + 'development/INDEX.md';
-const workflow = 'noline-demo/context/work/DEVELOPMENT.md';
+const workflow = 'skills/development/SKILL.md';
 const project = 'noline-demo/context/project/';
 const work = 'noline-demo/context/work/workspaces/001-login-completion-names/';
 const namingComparison = work + 'records/2026-10-19-06-naming-alternatives.md';
@@ -77,7 +77,7 @@ const labels = {
   [namingRoot + '_background/context.md']: '형성 맥락 · 목적과 선택 이유',
   [namingRoot + '_background/evidence.md']: '근거 발췌 · 당시 발화와 확인 범위',
   [personalCases]: '상세 사례 · 같은 코드의 선택 비교',
-  [workflow]: 'Workflow · 입력 선택과 전달·갱신',
+  [workflow]: 'Development · Main의 조율과 독립 검토',
   [project + 'README.md']: 'Project 입구 · 담당 본문 선택',
   [project + 'current/authentication-flow/INDEX.md']: '작업 후 · 인증 흐름 현황',
   [work + 'records/2026-10-19-01-input-selection.md']: '이번 Work에서 실제 선택한 입력',

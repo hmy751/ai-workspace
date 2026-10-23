@@ -2,7 +2,7 @@
 
 04-02 최신 선택: [검증한 브리핑 후보의 prototype 반영](../records/2026-10-22-ticket04-02-briefing-prototype-adoption.md). 현재 [브리핑 본문](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md)에 코드 읽기 목적·코드와 값 연결·목적별 종료를 통합했다. 아래 비교는 이전 후보 이력이며 새 후보 인증 재시험에서는 국소 개선을 관찰했다. 복구 스킬 유지, 일반화·시점 효과와04-02 전체 완료는 미확인이다.
 
-구현·검토 논의는 [관련 기준 공유·독립 재판단](../records/2026-10-22-shared-criteria-and-independent-review-decision.md)을 유지하며 **1~5번 판단·책임 묶음을 마무리했다.** [5번 최종 확정](../records/2026-10-23-main-review-disposition-proposal.md#후속-확정--5번과-판단책임-묶음의-마무리)은 Main의 최종 선택·정합성, 문제와 해결안의 구별, 확인 가치 판단, 사용자 결정과 의미 있는 대화의 구별을 담는다. 다음 추천은6번 구현자의 검토 전 완성 책임·인계다. 원래 다음 묶음은6~12번 전달·작업 흐름, 마지막은13~15번 시스템 연결이며 상세 입력·권한·호출·수정·종료·실행 적용은 아직 남아 있다.4번 A·B의 정확한 Personal 본문 통합은01-02 후속이다. 기존 prototype을 새 합의가 적용된 실행 산출물로 보지 않는다.
+구현·검토의 확정1~5번과 개선 리뷰를 [development 스킬](../records/prototypes/development-workflow/skills/development/SKILL.md)과 검토 상세에 적용했다. [적용 기록](../records/2026-10-23-development-skill-prototype-adoption.md)에 실제 반영과 확인 범위가 있다. 공통 본문은 Main의 전체 조율을, 검토 상세는 공유 목적·검토자·Main의 판단을 구별한다. DEVELOPMENT의 진입은 옮겼고6~12번·13~15번의 상세 실행과 A·B Personal 본문 통합은 후속이다. 다음 추천은6번 구현 완성·인계다.
 
 **Ticket 03의 구성안·본문 예시 구체화를 완료했다.** [state](state.md)에서 마감 상태와 후속 범위, [03](tickets/03-project-context.md)에서 완료 조건별 근거, [119](../records/2026-10-20-119-ticket03-closeout.md)에서 이번 마무리 판단을 읽는다. Workspace014 전체와 다른 Ticket은 계속 열려 있다.
 
@@ -16,7 +16,7 @@
 
 1. [state](state.md)와 [output](../output/index.md)에서 이번에 끝낸 결과·현재 실물·다음 행동을 확인하고 Git 상태를 대조한다.
 2. [memory](memory.md)의 대상물 경계·독립 책임·형성 자료·체계 지침에 관한 지속 기준과 [Spec](spec.md)의 전체 목표·3절·5절을 읽는다.
-3. 다음 워크플로 논의를 재개할 때는 [01-01](tickets/01-development-workflow/01-01-development-flow.md)과 [04-03](tickets/04-skill-improvements/04-03-context-skills.md), 현재 DEVELOPMENT를 함께 본다. 이번 마무리는 후속 착수가 아니며02를 선행 완료 조건으로 두지 않는다.
+3. 구현·검토를 이어갈 때는 [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[04-03](tickets/04-skill-improvements/04-03-context-skills.md), 현재 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md)를 읽는다. [적용 기록의 다음 작업](../records/2026-10-23-development-skill-prototype-adoption.md#다음-작업)에서 확정 범위와 남은 항목을 구별하고, **6번 구현자의 검토 전 완성 책임·인계**부터 논의한다. 1~5번을 다시 미정으로 열거나02 완료를 선행 조건으로 두지 않는다.
 
 ## 문서별 책임
 

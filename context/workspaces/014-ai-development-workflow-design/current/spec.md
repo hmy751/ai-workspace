@@ -1,8 +1,10 @@
 # AI 개발 작업 체계의 개선 설계 — Spec 초안
 
+2026-10-23 최신 적용: [development 스킬과 검토 상세](../records/prototypes/development-workflow/skills/development/SKILL.md)에 확정1~5번과 구성 개선 리뷰를 반영했다. DEVELOPMENT 진입 이전·Personal 범위 설명·Main의 전체 책임·역할별 독자를 함께 맞췄다. [적용 기록](../records/2026-10-23-development-skill-prototype-adoption.md). 상세 전달·권한·호출·수정·종료·운영 배치는 남아 있으며 아래 이전 시점의 미적용·위치 미정 표기와 구별한다.
+
 이 Spec은 **014에서 설계하는 AI 개발 작업 체계의 목표·범위와 현재 전체 구상**을 소유한다. 목표와 주의할 점만 남기는 문서가 아니라, 다음 세션에서도 무엇을 만들려 하며 어떤 선택이 남았는지 복원할 기준이다. 현재 전체 잠정안과 Ticket을 연결하는 방법은 3절, 선택과 미정은 5절에서 확인한다.
 
-현재는 상위 Ticket 01~07과 개발 방식·스킬의 하위 Ticket으로 설계를 구체화한다. [초기 의도](../records/2026-10-21-dynamic-context-and-review-intent.md)를 이어, 2026-10-22 사용자는 [관련 기준 공유·독립 검토 방향](../records/2026-10-22-shared-criteria-and-independent-review-decision.md)을 받아들였다. Personal 기반 구현과 별도 관점 검토가 관련 기준을 공유하되 현재 선택·적용을 다시 판단하고 Main이 종합한다. 상세 입력·권한·호출·수정·검증·스킬 연결은 아직 미정이며 실행 프로토타입에는 적용하지 않았다. 아래 전체 잠정안과 과거 날짜별 선택을 일괄 채택한 것은 아니다.
+현재는 상위 Ticket 01~07과 개발 방식·스킬의 하위 Ticket으로 설계를 구체화한다. [초기 의도](../records/2026-10-21-dynamic-context-and-review-intent.md)를 이어, 2026-10-22 사용자는 [관련 기준 공유·독립 검토 방향](../records/2026-10-22-shared-criteria-and-independent-review-decision.md)을 받아들였다. Personal 기반 구현과 별도 관점 검토가 관련 기준을 공유하되 현재 선택·적용을 다시 판단하고 Main이 종합한다. 상세 입력·권한·호출·수정·검증·스킬 연결은 후속이며, 확정1~5번의 공통·검토 본문은 위 최신 적용 기록처럼 prototype에 반영했다. 아래 전체 잠정안과 과거 날짜별 선택을 일괄 채택한 것은 아니다.
 
 사용자가 우려한 것은 좁혀진 AI 제안이 다음 세션에서 결론처럼 읽혀 이후 논의의 범위를 닫는 일이다. 각 부분을 구체화할 때에는 앞선 제안을 미채택으로 표시하는 데 더해, 원자료에 따라 필요한 다른 범위와 대안도 열어 둔다.
 

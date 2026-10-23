@@ -29,7 +29,7 @@ Personal은 여러 Project에 가져갈 개인 판단의 의미·조건을 관�
 | [Project 인증 가이드](prototypes/development-workflow/noline-demo/context/project/guidance/code-readability/INDEX.md) | 일반적인 ‘코드에서 먼저 개선’ 우선순위와 동일 주석 A/B 비교 방법·이번 개명 비용 판단을 덜어냈다. 인증 적용·조회 요청·조회 결과·화면 준비의 차이, 실패 의미와 소비자 요구에 따른 판단은 유지했다. |
 | [Project 관리](prototypes/development-workflow/noline-demo/context/project/MAINTENANCE.md) | 프로젝트의 지속 규약으로 둘 이유·범위와 필요한 설명의 중복 허용을 명시했다. 갱신 조건은 Project 자신의 의미·규약·현재 사실이다. |
 | [Personal 입구](prototypes/development-workflow/noline-demo/context/personal/README.md) | 개인 판단 자체의 변경과 제품 요구·이번 비용의 차이를 구별하고, 개인 기준 변경 시 적용 중인 Work에 미치는 영향을 살피도록 했다. |
-| [Work 개발 절차](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md#결과를-해당-책임으로-돌려준다) | 결과별 갱신 표와 기본값을 보완했다. 개인 기준 수정만으로 Project를 함께 고치지 않으며, 설명 중복과 규약 관리 책임을 구별한다. |
+| [Work 개발 절차](prototypes/development-workflow/skills/development/_background/evidence/development-before-skill.txt) | 결과별 갱신 표와 기본값을 보완했다. 개인 기준 수정만으로 Project를 함께 고치지 않으며, 설명 중복과 규약 관리 책임을 구별한다. |
 | [적용 장면](prototypes/development-workflow/walkthrough.md#다음-변경은-달라진-내용을-소유한-곳에-남긴다) | 이번 개인 기준이 바뀔 때 A/B 판단을 Work에서 살피는 구체적인 갱신 예를 연결했다. |
 
 코드 자체의 명료함을 지향하는 Personal 본문과 이번 B안 선택·이유는 이미 각 담당 문서에 있어 유지했다. 이를 다른 위치에 다시 복제하지 않았다. 기존101 기록은 당시 반영 사실로 보존하며 이번 정리를 그때부터 적용한 것으로 소급하지 않는다. 바깥014 current와03 Ticket에는 관리 기본값·현재 반영·남은 범위를 맞췄다.

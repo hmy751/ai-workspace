@@ -24,4 +24,4 @@
 
 독립 문서 작성은 사용자의 직접 요청이다. `SYSTEM-GUIDANCE.md`라는 영문 파일명과 context 바로 아래 배치, 대표 문서의 대문자 기본 표기는 그 요청과 선호를 반영한 이번 작성 선택이다. 기존 파일들을 일괄 개명하거나 재배치한 선택은 아니다.
 
-Work는 기존 구성과 제약을 유지한다. DEVELOPMENT의 최종 위치·운영 책임과 구체 워크플로·스킬은 후속 범위이며, 참고한 DOCUMENT-WRITING의 원본도 수정 대상이 아니다. 이 문서를 만든 사실로 새 세션의 장기적인 이해·갱신 효과가 보장되지는 않는다. [선택과 유보 기록](records/2026-10-20-role-and-entry.md)
+Work는 기존 구성과 제약을 유지한다. 이 지침을 만들 당시에는 DEVELOPMENT의 위치·운영 책임을 후속으로 남겼다. 이후 사용자의 별도 요청으로 [development 스킬](../../../../skills/development/SKILL.md)에 공통 수행 계약과 진입점을 이전했다. [전환 이유](../../../../skills/development/_background/context.md)는 일반 절차와 Work의 내용 소유를 구별한다. 참고한 DOCUMENT-WRITING의 원본은 수정 대상이 아니다. 이 문서의 작성이나 진입점 이전만으로 새 세션의 장기적인 이해·갱신 효과가 보장되지는 않는다. [당시 선택과 유보 기록](records/2026-10-20-role-and-entry.md)

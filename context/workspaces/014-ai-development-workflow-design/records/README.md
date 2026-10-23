@@ -1,5 +1,9 @@
 # 논의와 보존 기록
 
+- [Development 스킬·검토 상세와 진입점 이전 적용](2026-10-23-development-skill-prototype-adoption.md): Personal 범위 정정과 Astra high 리뷰의 네 보완을 실제 prototype에 반영했다. 공통 SKILL.md·검토 상세·형성 자료를 작성하고 DEVELOPMENT의 현재 진입을 옮겼다. 이전 원문·기록 의미를 보존하며6번 이후 미정과 기존04-02 링크 검사 실패를 구별한다.
+
+- [Development 스킬 진입점·상세 구성 제안](2026-10-23-development-skill-structure-proposal.md): 사용자의 전용 스킬·계층적 구성과 DEVELOPMENT 이전 구상을 실제 prototype·Lauren·Matt·Vercel 구성에 대조했다. 공통 실행 계약과 역할별 상세, 기존 기준 소유, 이전할 연결과 남은6~15번의 관계를 제안한 당시 기록이다. 후속 리뷰·정정 뒤 실제 생성·이전한 결과는 위 적용 기록에서 이어 본다.
+
 - [5번 Main 판단·사용자 논의의 제안·리뷰·확정](2026-10-23-main-review-disposition-proposal.md): 최초 비교안과 Astra high 리뷰에서 보완한 사용자 결정/의미 있는 논의, 최종 선택의 일관성, 확인의 영향·비용을 보존했다. 사용자 확정으로1~5번 판단·책임 묶음 마무리. 원래6~12/13~15 경계와 다음6번 추천을 연결하며 실행 본문 적용은 후속이다.
 
 - [Personal·검토 workflow 책임 구분과4번 최종 합의](2026-10-23-personal-review-ownership-proposal.md): 실제 내용 배치, Astra high 개선 리뷰, 과도한 보류에 대한 사용자 정정과 현재 근거에 따른 선별·채택을 보존한다. A는 기존 기준 통합, B는 조건부 기준 반영 방향을 확정했다.4번 설계 완료·다음5번이며 본문 편집·실행 연결은 후속이다.

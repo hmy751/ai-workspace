@@ -22,7 +22,7 @@ Main이 후속으로 맥락 선택·인계·구현·검토·확인·반환과 �
 > 그건 다른 티켓에서 좀 더 구체화 해야겠다
 > 근데 여기서 궁금한게 Development 이 문서는 어찌보면 음 개발 워크플로 스킬 등의 어떤 진입점이자 본체 같은 내용같은데 맞을까?
 
-Main은 현재 [DEVELOPMENT.md](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)가 맥락 선택뿐 아니라 역할 간 전달, 충돌 처리, 구현·검토와 결과 갱신까지 직접 설명하므로 **개발 워크플로의 진입점 역할과 절차 본문을 함께 가진 시안**이라고 설명했다. Personal·Project의 내용은 각각의 본문이 소유하고, 이 문서는 그것을 실제 작업에 사용하는 방법을 다룬다. 자동으로 호출되는 스킬로 연결된 상태는 아니다.
+Main은 현재 [DEVELOPMENT.md](prototypes/development-workflow/skills/development/_background/evidence/development-before-skill.txt)가 맥락 선택뿐 아니라 역할 간 전달, 충돌 처리, 구현·검토와 결과 갱신까지 직접 설명하므로 **개발 워크플로의 진입점 역할과 절차 본문을 함께 가진 시안**이라고 설명했다. Personal·Project의 내용은 각각의 본문이 소유하고, 이 문서는 그것을 실제 작업에 사용하는 방법을 다룬다. 자동으로 호출되는 스킬로 연결된 상태는 아니다.
 
 스킬 본문에 통합할지, 별도 워크플로 문서를 유지하고 스킬이 진입·실행을 맡을지는 후속 선택이다. 현재 파일명·위치·최종 Owner, 기존 스킬의 책임과 겹치는 부분도 함께 판단해야 한다. 두 곳에 같은 절차를 별도로 관리하는 구성으로 확정하지 않았다.
 

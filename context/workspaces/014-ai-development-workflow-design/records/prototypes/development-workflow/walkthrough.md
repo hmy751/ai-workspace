@@ -19,7 +19,7 @@
 | 이 제품에서 피해야 할 완료 표현 | [Project 가독성 가이드](noline-demo/context/project/guidance/code-readability/INDEX.md) | 인증 적용·조회 요청·조회 결과·화면 준비를 섞지 않는다. |
 | 이번 구현의 범위 | [Work Ticket](noline-demo/context/work/workspaces/001-login-completion-names/current/memory/tickets/01-authentication-completion.md) | 인증 적용 뒤 조회를 요청하고 기다리지 않는 완료 경계를 새 실행 예제로 구현한다. 두 소비자의 이동·닫기를 유지하며 이름과 완료 표현을 비교한다. |
 
-Personal이 비교할 관점을 제공하고 Project가 제품의 약속을 정한다. Work는 이 둘을 현재 사용처에 대입해 선택한다. [개발 절차](noline-demo/context/work/DEVELOPMENT.md)는 입력 선택·전달·검토·갱신을 연결한다. 이 해설은 현재 문서를 이용한 설명이며 최초 전달 판본을 그대로 재현한 실험은 아니다.
+Personal이 비교할 관점을 제공하고 Project가 제품의 약속을 정한다. Work는 이 둘을 현재 사용처에 대입해 선택한다. [개발 절차](skills/development/SKILL.md)는 입력 선택·전달·검토·갱신을 연결한다. 이 해설은 현재 문서를 이용한 설명이며 최초 전달 판본을 그대로 재현한 실험은 아니다.
 
 ## 같은 코드에 두 표현을 대입한다
 

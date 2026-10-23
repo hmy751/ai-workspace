@@ -8,6 +8,7 @@
 
 | 보고 싶은 것 | 시작점 | 여기서 이해할 차이 |
 | --- | --- | --- |
+| 개발 작업의 맥락·역할·판단을 연결하는 방법 | [development 스킬](skills/development/SKILL.md) · [검토 상세](skills/development/references/review.md) | Main의 전체 조율과 구현 단계 검토자의 독립 판단, 수정 뒤 검증의 책임 |
 | 스킬 본문과 형성 자료를 작성·갱신하는 방법 | [스킬 본문 관리 정책](skills/SKILLS-CONTENT-POLICY.md) | 실행 지침·조건부 상세·형성 맥락과 근거의 책임 및 읽을 조건 |
 | 작업물을 설명하거나 앞선 설명을 복구하는 스킬 수정안 | [두 설명 스킬과 변경점](skills/README.md) | 접근법 재검토로 보류한 후보와 그 문구 차이. 채택·효과가 확인된 현재 해법은 아니다. |
 | 공통으로 묶을 범위와 사용처에 남길 선택 | [공통 제공과 사용처 선택](noline-demo/context/personal/development/shared-boundaries/INDEX.md) · [코드 사례](noline-demo/context/personal/development/shared-boundaries/INDEX.cases.md) | Field의 배치·입력 교체, Container의 오류 표시, 같은 주문 API와 같은 구매 흐름의 차이 |
@@ -31,7 +32,7 @@
 | [Project](noline-demo/context/project/README.md) | 제품의 의미·개발 계약·현재 구현 | 인증 적용과 조회 완료를 구별하고 실패 때 보존할 상태를 정한다. |
 | [Work](noline-demo/context/work/README.md) | 이번 요구·선택·상태·입력·결과·기록 | 내부 두 소비자의 완료 표현을 정리하고 코드와 확인 결과를 연결한다. |
 
-Work의 [개발 절차](noline-demo/context/work/DEVELOPMENT.md)는 이 입력을 고르고 구현·검토·갱신으로 연결하는 방법을 설명한다. Project가 개인 기준의 채택 목록을 관리하지 않으며, 이번 Work에서 고른 함수명을 모든 작업의 규칙으로 올리지 않는다.
+[development 스킬](skills/development/SKILL.md)은 이 입력을 고르고 작업 중 다시 살피며 구현·검토·확인·결과 전달·갱신을 연결한다. [검토 상세](skills/development/references/review.md)는 공유 목적과 검토자·Main의 서로 다른 판단을 설명한다. 공통 계약과 검토 판단을 반영한 prototype이며 상세 인계·호출·수정·종료와 운영 배치는 계속 구체화한다. Project가 개인 기준의 채택 목록을 관리하지 않으며, 이번 Work에서 고른 함수명을 모든 작업의 규칙으로 올리지 않는다.
 
 ## 직접 확인할 수 있는 범위
 

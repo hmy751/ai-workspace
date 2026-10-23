@@ -109,7 +109,7 @@ Main의 판단은 **작은 범위에서 운영 가능한 구성이지만, 본문
 
 ### 현재 있는 기반과 없는 부분
 
-[Personal 입구](prototypes/development-workflow/noline-demo/context/personal/README.md)는 개인 기준을 고친 뒤 사용 중인 Work의 영향을 살피고, 제품 요구·작업 비용의 변화는 Project·Work가 맡도록 설명한다. [DEVELOPMENT의 결과 갱신](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)은 변경 담당자와 Main의 연결 책임을, [Project 관리](prototypes/development-workflow/noline-demo/context/project/MAINTENANCE.md)는 의미가 바뀐 본문과 관련 진입 경로를 대조하는 수동 관리를 이미 둔다. Project 관리 문서를 Personal 전체의 관리자로 확대하지 않는다.
+[Personal 입구](prototypes/development-workflow/noline-demo/context/personal/README.md)는 개인 기준을 고친 뒤 사용 중인 Work의 영향을 살피고, 제품 요구·작업 비용의 변화는 Project·Work가 맡도록 설명한다. [DEVELOPMENT의 결과 갱신](prototypes/development-workflow/skills/development/_background/evidence/development-before-skill.txt)은 변경 담당자와 Main의 연결 책임을, [Project 관리](prototypes/development-workflow/noline-demo/context/project/MAINTENANCE.md)는 의미가 바뀐 본문과 관련 진입 경로를 대조하는 수동 관리를 이미 둔다. Project 관리 문서를 Personal 전체의 관리자로 확대하지 않는다.
 
 [열람 화면의 검사](prototypes/development-workflow/viewer/README.md)는 원문과 화면의 일치·파일·링크·앵커를 확인하는 범위다. 새 본문–형성 맥락 관계의 누락이나 의미 모순을 이미 검사한다고 볼 수 없다. 현재 없는 것은 그 관계의 명시, 변경 때 읽을 조건, 내용 대조, 실제 변경 상황에서의 운영 확인이다.
 

@@ -8,7 +8,7 @@
 
 | 근거 | 실제 내용 | 우리에게 적용할 제안 |
 | --- | --- | --- |
-| [기존 DEVELOPMENT](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md) | Main이 목표·Personal·Project를 연결한다. 목표·보존 계약 안의 품질 수정마다 새 승인을 요구하지 않고 새로운 제품·팀 선택은 권한 있는 사람에게 확인한다. | 기존 범위의 기술 선택은 Main이 책임진다. 사용자 논의는 새로운 목표·약속·중요한 우선순위 선택에 연결한다. 예전 검토자 직접 수정 흐름은 현재 권한 확정으로 취하지 않는다. |
+| [기존 DEVELOPMENT](prototypes/development-workflow/skills/development/_background/evidence/development-before-skill.txt) | Main이 목표·Personal·Project를 연결한다. 목표·보존 계약 안의 품질 수정마다 새 승인을 요구하지 않고 새로운 제품·팀 선택은 권한 있는 사람에게 확인한다. | 기존 범위의 기술 선택은 Main이 책임진다. 사용자 논의는 새로운 목표·약속·중요한 우선순위 선택에 연결한다. 예전 검토자 직접 수정 흐름은 현재 권한 확정으로 취하지 않는다. |
 | [Lauren interrogate](../source/workflow-references/pstack/repository/skills/interrogate/SKILL.md)와 [Lead 판단](../source/workflow-references/pstack/repository/skills/interrogate/references/lead-judgment.md) | Lead가 단순 취합을 넘어 Act on/Consider/Noted/Dismissed로 의견을 판단한다. 과장된 사소한 지적·가상 경로·과한 추상화·개인 선호를 걸러내고 실제 문제를 놓치지 않는다. | Main의 능동 판단과 이유 설명을 사용한다. 유효한 개선을 PR 차단 문제로 제한하거나 애매한 의견을 모두 사용자에게 넘기지 않는다. 기존 일관성·변경 파일 밖이라는 이유만으로 기각하지 않는다. 다수 의견은 단서이며 단독 발견도 근거로 판단한다. |
 | [Matt code-review](../source/workflow-references/matt-pocock/repository/skills/engineering/code-review/SKILL.md) | Standards와 Spec를 각각 보고 한 축의 통과가 다른 축을 덮지 않게 한다. 원문 skill은 결과를 합치거나 재순위화하지 않는다. | 요구 충족과 선택의 적절성을 구별한다. 우리 Main은 전체 목표에 맞게 종합하므로 결과 종합 금지는 가져오지 않는다. |
 | [Vercel 보존 원문](<../source/lectures/vercel-product-design (1).md>) | 목표·제약, 확인된 사실, canonical, 채택 결정, 주변 패턴과 일반 관점을 구별한다. 기존 구현은 자동 선례가 아니며 제품 선택을 구현 세부에 숨기지 않는다. | 출처의 성격·적용 조건을 구별하고 중요한 제품 선택을 드러낸다. 문서 이름만으로 모든 충돌을 해결하는 고정 서열이나 모든 제품 판단의 사용자 재승인을 만들지 않는다. |

@@ -24,7 +24,7 @@ Main은 구체 경로를 `records/prototypes/development-workflow/`로, 이번 �
 | --- | --- |
 | `ai-workspace/context/personal/` | 작업대 아래의 개인 기준. 개발 공통·이름과 완료 범위의 의미·조건·근거를 제공한다. |
 | `noline-demo/` | 대상 제품의 Project 계약·현재 현실과 이번 Work의 요구·선택·변경·검토 기록. 개인 기준의 관리 책임을 Project에 넘기지 않는다. |
-| [workflow/development.md](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md) | 필요한 개인 주제와 대상 Project 본문을 별도로 선택하고 충돌을 판단해 구현·검토에 전달하며 결과별 갱신을 연결하는 절차. 실제 설치된 스킬은 아니다. |
+| [workflow/development.md](prototypes/development-workflow/skills/development/_background/evidence/development-before-skill.txt) | 필요한 개인 주제와 대상 Project 본문을 별도로 선택하고 충돌을 판단해 구현·검토에 전달하며 결과별 갱신을 연결하는 절차. 실제 설치된 스킬은 아니다. |
 | 적용 장면과 열람 화면 | 한 작업에서 어떤 본문이 왜 읽히고 이름·계약·동작·검토·기록으로 이어지는지 보여 준다. 본문 정본과 화면의 표시 사본을 구별한다. |
 
 단독 기준의 내용만 다시 나열하지 않고 실제 적용의 입력·선택·변경·검토·남는 기록과 함께 본다. 예시에 부여한 초기 문제·사용처의 가정과 실제 작성·검사한 demo 코드를 구별한다. 로컬 demo의 검사 결과를 실제 Noline 제품 실행으로 확대해 보고하지 않는다.

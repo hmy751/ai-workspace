@@ -1,5 +1,7 @@
 # 현재 상태
 
+2026-10-23 development prototype 적용: [적용 기록](../records/2026-10-23-development-skill-prototype-adoption.md)에 따라 Main의 공통 SKILL.md와 검토 상세를 작성하고 DEVELOPMENT 진입을 이전했다. Personal 상위 역할을 코드 품질에 한정하지 않도록 설명을 보완했다. 스킬은 맥락 선택·재탐색·역할 연결·결과 전달·Owner별 갱신을 맡고, 검토 상세는 공유 목적과 각 역할의 판단을 구별한다. 이전 본문은 보존판으로 남기고 현재 연결을 새 스킬로 맞췄다.6번 이후 상세 인계·호출·권한·수정·종료는 미정이며 빈 구현·검증 상세나 새 운영 설정은 만들지 않았다.이번 development 작업에서는04-02 실행 본문을 수정하지 않았다. 공유 작업 트리의04-02 최신 변경은 다른 세션의 별도 범위다. 현재 설계의 적용과 실제 수행 효과 확인을 구별한다.
+
 2026-10-23 **5번 사용자 확정, 1~5번 판단·책임 묶음 마무리.** [최종 합의·리뷰 보완·원래 목록 경계](../records/2026-10-23-main-review-disposition-proposal.md#후속-확정--5번과-판단책임-묶음의-마무리)를 기록했다. Main은 의견·해결안을 구별하고 최종 조합의 정합성을 책임지며, 추가 확인의 영향·비용과 사용자 결정/의미 있는 논의를 구별한다. 다음 추천은6번 구현자의 검토 전 완성 책임·인계다.6~12번 전달·작업 흐름,13~15번 시스템 연결은 미정이며6번을 이번에 착수하지 않았다.4번 A·B의 본문 통합과 실행 지침 적용은 후속, 전체 Ticket은 미완료다. 아래5번 미확정 표기는 당시 이력이다. 이번에는 기록만 갱신했으며04-02·실행 본문·코드는 변경하지 않았다.
 
 2026-10-22 정책 보완: [스킬의 내용 분할·판본 보존·채택 후 정리](../records/2026-10-22-skill-policy-revision-lifecycle.md)를 기존 정책 본문에 통합했다. `_background`에 실제 발화·선택 이유·허용 범위·확인 한계를 보존했다. 후보 중복 제거와 브리핑 반영은 이전 상태를 유지하며 스킬 실행·운영 설치는 변경하지 않았다.
@@ -89,9 +91,11 @@
 
 ## 다음에 이어갈 일
 
+구현·검토의 현재 첫 질문은 **구현자가 검토를 요청하기 전에 무엇을 끝내고, 결과·선택 이유·확인 범위·미해결점을 어떻게 Main에 인계할 것인가**다. 이는6번에서 정할 질문이며 필수 서식이나 완료 조건을 이미 확정한 것은 아니다. [적용 기록](../records/2026-10-23-development-skill-prototype-adoption.md#다음-작업)의 이어가기 범위와 현재 스킬을 함께 본다.
+
 03 마무리 당시 새 Ticket을 착수하지 않았다. 기존 후속 중심은 앞선 사용자 방향대로 **01-01의 개발 흐름과 04-03의 기존 스킬 연결을 함께 구체화하는 것**이며, 이후 사용자 요청으로04-01의 논의·근거 확인을 병렬로 시작했다.
 
-- [01-01](tickets/01-development-workflow/01-01-development-flow.md)과 [04-03](tickets/04-skill-improvements/04-03-context-skills.md), 현재 [DEVELOPMENT](../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)를 읽는다. 입력 선택·전달, 구현·검토·최종 확인의 책임과 기존 스킬의 행동을 대조한다. 절차를 스킬 본문에 둘지 별도 체계 지침으로 연결할지, 최종 이름·위치·Owner를 이때 판단한다. 로그인 예제를 재사용하는 안은 후보이며 확정 실험 입력이 아니다.
+- [01-01](tickets/01-development-workflow/01-01-development-flow.md)과 [04-03](tickets/04-skill-improvements/04-03-context-skills.md), 현재 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)를 읽는다. 입력 선택·전달, 구현·검토·최종 확인의 책임과 기존 스킬의 행동을 대조한다. 공통 절차는 development 스킬로 이전했다. 이를 바탕으로 상세 인계·호출·수정·종료와 기존 맥락 스킬 연결을 판단한다. 로그인 예제를 재사용하는 안은 후보이며 확정 실험 입력이 아니다.
 - [02](tickets/02-work-records.md)는 Work의 기존 구성과 형성 맥락·기록의 관계를 다룰 때116의 복구 이유를 이어받는다. 02 완료를 위 워크플로 논의의 선행 조건으로 두지 않는다.
 - [01-02](tickets/01-development-workflow/01-02-code-design-quality.md)는 코드 기준 전체와 검토·수정 방법이 미완료다.03의 본문 구성 결과를 입력으로 받고 실행·검증 조건과 함께 다시 종합한다.
 - [06](tickets/06-framework-transition.md)·[07](tickets/07-integrated-rehearsal.md)은 실제 배치·전환과 전체 연결·효과 확인을 맡는다. 이번 데모의 위치 선택과 읽기 실험을 설치·운영 효과로 올리지 않는다.

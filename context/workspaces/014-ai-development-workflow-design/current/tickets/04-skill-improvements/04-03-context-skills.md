@@ -1,5 +1,7 @@
 # 04-03 — 맥락 읽기·갱신·Workspace 생성 스킬을 보완한다
 
+2026-10-23 prototype 적용: [development SKILL.md](../../../records/prototypes/development-workflow/skills/development/SKILL.md)와 검토 상세에 확정1~5번·구성 개선 리뷰를 반영하고 DEVELOPMENT 진입을 이전했다. [적용 기록](../../../records/2026-10-23-development-skill-prototype-adoption.md)을 따른다. Personal·Project·Work의 내용 Owner와 일반 수행의 Owner를 구별하며 상세 인계·호출·수정·종료·모델·기존 맥락 스킬 연결은 후속이다. 다음은6번 구현 완성·인계다. 아래 날짜별 미적용·위치 미정은 당시 상태이며 Ticket 전체·운영 설치는 아직 완료가 아니다.
+
 2026-10-22 연결 방향: [관련 기준 공유·별도 판단의 선택](../../../records/2026-10-22-shared-criteria-and-independent-review-decision.md)에 맞춰 Main 초기 선택과 서브의 질문별 추가 탐색을 구체화한다. 검토자에게 Personal을 기본적으로 숨기는 안 대신 관련 기준을 공유하는 방향이며, 정확한 본문·사례·형성 자료의 읽기 범위는 미정이다. 기존 Project 읽기의 질문별 선택을 살리고 일반 재진입과 한정 검토 위임·실제 대화/지침 상속·갱신 Owner를 대조한다. 이번에는 논의만 기록했고 스킬·DEVELOPMENT·설정은 변경하지 않았다.
 
 상위 과제: [04 기존 스킬 보완](README.md)
@@ -14,7 +16,7 @@
 
 2026-10-19 당시 후속 입력: [103](../../../records/2026-10-19-103-prototype-session-checkpoint.md)에서 사용자는 Development의 최종 위치·역할과 스킬 관계를 워크플로 관련 작업 때 더 구체화하기로 했다.01-01과 함께 스킬 본문 통합 또는 별도 절차 문서 연결을 비교하되 현재 안을 확정하지 않는다. [102](../../../records/2026-10-19-102-personal-project-update-ownership.md)의 Personal·Work·Project별 갱신 기본값과 필요한 설명 중복 허용을 실제 스킬 행동에 연결한다. 이번 세션은 기록·커밋이며 스킬 수정·설치는 하지 않는다.
 
-상태: **Project 읽기·갱신 스킬 첫 대조와 workflow 시안 수정 완료 · 실제 스킬 보완은 미완료**.76에서 기존 read/update 스킬과 읽기·관리 기준을 비교했고82·83에 본문·적용 장면을 만들었다. 앞선 [책임 정정84](../../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)는 Project가 개인 문서를 관리하는 직접 연결을 대체한다. 현재는 [88](../../../records/2026-10-19-88-living-applied-prototype.md)의 [단일 프로토타입 workflow](../../../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)에서 입력 선택·충돌 판단·구현/검토 인계·결과별 갱신을 구체화하며 실제 스킬 수정·호출 효과·Workspace 생성 대조는 미완료다. 전체 기준은 [Spec](../../spec.md)에 있다.
+상태: **Project 읽기·갱신 스킬 첫 대조와 workflow 시안 수정 완료 · 실제 스킬 보완은 미완료**.76에서 기존 read/update 스킬과 읽기·관리 기준을 비교했고82·83에 본문·적용 장면을 만들었다. 앞선 [책임 정정84](../../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)는 Project가 개인 문서를 관리하는 직접 연결을 대체한다. 현재는 [88](../../../records/2026-10-19-88-living-applied-prototype.md)의 [단일 프로토타입 workflow](../../../records/prototypes/development-workflow/skills/development/SKILL.md)에서 입력 선택·충돌 판단·구현/검토 인계·결과별 갱신을 구체화하며 실제 스킬 수정·호출 효과·Workspace 생성 대조는 미완료다. 전체 기준은 [Spec](../../spec.md)에 있다.
 
 [중간 정리90](../../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md): 사용자는 DEVELOPMENT.md의 현재 위치를 미완성의 예로 짚었다. 이 파일이 Work의 확정 운영 계약이라는 전제 없이 위치·이름·소유 책임, 기존 read/update/작업 스킬과의 행동 분담을 구체화한다. 이번 커밋·정리는 대체 위치 선택이나 실제 skill 설치가 아니다.
 
@@ -24,7 +26,7 @@
 
 ## 맡은 결과와 범위
 
-Personal의 일반 판단과 Project의 제품·개발 계약은 각각 독립 본문이 소유한다. [현재 workflow](../../../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)는 Main이 작업 단서로 필요한 개인 주제와 대상 Project 본문을 고르고, 충돌·열린 선택을 판단하며, 구현자·검토자에게 필요한 입력을 전달하고 결과를 각 책임에 돌려보내는 모습을 다룬다. 이 연결을 Project README의 개인 문서 안내·채택·갱신 관리로 대신하지 않는다. 개인 기준은89에 따라 demo context/personal에서 찾는다. 현재 경로와 수동 절차는 구성했으며 기존 스킬 반영과 실제 자율 발견 효과는 남아 있다. 새 스킬을 설치한 것은 아니다.
+Personal의 일반 판단과 Project의 제품·개발 계약은 각각 독립 본문이 소유한다. [현재 workflow](../../../records/prototypes/development-workflow/skills/development/SKILL.md)는 Main이 작업 단서로 필요한 개인 주제와 대상 Project 본문을 고르고, 충돌·열린 선택을 판단하며, 구현자·검토자에게 필요한 입력을 전달하고 결과를 각 책임에 돌려보내는 모습을 다룬다. 이 연결을 Project README의 개인 문서 안내·채택·갱신 관리로 대신하지 않는다. 개인 기준은89에 따라 demo context/personal에서 찾는다. 현재 경로와 수동 절차는 구성했으며 기존 스킬 반영과 실제 자율 발견 효과는 남아 있다. 새 스킬을 설치한 것은 아니다.
 
 2026-10-18 현재 시안 연결: [반영72](../../../records/2026-10-18-72-short-common-and-detail-prototype.md)는 사용자가 선택한 짧은 공통·이름과 가독성의 독립 절을 실제 문서와 읽기 안내에 연결한다. [주문 장면](../../../records/prototypes/applied-criteria-2026-10-17/order-walkthrough.md)에서 같은 작업 경로와 develop 역할을 받은 뒤 Project 안내·현재 계약·필요한 상세·조건별 사례로 내려가는 문구를 대조한다. 당시 시안은 Project 한곳의 읽기 안내를 역할 절차가 참조했다. Personal까지 포함한 현재 연결 책임은84에서 다시 나누며,72의 배치를 독립 기준 연결의 확정 구조로 확대하지 않는다. 가상 develop를 기존 스킬의 대조·실제 발견·적용 효과 확인으로 대신하지 않는다.
 

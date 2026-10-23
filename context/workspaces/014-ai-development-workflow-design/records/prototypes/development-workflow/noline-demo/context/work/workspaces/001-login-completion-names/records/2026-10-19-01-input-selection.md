@@ -1,6 +1,6 @@
 # 이번 작업에서 고른 입력
 
-이 문서는 Work가 실제 사용한 입력과 이유를 남긴다. Project 문서가 외부 기준을 상시 알고 관리하도록 만드는 채택 목록은 아니다. 입력의 선택·대조·전달 절차는 이 프로토타입의 [개발 workflow](../../../DEVELOPMENT.md)가 맡는다.
+이 문서는 Work가 실제 사용한 입력과 이유를 남긴다. Project 문서가 외부 기준을 상시 알고 관리하도록 만드는 채택 목록은 아니다. 입력의 선택·대조·전달 절차는 이 프로토타입의 [개발 workflow](../../../../../../skills/development/_background/evidence/development-before-skill.txt)가 맡는다.
 
 | 고른 입력 | 이번에 필요한 이유 | 읽는 범위 |
 | --- | --- | --- |

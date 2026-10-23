@@ -1,5 +1,7 @@
 # 01-01 — 개발 진행과 사람의 판단을 연결한다
 
+2026-10-23 prototype 적용: [development SKILL.md](../../../records/prototypes/development-workflow/skills/development/SKILL.md)와 검토 상세에 확정1~5번·구성 개선 리뷰를 반영하고 DEVELOPMENT 진입을 이전했다. [적용 기록](../../../records/2026-10-23-development-skill-prototype-adoption.md)을 따른다. Personal·Project·Work의 내용 Owner와 일반 수행의 Owner를 구별하며 상세 인계·호출·수정·종료·모델·기존 맥락 스킬 연결은 후속이다. 다음은6번 구현 완성·인계다. 아래 날짜별 미적용·위치 미정은 당시 상태이며 Ticket 전체·운영 설치는 아직 완료가 아니다.
+
 2026-10-23 현재 방향: [관련 기준 공유·독립 검토](../../../records/2026-10-22-shared-criteria-and-independent-review-decision.md)를 유지하며 **1~5번 판단·책임 설계를 마무리했다.** [5번 확정](../../../records/2026-10-23-main-review-disposition-proposal.md#후속-확정--5번과-판단책임-묶음의-마무리)으로 Main의 문제/해결안 구별, 연결된 의견의 최종 선택, 확인의 영향·비용, 사용자 결정과 의미 있는 논의를 정했다. 다음 추천은6번 구현자의 검토 전 완성 책임·인계이며6~12번 실제 흐름과13~15번 시스템 연결은 후속이다.4번의 A·B Personal 본문 통합은01-02, 실제 검증 설계는01-03에서 잇는다. 과거 B 직접 수정과 입력 축소안은 현재 권한·기본 입력을 자동 결정하지 않는다. 실행 본문 미적용·Ticket 전체 미완료.
 
 상위 과제: [01 개발 작업 방식](README.md)

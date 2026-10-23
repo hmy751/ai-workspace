@@ -4,11 +4,11 @@
 
 | 필요한 것 | 시작점 | 담당하는 내용 |
 | --- | --- | --- |
-| 개인의 개발 판단 | [personal](personal/README.md) | 공통화할 범위, 신뢰할 계약과 수명, 이름과 완료를 판단하는 기준·사례 |
+| 개인의 판단 기준 | [personal](personal/README.md) | 여러 작업에 가져올 판단·이유·조건. 현재는 공통화·계약·이름과 완료에 관한 개발 본문이 있다. |
 | Noline demo의 제품 맥락 | [project](project/README.md) | 기기 세션의 의미, 인증 적용·조회 후속 실패 계약, 현재 예제의 구현 경계 |
 | 이번 작업을 이어 가기 | [work](work/README.md) | 작업의 Spec·Ticket·현재 상태와 입력·결과·기록 |
 
-Personal과 Project는 자기 내용만으로 담당 의미를 설명한다. 어느 개인 기준과 제품 계약을 이번 작업에 함께 적용할지는 Work의 [개발 절차](work/DEVELOPMENT.md)가 선택한다. Project가 개인 기준의 채택 목록을 관리하거나 개인 원문을 알아야 제품 계약을 이해할 수 있게 만들지 않는다.
+Personal과 Project는 자기 내용만으로 담당 의미를 설명한다. Main은 [development 스킬](../../skills/development/SKILL.md)에 따라 이번 작업에 필요한 기준과 계약을 선택하고 결과·새 질문에 맞춰 다시 살핀다. 스킬은 수행 방법을, 이 context는 기준·제품 맥락·이번 작업의 상태를 소유한다. Project가 개인 기준의 채택 목록을 관리하거나 개인 원문을 알아야 제품 계약을 이해할 수 있게 만들지 않는다.
 
 현재 작업은 [001 로그인 완료 표현](work/workspaces/001-login-completion-names/README.md)이다. 같은 프로젝트에서 다른 작업을 시작하면 별도 Workspace가 그 목표와 상태를 맡으며, 이번 작업의 함수명 선택을 다른 작업의 고정 규칙으로 올리지 않는다.
 

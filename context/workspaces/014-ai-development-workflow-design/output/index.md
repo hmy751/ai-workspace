@@ -2,7 +2,7 @@
 
 04-02 현재 채택 산출물: [브리핑 SKILL.md](../records/prototypes/development-workflow/skills/work-artifact-briefing/SKILL.md) — [시험한 후보를 동일하게 prototype에 반영](../records/2026-10-22-ticket04-02-briefing-prototype-adoption.md)했다. 코드 읽기 목적과 코드·값·실행 연결을 본문에 통합했으며 복구 스킬은 유지했다. 아래 후보 작성·비교는 이력이다. 운영 설치·발동 시점 변경은 하지 않았다.
 
-구현·검토 설계의 현재 선택: [관련 기준 공유·독립 판단과 전체15항목](../records/2026-10-22-shared-criteria-and-independent-review-decision.md), [4번 책임·내용 배치](../records/2026-10-23-personal-review-ownership-proposal.md), [5번 Main 판단·사용자 참여 확정](../records/2026-10-23-main-review-disposition-proposal.md#후속-확정--5번과-판단책임-묶음의-마무리).1~5번 판단·책임 설계를 마무리했고 다음 추천은6번 구현 완성·인계다.6~12번 전달·작업 흐름과13~15번 시스템 연결, A·B의 정확한 본문 편집은 남아 있다. 아래 기존 prototype은 새 합의가 반영된 실행 산출물이 아니다.
+구현·검토의 현재 산출물: [development SKILL.md](../records/prototypes/development-workflow/skills/development/SKILL.md)와 [review.md](../records/prototypes/development-workflow/skills/development/references/review.md). 확정1~5번과 구성 개선 리뷰를 반영하고 DEVELOPMENT 진입을 이전했다. [적용·확인 범위](../records/2026-10-23-development-skill-prototype-adoption.md)를 읽는다. 전체 실행 운영·효과 검증이나 Ticket 완료를 뜻하지 않으며6번 이후를 이 본문에서 이어 구체화한다.
 
 04-02 새 후보 시험: [6.0 sol 인증 비교](../records/experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md) — 원래 기존판 대비 새 후보가 요청 코드·값·대기 전후 설명을 보강했다. 각1회이며 일부 개선 관찰, 사용자 이해·일반화·시점 효과 미확인이다. 두 응답 전체와 입력·출력 해시를 보존했다.
 
@@ -23,7 +23,7 @@
 | [Project context](../records/prototypes/development-workflow/noline-demo/context/project/README.md) | 기기·세션 계약, 인증 개발 가이드, 코드 표현, 현재 인증 구현과 구성·읽기·관리 지침. 개인 기준의 채택·갱신 관리를 Project에 맡기지 않는다. |
 | [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md) | 지속 본문과 형성 자료의 역할·배치·읽기·갱신. 사례를 필수 서식으로 만들지 않으며 Work는 적용을 보류한다. |
 | [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md) | 체계 지침의 성격, 진입 본문·상세 지침의 책임과 이름·위치. [118](../records/2026-10-20-118-system-guidance-definition-and-entry.md)에 선택 이유와 확인 범위가 있다. |
-| [DEVELOPMENT](../records/prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md) · [작업 장면](../records/prototypes/development-workflow/walkthrough.md) | 필요한 기준·제품 계약을 선택해 구현·검토·갱신에 쓰는 기존 연결 시안. [별도 관점 검토·Main 적용 판단·동적 라우팅 구상](../records/2026-10-21-dynamic-context-and-review-intent.md)은 아직 이 본문에 적용하지 않았다. 최종 역할 운영·스킬 관계·위치·Owner는01-01·04-03에서 구체화한다. |
+| [Development](../records/prototypes/development-workflow/skills/development/SKILL.md) · [독립 검토](../records/prototypes/development-workflow/skills/development/references/review.md) · [작업 장면](../records/prototypes/development-workflow/walkthrough.md) | 공통 수행 계약과 검토 판단을 반영한 현재 prototype. Main의 맥락 재선택·종합·전달·갱신과 역할별 판단을 연결한다. 로그인 예제의 선택·계약은 Work·Project에 유지하며 상세 실행·운영 배치는 후속이다. |
 | [Work 예시](../records/prototypes/development-workflow/noline-demo/context/work/README.md) | 기존 Spec·Ticket·current·source·output·records를 유지한 인증 이름 변경 작업. [116](../records/2026-10-20-116-defer-work-content-policy.md)의 복구 상태이며 새 background 정책을 적용한 표준이 아니다. |
 
 본문의 목적·의미·조건은 대상물 안에서 이해할 수 있게 구성했다. 바깥014 records는 작성·평가·정정의 과정을 보존하며, 대상물 본문을 대신하는 정본이 아니다. 형성 이유를 다시 볼 필요가 있을 때는 본문 가까운 자료에서 시작한다.

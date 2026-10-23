@@ -31,7 +31,7 @@
 
 기존 본문 이름에 `.context.md`, `.evidence.md`를 붙여 이동 없이 한 묶음임을 알게 했다. 이는 이름 기준 한 개의 시범 배치다. 모든 주제의 파일명·목차 표준이나 새 shared reference를 정한 것이 아니다.
 
-[Personal 입구](prototypes/development-workflow/noline-demo/context/personal/README.md), [개발 판단 입구](prototypes/development-workflow/noline-demo/context/personal/development/README.md), prototype README에서 묶음을 찾게 했다. [DEVELOPMENT](prototypes/development-workflow/noline-demo/context/work/DEVELOPMENT.md)의 기존 Personal 갱신 행에는 담당 안내로 가는 경로만 보완했다. Project 관리 문서를 개인 맥락의 관리자로 바꾸지 않았고 새 workflow·skill·hook은 만들지 않았다.
+[Personal 입구](prototypes/development-workflow/noline-demo/context/personal/README.md), [개발 판단 입구](prototypes/development-workflow/noline-demo/context/personal/development/README.md), prototype README에서 묶음을 찾게 했다. [DEVELOPMENT](prototypes/development-workflow/skills/development/_background/evidence/development-before-skill.txt)의 기존 Personal 갱신 행에는 담당 안내로 가는 경로만 보완했다. Project 관리 문서를 개인 맥락의 관리자로 바꾸지 않았고 새 workflow·skill·hook은 만들지 않았다.
 
 ## 읽기와 갱신의 운영 범위
 

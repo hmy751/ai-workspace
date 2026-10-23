@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-구현·검토 논의는 [관련 기준 공유·독립 판단 방향](records/2026-10-22-shared-criteria-and-independent-review-decision.md)을 유지하며 **1~5번 판단·책임 설계를 마무리했다.** [5번 최종 확정과 리뷰 보완](records/2026-10-23-main-review-disposition-proposal.md#후속-확정--5번과-판단책임-묶음의-마무리)에서 Main의 종합·선택, 계약 문제와 개선 비교의 근거, 추가 확인의 영향·비용, 사용자 결정과 의미 있는 논의를 구별했다. [4번](records/2026-10-23-personal-review-ownership-proposal.md)은 Personal·검토 workflow 소유와 A·B의 반영 방향을 정했다. 다음 묶음은6~12번 실제 전달·작업 흐름이며6번 구현자의 검토 전 완성 책임·인계부터 이어갈 것을 추천한다.13~15번 시스템 연결, 정확한 본문 편집·실행 적용은 남아 있다. 전체 Ticket 완료나 운영 효과 확인을 뜻하지 않는다.
+구현·검토의 확정1~5번과 개선 리뷰를 [development 스킬과 검토 상세](records/prototypes/development-workflow/skills/development/SKILL.md)에 반영했다. [적용 기록](records/2026-10-23-development-skill-prototype-adoption.md)에서 Personal 범위 정정, Main의 전체 책임, 역할별 독자와 DEVELOPMENT 진입 이전을 확인한다. 현재는 공통 수행 계약·검토 상세의 prototype이며6~12번 인계·호출·수정·종료와13~15번 실행 연결은 계속 구체화한다. 다음은6번 구현자의 검토 전 완성 책임·인계다.
 
 04-02 자료 보강: [당시 코드·최초 변경과 비교 설계](records/2026-10-22-ticket04-02-historical-materials-and-comparison-design.md) — 네 장면의 압축 원문·코드·diff·검사 근거 확보. 시점 배치와 본문 비교를 구별한 실행안이다. 이후 인증·network 본문 비교와 코드 설명 보완안 재시험을 진행했고 [검증한 브리핑 본문을 prototype에 반영](records/2026-10-22-ticket04-02-briefing-prototype-adoption.md)했다. 복구는 유지하며 시점 효과·일반화는 미확인이다.
 
@@ -18,7 +18,7 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 데모 독자는 바깥014 기록 없이 본문을 이해할 수 있어야 한다. 작성·평가·정정의 전체 과정은014 records가 보존하고, 개별 본문 수정에 필요한 형성 이유와 최소 근거는 그 본문 가까이 둔다. 실제 작성 논의를 예제 제품의 사건으로 바꾸지 않는다.
 
-Work는 기존 current·Spec·Ticket·source·output·records의 형태와 제약을 유지한다. [116](records/2026-10-20-116-defer-work-content-policy.md)의 복구를 되돌려 새 background를 적용하지 않는다. Development의 최종 위치·Owner·스킬 연결은01-01·04-03의 후속 범위다.03 완료는 실제 Noline 적용·모든 기준 채택·장기 효과 확인을 포함하지 않는다.
+Work는 기존 current·Spec·Ticket·source·output·records의 형태와 제약을 유지한다. [116](records/2026-10-20-116-defer-work-content-policy.md)의 복구를 되돌려 새 background를 적용하지 않는다. Development의 prototype 진입·공통 본문은 스킬로 이전했고, 상세 실행·기존 맥락 스킬의 연결은01-01·04-03의 후속 범위다.03 완료는 실제 Noline 적용·모든 기준 채택·장기 효과 확인을 포함하지 않는다.
 
 ## 배경 없이 들어올 때
 
