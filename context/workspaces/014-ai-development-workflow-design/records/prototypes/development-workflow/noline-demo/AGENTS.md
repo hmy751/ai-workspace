@@ -2,7 +2,9 @@
 
 이 지침은 이 demo의 context와 예제 코드에 적용한다. 먼저 [context](context/README.md)에서 Personal·Project·Work의 담당을 확인한다.
 
-현재 작업을 이어 갈 때에는 [Work 지침](context/work/AGENTS.md)과 지정된 Workspace의 memory·state·output을 읽는다. 기본 예시는 [001 로그인 완료 표현](context/work/workspaces/001-login-completion-names/README.md)이다. 필요한 개인 기준과 제품 맥락을 고르는 동작은 [개발 절차](../skills/development/SKILL.md)를 따른다. 이미 확보한 내용이 충분하다면 모든 본문을 반복해서 읽지 않는다.
+Main이 일반 작업을 재개할 때에는 [Work 지침](context/work/AGENTS.md)과 지정된 Workspace의 memory·state·output을 읽는다. 기본 예시는 [001 로그인 완료 표현](context/work/workspaces/001-login-completion-names/README.md)이다. 필요한 개인 기준과 제품 맥락을 고르는 동작은 [개발 절차](../skills/development/SKILL.md)를 따른다. 이미 확보한 내용이 충분하다면 모든 본문을 반복해서 읽지 않는다.
+
+범위를 정해 위임받은 구현·검토·검증 담당자는 적용 지침과 맡은 목표·계약·실물·관련 원문부터 읽는다. 전체 Workspace 인수를 자동으로 수행하지 않고, 불분명한 조건은 필요한 current·원자료를 추가로 확인한다. 상위 지침과 맡은 범위의 계약은 계속 적용한다.
 
 제품의 의미·계약은 [Project](context/project/README.md), 개인의 판단 조건은 [Personal](context/personal/README.md)이 각각 소유한다. 구현이 계약과 다르면 이름만 좁혀 감추거나 문서를 코드에 맞춰 조용히 바꾸지 않는다. 관련 요구와 실제 동작을 대조한다.
 

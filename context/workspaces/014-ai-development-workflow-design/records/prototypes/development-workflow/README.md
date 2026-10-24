@@ -32,12 +32,12 @@
 | [Project](noline-demo/context/project/README.md) | 제품의 의미·개발 계약·현재 구현 | 인증 적용과 조회 완료를 구별하고 실패 때 보존할 상태를 정한다. |
 | [Work](noline-demo/context/work/README.md) | 이번 요구·선택·상태·입력·결과·기록 | 내부 두 소비자의 완료 표현을 정리하고 코드와 확인 결과를 연결한다. |
 
-[development 스킬](skills/development/SKILL.md)은 이 입력을 고르고 작업 중 다시 살피며 구현·검토·확인·결과 전달·갱신을 연결한다. [검토 상세](skills/development/references/review.md)는 공유 목적과 검토자·Main의 서로 다른 판단을 설명한다. 공통 계약과 검토 판단을 반영한 prototype이며 상세 인계·호출·수정·종료와 운영 배치는 계속 구체화한다. Project가 개인 기준의 채택 목록을 관리하지 않으며, 이번 Work에서 고른 함수명을 모든 작업의 규칙으로 올리지 않는다.
+[development 스킬](skills/development/SKILL.md)은 이 입력을 고르고 작업 중 다시 살피며 구현·검토·확인·결과 전달·갱신을 연결한다. [검토 상세](skills/development/references/review.md)는 공유 목적과 검토자·Main의 서로 다른 판단을 설명한다. 합의한 구현 완성·인계·검토 입력·권한·수정·종료·기록 책임을 실행 본문에 반영했다. 모델·세션 재사용·실제 입력은 [실행 배치](skills/development/references/execution.md)에서 찾는다. 운영 설치·실제 작업 효과와는 구별한다. Project가 개인 기준의 채택 목록을 관리하지 않으며, 이번 Work에서 고른 함수명을 모든 작업의 규칙으로 올리지 않는다.
 
 ## 직접 확인할 수 있는 범위
 
 [인증 예제](noline-demo/examples/authentication/README.md)는 Node.js로 실행하는 메모리 기반 코드다. Login은 완료 뒤 이동을, Reauth는 닫기를 시작하며 실제 화면은 구현하지 않았다. 서버·DB·실제 기기 저장소와 운영 Harness도 연결하지 않았다. 실행 방법은 [demo 안내](noline-demo/README.md#직접-실행한다), 결과와 남은 조건은 [Work 상태](noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md)에서 읽는다.
 
-현재 선택된 인증 이름과 같은 동작의 유지 대안은 [두 코드 비교](noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md)에 있다. 사례의 설명용 API나 조건부 권고를 제품에 이미 구현한 것으로 읽지 않는다. 역할 겸임·검토 생략 조건과 자동 스킬 연결은 아직 정하지 않은 운영 범위다.
+현재 선택된 인증 이름과 같은 동작의 유지 대안은 [두 코드 비교](noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md)에 있다. 사례의 설명용 API나 조건부 권고를 제품에 이미 구현한 것으로 읽지 않는다. 역할 배정·검토 생략 조건·설치된 스킬의 조건별 연결은 development와 실행 배치에서 찾는다. 현재 prototype을 실제 대상에 설치한 것은 아니다.
 
 본문과 실행 코드가 정본이며 `viewer.html`은 이를 담은 열람 화면이다. 수정한 뒤에는 [화면 생성 안내](viewer/README.md)에 따라 표시 내용을 갱신한다.

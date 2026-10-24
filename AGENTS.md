@@ -27,9 +27,11 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 ## Re-entry
 
-지속 작업을 시작할 때는 `context/README.md`와 `context/workspaces/README.md`에서 Workspace를 선택한다. 사용자가 Workspace를 명시했다면 그 지시를 우선하고, 그렇지 않으면 active Workspace를 사용한다.
+Main이 지속 작업을 시작하거나 일반 재개할 때는 `context/README.md`와 `context/workspaces/README.md`에서 Workspace를 선택한다. 사용자가 Workspace를 명시했다면 그 지시를 우선하고, 그렇지 않으면 active Workspace를 사용한다.
 
 선택한 Workspace의 `README.md`, `current/index.md`, `current/memory.md`, `current/state.md`, `output/index.md`를 읽는다. 다른 Workspace의 current·output·records나 shared source 전체를 기본으로 읽지 않고, 현재 질문에 필요한 자료만 선택한다.
+
+범위를 정해 위임받은 담당자는 적용되는 root·로컬 지침과 맡은 목표·계약·대상 판본·관련 원문부터 확인한다. 일반 재개의 전체 Workspace 인수를 자동 수행하지 않으며, 판단에 필요한 current·원자료를 추가로 읽는다. 이 구별은 상위 지침이나 맡은 범위의 계약을 생략하는 권한이 아니다.
 
 ## Context maintenance routing
 

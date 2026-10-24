@@ -1,14 +1,16 @@
 # 현재 선택한 설계 자료와 산출물
 
-7번 확정·8~12번 추천안: [첫 입력부터 수정·검증 인계까지](../records/2026-10-23-review-workflow-7-12-proposal.md). [두 개선 리뷰](../records/2026-10-23-review-workflow-7-12-improvement-reviews.md)를 거친 뒤 사용자가 관련 본문 읽기·대안 제공·레퍼런스 반영을 확인하고7번을 확정했다. 다음은8번 논의이며8~12번의 운영 선택 전체를 확정한 것은 아니다. 실행 본문 반영은 후속이다.
+현재 단계·남은 일: [원래 작업 틀과 Spec·01·04 대조](../records/2026-10-24-workflow-framework-and-checkpoint.md). 구현·개선 검토의 운영과 prototype 반영은 완료했고, 별도 검증 및 수정의 상세·필요한 스킬 보완·전체 흐름 대조로 이어간다. 아래 실물과 과거 설계·비교 근거를 이 범위에서 읽는다.
 
-6번 현재 설계안: [맥락 이해·적용부터 구현 완성·인계까지](../records/2026-10-23-implementation-completion-and-handoff-proposal.md). 사용자 요청에 따라 맥락 적용과 개선 리뷰 두 보완을 통합했다. 실제 사용·변경 장면으로 자기 설계를 판단하고, 요구·계약에서 가져온 기대 결과로 자기 확인하며, Main에게 결과와 판단 근거를 연결한다. 아래 development 실행 prototype은1~5번 반영 상태이고6번 연결·수행 효과 확인은 후속이다.
+현재 실행 결과: [1~15번 대조·반영 기록](../records/2026-10-23-development-workflow-1-15-integration.md) · [development](../records/prototypes/development-workflow/skills/development/SKILL.md) · [검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md) · [실행 배치](../records/prototypes/development-workflow/skills/development/references/execution.md). root/Work·work-discussion과 Personal A·B를 함께 맞췄다. 설계 근거는 [13~15번 합의](../records/2026-10-23-runtime-integration-and-records-13-15-proposal.md)와 그 이전 확정 기록에 있다. Main의 지침 기반 갱신을 적용했고 자동 Maintain은 연결하지 않았다. 실제 운영 설치·효과는 별도다.
+
+6번 현재 설계안: [맥락 이해·적용부터 구현 완성·인계까지](../records/2026-10-23-implementation-completion-and-handoff-proposal.md). 사용자 요청에 따라 맥락 적용과 개선 리뷰 두 보완을 통합했다. 실제 사용·변경 장면으로 자기 설계를 판단하고, 요구·계약에서 가져온 기대 결과로 자기 확인하며, Main에게 결과와 판단 근거를 연결한다. 6번은 development에 반영했으며 실제 수행 효과 확인과 구별한다.
 
 04-02 현재 적용 기록: [explain 생성과 기존 두 실행 경로의 통합](../records/2026-10-23-ticket04-02-explain-prototype-adoption.md). 사용자 요청으로 리뷰 반영 구성을 prototype에 적용했다. 기존 두 스킬 제거를 감안하되 조항 전수 이식을 요구한 것은 아니라는 정정, 보존·검사·미확인 범위를 함께 읽는다. 운영 설치·새 응답 비교는 하지 않았으며 현재 재개 지점은 [04-02](../current/tickets/04-skill-improvements/04-02-artifact-explanation.md)다.
 
 04-02 현재 산출물: [explain 본체](../records/prototypes/development-workflow/skills/explain/SKILL.md) · [설명 작성 상세](../records/prototypes/development-workflow/skills/explain/references/constructing-explanations.md) · [앞선 발화 상세](../records/prototypes/development-workflow/skills/explain/references/prior-explanation.md) · [형성 자료](../records/prototypes/development-workflow/skills/explain/_background/README.md). 기존 두 스킬 폴더는 삭제하고 당시 본문·형성 자료는 explain/_background/legacy에 보존했다. 아래 브리핑 비교·후보는 과거 판본의 이력이며 현재 explain 효과를 확인한 결과가 아니다.
 
-구현·검토의 현재 산출물: [development SKILL.md](../records/prototypes/development-workflow/skills/development/SKILL.md)와 [review.md](../records/prototypes/development-workflow/skills/development/references/review.md). 확정1~5번과 구성 개선 리뷰를 반영하고 DEVELOPMENT 진입을 이전했다. [적용·확인 범위](../records/2026-10-23-development-skill-prototype-adoption.md)를 읽는다. 전체 실행 운영·효과 검증이나 Ticket 완료를 뜻하지 않는다.6번 통합안과7~12번 추천안은 위 별도 설계 기록에서 이어가며 실행 본문에 아직 반영하지 않았다.
+구현·검토의 실제 반영은 위 세 실행 본문이 소유한다. 최초1~5번의 [스킬 전환 기록](../records/2026-10-23-development-skill-prototype-adoption.md)과 후속1~15번 통합 기록을 구별하며, 이전 기록의 미반영 상태를 현재에 적용하지 않는다.
 
 04-02 새 후보 시험: [6.0 sol 인증 비교](../records/experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md) — 원래 기존판 대비 새 후보가 요청 코드·값·대기 전후 설명을 보강했다. 각1회이며 일부 개선 관찰, 사용자 이해·일반화·시점 효과 미확인이다. 두 응답 전체와 입력·출력 해시를 보존했다.
 

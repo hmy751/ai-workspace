@@ -1,5 +1,7 @@
 # 04-01 — 작업 정의·재판단 스킬을 보완한다
 
+2026-10-24 연결 정리: 기존 설계 마감은 유지한다. 후속1~15번 통합에서 development의 자동 work-discussion 호출을 제거하고, prototype의 기록 인계를 실제 지침을 따르는 Main 책임으로 맞췄다. reconsider-work 유지 선택을 취소하거나 원형 전체를 재작성한 것은 아니다. 대상별 설치·관리 계약 차이와 다음 검증 흐름의 연결은01·04-03·06에서 함께 본다. [현재 전체 관계](../../../records/2026-10-24-workflow-framework-and-checkpoint.md)
+
 상위 과제: [04 기존 스킬 보완](README.md)
 
 상태: **설계 결과 완료 — work-discussion 최소안 채택·prototype 반영, reconsider-work 유지**. 전체 기준은 [Spec](../../spec.md)에 있다.

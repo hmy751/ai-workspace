@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-구현·검토의 **7번 첫 입력 설계를 확정했다. 다음은8번 동적 탐색·Main 반환이다.** [현재안과 확정 경과](records/2026-10-23-review-workflow-7-12-proposal.md)에 관련 본문 읽기·대안 제공·레퍼런스 반영을 정리했다.1~5번 합의와 [6번 통합](records/2026-10-23-implementation-completion-and-handoff-proposal.md)은 유지한다. [두 개선 리뷰](records/2026-10-23-review-workflow-7-12-improvement-reviews.md)를 거친8~12번은 추천안,13~15번 상세는 후속이다. 실행 [development 스킬](records/prototypes/development-workflow/skills/development/SKILL.md)은1~5번 반영 상태이며6~7번 실행 연결·효과 확인과 설계 확정을 구별한다.
+**구현·개선 검토의1~15번 합의와 prototype 반영을 마쳤고, 다음은 별도 검증 및 수정 단계의 구체화다.** [전체 작업 틀·현재 단계·남은 일](records/2026-10-24-workflow-framework-and-checkpoint.md)에서 원래 논의와 Spec·01·04의 관계를 이어 본다. 구현 단계에는 구현자·개선 검토자·Main, 이후 검증 및 수정에는 별도 검증자와 Main·수정 담당을 둔다. 별도 검증 역할과 인계는 정했지만 상세 수행·수정 왕복·완료 근거는 남아 있다. 필요한 스킬 연결을 함께 맞춘 뒤 대표 작업에서 전체 흐름을 대조한다. Main의 지침 기반 기록 책임과 자동 Maintain 미연결은 유지한다.
 
 04-02는 리뷰 반영 구성으로 [explain 본체·상세·형성 자료](records/prototypes/development-workflow/skills/explain/SKILL.md)를 만들고 기존 두 실행 본문과 호출 연결을 정리했다. [적용·확인 기록](records/2026-10-23-ticket04-02-explain-prototype-adoption.md)에 생성 요청과 “기존 제거를 감안하되 모든 조항을 무조건 채우는 것은 아니다”라는 정정, 보존·검사 범위를 남겼다. prototype 생성·연결 정리 완료이며 운영 설치·실제 수행 효과 확인은 별도다. 현재 상태와 재개는 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
 
@@ -18,7 +18,7 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 데모 독자는 바깥014 기록 없이 본문을 이해할 수 있어야 한다. 작성·평가·정정의 전체 과정은014 records가 보존하고, 개별 본문 수정에 필요한 형성 이유와 최소 근거는 그 본문 가까이 둔다. 실제 작성 논의를 예제 제품의 사건으로 바꾸지 않는다.
 
-Work는 기존 current·Spec·Ticket·source·output·records의 형태와 제약을 유지한다. [116](records/2026-10-20-116-defer-work-content-policy.md)의 복구를 되돌려 새 background를 적용하지 않는다. Development의 prototype 진입·공통 본문은 스킬로 이전했고, 상세 실행·기존 맥락 스킬의 연결은01-01·04-03의 후속 범위다.03 완료는 실제 Noline 적용·모든 기준 채택·장기 효과 확인을 포함하지 않는다.
+Work는 기존 current·Spec·Ticket·source·output·records의 형태와 제약을 유지한다. [116](records/2026-10-20-116-defer-work-content-policy.md)의 복구를 되돌려 새 background를 적용하지 않는다. Development의 prototype 진입·공통 본문은 스킬로 이전했고, 상세 실행·조건별 맥락 연결도 반영했다. 실제 대상의 개별 맥락 스킬 보완·설치와 수행 효과는01-01·04-03 및06·07에 남는다.03 완료는 실제 Noline 적용·모든 기준 채택·장기 효과 확인을 포함하지 않는다.
 
 ## 배경 없이 들어올 때
 

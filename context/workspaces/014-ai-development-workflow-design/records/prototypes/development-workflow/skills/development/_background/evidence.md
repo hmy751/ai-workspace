@@ -54,3 +54,7 @@ Main은 네 보완을 모두 채택해 사용자에게 추천했고 위 적용 �
 [이전 DEVELOPMENT 원문](evidence/development-before-skill.txt)은 2026-10-23 이전 직전의 UTF-8 원문 그대로다. 원래 위치는 `noline-demo/context/work/DEVELOPMENT.md`, SHA-256은 `1a3138d4eff356d801e46da0040649d06b3460be8241e14971b2f252c4c6254f`다. 그 안의 상대 경로는 원래 위치 기준이며 현재 탐색용 링크가 아니다. 이전의 모든 날짜에서도 같은 판본이었다는 의미는 아니다.
 
 현재 정본은 [SKILL.md](../SKILL.md)와 [검토 상세](../references/review.md)다. 이전 원문에 있던 검토자 직접 수정은 그 판본의 방향이며 현재 공통 수정 권한으로 승계하지 않는다. 실제 로그인 작업의 기록과 제품 계약은 그대로 유지한다.
+
+## 실행 통합 요청
+
+[실행 통합 기록](records/2026-10-23-execution-integration.md)에 사용자의 실제 본문 대조·반영 요청과 직전 Maintain 발화를 발췌했다. 구현·검토·배치·기록의 세부 문장은 합의 방향을 Main이 실행 계약으로 구체화한 것이며 사용자 발화를 그대로 옮긴 인용은 아니다.

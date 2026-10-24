@@ -4,7 +4,7 @@
 
 | 필요한 일 | 현재 본문과 상세 |
 | --- | --- |
-| 개발 작업의 맥락·구현·검토·확인·결과를 조율한다 | [development](development/SKILL.md) · [검토 상세](development/references/review.md) |
+| 개발 작업의 맥락·구현·검토·확인·결과를 조율한다 | [development](development/SKILL.md) · [검토 상세](development/references/review.md) · [실행 배치](development/references/execution.md) |
 | 기존 작업 정의가 충분한지, 무엇을 더 구체화할지 판단한다 | [work-discussion](work-discussion/SKILL.md) |
 | 개념·코드·작업 결과·앞선 말의 뜻과 관계·선택 이유를 설명한다 | [explain](explain/SKILL.md) |
 | 원자료를 골라 관계·조건·이유를 실제 설명으로 만든다 | [설명 작성 상세](explain/references/constructing-explanations.md) |
@@ -15,7 +15,7 @@ explain은 기존 작업물 브리핑과 설명 복구를 대신하는 현재 �
 
 development는 Main의 맥락 선택·재탐색·종합·전달·갱신을 소유한다. Personal은 개인 판단 기준을, Project와 Work는 제품 맥락과 이번 작업을 계속 소유한다. 결과의 관계·선택 이유를 설명할 필요가 생기면 explain을 사용하며, 답을 바꿀 사실 공백의 추가 확인은 작업 담당자가 판단한다. 상세 인계·호출·수정·종료의 설계 상태는 development 본문과 [형성 자료](development/_background/README.md)에서 확인한다.
 
-work-discussion은04-01에서 기존 정의의 충분성과 필요한 구체화를 직접 답하는 최소 보완을 채택했다. reconsider-work는 기존 유지로 결정해 여기에 교체 본문을 만들지 않았다. [형성 자료](work-discussion/_background/README.md)에서 근거를 확인한다.
+work-discussion은04-01에서 기존 정의의 충분성과 필요한 구체화를 직접 답하는 최소 보완을 채택했다. reconsider-work는 보존 원형을 유지하고 여기에 설치한 스킬로 취급하지 않는다. development가 현재 본문에서 전제 재판단을 수행하며 실제 대상의 호환 스킬이 있으면 그 발동 조건에 따라 연결한다. [형성 자료](work-discussion/_background/README.md)에서 근거를 확인한다.
 
 ## 공통 기준과 관리
 
