@@ -4,7 +4,7 @@
 
 현재 검증 실행 본문: [verification](../records/prototypes/development-workflow/skills/development/references/verification.md). [합의1~12](../records/2026-10-24-verifier-workflow-proposal.md)를 기존 구현·개선 검토 흐름에 [통합·대조](../records/2026-10-24-verifier-runtime-integration.md)했다. 시작·입력·기계 검사·공백·반환·재검증·충분성을 연결했다. 대표 장면 대조·메모리 예제 실행과 실제 역할 전체의 수행·운영 효과를 구별한다.
 
-04-02 최신 비교: [03 전체 흐름·04 테스트 질문의 최초5개 응답](../records/experiments/explain-source03-04-60high-2026-10-24/README.md). 사용자 승인으로03 세 조건·04 후속 질문 두 조건의 최초 응답을 모두 GPT-6-sol high에서 생성했다. 같은 사례의 공통 입력, 선택 파일 완독·입력/조각 해시·응답 전 검사를 확인했고 누락·불일치0이었다. 조건을 숨긴 원문 다섯 개를 보존했으며 사용자 평가·조건 공개 전이다. 수정 효과·우세·04-02 마감은 판정하지 않는다. [이전06 비교](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md)는 다른 판본·질문의 관찰로 구별한다.
+04-02 최신 비교: [조건 공개·응답 대조·다음 판단](../records/experiments/explain-source03-04-60high-2026-10-24/comparison.md). 사용자는 다섯 답이 비슷하다고 평가했다.03 A=스킬 없음·B=직전 explain·C=현재판,04 A=현재판·B=직전판이다. Main은03 현재판의 세 방어 조건 설명에서 국소적 보완을 확인했으나 기본 응답도 핵심을 설명했고,04는 판단·근거가 비슷하며 질문에 직접 답하는 시작은 직전판이 낫다고 판단했다. 이번 수정의 뚜렷한 추가 이득은 미확인이다. 현재판을 고정하고 추가 문구 보강·재생성은 하지 않았으며 첫 전달 연결 효과는 미시험으로 남긴다.
 
 04-02 이전 반영: [기존 두 스킬 재검토와 explain 보완](../records/2026-10-24-ticket04-02-explain-revision.md). 본체·작성 상세·앞선 발화 상세와 형성 자료를 갱신했다. 단일 진입점 구성은 유지하며 수정 후 실제 응답 효과는 미확인이다. 아래 모델 비교는 수정 전 판본에 해당한다.
 
