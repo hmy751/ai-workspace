@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**01-01·01-03 설계 결과를 마감했다.** [완료 조건 대조와 Spec·04의 다음 범위](records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)에서 근거·비용·한계를 확인한다. 다음 추천은04-03의 개별 맥락 스킬 보완이다. 상위01·04와 전체 Workspace는 아직 완료가 아니며 실제 운영 효과와 구별한다.
+**01-01·01-03 설계 결과를 마감했다.** [완료 조건 대조와 Spec·04의 다음 범위](records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)에서 근거·비용·한계를 확인한다. 다음은 **04-03: 개발 워크플로와 실제 context의 읽기·적용·갱신·재개 연결**이다. 기존 세 스킬은 이 연결을 구현하는 수단으로 대조한다. [재개 메모](records/2026-10-24-workflow-context-connection-checkpoint.md)에 완료 경계·입력·첫 산출물을 정리했다. 상위01·04와 전체 Workspace는 아직 완료가 아니며 실제 운영 효과와 구별한다.
 
 검증자 실행 반영: [검증 상세](records/prototypes/development-workflow/skills/development/references/verification.md)를 생성하고 development·review·execution과 연결했다. [합의 대조와 확인 기록](records/2026-10-24-verifier-runtime-integration.md)에서 항목별 반영·대표 장면·실제 검사·한계를 읽는다.
 
@@ -22,7 +22,7 @@ Noline에 이식해 사용한 Project·Work context와 스킬의 평가, 사용�
 
 데모 독자는 바깥014 기록 없이 본문을 이해할 수 있어야 한다. 작성·평가·정정의 전체 과정은014 records가 보존하고, 개별 본문 수정에 필요한 형성 이유와 최소 근거는 그 본문 가까이 둔다. 실제 작성 논의를 예제 제품의 사건으로 바꾸지 않는다.
 
-Work는 기존 current·Spec·Ticket·source·output·records의 형태와 제약을 유지한다. [116](records/2026-10-20-116-defer-work-content-policy.md)의 복구를 되돌려 새 background를 적용하지 않는다. Development의 prototype 진입·공통 본문은 스킬로 이전했고, 상세 실행·조건별 맥락 연결도 반영했다. 실제 대상의 개별 맥락 스킬 보완·설치와 수행 효과는01-01·04-03 및06·07에 남는다.03 완료는 실제 Noline 적용·모든 기준 채택·장기 효과 확인을 포함하지 않는다.
+Work는 기존 current·Spec·Ticket·source·output·records의 형태와 제약을 유지한다. [116](records/2026-10-20-116-defer-work-content-policy.md)의 복구를 되돌려 새 background를 적용하지 않는다. Development의 prototype 진입·공통 본문은 스킬로 이전했고, 상세 실행·조건별 맥락 연결도 반영했다. 실제 context와의 구체 연결·개별 맥락 스킬 보완은04-03, 대상별 배치·적용 계획과 수행 효과 확인은06·07로 이어진다.01-01·01-03의 역할·진행·인계 설계 마감은 유지한다.03 완료는 실제 Noline 적용·모든 기준 채택·장기 효과 확인을 포함하지 않는다.
 
 ## 배경 없이 들어올 때
 
