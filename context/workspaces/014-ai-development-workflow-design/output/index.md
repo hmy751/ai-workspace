@@ -2,7 +2,7 @@
 
 04-02 최신 반영: [선별한 개선안의 구체화·적용·확인](../records/2026-10-24-ticket04-02-selective-improvement-adoption.md). 원래 목적·Noline 사용 경험·논의·외부 자료를 선별한 안과 개선 리뷰를 바탕으로 explain 본체·작성 상세, development 호출과 형성 자료·열람 화면을 갱신했다. 질문 범위와 실제 빠진 연결, 역할 설명과 선택 판단을 구별한다. 앞선 발화 상세와 공통 근거 기준은 유지한다. 실행 본문 반영 완료이며 새 응답 비교·운영 설치·실제 효과 확인은 별도다.
 
-현재 검증 설계: [별도 검증자·수정 흐름1~12](../records/2026-10-24-verifier-workflow-proposal.md) · [두 개선 리뷰와 반영 판단](../records/2026-10-24-verifier-workflow-improvement-reviews.md). 후속 재검증·실행 연결까지 설계 합의를 마쳤다. 원문·근거·최종 합의는 기록에 보존하며 다음은 실행 본문 대조·통합과 대표 작업 확인이다. 설계 합의와 실제 실행 적용·제품 검증·운영 효과를 구별한다.
+현재 검증 실행 본문: [verification](../records/prototypes/development-workflow/skills/development/references/verification.md). [합의1~12](../records/2026-10-24-verifier-workflow-proposal.md)를 기존 구현·개선 검토 흐름에 [통합·대조](../records/2026-10-24-verifier-runtime-integration.md)했다. 시작·입력·기계 검사·공백·반환·재검증·충분성을 연결했다. 대표 장면 대조·메모리 예제 실행과 실제 역할 전체의 수행·운영 효과를 구별한다.
 
 04-02 최신 비교: [03 전체 흐름·04 테스트 질문의 최초5개 응답](../records/experiments/explain-source03-04-60high-2026-10-24/README.md). 사용자 승인으로03 세 조건·04 후속 질문 두 조건의 최초 응답을 모두 GPT-6-sol high에서 생성했다. 같은 사례의 공통 입력, 선택 파일 완독·입력/조각 해시·응답 전 검사를 확인했고 누락·불일치0이었다. 조건을 숨긴 원문 다섯 개를 보존했으며 사용자 평가·조건 공개 전이다. 수정 효과·우세·04-02 마감은 판정하지 않는다. [이전06 비교](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md)는 다른 판본·질문의 관찰로 구별한다.
 
@@ -20,7 +20,7 @@
 
 04-02 현재 산출물: [explain 본체](../records/prototypes/development-workflow/skills/explain/SKILL.md) · [설명 작성 상세](../records/prototypes/development-workflow/skills/explain/references/constructing-explanations.md) · [앞선 발화 상세](../records/prototypes/development-workflow/skills/explain/references/prior-explanation.md) · [형성 자료](../records/prototypes/development-workflow/skills/explain/_background/README.md). 기존 두 스킬 폴더는 삭제하고 당시 본문·형성 자료는 explain/_background/legacy에 보존했다. 아래 브리핑 비교·후보는 과거 판본의 이력이며 현재 explain 효과를 확인한 결과가 아니다.
 
-구현·검토의 실제 반영은 위 세 실행 본문이 소유한다. 최초1~5번의 [스킬 전환 기록](../records/2026-10-23-development-skill-prototype-adoption.md)과 후속1~15번 통합 기록을 구별하며, 이전 기록의 미반영 상태를 현재에 적용하지 않는다.
+구현·개선 검토·검증의 실제 반영은 development와 review·verification·execution의 네 실행 본문이 소유한다. 최초1~5번의 [스킬 전환 기록](../records/2026-10-23-development-skill-prototype-adoption.md)과 후속1~15번 통합 기록을 구별하며, 이전 기록의 미반영 상태를 현재에 적용하지 않는다.
 
 04-02 새 후보 시험: [6.0 sol 인증 비교](../records/experiments/artifact-explanation-auth-depth-sol6-2026-10-22/comparison.md) — 원래 기존판 대비 새 후보가 요청 코드·값·대기 전후 설명을 보강했다. 각1회이며 일부 개선 관찰, 사용자 이해·일반화·시점 효과 미확인이다. 두 응답 전체와 입력·출력 해시를 보존했다.
 
@@ -41,7 +41,7 @@
 | [Project context](../records/prototypes/development-workflow/noline-demo/context/project/README.md) | 기기·세션 계약, 인증 개발 가이드, 코드 표현, 현재 인증 구현과 구성·읽기·관리 지침. 개인 기준의 채택·갱신 관리를 Project에 맡기지 않는다. |
 | [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md) | 지속 본문과 형성 자료의 역할·배치·읽기·갱신. 사례를 필수 서식으로 만들지 않으며 Work는 적용을 보류한다. |
 | [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md) | 체계 지침의 성격, 진입 본문·상세 지침의 책임과 이름·위치. [118](../records/2026-10-20-118-system-guidance-definition-and-entry.md)에 선택 이유와 확인 범위가 있다. |
-| [Development](../records/prototypes/development-workflow/skills/development/SKILL.md) · [독립 검토](../records/prototypes/development-workflow/skills/development/references/review.md) · [작업 장면](../records/prototypes/development-workflow/walkthrough.md) | 공통 수행 계약과 검토 판단을 반영한 현재 prototype. Main의 맥락 재선택·종합·전달·갱신과 역할별 판단을 연결한다. 로그인 예제의 선택·계약은 Work·Project에 유지하며 상세 실행·운영 배치는 후속이다. |
+| [Development](../records/prototypes/development-workflow/skills/development/SKILL.md) · [독립 검토](../records/prototypes/development-workflow/skills/development/references/review.md) · [작업 장면](../records/prototypes/development-workflow/walkthrough.md) | 공통 수행 계약과 검토 판단을 반영한 현재 prototype. Main의 맥락 재선택·종합·전달·갱신과 역할별 판단을 연결한다. 로그인 예제의 선택·계약은 Work·Project에 유지하고 검증 상세·실행 배치를 반영했다. 실제 대상 설치·운영 효과는 후속이다. |
 | [Work 예시](../records/prototypes/development-workflow/noline-demo/context/work/README.md) | 기존 Spec·Ticket·current·source·output·records를 유지한 인증 이름 변경 작업. [116](../records/2026-10-20-116-defer-work-content-policy.md)의 복구 상태이며 새 background 정책을 적용한 표준이 아니다. |
 
 본문의 목적·의미·조건은 대상물 안에서 이해할 수 있게 구성했다. 바깥014 records는 작성·평가·정정의 과정을 보존하며, 대상물 본문을 대신하는 정본이 아니다. 형성 이유를 다시 볼 필요가 있을 때는 본문 가까운 자료에서 시작한다.

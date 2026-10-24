@@ -8,7 +8,7 @@
 
 | 보고 싶은 것 | 시작점 | 여기서 이해할 차이 |
 | --- | --- | --- |
-| 개발 작업의 맥락·역할·판단을 연결하는 방법 | [development 스킬](skills/development/SKILL.md) · [검토 상세](skills/development/references/review.md) | Main의 전체 조율과 구현 단계 검토자의 독립 판단, 수정 뒤 검증의 책임 |
+| 개발 작업의 맥락·역할·판단을 연결하는 방법 | [development 스킬](skills/development/SKILL.md) · [개선 검토](skills/development/references/review.md) · [검증 상세](skills/development/references/verification.md) | Main의 전체 조율과 구현 단계 검토자의 독립 판단, 수정 뒤 검증의 책임 |
 | 스킬 본문과 형성 자료를 작성·갱신하는 방법 | [스킬 본문 관리 정책](skills/SKILLS-CONTENT-POLICY.md) | 실행 지침·조건부 상세·형성 맥락과 근거의 책임 및 읽을 조건 |
 | 개념·작업물·앞선 말의 의미와 관계를 설명하는 방법 | [explain 본체](skills/explain/SKILL.md) · [구성과 이전 경로](skills/README.md) | 공통 설명 수행과 자료 선정·작성 상세, 앞선 발화 대조. 통합 prototype 반영과 실제 효과 확인은 구별한다. |
 | 공통으로 묶을 범위와 사용처에 남길 선택 | [공통 제공과 사용처 선택](noline-demo/context/personal/development/shared-boundaries/INDEX.md) · [코드 사례](noline-demo/context/personal/development/shared-boundaries/INDEX.cases.md) | Field의 배치·입력 교체, Container의 오류 표시, 같은 주문 API와 같은 구매 흐름의 차이 |
@@ -32,7 +32,7 @@
 | [Project](noline-demo/context/project/README.md) | 제품의 의미·개발 계약·현재 구현 | 인증 적용과 조회 완료를 구별하고 실패 때 보존할 상태를 정한다. |
 | [Work](noline-demo/context/work/README.md) | 이번 요구·선택·상태·입력·결과·기록 | 내부 두 소비자의 완료 표현을 정리하고 코드와 확인 결과를 연결한다. |
 
-[development 스킬](skills/development/SKILL.md)은 이 입력을 고르고 작업 중 다시 살피며 구현·검토·확인·결과 전달·갱신을 연결한다. [검토 상세](skills/development/references/review.md)는 공유 목적과 검토자·Main의 서로 다른 판단을 설명한다. 합의한 구현 완성·인계·검토 입력·권한·수정·종료·기록 책임을 실행 본문에 반영했다. 모델·세션 재사용·실제 입력은 [실행 배치](skills/development/references/execution.md)에서 찾는다. 운영 설치·실제 작업 효과와는 구별한다. Project가 개인 기준의 채택 목록을 관리하지 않으며, 이번 Work에서 고른 함수명을 모든 작업의 규칙으로 올리지 않는다.
+[development 스킬](skills/development/SKILL.md)은 이 입력을 고르고 작업 중 다시 살피며 구현·검토·확인·결과 전달·갱신을 연결한다. [검토 상세](skills/development/references/review.md)는 공유 목적과 검토자·Main의 서로 다른 판단을 설명한다. 구현 중 기계 검사·개선 수정·별도 검증·문제 해결·재검증·Main 완료와 기록까지 실행 본문에 반영했다. [검증 상세](skills/development/references/verification.md)는 기본 검사 유효성·적절성·추가 실행과 공백·반환·재검증을 맡는다. [로그인 작업의 전체 연결](walkthrough.md#구현개선-검토검증을-한-작업에서-잇는다)에서 실제 코드에 대입한 책임과 확인 범위를 읽는다. 모델·세션 재사용·실제 입력은 [실행 배치](skills/development/references/execution.md)에서 찾는다. 운영 설치·실제 작업 효과와는 구별한다. Project가 개인 기준의 채택 목록을 관리하지 않으며, 이번 Work에서 고른 함수명을 모든 작업의 규칙으로 올리지 않는다.
 
 ## 직접 확인할 수 있는 범위
 

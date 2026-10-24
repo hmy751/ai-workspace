@@ -4,9 +4,7 @@
 
 후속 실행 본문·참조 문서 구체화에는 [단계·층위·개념과 책임의 공통 메모](../records/2026-10-24-workflow-structure-and-responsibility-guidance.md)도 적용한다. 검증에 한정하지 않는 사용자 요청이며, 실제 구체화 범위에서 역할·정본·인계 관계로 이어 간다.
 
-**검증자1~12번 운영 설계 합의를 완료했다.** [합의 원문과 상세](../records/2026-10-24-verifier-workflow-proposal.md), [리뷰 종합](../records/2026-10-24-verifier-workflow-improvement-reviews.md)을 읽는다. 다음은 기존 구현·개선 검토1~15번과 함께 실제 development·review·execution 및 새 verification 상세를 대조·통합하고 대표 작업의 전체 연결을 확인하는 일이다. 실행 스킬 적용·제품 검증은 아직 하지 않았다.
-
-**구현·개선 검토의1~15번 합의와 prototype 반영을 마쳤고, 다음은 별도 검증 및 수정 단계의 구체화다.** [전체 작업 틀·현재 단계·남은 일](../records/2026-10-24-workflow-framework-and-checkpoint.md)에서 원래 논의와 Spec·01·04의 관계를 이어 본다. 구현 단계에는 구현자·개선 검토자·Main, 이후 검증 및 수정에는 별도 검증자와 Main·수정 담당을 둔다. 별도 검증 역할과 인계는 정했지만 상세 수행·수정 왕복·완료 근거는 남아 있다. 필요한 스킬 연결을 함께 맞춘 뒤 대표 작업에서 전체 흐름을 대조한다. Main의 지침 기반 기록 책임과 자동 Maintain 미연결은 유지한다.
+**검증자1~12번의 실행 본문 반영과 전체 흐름 대조를 완료했다.** [실행 상세](../records/prototypes/development-workflow/skills/development/references/verification.md), [통합·확인 기록](../records/2026-10-24-verifier-runtime-integration.md)을 읽는다. 기존 구현·개선 검토와 인계·수정·종료를 맞추고 대표 장면을 대조했으며 메모리 인증 예제7개 검사·두 실행을 확인했다. 실제 역할 전체의 수행 실험·운영 설치는 별도다.
 
 6번 실행 반영: [구현 완성·인계안](../records/2026-10-23-implementation-completion-and-handoff-proposal.md)의 맥락 이해·적용, 실제 사용·변경 장면, 독립 기대 결과와 근거 인계를 development에 반영했다. 설계 경과와 현재 실행 상태는 구별한다.
 
@@ -16,7 +14,7 @@
 
 04-02 이전 본문 비교: [책임 설명 통합판과 직전 채택판 시험](../records/experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md)은 통합 전 브리핑의 관찰이다. 양쪽 코드 발췌가 없어 핵심 개선은 미관찰이었다. 현재 explain의 수행 효과로 해석하지 않으며, 기존 입력·응답·당시 판본은 보존한다.
 
-실행 prototype은 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md)·[실행 배치](../records/prototypes/development-workflow/skills/development/references/execution.md)이며1~15번을 반영했다. Personal A·B와 진입·기록 연결도 함께 맞췄다. [이번 적용 기록](../records/2026-10-23-development-workflow-1-15-integration.md)의 확인 범위와 남은 작업을 따른다.
+실행 prototype은 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[개선 검토](../records/prototypes/development-workflow/skills/development/references/review.md)·[검증 상세](../records/prototypes/development-workflow/skills/development/references/verification.md)·[실행 배치](../records/prototypes/development-workflow/skills/development/references/execution.md)다. 구현·개선 검토1~15와 검증자1~12의 실제 반영·확인 범위는 [최신 통합 기록](../records/2026-10-24-verifier-runtime-integration.md)에서 이어 본다.
 
 **Ticket 03의 구성안·본문 예시 구체화를 완료했다.** [state](state.md)에서 마감 상태와 후속 범위, [03](tickets/03-project-context.md)에서 완료 조건별 근거, [119](../records/2026-10-20-119-ticket03-closeout.md)에서 이번 마무리 판단을 읽는다. Workspace014 전체와 다른 Ticket은 계속 열려 있다.
 
@@ -30,7 +28,7 @@
 
 1. [state](state.md)와 [output](../output/index.md)에서 이번에 끝낸 결과·현재 실물·다음 행동을 확인하고 Git 상태를 대조한다.
 2. [memory](memory.md)의 대상물 경계·독립 책임·형성 자료·체계 지침에 관한 지속 기준과 [Spec](spec.md)의 전체 목표·3절·5절을 읽는다.
-3. [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[01-03](tickets/01-development-workflow/01-03-behavior-verification.md)과 [04의 관계](tickets/04-skill-improvements/README.md)를 함께 읽는다. 구현·개선 검토의 합의에서 별도 검증 및 수정 단계로 이어간다. 검증 상세와 스킬의 실제 조건·본문을 맞춘 뒤 전체 대표 장면을 대조하며 바로 효과 시험으로 건너뛰지 않는다.
+3. [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[01-03](tickets/01-development-workflow/01-03-behavior-verification.md)과 [04의 관계](tickets/04-skill-improvements/README.md)를 함께 읽는다. 구현·개선 검토의 합의에서 별도 검증 및 수정 단계로 이어간다. 검증 상세의 실행 반영·대표 대조는 마쳤다. 다음에는 개별 맥락 스킬의 대상별 조건과01-01·01-03 완료 조건을 이번 근거에 대조한다. 실제 역할 전체의 수행 효과와 운영 설치는 별도로 계획한다.
 
 ## 문서별 책임
 

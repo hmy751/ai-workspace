@@ -4,7 +4,7 @@
 
 | 필요한 일 | 현재 본문과 상세 |
 | --- | --- |
-| 개발 작업의 맥락·구현·검토·확인·결과를 조율한다 | [development](development/SKILL.md) · [검토 상세](development/references/review.md) · [실행 배치](development/references/execution.md) |
+| 개발 작업의 맥락·구현·검토·확인·결과를 조율한다 | [development](development/SKILL.md) · [개선 검토](development/references/review.md) · [검증 상세](development/references/verification.md) · [실행 배치](development/references/execution.md) |
 | 기존 작업 정의가 충분한지, 무엇을 더 구체화할지 판단한다 | [work-discussion](work-discussion/SKILL.md) |
 | 개념·코드·작업 결과·앞선 말의 뜻과 관계·선택 이유를 설명한다 | [explain](explain/SKILL.md) |
 | 원자료를 골라 관계·조건·이유를 실제 설명으로 만든다 | [설명 작성 상세](explain/references/constructing-explanations.md) |
