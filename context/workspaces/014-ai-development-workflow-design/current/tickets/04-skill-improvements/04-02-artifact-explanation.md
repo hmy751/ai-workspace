@@ -2,6 +2,8 @@
 
 ## 지금 이어갈 지점 — 2026-10-24
 
+**현재 우선 판단:** 사용자 요청으로 [반복 보완·시험에 대한 self-check와 다음 수정 단위](../../../records/2026-10-24-ticket04-02-self-check-and-redesign.md)를 정리했다. 다음은 조항 보강·모델 비교의 반복이 아니라 첫 전달의 목적 선정부터 자료·설명·충분성까지 연결한 수정안을 구체화하는 것이다. 현재 실행 본문·시험 원문은 유지하며 아래 최신 비교 결과를 그 근거로 사용한다.
+
 **기존 두 스킬을 재검토하고 explain 본체·상세·형성 자료를 보완했다.** [이번 검토·반영·확인](../../../records/2026-10-24-ticket04-02-explain-revision.md)을 먼저 읽는다. 전후 비교·실제 구현 대응·목표별 근거·목적별 충분성을 구체화하고, 전체와 부분의 연결·구조의 이득과 남은 부담·이어지는 복구를 보완했다. 구성은 유지하며 옛 조항 전수 이식은 하지 않았다. 수정 전 두 모델 설정 비교에서 새 스킬의 우세는 미확인이고, 수정 후6.0-sol high 비교에서도 사용자는 두 답이 비슷하다고 평가했고 출력상 핵심 개선은 미확인이며, 운영 설치·04-02 전체 완료는 아직 아니다. 아래 생성·시험 기록은 각 시점의 경과다.
 
 - **현재 실행 본문:** [explain/SKILL.md](../../../records/prototypes/development-workflow/skills/explain/SKILL.md). 설명의 공통 수행을 소유하며 [작성 상세](../../../records/prototypes/development-workflow/skills/explain/references/constructing-explanations.md)와 [앞선 발화 상세](../../../records/prototypes/development-workflow/skills/explain/references/prior-explanation.md)를 조건에 따라 사용한다.

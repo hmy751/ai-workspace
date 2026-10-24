@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+04-02 현재 설계 판단: [반복 보완·시험에 대한 self-check와 수정 단위](../records/2026-10-24-ticket04-02-self-check-and-redesign.md). 첫 전달의 목적·자료·설명·충분성을 함께 바꾸는 설계안이며 실행 본문 반영·새 시험은 아직 하지 않았다.
+
 04-02 최신 비교: [수정 explain·기존 스킬의6.0-sol high 두 응답](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md). 선택 파일 완독·해시·입력 불변 검사를 완료하고 조건명 없는 원문을 제시했다. 사용자는 비슷하다고 평가했다. [항목별 판단](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/comparison.md)은 조사 행동의 일부 반영과 출력 개선 미확인을 구별하며 모델만의 원인으로 단정하지 않는다.
 
 04-02 최신 반영: [기존 두 스킬 재검토와 explain 보완](../records/2026-10-24-ticket04-02-explain-revision.md). 본체·작성 상세·앞선 발화 상세와 형성 자료를 갱신했다. 단일 진입점 구성은 유지하며 수정 후 실제 응답 효과는 미확인이다. 아래 모델 비교는 수정 전 판본에 해당한다.

@@ -1,5 +1,7 @@
 # 논의와 보존 기록
 
+- [04-02 self-check와 다음 수정 단위](2026-10-24-ticket04-02-self-check-and-redesign.md): 사용자 정정·fresh auditor의 근거·Main 수용과06에 적용한 설계 판단. 조항 보강과 비교 시험을 반복하는 접근을 재검토하고 첫 전달의 목적부터 충분성까지 연결한다.
+
 - [04-02 시험 보존·현재 기록 점검](2026-10-24-ticket04-02-records-preservation.md): 네 시험 묶음·여덟 실행의 입력·응답·읽기 해시를 확인하고 형성 자료의 오래된 시험 상태를 갱신했다. 무효 시험과 개선 미확인 판정을 유지한다.
 
 - [04-02 수정 explain·기존 스킬6.0-sol high 비교](experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md): 같은06 원자료·시점에서 각1회 생성하고 완독·입력 불변을 확인했다. 조건명 없는 최초 응답 전문을 보존하며 사용자 평가 전이다.
