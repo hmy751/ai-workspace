@@ -1,6 +1,6 @@
 # 현재 선택한 설계 자료와 산출물
 
-04-02 현재 설계 판단: [Matt·pstack·Vercel의 스킬 구성·라우팅 조사와 권고](../records/2026-10-24-ticket04-02-skill-routing-source-research.md). [self-check](../records/2026-10-24-ticket04-02-self-check-and-redesign.md)를 바탕으로 작업의 결과 설명 의무와 explain 공통 수행·조건부 상세를 연결하는 제안이다. 실제 source와 우리 적용 판단을 구별했으며 실행 본문 변경·새 시험은 하지 않았다.
+04-02 현재 설계 판단: [본래 목적·Noline 사용 장면·현재 논의를 통합한 권고](../records/2026-10-24-ticket04-02-skill-routing-source-research.md#사용자-정정-뒤의-통합-판단). 레퍼런스 구성과06의 결과 전달에 집중한 제안을 재판단했다. 실제 코드 읽기·구조와 선택의 이해·결과 해석·후속 보충을 중심에 두고 development 연결을 그중 한 경로로 위치시킨다. 실행 본문 변경·새 시험은 하지 않았다.
 
 04-02 최신 비교: [수정 explain·기존 스킬의6.0-sol high 두 응답](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md). 선택 파일 완독·해시·입력 불변 검사를 완료하고 조건명 없는 원문을 제시했다. 사용자는 비슷하다고 평가했다. [항목별 판단](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/comparison.md)은 조사 행동의 일부 반영과 출력 개선 미확인을 구별하며 모델만의 원인으로 단정하지 않는다.
 
