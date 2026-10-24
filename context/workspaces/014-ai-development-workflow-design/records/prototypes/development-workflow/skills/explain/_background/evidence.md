@@ -95,15 +95,33 @@ Workspace014 `records/experiments/artifact-explanation-trip-responsibility-2026-
 
 ## 실행 상세 예시의 출처와 한계
 
-### 여행 코드의 작성 과정
+### 인증의 전체 요청과 후속 대목
 
-[작성 상세](../references/constructing-explanations.md)의 세 발췌는 Workspace014 `source/artifact-explanation-scenes/05-trip-list-briefing/historical-materials/files/apps/client/src/` 아래 보존 파일에서 가져왔다.
+Workspace014 `source/artifact-explanation-scenes/02-auth-interceptor/input/conversation.txt`에는 `source_line=9`의 `??=` 문법 질문과20의 전체 코드 동작 질문이 있다. `evaluation/conversation.txt`의55에서는 “코드랑 같이 자세히 설명해야지 맥락만 알려주는게 아니라”라고 요청했고,66의 코드·순서 설명 뒤73에서 갱신 실패 처리를 다시 물었다. 따라서 이 사례를 단순히 ‘코드를 안 보여 줬기 때문’으로 설명하지 않는다.
 
-- `entities/trip/data/useCreateTrip.ts`: `mutationFn`은 생성 요청, `onSuccess`는 갱신 helper 호출이다.
-- `shared/lib/query-refresh.ts`: 이전 조회 취소는 await하고 새 조회 완료는 기다리지 않는다. 새 조회 오류는 별도로 기록한다.
-- `entities/trip/repository/trip-repository.ts`: 목록 조회의 서버 경로에서 서버 결과를 받아 로컬 목록에 반영하고 결과를 반환한다.
+작성 상세의 A/B 세션 상황은 입력 코드의 `assertCurrentSession(sessionId)`, `await refreshTokens(refreshToken)`, catch 안의 재검사와401/403 처리를 대조해 만든 설명 상황이다. 실제 로그인 전환 관찰이나 사용자의 내적 혼동 원인 진단이 아니다. 이름·순서만 있는 첫 요약은 작성 예시이며 실제 응답의 인용이 아니다. 전체 코드에 관한 설명 예시를 이 한 대목으로 대신하지 않는다.
 
-코드 발췌는 원문과 대조했고 중간 생략·서로 다른 함수의 일부임을 상세에 밝혔다. 예시 설명은 이 코드의 관계를 설명하기 위해 새로 작성한 문장이다. 전체 제품 실행·모든 실패 조건·사용자 이해를 확인한 결과가 아니다. 기존 응답 예시가 있던 `records/2026-10-23-ticket04-02-astra-improvement-review.md`도 자료 선정 방식의 참고로 사용했으며, 이를 새 독립 시험으로 세지 않는다.
+### 동기화 요약의 실제 문장과 보완
+
+Workspace014 `records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/answer-B.md`의 실제 문장:
+
+> 실행 중 Promise를 화면용 `isSyncing`보다 먼저 보관하므로 같은 순간의 자동·수동 호출은 한 실행의 완료를 함께 기다립니다.
+
+이 문장을 거짓으로 판정한 것이 아니라, 변경의 의미를 따라 읽으려면 화면 상태 반영 시점과 뒤의 호출이 읽고 반환하는 값을 보충해야 한다고 판단했다. 보완 문장은 Main이 작성한 예시이고 새 독립 생성 응답이 아니다. 보존된 기존판의6.1 high 응답은 같은 관계를 더 펼친 참고이며 전체 정답으로 취하지 않는다.
+
+코드 식별자: Workspace014 `source/artifact-explanation-scenes/06-network-consumer-delivery/historical-materials/{before,after}/apps/client/src/shared/services/sync/provider.tsx`. before의 상태 검사·`setIsSyncing`, after의 `inFlightRef.current` 반환·`run` 저장·engine 결과를 대조했다. 작성 상세의 코드는 after 함수의 두 대목이며 가운데 시작 조건·Promise 생성 등을 생략했다. 제품 재실행·큐 전체 완료·사용자 이해를 확인한 결과는 아니다.
+
+### 여행의 선택 판단과 역할 설명
+
+Workspace014 `source/artifact-explanation-scenes/05-trip-list-briefing/input/conversation.txt`의 사용자 `source_line=3484`:
+
+> 여행 자체가 다른 성격이라 그런건 이해가 된느데 아직 그래도 책임 분리와 이런 구조가 잘 반영이된 선택인가? 싶어 다시 검토해줘
+
+당시 검토3512·3521은 활성 여행이 있을 때 목록 조회가 로컬만 읽어 서버 변경 뒤 사본 반영 실패를 복구하지 못하는 문제를 지적했다. 사본 자체의 필요성과 미전송 변경 보호·조회 출처도 함께 판단했다. 작성 상세의 실패 상황은 이 검토 논리 중 책임 이동 이유를 재구성했다. 당시 코드 전부나 현재 제품을 새로 검증했다는 주장이 아니다.
+
+한편 `evaluation/conversation.txt`의3962는 도식·구체 코드·역할 설명을 요구한 다른 시점이다. Repository의 실제 작업 제공과 Router의 경로 선택은 이 역할 설명에 유용하며 앞선 적절성 검토를 대신하지 않는다.
+
+두 코드 발췌는 같은 묶음의 `historical-materials/files/apps/client/src/entities/trip/repository/trip-repository.ts`에서 목록의 서버 조회·로컬 반영과 `update`의 위임을 가져왔다. 생성 성공 뒤 갱신 요청은 `entities/trip/data/useCreateTrip.ts`, 대기 경계는 `shared/lib/query-refresh.ts`에서 확인했다. 전 판본의 상세에 있던 저장·조회 세 발췌를 그대로 누적하지 않고 현재 질문 구별에 맞게 재선정했다. 문단의 인과 설명과 보존 코드의 직접 관찰 범위를 구별한다.
 
 ### 보고서의 관찰과 결론
 
@@ -122,3 +140,24 @@ Workspace014 `source/artifact-explanation-scenes/01-report-delivery/evaluation/c
 ### 앞선 발화의 뜻과 타당성
 
 [앞선 발화 상세](../references/prior-explanation.md)의 evidence/verdict 대화 두 개는 이전 복구 [형성 맥락](legacy/explanation-recovery/context.md)에 보존된 설명용 예시를 재구성했다. 실제 사용자 대화·새 비교 응답이 아니다. 동의어만으로 끝내지 않는 것과, 잘못된 추론을 정정하면서 원래 없던 뜻을 소급해 넣지 않는 행동을 보여 주기 위해 골랐다.
+
+## 목적·레퍼런스·리뷰를 선별한 뒤의 적용 — 2026-10-24
+
+사용자는 레퍼런스·prototype만으로 설명해 와닿지 않는다며 “이 스킬의 본래 목적과 그리고 noline에서 개선하려고 햇떤 장면” 및 기존 논의·사용자 경험을 종합해 판단하라고 했다. 이어 다음과 같이 정정했다.
+
+> 통합 하라고 하면 또 무지성으로 모두 조합해서 진리처럼 다뤄서 다 반영할까 우려되니까 다시 종합해서 고민하고 해봐
+> 제3 개선 리뷰어한테 물어봐 니가 생각한게 괜찮은지 반드시 개선하려고 하는 목적으로 돌려 단순히 적당하다 이런 검증하는거 말고
+
+독립 개선 리뷰는 현재 스킬과 제안의 중복을 지적하고, 전체 인증 요청을 한 세션 검사로 좁힌 예시와 여행의 선택 질문을 역할 설명으로 대신한 예시를 고치도록 제안했다. 또 실제 부족한 요약의 연결을 보완하는 과정을 상세에 두도록 권했다. Main은 해당 원문과 응답을 대조해 채택했다. 리뷰가 본문 수행 효과를 확인한 것은 아니다.
+
+구체화·반영 요청:
+
+> 그럼 정말 아까 레퍼런스랑 우리 합의랑 다 종합한거지? 맞다면 스킬 구체화 해서 반영해봐
+
+외부 자료는2026-10-24에 조사한 로컬 판본을 사용했다. Matt `5beb35b040e3de97e54fa9e386d7e42d15c295c2`, pstack 상위 저장소 `190d28736eff128ec94f502a22c7fe0c4b56cd37`, Vercel John Phamous의2026-06-25 기사 보존판이다.
+
+- Matt의 `writing-for-agents`와 invocation 규약: 공통 수행·완료 조건은 본체에, 조건부 상세는 필요한 위치에서 연결한다. 다른 호스트의 전용 호출 방식을 복사하지 않았다.
+- pstack의 `poteto-mode`·investigation/refactor playbook과 `how`·`why`: 작업 결과의 책임과 설명 수행을 연결하고 현재 동작의 설명과 당시 이유의 근거를 구별한다. 숙련 개발자 대상 수준·agent 분업을 그대로 가져오지 않았다.
+- Vercel의 축약된 product-design 예시: 요청 범위·필요한 reference·확인을 이어 구성하는 참고로 사용했다. 모드 수·내부 reference·그 방식의 성능을 우리 설명 스킬의 정답으로 취하지 않았다.
+
+주요 파일19개 중18개가 Workspace 보존본과 같았고 Matt `wait-what`은 그 보존 범위 밖이었다. 자세한 읽기 범위·반영과 미채택은 Workspace014 `records/2026-10-24-ticket04-02-skill-routing-source-research.md`, Main 제안·선별·리뷰 선택은 `records/2026-10-24-ticket04-02-selective-improvement-proposal.md`, 리뷰 전 사본과 반환 전문은 `records/reviews/explanation-selective-improvement-2026-10-24/`에서 찾는다. 사용자 원문과 리뷰·Main의 판단, 실제 반영과 효과는 서로 다른 근거다.

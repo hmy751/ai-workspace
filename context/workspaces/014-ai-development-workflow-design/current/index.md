@@ -4,7 +4,7 @@
 
 6번 실행 반영: [구현 완성·인계안](../records/2026-10-23-implementation-completion-and-handoff-proposal.md)의 맥락 이해·적용, 실제 사용·변경 장면, 독립 기대 결과와 근거 인계를 development에 반영했다. 설계 경과와 현재 실행 상태는 구별한다.
 
-04-02 다음 판단: [근거를 선별한 개선안과 독립 개선 리뷰](../records/2026-10-24-ticket04-02-selective-improvement-proposal.md). 전체 코드 요청을 한 대목으로 좁히지 않고, 역할 설명과 선택 적절성 판단에 맞는 근거를 고르는 방향으로 제안을 보완했다. 상세는 실제 부족한 문단에서 빠진 연결을 어떻게 보완하는지 보여 주도록 권한다. 단일 입구·앞선 발화 상세는 유지하되 모든 사례를 상시 항목으로 합치지 않는다. 실행 스킬 변경·추가 시험은 없으며 다음은 이 제안에 대한 사용자 논의다.
+04-02 최신 반영: 사용자 요청으로 [선별한 개선안의 실행 반영](../records/2026-10-24-ticket04-02-selective-improvement-adoption.md)을 완료했다. explain 본체를 질문 범위·실제 대상과 결론의 연결 중심으로 정리하고, 작성 상세를 전체 요청과 후속·실제 요약 보완·역할과 선택 판단에 맞게 교체했다. development의 첫 결과 구성에 호출을 명시하고 형성 자료·열람 화면을 맞췄다. 형식·원문·링크와 수행 경로를 확인했으며 새 응답 시험·운영 설치·실제 효과 확인은 별도다. 다음은 이 판본의 실제 사용 관찰에서 필요한 판단을 이어가는 것이며 비교 시험을 자동 반복하지 않는다.
 
 04-02 현재 산출물: [explain](../records/prototypes/development-workflow/skills/explain/SKILL.md)의 본체·두 상세·형성 자료를 생성하고 기존 두 스킬 폴더를 삭제하고 배경·원문을 explain/_background/legacy에 보존했다. [사용자 요청·정정과 적용 확인](../records/2026-10-23-ticket04-02-explain-prototype-adoption.md)을 읽는다. 기존 두 스킬 제거를 전제로 하되 조항 전수 이식이나 분량 확대를 목표로 하지 않았다. prototype 반영과6.0 medium·6.1 high 응답 비교를 완료했고 새 스킬 우세는 미확인이다. 그 뒤 [기존 두 스킬 재검토·보완](../records/2026-10-24-ticket04-02-explain-revision.md)을 반영했으며 수정 후 [6.0-sol high 비교](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md)는 사용자의 비슷하다는 평가를 받았고, 전후 자료 선택은 나타났으나 출력상 핵심 개선은 미확인이다. 운영 설치는 미실행이며 재개 순서는 [04-02](tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
 
