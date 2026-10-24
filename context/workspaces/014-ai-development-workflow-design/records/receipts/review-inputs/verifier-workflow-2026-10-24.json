@@ -1,0 +1,68 @@
+{
+  "purpose": "검증자 설계 개선 리뷰 입력 시점 판본. 실행 결과 증거가 아님",
+  "proposal_snapshot_sha256": "a0749a37790b6f7bfeb47afc631de159a489c92f36072272d1dafdef24ea0618",
+  "files": [
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/records/2026-10-24-verifier-workflow-proposal.md",
+      "sha256": "a0749a37790b6f7bfeb47afc631de159a489c92f36072272d1dafdef24ea0618"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/current/spec.md",
+      "sha256": "a72d9aa96c2076279737e5962c31990241bb520290043539b748e6128efcf7ba"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/current/tickets/01-development-workflow/01-03-behavior-verification.md",
+      "sha256": "ce8ec04bfd879cde2cc8f456a26af0b10c4f938fdc374f1b7bed2debfce880c1"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/records/2026-10-24-workflow-framework-and-checkpoint.md",
+      "sha256": "64b3460a467c4cc0f9be5731b2a649fda4e6af9672fd43f76bf6f8043fc1124e"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/SKILL.md",
+      "sha256": "c43c0df3c821f56abd78ccd5943c312b2c3f802f7ac548f22bf903c558f627ff"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/references/review.md",
+      "sha256": "717b0edc5b1c01650900d11c95d7936d653d8ba9b00a44a4b67c66381de5197e"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/references/execution.md",
+      "sha256": "3833e70ae688f27ab2e778c3823525f27fd6bd88505c1e39fd05bccbc1fc0a71"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/source/lectures/01_PR_병목_강연_전체번역.md",
+      "sha256": "4ccdfd1336b1233d0888de49a629e4041f51d0230c13cfea4b51e24653aed542"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/source/lectures/03_Agent_신뢰_강연_전체번역.md",
+      "sha256": "1f17e786699e602985ed99aa26651a42e3939f35b3a77c740f834fa426c7f93b"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/source/lectures/vercel-product-design (1).md",
+      "sha256": "e5beaac1e8d0b6c2c0bbefba68c0ca96d088a906a9665848b7a18abab8bf34b4"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/source/workflow-references/pstack/repository/skills/create-verification-skill/SKILL.md",
+      "sha256": "d353973547bf8ad8977eca645f4cd4feaed0d32f4b43d1448f906b0a76c4d694"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/source/workflow-references/pstack/repository/skills/create-formal-verification-skill/SKILL.md",
+      "sha256": "6c934cd15a9583533ff9b7a9cad62775d7e80402d26d3ba7f74f79ea21a1d8eb"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/shipping.md",
+      "sha256": "bf56339bdf7e0223bcff5abf4e8599e3f5b547b3fcc3b4ce9475e6e7dda14a9f"
+    },
+    {
+      "path": "context/workspaces/014-ai-development-workflow-design/source/workflow-references/matt-pocock/repository/skills/engineering/tdd/tests.md",
+      "sha256": "859f9e592c188fda4fc7277dd180e4ce9c7a2e13f6efe1f6f29eccc9d28c106a"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/README.md",
+      "sha256": "4b92e1198379c0aeaf65997c2a98a6f8028cde74a19a438f316556fa837a55fb"
+    }
+  ],
+  "repository_head": "7fbd6c33ae7ff45ce30f1e405efb2e341c4e2a70",
+  "note": "proposal은 함께 보존한 proposal-before-review.txt에서 복원. 주요 기존 파일은 기록한 repository_head와 해시로 대조하며, 전체 맥락·실제 열람량을 증명하지 않는다."
+}

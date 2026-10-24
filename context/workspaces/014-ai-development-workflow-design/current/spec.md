@@ -1,5 +1,9 @@
 # AI 개발 작업 체계의 개선 설계 — Spec 초안
 
+2026-10-24 후속 구체화 공통 기준: 검증에서 드러난 단계·층위·개념의 구별을 다른 책임에도 적용하고, 실행 본문·참조 문서에 그 관계가 체계적으로 이어지도록 한다. 단계의 입력·결과·인계, 각 역할의 판단·실행·수정 책임, 상위 관계와 하위 상세의 정본을 연결한다. 구체적인 파일 배치·단계 수를 일괄 고정하지 않는다. 다음 실행 본문 통합과 관련 스킬 구체화에서 [사용자 원문과 적용 메모](../records/2026-10-24-workflow-structure-and-responsibility-guidance.md)를 함께 읽는다.
+
+2026-10-24 검증 상세 합의 완료: [검증안1~12](../records/2026-10-24-verifier-workflow-proposal.md)의 역할·시작/입력·기계 검사/충분성·실행 공백/반환/종료·후속 재검증/실행 연결을 사용자와 합의했다. 검증자는 요구·계약과 근거를 독립 판단하고 재현을 만들며, 원 구현자/지정 담당이 제품·지속 테스트를 수정하고 Main이 전체 상태와 기록을 책임진다. 기존 development 본체·새 verification 상세·execution·Project 실제 도구·Work 근거의 책임을 구별해 연결한다. 다음은 실제 실행 본문 통합과 대표 작업 확인이며 운영 효과·01 전체 완료는 아니다.
+
 **구현·개선 검토의1~15번 합의와 prototype 반영을 마쳤고, 다음은 별도 검증 및 수정 단계의 구체화다.** [전체 작업 틀·현재 단계·남은 일](../records/2026-10-24-workflow-framework-and-checkpoint.md)에서 원래 논의와 Spec·01·04의 관계를 이어 본다. 구현 단계에는 구현자·개선 검토자·Main, 이후 검증 및 수정에는 별도 검증자와 Main·수정 담당을 둔다. 별도 검증 역할과 인계는 정했지만 상세 수행·수정 왕복·완료 근거는 남아 있다. 필요한 스킬 연결을 함께 맞춘 뒤 대표 작업에서 전체 흐름을 대조한다. Main의 지침 기반 기록 책임과 자동 Maintain 미연결은 유지한다.
 
 실행 정본은 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md)·[실행 배치](../records/prototypes/development-workflow/skills/development/references/execution.md)다. [1~15번 반영 기록](../records/2026-10-23-development-workflow-1-15-integration.md)에 실제 적용·독립 대조·확인 한계를 남겼다. 이 구체화가 별도 검증자의 운영 상세·전체 스킬 보완·실제 운영 효과까지 끝낸 것은 아니다.

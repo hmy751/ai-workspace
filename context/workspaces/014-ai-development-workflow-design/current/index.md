@@ -2,6 +2,10 @@
 
 04-02 시험 논의: [수정 후 사례·비교 방식 제안](../records/2026-10-24-ticket04-02-evaluation-proposal-after-adoption.md). 우선03 전체 흐름과04의 테스트 변경 필요성 질문에서 직전/현재 explain을 비교하고03에 기본 응답을 더하는 최초5개를 권한다. 본문 효과와04 첫 전달의 development 연결 효과를 분리한다. 조건 미확정·미실행이며 모델 변경·반복 생성은 시작하지 않았다.
 
+후속 실행 본문·참조 문서 구체화에는 [단계·층위·개념과 책임의 공통 메모](../records/2026-10-24-workflow-structure-and-responsibility-guidance.md)도 적용한다. 검증에 한정하지 않는 사용자 요청이며, 실제 구체화 범위에서 역할·정본·인계 관계로 이어 간다.
+
+**검증자1~12번 운영 설계 합의를 완료했다.** [합의 원문과 상세](../records/2026-10-24-verifier-workflow-proposal.md), [리뷰 종합](../records/2026-10-24-verifier-workflow-improvement-reviews.md)을 읽는다. 다음은 기존 구현·개선 검토1~15번과 함께 실제 development·review·execution 및 새 verification 상세를 대조·통합하고 대표 작업의 전체 연결을 확인하는 일이다. 실행 스킬 적용·제품 검증은 아직 하지 않았다.
+
 **구현·개선 검토의1~15번 합의와 prototype 반영을 마쳤고, 다음은 별도 검증 및 수정 단계의 구체화다.** [전체 작업 틀·현재 단계·남은 일](../records/2026-10-24-workflow-framework-and-checkpoint.md)에서 원래 논의와 Spec·01·04의 관계를 이어 본다. 구현 단계에는 구현자·개선 검토자·Main, 이후 검증 및 수정에는 별도 검증자와 Main·수정 담당을 둔다. 별도 검증 역할과 인계는 정했지만 상세 수행·수정 왕복·완료 근거는 남아 있다. 필요한 스킬 연결을 함께 맞춘 뒤 대표 작업에서 전체 흐름을 대조한다. Main의 지침 기반 기록 책임과 자동 Maintain 미연결은 유지한다.
 
 6번 실행 반영: [구현 완성·인계안](../records/2026-10-23-implementation-completion-and-handoff-proposal.md)의 맥락 이해·적용, 실제 사용·변경 장면, 독립 기대 결과와 근거 인계를 development에 반영했다. 설계 경과와 현재 실행 상태는 구별한다.

@@ -1,5 +1,7 @@
 # AI 개발 작업 체계의 개선 설계
 
+검증자 설계: [검증안1~12](records/2026-10-24-verifier-workflow-proposal.md)의 역할·입력·검사·공백/반환/종료·후속 재검증·실행 연결까지 사용자 합의를 마쳤다. 두 개선 리뷰와 후속 정정을 보존했다. **다음은 실제 실행 본문 통합과 대표 작업의 전체 연결 확인**이다. 기존 구현·개선 검토1~15번의 반영과 검증자 설계 합의를 구별하며, 검증자 실행 본문 적용·제품 검증·전체 Ticket 완료는 아직 아니다.
+
 **구현·개선 검토의1~15번 합의와 prototype 반영을 마쳤고, 다음은 별도 검증 및 수정 단계의 구체화다.** [전체 작업 틀·현재 단계·남은 일](records/2026-10-24-workflow-framework-and-checkpoint.md)에서 원래 논의와 Spec·01·04의 관계를 이어 본다. 구현 단계에는 구현자·개선 검토자·Main, 이후 검증 및 수정에는 별도 검증자와 Main·수정 담당을 둔다. 별도 검증 역할과 인계는 정했지만 상세 수행·수정 왕복·완료 근거는 남아 있다. 필요한 스킬 연결을 함께 맞춘 뒤 대표 작업에서 전체 흐름을 대조한다. Main의 지침 기반 기록 책임과 자동 Maintain 미연결은 유지한다.
 
 04-02는 [explain 본체·상세·형성 자료](records/prototypes/development-workflow/skills/explain/SKILL.md)로 기존 두 실행 경로를 통합했다. 이후 반복 비교를 재검토해 원래 목적·실제 사용 경험·외부 자료를 선별하고 독립 개선 리뷰를 거쳤다. 사용자 요청으로 [질문 범위·실제 설명 연결·첫 전달 호출을 구체화](records/2026-10-24-ticket04-02-selective-improvement-adoption.md)했다. prototype 반영과 정적·문단 대조를 마쳤으며 운영 설치·실제 수행 효과 확인은 별도다. 현재 상태와 재개는 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
