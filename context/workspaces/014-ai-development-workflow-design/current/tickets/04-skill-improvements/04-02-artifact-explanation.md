@@ -1,8 +1,8 @@
 # 04-02 — 설명 스킬의 구성과 적용
 
-## 지금 이어갈 지점 — 2026-10-23
+## 지금 이어갈 지점 — 2026-10-24
 
-**리뷰 반영 구성으로 explain prototype 생성·연결 정리를 완료했다.** 사용자가 본체·상세·_background 생성과 기존 두 스킬 연결 정리를 요청했다. 생성 중 “기존 제거를 감안했는지”를 확인했으며 모든 옛 조항을 무조건 채우라는 뜻은 아니라고 정정했다. [적용·정정·확인 기록](../../../records/2026-10-23-ticket04-02-explain-prototype-adoption.md)이 현재 상태를 보존한다. 운영 설치·새 응답 시험과04-02 전체 완료는 별도다.
+**기존 두 스킬을 재검토하고 explain 본체·상세·형성 자료를 보완했다.** [이번 검토·반영·확인](../../../records/2026-10-24-ticket04-02-explain-revision.md)을 먼저 읽는다. 전후 비교·실제 구현 대응·목표별 근거·목적별 충분성을 구체화하고, 전체와 부분의 연결·구조의 이득과 남은 부담·이어지는 복구를 보완했다. 구성은 유지하며 옛 조항 전수 이식은 하지 않았다. 수정 전 두 모델 설정 비교에서 새 스킬의 우세는 미확인이고, 수정 후6.0-sol high 비교에서도 사용자는 두 답이 비슷하다고 평가했고 출력상 핵심 개선은 미확인이며, 운영 설치·04-02 전체 완료는 아직 아니다. 아래 생성·시험 기록은 각 시점의 경과다.
 
 - **현재 실행 본문:** [explain/SKILL.md](../../../records/prototypes/development-workflow/skills/explain/SKILL.md). 설명의 공통 수행을 소유하며 [작성 상세](../../../records/prototypes/development-workflow/skills/explain/references/constructing-explanations.md)와 [앞선 발화 상세](../../../records/prototypes/development-workflow/skills/explain/references/prior-explanation.md)를 조건에 따라 사용한다.
 - **선택 이유:** [형성 자료](../../../records/prototypes/development-workflow/skills/explain/_background/README.md)에 목적·기존 구분·source·사용자 정정·리뷰·현재 선택을 구별했다. [구성 제안](../../../records/2026-10-23-ticket04-02-explanation-skill-composition-proposal.md)과 [한 번의 개선 리뷰](../../../records/2026-10-23-ticket04-02-composition-improvement-review.md)는 적용 전 판단 이력이다.
@@ -11,6 +11,24 @@
 - **확인:** 대체 YAML 검사·현재 실행 선언·이전 본문 해시·코드 예시 원문·링크를 확인하고 viewer 검사를 통과했다. quick_validate는 PyYAML 부재로 실행하지 못했다. 정적 확인을 실제 설명 효과로 취급하지 않는다.
 - **준비 자료:** [Network 첫 완료 보고](../../../records/2026-10-23-ticket04-02-network-first-report-preparation.md)의 원자료와 기존판 A/B는 준비·미실행으로 남긴다. 통합안 수행이나 구현 범위 개선을 검증한 결과가 아니다.
 - **다음 판단:** 생성본을 읽거나 사용한 결과에서 필요한 판단을 이어간다. 구성 선택을 미채택으로 되돌리거나, 옛 조항 전체를 채우거나, 새 사례·문구·비교 시험을 자동 반복하지 않는다. 사용 효과와 운영 이식은 실제 요청·관찰에 따라 구별한다.
+
+2026-10-23 후속: 사용자 승인으로 [06 첫 완료 보고의 기존/새 설명 비교](../../../records/experiments/explain-network-first-delivery-2026-10-23/README.md)를 GPT-6-sol medium 각1회 실행했다. 최초 응답 두 개를 수정 없이 보존하고 조건명 없는 A·B로 제시한다. 양쪽 도구 출력 잘림과 한쪽 선택 파일 일부 미완독 때문에 읽기 조건을 충족하지 못했다. 우열·사용자 이해 개선·Ticket 완료를 판정하지 않으며 자동 재생성하지 않는다.
+
+2026-10-23 재실행: 사용자가 “그럼 또 시켜 잘 해서”라고 요청해 [읽기 절차 보완 후 새 두 응답](../../../records/experiments/explain-network-first-delivery-2026-10-23-retry/README.md)을 같은 모델·입력·스킬 판본으로 생성했다.3000자 조각과 응답 전 완독 검사를 사용했고 선택한18개·23개 파일의 누락·해시 불일치·입력 변경0을 확인했다. 두 실행자는 출력 잘림 없음으로 보고했다. 조건명 없는 최초 응답 A·B를 그대로 제시하며 사용자 평가 전이다. 앞선 실패는 별도 보존하고 성능 우세·실제 이해·Ticket 완료를 확정하지 않는다.
+
+2026-10-23 사용자 평가·조건 공개: 사용자는 A·B가 비슷하다고 답했다. [Main 평가](../../../records/experiments/explain-network-first-delivery-2026-10-23-retry/comparison.md)에서 B가 explain임을 확인하고 핵심 개선 미확인으로 판단했다. B도 작성 상세와 원래 목표를 읽었지만 실제 변경 전후·품질 개선 이유의 연결은 충분히 드러내지 못했고, A보다 약47% 길었다. 세부 보강·조건당1회 한계를 구별하며 추가 생성·스킬 수정·마감은 하지 않았다. 위 ‘사용자 평가 전’은 당시 경과다.
+
+2026-10-23 모델 변경 비교: 사용자가 양쪽을6.1 sol high로 실행하도록 요청해 [GPT-6.1-sol high 두 최초 응답](../../../records/experiments/explain-network-first-delivery-61high-2026-10-23/README.md)을 생성했다. 직전 완독 재실행의 입력·스킬·prompt·reader는 동일하며 현재 대화·이전 응답·평가는 제공하지 않았다. 선택한18개·31개 파일 완독 기록·해시·입력 불변·응답 전 검사 완료를 확인했고 두 실행자는 잘림 없음으로 보고했다. 무작위 순서의 A·B 원문을 조건명 없이 제시하며 사용자 평가 전이다. 모델과effort를 함께 바꿨으므로 둘의 효과를 분해해 주장하지 않는다.
+
+2026-10-24 **04-02 두 모델 설정 비교 종합:** 사용자는6.1-sol high의 B가 더 낫다고 평가했다. 이번 A는 새 explain, B는 기존 브리핑이다. [응답·읽기 근거와 종합](../../../records/experiments/explain-network-first-delivery-61high-2026-10-23/comparison.md)에서 B의 실제 전후 코드·변경 이유 연결이 더 낫다고 판단했다.6.0 medium에서는 새 스킬 핵심 개선 미확인이었고 이번에도 새 스킬의 우세는 확인하지 못했다. 모델·effort를 함께 바꾼 각1회 관찰이므로 일반적 우세·인과 효과는 미확정이다. prototype 통합은 유지하되 성능 개선 성공이나Ticket 완료로 올리지 않으며, 추가 생성·본문 수정은 하지 않았다.
+
+2026-10-24 본문 대조: 사용자 요청에 따라 [기존 두 본문과 explain 본체·상세의 약화 지점·보완 후보](../../../records/2026-10-24-ticket04-02-explain-contract-comparison.md)를 작성했다. 변경 전후 자료 선택·실제 구현의 응답 대응·목표별 개선 근거·목적별 종료가 일반화된 차이를 확인했고 복구 핵심은 대부분 유지됐다. 문구 차이와 실행 실패의 인과는 구별한다. 본체·상세·형성 자료는 수정하지 않았으며 제안 논의 단계다.
+
+2026-10-24 수정 후 재비교: 사용자 요청으로 [수정 explain·기존 스킬의 GPT-6-sol high 비교](../../../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md)를 각1회 실행했다. 이전과 같은167개 공통 원자료·시점·prompt·reader를 유지하고 새 조건의 스킬 본체·두 상세만 수정판으로 교체했다. 선택한22개·24개 파일 완독·해시·입력 불변·응답 전 검사를 확인했고 양쪽 잘림 없음 보고를 받았다. 두 최초 응답을 조건명 없는 A·B 원문으로 제시하며 사용자 평가 전이다. 수정 후 효과·우세·Ticket 완료는 아직 판정하지 않는다.
+
+2026-10-24 수정 후 평가·조건 공개: 이번 A는 기존, B는 수정 explain이다. 사용자는 두 답이 비슷하다고 평가했다. [세 비교 종합](../../../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/comparison.md)에서 B가 Provider·Router의 전후를 직접 읽은 변화는 확인했지만 실제 구현 대응·목표별 개선 이유는 답에 충분히 반영되지 않았다고 판단했다. 같은6.1 high에서도 이전 explain은 약했으므로 모델만의 문제로 단정하지 않는다. 동일 설정의 수정 전후 explain 쌍이 없어 마지막 수정의 인과 효과도 분리할 수 없다. 추가 시험·실행 본문 수정·마감은 하지 않았다.
+
+2026-10-24 보존 점검: 사용자 요청에 따라 [네 시험 묶음의 파일·해시·현재 기록](../../../records/2026-10-24-ticket04-02-records-preservation.md)을 재점검했다. 입력1352개와 여덟 응답의 해시·A/B 원문 동일성을 확인하고 형성 자료의 오래된 미실행 상태를 최신 관찰로 맞췄다. 최초 무효 시험과 수정 효과 미확인 판정을 유지하며 이번04-02 작업을 커밋 대상으로 정리했다.
 
 ## 사례와 현재 확인 범위
 

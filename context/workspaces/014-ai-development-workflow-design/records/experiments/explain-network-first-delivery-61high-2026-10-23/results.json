@@ -1,0 +1,32 @@
+{
+  "run36": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "read_files": 18,
+    "read_events": 47,
+    "missing_chunks": [],
+    "chunk_hash_mismatch": [],
+    "input_drift": [],
+    "skill_first": true,
+    "check_before_response": true,
+    "response_sha256": "d8f5b5a14435fb82c9fb843ed63e2ce6a0aa15d4b60fbcc82fca3faba090deb8",
+    "characters": 2399,
+    "truncation": "실행자 모두 없음으로 보고. 3000자 조각·별도 출력 사용.",
+    "boundary": "실행자 모두 외부 접근 없음으로 보고. OS 격리 증명은 아님."
+  },
+  "run82": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "read_files": 31,
+    "read_events": 73,
+    "missing_chunks": [],
+    "chunk_hash_mismatch": [],
+    "input_drift": [],
+    "skill_first": true,
+    "check_before_response": true,
+    "response_sha256": "d105df6267bf5d464e92d73b80e9de1889ffa8af5adbc85eb2be129d6cf2cf8c",
+    "characters": 4733,
+    "truncation": "실행자 모두 없음으로 보고. 3000자 조각·별도 출력 사용.",
+    "boundary": "실행자 모두 외부 접근 없음으로 보고. OS 격리 증명은 아님."
+  }
+}

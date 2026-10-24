@@ -1,0 +1,4535 @@
+--- a/apps/client/app/_layout.tsx
++++ b/apps/client/app/_layout.tsx
+@@ -1,6 +1,6 @@
+ import '../styles/global.css';
+ import { Stack, useRouter, useSegments } from 'expo-router';
+-import { useColorScheme } from 'react-native';
++import { AppState, useColorScheme } from 'react-native';
+ import { SafeAreaProvider } from 'react-native-safe-area-context';
+ import { PortalHost } from '@rn-primitives/portal';
+ import { QueryClientProvider } from '@tanstack/react-query';
+@@ -50,29 +50,15 @@
+ }
+ 
+ function InitializeMainTrip() {
+-  const { setSelectedTripId } = useTripStore();
+-  const { data: trips = [], isLoading, isError, error } = useGetTrips();
+-
+-  useEffect(() => {
+-    console.log(`📋 [InitializeMainTrip] isLoading=${isLoading}, isError=${isError}, trips.length=${trips.length}`);
+-
+-    if (isError) {
+-      console.log('📋 [InitializeMainTrip] Error loading trips:', error);
+-    }
+-
+-    if (trips.length > 0) {
+-      const mainTrip = selectMainTrip(trips);
+-      if (mainTrip) {
+-        setSelectedTripId(mainTrip.id);
+-        console.log('✅ Main trip selected:', mainTrip.name);
+-      } else {
+-        setSelectedTripId(trips[0].id);
+-        console.log('✅ First trip selected:', trips[0].name);
+-      }
+-    } else if (!isLoading && !isError) {
+-      console.log('📋 [InitializeMainTrip] No trips found (empty array returned from query)');
+-    }
+-  }, [trips, setSelectedTripId, isLoading, isError, error]);
++  const { selectedTripId, setSelectedTripId } = useTripStore();
++  const { data: trips = [] } = useGetTrips();
++
++  useEffect(() => {
++    // 기본 선택은 한 번만 정한다. 재조회와 네트워크 복구는 사용자 선택을 바꾸지 않는다.
++    if (selectedTripId === null && trips.length > 0) {
++      setSelectedTripId((selectMainTrip(trips) ?? trips[0]).id);
++    }
++  }, [trips, selectedTripId, setSelectedTripId]);
+ 
+   return null;
+ }
+@@ -164,27 +150,36 @@
+ export default function RootLayout() {
+   const colorScheme = useColorScheme();
+   const [isAppReady, setIsAppReady] = useState(false);
++  const [isDatabaseReady, setIsDatabaseReady] = useState(false);
+   const { init: initAuth } = useAuthStore();
+ 
+   useEffect(() => {
+     networkStore.init();
+ 
+-    return () => networkStore.cleanup();
++    let previousState = AppState.currentState;
++    const subscription = AppState.addEventListener('change', (nextState) => {
++      if ((previousState === 'background' || previousState === 'inactive') && nextState === 'active') {
++        networkStore.refresh();
++      }
++      previousState = nextState;
++    });
++
++    return () => {
++      subscription.remove();
++      networkStore.cleanup();
++    };
+   }, []);
+ 
+-  // 앱 초기화 (DB, 폰트, 인증 등)
++  // DB 준비와 인증 복원은 네트워크 확인을 기다리지 않는다.
+   useEffect(() => {
+     const prepareApp = async () => {
+       try {
+-        console.log('🚀 Preparing app...');
+-
+         // 1. 로컬 DB 초기화
+         await initializeDatabase();
++        setIsDatabaseReady(true);
+ 
+         // 2. Auth Store 초기화 (SecureStore에서 토큰 복원)
+         await initAuth();
+-
+-        console.log('✅ App is ready!');
+       } catch (error) {
+         console.error('❌ Failed to prepare app:', error);
+       } finally {
+@@ -211,7 +206,7 @@
+   return (
+     <SafeAreaProvider>
+       <QueryClientProvider client={queryClient}>
+-        <SyncProvider>
++        <SyncProvider isDatabaseReady={isDatabaseReady}>
+           {/* 세션 만료 배너 (상단에 표시) */}
+           <SessionExpiredBanner />
+           <Stack
+--- a/apps/client/jest.config.cjs
++++ b/apps/client/jest.config.cjs
+@@ -5,6 +5,13 @@
+   clearMocks: true,
+   watchman: false,
+   testMatch: ['<rootDir>/tests/**/*.test.[jt]s?(x)'],
++  // 환경 fixture를 런타임에 바꿀 수 있게 Expo의 빌드 시 env 치환만 제외한다.
++  transform: {
++    '\\.[jt]sx?$': [
++      'babel-jest',
++      { caller: { name: 'metro', bundler: 'metro', platform: 'ios', preserveEnvVars: true } },
++    ],
++  },
+   moduleNameMapper: {
+     '^@/(.*)$': '<rootDir>/src/$1',
+   },
+--- a/apps/client/src/entities/expense/data/useCreateExpense.ts
++++ b/apps/client/src/entities/expense/data/useCreateExpense.ts
+@@ -45,8 +45,5 @@
+         });
+       }
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to create expense:', error);
+-    },
+   });
+ };
+--- a/apps/client/src/entities/expense/data/useDeleteExpense.ts
++++ b/apps/client/src/entities/expense/data/useDeleteExpense.ts
+@@ -10,21 +10,18 @@
+  * @example
+  * ```tsx
+  * const { mutate, isPending } = useDeleteExpense();
+- * mutate('expense-id');
++ * mutate({ id: 'expense-id', tripId: 'trip-id' });
+  * ```
+  */
+ export const useDeleteExpense = () => {
+   const queryClient = useQueryClient();
+ 
+   return useMutation({
+-    mutationFn: (id: string) => ExpenseRepository.delete(id),
++    mutationFn: ({ id, tripId }: { id: string; tripId: string }) => ExpenseRepository.delete(id, tripId),
+     onSuccess: () => {
+       queryClient.invalidateQueries({
+         queryKey: expenseQueryKeys.base,
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to delete expense:', error);
+-    },
+   });
+ };
+--- a/apps/client/src/entities/expense/data/useGetScheduleExpenses.ts
++++ b/apps/client/src/entities/expense/data/useGetScheduleExpenses.ts
+@@ -6,7 +6,7 @@
+  * 일정별 경비 조회 Hook
+  *
+  * - Repository를 통해 활성화 상태에 따라 Local/Remote 자동 분기
+- * - scheduleId로 tripId 조회 후 라우팅 결정
++ * - 호출자가 전달한 소속 여행으로 라우팅한다.
+  * - deletedAt이 null인 항목만 조회 (Soft Delete)
+  * - createdAt 기준 내림차순 정렬
+  *
+@@ -14,13 +14,13 @@
+  *
+  * @example
+  * ```tsx
+- * const { data: expenses, isLoading } = useGetScheduleExpenses('schedule-id-123');
++ * const { data: expenses, isLoading } = useGetScheduleExpenses('schedule-id-123', 'trip-id');
+  * ```
+  */
+-export const useGetScheduleExpenses = (scheduleId: string) => {
++export const useGetScheduleExpenses = (scheduleId: string, tripId: string) => {
+   return useQuery({
+     queryKey: expenseQueryKeys.bySchedule(scheduleId),
+-    queryFn: () => ExpenseRepository.getByScheduleId(scheduleId),
++    queryFn: () => ExpenseRepository.getByScheduleId(scheduleId, tripId),
+     staleTime: 5 * 60 * 1000, // 5분
+     gcTime: 10 * 60 * 1000, // 10분
+   });
+--- a/apps/client/src/entities/expense/data/useUpdateExpense.ts
++++ b/apps/client/src/entities/expense/data/useUpdateExpense.ts
+@@ -13,6 +13,7 @@
+  * const { mutate, isPending } = useUpdateExpense();
+  * mutate({
+  *   id: 'expense-id',
++ *   tripId: 'trip-id',
+  *   data: {
+  *     title: 'Updated Expense',
+  *     amount: '50.00',
+@@ -25,14 +26,12 @@
+   const queryClient = useQueryClient();
+ 
+   return useMutation({
+-    mutationFn: ({ id, data }: { id: string; data: UpdateExpenseRequest }) => ExpenseRepository.update(id, data),
++    mutationFn: ({ id, tripId, data }: { id: string; tripId: string; data: UpdateExpenseRequest }) =>
++      ExpenseRepository.update(id, tripId, data),
+     onSuccess: () => {
+       queryClient.invalidateQueries({
+         queryKey: expenseQueryKeys.base,
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to update expense:', error);
+-    },
+   });
+ };
+--- a/apps/client/src/entities/expense/repository/expense-repository.ts
++++ b/apps/client/src/entities/expense/repository/expense-repository.ts
+@@ -35,17 +35,9 @@
+ 
+   /**
+    * 일정별 경비 조회
+-   * - scheduleId로 tripId를 먼저 조회하여 라우팅 결정
++   * - 호출자가 알고 있는 소속 여행으로 라우팅한다.
+    */
+-  getByScheduleId: async (scheduleId: string): Promise<Expense[]> => {
+-    // 1. scheduleId로 tripId 조회
+-    const tripId = await ExpenseLocal.getTripIdByScheduleIdLocal(scheduleId);
+-
+-    if (!tripId) {
+-      throw new Error(`Schedule not found: ${scheduleId}`);
+-    }
+-
+-    // 2. tripId로 라우팅 적용
++  getByScheduleId: async (scheduleId: string, tripId: string): Promise<Expense[]> => {
+     return await routeChildQuery(tripId, {
+       local: () => ExpenseLocal.getExpensesByScheduleIdLocal(scheduleId),
+       remote: () => ExpenseApi.fetchExpensesByScheduleId(scheduleId),
+@@ -64,16 +56,9 @@
+ 
+   /**
+    * 경비 수정
+-   * - tripId를 먼저 조회하여 라우팅 결정
++   * - 호출자가 알고 있는 소속 여행으로 라우팅한다.
+    */
+-  update: async (id: string, data: UpdateExpenseRequest): Promise<Expense> => {
+-    // 1. 경비의 tripId 조회 (라우팅을 위해 필요)
+-    const tripId = await ExpenseLocal.getExpenseTripIdLocal(id);
+-
+-    if (!tripId) {
+-      throw new Error(`Expense not found: ${id}`);
+-    }
+-
++  update: async (id: string, tripId: string, data: UpdateExpenseRequest): Promise<Expense> => {
+     return await routeChildMutation(tripId, {
+       local: () => ExpenseLocal.updateExpenseLocal(id, data),
+       remote: () => ExpenseApi.fetchUpdateExpense(id, data),
+@@ -82,16 +67,9 @@
+ 
+   /**
+    * 경비 삭제 (Soft Delete)
+-   * - tripId를 먼저 조회하여 라우팅 결정
++   * - 호출자가 알고 있는 소속 여행으로 라우팅한다.
+    */
+-  delete: async (id: string): Promise<{ id: string; deletedAt: string }> => {
+-    // 1. 경비의 tripId 조회 (라우팅을 위해 필요)
+-    const tripId = await ExpenseLocal.getExpenseTripIdLocal(id);
+-
+-    if (!tripId) {
+-      throw new Error(`Expense not found: ${id}`);
+-    }
+-
++  delete: async (id: string, tripId: string): Promise<{ id: string; deletedAt: string }> => {
+     return await routeChildMutation(tripId, {
+       local: () => ExpenseLocal.deleteExpenseLocal(id),
+       remote: () => ExpenseApi.fetchDeleteExpense(id),
+--- a/apps/client/src/entities/schedule/data/useCreateSchedule.ts
++++ b/apps/client/src/entities/schedule/data/useCreateSchedule.ts
+@@ -10,7 +10,7 @@
+  * - Repository를 통해 활성화 상태에 따라 Local/Remote 자동 분기
+  * - Client-Side ID: 외부에서 ID 생성하여 전달
+  *
+- * ⚠️ 주의: Policy 체크는 컴포넌트에서 useAppPolicy()로 수행
++ * 실행 순간의 쓰기 제한은 Repository의 Router가 확인한다.
+  *
+  * @example
+  * ```tsx
+@@ -47,8 +47,5 @@
+         queryKey: routeQueryKeys.byTrip(variables.tripId),
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to create schedule:', error);
+-    },
+   });
+ };
+--- a/apps/client/src/entities/schedule/data/useDeleteSchedule.ts
++++ b/apps/client/src/entities/schedule/data/useDeleteSchedule.ts
+@@ -12,14 +12,14 @@
+  * @example
+  * ```tsx
+  * const { mutate, isPending } = useDeleteSchedule();
+- * mutate('schedule-id');
++ * mutate({ id: 'schedule-id', tripId: 'trip-id' });
+  * ```
+  */
+ export const useDeleteSchedule = () => {
+   const queryClient = useQueryClient();
+ 
+   return useMutation({
+-    mutationFn: (id: string) => ScheduleRepository.delete(id),
++    mutationFn: ({ id, tripId }: { id: string; tripId: string }) => ScheduleRepository.delete(id, tripId),
+     onSuccess: () => {
+       queryClient.invalidateQueries({
+         queryKey: scheduleQueryKeys.base,
+@@ -33,8 +33,5 @@
+         queryKey: expenseQueryKeys.base,
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to delete schedule:', error);
+-    },
+   });
+ };
+--- a/apps/client/src/entities/schedule/data/useUpdateSchedule.ts
++++ b/apps/client/src/entities/schedule/data/useUpdateSchedule.ts
+@@ -14,6 +14,7 @@
+  * const { mutate, isPending } = useUpdateSchedule();
+  * mutate({
+  *   id: 'schedule-id',
++ *   tripId: 'trip-id',
+  *   data: {
+  *     title: 'Updated Schedule',
+  *     scheduledAt: '2024-03-15T14:30:00.000Z',
+@@ -25,7 +26,8 @@
+   const queryClient = useQueryClient();
+ 
+   return useMutation({
+-    mutationFn: ({ id, data }: { id: string; data: UpdateScheduleRequest }) => ScheduleRepository.update(id, data),
++    mutationFn: ({ id, tripId, data }: { id: string; tripId: string; data: UpdateScheduleRequest }) =>
++      ScheduleRepository.update(id, tripId, data),
+     onSuccess: () => {
+       queryClient.invalidateQueries({
+         queryKey: scheduleQueryKeys.base,
+@@ -35,8 +37,5 @@
+         queryKey: routeQueryKeys.base,
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to update schedule:', error);
+-    },
+   });
+ };
+--- a/apps/client/src/entities/schedule/repository/schedule-repository.ts
++++ b/apps/client/src/entities/schedule/repository/schedule-repository.ts
+@@ -57,16 +57,9 @@
+ 
+   /**
+    * 일정 수정
+-   * - tripId를 먼저 조회하여 라우팅 결정
++   * - 호출자가 알고 있는 소속 여행으로 라우팅한다.
+    */
+-  update: async (id: string, data: UpdateScheduleRequest): Promise<Schedule> => {
+-    // 1. 일정의 tripId 조회 (라우팅을 위해 필요)
+-    const tripId = await ScheduleLocal.getScheduleTripIdLocal(id);
+-
+-    if (!tripId) {
+-      throw new Error(`Schedule not found: ${id}`);
+-    }
+-
++  update: async (id: string, tripId: string, data: UpdateScheduleRequest): Promise<Schedule> => {
+     return await routeChildMutation(tripId, {
+       local: () => ScheduleLocal.updateScheduleLocal(id, data),
+       remote: () => ScheduleApi.fetchUpdateSchedule(id, data),
+@@ -75,16 +68,9 @@
+ 
+   /**
+    * 일정 삭제 (Soft Delete)
+-   * - tripId를 먼저 조회하여 라우팅 결정
++   * - 호출자가 알고 있는 소속 여행으로 라우팅한다.
+    */
+-  delete: async (id: string): Promise<{ id: string; deletedAt: string }> => {
+-    // 1. 일정의 tripId 조회 (라우팅을 위해 필요)
+-    const tripId = await ScheduleLocal.getScheduleTripIdLocal(id);
+-
+-    if (!tripId) {
+-      throw new Error(`Schedule not found: ${id}`);
+-    }
+-
++  delete: async (id: string, tripId: string): Promise<{ id: string; deletedAt: string }> => {
+     return await routeChildMutation(tripId, {
+       local: () => ScheduleLocal.deleteScheduleLocal(id),
+       remote: () => ScheduleApi.fetchDeleteSchedule(id),
+--- a/apps/client/src/entities/trip/api/trips.ts
++++ b/apps/client/src/entities/trip/api/trips.ts
+@@ -19,15 +19,10 @@
+  * @returns 모든 여행 정보
+  */
+ export const fetchAllTrips = async (): Promise<GetAllTripsResponse> => {
+-  try {
+-    const data = await apiClient.get('/api/trips');
++  const data = await apiClient.get('/api/trips');
+ 
+-    const validated = tripListResponse.parse(data);
+-    return validated;
+-  } catch (error) {
+-    console.error('❌ error', error);
+-    throw error;
+-  }
++  const validated = tripListResponse.parse(data);
++  return validated;
+ };
+ 
+ /**
+@@ -36,16 +31,11 @@
+  * @returns 생성된 여행 정보
+  */
+ export const fetchCreateTrip = async (data: CreateTripRequest): Promise<CreateTripResponse> => {
+-  try {
+-    const validatedInput = createTripRequest.parse(data);
+-    const responseData = await apiClient.post('/api/trips', validatedInput);
++  const validatedInput = createTripRequest.parse(data);
++  const responseData = await apiClient.post('/api/trips', validatedInput);
+ 
+-    const validated = tripResponse.parse(responseData);
+-    return validated.data;
+-  } catch (error) {
+-    console.error('❌ error', error);
+-    throw error;
+-  }
++  const validated = tripResponse.parse(responseData);
++  return validated.data;
+ };
+ 
+ /**
+@@ -55,16 +45,11 @@
+  * @returns 수정된 여행 정보
+  */
+ export const fetchUpdateTrip = async (id: string, data: UpdateTripRequest): Promise<UpdateTripResponse> => {
+-  try {
+-    const validatedInput = updateTripRequest.parse(data);
+-    const responseData = await apiClient.patch(`/api/trips/${id}`, validatedInput);
++  const validatedInput = updateTripRequest.parse(data);
++  const responseData = await apiClient.put(`/api/trips/${id}`, validatedInput);
+ 
+-    const validated = tripResponse.parse(responseData);
+-    return validated.data;
+-  } catch (error) {
+-    console.error('❌ error', error);
+-    throw error;
+-  }
++  const validated = tripResponse.parse(responseData);
++  return validated.data;
+ };
+ 
+ /**
+@@ -73,13 +58,8 @@
+  * @returns 삭제된 여행 정보 (id, deletedAt)
+  */
+ export const fetchDeleteTrip = async (id: string): Promise<DeleteTripResponse> => {
+-  try {
+-    const responseData = await apiClient.delete(`/api/trips/${id}`);
++  const responseData = await apiClient.delete(`/api/trips/${id}`);
+ 
+-    const validated = deleteTripResponse.parse(responseData);
+-    return validated.data;
+-  } catch (error) {
+-    console.error('❌ error', error);
+-    throw error;
+-  }
++  const validated = deleteTripResponse.parse(responseData);
++  return validated.data;
+ };
+--- a/apps/client/src/entities/trip/data/useCreateTrip.ts
++++ b/apps/client/src/entities/trip/data/useCreateTrip.ts
+@@ -6,7 +6,7 @@
+ /**
+  * 여행 생성 Mutation Hook
+  *
+- * - Repository를 통해 활성화 상태에 따라 Local/Remote 자동 분기
++ * - 아직 활성화되지 않은 새 여행은 서버에 생성한다.
+  * - Client-Side ID: 외부에서 ID 생성하여 전달
+  *
+  * @example
+@@ -31,8 +31,5 @@
+         queryKey: tripQueryKeys.all(),
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to create trip:', error);
+-    },
+   });
+ };
+--- a/apps/client/src/entities/trip/data/useDeleteTrip.ts
++++ b/apps/client/src/entities/trip/data/useDeleteTrip.ts
+@@ -24,8 +24,5 @@
+         queryKey: tripQueryKeys.all(),
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to delete trip:', error);
+-    },
+   });
+ };
+--- a/apps/client/src/entities/trip/data/useGetTrips.ts
++++ b/apps/client/src/entities/trip/data/useGetTrips.ts
+@@ -1,4 +1,6 @@
+ import { useQuery } from '@tanstack/react-query';
++import { useEffect, useRef } from 'react';
++import { useRealNetworkStatus } from '@/shared/store/network';
+ import { TripRepository } from '../repository/trip-repository';
+ import { tripQueryKeys } from './keys';
+ 
+@@ -16,10 +18,22 @@
+  * ```
+  */
+ export const useGetTrips = () => {
+-  return useQuery({
++  const realStatus = useRealNetworkStatus();
++  const previousStatus = useRef(realStatus);
++  const query = useQuery({
+     queryKey: tripQueryKeys.all(),
+     queryFn: () => TripRepository.getAll(),
+     staleTime: 5 * 60 * 1000, // 5분
+     gcTime: 10 * 60 * 1000, // 10분
+   });
++  const { refetch } = query;
++
++  useEffect(() => {
++    const becameOnline = previousStatus.current !== 'online' && realStatus === 'online';
++    previousStatus.current = realStatus;
++    // 초기 unknown에서 거부된 목록도 회복한다. 이미 보낸 조회는 취소하거나 다시 보내지 않는다.
++    if (becameOnline) refetch({ cancelRefetch: false });
++  }, [realStatus, refetch]);
++
++  return query;
+ };
+--- a/apps/client/src/entities/trip/data/useUpdateTrip.ts
++++ b/apps/client/src/entities/trip/data/useUpdateTrip.ts
+@@ -30,8 +30,5 @@
+         queryKey: tripQueryKeys.all(),
+       });
+     },
+-    onError: (error) => {
+-      console.error('❌ Failed to update trip:', error);
+-    },
+   });
+ };
+--- a/apps/client/src/entities/trip/repository/trip-repository.ts
++++ b/apps/client/src/entities/trip/repository/trip-repository.ts
+@@ -2,7 +2,12 @@
+ // Trip Repository - 활성화 상태에 따른 Local/Remote 분기
+ // ========================================
+ 
+-import { routeTripQuery, routeTripMutation } from '@/shared/services/offline-prep/router';
++import {
++  routeTripListQuery,
++  routeTripQuery,
++  routeTripCreate,
++  routeTripMutation,
++} from '@/shared/services/offline-prep/router';
+ import * as TripLocal from '../lib/trip-local';
+ import * as TripApi from '../api/trips';
+ import type { Trip, CreateTripRequest, UpdateTripRequest, DeleteTripResponse } from '../model';
+@@ -10,16 +15,15 @@
+ /**
+  * Trip Repository
+  *
+- * - 활성화된 Trip 있음: Local DB 사용
+- * - 비활성 상태: Server API 사용
+- * - Router가 활성화 상태에 따라 자동 분기
++ * 목록은 기존 전역 활성 상태로, 단건 조회·수정·삭제는 대상 여행으로 분기한다.
++ * 새 여행 생성은 서버에서 처리하고 이후 별도 활성화한다.
+  */
+ export const TripRepository = {
+   /**
+    * 모든 여행 조회
+    */
+   getAll: async (): Promise<Trip[]> => {
+-    return await routeTripQuery({
++    return await routeTripListQuery({
+       local: () => TripLocal.getTripsLocal(),
+       remote: async () => {
+         const response = await TripApi.fetchAllTrips();
+@@ -32,7 +36,7 @@
+    * 특정 여행 조회
+    */
+   getById: async (id: string): Promise<Trip | undefined> => {
+-    return await routeTripQuery({
++    return await routeTripQuery(id, {
+       local: () => TripLocal.getTripByIdLocal(id),
+       remote: async () => {
+         // TODO: fetchTripById API 필요시 추가
+@@ -46,17 +50,14 @@
+    * 여행 생성
+    */
+   create: async (data: CreateTripRequest): Promise<Trip> => {
+-    return await routeTripMutation({
+-      local: () => TripLocal.createTripLocal(data),
+-      remote: () => TripApi.fetchCreateTrip(data),
+-    });
++    return await routeTripCreate(() => TripApi.fetchCreateTrip(data));
+   },
+ 
+   /**
+    * 여행 수정
+    */
+   update: async (id: string, data: UpdateTripRequest): Promise<Trip> => {
+-    return await routeTripMutation({
++    return await routeTripMutation(id, {
+       local: () => TripLocal.updateTripLocal(id, data),
+       remote: () => TripApi.fetchUpdateTrip(id, data),
+     });
+@@ -66,7 +67,7 @@
+    * 여행 삭제 (Soft Delete)
+    */
+   delete: async (id: string): Promise<DeleteTripResponse> => {
+-    return await routeTripMutation({
++    return await routeTripMutation(id, {
+       local: () => TripLocal.deleteTripLocal(id),
+       remote: () => TripApi.fetchDeleteTrip(id),
+     });
+--- a/apps/client/src/entities/trip/ui/TripSelector.tsx
++++ b/apps/client/src/entities/trip/ui/TripSelector.tsx
+@@ -1,6 +1,7 @@
++import { useDisplayNetworkStatus } from '@/shared/store/network';
+ import { useState } from 'react';
+-import { View, Text } from 'react-native';
+-import { Plane, ChevronDown, Check, WifiOff } from 'lucide-react-native';
++import { View, Text, Alert } from 'react-native';
++import { Plane, ChevronDown, Check } from 'lucide-react-native';
+ import { Badge, Drawer, Pressable } from '@repo/ui';
+ import { useGetTrips } from '../data';
+ import { useGetActiveTrip } from '../data/useGetTripActivation';
+@@ -39,6 +40,7 @@
+ export function TripSelector({ className = '' }: TripSelectorProps) {
+   // ✨ Zustand 전역 상태
+   const { selectedTripId, setSelectedTripId } = useTripStore();
++  const networkStatus = useDisplayNetworkStatus();
+   const [isOpen, setIsOpen] = useState(false);
+ 
+   // 실제 여행 데이터 가져오기
+@@ -46,7 +48,7 @@
+   const mainTrip = selectMainTrip(allTrips);
+ 
+   // 활성화된 여행 정보 (React Query로 관리 - 캐시 무효화 시 자동 갱신)
+-  const { data: activeTrip } = useGetActiveTrip();
++  const { data: activeTrip, isLoading: isLoadingActivation, isError: activationError } = useGetActiveTrip();
+   const activatedTrip = activeTrip
+     ? {
+         tripId: activeTrip.tripId,
+@@ -55,7 +57,7 @@
+     : null;
+ 
+   // TripData를 Trip 형태로 변환하는 함수
+-  const convertTripDataToTrip = (tripData: TripData, isMain: boolean = false): Trip => {
++  const convertTripDataToTrip = (tripData: TripData, isMain = false): Trip => {
+     const label = tripData.country ? `${tripData.destination}, ${tripData.country}` : tripData.destination;
+     const isActivated = activatedTrip?.tripId === tripData.id;
+ 
+@@ -78,6 +80,17 @@
+   };
+ 
+   const handleTripChange = (trip: Trip) => {
++    if (trip.value !== selectedTripId && networkStatus !== 'online' && !trip.isActivated) {
++      const reason = isLoadingActivation
++        ? '이 기기의 여행 준비 상태를 확인하는 중이에요.'
++        : activationError
++          ? '여행 준비 상태를 확인하지 못했어요. 다시 시도해주세요.'
++          : networkStatus === 'unknown'
++            ? '인터넷 연결을 아직 확인하지 못했어요. 연결 후 이 여행을 선택해주세요.'
++            : '오프라인에서는 활성 여행만 선택할 수 있어요. 연결 후 이 여행을 선택해주세요.';
++      Alert.alert('여행 선택', reason);
++      return;
++    }
+     setSelectedTripId(trip.value);
+     setIsOpen(false);
+   };
+--- a/apps/client/src/features/debug/ui/DebugScreen.tsx
++++ b/apps/client/src/features/debug/ui/DebugScreen.tsx
+@@ -8,7 +8,7 @@
+ import type { Trip, Schedule, Expense, SyncQueueItem, OfflineCity, TripActivation } from '@/shared/db/schema';
+ import { resetDatabase } from '@/shared/db';
+ import { getSyncQueueStats } from '@/shared/services/sync/queue';
+-import { triggerSync } from '@/shared/services/sync/engine';
++import { useSyncContext } from '@/shared/services/sync/provider';
+ import { DashboardView } from './DashboardView';
+ import { DataInspectorView } from './DataInspectorView';
+ import { ToolsView } from './ToolsView';
+@@ -18,6 +18,7 @@
+ type ViewMode = 'dashboard' | 'inspector' | 'tools';
+ 
+ export default function DebugScreen() {
++  const { triggerManualSync } = useSyncContext();
+   const [refreshing, setRefreshing] = useState(false);
+   const [viewMode, setViewMode] = useState<ViewMode>('dashboard');
+ 
+@@ -124,13 +125,13 @@
+ 
+   const handleManualSync = async () => {
+     try {
+-      const result = await triggerSync();
+-
+-      if (result.success) {
++      const result = await triggerManualSync();
++
++      if (result.status === 'completed') {
+         await loadData(); // 데이터 새로고침
+         Alert.alert('✅ 성공', result.message);
+       } else {
+-        Alert.alert('❌ 실패', result.message);
++        Alert.alert(result.status === 'blocked' ? '동기화할 수 없습니다' : '❌ 실패', result.message);
+       }
+     } catch (error) {
+       console.error('❌ Manual sync error:', error);
+--- a/apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts
++++ b/apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts
+@@ -1,3 +1,5 @@
++import { Alert } from 'react-native';
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import { useForm } from 'react-hook-form';
+ import { zodResolver } from '@hookform/resolvers/zod';
+ import { useRouter } from 'expo-router';
+@@ -61,6 +63,9 @@
+           onSuccess?.();
+           router.back();
+         },
++        onError: (error) => {
++          Alert.alert('오류', mutationErrorMessage(error, '경비 생성에 실패했습니다.'));
++        },
+       },
+     );
+   };
+@@ -70,7 +75,7 @@
+   };
+ 
+   const handleSubmit = () => {
+-    void form.handleSubmit(onValid, onInvalid)();
++    form.handleSubmit(onValid, onInvalid)();
+   };
+ 
+   return {
+--- a/apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx
++++ b/apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx
+@@ -1,5 +1,8 @@
++import { useAppPolicy } from '@/shared/policy';
++import { PolicyErrorDisplay } from '@/shared/components';
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import { useEffect, useState, useMemo } from 'react';
+-import { View, Text, TextInput, Alert, TouchableOpacity, ScrollView } from 'react-native';
++import { View, Text, Alert, TouchableOpacity, ScrollView } from 'react-native';
+ import { Controller, useForm } from 'react-hook-form';
+ import { zodResolver } from '@hookform/resolvers/zod';
+ import { Wallet, ChevronDown, Calendar as CalendarIcon, MapPin } from 'lucide-react-native';
+@@ -56,6 +59,7 @@
+   const selectedDate = watch('date');
+ 
+   // 여행의 모든 일정 조회
++  const policy = useAppPolicy(expenseData?.tripId);
+   const { data: schedules = [] } = useGetSchedules(expenseData?.tripId || '');
+ 
+   // 선택한 날짜의 일정만 필터링
+@@ -91,6 +95,7 @@
+     updateExpense(
+       {
+         id: expenseData.id,
++        tripId: expenseData.tripId,
+         data: {
+           title: data.title,
+           amount: data.amount,
+@@ -105,8 +110,8 @@
+           Alert.alert('성공', '경비가 수정되었습니다.');
+           onClose();
+         },
+-        onError: () => {
+-          Alert.alert('오류', '경비 수정에 실패했습니다.');
++        onError: (error) => {
++          Alert.alert('오류', mutationErrorMessage(error, '경비 수정에 실패했습니다.'));
+         },
+       },
+     );
+@@ -327,6 +332,14 @@
+             control={control}
+             name='scheduleId'
+             render={({ field: { value, onChange }, fieldState: { error } }) => {
++              if (!policy.schedule.read.allowed) {
++                return (
++                  <Field>
++                    <Field.Title>연결된 일정 (선택)</Field.Title>
++                    <PolicyErrorDisplay permission={policy.schedule.read} variant='inline' />
++                  </Field>
++                );
++              }
+               const selectedSchedule = schedulesOnSelectedDate.find((s) => s.id === value);
+ 
+               return (
+--- a/apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx
++++ b/apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx
+@@ -1,6 +1,6 @@
+ import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+ import { Controller, UseFormReturn } from 'react-hook-form';
+-import { Calendar, Clock, AlertCircle } from 'lucide-react-native';
++import { Calendar, Clock } from 'lucide-react-native';
+ import { Pressable } from '@repo/ui';
+ import { Field } from '@/shared/components/Form';
+ import type { CreateScheduleFormData } from './schema';
+@@ -13,37 +13,12 @@
+   isPending: boolean;
+ };
+ 
+-/**
+- * Manual Schedule Form (오프라인 전용)
+- *
+- * 동작:
+- * - 장소 검색 없이 텍스트 입력만 받음
+- * - latitude/longitude는 null로 저장
+- * - 온라인 복구 시 일정 수정에서 장소 재검색 가능
+- *
+- * 사용 시나리오:
+- * - offline_active 상태 (policy.schedule.create.mode === 'manual-only')
+- * - 장소 이름과 주소만 텍스트로 입력
+- * - 온라인 복구되면 UpdateScheduleDrawer에서 수동으로 장소 재검색
+- */
++/** 장소를 직접 입력하는 일정 폼. 연결 제한 안내는 화면의 PolicyErrorDisplay가 담당한다. */
+ export function ManualScheduleForm({ form, onShowTimePicker, onSubmit, onCancel, isPending }: ManualScheduleFormProps) {
+   const { control } = form;
+ 
+   return (
+     <View style={styles.container}>
+-      {/* 오프라인 안내 배너 */}
+-      <View className='bg-yellow-50 px-md py-sm border-b border-yellow-200'>
+-        <View className='flex-row items-start gap-xs'>
+-          <AlertCircle size={16} color='#D97706' style={{ marginTop: 2 }} />
+-          <View className='flex-1'>
+-            <Text className='text-small font-medium text-yellow-800 mb-3xs'>오프라인 모드</Text>
+-            <Text className='text-small text-yellow-700'>
+-              장소 검색을 사용할 수 없어요. 온라인으로 복구되면 일정 수정에서 장소를 검색할 수 있습니다.
+-            </Text>
+-          </View>
+-        </View>
+-      </View>
+-
+       {/* 입력 폼 */}
+       <View className='px-md py-sm gap-md'>
+         {/* 제목 */}
+--- a/apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts
++++ b/apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts
+@@ -1,3 +1,5 @@
++import { Alert } from 'react-native';
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import { useState, useEffect } from 'react';
+ import { useForm } from 'react-hook-form';
+ import { zodResolver } from '@hookform/resolvers/zod';
+@@ -113,6 +115,9 @@
+           form.reset();
+           onSuccess?.();
+         },
++        onError: (error) => {
++          Alert.alert('오류', mutationErrorMessage(error, '일정 생성에 실패했습니다.'));
++        },
+       },
+     );
+   };
+--- a/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts
++++ b/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts
+@@ -5,6 +5,9 @@
+ import apiClient from '@/shared/api/fetcher';
+ import { useDebounce } from '@/shared/hooks/useDebounce';
+ import type { Location } from './types';
++import { useRealNetworkStatus } from '@/shared/store/network';
++import { assertOnlineServiceAccess } from '@/shared/services/network-access';
++import { PolicyError } from '@/shared/policy/errors';
+ 
+ // Infer types from schemas
+ type PlacesSearchResponse = z.infer<typeof placesSearchResponse>;
+@@ -37,6 +40,7 @@
+  * 장소 검색 API 함수
+  */
+ const searchPlaces = async (query: string, cityContext?: CityContext): Promise<Location[]> => {
++  assertOnlineServiceAccess();
+   // Google Places API 호출
+   const response = (await apiClient.post('/api/places/search', {
+     query: query.trim(),
+@@ -51,6 +55,7 @@
+   const locations = await Promise.all(
+     response.data.results.map(async (result: PlacesSearchResponse['data']['results'][0]) => {
+       try {
++        assertOnlineServiceAccess();
+         // Place Details API로 좌표 정보 가져오기
+         // Query string으로 language 전달
+         const detailResponse = (await apiClient.get(`/api/places/${result.placeId}?language=en`)) as PlaceDetail;
+@@ -66,6 +71,7 @@
+           rating: detailResponse.rating,
+         };
+       } catch (error) {
++        if (error instanceof PolicyError) throw error;
+         console.error('Failed to fetch place details:', error);
+         // 실패 시 기본값 사용
+         return {
+@@ -87,6 +93,8 @@
+  */
+ export const useLocationSearch = (cityContext?: CityContext) => {
+   const [searchQuery, setSearchQuery] = useState('');
++  const realNetworkStatus = useRealNetworkStatus();
++  const canRequest = realNetworkStatus === 'online';
+ 
+   // 500ms debounce 적용
+   const debouncedSearchQuery = useDebounce(searchQuery, 500);
+@@ -95,13 +103,13 @@
+   const { data, isFetching: isSearching } = useQuery({
+     queryKey: placeQueryKeys.search(debouncedSearchQuery, cityContext),
+     queryFn: () => searchPlaces(debouncedSearchQuery, cityContext),
+-    enabled: !!debouncedSearchQuery.trim(),
++    enabled: !!debouncedSearchQuery.trim() && canRequest,
+     staleTime: 1000 * 60 * 5, // 5분
+     placeholderData: keepPreviousData, // 이전 데이터 유지
+   });
+ 
+   // 검색어가 비어있으면 빈 배열, 아니면 데이터 반환
+-  const results = debouncedSearchQuery.trim() ? data || [] : [];
++  const results = canRequest && debouncedSearchQuery.trim() ? data || [] : [];
+ 
+   const handleSearch = (query: string) => {
+     setSearchQuery(query);
+--- a/apps/client/src/features/schedule/update-schedule/UpdateScheduleDrawer.tsx
++++ b/apps/client/src/features/schedule/update-schedule/UpdateScheduleDrawer.tsx
+@@ -1,3 +1,4 @@
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import { useEffect, useState } from 'react';
+ import { View, Text, TouchableOpacity, Alert } from 'react-native';
+ import { Controller, useForm } from 'react-hook-form';
+@@ -110,6 +111,7 @@
+     updateSchedule(
+       {
+         id: scheduleData.id,
++        tripId: scheduleData.tripId,
+         data: {
+           title: data.title,
+           scheduledAt, // ISO 8601 format
+@@ -150,8 +152,8 @@
+ 
+           onClose();
+         },
+-        onError: () => {
+-          Alert.alert('오류', '일정 수정에 실패했습니다.');
++        onError: (error) => {
++          Alert.alert('오류', mutationErrorMessage(error, '일정 수정에 실패했습니다.'));
+         },
+       },
+     );
+--- a/apps/client/src/features/trip/create-trip/TripDateForm.tsx
++++ b/apps/client/src/features/trip/create-trip/TripDateForm.tsx
+@@ -1,5 +1,6 @@
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import { useState } from 'react';
+-import { Text, TouchableOpacity, View } from 'react-native';
++import { Alert, Text, TouchableOpacity, View } from 'react-native';
+ import { Controller, useForm } from 'react-hook-form';
+ import { zodResolver } from '@hookform/resolvers/zod';
+ import { Calendar, CalendarDays, MapPin } from 'lucide-react-native';
+@@ -13,7 +14,7 @@
+ import { generateId } from '@/shared/services/id/ulid';
+ import { dateToISODateTime } from '@/shared/lib/datetime';
+ import { getCurrencyByCountryCode } from '@/shared/lib/country-currency';
+-import { useDisplayNetworkStatus } from '@/shared/store/network';
++import { useAppPolicy } from '@/shared/policy';
+ 
+ type TripDateFormProps = {
+   city: City;
+@@ -23,8 +24,7 @@
+   const router = useRouter();
+   const [pickerVisible, setPickerVisible] = useState(false);
+   const [currentPicker, setCurrentPicker] = useState<'start' | 'end' | null>(null);
+-  const networkStatus = useDisplayNetworkStatus();
+-  const isOnline = networkStatus === 'online';
++  const policy = useAppPolicy();
+ 
+   const { control, handleSubmit, setValue, watch } = useForm<TripDateFormData>({
+     resolver: zodResolver(tripDateFormSchema),
+@@ -71,6 +71,9 @@
+       {
+         onSuccess: () => {
+           router.replace('/(tabs)');
++        },
++        onError: (error) => {
++          Alert.alert('오류', mutationErrorMessage(error, '여행 생성에 실패했습니다.'));
+         },
+       },
+     );
+@@ -135,14 +138,14 @@
+           />
+         </View>
+ 
+-        <Pressable variant='default' onPress={handleSubmit(onValid, onInvalid)} disabled={isPending || !isOnline}>
++        <Pressable variant='default' onPress={handleSubmit(onValid, onInvalid)} disabled={isPending}>
+           {isPending ? '생성 중...' : '여행 생성'}
+         </Pressable>
+ 
+         {/* 오프라인 안내 */}
+-        {!isOnline && (
++        {!policy.trip.create.allowed && (
+           <View className='mt-xs px-xs'>
+-            <Text className='text-small text-center text-muted-foreground'>인터넷 연결이 필요합니다</Text>
++            <Text className='text-small text-center text-muted-foreground'>{policy.trip.create.reason}</Text>
+           </View>
+         )}
+       </View>
+--- a/apps/client/src/features/trip/create-trip/useCreateTripForm.ts
++++ b/apps/client/src/features/trip/create-trip/useCreateTripForm.ts
+@@ -1,3 +1,5 @@
++import { Alert } from 'react-native';
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import { useState } from 'react';
+ import { useForm } from 'react-hook-form';
+ import { zodResolver } from '@hookform/resolvers/zod';
+@@ -84,6 +86,9 @@
+         onSuccess: () => {
+           router.push('/(tabs)');
+         },
++        onError: (error) => {
++          Alert.alert('오류', mutationErrorMessage(error, '여행 생성에 실패했습니다.'));
++        },
+       },
+     );
+   };
+--- a/apps/client/src/features/trip/update-trip/EditTripDrawer.tsx
++++ b/apps/client/src/features/trip/update-trip/EditTripDrawer.tsx
+@@ -1,3 +1,4 @@
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import React, { useEffect } from 'react';
+ import { View, Text, Alert, TouchableOpacity } from 'react-native';
+ import { Controller, useForm } from 'react-hook-form';
+@@ -83,8 +84,8 @@
+           Alert.alert('성공', '여행 정보가 수정되었습니다.');
+           onClose();
+         },
+-        onError: () => {
+-          Alert.alert('오류', '여행 정보 수정에 실패했습니다.');
++        onError: (error) => {
++          Alert.alert('오류', mutationErrorMessage(error, '여행 정보 수정에 실패했습니다.'));
+         },
+       },
+     );
+@@ -112,8 +113,8 @@
+               Alert.alert('성공', '여행이 삭제되었습니다.');
+               onClose();
+             },
+-            onError: () => {
+-              Alert.alert('오류', '여행 삭제에 실패했습니다.');
++            onError: (error) => {
++              Alert.alert('오류', mutationErrorMessage(error, '여행 삭제에 실패했습니다.'));
+             },
+           });
+         },
+--- a/apps/client/src/screens/CreateExpenseScreen.tsx
++++ b/apps/client/src/screens/CreateExpenseScreen.tsx
+@@ -1,9 +1,10 @@
+-import { View, Text } from 'react-native';
++import { View } from 'react-native';
+ import { useLocalSearchParams, useRouter } from 'expo-router';
+ import { MobileHeader } from '@/shared/components/Navigation';
+-import { ExpenseForm, ManualExpenseForm, useCreateExpenseForm } from '@/features/expense/create-expense';
++import { ExpenseForm, useCreateExpenseForm } from '@/features/expense/create-expense';
+ import { ChevronLeft } from 'lucide-react-native';
+ import { useAppPolicy } from '@/shared/policy';
++import { PolicyErrorDisplay } from '@/shared/components';
+ 
+ /**
+  * 경비 생성 화면
+@@ -40,23 +41,6 @@
+     );
+   }
+ 
+-  // ✅ Policy 체크: Expense 생성이 허용되지 않는 경우
+-  if (!policy.expense.create.allowed) {
+-    return (
+-      <View className='flex-1 bg-background'>
+-        <MobileHeader
+-          title='경비 추가'
+-          leftIcon={<ChevronLeft size={24} color='hsl(0, 0%, 12%)' />}
+-          onLeftPress={() => router.back()}
+-        />
+-        <View className='flex-1 items-center justify-center px-lg'>
+-          <Text className='text-h3 text-foreground mb-sm'>경비를 추가할 수 없습니다</Text>
+-          <Text className='text-body text-muted-foreground text-center'>{policy.expense.create.reason}</Text>
+-        </View>
+-      </View>
+-    );
+-  }
+-
+   return (
+     <View className='flex-1 bg-background'>
+       <MobileHeader
+@@ -65,18 +49,14 @@
+         onLeftPress={() => router.back()}
+       />
+ 
+-      {/* Manual Input 폼 (manual-only 모드일 때) */}
+-      {policy.expense.create.mode === 'manual-only' ? (
+-        <ManualExpenseForm form={form} onSubmit={onSubmit} onCancel={() => router.back()} isPending={isPending} />
+-      ) : (
+-        <ExpenseForm
+-          form={form}
+-          tripId={tripId}
+-          onSubmit={onSubmit}
+-          onCancel={() => router.back()}
+-          isPending={isPending}
+-        />
+-      )}
++      {!policy.expense.create.allowed && <PolicyErrorDisplay permission={policy.expense.create} variant='banner' />}
++      <ExpenseForm
++        form={form}
++        tripId={tripId}
++        onSubmit={onSubmit}
++        onCancel={() => router.back()}
++        isPending={isPending}
++      />
+     </View>
+   );
+ }
+--- a/apps/client/src/screens/CreateScheduleScreen.tsx
++++ b/apps/client/src/screens/CreateScheduleScreen.tsx
+@@ -127,20 +127,6 @@
+     );
+   }
+ 
+-  // ✅ Policy 체크: Schedule 생성이 허용되지 않는 경우
+-  if (!policy.schedule.create.allowed) {
+-    return (
+-      <View className='flex-1 bg-background'>
+-        <MobileHeader
+-          title='새 일정 추가'
+-          leftIcon={<ArrowLeft size={20} color='#1F1F1F' />}
+-          onLeftPress={handleBackPress}
+-        />
+-        <PolicyErrorDisplay permission={policy.schedule.create} variant='block' />
+-      </View>
+-    );
+-  }
+-
+   return (
+     <View className='flex-1 bg-background'>
+       {/* Header */}
+@@ -150,9 +136,11 @@
+         onLeftPress={handleBackPress}
+       />
+ 
++      {!policy.schedule.create.allowed && <PolicyErrorDisplay permission={policy.schedule.create} variant='banner' />}
++
+       {/* 검색창 (검색 단계에만 표시) */}
+       {/* ⚠️ Policy: manual-only mode에서는 검색창 숨김 */}
+-      {currentStep === STEPS.SEARCH && policy.schedule.create.mode !== 'manual-only' && (
++      {currentStep === STEPS.SEARCH && policy.service.searchMode === 'api' && (
+         <LocationSearchBar value={searchQuery} onChangeText={handleSearch} onClear={clearSearch} autoFocus />
+       )}
+ 
+@@ -167,15 +155,9 @@
+ 
+         {/* 검색 결과 리스트 (검색 단계 + 검색 중이거나 결과 있을 때) */}
+         {/* ⚠️ Policy: manual-only mode에서는 검색 결과 숨김 */}
+-        {currentStep === STEPS.SEARCH &&
+-          policy.schedule.create.mode !== 'manual-only' &&
+-          (isSearching || results.length > 0) && (
+-            <LocationSearchResults
+-              results={results}
+-              onSelectLocation={handleSelectLocation}
+-              isSearching={isSearching}
+-            />
+-          )}
++        {currentStep === STEPS.SEARCH && policy.service.searchMode === 'api' && (isSearching || results.length > 0) && (
++          <LocationSearchResults results={results} onSelectLocation={handleSelectLocation} isSearching={isSearching} />
++        )}
+ 
+         {/* 일정 입력 폼 (폼 단계일 때) */}
+         {currentStep === STEPS.FORM && selectedLocation && (
+@@ -190,8 +172,8 @@
+           />
+         )}
+ 
+-        {/* Manual Input 폼 (manual-only 모드일 때) */}
+-        {policy.schedule.create.mode === 'manual-only' && (
++        {/* 장소 선택 전에도 입력 가능하며, 네트워크 변화로 폼을 교체하지 않는다. */}
++        {!(currentStep === STEPS.FORM && selectedLocation) && (
+           <ManualScheduleForm
+             form={form}
+             onShowTimePicker={handleShowTimePicker}
+@@ -202,24 +184,19 @@
+         )}
+       </View>
+ 
+-      {/* Date Picker (폼 단계 또는 manual-only 모드에서 활성) */}
+-      {(currentStep === STEPS.FORM || policy.schedule.create.mode === 'manual-only') && (
+-        <DatePicker
+-          visible={datePickerVisible}
+-          onClose={() => handleSelectDate(watch('date') || '')}
+-          onSelectDate={handleSelectDate}
+-        />
+-      )}
+-
+-      {/* Time Picker (폼 단계 또는 manual-only 모드에서 활성) */}
+-      {(currentStep === STEPS.FORM || policy.schedule.create.mode === 'manual-only') && (
+-        <TimePicker
+-          visible={timePickerVisible}
+-          onClose={() => handleSelectTime(watch('time') || '09:00')}
+-          onSelectTime={handleSelectTime}
+-          initialTime={watch('time') || '09:00'}
+-        />
+-      )}
++      {/* 날짜와 시간 입력은 네트워크 변화에도 유지한다. */}
++      <DatePicker
++        visible={datePickerVisible}
++        onClose={() => handleSelectDate(watch('date') || '')}
++        onSelectDate={handleSelectDate}
++      />
++
++      <TimePicker
++        visible={timePickerVisible}
++        onClose={() => handleSelectTime(watch('time') || '09:00')}
++        onSelectTime={handleSelectTime}
++        initialTime={watch('time') || '09:00'}
++      />
+     </View>
+   );
+ }
+--- a/apps/client/src/screens/ExpenseDetailScreen.tsx
++++ b/apps/client/src/screens/ExpenseDetailScreen.tsx
+@@ -1,5 +1,7 @@
+-import { View, Text, ScrollView, ActivityIndicator, TouchableOpacity } from 'react-native';
++import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+ import { Container, Stack, MobileHeader } from '@/shared/components';
++import { TripContentStatus, TripRecoveryNotice } from '@/shared/components/ErrorBoundary/TripContentStatus';
++import { useTripContentAccess } from '@/shared/policy/useTripContentAccess';
+ import { useLocalSearchParams, useRouter } from 'expo-router';
+ import { useGetTripExpenses } from '@/entities/expense';
+ import { useGetSchedules } from '@/entities/schedule';
+@@ -10,13 +12,24 @@
+   const router = useRouter();
+   const { id, tripId } = useLocalSearchParams<{ id: string; tripId: string }>();
+ 
+-  // 경비 데이터 조회 (tripId 기반으로 Router 사용)
+-  const { data: expenses = [], isLoading } = useGetTripExpenses(tripId || '');
++  const expenseQuery = useGetTripExpenses(tripId || '');
++  const scheduleQuery = useGetSchedules(tripId || '');
++  const { data: expenses = [] } = expenseQuery;
++  const { data: schedules = [] } = scheduleQuery;
+   const expense = expenses.find((e) => e.id === id);
+-
+-  // 연결된 일정 조회 (scheduleId가 있는 경우)
+-  const { data: schedules = [] } = useGetSchedules(tripId || '');
+   const linkedSchedule = expense?.scheduleId ? schedules.find((s) => s.id === expense.scheduleId) : null;
++  const access = useTripContentAccess(tripId, {
++    isLoading: expenseQuery.isLoading || scheduleQuery.isLoading,
++    isError: expenseQuery.isError || scheduleQuery.isError,
++    refetch: async () => {
++      const results = await Promise.all([
++        expenseQuery.refetch({ cancelRefetch: false }),
++        scheduleQuery.refetch({ cancelRefetch: false }),
++      ]);
++      const failed = results.find((result) => result.isError);
++      return { isError: Boolean(failed), error: failed?.error ?? null };
++    },
++  });
+ 
+   // 카테고리별 배경색
+   const getCategoryColor = (cat: string) => {
+@@ -45,7 +58,7 @@
+     return colors[cat] || '#374151';
+   };
+ 
+-  if (isLoading) {
++  if (access.status !== 'ready') {
+     return (
+       <View className='flex-1 bg-background'>
+         <MobileHeader
+@@ -53,9 +66,7 @@
+           leftIcon={<ChevronLeft size={24} color='hsl(0, 0%, 12%)' />}
+           onLeftPress={() => router.back()}
+         />
+-        <View className='flex-1 items-center justify-center'>
+-          <ActivityIndicator size='large' color='hsl(120, 61%, 34%)' />
+-        </View>
++        <TripContentStatus access={access} onReturnToActiveTrip={() => router.replace('/(tabs)/expenses')} />
+       </View>
+     );
+   }
+@@ -177,6 +188,7 @@
+           </Stack>
+         </Container>
+       </ScrollView>
++      <TripRecoveryNotice notice={access.notice} />
+     </View>
+   );
+ }
+--- a/apps/client/src/screens/ExpensesScreen.tsx
++++ b/apps/client/src/screens/ExpensesScreen.tsx
+@@ -1,3 +1,6 @@
++import { useTripContentAccess } from '@/shared/policy/useTripContentAccess';
++import { TripContentStatus, TripRecoveryNotice } from '@/shared/components/ErrorBoundary/TripContentStatus';
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import { View, Text, ScrollView, Alert, RefreshControl } from 'react-native';
+ import { Container, Stack, ExpenseCard, MobileHeader } from '@/shared/components';
+ import { TripSelector } from '@/entities/trip';
+@@ -31,7 +34,9 @@
+   const selectedTrip = trips.find((trip) => trip.id === selectedTripId);
+ 
+   // 실제 경비 데이터 조회 (tripId 필수)
+-  const { data: expenses = [], isLoading, refetch } = useGetTripExpenses(selectedTripId || '');
++  const contentQuery = useGetTripExpenses(selectedTripId || '');
++  const { data: expenses = [], isLoading, refetch } = contentQuery;
++  const access = useTripContentAccess(selectedTripId || undefined, contentQuery);
+ 
+   // Pull-to-Refresh
+   const [refreshing, setRefreshing] = useState(false);
+@@ -128,15 +133,18 @@
+         style: 'destructive',
+         onPress: () => {
+           // ✅ Selective Local-First: 로컬 DB Soft Delete + sync_queue 기록
+-          deleteExpense(selectedExpense.id, {
+-            onSuccess: () => {
+-              Alert.alert('성공', '경비가 삭제되었습니다.');
+-              setSelectedExpense(null);
++          deleteExpense(
++            { id: selectedExpense.id, tripId: selectedExpense.tripId },
++            {
++              onSuccess: () => {
++                Alert.alert('성공', '경비가 삭제되었습니다.');
++                setSelectedExpense(null);
++              },
++              onError: (error) => {
++                Alert.alert('오류', mutationErrorMessage(error, '경비 삭제에 실패했습니다.'));
++              },
+             },
+-            onError: () => {
+-              Alert.alert('오류', '경비 삭제에 실패했습니다.');
+-            },
+-          });
++          );
+         },
+       },
+     ]);
+@@ -166,124 +174,131 @@
+       {/* Current Trip Selector - Sticky */}
+       <TripSelector className='border-b border-card-border bg-background px-md py-sm' />
+ 
+-      <ScrollView className='flex-1' refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+-        <Container>
+-          <Stack direction='vertical' gap='md' className='py-sm'>
+-            {/* ✅ CURRENCY_POLICY: 통화별 경비 표시 */}
+-            <View className='flex-col gap-sm rounded-lg bg-muted p-md'>
+-              <Text className='text-label text-muted-foreground'>통화별 경비</Text>
+-              {expensesByCurrency.length > 0 ? (
+-                <View className='flex-col gap-xs'>
+-                  {expensesByCurrency.map(({ currency, amount }, index) => {
+-                    const isFirstCurrencyGroup = index === 0;
+-
+-                    return (
+-                      <View key={currency} className='flex-row items-baseline justify-between'>
+-                        {/* 주 통화 (첫 번째)는 강조 */}
+-                        <Text
+-                          className={
+-                            isFirstCurrencyGroup
+-                              ? 'text-display-medium text-primary'
+-                              : 'text-title-large text-foreground'
++      {access.status !== 'ready' ? (
++        <TripContentStatus access={access} />
++      ) : (
++        <ScrollView
++          className='flex-1'
++          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
++        >
++          <Container>
++            <Stack direction='vertical' gap='md' className='py-sm'>
++              {/* ✅ CURRENCY_POLICY: 통화별 경비 표시 */}
++              <View className='flex-col gap-sm rounded-lg bg-muted p-md'>
++                <Text className='text-label text-muted-foreground'>통화별 경비</Text>
++                {expensesByCurrency.length > 0 ? (
++                  <View className='flex-col gap-xs'>
++                    {expensesByCurrency.map(({ currency, amount }, index) => {
++                      const isFirstCurrencyGroup = index === 0;
++
++                      return (
++                        <View key={currency} className='flex-row items-baseline justify-between'>
++                          {/* 주 통화 (첫 번째)는 강조 */}
++                          <Text
++                            className={
++                              isFirstCurrencyGroup
++                                ? 'text-display-medium text-primary'
++                                : 'text-title-large text-foreground'
++                            }
++                          >
++                            {currency} {amount.toFixed(getCurrencyFractionDigits(currency))}
++                          </Text>
++                          {isFirstCurrencyGroup && <Text className='text-label text-muted-foreground'>주 통화</Text>}
++                        </View>
++                      );
++                    })}
++                  </View>
++                ) : (
++                  <Text className='text-display-medium text-muted-foreground'>
++                    {formatCurrencyDisplay(0, selectedTrip?.baseCurrency || 'USD')}
++                  </Text>
++                )}
++              </View>
++
++              {/* Loading State */}
++              {isLoading && (
++                <View className='flex-1 items-center justify-center py-xl'>
++                  <Text className='text-body text-muted-foreground'>경비를 불러오는 중...</Text>
++                </View>
++              )}
++
++              {/* Empty State - 여행이 없거나 날짜가 없을 때 */}
++              {!isLoading && !selectedTrip && (
++                <View className='flex-1 items-center justify-center py-xl'>
++                  <Text className='text-body text-muted-foreground'>여행을 선택해주세요</Text>
++                </View>
++              )}
++
++              {!isLoading && selectedTrip && expensesByDate.length === 0 && (
++                <View className='flex-1 items-center justify-center py-xl'>
++                  <Text className='text-body text-muted-foreground'>경비를 추가해보세요</Text>
++                </View>
++              )}
++
++              {/* Expense List by Date - 경비가 있는 모든 날짜 표시 */}
++              {!isLoading &&
++                expensesByDate.length > 0 &&
++                expensesByDate.map((group) => (
++                  <View key={group.date} className='flex-col gap-sm'>
++                    {/* Date Header */}
++                    <View className='flex-row items-center justify-between'>
++                      <View className='flex-row items-center gap-2xs'>
++                        <Text className='text-title-large text-foreground'>{group.dateLabel}</Text>
++                        <View className='rounded-full bg-muted px-xs py-3xs'>
++                          <Text className='text-label text-foreground'>{group.items.length}개</Text>
++                        </View>
++                        {!group.isInTripRange && (
++                          <View className='rounded-full bg-destructive/10 px-xs py-3xs'>
++                            <Text className='text-label text-destructive'>여행 기간 외</Text>
++                          </View>
++                        )}
++                      </View>
++                      <Pressable
++                        variant='outline'
++                        className='flex-row items-center gap-3xs rounded-md border border-card-border bg-card px-xs py-3xs active:bg-muted'
++                        onPress={() => {
++                          if (selectedTripId) {
++                            router.push(`/create-expense?tripId=${selectedTripId}&date=${group.date}`);
++                          } else {
++                            console.log('여행을 먼저 선택해주세요');
+                           }
+-                        >
+-                          {currency} {amount.toFixed(getCurrencyFractionDigits(currency))}
+-                        </Text>
+-                        {isFirstCurrencyGroup && <Text className='text-label text-muted-foreground'>주 통화</Text>}
++                        }}
++                      >
++                        <Text className='text-label text-foreground'>추가</Text>
++                      </Pressable>
++                    </View>
++
++                    {/* Expense Cards or Empty State */}
++                    {group.items.length > 0 ? (
++                      group.items.map((expense) => (
++                        <ExpenseCard
++                          key={expense.id}
++                          title={expense.title}
++                          amount={expense.amount}
++                          currency={expense.currency}
++                          category={expense.category}
++                          hasReceipt={expense.hasReceipt}
++                          isPending={false}
++                          onPress={() => {
++                            router.push({
++                              pathname: '/expense-detail/[id]',
++                              params: { id: expense.id, tripId: expense.tripId },
++                            });
++                          }}
++                          onMenuPress={(event) => handleExpenseMenuPress(expense, event)}
++                        />
++                      ))
++                    ) : (
++                      <View className='rounded-lg border border-dashed border-card-border bg-muted/30 px-md py-lg'>
++                        <Text className='text-body text-center text-muted-foreground'>이 날의 경비를 추가해보세요</Text>
+                       </View>
+-                    );
+-                  })}
+-                </View>
+-              ) : (
+-                <Text className='text-display-medium text-muted-foreground'>
+-                  {formatCurrencyDisplay(0, selectedTrip?.baseCurrency || 'USD')}
+-                </Text>
+-              )}
+-            </View>
+-
+-            {/* Loading State */}
+-            {isLoading && (
+-              <View className='flex-1 items-center justify-center py-xl'>
+-                <Text className='text-body text-muted-foreground'>경비를 불러오는 중...</Text>
+-              </View>
+-            )}
+-
+-            {/* Empty State - 여행이 없거나 날짜가 없을 때 */}
+-            {!isLoading && !selectedTrip && (
+-              <View className='flex-1 items-center justify-center py-xl'>
+-                <Text className='text-body text-muted-foreground'>여행을 선택해주세요</Text>
+-              </View>
+-            )}
+-
+-            {!isLoading && selectedTrip && expensesByDate.length === 0 && (
+-              <View className='flex-1 items-center justify-center py-xl'>
+-                <Text className='text-body text-muted-foreground'>경비를 추가해보세요</Text>
+-              </View>
+-            )}
+-
+-            {/* Expense List by Date - 경비가 있는 모든 날짜 표시 */}
+-            {!isLoading &&
+-              expensesByDate.length > 0 &&
+-              expensesByDate.map((group) => (
+-                <View key={group.date} className='flex-col gap-sm'>
+-                  {/* Date Header */}
+-                  <View className='flex-row items-center justify-between'>
+-                    <View className='flex-row items-center gap-2xs'>
+-                      <Text className='text-title-large text-foreground'>{group.dateLabel}</Text>
+-                      <View className='rounded-full bg-muted px-xs py-3xs'>
+-                        <Text className='text-label text-foreground'>{group.items.length}개</Text>
+-                      </View>
+-                      {!group.isInTripRange && (
+-                        <View className='rounded-full bg-destructive/10 px-xs py-3xs'>
+-                          <Text className='text-label text-destructive'>여행 기간 외</Text>
+-                        </View>
+-                      )}
+-                    </View>
+-                    <Pressable
+-                      variant='outline'
+-                      className='flex-row items-center gap-3xs rounded-md border border-card-border bg-card px-xs py-3xs active:bg-muted'
+-                      onPress={() => {
+-                        if (selectedTripId) {
+-                          router.push(`/create-expense?tripId=${selectedTripId}&date=${group.date}`);
+-                        } else {
+-                          console.log('여행을 먼저 선택해주세요');
+-                        }
+-                      }}
+-                    >
+-                      <Text className='text-label text-foreground'>추가</Text>
+-                    </Pressable>
++                    )}
+                   </View>
+-
+-                  {/* Expense Cards or Empty State */}
+-                  {group.items.length > 0 ? (
+-                    group.items.map((expense) => (
+-                      <ExpenseCard
+-                        key={expense.id}
+-                        title={expense.title}
+-                        amount={expense.amount}
+-                        currency={expense.currency}
+-                        category={expense.category}
+-                        hasReceipt={expense.hasReceipt}
+-                        isPending={false}
+-                        onPress={() => {
+-                          router.push({
+-                            pathname: '/expense-detail/[id]',
+-                            params: { id: expense.id, tripId: expense.tripId },
+-                          });
+-                        }}
+-                        onMenuPress={(event) => handleExpenseMenuPress(expense, event)}
+-                      />
+-                    ))
+-                  ) : (
+-                    <View className='rounded-lg border border-dashed border-card-border bg-muted/30 px-md py-lg'>
+-                      <Text className='text-body text-center text-muted-foreground'>이 날의 경비를 추가해보세요</Text>
+-                    </View>
+-                  )}
+-                </View>
+-              ))}
+-          </Stack>
+-        </Container>
+-      </ScrollView>
++                ))}
++            </Stack>
++          </Container>
++        </ScrollView>
++      )}
+ 
+       {/* Expense Menu */}
+       <ExpenseMenu
+@@ -296,6 +311,8 @@
+         onDelete={handleDeleteExpense}
+         buttonPosition={buttonPosition}
+       />
++
++      <TripRecoveryNotice notice={access.notice} />
+ 
+       {/* Update Expense Drawer */}
+       <UpdateExpenseDrawer
+--- a/apps/client/src/screens/HomeScreen/TripsSection.tsx
++++ b/apps/client/src/screens/HomeScreen/TripsSection.tsx
+@@ -14,6 +14,7 @@
+ import { Alert } from 'react-native';
+ import { getTripActivationStatusDetail, getMapDownloadProgress } from '@/shared/services/offline-prep/metadata';
+ import { useDeactivateTrip } from '@/entities/trip/data/useDeactivateTrip';
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ 
+ interface TripsSectionProps {
+   onMainTripDataChange?: (mainTrip: TripData | null) => void;
+@@ -265,8 +266,8 @@
+             onSuccess: () => {
+               Alert.alert('성공', '여행이 삭제되었습니다.');
+             },
+-            onError: () => {
+-              Alert.alert('오류', '여행 삭제에 실패했습니다.');
++            onError: (error) => {
++              Alert.alert('오류', mutationErrorMessage(error, '여행 삭제에 실패했습니다.'));
+             },
+           });
+         },
+--- a/apps/client/src/screens/ScheduleDetailScreen.tsx
++++ b/apps/client/src/screens/ScheduleDetailScreen.tsx
+@@ -1,13 +1,15 @@
+-import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
++import { View, Text, ScrollView } from 'react-native';
+ import { MapPin, Clock, Wallet, ChevronLeft } from 'lucide-react-native';
+ import { Card, Pressable, Separator } from '@repo/ui';
+ import { Container, Stack, MobileHeader } from '@/shared/components';
++import { TripContentStatus, TripRecoveryNotice } from '@/shared/components/ErrorBoundary/TripContentStatus';
++import { useTripContentAccess } from '@/shared/policy/useTripContentAccess';
+ import { ScheduleExpenseList } from '@/features/schedule/schedule-expense-list';
+ import { formatISOToLocalDate, formatISOToLocalTime } from '@/shared/lib/datetime';
+ import { groupExpensesByCurrency, formatCurrencyDisplay } from '@/shared/lib/currency';
+ import { useRouter } from 'expo-router';
+ import { useGetScheduleById } from '@/entities/schedule/data';
+-import { useGetScheduleExpenses, type Expense } from '@/entities/expense';
++import { useGetScheduleExpenses } from '@/entities/expense';
+ 
+ export interface ScheduleDetailScreenProps {
+   scheduleId: string;
+@@ -19,16 +21,23 @@
+ export default function ScheduleDetailScreen({ scheduleId, tripId, scheduledAt, onBack }: ScheduleDetailScreenProps) {
+   const router = useRouter();
+ 
+-  // ✅ 로컬 DB에서 일정 상세 정보 조회
+-  const { data: schedule, isLoading: isLoadingSchedule } = useGetScheduleById(scheduleId, tripId);
+-
+-  // ✅ 일정의 경비 목록 조회 (라우팅 레이어 적용)
+-  const { data: expenses = [], isLoading: isLoadingExpenses } = useGetScheduleExpenses(scheduleId);
+-
+-  // ✅ CURRENCY_POLICY: 통화별 경비 그룹핑
++  const scheduleQuery = useGetScheduleById(scheduleId, tripId);
++  const expenseQuery = useGetScheduleExpenses(scheduleId, tripId);
++  const { data: schedule } = scheduleQuery;
++  const { data: expenses = [] } = expenseQuery;
++  const access = useTripContentAccess(tripId, {
++    isLoading: scheduleQuery.isLoading || expenseQuery.isLoading,
++    isError: scheduleQuery.isError || expenseQuery.isError,
++    refetch: async () => {
++      const results = await Promise.all([
++        scheduleQuery.refetch({ cancelRefetch: false }),
++        expenseQuery.refetch({ cancelRefetch: false }),
++      ]);
++      const failed = results.find((result) => result.isError);
++      return { isError: Boolean(failed), error: failed?.error ?? null };
++    },
++  });
+   const expensesByCurrency = groupExpensesByCurrency(expenses);
+-
+-  const isLoading = isLoadingSchedule || isLoadingExpenses;
+ 
+   const handleExpensePress = (expenseId: string) => {
+     // ✅ 경비 상세 화면으로 이동 (tripId 전달하여 Router 패턴 적용)
+@@ -55,8 +64,7 @@
+     console.log('Show on map:', scheduleId);
+   };
+ 
+-  // ✅ 로딩 중일 때
+-  if (isLoading) {
++  if (access.status !== 'ready') {
+     return (
+       <View className='flex-1 bg-background'>
+         <MobileHeader
+@@ -64,9 +72,7 @@
+           leftIcon={<ChevronLeft size={24} color='hsl(0, 0%, 12%)' strokeWidth={2} />}
+           onLeftPress={onBack}
+         />
+-        <View className='flex-1 items-center justify-center'>
+-          <ActivityIndicator size='large' color='hsl(120, 61%, 34%)' />
+-        </View>
++        <TripContentStatus access={access} onReturnToActiveTrip={() => router.replace('/(tabs)/schedules')} />
+       </View>
+     );
+   }
+@@ -191,6 +197,7 @@
+           </Stack>
+         </Container>
+       </ScrollView>
++      <TripRecoveryNotice notice={access.notice} />
+     </View>
+   );
+ }
+--- a/apps/client/src/screens/ScheduleScreen.tsx
++++ b/apps/client/src/screens/ScheduleScreen.tsx
+@@ -1,3 +1,6 @@
++import { useTripContentAccess } from '@/shared/policy/useTripContentAccess';
++import { TripContentStatus, TripRecoveryNotice } from '@/shared/components/ErrorBoundary/TripContentStatus';
++import { mutationErrorMessage } from '@/shared/policy/mutationErrorMessage';
+ import { useState, useMemo, useCallback } from 'react';
+ import { View, Alert } from 'react-native';
+ import { MobileHeader } from '@/shared/components';
+@@ -56,7 +59,9 @@
+   >(undefined);
+ 
+   const { data: trips = [] } = useGetTrips();
+-  const { data: schedules = [], isLoading, refetch } = useGetSchedules(selectedTripId || '');
++  const contentQuery = useGetSchedules(selectedTripId || '');
++  const { data: schedules = [], isLoading, refetch } = contentQuery;
++  const access = useTripContentAccess(selectedTripId || undefined, contentQuery);
+   const { mutate: deleteSchedule } = useDeleteSchedule();
+ 
+   // Pull-to-Refresh
+@@ -138,17 +143,20 @@
+           text: '삭제',
+           style: 'destructive',
+           onPress: () => {
+-            deleteSchedule(selectedSchedule.id, {
+-              onSuccess: () => {
+-                Alert.alert('성공', '일정이 삭제되었습니다.');
+-                setIsScheduleMenuOpen(false);
+-                setSelectedSchedule(null);
+-                setButtonPosition(undefined);
++            deleteSchedule(
++              { id: selectedSchedule.id, tripId: selectedSchedule.tripId },
++              {
++                onSuccess: () => {
++                  Alert.alert('성공', '일정이 삭제되었습니다.');
++                  setIsScheduleMenuOpen(false);
++                  setSelectedSchedule(null);
++                  setButtonPosition(undefined);
++                },
++                onError: (error) => {
++                  Alert.alert('오류', mutationErrorMessage(error, '일정 삭제에 실패했습니다.'));
++                },
+               },
+-              onError: () => {
+-                Alert.alert('오류', '일정 삭제에 실패했습니다.');
+-              },
+-            });
++            );
+           },
+         },
+       ],
+@@ -221,7 +229,9 @@
+       <TripSelector className='border-b border-card-border bg-background px-md py-sm' />
+ 
+       {/* Content */}
+-      {viewMode === 'list' ? (
++      {access.status !== 'ready' ? (
++        <TripContentStatus access={access} />
++      ) : viewMode === 'list' ? (
+         <ScheduleListView
+           schedulesByDate={schedulesByDate}
+           selectedTripId={selectedTripId}
+@@ -253,6 +263,8 @@
+         onDelete={handleDeleteSchedule}
+         buttonPosition={buttonPosition}
+       />
++
++      <TripRecoveryNotice notice={access.notice} />
+ 
+       {/* Update Schedule Drawer */}
+       <UpdateScheduleDrawer
+--- a/apps/client/src/shared/components/Card/ScheduleCard.tsx
++++ b/apps/client/src/shared/components/Card/ScheduleCard.tsx
+@@ -1,7 +1,7 @@
+-import { View, Text, TouchableOpacity } from 'react-native';
++import { View, Text, TouchableOpacity, type GestureResponderEvent } from 'react-native';
+ import { Card, cn, Pressable } from '@repo/ui';
+ import { MapPin, Wallet, MoreVertical, AlertCircle } from 'lucide-react-native';
+-import { networkStore } from '@/shared/store/network';
++import { useDisplayNetworkStatus } from '@/shared/store/network';
+ 
+ interface ScheduleCardProps {
+   date?: string;
+@@ -14,7 +14,7 @@
+   currency?: string;
+   className?: string;
+   onPress?: () => void;
+-  onMenuPress?: (event: any) => void;
++  onMenuPress?: (event: GestureResponderEvent) => void;
+ }
+ 
+ export function ScheduleCard({
+@@ -31,7 +31,8 @@
+   onMenuPress,
+ }: ScheduleCardProps) {
+   // 온라인 상태 + 좌표 없음 → 경고 표시
+-  const showLocationWarning = networkStore.realStatus === 'online' && !latitude;
++  const networkStatus = useDisplayNetworkStatus();
++  const showLocationWarning = networkStatus === 'online' && !latitude;
+ 
+   return (
+     <TouchableOpacity onPress={onPress} activeOpacity={0.95}>
+--- /dev/null
++++ b/apps/client/src/shared/components/ErrorBoundary/TripContentStatus.tsx
+@@ -0,0 +1,80 @@
++import { View, Text } from 'react-native';
++import { Pressable } from '@repo/ui';
++import { PolicyErrorDisplay } from './PolicyErrorDisplay';
++import { useNetworkCheck } from '@/shared/store/network';
++import { useGetActiveTrip } from '@/entities/trip/data/useGetTripActivation';
++import { useTripStore } from '@/shared/store/useTripStore';
++import type { useTripContentAccess } from '@/shared/policy/useTripContentAccess';
++
++type Access = ReturnType<typeof useTripContentAccess>;
++
++export function TripContentStatus({
++  access,
++  onReturnToActiveTrip,
++}: {
++  access: Access;
++  onReturnToActiveTrip?: () => void;
++}) {
++  const { checkStatus, isRefreshing, refresh } = useNetworkCheck();
++  const { data: activeTrip } = useGetActiveTrip();
++  const setSelectedTripId = useTripStore((state) => state.setSelectedTripId);
++
++  if (access.status === 'loading') {
++    return (
++      <View className='flex-1 items-center justify-center p-lg'>
++        <Text>여행 내용을 불러오는 중...</Text>
++      </View>
++    );
++  }
++  if (access.status === 'error') {
++    return (
++      <View className='flex-1 items-center justify-center gap-sm p-lg'>
++        <Text>여행 내용을 불러오지 못했어요. 다시 시도해주세요.</Text>
++        <Pressable onPress={access.retry}>다시 불러오기</Pressable>
++      </View>
++    );
++  }
++
++  const { status } = access.permission;
++  const networkRestricted = status === 'offline' || status === 'network-checking' || status === 'network-unavailable';
++  return (
++    <View className='flex-1 gap-sm p-md'>
++      <PolicyErrorDisplay permission={access.permission} variant='inline' />
++      {networkRestricted && (
++        <>
++          {activeTrip ? (
++            <Pressable
++              onPress={() => {
++                setSelectedTripId(activeTrip.tripId);
++                onReturnToActiveTrip?.();
++              }}
++            >
++              활성 여행으로 돌아가기
++            </Pressable>
++          ) : (
++            <Text className='text-body text-muted-foreground'>현재 이 기기에서 사용할 수 있는 활성 여행이 없어요.</Text>
++          )}
++          {(status === 'offline' || status === 'network-unavailable' || checkStatus === 'unavailable') && (
++            <Pressable disabled={isRefreshing} onPress={() => refresh()}>
++              {isRefreshing ? '연결 확인 중...' : '연결 재확인'}
++            </Pressable>
++          )}
++        </>
++      )}
++      {status === 'activation-error' && <Pressable onPress={access.retry}>다시 확인하기</Pressable>}
++    </View>
++  );
++}
++
++export function TripRecoveryNotice({ notice }: { notice: string | null }) {
++  if (!notice) return null;
++  return (
++    <View
++      accessibilityRole='alert'
++      accessibilityLiveRegion='polite'
++      className='absolute bottom-md left-md right-md rounded-md bg-muted p-sm'
++    >
++      <Text className='text-body text-foreground'>{notice}</Text>
++    </View>
++  );
++}
+--- a/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx
++++ b/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx
+@@ -12,6 +12,8 @@
+ import { MapboxScheduleMapView } from './MapboxScheduleMapView';
+ import { MapUnavailableView } from './MapUnavailableView';
+ import type { ScheduleMapViewProps } from './types';
++import { useRealNetworkStatus } from '@/shared/store/network';
++import { getOnlineServicePermission } from '@/shared/services/network-access';
+ 
+ /**
+  * 정책 기반으로 적절한 지도 제공자를 자동 선택
+@@ -20,20 +22,20 @@
+ export function PolicyBasedScheduleMapView(props: ScheduleMapViewProps) {
+   const { tripId, ...mapProps } = props;
+   const policy = useAppPolicy(tripId);
++  const permission = getOnlineServicePermission(useRealNetworkStatus());
+ 
+-  console.log('🗺️ Map Provider Policy:', policy.service.mapProvider);
++  if (policy.service.mapProvider === 'google' && !permission.allowed) {
++    return <MapUnavailableView message={permission.reason} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;
++  }
+ 
+   switch (policy.service.mapProvider) {
+     case 'google':
+-      console.log('📍 Using Google Maps (Online)');
+       return <GoogleScheduleMapView {...mapProps} tripId={tripId} />;
+ 
+     case 'mapbox':
+-      console.log('📦 Using Mapbox (Offline-Ready)');
+       return <MapboxScheduleMapView {...mapProps} tripId={tripId} />;
+ 
+     case 'none':
+-      console.log('❌ Map unavailable (Offline + Inactive)');
+       return (
+         <MapUnavailableView
+           message='오프라인 상태에서는 지도를 사용할 수 없습니다'
+@@ -42,8 +44,6 @@
+       );
+ 
+     default:
+-      // Fallback to Google Maps
+-      console.warn('⚠️ Unknown map provider, falling back to Google Maps');
+-      return <GoogleScheduleMapView {...mapProps} tripId={tripId} />;
++      return <MapUnavailableView message='지도를 사용할 수 없어요' />;
+   }
+ }
+--- a/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx
++++ b/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx
+@@ -15,6 +15,9 @@
+ import { OfflineMapView } from './OfflineMapView';
+ import { useMyLocation } from '@/shared/hooks/map/useMyLocation';
+ import { MyLocationButton } from '@/shared/components/Map/MyLocationButton';
++import { MapUnavailableView } from '@/shared/components/Map/MapUnavailableView';
++import { useRealNetworkStatus } from '@/shared/store/network';
++import { getOnlineServicePermission } from '@/shared/services/network-access';
+ 
+ interface Location {
+   latitude: number;
+@@ -57,6 +60,7 @@
+ 
+   // Policy Layer로 지도 제공자 결정
+   const policy = useAppPolicy(tripId ?? undefined);
++  const permission = getOnlineServicePermission(useRealNetworkStatus());
+ 
+   // 오프라인 지도 조회 (mapbox 모드에서만 필요)
+   const { data: offlineCity, isLoading } = useOfflineCity(tripId);
+@@ -91,6 +95,10 @@
+     }
+   }, [locations, selectedLocation, policy.service.mapProvider]);
+ 
++  if (policy.service.mapProvider === 'google' && !permission.allowed) {
++    return <MapUnavailableView message={permission.reason} hint='실제 연결이 확인되면 지도를 다시 사용할 수 있어요' />;
++  }
++
+   // 빈 상태
+   if (locations.length === 0 && !selectedLocation) {
+     return (
+@@ -119,7 +127,6 @@
+     case 'mapbox':
+       // Mapbox 오프라인 지도 사용
+       if (offlineCity && !isLoading) {
+-        console.log('🗺️ Using Mapbox offline map for city:', offlineCity.cityName);
+         return <OfflineMapView locations={locations} selectedLocation={selectedLocation} cityId={offlineCity.cityId} />;
+       }
+       // 오프라인 지도가 아직 다운로드 안 된 경우 로딩 상태
+@@ -161,7 +168,6 @@
+     case 'google':
+     default:
+       // Google Maps 사용 (react-native-maps)
+-      console.log('🌐 Using Google Maps (online)');
+       return (
+         <View style={styles.map}>
+           <RNMapView
+--- /dev/null
++++ b/apps/client/src/shared/policy/mutationErrorMessage.ts
+@@ -0,0 +1,6 @@
++import { isOfflineError } from '@/shared/services/offline-prep/errors';
++
++/** Router의 제한 이유는 보존하고 일반 요청 실패에는 기존 화면 문구를 사용한다. */
++export function mutationErrorMessage(error: unknown, fallback: string): string {
++  return isOfflineError(error) ? error.message : fallback;
++}
+--- a/apps/client/src/shared/policy/useAppPolicy.ts
++++ b/apps/client/src/shared/policy/useAppPolicy.ts
+@@ -6,7 +6,12 @@
+  */
+ 
+ import { useMemo } from 'react';
+-import { useDisplayNetworkStatus } from '@/shared/store/network';
++import {
++  useDisplayNetworkStatus,
++  useNetworkCheck,
++  type NetworkStatus,
++  type NetworkCheckStatus,
++} from '@/shared/store/network';
+ import { useGetTripActivation } from '@/entities/trip/data/useGetTripActivation';
+ import { TRIP_POLICIES, SCHEDULE_POLICIES, EXPENSE_POLICIES, SERVICE_POLICIES } from './constants';
+ import type { CRUDPermission, ServiceConfig, PolicyKey, ActivationStatus } from './types';
+@@ -16,7 +21,21 @@
+  *
+  * 모든 Entity의 CRUD 정책 + Service 설정
+  */
++export interface TripContentPermission extends CRUDPermission {
++  status:
++    | 'ready'
++    | 'no-trip'
++    | 'activation-loading'
++    | 'activation-error'
++    | 'offline'
++    | 'network-checking'
++    | 'network-unavailable';
++}
++
+ export interface AppPolicyContext {
++  retryActivation: () => void;
++  activationStatus: 'active' | 'inactive' | 'loading' | 'error';
++  content: TripContentPermission;
+   trip: {
+     create: CRUDPermission;
+     read: CRUDPermission;
+@@ -66,37 +85,96 @@
+ export function useAppPolicy(tripId?: string): AppPolicyContext {
+   const networkStatus = useDisplayNetworkStatus();
+ 
+-  const { data: activation } = useGetTripActivation(tripId ?? '');
++  const { data: activation, isError, refetch: refetchActivation } = useGetTripActivation(tripId ?? '');
++  const { checkStatus } = useNetworkCheck();
+ 
+-  const isActivated = activation?.isActivated ?? false;
+-  const activationStatus: ActivationStatus = tripId && isActivated ? 'active' : 'inactive';
++  let activationStatus: AppPolicyContext['activationStatus'] = 'inactive';
++  if (tripId) {
++    if (activation?.isActivated) activationStatus = 'active';
++    else if (isError) activationStatus = 'error';
++    else if (activation === undefined) activationStatus = 'loading';
++  }
++  const policyActivationStatus: ActivationStatus = activationStatus === 'active' ? 'active' : 'inactive';
+ 
+   // unknown도 Remote 기능을 열지 않는다. 현재 4-state 권한 표의 제한 모드를 재사용한다.
+   const policyNetworkStatus = networkStatus === 'online' ? 'online' : 'offline';
+-  const policyKey: PolicyKey = `${policyNetworkStatus}_${activationStatus}`;
++  const policyKey: PolicyKey = `${policyNetworkStatus}_${policyActivationStatus}`;
+ 
+-  return useMemo(
+-    () => ({
+-      trip: {
+-        create: TRIP_POLICIES.create[policyKey],
+-        read: TRIP_POLICIES.read[policyKey],
+-        update: TRIP_POLICIES.update[policyKey],
+-        delete: TRIP_POLICIES.delete[policyKey],
++  return useMemo(() => {
++    const content = getContentPermission(tripId, activationStatus, networkStatus, checkStatus);
++
++    const permissions = (table: typeof TRIP_POLICIES) => {
++      const permission = (operation: keyof typeof table): CRUDPermission => {
++        const value = table[operation][policyKey];
++        if ((activationStatus === 'loading' || activationStatus === 'error') && operation !== 'create') {
++          return { allowed: false, reason: content.reason };
++        }
++        if (!value.allowed && networkStatus === 'unknown') {
++          return { ...value, reason: '인터넷 연결을 아직 확인하지 못했어요. 잠시 후 다시 시도해주세요.' };
++        }
++        return value;
++      };
++      return {
++        create: permission('create'),
++        read: permission('read'),
++        update: permission('update'),
++        delete: permission('delete'),
++      };
++    };
++
++    return {
++      activationStatus,
++      retryActivation: () => {
++        refetchActivation();
+       },
+-      schedule: {
+-        create: SCHEDULE_POLICIES.create[policyKey],
+-        read: SCHEDULE_POLICIES.read[policyKey],
+-        update: SCHEDULE_POLICIES.update[policyKey],
+-        delete: SCHEDULE_POLICIES.delete[policyKey],
+-      },
+-      expense: {
+-        create: EXPENSE_POLICIES.create[policyKey],
+-        read: EXPENSE_POLICIES.read[policyKey],
+-        update: EXPENSE_POLICIES.update[policyKey],
+-        delete: EXPENSE_POLICIES.delete[policyKey],
+-      },
+-      service: SERVICE_POLICIES[policyKey],
+-    }),
+-    [policyKey],
+-  );
++      content,
++      trip: permissions(TRIP_POLICIES),
++      schedule: { ...permissions(SCHEDULE_POLICIES), read: content },
++      expense: { ...permissions(EXPENSE_POLICIES), read: content },
++      service:
++        SERVICE_POLICIES[
++          activationStatus === 'loading' || activationStatus === 'error' ? 'offline_inactive' : policyKey
++        ],
++    };
++  }, [tripId, policyKey, activationStatus, networkStatus, checkStatus, refetchActivation]);
+ }
++
++/** 이미 알고 있는 여행 기본 정보와 그 여행의 일정·경비 내용 접근은 구별한다. */
++function getContentPermission(
++  tripId: string | undefined,
++  activationStatus: AppPolicyContext['activationStatus'],
++  networkStatus: NetworkStatus,
++  checkStatus: NetworkCheckStatus,
++): TripContentPermission {
++  if (!tripId) return { allowed: false, status: 'no-trip', reason: '여행을 선택해주세요' };
++  if (activationStatus === 'loading') {
++    return { allowed: false, status: 'activation-loading', reason: '이 기기의 여행 준비 상태를 확인하는 중이에요.' };
++  }
++  if (activationStatus === 'error') {
++    return {
++      allowed: false,
++      status: 'activation-error',
++      reason: '여행 준비 상태를 확인하지 못했어요. 다시 시도해주세요.',
++    };
++  }
++  if (activationStatus === 'active' || networkStatus === 'online') return { allowed: true, status: 'ready' };
++  if (networkStatus === 'offline') {
++    return {
++      allowed: false,
++      status: 'offline',
++      reason: '오프라인에서는 준비된 활성 여행만 볼 수 있어요. 연결 후 다시 이용해주세요.',
++    };
++  }
++  if (checkStatus === 'unavailable') {
++    return {
++      allowed: false,
++      status: 'network-unavailable',
++      reason: '인터넷 연결을 확인하지 못했어요. 연결 상태를 재확인해주세요.',
++    };
++  }
++  return {
++    allowed: false,
++    status: 'network-checking',
++    reason: '인터넷 연결을 확인하는 중이에요. 활성 여행은 계속 이용할 수 있어요.',
++  };
++}
+--- /dev/null
++++ b/apps/client/src/shared/policy/useTripContentAccess.ts
+@@ -0,0 +1,125 @@
++import { useEffect, useRef, useState } from 'react';
++import { useAppPolicy } from './useAppPolicy';
++import { useRealNetworkStatus } from '@/shared/store/network';
++
++type ContentQuery = {
++  isLoading: boolean;
++  isError: boolean;
++  refetch: (options?: { cancelRefetch: boolean }) => Promise<{ isError: boolean; error: unknown }>;
++};
++
++type Recovery = {
++  tripId?: string;
++  blocked: boolean;
++  hadOffline: boolean;
++  phase: 'idle' | 'pending' | 'error';
++};
++
++/** 이전 서버 캐시는 보존하고, 현재 여행의 복구 조회가 성공할 때 내용을 다시 연다. */
++export function useTripContentAccess(tripId: string | undefined, query: ContentQuery) {
++  const policy = useAppPolicy(tripId);
++  const realStatus = useRealNetworkStatus();
++  const [recovery, setRecovery] = useState<Recovery>({ tripId, blocked: false, hadOffline: false, phase: 'idle' });
++  const [notice, setNotice] = useState<string | null>(null);
++  const latest = useRef({ tripId, realStatus });
++  latest.current = { tripId, realStatus };
++  const requestVersion = useRef(0);
++  const refetch = useRef(query.refetch);
++  refetch.current = query.refetch;
++
++  useEffect(() => {
++    if (recovery.tripId !== tripId) {
++      requestVersion.current += 1;
++      setNotice(null);
++      setRecovery({ tripId, blocked: false, hadOffline: false, phase: 'idle' });
++      return;
++    }
++    if (!tripId || policy.activationStatus !== 'inactive') {
++      if (recovery.blocked) {
++        requestVersion.current += 1;
++        setRecovery({ tripId, blocked: false, hadOffline: false, phase: 'idle' });
++      }
++      return;
++    }
++
++    if (realStatus !== 'online') {
++      setNotice(null);
++      requestVersion.current += 1;
++      setRecovery((current) => ({
++        ...current,
++        blocked: true,
++        hadOffline: current.hadOffline || realStatus === 'offline',
++        phase: 'idle',
++      }));
++      return;
++    }
++    if (!recovery.blocked || recovery.phase !== 'idle') return;
++
++    const version = ++requestVersion.current;
++    setRecovery((current) => ({ ...current, phase: 'pending' }));
++    refetch.current({ cancelRefetch: false }).then(
++      (result) => {
++        if (
++          version !== requestVersion.current ||
++          latest.current.tripId !== tripId ||
++          latest.current.realStatus !== 'online'
++        )
++          return;
++        if (result.isError) {
++          setRecovery((current) => ({ ...current, phase: 'error' }));
++        } else {
++          if (recovery.hadOffline) setNotice('연결이 복구되어 여행 내용을 다시 불러왔어요.');
++          setRecovery({ tripId, blocked: false, hadOffline: false, phase: 'idle' });
++        }
++      },
++      () => {
++        if (version === requestVersion.current && latest.current.tripId === tripId) {
++          setRecovery((current) => ({ ...current, phase: 'error' }));
++        }
++      },
++    );
++  }, [
++    tripId,
++    realStatus,
++    policy.activationStatus,
++    recovery.tripId,
++    recovery.blocked,
++    recovery.phase,
++    recovery.hadOffline,
++  ]);
++
++  useEffect(
++    () => () => {
++      requestVersion.current += 1;
++    },
++    [],
++  );
++
++  useEffect(() => {
++    if (!notice) return;
++    const timer = setTimeout(() => setNotice(null), 3500);
++    return () => clearTimeout(timer);
++  }, [notice]);
++
++  const awaitingRecovery =
++    recovery.tripId === tripId && recovery.blocked && realStatus === 'online' && policy.activationStatus === 'inactive';
++  const status = !policy.content.allowed
++    ? 'restricted'
++    : awaitingRecovery
++      ? recovery.phase === 'error'
++        ? 'error'
++        : 'loading'
++      : query.isLoading
++        ? 'loading'
++        : query.isError
++          ? 'error'
++          : 'ready';
++
++  const retry = () => {
++    if (policy.activationStatus === 'error') policy.retryActivation();
++    else if (awaitingRecovery) setRecovery((current) => ({ ...current, phase: 'idle' }));
++    else query.refetch({ cancelRefetch: false });
++  };
++
++  return { status, permission: policy.content, notice, retry };
++}
+--- a/apps/client/src/shared/services/directions/mapbox.ts
++++ b/apps/client/src/shared/services/directions/mapbox.ts
+@@ -4,6 +4,8 @@
+  * - polyline6 압축 형식으로 응답
+  * - 오프라인 지도용 경로 데이터 제공
+  */
++
++import { assertOnlineServiceAccess } from '@/shared/services/network-access';
+ 
+ // Mapbox 교통수단 프로필
+ export type MapboxProfile = 'walking' | 'cycling' | 'driving-traffic';
+@@ -37,6 +39,7 @@
+   to: Coordinate;
+   profile?: MapboxProfile;
+ }): Promise<DirectionsResponse> {
++  assertOnlineServiceAccess();
+   const accessToken = process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN;
+ 
+   if (!accessToken) {
+--- /dev/null
++++ b/apps/client/src/shared/services/network-access.ts
+@@ -0,0 +1,22 @@
++import { createPolicyError } from '@/shared/policy/errors';
++import { networkStore, type NetworkStatus } from '@/shared/store/network';
++
++type OnlineServicePermission = { allowed: true } | { allowed: false; reason: string };
++
++/** Service 요청은 화면용 override가 아닌 실제 관측을 사용한다. */
++export function getOnlineServicePermission(realStatus: NetworkStatus): OnlineServicePermission {
++  if (realStatus === 'online') return { allowed: true };
++
++  return {
++    allowed: false,
++    reason:
++      realStatus === 'unknown'
++        ? '인터넷 연결을 아직 확인하지 못했어요. 잠시 후 다시 시도해주세요.'
++        : '인터넷 연결이 필요해요. 연결 후 다시 시도해주세요.',
++  };
++}
++
++export function assertOnlineServiceAccess() {
++  const permission = getOnlineServicePermission(networkStore.realStatus);
++  if (!permission.allowed) throw createPolicyError('NETWORK', permission);
++}
+--- a/apps/client/src/shared/services/offline-prep/index.ts
++++ b/apps/client/src/shared/services/offline-prep/index.ts
+@@ -6,4 +6,11 @@
+ 
+ export { OfflineError, isOfflineError, type OfflineErrorOptions } from './errors';
+ export { getTripActivationStatus, getTripMetadata } from './metadata';
+-export { routeTripQuery, routeChildQuery, routeTripMutation, routeChildMutation } from './router';
++export {
++  routeTripListQuery,
++  routeTripCreate,
++  routeTripQuery,
++  routeChildQuery,
++  routeTripMutation,
++  routeChildMutation,
++} from './router';
+--- a/apps/client/src/shared/services/offline-prep/router.ts
++++ b/apps/client/src/shared/services/offline-prep/router.ts
+@@ -1,5 +1,5 @@
+ import { getTripActivationStatus, hasAnyActivatedTrip } from './metadata';
+-import { OfflineError } from './errors';
++import { OfflineError, type OfflineErrorOptions } from './errors';
+ import { networkStore } from '@/shared/store/network';
+ 
+ interface RouteOperations<T> {
+@@ -7,7 +7,11 @@
+   remote: () => Promise<T>;
+ }
+ 
+-function assertRemoteAvailable(offlineMessage: string, tripId?: string) {
++function assertRemoteAvailable(
++  offlineMessage: string,
++  tripId?: string,
++  offlineAction: NonNullable<OfflineErrorOptions['action']> = 'ACTIVATE_PROMPT',
++) {
+   const status = networkStore.realStatus;
+ 
+   if (status === 'online') {
+@@ -16,7 +20,7 @@
+ 
+   throw new OfflineError(
+     status === 'unknown' ? '인터넷 연결을 아직 확인하지 못했어요. 잠시 후 다시 시도해주세요.' : offlineMessage,
+-    { action: status === 'unknown' ? 'ONLINE_REQUIRED' : 'ACTIVATE_PROMPT', tripId },
++    { action: status === 'unknown' ? 'ONLINE_REQUIRED' : offlineAction, tripId },
+   );
+ }
+ 
+@@ -28,8 +32,8 @@
+   }
+ }
+ 
+-/** Trip 조회의 기존 분기는 전역 활성 여행 존재 여부를 사용한다. */
+-export async function routeTripQuery<T>(operations: RouteOperations<T>): Promise<T> {
++/** 여행 목록은 활성 여행이 있으면 기존 Local 목록을 사용한다. */
++export async function routeTripListQuery<T>(operations: RouteOperations<T>): Promise<T> {
+   const hasActivated = await hasAnyActivatedTrip();
+ 
+   if (hasActivated) {
+@@ -38,6 +42,11 @@
+ 
+   assertRemoteAvailable('오프라인에서는 활성화된 여행만 볼 수 있어요');
+   return await operations.remote();
++}
++
++/** Trip 단건 조회는 대상 여행의 활성 여부로 분기한다. */
++export async function routeTripQuery<T>(tripId: string, operations: RouteOperations<T>): Promise<T> {
++  return routeChildQuery(tripId, operations);
+ }
+ 
+ /** Schedule·Expense 조회는 소속 여행의 활성 여부로 분기한다. */
+@@ -52,18 +61,16 @@
+   return await operations.remote();
+ }
+ 
+-/** Trip 쓰기의 기존 분기는 전역 활성 여행 존재 여부를 사용한다. */
+-export async function routeTripMutation<T>(operations: RouteOperations<T>): Promise<T> {
+-  const hasActivated = await hasAnyActivatedTrip();
++/** 새 여행은 아직 활성화되지 않았으므로 서버에서 생성한다. */
++export async function routeTripCreate<T>(remote: () => Promise<T>): Promise<T> {
++  assertWritesAllowed();
++  assertRemoteAvailable('새 여행을 만들려면 인터넷에 연결해주세요', undefined, 'ONLINE_REQUIRED');
++  return remote();
++}
+ 
+-  assertWritesAllowed();
+-
+-  if (hasActivated) {
+-    return await operations.local();
+-  }
+-
+-  assertRemoteAvailable('오프라인에서는 활성화된 여행만 수정할 수 있어요');
+-  return await operations.remote();
++/** Trip 수정·삭제는 대상 여행의 활성 여부로 분기한다. */
++export async function routeTripMutation<T>(tripId: string, operations: RouteOperations<T>): Promise<T> {
++  return routeChildMutation(tripId, operations);
+ }
+ 
+ /** Schedule·Expense 쓰기는 소속 여행의 활성 여부로 분기한다. */
+--- a/apps/client/src/shared/services/sync/provider.tsx
++++ b/apps/client/src/shared/services/sync/provider.tsx
+@@ -1,30 +1,21 @@
+ import React, { createContext, useContext, useEffect, useRef, useState, useCallback } from 'react';
+-import { networkStore, useRealNetworkStatus, type NetworkStatus } from '@/shared/store/network';
++import { networkStore, useNetworkStore, useRealNetworkStatus } from '@/shared/store/network';
++import { authStore, useAuthStore } from '@/shared/store/auth';
+ import { syncData } from './engine';
+ 
+-/**
+- * SyncProvider Context
+- *
+- * 동기화 상태와 수동 트리거 제공
+- */
++export type SyncRunResult =
++  | { status: 'completed'; message: string }
++  | { status: 'failed'; message: string }
++  | { status: 'blocked'; message: string };
++
+ interface SyncContextValue {
+   isSyncing: boolean;
+   lastSyncedAt: Date | null;
+-  triggerManualSync: () => Promise<void>;
++  triggerManualSync: () => Promise<SyncRunResult>;
+ }
+ 
+ const SyncContext = createContext<SyncContextValue | undefined>(undefined);
+ 
+-/**
+- * useSyncContext Hook
+- *
+- * 컴포넌트에서 동기화 상태와 수동 트리거 접근
+- *
+- * @example
+- * ```tsx
+- * const { isSyncing, triggerManualSync } = useSyncContext();
+- * ```
+- */
+ export function useSyncContext() {
+   const context = useContext(SyncContext);
+   if (!context) {
+@@ -33,136 +24,102 @@
+   return context;
+ }
+ 
+-/**
+- * 동기화 Provider
+- *
+- * 앱 전체를 감싸서 자동 동기화 기능 제공 (Push + Pull)
+- * - 네트워크 상태 감지
+- * - 오프라인 → 온라인 전환 시 자동 동기화
+- * - 앱 시작 시 한 번 동기화
+- * - 주기적 동기화 (선택적)
+- * - 디버그 모드: 강제 온라인/오프라인 설정 가능
+- *
+- * @example
+- * ```tsx
+- * <SyncProvider enablePeriodicSync={false}>
+- *   <App />
+- * </SyncProvider>
+- * ```
+- */
+ interface SyncProviderProps {
+   children: React.ReactNode;
+-  enablePeriodicSync?: boolean; // 주기적 동기화 활성화 (기본: false)
+-  syncInterval?: number; // 주기적 동기화 간격 (ms, 기본: 5분)
++  isDatabaseReady: boolean;
++  enablePeriodicSync?: boolean;
++  syncInterval?: number;
+ }
+ 
+ export function SyncProvider({
+   children,
++  isDatabaseReady,
+   enablePeriodicSync = false,
+-  syncInterval = 5 * 60 * 1000, // 5분
++  syncInterval = 5 * 60 * 1000,
+ }: SyncProviderProps) {
+   const networkStatus = useRealNetworkStatus();
++  const overrideStatus = useNetworkStore((state) => state.overrideStatus);
++  const isAuthInitialized = useAuthStore((state) => state.isInitialized);
++  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
++  const canSync =
++    isDatabaseReady && isAuthInitialized && isAuthenticated && networkStatus === 'online' && overrideStatus === null;
+ 
+   const [isSyncing, setIsSyncing] = useState(false);
+   const [lastSyncedAt, setLastSyncedAt] = useState<Date | null>(null);
+-  // null은 첫 effect 미처리이며, 실제 네트워크의 unknown과 구분한다.
+-  const previousStatusRef = useRef<NetworkStatus | null>(null);
++  const inFlightRef = useRef<Promise<SyncRunResult> | null>(null);
++  const databaseReadyRef = useRef(isDatabaseReady);
++  databaseReadyRef.current = isDatabaseReady;
++  const previouslyEligibleRef = useRef(false);
+ 
+-  /**
+-   * 동기화 실행 함수 (중복 실행 방지)
+-   */
+-  const executeSync = useCallback(
+-    async (reason: string) => {
+-      if (networkStore.realStatus !== 'online' || networkStore.override !== null) {
+-        return;
+-      }
+-
+-      if (isSyncing) {
+-        console.log('⏭️ [SyncProvider] Sync already in progress, skipping...');
+-        return;
+-      }
+-
+-      try {
+-        setIsSyncing(true);
+-        console.log(`🔄 [SyncProvider] Sync triggered: ${reason}`);
+-
+-        await syncData(); // Push + Pull
+-
+-        const now = new Date();
+-        setLastSyncedAt(now);
+-
+-        console.log(`✅ [SyncProvider] Sync completed: ${reason}`, {
+-          lastSyncedAt: now.toISOString(),
+-        });
+-      } catch (error) {
+-        console.error(`❌ [SyncProvider] Sync failed: ${reason}`, error);
+-      } finally {
+-        setIsSyncing(false);
+-      }
+-    },
+-    [isSyncing],
+-  );
+-
+-  /**
+-   * 수동 동기화 트리거 (UI에서 호출)
+-   */
+-  const triggerManualSync = useCallback(async () => {
+-    await executeSync('Manual trigger');
+-  }, [executeSync]);
+-
+-  /**
+-   * 최초 online과 이후 online 전환마다 한 번 동기화
+-   */
+-  useEffect(() => {
+-    const previousStatus = previousStatusRef.current;
+-    previousStatusRef.current = networkStatus;
+-
+-    // 최초 unknown 확정과 오프라인 복구 모두 실제 online에서 시작한다.
+-    if (previousStatus !== 'online' && networkStatus === 'online') {
+-      if (previousStatus === null) {
+-        console.log('🚀 [SyncProvider] Initial sync on app start');
+-        executeSync('App startup');
+-      } else {
+-        console.log('🌐 [SyncProvider] Network recovered → Starting sync');
+-        executeSync('Network recovery');
+-      }
++  const executeSync = useCallback((): Promise<SyncRunResult> => {
++    // 이전 render의 callback과 자동/수동 호출도 같은 진행 중 실행을 기다린다.
++    if (inFlightRef.current) {
++      return inFlightRef.current;
+     }
+ 
+-    // 온라인 → 오프라인 전환 로그
+-    if (previousStatus === 'online' && networkStatus === 'offline') {
+-      console.log('📴 [SyncProvider] Network offline → Sync paused');
++    let blockedMessage: string | null = null;
++    if (!databaseReadyRef.current) {
++      blockedMessage = '데이터베이스가 준비되지 않아 동기화할 수 없습니다.';
++    } else if (!authStore.isInitialized || !authStore.isAuthenticated) {
++      blockedMessage = '로그인 준비가 완료된 뒤 동기화할 수 있습니다.';
++    } else if (networkStore.override !== null) {
++      blockedMessage = '네트워크 강제 설정 중에는 동기화할 수 없습니다. 실제 상태로 되돌려 주세요.';
++    } else if (networkStore.realStatus !== 'online') {
++      blockedMessage = '인터넷 연결이 확인된 뒤 동기화할 수 있습니다.';
+     }
+-  }, [networkStatus, executeSync]);
++    if (blockedMessage) {
++      return Promise.resolve({ status: 'blocked', message: blockedMessage });
++    }
+ 
+-  /**
+-   * 주기적 동기화 (선택적)
+-   */
++    let resolveRun!: (result: SyncRunResult) => void;
++    const run = new Promise<SyncRunResult>((resolve) => {
++      resolveRun = resolve;
++    });
++    // React 표시 상태를 갱신하기 전에 실행 소유권을 선점한다.
++    inFlightRef.current = run;
++    previouslyEligibleRef.current = true;
++    setIsSyncing(true);
++
++    (async () => {
++      let result: SyncRunResult;
++      try {
++        await syncData();
++        setLastSyncedAt(new Date());
++        // engine가 반환됐음을 뜻한다. queue 전체 반영 여부는 engine의 결과 계약에 따른다.
++        result = { status: 'completed', message: '동기화가 완료되었습니다.' };
++      } catch {
++        result = { status: 'failed', message: '동기화에 실패했습니다.' };
++      }
++      inFlightRef.current = null;
++      setIsSyncing(false);
++      resolveRun(result);
++    })();
++
++    return run;
++  }, []);
++
++  // 최초 준비 완료, 로그인, 연결 복구, 강제 설정 해제가 같은 시작 경계를 사용한다.
++  useEffect(() => {
++    const wasEligible = previouslyEligibleRef.current;
++    previouslyEligibleRef.current = canSync;
++    if (canSync && !wasEligible) {
++      executeSync();
++    }
++  }, [canSync, executeSync]);
++
+   useEffect(() => {
+     if (!enablePeriodicSync) {
+       return;
+     }
++    const intervalId = setInterval(() => {
++      executeSync();
++    }, syncInterval);
++    return () => clearInterval(intervalId);
++  }, [enablePeriodicSync, syncInterval, executeSync]);
+ 
+-    console.log(`⏰ [SyncProvider] Periodic sync enabled (${syncInterval / 1000}s interval)`);
+-
+-    const intervalId = setInterval(() => {
+-      if (networkStatus === 'online') {
+-        executeSync('Periodic sync');
+-      } else {
+-        console.log('⏭️ [SyncProvider] Skipping periodic sync (offline)');
+-      }
+-    }, syncInterval);
+-
+-    return () => clearInterval(intervalId);
+-  }, [enablePeriodicSync, syncInterval, networkStatus, executeSync]);
+-
+-  /**
+-   * Context Value
+-   */
+-  const value: SyncContextValue = {
+-    isSyncing,
+-    lastSyncedAt,
+-    triggerManualSync,
+-  };
+-
+-  return <SyncContext.Provider value={value}>{children}</SyncContext.Provider>;
++  return (
++    <SyncContext.Provider value={{ isSyncing, lastSyncedAt, triggerManualSync: executeSync }}>
++      {children}
++    </SyncContext.Provider>
++  );
+ }
+--- /dev/null
++++ b/apps/client/tests/app/startup-sync.test.tsx
+@@ -0,0 +1,133 @@
++import React from 'react';
++import { AppState, type AppStateStatus } from 'react-native';
++import { act, render } from '@testing-library/react-native';
++import { beforeEach, afterEach, describe, expect, it, jest } from '@jest/globals';
++import RootLayout from '../../app/_layout';
++import { initializeDatabase } from '@/shared/db';
++import { useAuthStore } from '@/shared/store/auth';
++import { useTripStore } from '@/shared/store/useTripStore';
++import { useGetTrips } from '@/entities/trip';
++import { syncData } from '@/shared/services/sync/engine';
++import { networkStore, useNetworkStore } from '@/shared/store/network';
++
++jest.mock('../../styles/global.css', () => ({}));
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('@/shared/services/auth/token-storage', () => ({}));
++jest.mock('@/shared/db', () => ({ initializeDatabase: jest.fn() }));
++jest.mock('@/shared/services/sync/engine', () => ({ syncData: jest.fn() }));
++jest.mock('@/shared/services/sync/cleanup-job', () => ({ processPendingCleanups: jest.fn() }));
++jest.mock('@/shared/services/offline-map', () => ({ useOfflineMapCleanup: jest.fn() }));
++jest.mock('@/shared/components', () => ({ SessionExpiredBanner: () => null }));
++jest.mock('@/shared/store', () => ({
++  useTripStore:
++    jest.requireActual<typeof import('@/shared/store/useTripStore')>('@/shared/store/useTripStore').useTripStore,
++}));
++jest.mock('@/entities/trip', () => ({ useGetTrips: jest.fn(), selectMainTrip: (trips: { id: string }[]) => trips[0] }));
++jest.mock('@/shared/lib/queryClient', () => ({ queryClient: {} }));
++jest.mock('@tanstack/react-query', () => ({
++  QueryClientProvider: ({ children }: { children: React.ReactNode }) => children,
++}));
++jest.mock('react-native-safe-area-context', () => ({
++  SafeAreaProvider: ({ children }: { children: React.ReactNode }) => children,
++}));
++jest.mock('@rn-primitives/portal', () => ({ PortalHost: () => null }));
++jest.mock('expo-splash-screen', () => ({ preventAutoHideAsync: jest.fn(), hideAsync: jest.fn() }));
++jest.mock('@rnmapbox/maps', () => ({ __esModule: true, default: { setAccessToken: jest.fn() } }));
++jest.mock('expo-router', () => {
++  const Stack = () => null;
++  Stack.Screen = () => null;
++  return { Stack, useRouter: () => ({ replace: jest.fn() }), useSegments: () => ['(tabs)'] };
++});
++
++const databaseMock = jest.mocked(initializeDatabase);
++const syncMock = jest.mocked(syncData);
++const tripsMock = jest.mocked(useGetTrips);
++
++beforeEach(() => {
++  jest.spyOn(networkStore, 'init').mockImplementation(() => undefined);
++  jest.spyOn(networkStore, 'cleanup').mockImplementation(() => undefined);
++  jest.spyOn(networkStore, 'refresh').mockResolvedValue(undefined);
++  jest.spyOn(console, 'log').mockImplementation(() => undefined);
++  jest.spyOn(console, 'error').mockImplementation(() => undefined);
++  useNetworkStore.setState({ realStatus: 'online', overrideStatus: null });
++  useAuthStore.setState({
++    isInitialized: true,
++    isAuthenticated: true,
++    init: async () => {
++      await Promise.resolve();
++    },
++  });
++  useTripStore.setState({ selectedTripId: null });
++  databaseMock.mockResolvedValue(undefined);
++  syncMock.mockResolvedValue(undefined);
++  tripsMock.mockReturnValue({ data: [{ id: 'default-trip' }] } as ReturnType<typeof useGetTrips>);
++});
++afterEach(() => {
++  jest.restoreAllMocks();
++});
++
++describe('Root startup 소비 연결', () => {
++  it('DB 초기화 실패로 Splash 대기를 끝내도 sync는 시작하지 않는다', async () => {
++    databaseMock.mockRejectedValueOnce(new Error('database unavailable'));
++    render(<RootLayout />);
++    await act(async () => {
++      await Promise.resolve();
++    });
++    expect(syncMock).not.toHaveBeenCalled();
++  });
++
++  it('DB 초기화 성공과 auth 준비 뒤 sync를 한 번 시작한다', async () => {
++    let finishDatabase!: () => void;
++    databaseMock.mockReturnValueOnce(
++      new Promise<void>((resolve) => {
++        finishDatabase = resolve;
++      }),
++    );
++    render(<RootLayout />);
++    expect(syncMock).not.toHaveBeenCalled();
++    await act(async () => {
++      finishDatabase();
++    });
++    expect(syncMock).toHaveBeenCalledTimes(1);
++  });
++
++  it('최초 기본 여행을 고른 뒤 사용자 선택은 trips 재조회에 유지된다', async () => {
++    const screen = render(<RootLayout />);
++    await act(async () => {
++      await Promise.resolve();
++    });
++    expect(useTripStore.getState().selectedTripId).toBe('default-trip');
++    act(() => {
++      useTripStore.getState().setSelectedTripId('user-trip');
++    });
++    tripsMock.mockReturnValue({ data: [{ id: 'different-default' }] } as ReturnType<typeof useGetTrips>);
++    screen.rerender(<RootLayout />);
++    expect(useTripStore.getState().selectedTripId).toBe('user-trip');
++  });
++
++  it('background에서 active로 돌아오면 listener를 유지하며 한 번 refresh하고 정리한다', async () => {
++    let onChange!: (state: AppStateStatus) => void;
++    const remove = jest.fn();
++    jest.spyOn(AppState, 'addEventListener').mockImplementation((_event, callback) => {
++      onChange = callback;
++      return { remove };
++    });
++    const screen = render(<RootLayout />);
++    await act(async () => {
++      await Promise.resolve();
++    });
++    act(() => {
++      onChange('background');
++      onChange('active');
++      onChange('active');
++    });
++    expect(networkStore.refresh).toHaveBeenCalledTimes(1);
++    expect(networkStore.cleanup).not.toHaveBeenCalled();
++    screen.unmount();
++    expect(remove).toHaveBeenCalledTimes(1);
++    expect(networkStore.cleanup).toHaveBeenCalledTimes(1);
++  });
++});
+--- /dev/null
++++ b/apps/client/tests/entities/mutation-routing-hooks.test.tsx
+@@ -0,0 +1,85 @@
++import React from 'react';
++import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
++import { act, cleanup, renderHook } from '@testing-library/react-native';
++import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
++import { useUpdateSchedule } from '@/entities/schedule/data/useUpdateSchedule';
++import { useDeleteSchedule } from '@/entities/schedule/data/useDeleteSchedule';
++import { useUpdateExpense } from '@/entities/expense/data/useUpdateExpense';
++import { useDeleteExpense } from '@/entities/expense/data/useDeleteExpense';
++import { ScheduleRepository } from '@/entities/schedule/repository/schedule-repository';
++import { ExpenseRepository } from '@/entities/expense/repository/expense-repository';
++import { OfflineError } from '@/shared/services/offline-prep/errors';
++
++jest.mock('@/entities/schedule/repository/schedule-repository', () => ({
++  ScheduleRepository: { update: jest.fn(), delete: jest.fn() },
++}));
++jest.mock('@/entities/expense/repository/expense-repository', () => ({
++  ExpenseRepository: { update: jest.fn(), delete: jest.fn() },
++}));
++
++let queryClient: QueryClient;
++const blocked = new OfflineError('인터넷 연결을 아직 확인하지 못했어요.', { action: 'ONLINE_REQUIRED' });
++
++function Wrapper({ children }: { children: React.ReactNode }) {
++  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
++}
++
++beforeEach(() => {
++  queryClient = new QueryClient({ defaultOptions: { mutations: { retry: false } } });
++});
++
++afterEach(() => {
++  cleanup();
++  queryClient.clear();
++  jest.restoreAllMocks();
++});
++
++describe('mutation hook의 대상 여행과 제한 오류 전달', () => {
++  it('일정 수정은 tripId를 전달하고 Router 거부를 그대로 반환해 성공 후 처리를 실행하지 않는다', async () => {
++    jest.mocked(ScheduleRepository.update).mockRejectedValue(blocked);
++    const invalidate = jest.spyOn(queryClient, 'invalidateQueries');
++    const { result } = renderHook(() => useUpdateSchedule(), { wrapper: Wrapper });
++
++    await act(async () => {
++      await expect(result.current.mutateAsync({ id: 'schedule-b', tripId: 'trip-b', data: { title: '작성 중 입력' } }))
++        .rejects.toBe(blocked);
++    });
++
++    expect(ScheduleRepository.update).toHaveBeenCalledWith('schedule-b', 'trip-b', { title: '작성 중 입력' });
++    expect(invalidate).not.toHaveBeenCalled();
++  });
++
++  it('일정 삭제는 Local 조회 없이 분기할 수 있도록 소속 여행을 전달한다', async () => {
++    jest.mocked(ScheduleRepository.delete).mockResolvedValue({ id: 'schedule-b', deletedAt: '2026-09-17T00:00:00Z' });
++    const { result } = renderHook(() => useDeleteSchedule(), { wrapper: Wrapper });
++
++    await act(async () => {
++      await result.current.mutateAsync({ id: 'schedule-b', tripId: 'trip-b' });
++    });
++
++    expect(ScheduleRepository.delete).toHaveBeenCalledWith('schedule-b', 'trip-b');
++  });
++
++  it('경비 수정은 요청 body와 분기에 사용할 tripId를 나누어 전달한다', async () => {
++    jest.mocked(ExpenseRepository.update).mockRejectedValue(blocked);
++    const { result } = renderHook(() => useUpdateExpense(), { wrapper: Wrapper });
++
++    await act(async () => {
++      await expect(result.current.mutateAsync({ id: 'expense-b', tripId: 'trip-b', data: { title: '작성 중 입력' } }))
++        .rejects.toBe(blocked);
++    });
++
++    expect(ExpenseRepository.update).toHaveBeenCalledWith('expense-b', 'trip-b', { title: '작성 중 입력' });
++  });
++
++  it('경비 삭제의 제한 오류도 caller에게 그대로 전달한다', async () => {
++    jest.mocked(ExpenseRepository.delete).mockRejectedValue(blocked);
++    const { result } = renderHook(() => useDeleteExpense(), { wrapper: Wrapper });
++
++    await act(async () => {
++      await expect(result.current.mutateAsync({ id: 'expense-b', tripId: 'trip-b' })).rejects.toBe(blocked);
++    });
++
++    expect(ExpenseRepository.delete).toHaveBeenCalledWith('expense-b', 'trip-b');
++  });
++});
+--- /dev/null
++++ b/apps/client/tests/entities/repository-routing.test.ts
+@@ -0,0 +1,162 @@
++import { beforeEach, describe, expect, it, jest } from '@jest/globals';
++import { TripRepository } from '@/entities/trip/repository/trip-repository';
++import { ScheduleRepository } from '@/entities/schedule/repository/schedule-repository';
++import { ExpenseRepository } from '@/entities/expense/repository/expense-repository';
++import * as TripLocal from '@/entities/trip/lib/trip-local';
++import * as TripApi from '@/entities/trip/api/trips';
++import * as ScheduleLocal from '@/entities/schedule/lib/schedule-local';
++import * as ScheduleApi from '@/entities/schedule/api/schedules';
++import * as ExpenseLocal from '@/entities/expense/lib/expense-local';
++import * as ExpenseApi from '@/entities/expense/api/expenses';
++import { getTripActivationStatus, hasAnyActivatedTrip } from '@/shared/services/offline-prep/metadata';
++import { useNetworkStore } from '@/shared/store/network';
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('@/shared/services/offline-prep/metadata', () => ({
++  getTripActivationStatus: jest.fn(),
++  hasAnyActivatedTrip: jest.fn(),
++}));
++jest.mock('@/entities/trip/lib/trip-local', () => ({
++  getTripsLocal: jest.fn(),
++  getTripByIdLocal: jest.fn(),
++  createTripLocal: jest.fn(),
++  updateTripLocal: jest.fn(),
++  deleteTripLocal: jest.fn(),
++}));
++jest.mock('@/entities/trip/api/trips', () => ({
++  fetchAllTrips: jest.fn(),
++  fetchCreateTrip: jest.fn(),
++  fetchUpdateTrip: jest.fn(),
++  fetchDeleteTrip: jest.fn(),
++}));
++jest.mock('@/entities/schedule/lib/schedule-local', () => ({
++  getScheduleTripIdLocal: jest.fn(),
++  updateScheduleLocal: jest.fn(),
++  deleteScheduleLocal: jest.fn(),
++}));
++jest.mock('@/entities/schedule/api/schedules', () => ({
++  fetchUpdateSchedule: jest.fn(),
++  fetchDeleteSchedule: jest.fn(),
++}));
++jest.mock('@/entities/expense/lib/expense-local', () => ({
++  getExpenseTripIdLocal: jest.fn(),
++  getTripIdByScheduleIdLocal: jest.fn(),
++  updateExpenseLocal: jest.fn(),
++  deleteExpenseLocal: jest.fn(),
++  getExpensesByScheduleIdLocal: jest.fn(),
++}));
++jest.mock('@/entities/expense/api/expenses', () => ({
++  fetchUpdateExpense: jest.fn(),
++  fetchDeleteExpense: jest.fn(),
++  fetchExpensesByScheduleId: jest.fn(),
++}));
++
++const inactiveTrip = { id: 'trip-b', name: '비활성 여행' } as Awaited<ReturnType<typeof TripRepository.create>>;
++const createTrip = { id: 'trip-b' } as Parameters<typeof TripRepository.create>[0];
++const schedule = { id: 'schedule-b', tripId: 'trip-b' } as Awaited<ReturnType<typeof ScheduleRepository.update>>;
++const expense = { id: 'expense-b', tripId: 'trip-b' } as Awaited<ReturnType<typeof ExpenseRepository.update>>;
++const deleted = { id: 'deleted-b', deletedAt: '2026-09-17T00:00:00Z' };
++
++beforeEach(() => {
++  useNetworkStore.setState({ realStatus: 'online', overrideStatus: null });
++  jest.mocked(hasAnyActivatedTrip).mockResolvedValue(true);
++  jest.mocked(getTripActivationStatus).mockImplementation(async (id) => id === 'trip-a');
++  jest.mocked(TripApi.fetchAllTrips).mockResolvedValue({ data: [inactiveTrip], success: true });
++  jest.mocked(TripApi.fetchCreateTrip).mockResolvedValue(inactiveTrip);
++  jest.mocked(TripApi.fetchUpdateTrip).mockResolvedValue(inactiveTrip);
++  jest.mocked(TripApi.fetchDeleteTrip).mockResolvedValue(deleted);
++  jest.mocked(ScheduleApi.fetchUpdateSchedule).mockResolvedValue(schedule);
++  jest.mocked(ScheduleApi.fetchDeleteSchedule).mockResolvedValue(deleted);
++  jest.mocked(ExpenseApi.fetchUpdateExpense).mockResolvedValue(expense);
++  jest.mocked(ExpenseApi.fetchDeleteExpense).mockResolvedValue(deleted);
++  jest.mocked(ExpenseApi.fetchExpensesByScheduleId).mockResolvedValue([expense]);
++});
++
++describe('다른 여행 A가 활성화된 동안 비활성 여행 B의 요청', () => {
++  it('단건 조회는 B의 서버 결과를 반환한다', async () => {
++    await expect(TripRepository.getById('trip-b')).resolves.toEqual(inactiveTrip);
++    expect(TripLocal.getTripByIdLocal).not.toHaveBeenCalled();
++  });
++
++  it('수정은 B의 서버 결과를 반환한다', async () => {
++    await expect(TripRepository.update('trip-b', { name: '수정' })).resolves.toEqual(inactiveTrip);
++    expect(TripLocal.updateTripLocal).not.toHaveBeenCalled();
++  });
++
++  it('삭제는 B의 서버 결과를 반환한다', async () => {
++    await expect(TripRepository.delete('trip-b')).resolves.toEqual(deleted);
++    expect(TripLocal.deleteTripLocal).not.toHaveBeenCalled();
++  });
++
++  it('전체 목록은 기존 전역 활성 여행 Local 조회를 유지한다', async () => {
++    jest.mocked(TripLocal.getTripsLocal).mockResolvedValue([inactiveTrip]);
++    await expect(TripRepository.getAll()).resolves.toEqual([inactiveTrip]);
++    expect(TripApi.fetchAllTrips).not.toHaveBeenCalled();
++  });
++
++  it('새 여행 B 생성은 Local 생성 대신 서버에 client ID를 그대로 전달한다', async () => {
++    await expect(TripRepository.create(createTrip)).resolves.toEqual(inactiveTrip);
++    expect(TripApi.fetchCreateTrip).toHaveBeenCalledWith(createTrip);
++    expect(TripLocal.createTripLocal).not.toHaveBeenCalled();
++  });
++});
++
++const inactiveChildCases = [
++  {
++    name: '일정 수정',
++    run: () => ScheduleRepository.update('schedule-b', 'trip-b', { title: '수정' }),
++    result: schedule,
++    remote: ScheduleApi.fetchUpdateSchedule,
++    local: ScheduleLocal.updateScheduleLocal,
++  },
++  {
++    name: '일정 삭제',
++    run: () => ScheduleRepository.delete('schedule-b', 'trip-b'),
++    result: deleted,
++    remote: ScheduleApi.fetchDeleteSchedule,
++    local: ScheduleLocal.deleteScheduleLocal,
++  },
++  {
++    name: '경비 수정',
++    run: () => ExpenseRepository.update('expense-b', 'trip-b', { title: '수정' }),
++    result: expense,
++    remote: ExpenseApi.fetchUpdateExpense,
++    local: ExpenseLocal.updateExpenseLocal,
++  },
++  {
++    name: '경비 삭제',
++    run: () => ExpenseRepository.delete('expense-b', 'trip-b'),
++    result: deleted,
++    remote: ExpenseApi.fetchDeleteExpense,
++    local: ExpenseLocal.deleteExpenseLocal,
++  },
++  {
++    name: '일정별 경비 조회',
++    run: () => ExpenseRepository.getByScheduleId('schedule-b', 'trip-b'),
++    result: [expense],
++    remote: ExpenseApi.fetchExpensesByScheduleId,
++    local: ExpenseLocal.getExpensesByScheduleIdLocal,
++  },
++];
++
++describe.each(inactiveChildCases)('Local에 없는 비활성 여행의 $name', ({ run, result, remote, local }) => {
++  it('알고 있는 소속 여행으로 서버를 선택해 결과를 반환한다', async () => {
++    await expect(run()).resolves.toEqual(result);
++    expect(getTripActivationStatus).toHaveBeenCalledWith('trip-b');
++    expect(remote).toHaveBeenCalledTimes(1);
++    expect(local).not.toHaveBeenCalled();
++    expect(ScheduleLocal.getScheduleTripIdLocal).not.toHaveBeenCalled();
++    expect(ExpenseLocal.getExpenseTripIdLocal).not.toHaveBeenCalled();
++    expect(ExpenseLocal.getTripIdByScheduleIdLocal).not.toHaveBeenCalled();
++  });
++
++  it.each(['offline', 'unknown'] as const)('%s에서는 서버·Local 동작을 시작하지 않는다', async (realStatus) => {
++    useNetworkStore.setState({ realStatus });
++    await expect(run()).rejects.toMatchObject({ name: 'OfflineError' });
++    expect(remote).not.toHaveBeenCalled();
++    expect(local).not.toHaveBeenCalled();
++  });
++});
+--- /dev/null
++++ b/apps/client/tests/entities/trip-api-contract.test.ts
+@@ -0,0 +1,51 @@
++import { beforeEach, describe, expect, it, jest } from '@jest/globals';
++import apiClient from '@/shared/api/fetcher';
++import { fetchCreateTrip, fetchUpdateTrip } from '@/entities/trip/api/trips';
++
++jest.mock('@/shared/api/fetcher', () => ({
++  __esModule: true,
++  default: { put: jest.fn(), patch: jest.fn(), post: jest.fn() },
++}));
++
++const createRequest = {
++  id: '01ARZ3NDEKTSV4RRFFQ69G5FAV',
++  name: '여행',
++  destination: 'Tokyo',
++  country: 'Japan',
++  baseCurrency: 'JPY',
++  latitude: null,
++  longitude: null,
++  cityId: null,
++  startDate: '2026-09-17T00:00:00Z',
++  endDate: '2026-09-18T00:00:00Z',
++};
++
++const trip = {
++  ...createRequest,
++  userId: null,
++  createdAt: '2026-09-17T00:00:00Z',
++  updatedAt: '2026-09-17T00:00:00Z',
++};
++
++beforeEach(() => {
++  jest.mocked(apiClient.put).mockResolvedValue({ success: true, data: trip });
++  jest.mocked(apiClient.post).mockResolvedValue({ success: true, data: trip });
++});
++
++describe('기존 Trip 서버 계약', () => {
++  it('부분 수정 payload를 서버의 PUT /api/trips/:id에 보내고 검증된 여행을 반환한다', async () => {
++    await expect(fetchUpdateTrip(trip.id, { name: '여행' })).resolves.toEqual(trip);
++    expect(apiClient.put).toHaveBeenCalledWith(`/api/trips/${trip.id}`, { name: '여행' });
++    expect(apiClient.patch).not.toHaveBeenCalled();
++  });
++
++  it('생성 요청의 client ID를 서버에 그대로 전달한다', async () => {
++    await expect(fetchCreateTrip(createRequest)).resolves.toEqual(trip);
++    expect(apiClient.post).toHaveBeenCalledWith('/api/trips', createRequest);
++  });
++
++  it('서버가 잘못된 응답을 반환하면 성공한 여행으로 취급하지 않는다', async () => {
++    jest.mocked(apiClient.put).mockResolvedValue({ success: true, data: { id: trip.id } });
++    await expect(fetchUpdateTrip(trip.id, { name: '여행' })).rejects.toThrow();
++  });
++});
+--- /dev/null
++++ b/apps/client/tests/entities/trip-list-recovery.test.tsx
+@@ -0,0 +1,49 @@
++import React from 'react';
++import { act, renderHook, waitFor } from '@testing-library/react-native';
++import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
++import { useGetTrips } from '@/entities/trip/data/useGetTrips';
++import { TripRepository } from '@/entities/trip/repository/trip-repository';
++import { networkStore, useNetworkStore } from '@/shared/store/network';
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('@/entities/trip/repository/trip-repository', () => ({ TripRepository: { getAll: jest.fn() } }));
++
++const getAll = jest.mocked(TripRepository.getAll);
++let client: QueryClient;
++function Wrapper({ children }: { children: React.ReactNode }) {
++  return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
++}
++
++beforeEach(() => {
++  getAll.mockReset();
++  client = new QueryClient({ defaultOptions: { queries: { retry: false, gcTime: 0, refetchOnReconnect: false } } });
++  useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });
++});
++afterEach(() => { client.clear(); networkStore.cleanup(); });
++
++it('초기 unknown에서 실패한 목록은 실제 online 관측 후 다시 조회한다', async () => {
++  getAll.mockRejectedValueOnce(new Error('아직 연결을 확인하지 못했어요')).mockResolvedValueOnce([]);
++  const { result } = renderHook(() => { const query = useGetTrips(); return { isError: query.isError, isSuccess: query.isSuccess }; }, { wrapper: Wrapper });
++  await waitFor(() => expect(result.current.isError).toBe(true));
++  act(() => networkStore.setOverride('online'));
++  expect(getAll).toHaveBeenCalledTimes(1);
++  act(() => useNetworkStore.setState({ realStatus: 'online' }));
++  await waitFor(() => expect(result.current.isSuccess).toBe(true));
++  expect(getAll).toHaveBeenCalledTimes(2);
++});
++
++it('실제 offline→online 전환은 이미 전송한 목록 조회를 취소하거나 중복 전송하지 않는다', async () => {
++  useNetworkStore.setState({ realStatus: 'online' });
++  let finish!: (value: Awaited<ReturnType<typeof TripRepository.getAll>>) => void;
++  getAll.mockReturnValueOnce(new Promise((resolve) => { finish = resolve; }));
++  const { result } = renderHook(() => { const query = useGetTrips(); return { isSuccess: query.isSuccess }; }, { wrapper: Wrapper });
++  await waitFor(() => expect(getAll).toHaveBeenCalledTimes(1));
++  act(() => useNetworkStore.setState({ realStatus: 'offline' }));
++  act(() => useNetworkStore.setState({ realStatus: 'online' }));
++  await act(async () => finish([]));
++  await waitFor(() => expect(result.current.isSuccess).toBe(true));
++  expect(getAll).toHaveBeenCalledTimes(1);
++});
+--- /dev/null
++++ b/apps/client/tests/features/debug/manual-sync.test.tsx
+@@ -0,0 +1,136 @@
++import React from 'react';
++import { Alert } from 'react-native';
++import { act, fireEvent, render } from '@testing-library/react-native';
++import { beforeEach, afterEach, describe, expect, it, jest } from '@jest/globals';
++import DebugScreen from '@/features/debug/ui/DebugScreen';
++import { SyncProvider } from '@/shared/services/sync/provider';
++import { useNetworkStore } from '@/shared/store/network';
++import { useAuthStore } from '@/shared/store/auth';
++import { syncData as runSyncData } from '@/shared/services/sync/engine';
++import { db } from '@/shared/db';
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('@/shared/services/auth/token-storage', () => ({}));
++jest.mock('@/shared/services/sync/engine', () => {
++  const engineRun = jest.fn<() => Promise<void>>();
++  return {
++    syncData: engineRun,
++    triggerSync: async () => {
++      try {
++        await engineRun();
++        return { success: true, message: '동기화가 완료되었습니다.' };
++      } catch {
++        return { success: false, message: '동기화에 실패했습니다.' };
++      }
++    },
++  };
++});
++jest.mock('@/shared/services/sync/queue', () => ({
++  getSyncQueueStats: jest.fn(async () => ({ pending: 0, inProgress: 0, failed: 0, total: 0 })),
++}));
++jest.mock('@/shared/db', () => ({ db: { select: jest.fn(() => ({ from: () => ({ all: async () => [] }) })) } }));
++jest.mock('@/shared/components', () => {
++  const { View } = jest.requireActual<typeof import('react-native')>('react-native');
++  return { MobileHeader: () => null, Container: View, Stack: View };
++});
++jest.mock('@repo/ui', () => {
++  const ReactRuntime = jest.requireActual<typeof import('react')>('react');
++  const { Pressable, Text } = jest.requireActual<typeof import('react-native')>('react-native');
++  return {
++    Pressable: ({ children, ...props }: { children: React.ReactNode }) =>
++      ReactRuntime.createElement(
++        Pressable,
++        props,
++        typeof children === 'string' ? ReactRuntime.createElement(Text, null, children) : children,
++      ),
++  };
++});
++jest.mock('lucide-react-native', () => ({
++  ArrowLeft: () => null,
++  Database: () => null,
++  Wifi: () => null,
++  WifiOff: () => null,
++  RotateCcw: () => null,
++  RefreshCw: () => null,
++  Upload: () => null,
++}));
++jest.mock('expo-router', () => ({ router: { back: jest.fn() } }));
++jest.mock('@rnmapbox/maps', () => ({ __esModule: true, default: {} }));
++jest.mock('@/features/debug/ui/DataInspectorView', () => ({ DataInspectorView: () => null }));
++jest.mock('@/features/debug/ui/ToolsView', () => ({ ToolsView: () => null }));
++
++const syncMock = jest.mocked(runSyncData);
++const selectMock = jest.mocked(db.select);
++
++beforeEach(() => {
++  useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });
++  useAuthStore.setState({ isInitialized: true, isAuthenticated: true });
++  syncMock.mockResolvedValue(undefined);
++  jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
++  jest.spyOn(console, 'log').mockImplementation(() => undefined);
++});
++afterEach(() => {
++  jest.restoreAllMocks();
++});
++
++async function openDebug() {
++  const screen = render(
++    <SyncProvider isDatabaseReady={true}>
++      <DebugScreen />
++    </SyncProvider>,
++  );
++  await act(async () => {
++    await Promise.resolve();
++  });
++  return screen;
++}
++
++describe('실제 DebugScreen → Dashboard 버튼 → Provider 실행 연결', () => {
++  it.each([
++    { realStatus: 'unknown', overrideStatus: null },
++    { realStatus: 'offline', overrideStatus: 'online' },
++    { realStatus: 'online', overrideStatus: 'offline' },
++  ] as const)('차단 조건 $realStatus/$overrideStatus은 성공 안내와 재조회를 하지 않는다', async (state) => {
++    useNetworkStore.setState(state);
++    const screen = await openDebug();
++    const initialReads = selectMock.mock.calls.length;
++    await act(async () => {
++      fireEvent.press(screen.getByText('전체 동기화 (Push + Pull)'));
++    });
++    expect(syncMock).not.toHaveBeenCalled();
++    expect(Alert.alert).toHaveBeenCalledWith('동기화할 수 없습니다', expect.any(String));
++    expect(selectMock).toHaveBeenCalledTimes(initialReads);
++  });
++
++  it('허용된 수동 완료 때 엔진을 실행하고 DB를 새로 읽은 뒤 성공을 안내한다', async () => {
++    const screen = await openDebug();
++    await act(async () => {
++      useNetworkStore.setState({ realStatus: 'online' });
++    });
++    syncMock.mockClear();
++    const initialReads = selectMock.mock.calls.length;
++    await act(async () => {
++      fireEvent.press(screen.getByText('전체 동기화 (Push + Pull)'));
++    });
++    expect(syncMock).toHaveBeenCalledTimes(1);
++    expect(selectMock).toHaveBeenCalledTimes(initialReads + 6);
++    expect(Alert.alert).toHaveBeenCalledWith('✅ 성공', '동기화가 완료되었습니다.');
++  });
++
++  it('엔진 reject는 실패 안내로 전달되고 성공 후 DB 재조회는 하지 않는다', async () => {
++    const screen = await openDebug();
++    await act(async () => {
++      useNetworkStore.setState({ realStatus: 'online' });
++    });
++    syncMock.mockRejectedValueOnce(new Error('failed'));
++    const initialReads = selectMock.mock.calls.length;
++    await act(async () => {
++      fireEvent.press(screen.getByText('전체 동기화 (Push + Pull)'));
++    });
++    expect(Alert.alert).toHaveBeenCalledWith('❌ 실패', '동기화에 실패했습니다.');
++    expect(selectMock).toHaveBeenCalledTimes(initialReads);
++  });
++});
+--- /dev/null
++++ b/apps/client/tests/features/schedule/useLocationSearch-network.test.tsx
+@@ -0,0 +1,76 @@
++import React from 'react';
++import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
++import { act, renderHook, waitFor } from '@testing-library/react-native';
++import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
++import apiClient from '@/shared/api/fetcher';
++import { useLocationSearch } from '@/features/schedule/create-schedule/useLocationSearch';
++import { networkStore, useNetworkStore } from '@/shared/store/network';
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('@/shared/api/fetcher', () => ({ __esModule: true, default: { post: jest.fn(), get: jest.fn() } }));
++jest.mock('@/shared/hooks/useDebounce', () => ({ useDebounce: (value: unknown) => value }));
++
++const postMock = jest.mocked(apiClient.post);
++const getMock = jest.mocked(apiClient.get);
++const response = { data: { results: [{ id: 'place', placeId: 'place', name: 'Place', address: 'Address' }] } };
++let client: QueryClient;
++
++function Wrapper({ children }: { children: React.ReactNode }) {
++  return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
++}
++
++beforeEach(() => {
++  client = new QueryClient({ defaultOptions: { queries: { retry: false, gcTime: 0 } } });
++  useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });
++  postMock.mockResolvedValue(response);
++  getMock.mockResolvedValue({ id: 'place', name: 'Place', address: 'Address', latitude: 1, longitude: 2 });
++});
++
++afterEach(() => {
++  client.clear();
++  networkStore.cleanup();
++  jest.restoreAllMocks();
++});
++
++describe('장소 검색의 실제 네트워크 요청 경계', () => {
++  it.each(['unknown', 'offline'] as const)('강제 online이어도 실제 %s에서는 검색 요청을 시작하지 않는다', async (realStatus) => {
++    useNetworkStore.setState({ realStatus, overrideStatus: 'online' });
++    const { result } = renderHook(() => useLocationSearch(), { wrapper: Wrapper });
++    await act(async () => result.current.handleSearch('Paris'));
++    expect(postMock).not.toHaveBeenCalled();
++    expect(getMock).not.toHaveBeenCalled();
++    expect(result.current.searchQuery).toBe('Paris');
++  });
++
++  it('offline 동안 입력과 캐시는 유지하면서 이전 결과의 서비스 접근을 제한한다', async () => {
++    useNetworkStore.setState({ realStatus: 'online' });
++    const { result } = renderHook(() => useLocationSearch(), { wrapper: Wrapper });
++    act(() => result.current.handleSearch('Paris'));
++    await waitFor(() => expect(result.current.results).toHaveLength(1));
++    const cached = client.getQueryCache().getAll()[0].state.data;
++    act(() => useNetworkStore.setState({ realStatus: 'offline' }));
++    expect(result.current.results).toEqual([]);
++    expect(result.current.searchQuery).toBe('Paris');
++    expect(client.getQueryCache().getAll()[0].state.data).toBe(cached);
++    expect(postMock).toHaveBeenCalledTimes(1);
++  });
++
++  it('검색 전송 뒤 unknown 관측이 오면 후속 상세 요청을 새로 시작하지 않는다', async () => {
++    useNetworkStore.setState({ realStatus: 'online' });
++    let resolveSearch!: (value: typeof response) => void;
++    postMock.mockReturnValueOnce(new Promise((resolve) => { resolveSearch = resolve; }));
++    const { result } = renderHook(() => useLocationSearch(), { wrapper: Wrapper });
++    act(() => result.current.handleSearch('Paris'));
++    await waitFor(() => expect(postMock).toHaveBeenCalledTimes(1));
++    await act(async () => {
++      useNetworkStore.setState({ realStatus: 'unknown' });
++      resolveSearch(response);
++    });
++    await waitFor(() => expect(client.isFetching()).toBe(0));
++    expect(getMock).not.toHaveBeenCalled();
++    expect(result.current.searchQuery).toBe('Paris');
++  });
++});
+--- /dev/null
++++ b/apps/client/tests/screens/detail-content-access.test.tsx
+@@ -0,0 +1,234 @@
++import React from 'react';
++import { act, fireEvent, render } from '@testing-library/react-native';
++import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
++import ScheduleDetailScreen from '@/screens/ScheduleDetailScreen';
++import ExpenseDetailScreen from '@/screens/ExpenseDetailScreen';
++import { useNetworkStore } from '@/shared/store/network';
++import { useTripStore } from '@/shared/store/useTripStore';
++import { useGetTripActivation, useGetActiveTrip } from '@/entities/trip/data/useGetTripActivation';
++import { useGetScheduleById } from '@/entities/schedule/data';
++import { useGetSchedules } from '@/entities/schedule';
++import { useGetScheduleExpenses, useGetTripExpenses } from '@/entities/expense';
++import { useRouter } from 'expo-router';
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('@/entities/trip/data/useGetTripActivation', () => ({
++  useGetTripActivation: jest.fn(),
++  useGetActiveTrip: jest.fn(),
++}));
++jest.mock('@/entities/schedule/data', () => ({ useGetScheduleById: jest.fn() }));
++jest.mock('@/entities/schedule', () => ({ useGetSchedules: jest.fn() }));
++jest.mock('@/entities/expense', () => ({ useGetScheduleExpenses: jest.fn(), useGetTripExpenses: jest.fn() }));
++jest.mock('@/features/schedule/schedule-expense-list', () => ({ ScheduleExpenseList: () => null }));
++jest.mock('@/shared/components', () => {
++  const ReactRuntime = jest.requireActual<typeof import('react')>('react');
++  const { View, Pressable, Text } = jest.requireActual<typeof import('react-native')>('react-native');
++  return {
++    Container: View,
++    Stack: View,
++    MobileHeader: ({ title, onLeftPress }: { title: string; onLeftPress: () => void }) =>
++      ReactRuntime.createElement(Pressable, { onPress: onLeftPress }, ReactRuntime.createElement(Text, null, title)),
++  };
++});
++jest.mock('@repo/ui', () => {
++  const ReactRuntime = jest.requireActual<typeof import('react')>('react');
++  const { View, Pressable, Text } = jest.requireActual<typeof import('react-native')>('react-native');
++  return {
++    Card: View,
++    Separator: View,
++    Pressable: ({ children, ...props }: { children: React.ReactNode }) =>
++      ReactRuntime.createElement(
++        Pressable,
++        props,
++        typeof children === 'string' ? ReactRuntime.createElement(Text, null, children) : children,
++      ),
++  };
++});
++jest.mock('lucide-react-native', () => ({
++  MapPin: () => null,
++  Clock: () => null,
++  Wallet: () => null,
++  ChevronLeft: () => null,
++  Tag: () => null,
++  Calendar: () => null,
++  Receipt: () => null,
++  AlertCircle: () => null,
++  WifiOff: () => null,
++  Lock: () => null,
++}));
++jest.mock('expo-router', () => ({
++  useLocalSearchParams: () => ({ id: 'expense', tripId: 'inactive' }),
++  useRouter: jest.fn(),
++}));
++
++const success = { isError: false, error: null };
++const schedule = {
++  id: 'schedule',
++  tripId: 'inactive',
++  title: '일정 서버 캐시',
++  scheduledAt: '2026-09-17T12:00:00Z',
++  location: 'Paris',
++};
++const expense = {
++  id: 'expense',
++  tripId: 'inactive',
++  title: '경비 서버 캐시',
++  amount: '12',
++  currency: 'USD',
++  category: '식사',
++  date: '2026-09-17T12:00:00Z',
++  scheduleId: 'schedule',
++};
++const firstRefetch = jest.fn<(options?: { cancelRefetch: boolean }) => Promise<typeof success>>();
++const secondRefetch = jest.fn<(options?: { cancelRefetch: boolean }) => Promise<typeof success>>();
++const goBack = jest.fn();
++const replaceRoute = jest.fn();
++
++beforeEach(() => {
++  useNetworkStore.setState({ realStatus: 'online', overrideStatus: null, checkStatus: 'checking' });
++  useTripStore.setState({ selectedTripId: 'inactive' });
++  jest.mocked(useGetTripActivation).mockReturnValue({ data: null } as ReturnType<typeof useGetTripActivation>);
++  jest.mocked(useGetActiveTrip).mockReturnValue({ data: { tripId: 'active' } } as ReturnType<typeof useGetActiveTrip>);
++  jest
++    .mocked(useRouter)
++    .mockReturnValue({ back: goBack, push: jest.fn(), replace: replaceRoute } as unknown as ReturnType<
++      typeof useRouter
++    >);
++  firstRefetch.mockReset().mockResolvedValue(success);
++  secondRefetch.mockReset().mockResolvedValue(success);
++  const query = { isLoading: false, isError: false };
++  jest
++    .mocked(useGetScheduleById)
++    .mockReturnValue({ ...query, data: schedule, refetch: firstRefetch } as unknown as ReturnType<
++      typeof useGetScheduleById
++    >);
++  jest
++    .mocked(useGetScheduleExpenses)
++    .mockReturnValue({ ...query, data: [expense], refetch: secondRefetch } as unknown as ReturnType<
++      typeof useGetScheduleExpenses
++    >);
++  jest
++    .mocked(useGetTripExpenses)
++    .mockReturnValue({ ...query, data: [expense], refetch: firstRefetch } as unknown as ReturnType<
++      typeof useGetTripExpenses
++    >);
++  jest
++    .mocked(useGetSchedules)
++    .mockReturnValue({ ...query, data: [schedule], refetch: secondRefetch } as unknown as ReturnType<
++      typeof useGetSchedules
++    >);
++});
++afterEach(() => {
++  jest.restoreAllMocks();
++});
++
++const cases = [
++  {
++    name: '일정',
++    title: '일정 서버 캐시',
++    header: '일정 상세',
++    activeRoute: '/(tabs)/schedules',
++    component: () => (
++      <ScheduleDetailScreen
++        scheduleId='schedule'
++        tripId='inactive'
++        scheduledAt={schedule.scheduledAt}
++        onBack={goBack}
++      />
++    ),
++  },
++  {
++    name: '경비',
++    title: '경비 서버 캐시',
++    header: '경비 상세',
++    activeRoute: '/(tabs)/expenses',
++    component: () => <ExpenseDetailScreen />,
++  },
++];
++
++describe.each(cases)('$name 상세 화면의 실제 캐시 제한·복구 연결', ({ title, header, activeRoute, component }) => {
++  it('offline/unknown에서는 캐시를 숨기고 두 조회가 성공한 뒤 내용과 복구 안내를 연다', async () => {
++    const screen = render(component());
++    expect(screen.getByText(title)).toBeTruthy();
++    act(() => {
++      useNetworkStore.setState({ realStatus: 'offline' });
++    });
++    expect(screen.queryByText(title)).toBeNull();
++    expect(screen.getByText(header)).toBeTruthy();
++    act(() => {
++      useNetworkStore.setState({ realStatus: 'unknown' });
++    });
++    expect(screen.queryByText(title)).toBeNull();
++    let finishSecond!: (result: typeof success) => void;
++    secondRefetch.mockReturnValueOnce(
++      new Promise((resolve) => {
++        finishSecond = resolve;
++      }),
++    );
++    await act(async () => {
++      useNetworkStore.setState({ realStatus: 'online' });
++    });
++    expect(firstRefetch).toHaveBeenCalledTimes(1);
++    expect(secondRefetch).toHaveBeenCalledTimes(1);
++    expect(firstRefetch).toHaveBeenCalledWith({ cancelRefetch: false });
++    expect(secondRefetch).toHaveBeenCalledWith({ cancelRefetch: false });
++    expect(screen.queryByText(title)).toBeNull();
++    await act(async () => {
++      finishSecond(success);
++    });
++    expect(screen.getByText(title)).toBeTruthy();
++    expect(screen.getByText('연결이 복구되어 여행 내용을 다시 불러왔어요.')).toBeTruthy();
++    expect(useTripStore.getState().selectedTripId).toBe('inactive');
++  });
++
++  it.each([firstRefetch, secondRefetch])(
++    '어느 조회든 실패하면 cached 내용을 열지 않고 재시도 성공 후 복구한다',
++    async (failedQuery) => {
++      const screen = render(component());
++      act(() => {
++        useNetworkStore.setState({ realStatus: 'offline' });
++      });
++      failedQuery.mockResolvedValueOnce({ isError: true, error: null });
++      await act(async () => {
++        useNetworkStore.setState({ realStatus: 'online' });
++      });
++      expect(screen.queryByText(title)).toBeNull();
++      expect(screen.getByText('여행 내용을 불러오지 못했어요. 다시 시도해주세요.')).toBeTruthy();
++      await act(async () => {
++        fireEvent.press(screen.getByText('다시 불러오기'));
++      });
++      expect(screen.getByText(title)).toBeTruthy();
++      expect(firstRefetch).toHaveBeenCalledTimes(2);
++      expect(secondRefetch).toHaveBeenCalledTimes(2);
++    },
++  );
++
++  it.each(['offline', 'unknown'] as const)('활성 Local 여행은 %s에서도 상세를 유지한다', (realStatus) => {
++    jest
++      .mocked(useGetTripActivation)
++      .mockReturnValue({ data: { isActivated: true } } as ReturnType<typeof useGetTripActivation>);
++    useNetworkStore.setState({ realStatus });
++    const screen = render(component());
++    expect(screen.getByText(title)).toBeTruthy();
++    expect(firstRefetch).not.toHaveBeenCalled();
++  });
++
++  it('일반 header 뒤로가기는 기존 경로 이동을 유지한다', () => {
++    const screen = render(component());
++    fireEvent.press(screen.getByText(header));
++    expect(goBack).toHaveBeenCalledTimes(1);
++    expect(replaceRoute).not.toHaveBeenCalled();
++  });
++
++  it('활성 여행으로 돌아가기는 여행 선택을 바꾸고 상세 경로도 닫는다', () => {
++    useNetworkStore.setState({ realStatus: 'offline' });
++    const screen = render(component());
++    fireEvent.press(screen.getByText('활성 여행으로 돌아가기'));
++    expect(useTripStore.getState().selectedTripId).toBe('active');
++    expect(replaceRoute).toHaveBeenCalledWith(activeRoute);
++    expect(goBack).not.toHaveBeenCalled();
++  });
++});
+--- /dev/null
++++ b/apps/client/tests/shared/policy/content-query-concurrency.test.tsx
+@@ -0,0 +1,103 @@
++import type { PropsWithChildren } from 'react';
++import { Text, View } from 'react-native';
++import { act, render, waitFor } from '@testing-library/react-native';
++import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
++import { useGetTripExpenses } from '@/entities/expense/data/useGetTripExpenses';
++import { expenseQueryKeys } from '@/entities/expense/data/keys';
++import { ExpenseRepository } from '@/entities/expense/repository/expense-repository';
++import type { Expense } from '@/entities/expense/model/types';
++import { useTripContentAccess } from '@/shared/policy/useTripContentAccess';
++import { useNetworkStore } from '@/shared/store/network';
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('@/entities/trip/data/useGetTripActivation', () => ({
++  useGetTripActivation: () => ({ data: null }),
++}));
++jest.mock('@/entities/expense/repository/expense-repository', () => ({
++  ExpenseRepository: { getByTripId: jest.fn() },
++}));
++
++const repository = jest.mocked(ExpenseRepository.getByTripId);
++const cachedExpense: Expense = {
++  id: 'expense-b',
++  tripId: 'trip-b',
++  userId: null,
++  scheduleId: null,
++  title: '이전 서버 응답',
++  amount: '10',
++  currency: 'USD',
++  category: '식사',
++  date: '2026-09-17',
++  createdAt: '2026-09-17T00:00:00Z',
++  updatedAt: '2026-09-17T00:00:00Z',
++  hasReceipt: false,
++  receiptUrl: null,
++};
++
++function Consumer({ name }: { name: string }) {
++  const query = useGetTripExpenses('trip-b');
++  const access = useTripContentAccess('trip-b', query);
++  return (
++    <View>
++      <Text testID={`${name}-status`}>{access.status}</Text>
++      {access.status === 'ready' && <Text testID={`${name}-content`}>{query.data?.[0]?.title}</Text>}
++    </View>
++  );
++}
++
++it('동일 여행의 두 실제 Query observer는 복구 요청 하나를 공유하고 성공 전 캐시 내용을 숨긴다', async () => {
++  useNetworkStore.setState({ realStatus: 'online', overrideStatus: null, checkStatus: 'idle' });
++  const client = new QueryClient({
++    defaultOptions: { queries: { retry: false, gcTime: Infinity, refetchOnReconnect: false } },
++  });
++  const key = expenseQueryKeys.byTrip('trip-b');
++  client.setQueryData(key, [cachedExpense]);
++  let resolveRequest!: (data: Expense[]) => void;
++  const request = new Promise<Expense[]>((resolve) => {
++    resolveRequest = resolve;
++  });
++  repository.mockImplementation(() => request);
++  function Wrapper({ children }: PropsWithChildren) {
++    return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
++  }
++  const screen = render(
++    <Wrapper>
++      <Consumer name='one' />
++      <Consumer name='two' />
++    </Wrapper>,
++  );
++  try {
++    expect(screen.getAllByText('이전 서버 응답')).toHaveLength(2);
++    expect(repository).not.toHaveBeenCalled();
++    act(() => useNetworkStore.setState({ realStatus: 'offline' }));
++    expect(screen.queryByTestId('one-content')).toBeNull();
++    expect(screen.queryByTestId('two-content')).toBeNull();
++    expect(screen.getAllByText('restricted')).toHaveLength(2);
++
++    await act(async () => {
++      useNetworkStore.setState({ realStatus: 'online' });
++    });
++    expect(repository).toHaveBeenCalledTimes(1);
++    expect(repository).toHaveBeenCalledWith('trip-b');
++    expect(screen.getAllByText('loading')).toHaveLength(2);
++    expect(screen.queryByTestId('one-content')).toBeNull();
++    expect(screen.queryByTestId('two-content')).toBeNull();
++    expect(client.getQueryData(key)).toEqual([cachedExpense]);
++
++    const freshExpense = { ...cachedExpense, title: '재조회한 서버 응답' };
++    await act(async () => {
++      resolveRequest([freshExpense]);
++      await request;
++    });
++    await waitFor(() => expect(screen.getAllByText('ready')).toHaveLength(2));
++    expect(screen.getAllByText('재조회한 서버 응답')).toHaveLength(2);
++    expect(repository).toHaveBeenCalledTimes(1);
++    expect(client.getQueryData(key)).toEqual([freshExpense]);
++  } finally {
++    screen.unmount();
++    client.clear();
++  }
++});
+--- /dev/null
++++ b/apps/client/tests/shared/policy/map-service-network.test.tsx
+@@ -0,0 +1,63 @@
++import React from 'react';
++import { render, screen, act } from '@testing-library/react-native';
++import { PolicyBasedMapView } from '@/shared/components/PolicyBasedMapView/PolicyBasedMapView';
++import { PolicyBasedScheduleMapView } from '@/shared/components/Map/PolicyBasedScheduleMapView';
++import { networkStore, useNetworkStore } from '@/shared/store/network';
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('@/shared/policy', () => ({
++  useAppPolicy: () => {
++    const { useDisplayNetworkStatus } = jest.requireActual('@/shared/store/network');
++    return { service: { mapProvider: useDisplayNetworkStatus() === 'online' ? 'google' : 'mapbox' } };
++  },
++}));
++jest.mock('@/entities/offline-city', () => ({
++  useOfflineCity: () => ({ data: { cityName: 'Paris', cityId: 'paris' }, isLoading: false }),
++}));
++jest.mock('@/shared/hooks/map/useMyLocation', () => ({ useMyLocation: () => ({ moveToCurrentLocation: jest.fn() }) }));
++jest.mock('@/shared/components/Map/MyLocationButton', () => ({ MyLocationButton: () => null }));
++jest.mock('react-native-maps', () => {
++  const React = require('react');
++  const { Text } = require('react-native');
++  return { __esModule: true, default: React.forwardRef(() => <Text>Google search map</Text>), Marker: () => null };
++});
++jest.mock('@/shared/components/Map/GoogleScheduleMapView', () => ({
++  GoogleScheduleMapView: () => { const { Text } = require('react-native'); return <Text>Google schedule map</Text>; },
++}));
++jest.mock('@/shared/components/Map/MapboxScheduleMapView', () => ({
++  MapboxScheduleMapView: () => { const { Text } = require('react-native'); return <Text>Local schedule map</Text>; },
++}));
++jest.mock('@/shared/components/PolicyBasedMapView/OfflineMapView', () => ({
++  OfflineMapView: () => { const { Text } = require('react-native'); return <Text>Local search map</Text>; },
++}));
++
++const location = { latitude: 1, longitude: 2, name: 'Place', address: 'Address' };
++function Maps() {
++  return <>
++    <PolicyBasedMapView tripId='active' locations={[location]} selectedLocation={null} />
++    <PolicyBasedScheduleMapView tripId='active' schedules={[]} />
++  </>;
++}
++afterEach(() => networkStore.cleanup());
++
++it.each(['unknown', 'offline'] as const)('표시 online·실측 %s는 Google native 지도를 마운트하지 않는다', (realStatus) => {
++  useNetworkStore.setState({ realStatus, overrideStatus: 'online' });
++  render(<Maps />);
++  expect(screen.queryByText('Google search map')).toBeNull();
++  expect(screen.queryByText('Google schedule map')).toBeNull();
++  expect(screen.getAllByText('실제 연결이 확인되면 지도를 다시 사용할 수 있어요')).toHaveLength(2);
++  act(() => useNetworkStore.setState({ realStatus: 'online' }));
++  expect(screen.getByText('Google search map')).toBeTruthy();
++  expect(screen.getByText('Google schedule map')).toBeTruthy();
++});
++
++it('실측 online·표시 offline은 기존 Local 지도 선택을 유지한다', () => {
++  useNetworkStore.setState({ realStatus: 'online', overrideStatus: 'offline' });
++  render(<Maps />);
++  expect(screen.getByText('Local search map')).toBeTruthy();
++  expect(screen.getByText('Local schedule map')).toBeTruthy();
++  expect(screen.queryByText('Google search map')).toBeNull();
++});
+--- /dev/null
++++ b/apps/client/tests/shared/policy/policy-ui.test.tsx
+@@ -0,0 +1,218 @@
++import { act, fireEvent, render } from '@testing-library/react-native';
++import { Alert } from 'react-native';
++import { ScheduleCard } from '@/shared/components/Card/ScheduleCard';
++import { TripSelector } from '@/entities/trip/ui/TripSelector';
++import ScheduleScreen from '@/screens/ScheduleScreen';
++import CreateExpenseScreen from '@/screens/CreateExpenseScreen';
++import TripDateForm from '@/features/trip/create-trip/TripDateForm';
++import { useNetworkStore } from '@/shared/store/network';
++import { useTripStore } from '@/shared/store/useTripStore';
++import { OfflineError } from '@/shared/services/offline-prep/errors';
++
++const mockMutate = jest.fn();
++const mockBack = jest.fn();
++let mockActiveTrip: { tripId: string; mapDownloaded: boolean } | null = { tripId: 'a', mapDownloaded: true };
++const mockTrips = [
++  { id: 'a', destination: '활성 여행', baseCurrency: 'USD', startDate: '2026-09-17', endDate: '2026-09-18' },
++  { id: 'b', destination: '비활성 여행', baseCurrency: 'USD', startDate: '2026-09-17', endDate: '2026-09-18' },
++];
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('expo-router', () => ({
++  useLocalSearchParams: () => ({ tripId: 'b' }),
++  useRouter: () => ({ back: mockBack }),
++}));
++jest.mock('lucide-react-native', () => new Proxy({}, { get: () => () => null }));
++jest.mock('@repo/ui', () => {
++  const { View, TouchableOpacity, Text } = require('react-native');
++  return {
++    Card: ({ children }: any) => <View>{children}</View>,
++    cn: (...args: any[]) => args.join(' '),
++    Badge: ({ children }: any) => <View>{children}</View>,
++    Drawer: ({ isOpen, children }: any) => (isOpen ? <View>{children}</View> : null),
++    Pressable: ({ children, ...props }: any) => (
++      <TouchableOpacity {...props}>
++        {typeof children === 'string' ? <Text>{children}</Text> : children}
++      </TouchableOpacity>
++    ),
++  };
++});
++jest.mock('@/entities/trip/data', () => ({ useGetTrips: () => ({ data: mockTrips, isLoading: false }) }));
++jest.mock('@/entities/trip/utils', () => ({ selectMainTrip: () => mockTrips[0] }));
++jest.mock('@/entities/trip', () => ({
++  useGetTrips: () => ({ data: mockTrips }),
++  useCreateTrip: () => ({ mutate: mockMutate, isPending: false }),
++  TripSelector: () => null,
++}));
++jest.mock('@/entities/trip/data/useGetTripActivation', () => ({
++  useGetActiveTrip: () => ({ data: mockActiveTrip }),
++  useGetTripActivation: () => ({ data: null }),
++}));
++jest.mock('@/entities/schedule', () => ({
++  useGetSchedules: () => ({
++    data: [],
++    isLoading: false,
++    isError: false,
++    refetch: jest.fn(async () => ({ isError: false })),
++  }),
++  useDeleteSchedule: () => ({ mutate: mockMutate }),
++}));
++jest.mock('@/features/schedule/schedule-list-view', () => {
++  const { Text } = require('react-native');
++  return { ScheduleListView: () => <Text>서버 일정 목록</Text> };
++});
++jest.mock('@/features/schedule/schedule-map-view', () => ({ ScheduleMapViewContainer: () => null }));
++jest.mock('@/features/schedule/schedule-menu', () => ({ ScheduleMenu: () => null }));
++jest.mock('@/features/schedule/update-schedule', () => {
++  const { Text } = require('react-native');
++  return { UpdateScheduleDrawer: () => <Text>유지되는 수정 입력</Text> };
++});
++jest.mock('@/entities/expense', () => ({ useCreateExpense: () => ({ mutate: mockMutate, isPending: false }) }));
++jest.mock('@/shared/components/DatePicker/DatePicker', () => {
++  const { TouchableOpacity, Text } = require('react-native');
++  return {
++    __esModule: true,
++    default: ({ visible, onSelectDate }: any) =>
++      visible ? (
++        <TouchableOpacity testID='choose-date' onPress={() => onSelectDate('2026-09-17')}>
++          <Text>날짜 고르기</Text>
++        </TouchableOpacity>
++      ) : null,
++  };
++});
++jest.mock('@/shared/components/Navigation', () => ({ MobileHeader: () => null }));
++jest.mock('@/shared/components', () => {
++  const { Text } = require('react-native');
++  return {
++    PolicyErrorDisplay: ({ permission }: any) => <Text>{permission.reason}</Text>,
++    MobileHeader: ({ rightAction }: any) => rightAction ?? null,
++  };
++});
++jest.mock('@/features/expense/create-expense', () => {
++  const { View, TextInput, Text, TouchableOpacity } = require('react-native');
++  const { Controller } = require('react-hook-form');
++  return {
++    useCreateExpenseForm: jest.requireActual('@/features/expense/create-expense/useCreateExpenseForm')
++      .useCreateExpenseForm,
++    ExpenseForm: ({ form, onSubmit }: any) => (
++      <View>
++        <Controller
++          control={form.control}
++          name='title'
++          render={({ field: { value, onChange } }: { field: { value: string; onChange: (value: string) => void } }) => (
++            <TextInput testID='title' value={value} onChangeText={onChange} />
++          )}
++        />
++        <TouchableOpacity
++          testID='save'
++          onPress={() => {
++            form.setValue('amount', '10');
++            form.setValue('category', 'food');
++            onSubmit();
++          }}
++        >
++          <Text>저장</Text>
++        </TouchableOpacity>
++      </View>
++    ),
++  };
++});
++
++beforeEach(() => {
++  useNetworkStore.setState({ realStatus: 'online', overrideStatus: null });
++  useTripStore.setState({ selectedTripId: 'a' });
++  mockActiveTrip = { tripId: 'a', mapDownloaded: true };
++  jest.clearAllMocks();
++});
++
++it('같은 카드 props에서도 네트워크와 화면 override 변화가 좌표 경고에 반영된다', () => {
++  const screen = render(<ScheduleCard time='09:00' title='일정' location='장소' />);
++  expect(screen.getByText(/좌표 없음/)).toBeTruthy();
++  act(() => useNetworkStore.setState({ realStatus: 'offline' }));
++  expect(screen.queryByText(/좌표 없음/)).toBeNull();
++  act(() => useNetworkStore.setState({ overrideStatus: 'online' }));
++  expect(screen.getByText(/좌표 없음/)).toBeTruthy();
++  act(() => useNetworkStore.setState({ overrideStatus: 'unknown' }));
++  expect(screen.queryByText(/좌표 없음/)).toBeNull();
++});
++
++it.each(['offline', 'unknown'] as const)(
++  '%s에 새 비활성 여행 선택을 거부하고 기존 선택과 목록을 유지한다',
++  (realStatus) => {
++    useNetworkStore.setState({ realStatus });
++    const alert = jest.spyOn(Alert, 'alert');
++    const screen = render(<TripSelector />);
++    fireEvent.press(screen.getByText('활성 여행'));
++    fireEvent.press(screen.getByText('비활성 여행'));
++    expect(useTripStore.getState().selectedTripId).toBe('a');
++    expect(screen.getByText('비활성 여행')).toBeTruthy();
++    expect(alert).toHaveBeenCalledTimes(1);
++  },
++);
++
++it('생성 폼 작성 중 unknown이 되어도 입력을 유지하고 Router 이유를 한 번 안내하며 이동하지 않는다', async () => {
++  const alert = jest.spyOn(Alert, 'alert');
++  mockMutate.mockImplementation((_data, options) =>
++    options.onError(new OfflineError('인터넷 연결을 아직 확인하지 못했어요.')),
++  );
++  const screen = render(<CreateExpenseScreen />);
++  fireEvent.changeText(screen.getByTestId('title'), '작성 중인 경비');
++  act(() => useNetworkStore.setState({ realStatus: 'unknown' }));
++  expect(screen.getByTestId('title').props.value).toBe('작성 중인 경비');
++  await act(async () => {
++    fireEvent.press(screen.getByTestId('save'));
++  });
++  expect(mockMutate).toHaveBeenCalledTimes(1);
++  expect(alert).toHaveBeenCalledWith('오류', '인터넷 연결을 아직 확인하지 못했어요.');
++  expect(alert).toHaveBeenCalledTimes(1);
++  expect(screen.getByTestId('title').props.value).toBe('작성 중인 경비');
++  expect(mockBack).not.toHaveBeenCalled();
++});
++
++it('여행 생성 Router 거부를 정확한 이유로 안내하고 선택한 날짜를 유지한다', async () => {
++  const alert = jest.spyOn(Alert, 'alert');
++  mockMutate.mockImplementation((_data, options) =>
++    options.onError(new OfflineError('화면 테스트 중에는 저장할 수 없어요.')),
++  );
++  const city = { id: 1, name: '서울', country: '대한민국', countryCode: 'KR', latitude: 37.5, longitude: 127 };
++  const screen = render(<TripDateForm city={city} />);
++  fireEvent.press(screen.getByText('시작일을 선택하세요'));
++  fireEvent.press(screen.getByTestId('choose-date'));
++  fireEvent.press(screen.getByText('종료일을 선택하세요'));
++  fireEvent.press(screen.getByTestId('choose-date'));
++  act(() => useNetworkStore.setState({ overrideStatus: 'unknown' }));
++  await act(async () => fireEvent.press(screen.getByText('여행 생성')));
++  expect(mockMutate).toHaveBeenCalledTimes(1);
++  expect(alert).toHaveBeenCalledWith('오류', '화면 테스트 중에는 저장할 수 없어요.');
++  expect(screen.getAllByText('2026-09-17')).toHaveLength(2);
++});
++
++it('활성 여행이 없어도 이미 알고 있는 여행 목록과 기존 선택은 유지한다', () => {
++  mockActiveTrip = null;
++  useTripStore.setState({ selectedTripId: 'b' });
++  useNetworkStore.setState({ realStatus: 'offline' });
++  const screen = render(<TripSelector />);
++  fireEvent.press(screen.getByText('비활성 여행'));
++  expect(screen.getByText('활성 여행')).toBeTruthy();
++  expect(screen.getAllByText('비활성 여행')).toHaveLength(2);
++  expect(useTripStore.getState().selectedTripId).toBe('b');
++});
++
++it('실제 일정 화면은 캐시 내용을 가리고 제한 안내를 본문에 한 번 표시하며 수정 입력을 유지한다', () => {
++  useTripStore.setState({ selectedTripId: 'b' });
++  const screen = render(<ScheduleScreen />);
++  expect(screen.getByText('서버 일정 목록')).toBeTruthy();
++  act(() => useNetworkStore.setState({ realStatus: 'offline' }));
++  expect(screen.queryByText('서버 일정 목록')).toBeNull();
++  expect(
++    screen.getAllByText('오프라인에서는 준비된 활성 여행만 볼 수 있어요. 연결 후 다시 이용해주세요.'),
++  ).toHaveLength(1);
++  expect(screen.getByText('유지되는 수정 입력')).toBeTruthy();
++  fireEvent.press(screen.getByLabelText('지도 보기로 전환'));
++  expect(
++    screen.getAllByText('오프라인에서는 준비된 활성 여행만 볼 수 있어요. 연결 후 다시 이용해주세요.'),
++  ).toHaveLength(1);
++});
+--- a/apps/client/tests/shared/policy/useAppPolicy-network.test.ts
++++ b/apps/client/tests/shared/policy/useAppPolicy-network.test.ts
+@@ -34,3 +34,23 @@
+     expect(expense.update.allowed).toBe(isActivated);
+   });
+ });
++
++describe('내용 접근 이유와 활성화 확인', () => {
++  it('활성화 결과가 없으면 비활성으로 확정하지 않는다', () => {
++    activationMock.mockReturnValue({ data: undefined, isLoading: true } as ReturnType<typeof useGetTripActivation>);
++    useNetworkStore.setState({ realStatus: 'online', overrideStatus: null });
++    const { result } = renderHook(() => useAppPolicy('trip-b'));
++    expect(result.current.content.status).toBe('activation-loading');
++    expect(result.current.content.allowed).toBe(false);
++  });
++
++  it.each(['checking', 'unavailable'] as const)('unknown %s 이유를 내용 제한에 연결한다', (checkStatus) => {
++    activationMock.mockReturnValue({ data: null, isLoading: false } as ReturnType<typeof useGetTripActivation>);
++    useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null, checkStatus });
++    const { result } = renderHook(() => useAppPolicy('trip-b'));
++    expect(result.current.content.allowed).toBe(false);
++    expect(result.current.content.status).toBe(checkStatus === 'checking' ? 'network-checking' : 'network-unavailable');
++    expect(result.current.schedule.read.allowed).toBe(false);
++    expect(result.current.content.reason).not.toContain('오프라인');
++  });
++});
+--- /dev/null
++++ b/apps/client/tests/shared/policy/useTripContentAccess.test.ts
+@@ -0,0 +1,144 @@
++import { act, renderHook } from '@testing-library/react-native';
++import { useTripContentAccess } from '@/shared/policy/useTripContentAccess';
++import { useNetworkStore } from '@/shared/store/network';
++import { useGetTripActivation } from '@/entities/trip/data/useGetTripActivation';
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++jest.mock('@/entities/trip/data/useGetTripActivation', () => ({ useGetTripActivation: jest.fn() }));
++const activation = jest.mocked(useGetTripActivation);
++const success = { isError: false, error: null };
++const deferred = () => {
++  let resolve!: (value: typeof success) => void;
++  const promise = new Promise<typeof success>((done) => {
++    resolve = done;
++  });
++  return { promise, resolve };
++};
++const network = (realStatus: 'online' | 'offline' | 'unknown') => act(() => useNetworkStore.setState({ realStatus }));
++
++beforeEach(() => {
++  activation.mockReturnValue({ data: null } as ReturnType<typeof useGetTripActivation>);
++  useNetworkStore.setState({ realStatus: 'online', overrideStatus: null, checkStatus: 'checking' });
++});
++
++it('남아 있는 서버 캐시는 offline/unknown에 제한하고, offline→unknown→online 재조회 성공 후 한 번 안내한다', async () => {
++  const pending = deferred();
++  const refetch = jest.fn(() => pending.promise);
++  const query = { data: ['cached'], isLoading: false, isError: false, refetch };
++  const { result, rerender } = renderHook(() => useTripContentAccess('b', query));
++  expect(result.current.status).toBe('ready');
++  network('offline');
++  expect(result.current.status).toBe('restricted');
++  network('unknown');
++  expect(result.current.status).toBe('restricted');
++  network('online');
++  expect(result.current.status).toBe('loading');
++  expect(refetch).toHaveBeenCalledTimes(1);
++  await act(async () => {
++    pending.resolve(success);
++    await pending.promise;
++  });
++  expect(result.current.status).toBe('ready');
++  expect(result.current.notice).toContain('복구');
++  rerender({});
++  network('online');
++  expect(refetch).toHaveBeenCalledTimes(1);
++  expect(query.data).toEqual(['cached']);
++});
++
++it('초기 unknown 해소와 단순 online 재확인은 복구 안내를 만들지 않는다', async () => {
++  useNetworkStore.setState({ realStatus: 'unknown' });
++  const refetch = jest.fn(async () => success);
++  const { result } = renderHook(() => useTripContentAccess('b', { isLoading: false, isError: false, refetch }));
++  await act(async () => {
++    useNetworkStore.setState({ realStatus: 'online' });
++  });
++  expect(result.current.status).toBe('ready');
++  expect(result.current.notice).toBeNull();
++  network('online');
++  expect(refetch).toHaveBeenCalledTimes(1);
++});
++
++it('복구 조회 실패는 빈 결과와 구별하고 사용자 재시도 성공 후 내용을 연다', async () => {
++  const refetch = jest
++    .fn()
++    .mockResolvedValueOnce({ isError: true, error: new Error('server') })
++    .mockResolvedValueOnce(success);
++  const { result } = renderHook(() => useTripContentAccess('b', { isLoading: false, isError: false, refetch }));
++  network('offline');
++  await act(async () => {
++    useNetworkStore.setState({ realStatus: 'online' });
++  });
++  expect(result.current.status).toBe('error');
++  expect(result.current.notice).toBeNull();
++  await act(async () => result.current.retry());
++  expect(result.current.status).toBe('ready');
++  expect(result.current.notice).toContain('복구');
++});
++
++it('다른 여행으로 옮긴 뒤 이전 복구 결과는 현재 내용이나 안내를 바꾸지 않는다', async () => {
++  const pending = deferred();
++  const refetch = jest.fn(() => pending.promise);
++  const { result, rerender } = renderHook(
++    ({ tripId }: { tripId: string }) => useTripContentAccess(tripId, { isLoading: false, isError: false, refetch }),
++    { initialProps: { tripId: 'b' } },
++  );
++  network('offline');
++  network('online');
++  rerender({ tripId: 'a' });
++  await act(async () => {
++    pending.resolve(success);
++    await pending.promise;
++  });
++  expect(result.current.status).toBe('ready');
++  expect(result.current.notice).toBeNull();
++  expect(refetch).toHaveBeenCalledTimes(1);
++});
++
++it('복구 대기 중 다시 끊기면 이전 응답을 무시하고 새 online에서 새 조회만 복구한다', async () => {
++  const first = deferred();
++  const second = deferred();
++  const refetch = jest.fn().mockReturnValueOnce(first.promise).mockReturnValueOnce(second.promise);
++  const { result } = renderHook(() => useTripContentAccess('b', { isLoading: false, isError: false, refetch }));
++  network('offline');
++  network('online');
++  network('unknown');
++  await act(async () => {
++    first.resolve(success);
++    await first.promise;
++  });
++  expect(result.current.status).toBe('restricted');
++  network('online');
++  await act(async () => {
++    second.resolve(success);
++    await second.promise;
++  });
++  expect(result.current.status).toBe('ready');
++  expect(refetch).toHaveBeenCalledTimes(2);
++});
++
++it.each(['online', 'offline', 'unknown'] as const)(
++  '활성 Local 여행은 %s에서도 내용과 선택을 유지한다',
++  (realStatus) => {
++    activation.mockReturnValue({ data: { isActivated: true } } as ReturnType<typeof useGetTripActivation>);
++    useNetworkStore.setState({ realStatus });
++    const refetch = jest.fn(async () => success);
++    const { result } = renderHook(() => useTripContentAccess('a', { isLoading: false, isError: false, refetch }));
++    expect(result.current.status).toBe('ready');
++    expect(refetch).not.toHaveBeenCalled();
++  },
++);
++
++it.each([
++  { isLoading: true, isError: false, status: 'loading' },
++  { isLoading: false, isError: true, status: 'error' },
++  { isLoading: false, isError: false, status: 'ready' },
++])('일반 로딩/오류/성공한 빈 결과를 구별한다: $status', ({ isLoading, isError, status }) => {
++  const { result } = renderHook(() =>
++    useTripContentAccess('b', { isLoading, isError, refetch: jest.fn(async () => success) }),
++  );
++  expect(result.current.status).toBe(status);
++});
+--- /dev/null
++++ b/apps/client/tests/shared/services/directions/network.test.ts
+@@ -0,0 +1,55 @@
++import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
++import { getDirections } from '@/shared/services/directions/mapbox';
++import { networkStore, useNetworkStore } from '@/shared/store/network';
++
++jest.mock('@react-native-community/netinfo', () => ({
++  __esModule: true,
++  default: { addEventListener: jest.fn(), refresh: jest.fn() },
++}));
++
++const originalFetch = global.fetch;
++const tokenKey = 'EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN';
++const originalToken = process.env[tokenKey];
++const fetchMock = jest.fn<typeof fetch>();
++const coordinates = { from: { latitude: 1, longitude: 2 }, to: { latitude: 3, longitude: 4 } };
++
++beforeEach(() => {
++  useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });
++  process.env[tokenKey] = 'fixture-token';
++  global.fetch = fetchMock;
++  fetchMock.mockResolvedValue({
++    ok: true,
++    json: async () => ({ code: 'Ok', routes: [{ geometry: 'route', distance: 10, duration: 20 }] }),
++  } as Response);
++  jest.spyOn(console, 'log').mockImplementation(() => undefined);
++  jest.spyOn(console, 'error').mockImplementation(() => undefined);
++});
++
++afterEach(() => {
++  global.fetch = originalFetch;
++  if (originalToken === undefined) delete process.env[tokenKey];
++  else process.env[tokenKey] = originalToken;
++  networkStore.cleanup();
++  jest.restoreAllMocks();
++});
++
++describe('길찾기의 실제 네트워크 요청 경계', () => {
++  it.each(['unknown', 'offline'] as const)('강제 online이어도 실제 %s에서는 HTTP를 시작하지 않는다', async (realStatus) => {
++    useNetworkStore.setState({ realStatus, overrideStatus: 'online' });
++    await expect(getDirections(coordinates)).rejects.toMatchObject({ name: 'PolicyError' });
++    expect(fetchMock).not.toHaveBeenCalled();
++  });
++
++  it('실제 online에서는 화면 override와 관계없이 조회할 수 있다', async () => {
++    useNetworkStore.setState({ realStatus: 'online', overrideStatus: 'offline' });
++    await expect(getDirections(coordinates)).resolves.toEqual({ geometry: 'route', distance: 10, duration: 20 });
++    expect(fetchMock).toHaveBeenCalledTimes(1);
++  });
++
++  it('서버 오류가 실제 네트워크 관측을 offline으로 바꾸지 않는다', async () => {
++    useNetworkStore.setState({ realStatus: 'online' });
++    fetchMock.mockResolvedValueOnce({ ok: false, status: 503, statusText: 'Unavailable' } as Response);
++    await expect(getDirections(coordinates)).rejects.toThrow('HTTP 503');
++    expect(networkStore.realStatus).toBe('online');
++  });
++});
+--- a/apps/client/tests/shared/services/offline-prep/router-network.test.ts
++++ b/apps/client/tests/shared/services/offline-prep/router-network.test.ts
+@@ -2,7 +2,9 @@
+ import { networkStore, useNetworkStore, type NetworkStatus } from '@/shared/store/network';
+ import { getTripActivationStatus, hasAnyActivatedTrip } from '@/shared/services/offline-prep/metadata';
+ import {
++  routeTripListQuery,
+   routeTripQuery,
++  routeTripCreate,
+   routeChildQuery,
+   routeTripMutation,
+   routeChildMutation,
+@@ -29,11 +31,18 @@
+ 
+ const routeCases = [
+   {
+-    name: 'Trip 조회',
++    name: 'Trip 목록 조회',
+     activationCondition: '전역 활성 여행이 있으면',
+     inactiveCondition: '전역 활성 여행이 없으면',
+     isMutation: false,
+-    run: (operations: TestOperations) => routeTripQuery(operations),
++    run: (operations: TestOperations) => routeTripListQuery(operations),
++  },
++  {
++    name: 'Trip 단건 조회',
++    activationCondition: '대상 여행이 활성화돼 있으면',
++    inactiveCondition: '대상 여행이 비활성이면',
++    isMutation: false,
++    run: (operations: TestOperations) => routeTripQuery('trip-b', operations),
+   },
+   {
+     name: 'Child 조회',
+@@ -44,10 +53,10 @@
+   },
+   {
+     name: 'Trip 쓰기',
+-    activationCondition: '전역 활성 여행이 있으면',
+-    inactiveCondition: '전역 활성 여행이 없으면',
++    activationCondition: '대상 여행이 활성화돼 있으면',
++    inactiveCondition: '대상 여행이 비활성이면',
+     isMutation: true,
+-    run: (operations: TestOperations) => routeTripMutation(operations),
++    run: (operations: TestOperations) => routeTripMutation('trip-b', operations),
+   },
+   {
+     name: 'Child 쓰기',
+@@ -112,7 +121,7 @@
+   });
+ });
+ 
+-describe.each(routeCases.filter((route) => route.name.startsWith('Child')))('$name의 소속 여행 판단', ({ run }) => {
++describe.each(routeCases.filter((route) => route.name !== 'Trip 목록 조회'))('$name의 소속 여행 판단', ({ run }) => {
+   it('다른 활성 여행이 있어도 소속 여행이 비활성이면 실제 online에서 Remote만 실행한다', async () => {
+     anyActivationMock.mockResolvedValue(true);
+     activationMock.mockResolvedValue(false);
+@@ -188,3 +197,67 @@
+     expect(operations.remote).not.toHaveBeenCalled();
+   });
+ });
++
++describe('신규 여행의 서버 생성', () => {
++  it('다른 활성 여행이 있어도 실제 online에서 서버로 새 여행을 생성한다', async () => {
++    anyActivationMock.mockResolvedValue(true);
++    useNetworkStore.setState({ realStatus: 'online' });
++    const remote = jest.fn(async () => 'created');
++    await expect(routeTripCreate(remote)).resolves.toBe('created');
++    expect(remote).toHaveBeenCalledTimes(1);
++    expect(anyActivationMock).not.toHaveBeenCalled();
++  });
++
++  it.each(['offline', 'unknown'] as const)('%s에서 서버 요청을 시작하지 않는다', async (realStatus) => {
++    useNetworkStore.setState({ realStatus });
++    const remote = jest.fn(async () => 'created');
++    await expect(routeTripCreate(remote)).rejects.toMatchObject({ name: 'OfflineError', action: 'ONLINE_REQUIRED' });
++    expect(remote).not.toHaveBeenCalled();
++  });
++
++  it.each(networkStatuses)('override %s 중에는 서버 요청을 시작하지 않는다', async (overrideStatus) => {
++    useNetworkStore.setState({ realStatus: 'online', overrideStatus });
++    const remote = jest.fn(async () => 'created');
++    await expect(routeTripCreate(remote)).rejects.toThrow('화면 테스트 중');
++    expect(remote).not.toHaveBeenCalled();
++  });
++});
++
++describe.each(routeCases.filter((route) => route.name !== 'Trip 목록 조회'))('$name 실행 직전 상태 확인', ({ run }) => {
++  it('활성 여부 조회 중 offline이 되면 Remote를 실행하지 않는다', async () => {
++    let finishActivation!: (isActive: boolean) => void;
++    activationMock.mockImplementation(
++      () =>
++        new Promise((resolve) => {
++          finishActivation = resolve;
++        }),
++    );
++    useNetworkStore.setState({ realStatus: 'online' });
++    const operations = createOperations();
++    const result = run(operations);
++    useNetworkStore.setState({ realStatus: 'offline' });
++    finishActivation(false);
++    await expect(result).rejects.toMatchObject({ name: 'OfflineError' });
++    expect(operations.remote).not.toHaveBeenCalled();
++  });
++});
++
++describe.each(routeCases.filter((route) => route.isMutation))('$name 쓰기 실행 직전 강제 설정 확인', ({ run }) => {
++  it('활성 여부를 기다리던 중 override를 켜면 Local 변경도 막는다', async () => {
++    let finishActivation!: (isActive: boolean) => void;
++    activationMock.mockImplementation(
++      () =>
++        new Promise((resolve) => {
++          finishActivation = resolve;
++        }),
++    );
++    useNetworkStore.setState({ realStatus: 'online' });
++    const operations = createOperations();
++    const result = run(operations);
++    networkStore.setOverride('online');
++    finishActivation(true);
++    await expect(result).rejects.toThrow('화면 테스트 중');
++    expect(operations.local).not.toHaveBeenCalled();
++    expect(operations.remote).not.toHaveBeenCalled();
++  });
++});
+--- a/apps/client/tests/shared/services/sync/provider-network.test.tsx
++++ b/apps/client/tests/shared/services/sync/provider-network.test.tsx
+@@ -1,9 +1,10 @@
+ import React from 'react';
+ import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
+-import { act, renderHook } from '@testing-library/react-native';
++import { act, render, renderHook } from '@testing-library/react-native';
+ 
+ import { networkStore, useNetworkStore } from '@/shared/store/network';
+ import { SyncProvider, useSyncContext } from '@/shared/services/sync/provider';
++import { useAuthStore } from '@/shared/store/auth';
+ import { syncData } from '@/shared/services/sync/engine';
+ 
+ jest.mock('@react-native-community/netinfo', () => ({
+@@ -11,16 +12,19 @@
+   default: { addEventListener: jest.fn(), refresh: jest.fn() },
+ }));
+ 
++jest.mock('@/shared/services/auth/token-storage', () => ({}));
++
+ jest.mock('@/shared/services/sync/engine', () => ({ syncData: jest.fn() }));
+ 
+ const syncMock = jest.mocked(syncData);
+ 
+ function SyncWrapper({ children }: { children: React.ReactNode }) {
+-  return <SyncProvider>{children}</SyncProvider>;
++  return <SyncProvider isDatabaseReady={true}>{children}</SyncProvider>;
+ }
+ 
+ beforeEach(() => {
+   useNetworkStore.setState({ realStatus: 'unknown', overrideStatus: null });
++  useAuthStore.setState({ isInitialized: true, isAuthenticated: true });
+   syncMock.mockResolvedValue(undefined);
+   jest.spyOn(console, 'log').mockImplementation(() => undefined);
+ });
+@@ -120,3 +124,137 @@
+     expect(syncMock).toHaveBeenCalledTimes(1);
+   });
+ });
++
++describe('SyncProvider 실행 경계', () => {
++  it('같은 act의 연타와 이전 callback은 하나의 실행 완료를 기다린다', async () => {
++    useNetworkStore.setState({ realStatus: 'online' });
++    const { result } = renderHook(() => useSyncContext(), { wrapper: SyncWrapper });
++    await act(async () => {
++      await Promise.resolve();
++    });
++    syncMock.mockClear();
++    let finish!: () => void;
++    syncMock.mockReturnValueOnce(
++      new Promise<void>((resolve) => {
++        finish = resolve;
++      }),
++    );
++    const previousTrigger = result.current.triggerManualSync;
++    let first!: ReturnType<typeof previousTrigger>;
++    let second!: ReturnType<typeof previousTrigger>;
++    let settled = false;
++    act(() => {
++      first = previousTrigger();
++      second = previousTrigger();
++      second.then(() => {
++        settled = true;
++      });
++    });
++    expect(syncMock).toHaveBeenCalledTimes(1);
++    expect(settled).toBe(false);
++    let third!: ReturnType<typeof previousTrigger>;
++    act(() => {
++      third = previousTrigger();
++    });
++    expect(syncMock).toHaveBeenCalledTimes(1);
++    await act(async () => {
++      finish();
++      expect(await first).toMatchObject({ status: 'completed' });
++      expect(await second).toMatchObject({ status: 'completed' });
++      await third;
++    });
++    expect(settled).toBe(true);
++  });
++
++  it('실패를 반환하고 잠금을 해제해 다시 실행한다', async () => {
++    useNetworkStore.setState({ realStatus: 'online' });
++    const { result } = renderHook(() => useSyncContext(), { wrapper: SyncWrapper });
++    await act(async () => {
++      await Promise.resolve();
++    });
++    syncMock.mockRejectedValueOnce(new Error('sync failure'));
++    await act(async () => {
++      expect(await result.current.triggerManualSync()).toMatchObject({ status: 'failed' });
++    });
++    expect(result.current.isSyncing).toBe(false);
++    await act(async () => {
++      expect(await result.current.triggerManualSync()).toMatchObject({ status: 'completed' });
++    });
++  });
++
++  it.each(['isInitialized', 'isAuthenticated'] as const)(
++    '%s가 false면 차단하고 준비 전환에서 시작한다',
++    async (field) => {
++      useNetworkStore.setState({ realStatus: 'online' });
++      useAuthStore.setState({ [field]: false });
++      const { result } = renderHook(() => useSyncContext(), { wrapper: SyncWrapper });
++      await act(async () => {
++        expect(await result.current.triggerManualSync()).toMatchObject({ status: 'blocked' });
++      });
++      expect(syncMock).not.toHaveBeenCalled();
++      await act(async () => {
++        useAuthStore.setState({ [field]: true });
++      });
++      expect(syncMock).toHaveBeenCalledTimes(1);
++    },
++  );
++
++  it('DB 성공 전에는 차단하고 DB 사용 가능 전환에서 시작한다', async () => {
++    useNetworkStore.setState({ realStatus: 'online' });
++    const { rerender } = render(<SyncProvider isDatabaseReady={false}>{null}</SyncProvider>);
++    expect(syncMock).not.toHaveBeenCalled();
++    await act(async () => {
++      rerender(<SyncProvider isDatabaseReady={true}>{null}</SyncProvider>);
++    });
++    expect(syncMock).toHaveBeenCalledTimes(1);
++  });
++
++  it('override 해제는 자동 sync를 시작하며 겹친 수동 호출은 기다린다', async () => {
++    useNetworkStore.setState({ realStatus: 'online', overrideStatus: 'offline' });
++    let finish!: () => void;
++    syncMock.mockReturnValueOnce(
++      new Promise<void>((resolve) => {
++        finish = resolve;
++      }),
++    );
++    const { result } = renderHook(() => useSyncContext(), { wrapper: SyncWrapper });
++    act(() => {
++      networkStore.setOverride(null);
++    });
++    let manual!: ReturnType<typeof result.current.triggerManualSync>;
++    act(() => {
++      manual = result.current.triggerManualSync();
++    });
++    expect(syncMock).toHaveBeenCalledTimes(1);
++    await act(async () => {
++      finish();
++      expect(await manual).toMatchObject({ status: 'completed' });
++    });
++  });
++});
++
++it('전송 시작 뒤 연결·override 변화는 진행 중 Promise를 취소하거나 새 실행을 시작하지 않는다', async () => {
++  useNetworkStore.setState({ realStatus: 'online' });
++  let finish!: () => void;
++  syncMock.mockReturnValueOnce(
++    new Promise<void>((resolve) => {
++      finish = resolve;
++    }),
++  );
++  const { result } = renderHook(() => useSyncContext(), { wrapper: SyncWrapper });
++  let waiting!: ReturnType<typeof result.current.triggerManualSync>;
++  act(() => {
++    useNetworkStore.setState({ realStatus: 'offline', overrideStatus: 'online' });
++    waiting = result.current.triggerManualSync();
++  });
++  expect(syncMock).toHaveBeenCalledTimes(1);
++  expect(result.current.isSyncing).toBe(true);
++  await act(async () => {
++    finish();
++    expect(await waiting).toMatchObject({ status: 'completed' });
++  });
++  await act(async () => {
++    expect(await result.current.triggerManualSync()).toMatchObject({ status: 'blocked' });
++  });
++  expect(syncMock).toHaveBeenCalledTimes(1);
++});

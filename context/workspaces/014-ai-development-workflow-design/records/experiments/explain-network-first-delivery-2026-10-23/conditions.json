@@ -1,0 +1,28 @@
+{
+  "runs": {
+    "run17": {
+      "variant": "prior",
+      "runtime": "/private/tmp/explain-network-20261023/run17",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "fork_turns": "none"
+    },
+    "run64": {
+      "variant": "explain",
+      "runtime": "/private/tmp/explain-network-20261023/run64",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "fork_turns": "none"
+    }
+  },
+  "display_order": [
+    "run17",
+    "run64"
+  ],
+  "source": "06",
+  "resume_before": 895,
+  "samples_per_condition": 1,
+  "same_shared_criteria": true,
+  "scope": "명시 적용 뒤 첫 결과 설명 비교. 자연 선택·구현 예방 효과 아님.",
+  "isolation": "허용 자료 별도 사본과 reader 경로 제한. 에이전트 전체 도구에 대한 OS 격리는 아님."
+}

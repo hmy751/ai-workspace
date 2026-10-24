@@ -1,0 +1,32 @@
+{
+  "runs": {
+    "run28": {
+      "variant": "prior",
+      "runtime": "/private/tmp/explain-network-20261023-retry/run28",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "fork_turns": "none",
+      "previous_condition_source": "run17"
+    },
+    "run53": {
+      "variant": "explain",
+      "runtime": "/private/tmp/explain-network-20261023-retry/run53",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "fork_turns": "none",
+      "previous_condition_source": "run64"
+    }
+  },
+  "display_order": [
+    "run28",
+    "run53"
+  ],
+  "source": "06",
+  "resume_before": 895,
+  "samples_per_condition": 1,
+  "same_shared_criteria": true,
+  "scope": "명시 적용 뒤 첫 결과 설명 비교. 자연 선택·구현 예방 효과 아님.",
+  "isolation": "허용 자료 별도 사본과 reader 경로 제한. 에이전트 전체 도구에 대한 OS 격리는 아님.",
+  "retry_authorization": "그럼 또 시켜 잘 해서",
+  "change": "자료·스킬·모델·명시 적용 시점 유지. reader 3000자 조각·독립 출력·완독 검사 추가. 새 컨텍스트에서 조건당1회. 이전 응답 미제공."
+}

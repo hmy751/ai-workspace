@@ -1,0 +1,168 @@
+import React, { createContext, useContext, useEffect, useRef, useState, useCallback } from 'react';
+import { networkStore, useRealNetworkStatus, type NetworkStatus } from '@/shared/store/network';
+import { syncData } from './engine';
+
+/**
+ * SyncProvider Context
+ *
+ * 동기화 상태와 수동 트리거 제공
+ */
+interface SyncContextValue {
+  isSyncing: boolean;
+  lastSyncedAt: Date | null;
+  triggerManualSync: () => Promise<void>;
+}
+
+const SyncContext = createContext<SyncContextValue | undefined>(undefined);
+
+/**
+ * useSyncContext Hook
+ *
+ * 컴포넌트에서 동기화 상태와 수동 트리거 접근
+ *
+ * @example
+ * ```tsx
+ * const { isSyncing, triggerManualSync } = useSyncContext();
+ * ```
+ */
+export function useSyncContext() {
+  const context = useContext(SyncContext);
+  if (!context) {
+    throw new Error('useSyncContext must be used within SyncProvider');
+  }
+  return context;
+}
+
+/**
+ * 동기화 Provider
+ *
+ * 앱 전체를 감싸서 자동 동기화 기능 제공 (Push + Pull)
+ * - 네트워크 상태 감지
+ * - 오프라인 → 온라인 전환 시 자동 동기화
+ * - 앱 시작 시 한 번 동기화
+ * - 주기적 동기화 (선택적)
+ * - 디버그 모드: 강제 온라인/오프라인 설정 가능
+ *
+ * @example
+ * ```tsx
+ * <SyncProvider enablePeriodicSync={false}>
+ *   <App />
+ * </SyncProvider>
+ * ```
+ */
+interface SyncProviderProps {
+  children: React.ReactNode;
+  enablePeriodicSync?: boolean; // 주기적 동기화 활성화 (기본: false)
+  syncInterval?: number; // 주기적 동기화 간격 (ms, 기본: 5분)
+}
+
+export function SyncProvider({
+  children,
+  enablePeriodicSync = false,
+  syncInterval = 5 * 60 * 1000, // 5분
+}: SyncProviderProps) {
+  const networkStatus = useRealNetworkStatus();
+
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [lastSyncedAt, setLastSyncedAt] = useState<Date | null>(null);
+  // null은 첫 effect 미처리이며, 실제 네트워크의 unknown과 구분한다.
+  const previousStatusRef = useRef<NetworkStatus | null>(null);
+
+  /**
+   * 동기화 실행 함수 (중복 실행 방지)
+   */
+  const executeSync = useCallback(
+    async (reason: string) => {
+      if (networkStore.realStatus !== 'online' || networkStore.override !== null) {
+        return;
+      }
+
+      if (isSyncing) {
+        console.log('⏭️ [SyncProvider] Sync already in progress, skipping...');
+        return;
+      }
+
+      try {
+        setIsSyncing(true);
+        console.log(`🔄 [SyncProvider] Sync triggered: ${reason}`);
+
+        await syncData(); // Push + Pull
+
+        const now = new Date();
+        setLastSyncedAt(now);
+
+        console.log(`✅ [SyncProvider] Sync completed: ${reason}`, {
+          lastSyncedAt: now.toISOString(),
+        });
+      } catch (error) {
+        console.error(`❌ [SyncProvider] Sync failed: ${reason}`, error);
+      } finally {
+        setIsSyncing(false);
+      }
+    },
+    [isSyncing],
+  );
+
+  /**
+   * 수동 동기화 트리거 (UI에서 호출)
+   */
+  const triggerManualSync = useCallback(async () => {
+    await executeSync('Manual trigger');
+  }, [executeSync]);
+
+  /**
+   * 최초 online과 이후 online 전환마다 한 번 동기화
+   */
+  useEffect(() => {
+    const previousStatus = previousStatusRef.current;
+    previousStatusRef.current = networkStatus;
+
+    // 최초 unknown 확정과 오프라인 복구 모두 실제 online에서 시작한다.
+    if (previousStatus !== 'online' && networkStatus === 'online') {
+      if (previousStatus === null) {
+        console.log('🚀 [SyncProvider] Initial sync on app start');
+        executeSync('App startup');
+      } else {
+        console.log('🌐 [SyncProvider] Network recovered → Starting sync');
+        executeSync('Network recovery');
+      }
+    }
+
+    // 온라인 → 오프라인 전환 로그
+    if (previousStatus === 'online' && networkStatus === 'offline') {
+      console.log('📴 [SyncProvider] Network offline → Sync paused');
+    }
+  }, [networkStatus, executeSync]);
+
+  /**
+   * 주기적 동기화 (선택적)
+   */
+  useEffect(() => {
+    if (!enablePeriodicSync) {
+      return;
+    }
+
+    console.log(`⏰ [SyncProvider] Periodic sync enabled (${syncInterval / 1000}s interval)`);
+
+    const intervalId = setInterval(() => {
+      if (networkStatus === 'online') {
+        executeSync('Periodic sync');
+      } else {
+        console.log('⏭️ [SyncProvider] Skipping periodic sync (offline)');
+      }
+    }, syncInterval);
+
+    return () => clearInterval(intervalId);
+  }, [enablePeriodicSync, syncInterval, networkStatus, executeSync]);
+
+  /**
+   * Context Value
+   */
+  const value: SyncContextValue = {
+    isSyncing,
+    lastSyncedAt,
+    triggerManualSync,
+  };
+
+  return <SyncContext.Provider value={value}>{children}</SyncContext.Provider>;
+}

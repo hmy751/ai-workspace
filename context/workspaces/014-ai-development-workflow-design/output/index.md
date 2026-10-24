@@ -1,12 +1,18 @@
 # 현재 선택한 설계 자료와 산출물
 
+04-02 최신 비교: [수정 explain·기존 스킬의6.0-sol high 두 응답](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md). 선택 파일 완독·해시·입력 불변 검사를 완료하고 조건명 없는 원문을 제시했다. 사용자는 비슷하다고 평가했다. [항목별 판단](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/comparison.md)은 조사 행동의 일부 반영과 출력 개선 미확인을 구별하며 모델만의 원인으로 단정하지 않는다.
+
+04-02 최신 반영: [기존 두 스킬 재검토와 explain 보완](../records/2026-10-24-ticket04-02-explain-revision.md). 본체·작성 상세·앞선 발화 상세와 형성 자료를 갱신했다. 단일 진입점 구성은 유지하며 수정 후 실제 응답 효과는 미확인이다. 아래 모델 비교는 수정 전 판본에 해당한다.
+
 현재 단계·남은 일: [원래 작업 틀과 Spec·01·04 대조](../records/2026-10-24-workflow-framework-and-checkpoint.md). 구현·개선 검토의 운영과 prototype 반영은 완료했고, 별도 검증 및 수정의 상세·필요한 스킬 보완·전체 흐름 대조로 이어간다. 아래 실물과 과거 설계·비교 근거를 이 범위에서 읽는다.
+
+04-02 수정 전 확인: [6.1-sol high 비교와6.0 결과 종합](../records/experiments/explain-network-first-delivery-61high-2026-10-23/comparison.md). 사용자 선호와 원자료 대조상 이번 기존 브리핑 답이 구현·이유 연결에서 더 낫다. explain의 성능 개선은 미확인이고 통합 구조 유지와 구별한다. 응답 원문·판본·읽기 기록은 각 실험 폴더에 보존했다.
 
 현재 실행 결과: [1~15번 대조·반영 기록](../records/2026-10-23-development-workflow-1-15-integration.md) · [development](../records/prototypes/development-workflow/skills/development/SKILL.md) · [검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md) · [실행 배치](../records/prototypes/development-workflow/skills/development/references/execution.md). root/Work·work-discussion과 Personal A·B를 함께 맞췄다. 설계 근거는 [13~15번 합의](../records/2026-10-23-runtime-integration-and-records-13-15-proposal.md)와 그 이전 확정 기록에 있다. Main의 지침 기반 갱신을 적용했고 자동 Maintain은 연결하지 않았다. 실제 운영 설치·효과는 별도다.
 
 6번 현재 설계안: [맥락 이해·적용부터 구현 완성·인계까지](../records/2026-10-23-implementation-completion-and-handoff-proposal.md). 사용자 요청에 따라 맥락 적용과 개선 리뷰 두 보완을 통합했다. 실제 사용·변경 장면으로 자기 설계를 판단하고, 요구·계약에서 가져온 기대 결과로 자기 확인하며, Main에게 결과와 판단 근거를 연결한다. 6번은 development에 반영했으며 실제 수행 효과 확인과 구별한다.
 
-04-02 현재 적용 기록: [explain 생성과 기존 두 실행 경로의 통합](../records/2026-10-23-ticket04-02-explain-prototype-adoption.md). 사용자 요청으로 리뷰 반영 구성을 prototype에 적용했다. 기존 두 스킬 제거를 감안하되 조항 전수 이식을 요구한 것은 아니라는 정정, 보존·검사·미확인 범위를 함께 읽는다. 운영 설치·새 응답 비교는 하지 않았으며 현재 재개 지점은 [04-02](../current/tickets/04-skill-improvements/04-02-artifact-explanation.md)다.
+04-02 현재 적용 기록: [explain 생성과 기존 두 실행 경로의 통합](../records/2026-10-23-ticket04-02-explain-prototype-adoption.md). 사용자 요청으로 리뷰 반영 구성을 prototype에 적용했다. 기존 두 스킬 제거를 감안하되 조항 전수 이식을 요구한 것은 아니라는 정정, 보존·검사·미확인 범위를 함께 읽는다. 생성 당시에는 운영 설치·새 응답 비교 전이었으며, 이후 비교는 위 최신 기록을 따른다. 현재 재개 지점은 [04-02](../current/tickets/04-skill-improvements/04-02-artifact-explanation.md)다.
 
 04-02 현재 산출물: [explain 본체](../records/prototypes/development-workflow/skills/explain/SKILL.md) · [설명 작성 상세](../records/prototypes/development-workflow/skills/explain/references/constructing-explanations.md) · [앞선 발화 상세](../records/prototypes/development-workflow/skills/explain/references/prior-explanation.md) · [형성 자료](../records/prototypes/development-workflow/skills/explain/_background/README.md). 기존 두 스킬 폴더는 삭제하고 당시 본문·형성 자료는 explain/_background/legacy에 보존했다. 아래 브리핑 비교·후보는 과거 판본의 이력이며 현재 explain 효과를 확인한 결과가 아니다.
 

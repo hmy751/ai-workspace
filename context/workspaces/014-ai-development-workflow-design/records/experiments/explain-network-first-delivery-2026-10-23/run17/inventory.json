@@ -1,0 +1,674 @@
+{
+  "after/apps/client/app/_layout.tsx": {
+    "lines": 233,
+    "sha256": "c70e5da2cfac997da1ed6800e7dab3c161c96d200d60ba1f81d37a2240ad5540"
+  },
+  "after/apps/client/jest.config.cjs": {
+    "lines": 21,
+    "sha256": "5849421408fed82bbb3d56d28ccc9779bca6eb90433e5edfdcbb9ca715bf4ac4"
+  },
+  "after/apps/client/src/entities/expense/data/useCreateExpense.ts": {
+    "lines": 49,
+    "sha256": "ae1e66db096116440c7c6d441a48b829118f6b42ee0d7c5984e1a7f653e24937"
+  },
+  "after/apps/client/src/entities/expense/data/useDeleteExpense.ts": {
+    "lines": 27,
+    "sha256": "561a39039e8e83e12253a9cc25b61bbb834f8429e9f312a3fdd89189b514b7da"
+  },
+  "after/apps/client/src/entities/expense/data/useGetScheduleExpenses.ts": {
+    "lines": 27,
+    "sha256": "8e9c8f52f4b90a3fc3c6321336735ab85d1ef5ccdafefc9f68799acedeabfc1a"
+  },
+  "after/apps/client/src/entities/expense/data/useUpdateExpense.ts": {
+    "lines": 37,
+    "sha256": "d38aa974a71e651552bd555fe1be11d914fd1d9ad53814b369dfe820e4b325d8"
+  },
+  "after/apps/client/src/entities/expense/repository/expense-repository.ts": {
+    "lines": 78,
+    "sha256": "c8c73c798c4fae2ce99cfdb8b47aa9749f0d2fa6185e9b474286595e5dfe9e1a"
+  },
+  "after/apps/client/src/entities/schedule/data/useCreateSchedule.ts": {
+    "lines": 51,
+    "sha256": "3f28a299e656b2d107e88a27136b9d7ea3e93f19b20c79ee131f5257ac71549b"
+  },
+  "after/apps/client/src/entities/schedule/data/useDeleteSchedule.ts": {
+    "lines": 37,
+    "sha256": "b8bb1c5a32cf737a9e20fa6dadbde5bbc423c22a75416d6a4e2ba106239377af"
+  },
+  "after/apps/client/src/entities/schedule/data/useUpdateSchedule.ts": {
+    "lines": 41,
+    "sha256": "31246c32fd5624fd117f226b6940e609a881b5d6c9e18b9f7542aff7b634d836"
+  },
+  "after/apps/client/src/entities/schedule/repository/schedule-repository.ts": {
+    "lines": 79,
+    "sha256": "30b4fcfdf18a9dc40b2d79e80b92a04c47908f18e59484af159352399f9977d6"
+  },
+  "after/apps/client/src/entities/trip/api/trips.ts": {
+    "lines": 65,
+    "sha256": "1995771934d98163c3e0ad6a46d637ecf51496fd64fece9131786ce0fc99b509"
+  },
+  "after/apps/client/src/entities/trip/data/useCreateTrip.ts": {
+    "lines": 35,
+    "sha256": "ff5c90abeaa270080df560506f678971aeb2ddd6a1a20d72d0ee2e4e9ad874c8"
+  },
+  "after/apps/client/src/entities/trip/data/useDeleteTrip.ts": {
+    "lines": 28,
+    "sha256": "f19176618da6f82623138c692fbababd4bf785ad8f65f6bc14b388c3a9ce1908"
+  },
+  "after/apps/client/src/entities/trip/data/useGetTrips.ts": {
+    "lines": 39,
+    "sha256": "a9478680da1b6dc23322b8b89ca607ddd5736494b9cd6e8f873e9f014fb2bd5e"
+  },
+  "after/apps/client/src/entities/trip/data/useUpdateTrip.ts": {
+    "lines": 34,
+    "sha256": "52eaa683bf974379dcf79f73795b0bd42def14b78c92127f0d265761485144db"
+  },
+  "after/apps/client/src/entities/trip/repository/trip-repository.ts": {
+    "lines": 75,
+    "sha256": "62016edb3ce7981361d1bd151846eccb6583dfa462a4373ba9c19942d3a5ef0c"
+  },
+  "after/apps/client/src/entities/trip/ui/TripSelector.tsx": {
+    "lines": 191,
+    "sha256": "e9d36b6c50c5a51eeeac7e3b701d97a8b7ffa02469963b6b62db31b5bcf6bb70"
+  },
+  "after/apps/client/src/features/debug/ui/DashboardView.tsx": {
+    "lines": 153,
+    "sha256": "19e3c9deb71894ab038dad7e03367030af018fd502d05ff9dda37f38b56bdf9e"
+  },
+  "after/apps/client/src/features/debug/ui/DebugScreen.tsx": {
+    "lines": 352,
+    "sha256": "c9cf68932ce9750b440b8504d25805bd71b0c12f7803cee65a6951f7852f7f51"
+  },
+  "after/apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts": {
+    "lines": 86,
+    "sha256": "4da69ca0469190d148c33acf4e403f010b4cf000f5ae24fe1002719d982f283c"
+  },
+  "after/apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx": {
+    "lines": 426,
+    "sha256": "c7aefc4c3dc57935f73151f00bff77312390893d5b643719cb3e6a66cb38a170"
+  },
+  "after/apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx": {
+    "lines": 168,
+    "sha256": "2e8611a9a8023d905a93cf82e28dc315a1a58a53d47ae3bb8c8c38e54b41195e"
+  },
+  "after/apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts": {
+    "lines": 140,
+    "sha256": "9c829916ca6e4dbb1db646b964a5199c35e94c80658ebe2d192679145c119e03"
+  },
+  "after/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts": {
+    "lines": 129,
+    "sha256": "82714248e9c6fa0919d2d8bd2a20211467bde106b4c692a0bdee7a546a88d26f"
+  },
+  "after/apps/client/src/features/schedule/update-schedule/UpdateScheduleDrawer.tsx": {
+    "lines": 329,
+    "sha256": "e315ec61a35c721f09de7e3a96e0e343fb7873f1c97e3ddeffd4d7e768da761b"
+  },
+  "after/apps/client/src/features/trip/create-trip/TripDateForm.tsx": {
+    "lines": 160,
+    "sha256": "7c54f95e8581f13a82f888bad415a1101ed7f21ea97f5de49f0b25a8a100f8c2"
+  },
+  "after/apps/client/src/features/trip/create-trip/useCreateTripForm.ts": {
+    "lines": 111,
+    "sha256": "7bb934346a7fe943b9947eb5e62ceba6aa4a01c5b2f7378e9d4a04b9702b0450"
+  },
+  "after/apps/client/src/features/trip/update-trip/EditTripDrawer.tsx": {
+    "lines": 236,
+    "sha256": "cd7f8d958e8d41dd790253c9ed5b0547b68de866181653bb622de913d1f84524"
+  },
+  "after/apps/client/src/screens/CreateExpenseScreen.tsx": {
+    "lines": 62,
+    "sha256": "ba2d30a79431da59cc27512b86fce9c69553a7d7294631c3aadfc3dd6b2fbd28"
+  },
+  "after/apps/client/src/screens/CreateScheduleScreen.tsx": {
+    "lines": 202,
+    "sha256": "7c9e92fe1f22be1d2e458689fc5dcc738bb238b6d8500fbe19c25ee22be015b0"
+  },
+  "after/apps/client/src/screens/ExpenseDetailScreen.tsx": {
+    "lines": 194,
+    "sha256": "8bdfe622ba2370ae79468e7f60fdb814745bfa7454ffeafd0a16502add0d5c5a"
+  },
+  "after/apps/client/src/screens/ExpensesScreen.tsx": {
+    "lines": 341,
+    "sha256": "c97930a735376b736efceddd3f549a14dde50193b8fd3b6f8ea6d047bf70224c"
+  },
+  "after/apps/client/src/screens/HomeScreen/TripsSection.tsx": {
+    "lines": 390,
+    "sha256": "dab618caec0c9b4457bc3aa819ccbdec4c3578ebbb61e4eb4dadbf68dc4c2279"
+  },
+  "after/apps/client/src/screens/HomeScreen/index.tsx": {
+    "lines": 106,
+    "sha256": "4762b56193f49e12ab5b1e723158e22bf2af1df6cd70dfa55e9e6885fa2a5097"
+  },
+  "after/apps/client/src/screens/ScheduleDetailScreen.tsx": {
+    "lines": 203,
+    "sha256": "11f0a2dbab37d2306d4dc4eaed9d5afd95cc827c0307e8803ae4d3997dbf55ae"
+  },
+  "after/apps/client/src/screens/ScheduleScreen.tsx": {
+    "lines": 294,
+    "sha256": "e94744a79535d0442f02ead77a140f1da1b12edd754ee0a73236fe6931cc6ff6"
+  },
+  "after/apps/client/src/shared/components/Card/ScheduleCard.tsx": {
+    "lines": 93,
+    "sha256": "2c1e63fe85ee75b7e48b16ed446aa72a705769a773128a8e19e2b09f953dba5d"
+  },
+  "after/apps/client/src/shared/components/ErrorBoundary/TripContentStatus.tsx": {
+    "lines": 80,
+    "sha256": "53d2662437ffee790843b819a67899cfa4e11e0387ccedb5fe2e2365e6f3d851"
+  },
+  "after/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx": {
+    "lines": 49,
+    "sha256": "efab735d138ec494ab32171e1ea2a5e4547fd8e8b457435f8dfa2904a749dcdc"
+  },
+  "after/apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx": {
+    "lines": 39,
+    "sha256": "462b7c52d08a4d50df2eff7a7a36726371c9f8300d228815bbc98616cd776af7"
+  },
+  "after/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx": {
+    "lines": 224,
+    "sha256": "a51c85039b4bfbd5020114c80081ead30d8a6ee335c306503b2f04ad10939c96"
+  },
+  "after/apps/client/src/shared/policy/mutationErrorMessage.ts": {
+    "lines": 6,
+    "sha256": "62cc2faa1e9d624a447f3d46037b4519f2a92628c947ca7c92eba9f66a553ea6"
+  },
+  "after/apps/client/src/shared/policy/types.ts": {
+    "lines": 77,
+    "sha256": "77f884a1c282c80cb41616da02b2c517f39b4923b509e10da2e9ad36f5891e0c"
+  },
+  "after/apps/client/src/shared/policy/useAppPolicy.ts": {
+    "lines": 180,
+    "sha256": "afe65561f6da8fd047b52dc7971b94d103df65f98f3ef857708ce20915c5deff"
+  },
+  "after/apps/client/src/shared/policy/useTripContentAccess.ts": {
+    "lines": 125,
+    "sha256": "72abefff5857885066287b1a51ea83e57a9ae36bc9fb300a84fdf5151c75d973"
+  },
+  "after/apps/client/src/shared/services/directions/mapbox.ts": {
+    "lines": 112,
+    "sha256": "733b0463cb7dc3cc9d707076f5dba5079aa4949f288b1cec5ae2edbb4c51c443"
+  },
+  "after/apps/client/src/shared/services/network-access.ts": {
+    "lines": 22,
+    "sha256": "bc0ec41342cd45280f300b3498b4eba8e539a05657baf8678e18a2ac93d009ff"
+  },
+  "after/apps/client/src/shared/services/offline-prep/index.ts": {
+    "lines": 16,
+    "sha256": "6e44050ecd4b4d545789cf4b242c6a6e6478e139d93b6f6ebc0fa5868e133378"
+  },
+  "after/apps/client/src/shared/services/offline-prep/router.ts": {
+    "lines": 88,
+    "sha256": "97daa6fc0b0930757718cdfb8eccb59a269cd09d09f7ace9c10527cf0b80e8d3"
+  },
+  "after/apps/client/src/shared/services/sync/provider.tsx": {
+    "lines": 125,
+    "sha256": "504e247210845fad7006cd152a7b0876386e1a9b5969cb5d8eb0557f1585b106"
+  },
+  "after/apps/client/src/shared/store/network.ts": {
+    "lines": 307,
+    "sha256": "c32a3c261937e8c56a368d88afb2dbdd4e4b835ca52cf7c804500679c2f0dc18"
+  },
+  "after/apps/client/tests/app/startup-sync.test.tsx": {
+    "lines": 133,
+    "sha256": "00e9bfb9be0a834ade708536d91181ad9dfdd9e29d25cc57cefac1dbabcc93c3"
+  },
+  "after/apps/client/tests/entities/mutation-routing-hooks.test.tsx": {
+    "lines": 85,
+    "sha256": "ba259aea8e6b2e0cb8903b5d1b0c36296ddf5b92e80150556b58753264cbaed9"
+  },
+  "after/apps/client/tests/entities/repository-routing.test.ts": {
+    "lines": 162,
+    "sha256": "84d09cecc2317fd501ed9c3ddea0612f3126491d90a0c70b948c07c21a5b487c"
+  },
+  "after/apps/client/tests/entities/trip-api-contract.test.ts": {
+    "lines": 51,
+    "sha256": "801b71b199c486fda509de8b02befeafd035c504c8c356e4cc64e4009a00055a"
+  },
+  "after/apps/client/tests/entities/trip-list-recovery.test.tsx": {
+    "lines": 49,
+    "sha256": "fa0451737f13194d2a52a7bb5e351f10c7d7985cff36d2a44a61ede5d12a1fc3"
+  },
+  "after/apps/client/tests/features/debug/manual-sync.test.tsx": {
+    "lines": 136,
+    "sha256": "57bc0f2195985403c6870f703be31b32d34dc4a98056940583bbf7bf116b7ed3"
+  },
+  "after/apps/client/tests/features/schedule/useLocationSearch-network.test.tsx": {
+    "lines": 76,
+    "sha256": "0e1a220642e7a241b4a7828611354ced9d7b6317800fedd8214a9e5c3191d2b7"
+  },
+  "after/apps/client/tests/screens/detail-content-access.test.tsx": {
+    "lines": 234,
+    "sha256": "57aebad99ff68019a094ddd25aeffeac597f54fae1b1fb3775b0398e820bb647"
+  },
+  "after/apps/client/tests/shared/policy/content-query-concurrency.test.tsx": {
+    "lines": 103,
+    "sha256": "efef0db85225669d7fe4adc0ebaa947c745991bfe84fa0623597ba8abcb26fd8"
+  },
+  "after/apps/client/tests/shared/policy/map-service-network.test.tsx": {
+    "lines": 63,
+    "sha256": "b046f888f76018b5782b2f130d6eae4073fbd0e27d8823bb535c2216d5848474"
+  },
+  "after/apps/client/tests/shared/policy/policy-ui.test.tsx": {
+    "lines": 218,
+    "sha256": "0dcfd6f90c9fe757173bc436acec0fff31ed5b00bf9152275cd409c7393ceacd"
+  },
+  "after/apps/client/tests/shared/policy/useAppPolicy-network.test.ts": {
+    "lines": 56,
+    "sha256": "b8304a5380578af35867317b424355c9d0f3255af18a94520daf417494962cba"
+  },
+  "after/apps/client/tests/shared/policy/useTripContentAccess.test.ts": {
+    "lines": 144,
+    "sha256": "6a47817deae066d7e3c2b7675d0a8d5dc8b9362d54a952391ef68607cc3a5fa9"
+  },
+  "after/apps/client/tests/shared/services/directions/network.test.ts": {
+    "lines": 55,
+    "sha256": "adae1997263d8944e24e2154dc0f999990889b07e5337da90c2ec4fd9a7c4e0b"
+  },
+  "after/apps/client/tests/shared/services/offline-prep/router-network.test.ts": {
+    "lines": 263,
+    "sha256": "52231fafd16e8908c71b5bd46ec58d7ac37b75aac1d140aeea4de4a3d8bbfd37"
+  },
+  "after/apps/client/tests/shared/services/sync/provider-network.test.tsx": {
+    "lines": 260,
+    "sha256": "251b1e82417924ddb7c9085bbb7f268586263d8c2e32f4a437d7991c7b219508"
+  },
+  "after/apps/client/tests/shared/store/network.test.ts": {
+    "lines": 391,
+    "sha256": "3a03495872d998f24837a800ac44c6ee894f5e1632901fc629cf7a8ec89d8d1c"
+  },
+  "before/apps/client/app/_layout.tsx": {
+    "lines": 238,
+    "sha256": "986df80390f12d117cb3d5939f2c60bb8fbb31915495bba8f757956df5a7ce87"
+  },
+  "before/apps/client/jest.config.cjs": {
+    "lines": 14,
+    "sha256": "09666ed5c1fe95bd083de55bfc3d62c7f93fe066a3b5f672e2e60cb740fff475"
+  },
+  "before/apps/client/src/entities/expense/data/useCreateExpense.ts": {
+    "lines": 52,
+    "sha256": "5638487843612334314e893d1e96fd21e97ce2ced39dfbbb35040968341c7fff"
+  },
+  "before/apps/client/src/entities/expense/data/useDeleteExpense.ts": {
+    "lines": 30,
+    "sha256": "4302254a555028db5b3d049b53ddcf16230931d7e2f88b0e80f72d90d293b923"
+  },
+  "before/apps/client/src/entities/expense/data/useGetScheduleExpenses.ts": {
+    "lines": 27,
+    "sha256": "601cdbc21a076e5a091a02da3df13411121089e65f5cb39db6c0350ce6f8be8e"
+  },
+  "before/apps/client/src/entities/expense/data/useUpdateExpense.ts": {
+    "lines": 38,
+    "sha256": "9f4f0430ad01734aaf0baf91674e6ad282fd83e67f124e9db60363efc37e2fbb"
+  },
+  "before/apps/client/src/entities/expense/repository/expense-repository.ts": {
+    "lines": 100,
+    "sha256": "ce1936d712fc6d6ebdbb9a5c7c478fe6c488b9534cace3a2e5cce6821159141b"
+  },
+  "before/apps/client/src/entities/schedule/data/useCreateSchedule.ts": {
+    "lines": 54,
+    "sha256": "6f3819a8fbf8413166dc4d03191ed78dcb2e075588a25235f5d3d2b94f3f1f1a"
+  },
+  "before/apps/client/src/entities/schedule/data/useDeleteSchedule.ts": {
+    "lines": 40,
+    "sha256": "2713a4ff60bcea5877699ab41b479f48384a0e25622ab8bd1e059441e8dff21d"
+  },
+  "before/apps/client/src/entities/schedule/data/useUpdateSchedule.ts": {
+    "lines": 42,
+    "sha256": "5411e2dd208fee0a4ec4a781ef5423c4a742335eafc59df22d3c0f5f00abb153"
+  },
+  "before/apps/client/src/entities/schedule/repository/schedule-repository.ts": {
+    "lines": 93,
+    "sha256": "a5603a701f8155a3e6454465ce6832947abfe5372672985ef5f50ede20f8d3e9"
+  },
+  "before/apps/client/src/entities/trip/api/trips.ts": {
+    "lines": 85,
+    "sha256": "75b2a930b648284b4e22de2877a07bb7ae17fef253a224087daba301daac85d5"
+  },
+  "before/apps/client/src/entities/trip/data/useCreateTrip.ts": {
+    "lines": 38,
+    "sha256": "3c29d2ac0825da2c9340018f99254fce4f73f946bcaf8df2694fb7fd3450d3eb"
+  },
+  "before/apps/client/src/entities/trip/data/useDeleteTrip.ts": {
+    "lines": 31,
+    "sha256": "c628598800819554e1fb2f1d2516429799bf60b1a528276b8563cbb3b40a80e8"
+  },
+  "before/apps/client/src/entities/trip/data/useGetTrips.ts": {
+    "lines": 25,
+    "sha256": "1834e27db5598d4cfce75187d4825456dc97cc7609b6e3b8fe19a98623285227"
+  },
+  "before/apps/client/src/entities/trip/data/useUpdateTrip.ts": {
+    "lines": 37,
+    "sha256": "6f04c76eeb75a7545c00850f98450147d90bfb5b3b9b25cb6025aa425121bcee"
+  },
+  "before/apps/client/src/entities/trip/repository/trip-repository.ts": {
+    "lines": 74,
+    "sha256": "7aa602d058831c653b965bf4aa7147d8cbebe3a48e25b7781e64b425ec057c26"
+  },
+  "before/apps/client/src/entities/trip/ui/TripSelector.tsx": {
+    "lines": 178,
+    "sha256": "4e9de7c6607fe915852847c9982e418b5b6aa511bb242e5f8fd46732b1197d6e"
+  },
+  "before/apps/client/src/features/debug/ui/DashboardView.tsx": {
+    "lines": 153,
+    "sha256": "19e3c9deb71894ab038dad7e03367030af018fd502d05ff9dda37f38b56bdf9e"
+  },
+  "before/apps/client/src/features/debug/ui/DebugScreen.tsx": {
+    "lines": 351,
+    "sha256": "0cf40f9eb2144f0884deb876287e715248cf5c0f5e1e98ab1c5f40081b995fcc"
+  },
+  "before/apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts": {
+    "lines": 81,
+    "sha256": "051bd7dc19a208a2d211c011806fe1972be2f2386ffada4418f4d13b3d725a28"
+  },
+  "before/apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx": {
+    "lines": 413,
+    "sha256": "cb50337220d5a19d64885d63c1329e6383e4e836cc1d412b9f219e75672d23e0"
+  },
+  "before/apps/client/src/features/schedule/create-schedule/ManualScheduleForm.tsx": {
+    "lines": 193,
+    "sha256": "02c1f138f46483e4a6f12bb53102195035d8890be95ec08d6d74507d03a82492"
+  },
+  "before/apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts": {
+    "lines": 135,
+    "sha256": "8005350bdb912555e892c7355bb06bbc681ae22776a86fa301bddcdf09563418"
+  },
+  "before/apps/client/src/features/schedule/create-schedule/useLocationSearch.ts": {
+    "lines": 121,
+    "sha256": "168cb59b64516e35d1a00f105c5c13a16e1bc49c58777e6d148e79b69f8b659c"
+  },
+  "before/apps/client/src/features/schedule/update-schedule/UpdateScheduleDrawer.tsx": {
+    "lines": 327,
+    "sha256": "00b381ed723f02b7dbd6a38bf15bb2acc203824db2f1b0462115c6fbcd729ff6"
+  },
+  "before/apps/client/src/features/trip/create-trip/TripDateForm.tsx": {
+    "lines": 157,
+    "sha256": "a6fff795052bae809c897691a7794bc683b188cf41e02bfed671c4f92d791178"
+  },
+  "before/apps/client/src/features/trip/create-trip/useCreateTripForm.ts": {
+    "lines": 106,
+    "sha256": "e13c1cbd2b4f7ce9686ffde649b29af3ef8aac736f8c88db52afe4c08826c7c7"
+  },
+  "before/apps/client/src/features/trip/update-trip/EditTripDrawer.tsx": {
+    "lines": 235,
+    "sha256": "c45d2ea0ae14355cc203b791e4f76b874d64bc3e091d87d70e2c032eac193138"
+  },
+  "before/apps/client/src/screens/CreateExpenseScreen.tsx": {
+    "lines": 82,
+    "sha256": "0b83527ee942a1fe6b4651569d6ade40de82423a381c3bdce1faa0b56e326e0f"
+  },
+  "before/apps/client/src/screens/CreateScheduleScreen.tsx": {
+    "lines": 225,
+    "sha256": "d62cb66caa064ad5cbc8fe1a31abd912c51fbef46bc97c22888dbbdfb9108564"
+  },
+  "before/apps/client/src/screens/ExpenseDetailScreen.tsx": {
+    "lines": 182,
+    "sha256": "cccf95f81265c8359d99cfd74c868f6a130076bb4669fc60b39ce0c2f8fc6cef"
+  },
+  "before/apps/client/src/screens/ExpensesScreen.tsx": {
+    "lines": 324,
+    "sha256": "fa10a0db397e468b43b8f29be9afb5eb8d9fcda44f945adce8768ba95b46ce46"
+  },
+  "before/apps/client/src/screens/HomeScreen/TripsSection.tsx": {
+    "lines": 389,
+    "sha256": "c028fd39999ea3d73f0fafd3a3c3140851bacee9187681f21623e45244247203"
+  },
+  "before/apps/client/src/screens/HomeScreen/index.tsx": {
+    "lines": 106,
+    "sha256": "4762b56193f49e12ab5b1e723158e22bf2af1df6cd70dfa55e9e6885fa2a5097"
+  },
+  "before/apps/client/src/screens/ScheduleDetailScreen.tsx": {
+    "lines": 196,
+    "sha256": "552cbe1cba2a17b68cb28a7fae2ed6ea106dd45bfce77db54803bcf200de9eca"
+  },
+  "before/apps/client/src/screens/ScheduleScreen.tsx": {
+    "lines": 282,
+    "sha256": "018101dcb5cfbc0a3ff77bec51e11d0306bb4f252f9fbfaf9d176524abe4176a"
+  },
+  "before/apps/client/src/shared/components/Card/ScheduleCard.tsx": {
+    "lines": 92,
+    "sha256": "2d70badbb0ea9e643cb0f8455fc3b10b29425e6419e228ad671bfcf4e21a8ca2"
+  },
+  "before/apps/client/src/shared/components/Map/PolicyBasedScheduleMapView.tsx": {
+    "lines": 49,
+    "sha256": "6b0401664ffc0574ab60e721d252ad72e30e0e2386dff3135d91252a9ea51690"
+  },
+  "before/apps/client/src/shared/components/Navigation/NetworkStatusIndicator.tsx": {
+    "lines": 39,
+    "sha256": "462b7c52d08a4d50df2eff7a7a36726371c9f8300d228815bbc98616cd776af7"
+  },
+  "before/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx": {
+    "lines": 218,
+    "sha256": "084cfe05f5ed7cb0ee589546620a60b708756f487d07f143af76e3ae37a32e8b"
+  },
+  "before/apps/client/src/shared/policy/types.ts": {
+    "lines": 77,
+    "sha256": "77f884a1c282c80cb41616da02b2c517f39b4923b509e10da2e9ad36f5891e0c"
+  },
+  "before/apps/client/src/shared/policy/useAppPolicy.ts": {
+    "lines": 102,
+    "sha256": "ec0f64397431016dde4f09b39af0a7d0a219cb79636e7358322fb697551a1020"
+  },
+  "before/apps/client/src/shared/services/directions/mapbox.ts": {
+    "lines": 109,
+    "sha256": "c5471689eff8354181a7a52e20a0a6a2deb2959aa8a2ca82fbd2c71383c03144"
+  },
+  "before/apps/client/src/shared/services/offline-prep/index.ts": {
+    "lines": 9,
+    "sha256": "1f9ed820358653be22cb4fabd7ee695f71fcf4f183c40faa84fd93ed3e7ce7ca"
+  },
+  "before/apps/client/src/shared/services/offline-prep/router.ts": {
+    "lines": 81,
+    "sha256": "a678391d466773fec9c097b0bcb079838c338f36a3c6f48f57fbc1758dab9684"
+  },
+  "before/apps/client/src/shared/services/sync/provider.tsx": {
+    "lines": 168,
+    "sha256": "11568f84eb311da78eb79c765acd1077e8b4ae38fdad063dec8678cc749aeb12"
+  },
+  "before/apps/client/src/shared/store/network.ts": {
+    "lines": 307,
+    "sha256": "c32a3c261937e8c56a368d88afb2dbdd4e4b835ca52cf7c804500679c2f0dc18"
+  },
+  "before/apps/client/tests/shared/policy/useAppPolicy-network.test.ts": {
+    "lines": 36,
+    "sha256": "c55bff0ffd417e78e1ec0a22e4de75804acd20ff3fb66c9438406a8606e43680"
+  },
+  "before/apps/client/tests/shared/services/offline-prep/router-network.test.ts": {
+    "lines": 190,
+    "sha256": "efff06aa5c068c065ce980f6b49065d708bcb48f9651edc954b433a711a4170d"
+  },
+  "before/apps/client/tests/shared/services/sync/provider-network.test.tsx": {
+    "lines": 122,
+    "sha256": "cbb27ddb2397fab09e3ea2a878da99507f2243f2bf6b68477de5868c4dc1ed0c"
+  },
+  "before/apps/client/tests/shared/store/network.test.ts": {
+    "lines": 391,
+    "sha256": "3a03495872d998f24837a800ac44c6ee894f5e1632901fc629cf7a8ec89d8d1c"
+  },
+  "changes/worker-change.patch": {
+    "lines": 4535,
+    "sha256": "6c6279f81e0212bd582cf75eead06c4e148fab34a1e386c3b2ae27b8ac2c8bb8"
+  },
+  "conversation.txt": {
+    "lines": 279,
+    "sha256": "15935bd546cf845abd4d138e6dd452085fd30ce151465d21b48aa2b4d7d6ba32"
+  },
+  "documents/.claude/rules/activation-router.md": {
+    "lines": 21,
+    "sha256": "962440ce646e5dc1009d8034a230200ff3322a9abbcebd0885c1f4babb70e132"
+  },
+  "documents/.claude/rules/policy-ui.md": {
+    "lines": 21,
+    "sha256": "2482a3d209b64e58472cda66a0f88e4627f9cb65bd58b23240507bc816fc65f9"
+  },
+  "documents/.claude/rules/transaction-sync-queue.md": {
+    "lines": 21,
+    "sha256": "9393eb30ce6d9e1cbd1330c2d13ceb4a071e626878c68be4604bd41cd1ed06b5"
+  },
+  "documents/CLAUDE.md": {
+    "lines": 183,
+    "sha256": "ead3a9a3062131fcf0b89ecdf46808a510c3d77c8377d9200ca577c4ba423820"
+  },
+  "documents/apps/client/CLAUDE.md": {
+    "lines": 77,
+    "sha256": "1970cb0fabf32f232de269d8a25fc9d7b42f6ce84f0b9a918c44ace09421aa7d"
+  },
+  "documents/context/project/guidance/behavior-preserving-refactoring.md": {
+    "lines": 48,
+    "sha256": "f1493d49d9846b0c48c2add317606413c1248d5ec2fd8624bdc102b0a24d793b"
+  },
+  "documents/context/project/guidance/explanation-and-evidence-criteria.md": {
+    "lines": 64,
+    "sha256": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+  },
+  "documents/context/work/AGENTS.md": {
+    "lines": 95,
+    "sha256": "904c729324df8ae6bd4dcefd7768635bb72dbbec5770e91c869848fd7fa85bd8"
+  },
+  "documents/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md": {
+    "lines": 17,
+    "sha256": "d9f90a7068e82ad08cf0298e3d86d989cc82834b206f5e3a3ab63dc50c932934"
+  },
+  "documents/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/02-behavior-and-cases.md": {
+    "lines": 22,
+    "sha256": "c547556ee66ea5fc2e05d9620fa849ad8404f9a81e009f9e1cef2f6d9cb4e14a"
+  },
+  "documents/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/03-concepts-and-contracts.md": {
+    "lines": 17,
+    "sha256": "5674e60d0219b7dbcf3a18dd91ed5777930ae150564115a73b6c06ad9abef558"
+  },
+  "documents/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md": {
+    "lines": 43,
+    "sha256": "90c95268c5d52d426588faeea1a5c419dfdf039b7176d0706dc41d52a50345d1"
+  },
+  "documents/context/work/workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md": {
+    "lines": 42,
+    "sha256": "7f0452330a0457d83f61f75e31aeaa4f35085c9f6999849bd82701494be96896"
+  },
+  "documents/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md": {
+    "lines": 142,
+    "sha256": "440d42baf8a08d5c59b25734860c1442686cce9c01698bc717f2f21f997f4765"
+  },
+  "documents/context/work/workspaces/002-code-readability-refactoring/records/2026-09-16-01-network-policy-and-implementation-boundaries.md": {
+    "lines": 81,
+    "sha256": "f2079aa0a301812fe363212ea591be6e9bc962494a39f84b0cae2d93705b37b2"
+  },
+  "documents/context/work/workspaces/002-code-readability-refactoring/records/2026-09-17-02-network-consumer-quality-improvements.md": {
+    "lines": 44,
+    "sha256": "3ce26892e053182d0628310c69abe531fa4eea42d2d6f014069cf8344964ac76"
+  },
+  "documents/context/work/workspaces/DOCUMENT-WRITING.md": {
+    "lines": 59,
+    "sha256": "74ea5cd3c9dc29c4f6c8037ed7fd50995e39fee4439540173b289b69fc897edc"
+  },
+  "documents-before/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md": {
+    "lines": 141,
+    "sha256": "35b7e8818dcd6dbb179fb6965c9d7765d0fa978b2fbd178cf92c9ae0f207d29a"
+  },
+  "observations/command-152.json": {
+    "lines": 13,
+    "sha256": "41dc49a83ea5d4a3ae8b577d34a7444d80cab4ea3ba5d7cd5698bf51f8dfbab9"
+  },
+  "observations/command-161.json": {
+    "lines": 13,
+    "sha256": "2906c972718e67165190c0eff65e9914d0254ab3c31f9aa940fd6fb25efafdde"
+  },
+  "observations/command-35.json": {
+    "lines": 13,
+    "sha256": "b9bfe421958d24f2e39fdcc2827aaa6feb0e554acdd215ed1aec8b32af49f4be"
+  },
+  "observations/command-36.json": {
+    "lines": 13,
+    "sha256": "31d890049891907dd888ea7b16920ddfd048f56e44175751d29ee62a5c9fd505"
+  },
+  "observations/command-37.json": {
+    "lines": 13,
+    "sha256": "9005add38edf810719676cb4007b15e59558a166b9393822d09b03d40d1c25b7"
+  },
+  "observations/command-81.json": {
+    "lines": 13,
+    "sha256": "564202c4860fd16ed88cf382afc859f2b74b9b3d396c61c26efa22cb87453004"
+  },
+  "observations/command-83.json": {
+    "lines": 13,
+    "sha256": "ee499d9138a97da1e940206e5d8c970cba8eec7da15ad8d27ec3f52f6c26cc99"
+  },
+  "observations/command-86.json": {
+    "lines": 13,
+    "sha256": "e1cc0f979af1f7acc7db896ab2149aa18361cb5f81d09d43e5de8cb2a86c622f"
+  },
+  "observations/command-87.json": {
+    "lines": 13,
+    "sha256": "3b408cbfb9b79100fc1b84913b9aaf0a7d3a2872c0a0df92caca73174426b5fc"
+  },
+  "observations/command-88.json": {
+    "lines": 13,
+    "sha256": "bda8c387b4e35fd4c6eb020c62ce5ecb3c285197738859b2a26d47fdfb03524c"
+  },
+  "observations/command-89.json": {
+    "lines": 13,
+    "sha256": "3d07e3f1745caedf0d3143500f04bb1f97621c92f2241bc2f4c0a8a480a492e5"
+  },
+  "observations/command-90.json": {
+    "lines": 13,
+    "sha256": "2faeb7337430563c54e62c180c9296ba523292e7fac6026122f5c4f8960b4ea4"
+  },
+  "observations/independent-review-responses.json": {
+    "lines": 12,
+    "sha256": "8ebbcb985dc2cf957e4fc60a8fa99197ed30bdcb6b20e2c3ce8a2e9a4dc9e9f9"
+  },
+  "skills/shared/explanation-and-evidence-criteria.md": {
+    "lines": 64,
+    "sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a"
+  },
+  "skills/skill/SKILL.md": {
+    "lines": 130,
+    "sha256": "a8af2ca17805e6b7610202da0321ec5ccc83572555de6c8724e57d31ee0f7f97"
+  },
+  "supporting/apps/client/src/entities/trip/data/useGetTripActivation.ts": {
+    "lines": 82,
+    "sha256": "dc1554af7a118e21d15ceeade65d91c2b531b5e43701c967c63c0065260921bb"
+  },
+  "supporting/apps/client/src/entities/trip/lib/trip-local.ts": {
+    "lines": 142,
+    "sha256": "bfa4432adb8cdafdea905fad8d74d8870931a9d7d51c1148f31926096c1e412c"
+  },
+  "supporting/apps/client/src/shared/api/fetcher.ts": {
+    "lines": 70,
+    "sha256": "b1e7103c9b9bac4eaaf1d84065d3b217350557d2c3c618241f4465c79bfa92b5"
+  },
+  "supporting/apps/client/src/shared/lib/queryClient.ts": {
+    "lines": 24,
+    "sha256": "1113b2ab5031c6f079256fa2b8df9cb6888255a72ced77b1b59cd376d8757bf5"
+  },
+  "supporting/apps/client/src/shared/policy/errors.ts": {
+    "lines": 43,
+    "sha256": "1ac64fa6c6b93850cf57d8f3920b48188948554a32bef52cb1e50ee6e801051f"
+  },
+  "supporting/apps/client/src/shared/services/offline-prep/errors.ts": {
+    "lines": 41,
+    "sha256": "9231d8d16f99d2ed722b52588f974cb9b151b0502ba46f90e6497003c6215cd2"
+  },
+  "supporting/apps/client/src/shared/services/offline-prep/metadata.ts": {
+    "lines": 125,
+    "sha256": "030cbdae139cdc1e84704a86eee5167a8c8f165420907c96997a1da4aa16af0f"
+  },
+  "supporting/apps/client/src/shared/services/sync/engine.ts": {
+    "lines": 303,
+    "sha256": "46220355235a1fd68cafbf5a763a00a249cea91db8a39711e0737e45b6e1bdee"
+  },
+  "supporting/apps/client/src/shared/services/sync/queue.ts": {
+    "lines": 278,
+    "sha256": "b3953a3cfd1f3558d2f4657c963ca7921dbe2460e289cd5b51ac405823c0c125"
+  },
+  "supporting/apps/client/src/shared/store/auth.ts": {
+    "lines": 173,
+    "sha256": "4e8543dff4ac3fa05050501d00ea27fb33af808af53cb1fd34e50e7b77ecdc8d"
+  },
+  "supporting/apps/client/src/shared/store/useTripStore.ts": {
+    "lines": 29,
+    "sha256": "05df45ebd0856416301ebe60d32a6433f8205fe5ecc3c50af16eda842e651077"
+  },
+  "supporting/apps/server/src/routes/trips.ts": {
+    "lines": 490,
+    "sha256": "0d8283afff8d6c9c5fed602002fea57e5cde7bf4bfaa89102874d14bd100d76b"
+  }
+}

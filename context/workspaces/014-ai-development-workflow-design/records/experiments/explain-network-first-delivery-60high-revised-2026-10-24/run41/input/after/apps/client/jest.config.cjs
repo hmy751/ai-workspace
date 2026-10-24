@@ -1,0 +1,21 @@
+/** @type {import('jest').Config} */
+module.exports = {
+  preset: 'jest-expo',
+  rootDir: __dirname,
+  clearMocks: true,
+  watchman: false,
+  testMatch: ['<rootDir>/tests/**/*.test.[jt]s?(x)'],
+  // 환경 fixture를 런타임에 바꿀 수 있게 Expo의 빌드 시 env 치환만 제외한다.
+  transform: {
+    '\\.[jt]sx?$': [
+      'babel-jest',
+      { caller: { name: 'metro', bundler: 'metro', platform: 'ios', preserveEnvVars: true } },
+    ],
+  },
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
+  transformIgnorePatterns: [
+    'node_modules/(?!(.pnpm|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg))',
+  ],
+};

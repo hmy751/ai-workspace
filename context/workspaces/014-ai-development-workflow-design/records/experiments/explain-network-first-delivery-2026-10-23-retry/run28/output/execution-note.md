@@ -1,0 +1,5 @@
+- 입력: `prompt.txt`를 먼저 읽고, `read_material.py`로 skill 전문·대화 전문·공통 설명 기준·Ticket·결과 기록·독립 검토·선택한 코드와 검사 관찰을 읽었다.
+- 자료 검사: 응답 작성 전 `read_material.py --check`의 `complete: true`, `missing: []` 확인(18개 파일).
+- 입력 공백: 형성 배경은 제공되지 않았고, 원 저장소의 현재 상태나 실제 기기 실행 기록은 확인하지 않았다.
+- 출력 잘림: 선택한 모든 조각에서 BEGIN/END를 확인했으며 잘림은 없었다.
+- 경계: 다른 실행 폴더·원 저장소·부모 대화·네트워크에 접근하지 않았고, 검사·코드 수정·커밋·추가 에이전트 호출은 하지 않았다. 작성 파일은 이 폴더의 `output/response.md`와 `output/execution-note.md`뿐이다.

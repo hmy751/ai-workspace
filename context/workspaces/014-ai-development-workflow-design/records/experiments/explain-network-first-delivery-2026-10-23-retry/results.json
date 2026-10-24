@@ -1,0 +1,28 @@
+{
+  "run28": {
+    "read_files": 18,
+    "read_events": 47,
+    "missing_chunks": [],
+    "chunk_hash_mismatch": [],
+    "input_drift": [],
+    "skill_first": true,
+    "check_before_response": true,
+    "response_sha256": "26a63445a8f1d5dd8bb974a2f9830c5ab1d9421e5d82efed3fdcf4d7f97c0123",
+    "characters": 2173,
+    "truncation": "실행자 모두 없음으로 보고. 3000자 조각·별도 출력 사용.",
+    "boundary": "실행자 모두 외부 접근 없음으로 보고. OS 격리 증명은 아님."
+  },
+  "run53": {
+    "read_files": 23,
+    "read_events": 61,
+    "missing_chunks": [],
+    "chunk_hash_mismatch": [],
+    "input_drift": [],
+    "skill_first": true,
+    "check_before_response": true,
+    "response_sha256": "176e183bcd0462a40ca01cb723d3deaf3195c2d1306b6c25967c58a63d1f1d44",
+    "characters": 3189,
+    "truncation": "실행자 모두 없음으로 보고. 3000자 조각·별도 출력 사용.",
+    "boundary": "실행자 모두 외부 접근 없음으로 보고. OS 격리 증명은 아님."
+  }
+}

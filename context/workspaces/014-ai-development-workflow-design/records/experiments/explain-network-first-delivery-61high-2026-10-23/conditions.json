@@ -1,0 +1,31 @@
+{
+  "runs": {
+    "run36": {
+      "variant": "explain",
+      "runtime": "/private/tmp/explain-network-61high-20261023/run36",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "fork_turns": "none",
+      "previous_condition_source": "run53"
+    },
+    "run82": {
+      "variant": "prior",
+      "runtime": "/private/tmp/explain-network-61high-20261023/run82",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "fork_turns": "none",
+      "previous_condition_source": "run28"
+    }
+  },
+  "display_order": [
+    "run36",
+    "run82"
+  ],
+  "source": "06",
+  "resume_before": 895,
+  "samples_per_condition": 1,
+  "same_shared_criteria": true,
+  "scope": "명시 적용 후 첫 결과 설명 비교",
+  "authorization": "그럼 둘다 6.1 sol 하이로 시켜봐",
+  "change": "직전 완독 재실행에서 모델·추론 수준만 GPT-6.1-sol high로 변경. 자료·스킬·prompt·reader 동일. 현재 대화·이전 응답·평가 미제공."
+}

@@ -1,0 +1,13 @@
+{
+  "source": "main",
+  "line": 863,
+  "timestamp": "2026-09-17T03:10:01.569Z",
+  "command": [
+    "/bin/zsh",
+    "-lc",
+    "python3 - <<'PY'\nimport subprocess\nfrom pathlib import Path\nroot=Path.cwd()\nchanged=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()\nnew=subprocess.check_output(['git','ls-files','--others','--exclude-standard','apps/client/src','apps/client/tests'],text=True).splitlines()\npaths=sorted({p for p in changed+new if p.startswith('apps/client/') and Path(p).suffix in {'.ts','.tsx','.cjs'} and Path(p).is_file()})\nprint('Changed client source/test/config files:',len(paths),flush=True)\na=subprocess.run([str(root/'node_modules/.bin/prettier'),'--check',*paths])\nsource=[p.removeprefix('apps/client/') for p in paths if p.startswith('apps/client/src/') or p=='apps/client/app/_layout.tsx']\nb=subprocess.run([str(root/'node_modules/.bin/eslint'),*source,'--rule','prettier/prettier: off'],cwd=root/'apps/client')\nprint('Prettier exit:',a.returncode,'ESLint exit:',b.returncode)\nraise SystemExit(max(a.returncode,b.returncode))\nPY"
+  ],
+  "stdout": "Checking formatting...\nAll matched files use Prettier code style!\n\n/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/app/_layout.tsx\n  26:25  warning  Forbidden non-null assertion  @typescript-eslint/no-non-null-assertion\n\n/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/HomeScreen/index.tsx\n   3:28  warning  'ScheduleCard' is defined but never used                @typescript-eslint/no-unused-vars\n   5:10  warning  'ChevronRight' is defined but never used                @typescript-eslint/no-unused-vars\n  30:9   warning  'upcomingSchedules' is assigned a value but never used  @typescript-eslint/no-unused-vars\n  73:52  warning  Inline style: { color: '#1F1F1F' }                      react-native/no-inline-styles\n\n/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx\n  219:20  warning  Inline style: { bottom: 100, right: 16 }  react-native/no-inline-styles\n\n✖ 6 problems (0 errors, 6 warnings)\n\nPrettier exit: 0 ESLint exit: 0\n",
+  "stderr": "",
+  "exit_code": 0
+}

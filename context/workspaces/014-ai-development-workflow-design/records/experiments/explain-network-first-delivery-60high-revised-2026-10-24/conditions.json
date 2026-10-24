@@ -1,0 +1,30 @@
+{
+  "source": "06",
+  "resume_before": 895,
+  "samples_per_condition": 1,
+  "scope": "명시 적용 후 첫 결과 설명 비교",
+  "authorization": "수정한 새 스킬과 기존 스킬을 둘 다 6.0 sol high로 비교하고 조건 표시 없이 최초 응답 원문 반환",
+  "runs": {
+    "run41": {
+      "variant": "prior",
+      "runtime": "/private/tmp/explain-network-60high-revised-20261024/run41",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "high",
+      "fork_turns": "none",
+      "previous_condition_source": "run82"
+    },
+    "run97": {
+      "variant": "explain-revised",
+      "runtime": "/private/tmp/explain-network-60high-revised-20261024/run97",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "high",
+      "fork_turns": "none",
+      "previous_condition_source": "run36"
+    }
+  },
+  "display_order": [
+    "run41",
+    "run97"
+  ],
+  "same_shared_criteria": true
+}

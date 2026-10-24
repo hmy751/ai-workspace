@@ -1,0 +1,13 @@
+{
+  "source": "main",
+  "line": 860,
+  "timestamp": "2026-09-17T03:09:59.826Z",
+  "command": [
+    "/bin/zsh",
+    "-lc",
+    "python3 - <<'PY'\nfrom pathlib import Path\nimport re\nbase=Path('context/work/workspaces/002-code-readability-refactoring')\npaths=[base/'current/memory/tickets/06-app-startup-lifecycle.md',base/'current/state/index.md',base/'output/index.md',base/'records/README.md',base/'records/2026-09-17-02-network-consumer-quality-improvements.md',Path('.claude/context/policy-architecture.md')]\nmissing=[]\nfor p in paths:\n for ref in re.findall(r'\\[[^\\]]*\\]\\(([^\\)]+)\\)',p.read_text()):\n  if '://' in ref or ref.startswith('#'): continue\n  target=ref.split('#')[0]\n  if not (p.parent/target).exists(): missing.append((str(p),ref))\nprint('Document links:', 'PASS' if not missing else missing)\nPY\n git diff --check"
+  ],
+  "stdout": "Document links: PASS\n",
+  "stderr": "",
+  "exit_code": 0
+}

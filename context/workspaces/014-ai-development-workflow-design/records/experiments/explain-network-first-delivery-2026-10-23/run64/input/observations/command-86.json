@@ -1,0 +1,13 @@
+{
+  "source": "main",
+  "line": 849,
+  "timestamp": "2026-09-17T03:09:39.126Z",
+  "command": [
+    "/bin/zsh",
+    "-lc",
+    "../../node_modules/.bin/eslint src/entities/trip/data/useGetTrips.ts src/screens/HomeScreen/TripsSection.tsx src/shared/policy/useTripContentAccess.ts src/shared/components/ErrorBoundary/TripContentStatus.tsx src/shared/services/network-access.ts src/shared/services/directions/mapbox.ts src/shared/services/offline-prep/index.ts src/features/schedule/create-schedule/useLocationSearch.ts src/shared/components/Map/PolicyBasedScheduleMapView.tsx src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx --rule 'prettier/prettier: off'"
+  ],
+  "stdout": "\n/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/shared/components/PolicyBasedMapView/PolicyBasedMapView.tsx\n  219:20  warning  Inline style: { bottom: 100, right: 16 }  react-native/no-inline-styles\n\n✖ 1 problem (0 errors, 1 warning)\n\n",
+  "stderr": "",
+  "exit_code": 0
+}

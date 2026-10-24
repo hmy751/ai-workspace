@@ -1,0 +1,16 @@
+{
+  "run28": {
+    "previous_input_identical": true,
+    "files": 168,
+    "model": "gpt-6-sol",
+    "reasoning_effort": "medium",
+    "fork_turns": "none"
+  },
+  "run53": {
+    "previous_input_identical": true,
+    "files": 170,
+    "model": "gpt-6-sol",
+    "reasoning_effort": "medium",
+    "fork_turns": "none"
+  }
+}

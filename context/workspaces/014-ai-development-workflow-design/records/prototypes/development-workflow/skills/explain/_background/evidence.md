@@ -63,6 +63,36 @@ Workspace014 `records/experiments/artifact-explanation-trip-responsibility-2026-
 
 리뷰 입력·반환의 핵심 발췌와 Main 판단은 Workspace014 `records/2026-10-23-ticket04-02-composition-improvement-review.md`에 있다. 리뷰 직전 제안 사본 SHA-256은 `882a72820efe6c423a98a41d1a88b334b81c34aed14faf098fe137404a6c474e`다. 리뷰는 설계 판단이며 새 구성의 수행 효과 증거가 아니다.
 
+## 통합 뒤 비교와 재검토 요청 — 2026-10-24
+
+6.0-sol medium 비교의 사용자 반응:
+
+> 둘 다 비슷한 것 같은데 어느 게 새 스킬이야? 니가 보기엔 실제로 나아진 게 있는지, 우리가 개선하려던 부분 기준으로 판단해봐
+
+6.1-sol high 비교의 사용자 반응:
+
+> 이번엔 B가 더 나은 것 같은데 어느 게 새 스킬이야? 이전 6.0 결과랑 같이 보면 우리가 개선하려던 부분에서 어떻게 판단해야 할 것 같아?
+
+6.0에서는 A가 기존, B가 explain이고6.1에서는 A가 explain, B가 기존이었다. 같은 설정 안에서 동일 자료·적용 시점으로 각1회 최초 응답을 생성했다. 새 스킬은 두 실행 모두 작성 상세를 읽었지만 전후 코드를 직접 대조하지 않았다.6.1 기존판은 Provider와 ExpenseRepository의 전후를 읽고 실제 코드와 변경 이유를 응답에 대응시켰다. 두 모델 설정을 바꾸면서 effort도 함께 바뀌었고 조건당1회이므로 일반적 성능·인과·사용자 이해를 확정하지 않는다.
+
+원자료 식별자: Workspace014 `records/experiments/explain-network-first-delivery-2026-10-23-retry/` 및 `records/experiments/explain-network-first-delivery-61high-2026-10-23/`의 `comparison.md`, `answer-A.md`, `answer-B.md`, `results.json`과 읽기 기록. 초기 잘린 출력의 무효 시험은 별도 폴더에 있으며 위 두 비교와 합치지 않는다.
+
+사용자는 먼저 “바로 수정하지 말고 어떻게 보완하면 좋을지 먼저 얘기하자”라고 요청했다. Main이 네 약화 지점을 설명한 뒤 다음과 같이 요청했다.
+
+> 이 방향으로 수정뿐만 아니라 기존 스킬 다시 꼼꼼히봐서 더 검토해봐
+
+이 요청으로 추가 검토와 수정을 수행했다. [반영 기록](records/2026-10-24-explanation-revision.md)은 문구 대조·Main 판단·수정과 효과 미확인을 구별한다. 새 응답 생성이나 운영 설치를 수행한 기록은 아니다.
+
+## 수정 후 비교와 평가 — 2026-10-24
+
+사용자 반응:
+
+> 이번에도 둘 다 비슷한 것 같은데 어느 게 수정한 새 스킬이야? 우리가 보완한 부분이 실제 답에 반영됐는지 이전 결과랑 같이 보고 판단해봐 그냥 모델 차이인가 ?
+
+수정판과 기존판을 같은6.0-sol high·원자료·첫 보고 시점으로 각1회 비교했다. A는 기존 브리핑, B는 수정 explain이다. B는 작성 상세와 Provider·Router의 before/after를 읽었고, A는 before/ 코드를 직접 읽지 않았다. 양쪽 모두 현재 동작·검사 중심으로 답했으며, B의 전후 자료 선택이 실제 처리·의미의 응답 대응까지 충분히 이어지지는 않았다. 사용자 체감과 Main의 이 판단은 구별한다.
+
+원자료 식별자: Workspace014 `records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/`의 `conditions.json`, `comparison.md`, 두 최초 응답과 각 실행의 `output/read-events.jsonl`. 이전6.1 high의 기존판이 구현·이유 연결에서 더 분명했지만 같은6.1 high의 수정 전 explain은 약했다. 조건당1회이고 수정 전후 explain의 실행 설정도 달라 모델·추론 수준·문구 수정·생성 편차의 인과 효과는 분리하지 못한다. 이 관찰 뒤 실행 지침을 추가 수정하거나 새 시험을 반복하지 않았다.
+
 ## 실행 상세 예시의 출처와 한계
 
 ### 여행 코드의 작성 과정
