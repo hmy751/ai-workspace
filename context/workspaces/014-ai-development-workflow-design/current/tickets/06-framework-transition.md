@@ -2,7 +2,7 @@
 
 상태: **로컬 context/personal 배치 정정 · 실제 운영 전환과 전체 계획은 미완료**. [정정89](../../records/2026-10-19-89-local-context-structure-correction.md)에서 사용자는 글로벌 분리가 아니라 context 안에 개인 기준을 두려는 뜻이라고 확인했다. 별도 ai-workspace 모형을 필수 호스트로 둔 해석을 대체하고 demo의 context/personal·project·work로 적용했다. 개발 본문은 personal/development에 있다. 이 prototype 내부 수정과 실제 Noline·글로벌·다른 운영 저장소의 전환은 구별한다. 전체 기준은 [Spec](../spec.md)에 있다.
 
-현재 입력: [1~15번 통합](../../records/2026-10-23-development-workflow-1-15-integration.md)에서 development의 본체·상세·실행 배치와 root/Work·기록 연결을 prototype에 반영했다. 실제 대상의 스킬·기존 장치 의존·설치·복구 계획은 이 Ticket에서 이어간다. [중간 정리90](../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md)의 DEVELOPMENT 위치 미정은 당시 상태이며 이미 정한 prototype 진입을 다시 미정으로 열지 않는다.
+현재 입력: [01-01·01-03 설계 마감](../../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)과 검증자 실행 통합을 이어받는다. 검증 역할의 설계를 다시 열지 않고 대상별 실행 도구·권한·Recover/Verify 의존·기록 연결·적용 및 복구 계획을 맡는다. [1~15번 통합](../../records/2026-10-23-development-workflow-1-15-integration.md)에서 development의 본체·상세·실행 배치와 root/Work·기록 연결을 prototype에 반영했다. 실제 대상의 스킬·기존 장치 의존·설치·복구 계획은 이 Ticket에서 이어간다. [중간 정리90](../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md)의 DEVELOPMENT 위치 미정은 당시 상태이며 이미 정한 prototype 진입을 다시 미정으로 열지 않는다.
 
 85의 전역 personal-context 배치는 당시 Main 추천으로 보존한다.89의 로컬 배치 정정 뒤에는 이 경계를 실제 운영 저장소에 적용하는 범위와 배포·동기화·관리 책임을 구체화해야 한다. Project가 개인 기준의 위치·채택·갱신을 관리하는 관계를 다시 넣거나, 위치 선택을 전역 안내·스킬 설치 승인으로 확대하지 않는다.
 

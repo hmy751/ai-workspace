@@ -1,5 +1,7 @@
 # 현재 논의의 진입점
 
+**01-01·01-03 설계 결과 완료.** [완료 조건 대조와 Spec·04의 남은 일](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)을 먼저 읽는다. 다음 추천은04-03 개별 맥락 스킬 보완이며,01-02 전체 종합·04-02 응답 판단·02/05/06/07의 후속 설계는 구별한다. 실제 운영 효과·전체 Workspace 완료는 아니다.
+
 04-02 첫5개 비교 완료: [조건 공개·응답 대조·다음 판단](../records/experiments/explain-source03-04-60high-2026-10-24/comparison.md). 사용자는 다섯 답이 비슷하다고 평가했다.03 A=스킬 없음·B=직전 explain·C=현재판,04 A=현재판·B=직전판이다. Main은03 현재판의 세 방어 조건 설명에서 국소적 보완을 확인했으나 기본 응답도 핵심을 설명했고,04는 판단·근거가 비슷하며 질문에 직접 답하는 시작은 직전판이 낫다고 판단했다. 이번 수정의 뚜렷한 추가 이득은 미확인이다. 현재판을 고정하고 추가 문구 보강·재생성은 하지 않았으며 첫 전달 연결 효과는 미시험으로 남긴다.
 
 후속 실행 본문·참조 문서 구체화에는 [단계·층위·개념과 책임의 공통 메모](../records/2026-10-24-workflow-structure-and-responsibility-guidance.md)도 적용한다. 검증에 한정하지 않는 사용자 요청이며, 실제 구체화 범위에서 역할·정본·인계 관계로 이어 간다.
@@ -28,7 +30,7 @@
 
 1. [state](state.md)와 [output](../output/index.md)에서 이번에 끝낸 결과·현재 실물·다음 행동을 확인하고 Git 상태를 대조한다.
 2. [memory](memory.md)의 대상물 경계·독립 책임·형성 자료·체계 지침에 관한 지속 기준과 [Spec](spec.md)의 전체 목표·3절·5절을 읽는다.
-3. [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[01-03](tickets/01-development-workflow/01-03-behavior-verification.md)과 [04의 관계](tickets/04-skill-improvements/README.md)를 함께 읽는다. 구현·개선 검토의 합의에서 별도 검증 및 수정 단계로 이어간다. 검증 상세의 실행 반영·대표 대조는 마쳤다. 다음에는 개별 맥락 스킬의 대상별 조건과01-01·01-03 완료 조건을 이번 근거에 대조한다. 실제 역할 전체의 수행 효과와 운영 설치는 별도로 계획한다.
+3. [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[01-03](tickets/01-development-workflow/01-03-behavior-verification.md)과 [04의 관계](tickets/04-skill-improvements/README.md)를 함께 읽는다. 구현·개선 검토의 합의에서 별도 검증 및 수정 단계로 이어간다. 검증 상세의 실행 반영·대표 대조는 마쳤다. 01-01·01-03 완료 조건 대조도 마쳤다. 다음에는04-03의 개별 맥락 스킬과01-02 품질 기준 전체 종합을 이어간다. 실제 역할 전체의 수행 효과와 운영 설치는 별도로 계획한다.
 
 ## 문서별 책임
 

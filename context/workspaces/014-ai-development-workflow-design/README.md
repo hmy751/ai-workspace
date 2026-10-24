@@ -1,8 +1,10 @@
 # AI 개발 작업 체계의 개선 설계
 
+**01-01·01-03 설계 결과를 마감했다.** [완료 조건 대조와 Spec·04의 다음 범위](records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)에서 근거·비용·한계를 확인한다. 다음 추천은04-03의 개별 맥락 스킬 보완이다. 상위01·04와 전체 Workspace는 아직 완료가 아니며 실제 운영 효과와 구별한다.
+
 검증자 실행 반영: [검증 상세](records/prototypes/development-workflow/skills/development/references/verification.md)를 생성하고 development·review·execution과 연결했다. [합의 대조와 확인 기록](records/2026-10-24-verifier-runtime-integration.md)에서 항목별 반영·대표 장면·실제 검사·한계를 읽는다.
 
-**구현·개선 검토1~15와 검증자1~12의 합의를 실행 prototype에 통합했다.** [전체 흐름 대조·실제 확인](records/2026-10-24-verifier-runtime-integration.md)에서 구현 중 검사·개선 수정·별도 검증·재검증·Main 완료와 기록의 연결을 확인한다. Main의 대표 장면 대조와 메모리 예제 실행을 마쳤으며, 여러 agent의 전체 개발 수행·운영 설치·일반 효과 검증은 별도다. 필요한 개별 맥락 스킬 보완과 대상별 연결·전체 Ticket 마감은 남아 있다.
+**구현·개선 검토1~15와 검증자1~12의 합의를 실행 prototype에 통합했다.** [전체 흐름 대조·실제 확인](records/2026-10-24-verifier-runtime-integration.md)에서 구현 중 검사·개선 수정·별도 검증·재검증·Main 완료와 기록의 연결을 확인한다. Main의 대표 장면 대조와 메모리 예제 실행을 마쳤으며, 여러 agent의 전체 개발 수행·운영 설치·일반 효과 검증은 별도다. 개별 맥락 스킬 보완과 대상별 연결·전체 체계 종합은 해당 후속 Ticket에 남아 있다.
 
 04-02는 [explain 본체·상세·형성 자료](records/prototypes/development-workflow/skills/explain/SKILL.md)로 기존 두 실행 경로를 통합했다. 이후 반복 비교를 재검토해 원래 목적·실제 사용 경험·외부 자료를 선별하고 독립 개선 리뷰를 거쳤다. 사용자 요청으로 [질문 범위·실제 설명 연결·첫 전달 호출을 구체화](records/2026-10-24-ticket04-02-selective-improvement-adoption.md)했다. prototype 반영과 정적·문단 대조를 마쳤으며 운영 설치·실제 수행 효과 확인은 별도다. 현재 상태와 재개는 [04-02](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
 

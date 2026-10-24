@@ -1,6 +1,6 @@
 # 04-03 — 맥락 읽기·갱신·Workspace 생성 스킬을 보완한다
 
-2026-10-24 다음 범위: 구현·개선 검토와 별도 검증 및 수정이라는 전체 틀에서, 각 역할이 읽기·재판단·갱신을 실제로 어떻게 수행하는지01-01·01-03과 함께 맞춘다. read/update/create의 구체 조항·대상 차이·재개/갱신/생성 사례 대조가 남아 있으며, 연결 안내나 Main 대체 수행만으로 개별 스킬 보완을 완료 처리하지 않는다. [원래 논의와 남은 일](../../../records/2026-10-24-workflow-framework-and-checkpoint.md)
+2026-10-24 다음 범위: [01-01·01-03의 설계 마감](../../../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)과 실제 development·review·verification·execution을 입력으로 받는다. 새 역할을 다시 설계하는 대신 read/update/create의 현행 조항·Noline/Reference 차이와 재개/본문 선택·적용/공통 갱신/Workspace 생성 장면을 대조해 유지·보완·비적용 조건을 만든다. 연결 안내와 Main 직접 수행만으로 개별 스킬 보완을 완료 처리하지 않는다. 이번에는 후속 범위만 갱신했고 스킬 보완·설치는 착수하지 않았다.
 
 **14~15번의 연결·기록 책임을 prototype 실행 본문에 반영했다.** [대조와 범위](../../../records/2026-10-23-development-workflow-1-15-integration.md)를 읽는다. root/Work의 일반 재개·한정 위임, development의 조건별 맥락 선택·재판단·갱신, work-discussion의 명시 호출과 Main 기록 책임을 맞췄다. 설치된 호환 스킬이 없으면 Main이 실제 관리 지침으로 수행한다. 보존 원형 read/update/reconsider/create 스킬 자체의 대상별 보완·설치와 실제 효과는 남아 있어 이 Ticket 전체 완료는 아니다. 자동 Maintain·신규 기록 스킬은 연결하지 않는다. 아래 날짜별 미적용·미정 표기는 당시 경과다.
 

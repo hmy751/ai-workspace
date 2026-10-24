@@ -1,10 +1,12 @@
 # AI 개발 작업 체계의 개선 설계 — Spec 초안
 
+2026-10-24 설계 마감: [01-01·01-03 완료 조건 대조](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)로 개발 진행·사람 판단과 요구 검증·도구 선택을 완료로 정리했다. 합의·실행 본문·대표 대조가 각 설계 결과의 조건을 충족한다. 상위01은01-02 종합,04는 개별 스킬의 남은 판단·보완이 있어 계속 열려 있다. 실제 운영 설치·전체 역할 수행·일반 효과의 완료가 아니다.
+
 2026-10-24 후속 구체화 공통 기준: 검증에서 드러난 단계·층위·개념의 구별을 다른 책임에도 적용하고, 실행 본문·참조 문서에 그 관계가 체계적으로 이어지도록 한다. 단계의 입력·결과·인계, 각 역할의 판단·실행·수정 책임, 상위 관계와 하위 상세의 정본을 연결한다. 구체적인 파일 배치·단계 수를 일괄 고정하지 않는다. 실행 본문 통합과 이후 관련 스킬 구체화에서 [사용자 원문과 적용 메모](../records/2026-10-24-workflow-structure-and-responsibility-guidance.md)를 함께 읽는다.
 
 2026-10-24 검증 상세 합의 완료: [검증안1~12](../records/2026-10-24-verifier-workflow-proposal.md)의 역할·시작/입력·기계 검사/충분성·실행 공백/반환/종료·후속 재검증/실행 연결을 사용자와 합의했다. 검증자는 요구·계약과 근거를 독립 판단하고 재현을 만들며, 원 구현자/지정 담당이 제품·지속 테스트를 수정하고 Main이 전체 상태와 기록을 책임진다. 기존 development 본체·새 verification 상세·execution·Project 실제 도구·Work 근거의 책임을 구별해 연결한다. [실행 본문 통합·대표 장면 대조](../records/2026-10-24-verifier-runtime-integration.md)를 마쳤으며 운영 효과·01 전체 완료는 아니다.
 
-**구현·개선 검토1~15와 검증자1~12의 합의를 실행 prototype에 통합했다.** [전체 흐름 대조·실제 확인](../records/2026-10-24-verifier-runtime-integration.md)에서 구현 중 검사·개선 수정·별도 검증·재검증·Main 완료와 기록의 연결을 확인한다. Main의 대표 장면 대조와 메모리 예제 실행을 마쳤으며, 여러 agent의 전체 개발 수행·운영 설치·일반 효과 검증은 별도다. 필요한 개별 맥락 스킬 보완과 대상별 연결·전체 Ticket 마감은 남아 있다.
+**구현·개선 검토1~15와 검증자1~12의 합의를 실행 prototype에 통합했다.** [전체 흐름 대조·실제 확인](../records/2026-10-24-verifier-runtime-integration.md)에서 구현 중 검사·개선 수정·별도 검증·재검증·Main 완료와 기록의 연결을 확인한다. Main의 대표 장면 대조와 메모리 예제 실행을 마쳤으며, 여러 agent의 전체 개발 수행·운영 설치·일반 효과 검증은 별도다. 필요한 개별 맥락 스킬 보완과 대상별 연결·전체 체계 종합은 후속 Ticket이 맡는다.
 
 실행 정본은 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md)·[검증 상세](../records/prototypes/development-workflow/skills/development/references/verification.md)·[실행 배치](../records/prototypes/development-workflow/skills/development/references/execution.md)다. [1~15번 반영 기록](../records/2026-10-23-development-workflow-1-15-integration.md)에 실제 적용·독립 대조·확인 한계를 남겼다. 이후 검증 상세도 합의·반영했다. 전체 스킬의 대상별 보완과 실제 운영 효과까지 끝낸 것은 아니다.
 
@@ -219,7 +221,7 @@ Ticket의 설계 결과에는 그 범위에 필요한 다음 관계가 드러나
 
 **본문 관리와 체계 지침:** [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)는 지속 본문과 형성 자료의 구성·보존·읽기·갱신을, [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)는 체계 지침의 성격과 진입·상세 책임을 소유한다. Work 적용은116에서 보류·복구했고 현재 형태를 유지한다. 현재 Personal·Project 묶음 단위는 검토 가능한 적용안이며 모든 문서의 최종 분류로 고정하지 않는다.
 
-**남은 설계:**01-01·01-03 완료 조건의 최종 대조,04-03 개별 맥락 스킬 보완과04-02 설명의 수행 결과에 따른 보완,02 Work 전체 기록·구성 운영,05 경험 반영,06 공통/대상 경계·Recover/Verify 의존·전환 계획,07 전체 연결·후속 적용 계획. 이 목록을 고정 순서로 삼지 않는다. 구현 단계의 검토자 권한·수정 담당·Main 기록 책임·development 위치는 더 이상 미정이 아니다.
+**남은 설계:**01-02 품질 기준·실제 대비안·적용 조건의 전체 종합,04-03 개별 맥락 스킬 보완과04-02 설명의 수행 결과에 따른 보완,02 Work 전체 기록·구성 운영,05 경험 반영,06 공통/대상 경계·Recover/Verify 의존·전환 계획,07 전체 연결·후속 적용 계획. 이 목록을 고정 순서로 삼지 않는다. 구현 단계의 검토자 권한·수정 담당·Main 기록 책임·development 위치는 더 이상 미정이 아니다.
 
 **설계 대안을 판단할 때 확인할 목적:** 사용자는 Dialog 논의에서, Confirm의 확인 역할과 주변 관계를 검토하지 않은 채 즉시 닫는 용도로 축소하고 비동기 처리를 사용처로 우회시킨 대안을 지적했다. 대상의 존재 이유와 맡은 역할을 이해한 뒤 유지·변경·통합·제거를 판단한다. 목적을 검토한 뒤 추상화를 없애거나 사용처에 제어를 두는 선택은 가능하며, 기존 구조 보존 의무로 해석하지 않는다. [구체 장면과 정정](../records/2026-10-13-32-template-code-and-usage-discovery.md)
 

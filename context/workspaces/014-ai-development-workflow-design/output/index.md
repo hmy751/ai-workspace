@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+현재 마감·후속 지도: [01-01·01-03 완료 조건 대조와 Spec·04의 다음 범위](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md). 두 설계 결과는 완료이며, 근거·확인 한계·비용을 조건별로 연결했다. 다음 추천은04-03의 개별 맥락 스킬 보완이고 상위01·04·전체 Spec 완료와 구별한다.
+
 04-02 최신 반영: [선별한 개선안의 구체화·적용·확인](../records/2026-10-24-ticket04-02-selective-improvement-adoption.md). 원래 목적·Noline 사용 경험·논의·외부 자료를 선별한 안과 개선 리뷰를 바탕으로 explain 본체·작성 상세, development 호출과 형성 자료·열람 화면을 갱신했다. 질문 범위와 실제 빠진 연결, 역할 설명과 선택 판단을 구별한다. 앞선 발화 상세와 공통 근거 기준은 유지한다. 실행 본문 반영 완료이며 새 응답 비교·운영 설치·실제 효과 확인은 별도다.
 
 현재 검증 실행 본문: [verification](../records/prototypes/development-workflow/skills/development/references/verification.md). [합의1~12](../records/2026-10-24-verifier-workflow-proposal.md)를 기존 구현·개선 검토 흐름에 [통합·대조](../records/2026-10-24-verifier-runtime-integration.md)했다. 시작·입력·기계 검사·공백·반환·재검증·충분성을 연결했다. 대표 장면 대조·메모리 예제 실행과 실제 역할 전체의 수행·운영 효과를 구별한다.
@@ -8,7 +10,7 @@
 
 04-02 이전 반영: [기존 두 스킬 재검토와 explain 보완](../records/2026-10-24-ticket04-02-explain-revision.md). 본체·작성 상세·앞선 발화 상세와 형성 자료를 갱신했다. 단일 진입점 구성은 유지하며 수정 후 실제 응답 효과는 미확인이다. 아래 모델 비교는 수정 전 판본에 해당한다.
 
-현재 단계·남은 일: [원래 작업 틀과 Spec·01·04 대조](../records/2026-10-24-workflow-framework-and-checkpoint.md). 구현·개선 검토의 운영과 prototype 반영은 완료했고, 별도 검증 및 수정의 상세·필요한 스킬 보완·전체 흐름 대조로 이어간다. 아래 실물과 과거 설계·비교 근거를 이 범위에서 읽는다.
+이전 작업 틀 복원: [검증 상세 구체화 전 Spec·01·04 대조](../records/2026-10-24-workflow-framework-and-checkpoint.md). 당시 미정이던 검증 상세·개발 흐름 대조는 마쳤으며 현재 마감·후속은 위 최신 지도를 따른다. 아래 실물과 과거 설계·비교 근거를 이 범위에서 읽는다.
 
 04-02 수정 전 확인: [6.1-sol high 비교와6.0 결과 종합](../records/experiments/explain-network-first-delivery-61high-2026-10-23/comparison.md). 사용자 선호와 원자료 대조상 이번 기존 브리핑 답이 구현·이유 연결에서 더 낫다. explain의 성능 개선은 미확인이고 통합 구조 유지와 구별한다. 응답 원문·판본·읽기 기록은 각 실험 폴더에 보존했다.
 
