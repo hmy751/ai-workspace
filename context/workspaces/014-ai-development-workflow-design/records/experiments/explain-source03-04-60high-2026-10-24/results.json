@@ -1,0 +1,72 @@
+[
+  {
+    "case": "03",
+    "label": "A",
+    "run": "run82026",
+    "model_requested": "gpt-6-sol",
+    "reasoning_effort_requested": "high",
+    "read_files": 6,
+    "read_events": 26,
+    "missing": [],
+    "issues": [],
+    "response_sha256": "d559a699cf5ef4f357ce35f22de7a8cd2fb8985bd04cb7c82e4cabcf3ea2d430",
+    "response_bytes": 4564,
+    "check_precedes_response": true
+  },
+  {
+    "case": "03",
+    "label": "B",
+    "run": "run42188",
+    "model_requested": "gpt-6-sol",
+    "reasoning_effort_requested": "high",
+    "read_files": 9,
+    "read_events": 32,
+    "missing": [],
+    "issues": [],
+    "response_sha256": "9ecedc68fa05f7a27efaa6984a6f281d27dd096ccccc915f126fc8dbc9b8a6bf",
+    "response_bytes": 4864,
+    "check_precedes_response": true
+  },
+  {
+    "case": "03",
+    "label": "C",
+    "run": "run71380",
+    "model_requested": "gpt-6-sol",
+    "reasoning_effort_requested": "high",
+    "read_files": 9,
+    "read_events": 32,
+    "missing": [],
+    "issues": [],
+    "response_sha256": "f59b6f26d0d31c10f921f773e696839a9673c976e6ac05f87abdd9da0f6d07ba",
+    "response_bytes": 5761,
+    "check_precedes_response": true
+  },
+  {
+    "case": "04",
+    "label": "A",
+    "run": "run70787",
+    "model_requested": "gpt-6-sol",
+    "reasoning_effort_requested": "high",
+    "read_files": 13,
+    "read_events": 42,
+    "missing": [],
+    "issues": [],
+    "response_sha256": "2d239cd34c885eb057f86ee8bb3f1e820ee7b2e381d78edb3562f05c3ae6dbf4",
+    "response_bytes": 2043,
+    "check_precedes_response": true
+  },
+  {
+    "case": "04",
+    "label": "B",
+    "run": "run33864",
+    "model_requested": "gpt-6-sol",
+    "reasoning_effort_requested": "high",
+    "read_files": 13,
+    "read_events": 42,
+    "missing": [],
+    "issues": [],
+    "response_sha256": "467dc6db593ce171450ca18949a4093eda31ef59f2edaf62a69506aa855b9efa",
+    "response_bytes": 1930,
+    "check_precedes_response": true
+  }
+]

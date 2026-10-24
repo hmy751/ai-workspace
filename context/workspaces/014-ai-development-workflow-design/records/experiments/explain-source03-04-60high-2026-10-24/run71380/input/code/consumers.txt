@@ -1,0 +1,116 @@
+
+    if (!isAuthenticated && !inAuthGroup) {
+      // 비인증 상태 + auth 그룹 밖 → 로그인 화면으로
+      console.log('🔐 [Router] Not authenticated, redirecting to login');
+      router.replace('/(auth)/login');
+    } else if (isAuthenticated && inAuthGroup) {
+      // 인증 상태 + auth 그룹 안 → 메인 화면으로
+      console.log('🔐 [Router] Authenticated, redirecting to home');
+      router.replace('/(tabs)');
+    }
+  }, [isAuthenticated, isInitialized, segments, router]);
+
+  return null;
+}
+
+export default function RootLayout() {
+  const colorScheme = useColorScheme();
+  const [isAppReady, setIsAppReady] = useState(false);
+  const { init: initAuth } = useAuthStore();
+
+  useEffect(() => {
+    networkStore.init();
+
+    return () => networkStore.cleanup();
+  }, []);
+
+  // DB 초기화 뒤 저장된 인증을 복원한다.
+  useEffect(() => {
+    const prepareApp = async () => {
+      try {
+  counts: {
+    trips: number;
+    schedules: number;
+    expenses: number;
+    activations: number;
+    offlineCities: number;
+  };
+  onRefresh: () => void;
+  onManualSync: () => void;
+}
+
+export function DashboardView({ stats, counts, onRefresh, onManualSync }: DashboardViewProps) {
+  const { overrideStatus, setOverrideOnline, setOverrideOffline, setOverrideUnknown, clearOverride } =
+    useNetworkControl();
+  const realNetworkStatus = useRealNetworkStatus();
+  const displayStatus = useDisplayNetworkStatus();
+  const { checkStatus, isRefreshing, refresh } = useNetworkCheck();
+
+  const { Icon: StatusIcon, color, textClassName, label } = NETWORK_STATUS_DISPLAY[displayStatus];
+
+  return (
+    <View className='gap-md'>
+      {/* Network Status Card */}
+      <View className='rounded-lg bg-card p-md border border-card-border'>
+        <View className='flex-row items-center gap-xs mb-sm'>
+          <StatusIcon size={20} color={color} />
+          <Text className='text-title-medium text-foreground'>네트워크 상태</Text>
+        </View>
+        <View className='gap-2xs mb-sm'>
+          <Text className='text-body text-foreground'>
+            현재 상태: <Text className={`${textClassName} font-semibold`}>{label}</Text>
+          </Text>
+          <Text className='text-label text-muted-foreground'>실제 네트워크: {realNetworkStatus}</Text>
+          {overrideStatus && <Text className='text-label text-muted-foreground'>⚠️ 강제 설정: {overrideStatus}</Text>}
+          {realNetworkStatus === 'unknown' && (
+            <Text className='text-label text-muted-foreground'>
+              {checkStatus === 'unavailable' ? '인터넷 연결을 확인할 수 없어요' : '인터넷 연결 확인 중'}
+            </Text>
+          )}
+        </View>
+        <View className='flex-row gap-xs'>
+          <Pressable
+            variant='outline'
+            className='flex-1 flex-row items-center justify-center gap-xs py-xs rounded-lg border border-primary'
+            onPress={setOverrideOnline}
+          >
+import { View, Text } from 'react-native';
+import { Wifi, WifiOff } from 'lucide-react-native';
+import { useDisplayNetworkStatus } from '@/shared/store/network';
+
+/**
+ * 네트워크 상태 인디케이터 (헤더 우측)
+ * - 온라인: 초록색 Wifi 아이콘 + "온라인"
+ * - 오프라인: 빨간색 WifiOff 아이콘 + "오프라인"
+ * - 알 수 없음: 회색 Wifi 아이콘 + "확인 중"
+ */
+export function NetworkStatusIndicator() {
+  const networkStatus = useDisplayNetworkStatus();
+
+  if (networkStatus === 'online') {
+    return (
+      <View className='flex-row items-center'>
+        <Wifi size={14} color='hsl(140, 65%, 45%)' />
+        <Text className='text-label text-status-online ml-1'>온라인</Text>
+      </View>
+    );
+  }
+
+  if (networkStatus === 'offline') {
+    return (
+      <View className='flex-row items-center'>
+        <WifiOff size={14} color='hsl(0, 84%, 60%)' />
+        <Text className='text-label text-status-offline ml-1'>오프라인</Text>
+      </View>
+    );
+  }
+
+  // unknown
+  return (
+    <View className='flex-row items-center'>
+      <Wifi size={14} color='hsl(0, 0%, 50%)' />
+      <Text className='text-label text-muted-foreground ml-1'>확인 중</Text>
+    </View>
+  );
+}
+

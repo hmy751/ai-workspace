@@ -1,0 +1,52 @@
+[
+  {
+    "case": "03",
+    "label": "A",
+    "run": "run82026",
+    "condition": "none",
+    "commit": null,
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-60high-20261024/run82026"
+  },
+  {
+    "case": "03",
+    "label": "B",
+    "run": "run42188",
+    "condition": "previous",
+    "commit": "c43c592",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-60high-20261024/run42188"
+  },
+  {
+    "case": "03",
+    "label": "C",
+    "run": "run71380",
+    "condition": "current",
+    "commit": "7c490d2",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-60high-20261024/run71380"
+  },
+  {
+    "case": "04",
+    "label": "A",
+    "run": "run70787",
+    "condition": "current",
+    "commit": "7c490d2",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-60high-20261024/run70787"
+  },
+  {
+    "case": "04",
+    "label": "B",
+    "run": "run33864",
+    "condition": "previous",
+    "commit": "c43c592",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-60high-20261024/run33864"
+  }
+]

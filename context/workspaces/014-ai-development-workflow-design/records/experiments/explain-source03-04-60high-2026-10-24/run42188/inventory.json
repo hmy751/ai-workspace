@@ -1,0 +1,62 @@
+{
+  "client-guide.md": {
+    "sha256": "1970cb0fabf32f232de269d8a25fc9d7b42f6ce84f0b9a918c44ace09421aa7d",
+    "bytes": 4640,
+    "chars": 3778,
+    "chunks": 2
+  },
+  "code/consumers.txt": {
+    "sha256": "b7989ee6625884e728d93beb2bae964b8269dd8c177a29c626beaffc383d1b71",
+    "bytes": 4206,
+    "chars": 3900,
+    "chunks": 2
+  },
+  "code/network.ts": {
+    "sha256": "7a5ecf5c29eb1898d5ac8633dab9186eb35ee092a42ea7b22ddcc8f25097de84",
+    "bytes": 7874,
+    "chars": 7631,
+    "chunks": 3
+  },
+  "code/tests.txt": {
+    "sha256": "a4c6ec0f7d4cbb3c2522ff75ef9e06f4573cb927c376ce3c90cc3b4d111faab6",
+    "bytes": 8074,
+    "chars": 7408,
+    "chunks": 3
+  },
+  "conversation.txt": {
+    "sha256": "87756b76f860e816e281cf384a879b7fa77968bec8dc6298b53158c9ff5b1fbc",
+    "bytes": 58068,
+    "chars": 33483,
+    "chunks": 12
+  },
+  "project-guide.md": {
+    "sha256": "ead3a9a3062131fcf0b89ecdf46808a510c3d77c8377d9200ca577c4ba423820",
+    "bytes": 12195,
+    "chars": 9265,
+    "chunks": 4
+  },
+  "skills/shared/explanation-and-evidence-criteria.md": {
+    "sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a",
+    "bytes": 6255,
+    "chars": 3055,
+    "chunks": 2
+  },
+  "skills/skill/SKILL.md": {
+    "sha256": "c5ecfc08ca0b6ab5dbbe185554455001e1ea71515aefa8d819d1dff0fc9ff7bf",
+    "bytes": 10089,
+    "chars": 4338,
+    "chunks": 2
+  },
+  "skills/skill/references/constructing-explanations.md": {
+    "sha256": "5e42aca1b8534379e14839aa6e3a333914078107d2546c489b3a1503008dc519",
+    "bytes": 12166,
+    "chars": 5518,
+    "chunks": 2
+  },
+  "skills/skill/references/prior-explanation.md": {
+    "sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889",
+    "bytes": 6065,
+    "chars": 2591,
+    "chunks": 1
+  }
+}

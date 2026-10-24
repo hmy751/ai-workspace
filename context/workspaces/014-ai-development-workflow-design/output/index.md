@@ -4,7 +4,7 @@
 
 현재 검증 설계: [별도 검증자·수정 흐름1~12](../records/2026-10-24-verifier-workflow-proposal.md) · [두 개선 리뷰와 반영 판단](../records/2026-10-24-verifier-workflow-improvement-reviews.md). 후속 재검증·실행 연결까지 설계 합의를 마쳤다. 원문·근거·최종 합의는 기록에 보존하며 다음은 실행 본문 대조·통합과 대표 작업 확인이다. 설계 합의와 실제 실행 적용·제품 검증·운영 효과를 구별한다.
 
-04-02 최신 비교: [수정 explain·기존 스킬의6.0-sol high 두 응답](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md). 선택 파일 완독·해시·입력 불변 검사를 완료하고 조건명 없는 원문을 제시했다. 사용자는 비슷하다고 평가했다. [항목별 판단](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/comparison.md)은 조사 행동의 일부 반영과 출력 개선 미확인을 구별하며 모델만의 원인으로 단정하지 않는다.
+04-02 최신 비교: [03 전체 흐름·04 테스트 질문의 최초5개 응답](../records/experiments/explain-source03-04-60high-2026-10-24/README.md). 사용자 승인으로03 세 조건·04 후속 질문 두 조건의 최초 응답을 모두 GPT-6-sol high에서 생성했다. 같은 사례의 공통 입력, 선택 파일 완독·입력/조각 해시·응답 전 검사를 확인했고 누락·불일치0이었다. 조건을 숨긴 원문 다섯 개를 보존했으며 사용자 평가·조건 공개 전이다. 수정 효과·우세·04-02 마감은 판정하지 않는다. [이전06 비교](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md)는 다른 판본·질문의 관찰로 구별한다.
 
 04-02 이전 반영: [기존 두 스킬 재검토와 explain 보완](../records/2026-10-24-ticket04-02-explain-revision.md). 본체·작성 상세·앞선 발화 상세와 형성 자료를 갱신했다. 단일 진입점 구성은 유지하며 수정 후 실제 응답 효과는 미확인이다. 아래 모델 비교는 수정 전 판본에 해당한다.
 

@@ -1,0 +1,12 @@
+{
+  "03": {
+    "common_inputs_equal": true,
+    "text_files": 6,
+    "runs": 3
+  },
+  "04": {
+    "common_inputs_equal": true,
+    "text_files": 9,
+    "runs": 2
+  }
+}
