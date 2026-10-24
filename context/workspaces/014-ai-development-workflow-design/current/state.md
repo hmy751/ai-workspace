@@ -1,6 +1,6 @@
 # 현재 상태
 
-2026-10-24 **04-02 self-check 반영:** [Main의 반복 보완·시험 접근 감사와 수정 단위](../records/2026-10-24-ticket04-02-self-check-and-redesign.md)를 기록했다. 첫 전달의 이해 목적·자료 선정·실제 설명·충분성 연결을 수정 대상으로 삼는다. 현재 실행 본문과 시험은 그대로이며 조항 추가나 다음 A/B 조건을 먼저 정하지 않는다. 모델·문구의 확정 인과 판단은 하지 않았다.
+2026-10-24 **04-02 source 조사:** [Matt·pstack·Vercel의 스킬·라우팅 실제 구성](../records/2026-10-24-ticket04-02-skill-routing-source-research.md)을 읽고 [self-check](../records/2026-10-24-ticket04-02-self-check-and-redesign.md)의 방향을 구체화했다. 작업 담당자의 결과 설명 의무와 explain의 공통 수행·조건부 상세를 연결하는 제안이다. 이미 상세를 읽고도 요약에 머문 관찰을 호출 문제만으로 설명하지 않는다. 실행 본문·시험은 유지했고 새 라우터·agent·추가 생성은 없다. 제안 채택·효과·04-02 완료는 미확인이다.
 
 2026-10-24 **04-02 수정 후 평가:** 사용자는6.0-sol high 두 답이 비슷하다고 평가했다. A는 기존, B는 수정 explain이다. [반영 항목·세 비교 종합](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/comparison.md)에서 전후 자료 선택은 나타났으나 출력상 핵심 개선은 미확인으로 판단했다. 모델만의 원인이나 마지막 수정의 인과 효과는 미확정이며 추가 시험·실행 본문 수정은 하지 않았다. 아래 평가 전 표기는 당시 경과다.
 

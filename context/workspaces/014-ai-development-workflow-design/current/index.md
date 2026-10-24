@@ -4,7 +4,7 @@
 
 6번 실행 반영: [구현 완성·인계안](../records/2026-10-23-implementation-completion-and-handoff-proposal.md)의 맥락 이해·적용, 실제 사용·변경 장면, 독립 기대 결과와 근거 인계를 development에 반영했다. 설계 경과와 현재 실행 상태는 구별한다.
 
-04-02 다음 판단: [self-check와 다음 수정 단위](../records/2026-10-24-ticket04-02-self-check-and-redesign.md). 첫 전달의 목적 선정부터 자료·설명·충분성까지 연결한 해결안을 먼저 구체화한다. 기존 시험의 유효성과 우열 관찰은 유지하되 다음 비교 조건 제안을 해결책으로 대신하지 않는다.
+04-02 다음 판단: [Matt·pstack·Vercel의 실제 스킬·라우팅 조사](../records/2026-10-24-ticket04-02-skill-routing-source-research.md). [self-check](../records/2026-10-24-ticket04-02-self-check-and-redesign.md)의 수정 방향을 작업이 요구하는 설명 내용과 explain의 공통 수행·조건부 상세 연결로 구체화했다. 단일 입구를 유지하고 기존 문단을 대체하는 제안이며 새 라우터·agent·실행 변경·추가 시험은 없다. 호출 성공과 설명의 충분성을 구별하고 다음 비교 조건을 해결책으로 대신하지 않는다.
 
 04-02 현재 산출물: [explain](../records/prototypes/development-workflow/skills/explain/SKILL.md)의 본체·두 상세·형성 자료를 생성하고 기존 두 스킬 폴더를 삭제하고 배경·원문을 explain/_background/legacy에 보존했다. [사용자 요청·정정과 적용 확인](../records/2026-10-23-ticket04-02-explain-prototype-adoption.md)을 읽는다. 기존 두 스킬 제거를 전제로 하되 조항 전수 이식이나 분량 확대를 목표로 하지 않았다. prototype 반영과6.0 medium·6.1 high 응답 비교를 완료했고 새 스킬 우세는 미확인이다. 그 뒤 [기존 두 스킬 재검토·보완](../records/2026-10-24-ticket04-02-explain-revision.md)을 반영했으며 수정 후 [6.0-sol high 비교](../records/experiments/explain-network-first-delivery-60high-revised-2026-10-24/README.md)는 사용자의 비슷하다는 평가를 받았고, 전후 자료 선택은 나타났으나 출력상 핵심 개선은 미확인이다. 운영 설치는 미실행이며 재개 순서는 [04-02](tickets/04-skill-improvements/04-02-artifact-explanation.md)가 소유한다.
 

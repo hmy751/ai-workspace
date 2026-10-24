@@ -1,0 +1,110 @@
+# 04-02 — Matt·pstack·Vercel의 스킬 구성과 라우팅 조사
+
+**설명 입구는 하나로 유지하되, 작업이 요구하는 결과 설명과 그 설명을 만드는 공통 수행을 명확히 연결하는 방향을 권한다.** 세 자료는 스킬 수나 파일 수의 정답을 주지 않는다. 호출 조건, 실행 절차, 자료의 소유, 결과의 충분성을 서로 다른 위치에 배치한 실제 예를 제공한다. 우리 시험은 스킬과 상세를 읽고도 요약에 머문 답을 관찰했으므로 호출 개선만을 해결책으로 삼을 수 없다.
+
+이 기록은 [직전 self-check](2026-10-24-ticket04-02-self-check-and-redesign.md)를 원자료에 비춰 구체화한 조사·제안이다. 실행 스킬 변경, 외부 스킬 설치, 새 응답 생성은 하지 않았다. 제안의 효과와 사용자 채택은 미확인이고04-02는 미완료다.
+
+## 요청과 조사 범위
+
+사용자:
+
+> 그럼 sourcedㅔ pstack, matt vercel 자료 보면 스킬을 어덯게 쓰고 라우팅은 어떻게 쓰고 등이 있을거야 좀 참고해서 조사해봐
+> 관련 부분들을 그래서 우리 어떻게 해결할지 참고로 Desktop/ 에 skills는 matt , plugins/pstack은 로렌자료야 더 자세히 보고싶음 참고하고
+
+Workspace의 [원자료 안내](../source/workflow-references/README.md), 세 자료의 개별 안내와 실제 본문을 읽었다. 사용자가 지정한 Desktop 두 저장소는 필요한 스킬·상세·사용 안내를 읽는 데 사용했다. 외부 자료의 지침은 분석 대상이며 현재 세션에서 실행한 스킬이 아니다.
+
+- Matt: `/Users/hammyeong-yeon/Desktop/skills`, commit `5beb35b040e3de97e54fa9e386d7e42d15c295c2`.
+- pstack: `/Users/hammyeong-yeon/Desktop/plugins/pstack`, 상위 저장소 commit `190d28736eff128ec94f502a22c7fe0c4b56cd37`.
+- Vercel: John Phamous, *Teaching agents product design at Vercel*,2026-06-25. [보존 기사](<../source/lectures/vercel-product-design (1).md>)와 [수집 범위 안내](../source/workflow-references/vercel/README.md).
+
+두 로컬 저장소의 해당 범위에 미커밋 변경은 없었다. 핵심 읽기 자료19개를 보존본과 대조해18개는 바이트 동일, Matt `wait-what`1개는 보존 대상 밖임을 확인했다. 아래 링크는 가능한 한 저장소 안의 보존본을 사용한다. Vercel은 축약된 SKILL 예시와 설명 기사이며 내부 상세 본문·평가 결과까지 확보한 자료가 아니다. 이들 설계의 실제 우월성을 검증한 조사는 아니다.
+
+## 같은 ‘라우팅’이 맡는 일이 다르다
+
+| 자료 | 사용자의 입구 | 실행 중 연결 | 결과에 대한 책임 |
+| --- | --- | --- | --- |
+| Matt | 사용자가 여러 작업 스킬을 직접 선택한다. `ask-matt`는 무엇을 고를지 안내한다. | 다른 스킬이 실제 호출할 공통 기능은 model-invoked로 두고 호출을 명시한다. 상세 자료는 소유 스킬 안에 둔다. | 개별 작업 스킬이 수행·완료 조건을 갖는다. `pr`는 변경을 보여 주는 최소 표현과 전후 근거를 구체화한다. |
+| pstack | `poteto-mode`가 목표를 작업별 playbook으로 연결한다. | playbook의 특정 단계가 `how`, `why`, 설계·검증 등 필요한 기능을 연결한다. 공통 원칙도 적용 조건에 따라 leaf를 읽는다. | playbook이 고유 결과를 정하고, 전문 스킬이 그 일을 수행한다. 리팩터링에는 동작 보존 근거와 읽기 부담의 변화가 포함된다. |
+| Vercel | `product-design` 하나로 들어간다. | 먼저 요청의 작업 범위·권한을 정하고, 사용자 과업과 제품 결정을 파악한 뒤 필요한 reference를 읽는다. | SKILL이 결정·구현·실제 화면 확인을 이어 맡는다. 기계적으로 판별할 규칙은 lint, 맥락 판단은 근거를 가진 지침에 남긴다. |
+
+### Matt — 사람의 선택 안내와 실행 호출을 구별한다
+
+[invocation 규약](../source/workflow-references/matt-pocock/repository/.agents/invocation.md)은 사용자 전용 스킬과 모델이 호출할 수 있는 스킬을 구별한다. [ask-matt](../source/workflow-references/matt-pocock/repository/skills/engineering/ask-matt/SKILL.md)는 흐름·갈림길·독립 작업을 안내하지만 사용자 전용 스킬을 대신 실행하는 장치로 정의하지 않는다. 실제 실행 연결은 호출 가능한 스킬에 명시적으로 건다. [implement](../source/workflow-references/matt-pocock/repository/skills/engineering/implement/SKILL.md)의 TDD·code-review 호출이 그 예다.
+
+[writing-for-agents](../source/workflow-references/matt-pocock/repository/skills/productivity/writing-for-agents/SKILL.md)는 모든 경로에 필요한 것은 본문에, 일부 경로에만 필요한 자료는 조건부 상세에 두라고 한다. 설명의 양보다 **수행 단계와 완료 조건이 어디에 보이는가**를 문제로 삼는다. 핵심 원문은 “inline what every branch needs, and push behind a pointer what only some branches reach.”다. [SKILL-MECHANICS](../source/workflow-references/matt-pocock/repository/skills/productivity/writing-for-agents/SKILL-MECHANICS.md)의 별도 스킬 분리 기준도 독립적으로 호출할 이유가 있는지다.
+
+다음 세 가지는 구별해야 한다.
+
+- 라우터는 사람이 많은 스킬 중 무엇을 고를지 해결할 수 있다. 이것만으로 개별 스킬 수행의 품질이 나아지는 것은 아니다.
+- 상세 파일로 옮기는 것은 정보 배치다. Matt 본문도 실제 컨텍스트 경계를 넘지 않으면 뒤 단계가 보이지 않게 되는 효과는 없다고 적는다. 우리에게 파일 분리나 agent 분리의 필요성이 입증된 것은 아니다.
+- 호출 도구를 직접 명시하라는 규약은 해당 저장소의 설계다. 현재 환경에서 제공하지 않는 `Skill` 도구를 문구로 만들어 넣거나, 여러 호스트의 동작을 같다고 가정할 근거가 아니다.
+
+설명과 직접 관련해서 [pr](../source/workflow-references/matt-pocock/repository/skills/engineering/pr/SKILL.md)는 논리·호출 흐름·파일 책임·전후 차이 중 **핵심을 드러내는 최소 표현**을 선택하게 한다. 반대로 `wait-what`은 앞선 말에 맥락을 보태 쉬운 말과 공통 용어로 다시 설명하라는 매우 짧은 사용자 호출이다. 후자의 짧은 길이가 우리 복구 기능까지 충분하다는 증거는 아니다. 우리는 원래 발화의 뜻과 현재 타당성의 구별, 무조건적 철회 방지까지 실제 사례에서 요구했다.
+
+### pstack — 작업별 결과 의무와 설명 수행을 연결한다
+
+[poteto-mode](../source/workflow-references/pstack/repository/skills/poteto-mode/SKILL.md)는 실제 라우터이자 작업 운영 본문이다. [사용 안내](../source/workflow-references/pstack/repository/docs/guide/02-poteto-mode.md)도 사용자가 스킬 호출 순서를 일일이 지정하기보다 목표·완료 조건·제약을 주고 playbook이 필요한 기능을 연결한다고 설명한다.
+
+연결은 이름의 나열에 그치지 않는다.
+
+- [Investigation](../source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/investigation.md)은 읽기 전용 설명·추천을 결과로 정하고 `how`, 동기 질문이면 `why`로 연결한다.
+- [Refactoring](../source/workflow-references/pstack/repository/skills/poteto-mode/playbooks/refactoring.md)은 처음 `how`로 현재 계약을 파악하고, 끝에는 구조 변화·보존 근거·읽기 부담의 변화를 반환하게 한다. 마지막 답의 내용이 원래 작업 목적과 연결돼 있다.
+- [how](../source/workflow-references/pstack/repository/skills/how/SKILL.md)의 [explainer 상세](../source/workflow-references/pstack/repository/skills/how/references/explainer-prompt.md)는 동작 설명을 답의 중심으로 두고, 무엇이 시작시키며 데이터·분기·결과가 어떻게 이어지는지 서술하게 한다. 원문은 “The core of the explanation, and the longest section. Walk through the flow”다. 파일 이름은 길잡이이며 설명 자체를 대신하지 않는다.
+- [why](../source/workflow-references/pstack/repository/skills/why/SKILL.md)는 동작 설명과 구별해 당시 선택의 근거를 이력·논의·관찰에서 찾는다. 코드의 현재 모양으로 과거 의도를 확정하지 않는다.
+
+이 구조를 그대로 가져올 이유는 없다. `how`는 좁은 질문도 explainer agent를 쓰며 `why`는 상당한 조사 분산을 요구한다. 우리 설명마다 그 비용을 지불할 근거는 없다. `technical-writing`의 문서 모드 구분 역시 업무 문서용이고, 한 사용자 답 안에서 동작과 이유를 함께 설명하는 것을 금지하는 우리 규칙으로 옮기지 않는다.
+
+호스트 가정도 다르다. 여러 leaf의 frontmatter에 `disable-model-invocation: true`가 있고 poteto는 경로로 읽도록 연결한다. delegate는 숨겨진 스킬도 실제 파일 경로로 읽도록 안내된다. [setup 안내](../source/workflow-references/pstack/repository/docs/guide/01-setup.md)는 Cursor의 Custom Mode로 본문을 계속 유지하는 사용 방식을 설명한다. 이는 해당 자료에 적힌 운용이며 현재 Codex에서 같은 자동 발견·호출·지속 효과를 검증한 것은 아니다.
+
+### Vercel — 하나의 입구에서 권한·판단·자료를 순서 있게 나눈다
+
+[기사의 SKILL 예시](<../source/lectures/vercel-product-design (1).md>)는 `shape / implement / review / copy / harden`을 먼저 구분한다. 이 모드는 설명 종류가 아니라 **이번 요청이 허용한 일과 완료할 결과**를 가른다. 예를 들어 review가 편집으로 넘어가거나 copy가 재설계로 번지는 것을 막는다. 이를 우리 설명에 그대로 대응시켜 ‘코드·이유·복구·첫 보고’의 배타적 모드를 만들 근거는 없다.
+
+그다음에는 사용자 과업·현재 동작·원하는 결과·성공 신호를 파악하고, 실제 제품 결정에 필요한 자료를 선택한다. 본체의 실행 흐름이 있고 상세는 그 판단을 돕는다. 원칙을 복제하지 않고 component API·스타일·접근성 기준의 기존 소유자로 연결한다.
+
+기사의 다른 유용한 구분은 유지·검증 방식이다.
+
+- 기계가 안정적으로 판별할 것은 lint로 옮기고, 올바른 대상·결과를 고르는 판단은 맥락을 가진 지침에 남긴다. 우리 설명에서도 링크·판본 검사는 자동화할 수 있지만 코드 블록 수로 이해의 충분성을 판정할 수는 없다.
+- 예시·수정 판단에는 이유·예외·근거를 남기고 가장 좁은 적절한 위치를 고른다. 매 실패를 공통 본문의 새 명령으로 올리지 않는다.
+- 설명된 eval은 copywriting 범위다. 전체 product-design 성능을 입증한 결과로 확대하지 않는다. 안내가 언급한 무스킬 기준선, 기대 수정이 숨겨진 사례, 규칙 충족과 출하본 유사성의 분리는 우리 평가 질문을 점검하는 참고가 된다.
+
+## 이번 실패에 대입하면 무엇이 달라지는가
+
+현재 explain에도 목적·자료·실제 구현 대응·전후 비교·충분성 문장이 있다. 따라서 외부 자료에서 비슷한 조항을 찾아 더 넣는 것은 새 해결책이 아니다. 아래는 실패의 확정 원인이 아니라, 관찰로 좁힐 수 있는 설명과 다음 설계에 대한 판단이다.
+
+| 가능한 설명 | 현재 근거로 내릴 판단 |
+| --- | --- |
+| 본체나 상세를 못 읽어서 설명이 빠졌다 | 유효 비교에서 본체·작성 상세를 읽었고 수정판은 전후 코드도 읽었다. 적어도 그 답을 전부 설명하는 원인은 아니다. 실제 운영의 자연 호출 문제는 별도이며 이번 시험으로 검증하지 않았다. |
+| 기존 조항을 더 많이 옮기면 충분하다 | 관련 요구를 보완한 뒤에도 출력은 요약 중심이었다. 누락 조항 복원만으로 충분하다는 가정을 유지할 수 없다. |
+| 첫 완료 보고라는 형식에서 설명이 부차적인 것으로 밀릴 수 있다 | 현재 조건부 연결과 실제 요약 중심 답이 양립한다. 작업의 결과 의무와 설명 수행을 연결할 이유는 되지만 생성 실패의 단일 원인으로 확정할 수는 없다. |
+| 모델만 바꾸면 해결된다 | 같은6.1 high에서도 기존판과 새 explain의 차이가 있었다. 각 조건1회의 생성 변동·모델·문구 효과는 분리하지 못했다. 모델만의 원인이라는 결론은 지지되지 않는다. |
+| 통합 자체가 실패했다 | 통합과 내용·자료 선택·표현이 함께 달라졌다. 두 스킬로 되돌리면 해결된다는 근거가 없다. |
+
+읽기 행동과 응답 비교의 근거는 [수정 후 비교](experiments/explain-network-first-delivery-60high-revised-2026-10-24/comparison.md), [6.1 비교](experiments/explain-network-first-delivery-61high-2026-10-23/comparison.md), [6.0 medium 비교](experiments/explain-network-first-delivery-2026-10-23-retry/comparison.md)에 있다.
+
+pstack의 [Attack the Premise](../source/workflow-references/pstack/repository/skills/principle-attack-the-premise/SKILL.md)는 같은 전제의 수정이 반복 실패하면 전제 자체를 조사하게 한다. 이번에 재검토할 전제는 ‘요구를 더 명확히 적고 읽히면 변경 요약이 설명으로 바뀔 것’이다. 이미 남은 읽기·응답 기록이 이 전제가 충분하지 않음을 보여 준다. 이것을 이유로 다시 광범위한 자동 실험을 시작하지 않는다.
+
+## 우리 구성에 대한 권고
+
+**단일 explain 입구, 공통 설명 수행, 조건부 상세의 큰 구분은 유지한다. 바꿀 것은 책임 연결과 본문에서 수행의 중심이 놓이는 위치다.** 이는 제안이며 이번 조사에서 실행 파일을 수정하지 않았다.
+
+1. **호출하는 작업이 무엇을 설명해야 하는지 책임진다.** development의 결과 전달은 원래 목표와 실제 결과에서 전달할 핵심을 고른다. 리팩터링이면 어떤 읽기·수정 부담이 달라졌는지, 결함 수정이면 어떤 조건에서 동작이 달라졌는지, 아직 확인되지 않은 부분이 결론을 어떻게 제한하는지가 대상이다. 이 요구를 explain 끝에만 두지 않는다. 매 요청마다 별도 문서·양식·새 라우터를 만드는 뜻은 아니다.
+2. **explain 본체가 직접 답을 만드는 공통 수행을 맡는다.** 현재 질문·작업 목표에서 설명할 핵심을 잡고, 그 핵심이 성립하는 실제 관계를 자료에서 확인하고, 그 관계를 응답 안에서 연결한다. 변화 설명이면 같은 사건의 전후, 동작 설명이면 입력·판단·결과, 선택 설명이면 요구·대안·근거가 그 관계가 된다. 파일별 요약을 만든 뒤 마지막에 설명 문구를 붙이는 수행을 기본으로 두지 않는다.
+3. **상세는 공통 수행을 대신하지 않고 선택한 설명을 완성한다.** 전후·조건·흐름을 구성하는 긴 방법과 예시는 작성 상세에, 앞선 발화의 의미·타당성 대조는 복구 상세에 둔다. 설명이 필요하다는 결론을 낸 뒤 핵심 관계를 실제로 보여 줄지 또 선택하게 만들지 않는다. 동작과 이유는 함께 필요할 수 있으며 첫 전달·후속 질문은 별도 배타적 모드가 아니다.
+4. **마무리는 처음 고른 핵심에 돌아간다.** 사용자가 응답 안에서 어떤 처리·조건 때문에 결론이 나왔는지 따라갈 수 있는지를 본다. 코드·표·그림의 수나 읽은 파일 수로 대신하지 않는다. 실제 코드 표현이 이해에 필요하면 보여 주되 단순 뜻 질문에 전체 브리핑을 강제하지 않는다.
+
+같은 책임을 development와 explain 양쪽에 길게 복제하지 않는다. development는 원래 결과와 전달 의무를, explain은 설명을 만드는 방법을 소유한다. 설명 요청만 들어오면 explain이 현재 대화에서 바로 목적을 잡는다. 별도 설명 계획 저장소나 상시 explainer agent는 현재 근거로 필요하지 않다.
+
+06에서는 ‘책임이 분리됐다’라는 문장만으로 결과를 설명했다고 인정하지 않는 차이를 만들어야 한다. 예를 들어 기존 화면 표시 상태가 중복 실행 판단까지 맡던 것과, 수정 뒤 진행 중 작업을 보관해 같은 Promise를 돌려주는 차이를 실제 처리에 붙여 설명한다. 그 차이가 실행 공유에 주는 의미와 동작 보완을 드러내고, 전체 코드 품질 달성으로 확대하지 않는다. [직전 설계 기록의 구체 대조](2026-10-24-ticket04-02-self-check-and-redesign.md#06에서-무엇이-충분한-설명인가)는 이 연결의 예시이며 외부 자료가 준 정답이나 새 시험 응답은 아니다.
+
+## 다음 작업과 검증의 위치
+
+다음 수정안은 위 책임을 **기존 development 연결·explain 공통 수행·작성 상세의 실제 문단을 대체하는 한 구성**으로 제시해야 한다. 현재 실패 답을 그 수행에 놓았을 때 어느 부분에서 불충분한지, 상대적으로 나은 답은 무엇을 채웠는지를 함께 보이면 ‘설명 잘하기’라는 표현을 다시 추가하는 데 그쳤는지 판단할 수 있다. 설명 기능의 추가·분할은 이 수행에서 독립 호출 필요가 드러날 때 선택한다.
+
+시험은 그 구성이 정해진 다음 수행 효과를 보는 수단이다. 지금까지의 기존/새 비교는 어느 답이 상대적으로 나은지 보여 줬지만, 설명 스킬이 없는 기본 응답보다 가치가 있는지까지 답하지 않는다. Vercel의 무스킬 기준선은 그 질문에 참고할 수 있다.06은 이미 설계에 사용했으므로 향후 그 사례의 개선과 다른 사례로의 일반화를 구별해야 한다. 이는 다음에 고려할 검증 조건이며 이번에 새 실험을 예약·실행한 것이 아니다.
+
+## 보존본 밖에서 읽은 직접 근거
+
+Matt `wait-what`의 로컬 경로는 `/Users/hammyeong-yeon/Desktop/skills/skills/productivity/wait-what/SKILL.md`이며 위 Matt commit에 속한다. SHA-256은 `d961bb37defd975c539427edb8f450cdbccdcdd552e213c1ece46676a7970905`다. frontmatter는 `disable-model-invocation: true`이고 본문은 한 문장이다. 핵심 발췌는 “Re-pitch that: give me a little bit of context”이며 이어 쉬운 기술 영어와 `GLOSSARY.md`의 용어를 사용하도록 한다. 이 사실을 ‘복구 스킬은 짧아야 한다’는 규칙으로 승격하지 않는다.
+
+핵심19개 대조에서 `wait-what`을 제외한18개는 위 source 링크의 보존본과 동일했다. 관련 hash·판본을 가진 기존 수집 manifest는 각 source 안내에서 찾을 수 있다. 이번 조사로 raw source를 추가·변경하지 않았다.
