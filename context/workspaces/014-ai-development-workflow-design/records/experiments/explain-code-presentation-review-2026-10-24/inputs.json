@@ -1,0 +1,21 @@
+{
+  "base_commit": "3c7a1e37d6680cedb048d914fcedda68ed22f9ad",
+  "files": [
+    {
+      "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/2026-10-24-ticket04-02-code-presentation-improvement-proposal.md",
+      "sha256": "621fe15686d4ebbd0e7ba4f65ef23ced19521a747fbe8cd206f8db319d23311e"
+    },
+    {
+      "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/SKILL.md",
+      "sha256": "9d2684434510cdb798ffa402c6463f9d6222c5ffc50523d47f7a866d83dda9fa"
+    },
+    {
+      "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/references/constructing-explanations.md",
+      "sha256": "e20e728be36f6d44e4f3719b1ef9c58e1bc44c7d13237b577edd399d2e0614a5"
+    },
+    {
+      "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/references/prior-explanation.md",
+      "sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889"
+    }
+  ]
+}
