@@ -11,6 +11,7 @@
 | 반복 비교 뒤 목적·사용 경험·외부 자료를 어떻게 선별해 실제 본문을 바꿨나 | [선별한 개선안의 실행 반영](records/2026-10-24-selective-improvement-adoption.md) |
 | 코드 동반·가독성 요구를 실제 본체·예시에 어떻게 다시 연결했나 | [코드·표현 보완](records/2026-10-25-code-presentation-adoption.md) |
 | 전체 설명과 국소 해설 사이의 공백을 어떻게 보완했나 | [전체 구성과 인증 예시 반영](records/2026-10-25-composition-adoption.md) |
+| 도입 흐름과 본문의 가독성을 어떻게 함께 다듬었나 | [흐름·문단 배치 반영](records/2026-10-25-flow-readability-adoption.md) |
 | 이전 두 스킬은 어떤 이유로 만들어졌나 | [브리핑의 이전 형성 자료](legacy/work-artifact-briefing/README.md), [복구의 이전 형성 자료](legacy/explanation-recovery/README.md) |
 
 이전 형성 자료는 과거 선택의 근거다. 현재 설명 스킬을 사용하려고 이전 두 본문을 함께 읽거나, 그 조항 전부를 새 본문의 필수 조건으로 취하지 않는다. 새 스킬은 기존 두 실행 본문을 제거하는 전제로 작성했으며, 필요한 설명 행동을 현재 목표·source·사용자 논의로 다시 구성했다.
