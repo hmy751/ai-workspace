@@ -1,0 +1,10 @@
+{
+  "worker": {
+    "common_equal": true,
+    "prompt_reader_required_images_equal": true
+  },
+  "scalar": {
+    "common_equal": true,
+    "prompt_reader_required_images_equal": true
+  }
+}

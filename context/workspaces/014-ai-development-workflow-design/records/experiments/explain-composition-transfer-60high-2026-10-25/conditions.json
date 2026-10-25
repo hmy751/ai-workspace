@@ -1,0 +1,62 @@
+[
+  {
+    "case": "worker",
+    "label": "A",
+    "run": "run97318",
+    "condition": "previous",
+    "commit": "f3c582a",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-composition-transfer-20261025/run97318",
+    "source_files": {
+      "code/worker.py": "reference-project/context/work/harness/maintain/runtime/worker.py",
+      "code/context.py": "reference-project/context/work/harness/maintain/runtime/context.py",
+      "code/storage.py": "reference-project/context/work/harness/maintain/runtime/storage.py",
+      "code/engine.py": "reference-project/context/work/harness/maintain/runtime/engine.py"
+    }
+  },
+  {
+    "case": "worker",
+    "label": "B",
+    "run": "run65066",
+    "condition": "current",
+    "commit": "ecd64948339d03e7170407df8777d23dfa2f70da",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-composition-transfer-20261025/run65066",
+    "source_files": {
+      "code/worker.py": "reference-project/context/work/harness/maintain/runtime/worker.py",
+      "code/context.py": "reference-project/context/work/harness/maintain/runtime/context.py",
+      "code/storage.py": "reference-project/context/work/harness/maintain/runtime/storage.py",
+      "code/engine.py": "reference-project/context/work/harness/maintain/runtime/engine.py"
+    }
+  },
+  {
+    "case": "scalar",
+    "label": "A",
+    "run": "run11734",
+    "condition": "previous",
+    "commit": "f3c582a",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-composition-transfer-20261025/run11734",
+    "source_files": {
+      "code/config_loader.py": "reference-project/src/config_loader.py",
+      "code/test_config_loader.py": "reference-project/tests/test_config_loader.py"
+    }
+  },
+  {
+    "case": "scalar",
+    "label": "B",
+    "run": "run55516",
+    "condition": "current",
+    "commit": "ecd64948339d03e7170407df8777d23dfa2f70da",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-composition-transfer-20261025/run55516",
+    "source_files": {
+      "code/config_loader.py": "reference-project/src/config_loader.py",
+      "code/test_config_loader.py": "reference-project/tests/test_config_loader.py"
+    }
+  }
+]

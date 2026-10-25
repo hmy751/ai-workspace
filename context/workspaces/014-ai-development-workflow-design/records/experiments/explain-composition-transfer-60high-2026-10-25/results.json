@@ -1,0 +1,85 @@
+[
+  {
+    "case": "worker",
+    "label": "A",
+    "run": "run97318",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "read_files": [
+      "code/context.py",
+      "code/engine.py",
+      "code/storage.py",
+      "code/worker.py",
+      "request.txt",
+      "skills/skill/SKILL.md",
+      "skills/skill/references/constructing-explanations.md"
+    ],
+    "read_events": 17,
+    "missing": [],
+    "issues": [],
+    "read_check_before_response": true,
+    "response_sha256": "d88f55dcfb0d3c2ccbb87e80a780951ae966f5098bb3f0b118d5d6b360833cd7",
+    "response_bytes": 5655
+  },
+  {
+    "case": "worker",
+    "label": "B",
+    "run": "run65066",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "read_files": [
+      "code/context.py",
+      "code/engine.py",
+      "code/storage.py",
+      "code/worker.py",
+      "request.txt",
+      "skills/skill/SKILL.md",
+      "skills/skill/references/constructing-explanations.md"
+    ],
+    "read_events": 19,
+    "missing": [],
+    "issues": [],
+    "read_check_before_response": true,
+    "response_sha256": "36a9366bb95468919240ddf2ca460ea7c69b9192fb00a755f409c4943a33eaef",
+    "response_bytes": 5539
+  },
+  {
+    "case": "scalar",
+    "label": "A",
+    "run": "run11734",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "read_files": [
+      "code/config_loader.py",
+      "code/test_config_loader.py",
+      "request.txt",
+      "skills/skill/SKILL.md",
+      "skills/skill/references/constructing-explanations.md"
+    ],
+    "read_events": 8,
+    "missing": [],
+    "issues": [],
+    "read_check_before_response": true,
+    "response_sha256": "4a888d4d1b4dd154fafd8136834407fc90a169b8d24ec58c98b11e6d2a92f397",
+    "response_bytes": 971
+  },
+  {
+    "case": "scalar",
+    "label": "B",
+    "run": "run55516",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "read_files": [
+      "code/config_loader.py",
+      "code/test_config_loader.py",
+      "request.txt",
+      "skills/skill/SKILL.md"
+    ],
+    "read_events": 6,
+    "missing": [],
+    "issues": [],
+    "read_check_before_response": true,
+    "response_sha256": "b00a2fb22e0a5724fe9fcad9fe3eabc18f9f061b31bf5056a80c70bfd715a580",
+    "response_bytes": 772
+  }
+]

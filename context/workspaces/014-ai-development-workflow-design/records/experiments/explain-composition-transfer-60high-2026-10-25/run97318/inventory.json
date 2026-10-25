@@ -1,0 +1,56 @@
+{
+  "code/context.py": {
+    "sha256": "ccca3a1ccac553ed8324049d4269ea4e4522f7dc2612a4e10a55caa20fa5c01f",
+    "bytes": 2263,
+    "chars": 2136,
+    "chunks": 1
+  },
+  "code/engine.py": {
+    "sha256": "468625a4957d164b9fac3a26c440874c640bcbb0fcbf379c22596fd7e2e91baa",
+    "bytes": 5507,
+    "chars": 5379,
+    "chunks": 2
+  },
+  "code/storage.py": {
+    "sha256": "c290355e5fd787b45e7fe66a80eb82f0b43448013078847ab796c1b69ab49c4a",
+    "bytes": 12468,
+    "chars": 12199,
+    "chunks": 5
+  },
+  "code/worker.py": {
+    "sha256": "7da578d8a6688e298639643b122c55ee3b2eed566becdba88aab3fe51dd20cf1",
+    "bytes": 8583,
+    "chars": 8304,
+    "chunks": 3
+  },
+  "request.txt": {
+    "sha256": "a0375ed2b43ba3fce68dc6d89ec4c45a197180755b42d5c89ae18c513d957ff2",
+    "bytes": 410,
+    "chars": 205,
+    "chunks": 1
+  },
+  "skills/shared/explanation-and-evidence-criteria.md": {
+    "sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a",
+    "bytes": 6255,
+    "chars": 3055,
+    "chunks": 2
+  },
+  "skills/skill/SKILL.md": {
+    "sha256": "c17a67ec56193d996ffbb9ca4a86cbc3f5a99b309a437c6073f4feead361b83a",
+    "bytes": 12000,
+    "chars": 5169,
+    "chunks": 2
+  },
+  "skills/skill/references/constructing-explanations.md": {
+    "sha256": "d574640f7df63a1539ab49233ae98200af9b93d903ed166d13e1e236a314e7d2",
+    "bytes": 14501,
+    "chars": 6896,
+    "chunks": 3
+  },
+  "skills/skill/references/prior-explanation.md": {
+    "sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889",
+    "bytes": 6065,
+    "chars": 2591,
+    "chunks": 1
+  }
+}

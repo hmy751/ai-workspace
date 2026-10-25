@@ -1,0 +1,4 @@
+설정 검증 함수와 현재 테스트 코드 사본을 제공합니다. 사용자는 해당 조건의 필요성을 묻고 있습니다.
+
+사용자 질문:
+load_request_policy의 isinstance(request_timeout_ms, bool) 검사는 꼭 있어야 해? 바로 뒤에서 int인지 확인하잖아.

@@ -1,0 +1,5 @@
+- 실제 읽기: prompt.txt 직접 확인. read_material.py로 허용 목록과 조각 수 확인 후 skills/skill/SKILL.md 3/3, request.txt 1/1, code/config_loader.py 1/1, code/test_config_loader.py 1/1을 각각 읽음.
+- 응답 전 `read_material.py --check` 결과: `complete: true`, `files: 4`, `missing: []`.
+- 입력 공백: 관련 질문, 함수, 테스트가 제공되어 답을 바꾸는 입력 공백 없음.
+- 잘림: 읽은 모든 조각에 BEGIN/END가 있었고 잘림 표시 없음.
+- 경계 밖 접근: 없음. 코드 수정, 검사 실행, 외부 자료 조사, 커밋 없음.
