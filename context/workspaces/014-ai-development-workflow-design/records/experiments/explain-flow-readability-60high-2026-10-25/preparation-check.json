@@ -1,0 +1,12 @@
+{
+  "worker": {
+    "common_inputs_equal": true,
+    "common_inputs_equal_previous_trial": true,
+    "prompt_reader_required_images_unchanged": true
+  },
+  "scalar": {
+    "common_inputs_equal": true,
+    "common_inputs_equal_previous_trial": true,
+    "prompt_reader_required_images_unchanged": true
+  }
+}

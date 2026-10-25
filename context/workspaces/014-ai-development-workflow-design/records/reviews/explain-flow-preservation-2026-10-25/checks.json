@@ -1,0 +1,23 @@
+{
+  "comparison_base": "ecd6494",
+  "revision": "92d7457",
+  "fenced_blocks_count": 10,
+  "fenced_blocks_byte_equal": true,
+  "auth_followup_and_later_examples_equal": true,
+  "prior_explanation_equal": true,
+  "independent_preservation_review": "no defect found within scope",
+  "viewer": {
+    "documents": 166,
+    "internal_links": 936,
+    "reference_links": 33,
+    "anchors": 274,
+    "missing": 0,
+    "content_sha": "equal",
+    "client_syntax": "pass",
+    "browser_rendering": "not run"
+  },
+  "frontmatter_keys": [
+    "name",
+    "description"
+  ]
+}

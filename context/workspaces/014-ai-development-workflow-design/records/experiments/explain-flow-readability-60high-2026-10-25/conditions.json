@@ -1,0 +1,46 @@
+[
+  {
+    "case": "worker",
+    "label": "A",
+    "run": "run98892",
+    "condition": "previous",
+    "commit": "ecd6494",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-flow-readability-20261025/run98892",
+    "source_run": "context/workspaces/014-ai-development-workflow-design/records/experiments/explain-composition-transfer-60high-2026-10-25/run97318"
+  },
+  {
+    "case": "worker",
+    "label": "B",
+    "run": "run61227",
+    "condition": "current",
+    "commit": "92d7457a478b1d906380e7250ed24f29c6be7418",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-flow-readability-20261025/run61227",
+    "source_run": "context/workspaces/014-ai-development-workflow-design/records/experiments/explain-composition-transfer-60high-2026-10-25/run97318"
+  },
+  {
+    "case": "scalar",
+    "label": "A",
+    "run": "run23591",
+    "condition": "current",
+    "commit": "92d7457a478b1d906380e7250ed24f29c6be7418",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-flow-readability-20261025/run23591",
+    "source_run": "context/workspaces/014-ai-development-workflow-design/records/experiments/explain-composition-transfer-60high-2026-10-25/run11734"
+  },
+  {
+    "case": "scalar",
+    "label": "B",
+    "run": "run96282",
+    "condition": "previous",
+    "commit": "ecd6494",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-flow-readability-20261025/run96282",
+    "source_run": "context/workspaces/014-ai-development-workflow-design/records/experiments/explain-composition-transfer-60high-2026-10-25/run11734"
+  }
+]

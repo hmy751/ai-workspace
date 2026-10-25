@@ -1,0 +1,5 @@
+- 실제 읽기: `prompt.txt`를 먼저 읽음. `read_material.py` 목록 확인 후 `skills/skill/SKILL.md` 1~3, `request.txt` 1, `code/config_loader.py` 1, `code/test_config_loader.py` 1을 각 조각별로 읽음.
+- 응답 전 `read_material.py --check` 결과: `complete: true`, `files: 4`, `missing: []`.
+- 입력 공백: 과거 분석·평가 기준은 제공되지 않았으며, 현재 질문의 정적 코드 설명에는 추가 자료가 필요하지 않았음.
+- 잘림: 읽은 조각 모두 `END`가 있었고 잘림 표시가 없었음.
+- 경계 밖 접근: 없음. 코드 수정, 테스트 실행, 외부 조사, 커밋, 다른 agent 호출 없음.

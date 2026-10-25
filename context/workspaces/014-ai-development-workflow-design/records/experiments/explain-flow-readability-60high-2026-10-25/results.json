@@ -1,0 +1,84 @@
+[
+  {
+    "case": "worker",
+    "label": "A",
+    "run": "run98892",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "read_files": [
+      "code/context.py",
+      "code/engine.py",
+      "code/storage.py",
+      "code/worker.py",
+      "request.txt",
+      "skills/skill/SKILL.md",
+      "skills/skill/references/constructing-explanations.md"
+    ],
+    "read_events": 19,
+    "missing": [],
+    "issues": [],
+    "read_check_before_response": true,
+    "response_sha256": "d2f68a573d1817247c57cfadf75984398ed119bb700095220999ecc7488c1585",
+    "response_bytes": 5787
+  },
+  {
+    "case": "worker",
+    "label": "B",
+    "run": "run61227",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "read_files": [
+      "code/context.py",
+      "code/engine.py",
+      "code/storage.py",
+      "code/worker.py",
+      "request.txt",
+      "skills/skill/SKILL.md",
+      "skills/skill/references/constructing-explanations.md"
+    ],
+    "read_events": 19,
+    "missing": [],
+    "issues": [],
+    "read_check_before_response": true,
+    "response_sha256": "83cf9acd916761a5513a1295d9abc02848d68744ebedb312b7799187d6adf16e",
+    "response_bytes": 6033
+  },
+  {
+    "case": "scalar",
+    "label": "A",
+    "run": "run23591",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "read_files": [
+      "code/config_loader.py",
+      "code/test_config_loader.py",
+      "request.txt",
+      "skills/skill/SKILL.md"
+    ],
+    "read_events": 6,
+    "missing": [],
+    "issues": [],
+    "read_check_before_response": true,
+    "response_sha256": "01e2d230c419bffe7ad395f9d03f4a5a549f73caa85800a2bfbca042153eb0bd",
+    "response_bytes": 746
+  },
+  {
+    "case": "scalar",
+    "label": "B",
+    "run": "run96282",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "read_files": [
+      "code/config_loader.py",
+      "code/test_config_loader.py",
+      "request.txt",
+      "skills/skill/SKILL.md"
+    ],
+    "read_events": 6,
+    "missing": [],
+    "issues": [],
+    "read_check_before_response": true,
+    "response_sha256": "fc07a7d67996a7589e73ebae63f503108f36c95110b1c5f3f54bb3530d4945b1",
+    "response_bytes": 802
+  }
+]
