@@ -161,3 +161,30 @@ Workspace014 `source/artifact-explanation-scenes/01-report-delivery/evaluation/c
 - Vercel의 축약된 product-design 예시: 요청 범위·필요한 reference·확인을 이어 구성하는 참고로 사용했다. 모드 수·내부 reference·그 방식의 성능을 우리 설명 스킬의 정답으로 취하지 않았다.
 
 주요 파일19개 중18개가 Workspace 보존본과 같았고 Matt `wait-what`은 그 보존 범위 밖이었다. 자세한 읽기 범위·반영과 미채택은 Workspace014 `records/2026-10-24-ticket04-02-skill-routing-source-research.md`, Main 제안·선별·리뷰 선택은 `records/2026-10-24-ticket04-02-selective-improvement-proposal.md`, 리뷰 전 사본과 반환 전문은 `records/reviews/explanation-selective-improvement-2026-10-24/`에서 찾는다. 사용자 원문과 리뷰·Main의 판단, 실제 반영과 효과는 서로 다른 근거다.
+
+
+## 코드 동반·표현 요구와 이번 적용 — 2026-10-25
+
+source02의 사용자55:
+
+> 코드랑 같이 자세히 설명해야지 맥락만 알려주는게 아니라
+
+source05의 사용자3962:
+
+> 근데 앞선 설명은 설명만 잇으니까 좀 어렵네 멘탈모델 도식화 구체적 코드도 고려하고 코드는 순수 동작 보다도 각 코드가 맡는 핵심적 역할 고려해서 잘 설명해줘 다시 브리핑 해봐
+
+03·04 비교 뒤 사용자:
+
+> C가 뭔가 핵시을 잘 짚은 느낌도 있어
+> 코드랑 같이 설명해달라는 부분이 많았는데 … 왜 결과가 이렇지?
+> 너무 서술적이면 눈에 안 들어오더라고 그렇다고 간결하게 내용을 추리란건 아닌데 표현을 잘 다듬을 수는 있는거잖아?
+
+위는 긴 발화에서 관련 부분을 발췌했다. 전체 원문과 Main 평가 정정은 Workspace014 `records/2026-10-24-ticket04-02-code-and-presentation-needs.md`에 있다. C의 전체 선호 확정이나 이해 완료로 읽지 않는다.
+
+독립 개선 리뷰는 Main의 제안이 조건식·실행 인과에 치우친 점을 지적하고, 역할·위임의 코드 대응과 비중·대비·조건부 도식, 인증 예시 자체의 코드 동반을 보완하도록 했다. 작은 함수 전체가 필요한 경우와 도식의 관계를 코드에서 다시 찾아가는 반복도 허용하도록 고쳤다. `records/experiments/explain-code-presentation-review-2026-10-24/`에 리뷰 전 사본·반환·채택을 보존했다.
+
+2026-10-25 적용·시험 요청:
+
+> 그럼 수정하고 같은 상황 테스트 해보자
+
+작성 상세의 새 인증 발췌는 source02 `historical-materials/observed/auth-interceptor-observed-20260922-0155Z.ts`의 renewSession 안 try/catch와 사용자20 원문을 대조했다. 들여쓰기를 표시 범위에 맞춰 줄였으며 오류 종류·세션 검사·반환·재던지기와 원주석을 유지했다. A/B 세션 표는 가능한 상황의 해설이며 관찰 결과가 아니다. 동기화·여행 코드 발췌의 원천은 위 기존 식별자와 같다.03 network의 답은 실행 예시에 넣지 않았다.
