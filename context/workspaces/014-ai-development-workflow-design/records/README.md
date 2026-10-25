@@ -1,6 +1,6 @@
 # 논의와 보존 기록
 
-- [04-02 본문 구조 재검토](2026-10-25-ticket04-02-body-structure-reconsideration.md): `_background`의 통합·재보완 이유를 대조해 공통 본체·두 수행 상세·긴 인증 대비 예시의 계층을 제안했다. 실행 미반영이며 남은 사례 확인에 앞서 논의한다.
+- [04-02 본체 구조 정리 반영](2026-10-25-ticket04-02-body-organization-adoption.md): 본체의 책임·조건 배치를 정리하고 기존 인증 전체·후속 예시를 내용 그대로 함께 분리했다. 기존 의미·읽기 조건과 배경을 대조했다. 새 응답 시험은 없다. [당시 구조 제안](2026-10-25-ticket04-02-body-structure-reconsideration.md)은 이력으로 보존한다.
 
 - [04-02 가독성 보완 이후 남은 문제](2026-10-25-ticket04-02-remaining-problems-review.md): 다른 source의 원문·기존 시험·실행 책임을 대조하고 우선순위와 마감 판단을 제안했다. 현재 explain 유지·새 시험 없음.
 
