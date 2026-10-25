@@ -1,0 +1,1 @@
+conversation.txt 12조각, project-guide.md 4조각, client-guide.md 2조각을 전문 읽었다. code/network.ts 3조각과 선택 자료 code/consumers.txt 2조각, code/tests.txt 3조각을 모두 read_material.py로 읽었다. 응답 작성 전 --check 결과 complete:true, missing:[]를 확인했다. 입력 공백·출력 잘림 없음. 경계 밖 접근, 코드 수정, 검사 재실행, 커밋 없음.

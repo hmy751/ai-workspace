@@ -1,5 +1,7 @@
 # 논의와 보존 기록
 
+- [04-02 코드·표현 보완 적용과 동일 상황 재시험](2026-10-25-ticket04-02-code-presentation-adoption.md): 본체·작성 상세·배경과 열람 화면에 리뷰 반영. 같은03·04에서 수정 직전/수정판과03 기본 조건의 다섯 최초 응답을 모두 GPT-6-sol high로 생성하고 입력·읽기·응답 보존을 확인했다. [조건을 가린 원문](experiments/explain-source03-04-presentation-60high-2026-10-25/blind-responses.md)을 반환하며 사용자 평가·효과 판단은 아직이다.
+
 - [04-02 코드·표현 구체 개선안과 독립 개선 리뷰](2026-10-24-ticket04-02-code-presentation-improvement-proposal.md): 역할·실제 코드·해설·배치·종료를 연결한 교체 후보. 리뷰1회에서 역할·위임, 비중·대비·도식, 기존 예시 구성과 과잉 제한을 보완했다. 실행 스킬 미적용·추가 시험 없음.
 
 - [워크플로 완료 경계와04-03 context 연결 재개](2026-10-24-workflow-context-connection-checkpoint.md): 스킬 보완으로 좁아진 설명을 바로잡고, 실제 context의 읽기·적용·갱신·재개 연결을 다음 범위로 명시했다. 사용자 원문·정본·원형 자료·첫 산출물·미착수 범위를 보존했다.

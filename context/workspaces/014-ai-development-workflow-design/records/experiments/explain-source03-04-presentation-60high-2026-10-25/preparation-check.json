@@ -1,0 +1,14 @@
+{
+  "03": {
+    "common_equal": true,
+    "common_equal_previous_experiment": true,
+    "prompt_reader_required_images_unchanged": true,
+    "runs": 3
+  },
+  "04": {
+    "common_equal": true,
+    "common_equal_previous_experiment": true,
+    "prompt_reader_required_images_unchanged": true,
+    "runs": 2
+  }
+}

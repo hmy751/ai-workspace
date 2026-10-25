@@ -1,0 +1,1 @@
+지정된 `read_material.py`로 스킬 본문·필요한 상세·공통 근거 기준, 대화 26조각, 변경 전 hook과 테스트, 변경 후 hook·diff·검사 출력, Ticket·Spec을 모두 읽었다. 각 조각의 BEGIN/END가 보였고 출력 잘림은 없었다. `--check` 결과는 `complete: true`, `missing: []`였다. 입력 공백은 없었다. 경계 밖 접근과 검사 재실행은 없었다. 응답 파일은 최초 작성만 수행했다.

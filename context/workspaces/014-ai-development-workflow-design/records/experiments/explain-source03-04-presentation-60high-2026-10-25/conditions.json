@@ -1,0 +1,57 @@
+[
+  {
+    "case": "03",
+    "label": "A",
+    "run": "run51598",
+    "condition": "previous",
+    "commit": "7c490d2",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-presentation-60high-20261025/run51598",
+    "source_run": "context/workspaces/014-ai-development-workflow-design/records/experiments/explain-source03-04-60high-2026-10-24/run71380"
+  },
+  {
+    "case": "03",
+    "label": "B",
+    "run": "run66932",
+    "condition": "none",
+    "commit": null,
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-presentation-60high-20261025/run66932",
+    "source_run": "context/workspaces/014-ai-development-workflow-design/records/experiments/explain-source03-04-60high-2026-10-24/run82026"
+  },
+  {
+    "case": "03",
+    "label": "C",
+    "run": "run65632",
+    "condition": "current",
+    "commit": "f3c582a",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-presentation-60high-20261025/run65632",
+    "source_run": "context/workspaces/014-ai-development-workflow-design/records/experiments/explain-source03-04-60high-2026-10-24/run71380"
+  },
+  {
+    "case": "04",
+    "label": "A",
+    "run": "run82337",
+    "condition": "current",
+    "commit": "f3c582a",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-presentation-60high-20261025/run82337",
+    "source_run": "context/workspaces/014-ai-development-workflow-design/records/experiments/explain-source03-04-60high-2026-10-24/run70787"
+  },
+  {
+    "case": "04",
+    "label": "B",
+    "run": "run44178",
+    "condition": "previous",
+    "commit": "7c490d2",
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high",
+    "runtime": "/private/tmp/explain-source03-04-presentation-60high-20261025/run44178",
+    "source_run": "context/workspaces/014-ai-development-workflow-design/records/experiments/explain-source03-04-60high-2026-10-24/run70787"
+  }
+]
