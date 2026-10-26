@@ -1,5 +1,7 @@
 # AI 개발 작업 체계의 개선 설계 — Spec 초안
 
+2026-10-27 상태 점검:04-03의 설계·prototype 연결과 계층 정리는 각각 `191e2d86`·`0dd23464`에 저장됐다. [Workspace 마무리](../records/2026-10-27-workspace-checkpoint.md)에서 완료 범위·확인 한계·후속 책임을 확인한다.01-02·02·05·06·07은 남아 있으며 착수 순서는 미정이다. 아래 날짜별 구체화는 형성 경과이고 현재 전체 선택과 열린 판단은5절을 따른다.
+
 2026-10-26 구조 후속: [Development 실행 상세 확장](../records/2026-10-26-development-detail-expansion.md)은 기존 역할·완료·내용 Owner를 유지하며, 구현 담당의 수행과 여러 역할이 재사용하는 검사 근거를 실제 읽기·수정 단위로 나누는 적용이다. 파일 수를 줄이는 것보다 충분한 내용과 책임에 맞는 배치를 우선한다.04-03의 설계 마감·후속 운영 경계는 유지한다.
 
 2026-10-26 **04-03 설계·prototype 연결 완료:** [적용·독립 검토·복사본 수행·완료 조건](../records/2026-10-26-context-prototype-adoption.md)에 따라 development·공통 읽기·한정 반영·Work 생성/전환을 연결했다. 구현자의 근거 제안과 Main의 검토·실제 반영, Project 지속 내용 선별, 같은 수행자의 근거 재사용을 실행 본문에 반영했다. 현재 형태의 사용감 유보·운영 설치·host 확인·일반 효과는 후속이다.
@@ -10,7 +12,7 @@
 
 2026-10-24 검증 상세 합의 완료: [검증안1~12](../records/2026-10-24-verifier-workflow-proposal.md)의 역할·시작/입력·기계 검사/충분성·실행 공백/반환/종료·후속 재검증/실행 연결을 사용자와 합의했다. 검증자는 요구·계약과 근거를 독립 판단하고 재현을 만들며, 원 구현자/지정 담당이 제품·지속 테스트를 수정하고 Main이 전체 상태와 기록을 책임진다. 기존 development 본체·새 verification 상세·execution·Project 실제 도구·Work 근거의 책임을 구별해 연결한다. [실행 본문 통합·대표 장면 대조](../records/2026-10-24-verifier-runtime-integration.md)를 마쳤으며 운영 효과·01 전체 완료는 아니다.
 
-**구현·개선 검토1~15와 검증자1~12의 합의를 실행 prototype에 통합했다.** [전체 흐름 대조·실제 확인](../records/2026-10-24-verifier-runtime-integration.md)에서 구현 중 검사·개선 수정·별도 검증·재검증·Main 완료와 기록의 연결을 확인한다. Main의 대표 장면 대조와 메모리 예제 실행을 마쳤으며, 여러 agent의 전체 개발 수행·운영 설치·일반 효과 검증은 별도다. 필요한 개별 맥락 스킬 보완과 대상별 연결·전체 체계 종합은 후속 Ticket이 맡는다.
+**구현·개선 검토1~15와 검증자1~12의 합의를 실행 prototype에 통합했다.** [전체 흐름 대조·실제 확인](../records/2026-10-24-verifier-runtime-integration.md)에서 구현 중 검사·개선 수정·별도 검증·재검증·Main 완료와 기록의 연결을 확인한다. Main의 대표 장면 대조와 메모리 예제 실행을 마쳤으며, 여러 agent의 전체 개발 수행·운영 설치·일반 효과 검증은 별도다. 개별 맥락 스킬의 prototype 보완은 후속04-03에서 마쳤고, 실제 대상 연결·전체 체계 종합은06·07이 맡는다.
 
 실행 정본은 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[검토 상세](../records/prototypes/development-workflow/skills/development/references/review.md)·[검증 상세](../records/prototypes/development-workflow/skills/development/references/verification/INDEX.md)·[실행 배치](../records/prototypes/development-workflow/skills/development/references/execution.md)다. [1~15번 반영 기록](../records/2026-10-23-development-workflow-1-15-integration.md)에 실제 적용·독립 대조·확인 한계를 남겼다. 이후 검증 상세도 합의·반영했다. 전체 스킬의 대상별 보완과 실제 운영 효과까지 끝낸 것은 아니다.
 

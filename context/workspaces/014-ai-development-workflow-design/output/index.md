@@ -1,10 +1,12 @@
 # 현재 선택한 설계 자료와 산출물
 
+**2026-10-27 확인한 현재 결과:** 맥락 연결은 `191e2d86`, Development 상세 확장과 검증 INDEX 묶음은 `0dd23464`다. [마무리 점검](../records/2026-10-27-workspace-checkpoint.md)에서 완료 범위·한계·후속을 읽는다. 아래 구체안·계획·비교 기록은 현재 결과의 형성 근거이며 각 시점의 미완료 문장을 현재 작업으로 가져오지 않는다.
+
 - [Development 실행 상세의 계층 확장](../records/2026-10-26-development-detail-expansion.md): [구현 수행](../records/prototypes/development-workflow/skills/development/references/implementation.md)과 [검사 근거 판단·재사용](../records/prototypes/development-workflow/skills/development/references/verification/evidence.md)을 실제 본문·소비 경로에 연결하고 독립 검토 보완·정적 확인을 마쳤다. 기존 전체 수행·검증 역할과 내용 Owner를 유지하며 반복 사용 효과와 구별한다. 검증 묶음의 진입 본문은 [verification/INDEX.md](../records/prototypes/development-workflow/skills/development/references/verification/INDEX.md)로 모았다.
 
 - [04-03 실행 연결·확인·완료 조건](../records/2026-10-26-context-prototype-adoption.md): [prototype](../records/prototypes/development-workflow/README.md)의 development·USAGE·context-update·Work 생성/전환과 create를 현재 결과로 선택한다. [복사본 수행](../records/experiments/context-prototype-integration-2026-10-26/README.md)과 [독립 리뷰](../records/2026-10-26-context-prototype-integration-review.md)를 확인했다. 운영 설치·일반 효과와 구별한다. 아래 계획·상세안의 미생성/다음 표시는 당시 설계 단계다.
 
-- [04-03 프로토타입 통합 적용 계획](../records/2026-10-26-context-prototype-integration-plan.md): 네 구체안을 실제 실행 지침·공통 방법·Work 계약·진입에 옮길 범위와 이관 전 정리, 대표 확인을 연결했다. 계획 결과이며 실제 스킬 생성·프로토타입 적용·설치는 아직이다.
+- [04-03 프로토타입 통합 적용 계획](../records/2026-10-26-context-prototype-integration-plan.md): 네 구체안을 실제 실행 지침·공통 방법·Work 계약·진입에 옮길 범위와 이관 전 정리, 대표 확인을 연결했다. 당시 계획 결과이며 이후 위 적용 기록으로 실행 본문에 반영했다. 실제 운영 설치는 후속이다.
 
 - [04-03 4번의 완료·연속 구체안](../records/2026-10-26-context-04-completion-continuation-proposal.md) · [외부 대조·독립 리뷰와 보완](../records/2026-10-26-context-04-goal-improvement-review.md): 이번 요청/Work 완료와 중단·재개, 요청된 생성/전환의 결과를 구별하고 늦은 결과·최신 수정 권한·05 시점 미정을 연결했다. 사용자가 기록·커밋을 요청한 현재 구체안이며 실제 생성·전환·스킬 실행의 확인은 아니다.
 
@@ -30,9 +32,9 @@
 
 - [04-02 전체 구성 보완의 새 코드 평가](../records/experiments/explain-composition-transfer-60high-2026-10-25/comparison.md): 사용자는 직전판A를 전반적으로 선호하고 수정판B의 접수부터 시작하는 도입 흐름은 좋다고 했다. 도입의 국소 이득과 전체 우세 미확인을 구별했다. 구현·정합성·4응답 시험은 완료했고 후속 재수정·재생성은 없다.
 
-**04-03 현재 논의할 결과:** [네 구체안과 실제 작업 흐름](../records/2026-10-26-context-integrated-proposal.md) · [전체 책임 대조](../records/2026-10-26-context-whole-scope-reconciliation.md). 후속 [1번 독립 리뷰·한정 반영](../records/2026-10-26-context-01-goal-improvement-review.md)에 따라 development의 재개 문장과 1번 사례·후속 확인 방법을 보완했다. 나머지 세부와 [USAGE/context-update의 사용감 유보](../records/2026-10-25-context-framework-provisional-agreement.md)는 유지한다. 후속2~4번 구체화·리뷰를 마쳤고 현재는 [통합 적용 계획](../records/2026-10-26-context-prototype-integration-plan.md)으로 이어간다. 운영 설치·수행 효과는 미확인이다.
+**04-03 적용 이전의 구체화 근거:** [네 구체안과 실제 작업 흐름](../records/2026-10-26-context-integrated-proposal.md) · [전체 책임 대조](../records/2026-10-26-context-whole-scope-reconciliation.md). 후속 [1번 독립 리뷰·한정 반영](../records/2026-10-26-context-01-goal-improvement-review.md)에 따라 development의 재개 문장과 1번 사례·후속 확인 방법을 보완했다. 나머지 세부와 [USAGE/context-update의 사용감 유보](../records/2026-10-25-context-framework-provisional-agreement.md)는 유지한다. 후속2~4번 구체화·리뷰와 [통합 적용 계획](../records/2026-10-26-context-prototype-integration-plan.md)을 거쳐 위 실행 적용을 마쳤다. 운영 설치·수행 효과는 미확인이다.
 
-현재 마감·후속 지도: [01-01·01-03 완료 조건 대조와 Spec·04의 다음 범위](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md). 두 설계 결과는 완료이며, 근거·확인 한계·비용을 조건별로 연결했다. 다음은04-03의 워크플로와 실제 context 연결 구체화이며, 세 기존 스킬도 그 수단으로 대조한다. [재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)에 완료 경계·읽을 실물·첫 산출물이 있다. 상위01·04·전체 Spec 완료와 구별한다.
+01-01·01-03 마감 당시의 후속 지도: [01-01·01-03 완료 조건 대조와 Spec·04의 다음 범위](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md). 두 설계 결과는 완료이며, 근거·확인 한계·비용을 조건별로 연결했다. 당시 다음으로 잡은04-03의 워크플로와 실제 context 연결도 이후 prototype에 반영했다. [재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)에 완료 경계·읽을 실물·첫 산출물이 있다. 상위01·04·전체 Spec 완료와 구별한다.
 
 04-02 최신 반영: [선별한 개선안의 구체화·적용·확인](../records/2026-10-24-ticket04-02-selective-improvement-adoption.md). 원래 목적·Noline 사용 경험·논의·외부 자료를 선별한 안과 개선 리뷰를 바탕으로 explain 본체·작성 상세, development 호출과 형성 자료·열람 화면을 갱신했다. 질문 범위와 실제 빠진 연결, 역할 설명과 선택 판단을 구별한다. 앞선 발화 상세와 공통 근거 기준은 유지한다. 실행 본문 반영 완료이며 새 응답 비교·운영 설치·실제 효과 확인은 별도다.
 

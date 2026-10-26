@@ -1,8 +1,10 @@
 # 현재 논의의 진입점
 
-**현재 진입 — Development 실행 상세 확장 완료:** [구조 판단·반영·검토와 확인](../records/2026-10-26-development-detail-expansion.md)을 읽는다. 기존 맥락 연결은 `191e2d86`으로 커밋했고, 구현 수행을 `implementation.md`, 검사 근거 판단·재사용을 `verification/evidence.md`로 나눠 실제 읽기 경로에 연결했다. 역할·권한·종료를 보존하고 중복 판단 조건은 한곳으로 모았다. 상세 확장과 후속 구성 정정을 기록·커밋 범위로 묶었으며 반복 사용 효과와 운영 설치는 별도다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
+2026-10-27 [마무리 점검](../records/2026-10-27-workspace-checkpoint.md): 현재 중심은 완료된04-03의 반복 구체화가 아니라01-02·02·05·06·07 중 다음 범위를 정하는 것이다. 구체 착수 순서는 아직 합의하지 않았다.
 
-**04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 운영 설치·일반 효과는 미확인이며 다음 중심은04-03 검토다.
+**현재 진입 — Development 실행 상세 확장 완료:** [구조 판단·반영·검토와 확인](../records/2026-10-26-development-detail-expansion.md)을 읽는다. 기존 맥락 연결은 `191e2d86`으로 커밋했고, 구현 수행을 `implementation.md`, 검사 근거 판단·재사용을 `verification/evidence.md`로 나눠 실제 읽기 경로에 연결했다. 역할·권한·종료를 보존하고 중복 판단 조건은 한곳으로 모았다. 상세 확장과 후속 구성 정정은 `0dd23464`로 커밋했으며 반복 사용 효과와 운영 설치는 별도다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
+
+**04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 맥락 연결도 이후04-03에서 마쳤다. 운영 설치·일반 효과는 후속 확인 범위다.
 
 **04-03 이후의 범위:** 01-02 전체 품질 기준 종합,02 Work 구성·기록 운영,05 대화 기준 개선 루프,06 실제 배치·기존 의존·전환,07 전체 연결·적용 관찰이 남는다. [state](state.md)의 후속에서 이어가며 이번 작업에서 다음 Ticket의 구체화를 자동 착수하지 않았다. 기존 네 항목을 다시 미정으로 열거나 실제 설치가 끝났다고 간주하지 않는다.
 
@@ -46,7 +48,7 @@
 
 1. [state](state.md)와 [output](../output/index.md)에서 이번에 끝낸 결과·현재 실물·다음 행동을 확인하고 Git 상태를 대조한다.
 2. [memory](memory.md)의 대상물 경계·독립 책임·형성 자료·체계 지침에 관한 지속 기준과 [Spec](spec.md)의 전체 목표·3절·5절을 읽는다.
-3. [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[01-03](tickets/01-development-workflow/01-03-behavior-verification.md)과 [04의 관계](tickets/04-skill-improvements/README.md)를 함께 읽는다. 구현·개선 검토·검증·수정의 실행 반영·대표 대조와01-01·01-03 완료 조건 대조는 마쳤다. 다음에는 [04-03](tickets/04-skill-improvements/04-03-context-skills.md)의 실제 context 읽기·적용·갱신·재개 경로와 기존 스킬을 함께 대조한다.01-02 품질 기준 전체 종합도 관련 결과를 이어받는다. 실제 역할 전체의 수행 효과와 운영 설치는 별도로 계획한다.
+3. [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[01-03](tickets/01-development-workflow/01-03-behavior-verification.md)과 [04의 관계](tickets/04-skill-improvements/README.md)를 함께 읽는다. 구현·개선 검토·검증·수정의 실행 반영·대표 대조와01-01·01-03 완료 조건 대조는 마쳤다. [04-03](tickets/04-skill-improvements/04-03-context-skills.md)의 실제 context 읽기·적용·갱신·재개 연결도 마쳤다. 다음은 [state의 남은 범위](state.md#다음에-이어갈-일)에서 이어갈 항목을 사용자와 정한 뒤 해당 Ticket과 관련 결과를 읽는다.01-02 품질 기준 전체 종합도 이 결과를 이어받는다. 실제 역할 전체의 수행 효과와 운영 설치는 별도로 계획한다.
 
 ## 문서별 책임
 
@@ -68,4 +70,4 @@
 |01-02에서 무엇을 이어받았는가 | [해당 Ticket](tickets/01-development-workflow/01-02-code-design-quality.md), [72](../records/2026-10-18-72-short-common-and-detail-prototype.md)·[73](../records/2026-10-18-73-prototype-reservations-and-ticket03.md). 당시 형식 선택과 전체 유보를 구별한다. |
 | 기존 Project 내용과 원자료는 무엇이었는가 | [지도77](../records/2026-10-18-77-existing-project-content-map.md), [비교78](../records/2026-10-18-78-code-guides-comparison-and-applicability.md), [자료 안내](../source/README.md) |
 
-과거 시안·정정·검토는 [records](../records/README.md)에서 필요한 만큼 선택한다. 보존 원문을 현재 결론으로 덮어쓰지 않고, 과거의 미완료·첫 행동과 현재03 완료를 구별한다. Main이 수동으로 관리하며 Reference의 자동화·JSON 계약을 설치한 Workspace는 아니다.
+과거 시안·정정·검토는 [records](../records/README.md)에서 필요한 만큼 선택한다. 보존 원문을 현재 결론으로 덮어쓰지 않고, 과거의 미완료·첫 행동과 현재 설계 마감 범위를 구별한다. Main이 수동으로 관리하며 Reference의 자동화·JSON 계약을 설치한 Workspace는 아니다.

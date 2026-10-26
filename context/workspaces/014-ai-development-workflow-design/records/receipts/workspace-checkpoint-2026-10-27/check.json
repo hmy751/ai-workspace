@@ -1,0 +1,27 @@
+{
+  "checkedDate": "2026-10-27",
+  "baselineCommit": "0dd23464",
+  "checkedDocuments": 23,
+  "localFileReferences": 1135,
+  "missingPaths": [],
+  "oldVerificationEntryReferences": [],
+  "prototypeUnchangedFromBaseline": true,
+  "changesLimitedToWorkspaceGuidanceAndRecords": true,
+  "changedPaths": [
+    "context/workspaces/014-ai-development-workflow-design/README.md",
+    "context/workspaces/014-ai-development-workflow-design/current/design-map.md",
+    "context/workspaces/014-ai-development-workflow-design/current/index.md",
+    "context/workspaces/014-ai-development-workflow-design/current/memory.md",
+    "context/workspaces/014-ai-development-workflow-design/current/spec.md",
+    "context/workspaces/014-ai-development-workflow-design/current/state.md",
+    "context/workspaces/014-ai-development-workflow-design/current/tickets/04-skill-improvements/04-03-context-skills.md",
+    "context/workspaces/014-ai-development-workflow-design/current/tickets/index.md",
+    "context/workspaces/014-ai-development-workflow-design/output/index.md",
+    "context/workspaces/014-ai-development-workflow-design/records/2026-10-27-workspace-checkpoint.md",
+    "context/workspaces/014-ai-development-workflow-design/records/README.md",
+    "context/workspaces/014-ai-development-workflow-design/records/receipts/workspace-checkpoint-2026-10-27/check.json"
+  ],
+  "viewerEvidence": "직전 같은 판본의 원문/해시·링크/앵커 검사 재사용",
+  "browserRendering": "직전 file URL 정책 차단으로 미확인; 이번 재시도 없음",
+  "productTests": "새 실행 없음"
+}
