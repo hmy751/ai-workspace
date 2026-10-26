@@ -1,5 +1,7 @@
 # 현재 논의의 진입점
 
+**04-03 현재 진입:** [프로토타입 통합 적용 계획](../records/2026-10-26-context-prototype-integration-plan.md)에서 네 항목의 전체 흐름·실제 조항 배치·이관 전 정리·대표 확인을 읽는다. 설계·리뷰를 마친 뒤의 적용 계획이며 실제 본문·스킬 생성은 아직이다. 아래 항목별 결과는 그 입력이다.
+
 **04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 운영 설치·일반 효과는 미확인이며 다음 중심은04-03 검토다.
 
 **04-03 순차 검토 — 네 항목 구체화·리뷰 보완 기록, 다음은 전체 연결 점검:** [4번](../records/2026-10-26-context-04-completion-continuation-proposal.md)에 이번 요청·Work 완료·대화 중단과 재개, 요청된 생성·전환의 각각 끝나는 결과를 구체화했다. [기존 합의·외부 대조와 리뷰](../records/2026-10-26-context-04-goal-improvement-review.md)의 두 보완은 늦은 결과의 귀속과 최신 쓰기 권한의 구별,05의 루프 시점 미정 유지다. 사용자는 현재 구체안으로 기록·커밋을 요청했다. 다음은 [통합안](../records/2026-10-26-context-integrated-proposal.md)의 전체 연결·조항 배치를 점검하는 일이다. [state](state.md)에서3번 후속의 내용 선별과 남은 책임을 확인한다. 새 스킬 생성·설치·05 전체 설계·효과 확인은 아니다.
