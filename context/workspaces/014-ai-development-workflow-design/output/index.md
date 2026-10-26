@@ -18,6 +18,8 @@
 
 - [04-02 전체 구성 보완의 새 코드 평가](../records/experiments/explain-composition-transfer-60high-2026-10-25/comparison.md): 사용자는 직전판A를 전반적으로 선호하고 수정판B의 접수부터 시작하는 도입 흐름은 좋다고 했다. 도입의 국소 이득과 전체 우세 미확인을 구별했다. 구현·정합성·4응답 시험은 완료했고 후속 재수정·재생성은 없다.
 
+**04-03 현재 논의할 결과:** [네 구체안과 실제 작업 흐름](../records/2026-10-26-context-integrated-proposal.md) · [전체 책임 대조](../records/2026-10-26-context-whole-scope-reconciliation.md). 후속 [1번 독립 리뷰·한정 반영](../records/2026-10-26-context-01-goal-improvement-review.md)에 따라 development의 재개 문장과 1번 사례·후속 확인 방법을 보완했다. 나머지 세부와 [USAGE/context-update의 사용감 유보](../records/2026-10-25-context-framework-provisional-agreement.md)는 유지한다. 다음은 2번 검토이며 운영 설치·수행 효과는 미확인이다.
+
 현재 마감·후속 지도: [01-01·01-03 완료 조건 대조와 Spec·04의 다음 범위](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md). 두 설계 결과는 완료이며, 근거·확인 한계·비용을 조건별로 연결했다. 다음은04-03의 워크플로와 실제 context 연결 구체화이며, 세 기존 스킬도 그 수단으로 대조한다. [재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)에 완료 경계·읽을 실물·첫 산출물이 있다. 상위01·04·전체 Spec 완료와 구별한다.
 
 04-02 최신 반영: [선별한 개선안의 구체화·적용·확인](../records/2026-10-24-ticket04-02-selective-improvement-adoption.md). 원래 목적·Noline 사용 경험·논의·외부 자료를 선별한 안과 개선 리뷰를 바탕으로 explain 본체·작성 상세, development 호출과 형성 자료·열람 화면을 갱신했다. 질문 범위와 실제 빠진 연결, 역할 설명과 선택 판단을 구별한다. 앞선 발화 상세와 공통 근거 기준은 유지한다. 실행 본문 반영 완료이며 새 응답 비교·운영 설치·실제 효과 확인은 별도다.

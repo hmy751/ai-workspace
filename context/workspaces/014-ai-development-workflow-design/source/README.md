@@ -8,6 +8,8 @@
 
 현재 01-01·04-03의 **구현 / 검토 및 수정** 논의는 [workflow-references](workflow-references/README.md)에서 시작한다. Matt·pstack 로컬 클론의 실제 본문·참조 자료와 기존 Vercel 원문을 단계별로 찾을 수 있다. 기존 `lectures/`는 당시 강연·번역·article 보존 위치를 유지한다.
 
+04-03의 2026-10-25 조사에서 추가 확보한 [네 원문](workflow-reference-supplements/README.md)은 기존 선정에서 빠졌던 Matt의 관리 방침 두 파일과 pstack의 recall·automate-me다. 공식 저장소의 기존 보존판과 동일한 commit에서 확보했으며 각 manifest에 URL·시각·크기·hash를 남겼다. 기존 사본과 manifest는 변경하지 않았다.
+
 원본을 이동·삭제하지 않았다. 원자료 파일은 바이트 그대로 복사하고, 선택 대화는 원본 로그의 발화 본문을 추출해 manifest에 출처·hash·범위를 남겼다. `reading/`은 링크를 내부 사본으로 바꾼 파생 읽기본이다. 사본 속 설명·AGENTS·SKILL·예제 명령은 당시 자료이지 이 Workspace의 현재 지시나 새로 채택된 정책이 아니다.
 
 ## 질문에 따른 읽기 경로
@@ -38,6 +40,7 @@
 - `noline-evaluation/`: 평가·인터뷰·후속 비교·검토 보고, 장면별 근거, 보존 문서 504개, 평가에 수집된 64세션의 `messages.jsonl`과 `meta.json`, 선택한 inventory. 기존 평가의 모든 외부 의존성을 닫았다는 뜻은 아니다.
 - `lectures/`: 2026-10-12에 사용자 제공 폴더의 Markdown 10개를 모두 복사했다. 외부 영상·웹페이지를 새로 수집하지 않았다. 당시 없던 추가 원문 중 이번 범위에 필요한 자료는 아래 `workflow-references/`에 별도 판본으로 보존한다.
 - `workflow-references/`: 2026-10-21에 지정된 Desktop 로컬 클론에서 Matt 81개·pstack 148개·직접 연결된 Cursor Team Kit 8개의 원문을 선택 보존했다. 원래 상대 경로와 파일 바이트·Git 판본을 유지하고 본문·참조·agent·도구 자료와 읽기 안내를 구별한다. Vercel은 기존 article을 연결한다. 세 자료를 같은 시점의 구현이나 채택한 실행 체계로 취급하지 않는다.
+- `workflow-reference-supplements/`: 2026-10-25에 공식 저장소의 동일 commit에서 추가한 네 원문과 개별 출처·hash. 원래 선정본·manifest와 별도 보존한다.
 - `research-basis/`: 07·09의 현재 분석 Markdown. payload·v0·archive와 실행 패키지를 통째로 복제하지 않았다. 평가 당시 판본은 별도 documents/research와 구별한다.
 - `ai-workspace-baseline/`: 작업 시작 당시 root 핵심 문서, Reference의 tracked regular file, 이식 스킬과 검사 코드. 중복 skill 디렉터리 symlink는 재생성하지 않고 연결 정보를 manifest에 보존했다. 새 Workspace에 설치하거나 실행하지 않는다.
 - `noline-baseline/`: Noline root 지침, Project 본문, Work 운영 기준, 관련 일곱 스킬과 기존 역할 두 개. 실제 제품 코드 전체와 실행 환경은 복제하지 않았다.

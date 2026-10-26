@@ -1,5 +1,7 @@
 # AI 개발 작업 체계의 개선 설계 — Spec 초안
 
+2026-10-26 **04-03 재종합:** [전체 책임 대조](../records/2026-10-26-context-whole-scope-reconciliation.md)를 반영한 [통합안](../records/2026-10-26-context-integrated-proposal.md)에서 기존 합의·10월25일 잠정 구성·추가 세부를 구별했다. 네 장면을 실제 작업 흐름으로 연결하고 기존 작업 정의·역할·내용 관리·완료 책임을 유지하면서 공통 읽기·한정 반영 방법의 이관을 구체화한다. 조건부 문서 수정 배정과 파일/호출 형태는 논의할 세부안이다. 이후 [1번 적용 설명과 진행 요청](../records/2026-10-26-context-01-goal-improvement-review.md)에 따라 development의 재개 문장과 1번 사례·후속 확인 방법만 보완했다. 나머지 세부·새 스킬/공통 참조·설치·수행 효과는 아직이다.
+
 2026-10-24 설계 마감: [01-01·01-03 완료 조건 대조](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)로 개발 진행·사람 판단과 요구 검증·도구 선택을 완료로 정리했다. 합의·실행 본문·대표 대조가 각 설계 결과의 조건을 충족한다. 상위01은01-02 종합,04는 실제 context 연결과 개별 스킬의 남은 판단·보완이 있어 계속 열려 있다. 특히04-03은 시작·역할 인수·변화·완료/재개를 실제 context의 진입·정본·갱신 경로에 연결하고 기존 스킬을 그 수단으로 대조한다. [범위 명료화와 재개](../records/2026-10-24-workflow-context-connection-checkpoint.md)를 따른다. 실제 운영 설치·전체 역할 수행·일반 효과의 완료가 아니다.
 
 2026-10-24 후속 구체화 공통 기준: 검증에서 드러난 단계·층위·개념의 구별을 다른 책임에도 적용하고, 실행 본문·참조 문서에 그 관계가 체계적으로 이어지도록 한다. 단계의 입력·결과·인계, 각 역할의 판단·실행·수정 책임, 상위 관계와 하위 상세의 정본을 연결한다. 구체적인 파일 배치·단계 수를 일괄 고정하지 않는다. 실행 본문 통합과 이후 관련 스킬 구체화에서 [사용자 원문과 적용 메모](../records/2026-10-24-workflow-structure-and-responsibility-guidance.md)를 함께 읽는다.
@@ -218,6 +220,8 @@ Ticket의 설계 결과에는 그 범위에 필요한 다음 관계가 드러나
 **Personal context의 선택과 남은 실행:** [89](../records/2026-10-19-89-local-context-structure-correction.md)의 로컬 context 배치를 현재 방향으로 사용한다. demo에서는 personal/development와 project·work를 같은 context 아래에 구성했고 Work의 절차·memory에서 필요한 기준을 찾는다. 전체 기준·새 문장·사례의 채택, 실제 운영 배포·동기화·skill 연결·자율 발견 효과는 남아 있다. 별도 ai-workspace 호스트나 글로벌 위치를 필수로 두지 않으며, Project의 개인 기준 관리 의무도 만들지 않는다. 예제 실행과 실제 Noline 통합은 구별한다.
 
 **관리 기본값과 워크플로 연결:** Personal은 개인 기준, Work는 이번 적용·선택·상태, Project는 제품의 지속 계약·규약·현재 사실을 소유한다. 필요한 설명 중복을 허용하며 개인 기준 변경만으로 Project를 함께 고치지 않는다. development가 공통 수행을 조율하고, Main이 실제 지침·관리 계약을 이해해 기록·정본 반영을 확인한다. work-discussion은 명시 호출 조건을 유지하며 자동 Maintain은 연결하지 않는다. 추후 기록 보완 스킬은 아이디어이고 현재 구현·설치 과제로 확정하지 않았다. 개별 맥락 스킬의 보완안은04-03, 실제 대상 배치·전환은06에서 잇는다.
+
+**04-03 맥락 연결(2026-10-26):** workflow·공통 읽기 방법·지정 지속 본문 반영·영역별 관리의 [잠정 합의](../records/2026-10-25-context-framework-provisional-agreement.md)를 원래 전체 연결 과제에 적용해 [네 구체안과 독립 개선 리뷰·통합안](../records/2026-10-26-context-integrated-proposal.md)을 만들었다. 개발 중 읽기/갱신·직접 요청·Main의 Work와 변경 영향 연결에 재개/역할 수행/정본 반영/완료와 새·기존 Work 전환을 연결했다. 이후 1번의 재개 문장과 사례·후속 확인 방법을 사용자 진행 요청에 따라 한정 반영했다. 다음은 2번 담당자 수행의 연결이며 나머지 세부와 USAGE/context-update 사용감·정확한 형태는 계속 검토한다.02·06의 필요한 기록·계승·runtime 경계를 함께 보되 전체 Ticket을 흡수하지 않았다. 운영 설치·수행 효과·04-03 완료는 아니다.
 
 **본문 관리와 체계 지침:** [CONTENT-POLICY](../records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md)는 지속 본문과 형성 자료의 구성·보존·읽기·갱신을, [SYSTEM-GUIDANCE](../records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md)는 체계 지침의 성격과 진입·상세 책임을 소유한다. Work 적용은116에서 보류·복구했고 현재 형태를 유지한다. 현재 Personal·Project 묶음 단위는 검토 가능한 적용안이며 모든 문서의 최종 분류로 고정하지 않는다.
 

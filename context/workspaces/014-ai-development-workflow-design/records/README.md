@@ -1,8 +1,12 @@
 # 논의와 보존 기록
 
+- [04-03 1번 시작·재개의 목표 중심 개선 리뷰와 한정 반영](2026-10-26-context-01-goal-improvement-review.md): 독립 리뷰와 Main의 원자료 대조 뒤 적용 위치를 설명했다. 사용자 진행 요청에 따라 development의 재개 문장과 1번 실제 사례·후속 확인 방법을 보완했다. 기존 책임 배치는 유지하며 전체 세부 채택·설치·수행 효과와 구별한다.
+
 - [04-02 설계 마감과 후속 책임](2026-10-26-ticket04-02-closeout-and-followups.md): 최종 점검 네 사항을 정리하고 기존 다섯 완료 조건을 대조했다. 현재판을 유지하며06·07·05·04-03에 남은 배치·적용 관찰·경험 판단·맥락 연결을 반영했다. 운영 설치·일반 효과와 구별한다.
 
 - [04-02 최종 정합성 점검](2026-10-26-ticket04-02-final-consistency-review.md): 실행 의미·배경·원응답·관련 Ticket을 대조하고 옛 범위·모델 지시, 마감과 후속 적용의 연결, 배경 안내의 정리 지점을 확인했다. 새 응답 시험·실행 본문 수정 없이 보존 해시와 viewer를 재확인했다.
+
+- [04-03 전체 책임 대조와 네 구체안 재종합](2026-10-26-context-whole-scope-reconciliation.md): 전체 재검토 요청과 create에 치우친 설명의 정정, 네 항목의 유지·보완·공통화 판정, 기존 합의·잠정 구성·추가 세부를 보존했다. [통합안](2026-10-26-context-integrated-proposal.md)과 네 상세 설계에 반영했으며 실행 스킬·설정·제품·설치는 변경하지 않았다.
 
 - [04-02 종합 방향 반영과 두 재시험](2026-10-26-ticket04-02-choice-investigation-adoption.md): 본체·상세·형성 자료 반영, 기존 의미·정적 검사, 같은 자료의 GPT-6-sol medium 두 최초 수행 완료. [원응답](experiments/explain-choice-investigation-60medium-revised-2026-10-26/raw-responses.md)과 [부분 개선·남은 부족](experiments/explain-choice-investigation-60medium-revised-2026-10-26/comparison.md)을 연결한다.
 
@@ -10,19 +14,36 @@
 
 - [04-02 네 사례의 GPT-6-sol medium 최초 수행](experiments/explain-four-problems-60medium-2026-10-26/README.md): 저장 용량·access·인증 자기평가·종합 UX 조사 각1회와 원응답·읽기·입력 해시를 보존했다. Main은 access의 선택 근거와 보고서의 검사 범위 조사·설명 연결을 후속 보완 대상으로 판단했다. 사용자 평가·스킬 수정·Ticket 마감은 아직이다.
 
+- [04-03 네 구체안과 통합 권고](2026-10-26-context-integrated-proposal.md): 시작·재개, 담당자 수행, 변화·기록, 완료·연속을 각 Main 초안·독립 개선 리뷰·보완 뒤 종합했다. 후속 1번 리뷰·적용 설명 뒤 재개 문장과 사례를 한정 반영했고 다음은 2번 검토다. 나머지 세부·설치·수행 효과는 미확인이며 각 항목 상세는 이 통합안에서 찾는다.
+
+- [04-03 독립 개선 리뷰와 Main 반영](2026-10-26-context-improvement-reviews.md): 진행 방식의 사용자 원문·독립 입력, 판단을 가른 원자료·초안 구절, 채택·범위 조정과 항목 간 반영, 확인의 상한을 보존한다.
+
 - [04-02 문제별 사례 선정과 확인 방법](2026-10-26-ticket04-02-case-selection-and-method.md): 저장 용량 첫 보고·access 선택·인증 자기평가·보고서의 제한된 추가 조사를 추천한다. access 질문 이전 코드 원자료를 찾아 해시·발췌를 보존했다. 현재판 수행을 우선하며 새 시험·스킬 수정은 없다.
 
 - [04-02 네 해결 과제와 현재 논의](2026-10-26-ticket04-02-four-problems-and-comparison-checkpoint.md): 사례별 시험 단계와 문제 지도를 구별하고 네 번째 조사·구현·검증 공백 문제를 복원했다. source04 첫 전달의 입력·두 조건·판정·종료는 미실행 제안이며 본체는 `b6195d4`를 유지한다.
+
+- [04-03 큰그림 잠정 합의와 재개 기준](2026-10-25-context-framework-provisional-agreement.md): 초기 문제 제기부터 구성 변화·외부 조사·배치와 파일 트리·사용자 유보·잠정 합의까지 연결했다. 현재 틀은 다음 구체화의 기준안이며 USAGE/context-update 분리의 사용감·세부 형태는 유보한다. 사용자 직접 발화를 보존했고 실제 생성·이관·설치는 하지 않았다.
+
+- [04-03 추천 구성의 배치와 사용 장면](2026-10-25-context-composition-walkthrough.md): workflow·공통 읽기 참조·지정한 지속 본문 반영 스킬·영역 관리 계약의 책임과 실제 이관, 담당자/직접 요청, 변경 후 소비자 연결과 유지·교체를 구체화했다. 사용자와 논의할 후보이며 실행 파일·설정·source는 변경하지 않았다.
+
+- [04-03 Matt·Lauren 조사와 전체 체계 종합](2026-10-25-context-reference-synthesis.md): 기존 read/update·Recover/Maintain과 새 development를 원문의 호출·읽기·쓰기·개선·유지 관계와 대조했다. 일상 읽기는 기존 지침에서 직접 수행하고 공통 상세·필요한 독립 절차를 조합하는 방향을 권고한다. 구성 미채택·실행 변경·효과 시험 없음.
+- [Matt 맥락·스킬·관리 조사](2026-10-25-context-reference-matt-investigation.md), [Lauren/pstack 조사](2026-10-25-context-reference-lauren-investigation.md): 판본·직접 원문·대표 경로·차용 조건·반대 근거·자료 공백. 같은 commit의 누락 원문 네 파일을 별도 보존했다.
 
 - [04-02 본체 구조 정리 반영](2026-10-25-ticket04-02-body-organization-adoption.md): 본체의 책임·조건 배치를 정리하고 기존 인증 전체·후속 예시를 내용 그대로 함께 분리했다. 기존 의미·읽기 조건과 배경을 대조했다. 새 응답 시험은 없다. [당시 구조 제안](2026-10-25-ticket04-02-body-structure-reconsideration.md)은 이력으로 보존한다.
 
 - [04-02 가독성 보완 이후 남은 문제](2026-10-25-ticket04-02-remaining-problems-review.md): 다른 source의 원문·기존 시험·실행 책임을 대조하고 우선순위와 마감 판단을 제안했다. 현재 explain 유지·새 시험 없음.
 
+- [04-03 큰그림 대화 복원과 외부 조사 범위](2026-10-25-context-reference-investigation-scope.md): 직전 교체 가능성에 한정하지 않고 원래 의도·담당자 맥락 사용·current·스킬 구성·일상 유지와 개선·공통/대상별 책임의 질문을 복원한 조사 전 기록이다. 실제 조사 결과는 위 종합으로 이어진다.
+
 - [04-02 도입 흐름·본문 가독성 반영과 동일 사례 시험](2026-10-25-ticket04-02-flow-readability-adoption.md): 수정판92d7457, 코드·도식10개 보존, 독립 원문 대조, 같은 두 사례의 최초 응답4개와 실행 근거. 효과 판정은 사용자 평가 뒤 진행한다.
+
+- [04-03 공통 맥락 절차의 구체 책임안](2026-10-25-context-responsibility-concrete-proposal.md): 문서별 정본, 선택·적용/변화 반영의 입력과 결과, Main·담당자의 판단·수정권, 로그인 작업의 실제 연결을 구별했다. 사용자에게 보여 주기 위한 설계 후보이며 실행 스킬·설치·새 수행 시험은 없다.
 
 - [04-02 도입 흐름과 본문 가독성의 개선 리뷰·편집안](2026-10-25-ticket04-02-flow-readability-proposal.md): 사용자 문단 구분 선호, Main 선검토, 새 개선 리뷰1회와 원문·인증 코드 대조. 기존 표현 절 교체와 인증 예시의 실제 문단 이동·분할을 제안했다. 실행 미반영·새 시험 없음.
 
 - [04-02 전체 구성 보완의 새 코드 평가](experiments/explain-composition-transfer-60high-2026-10-25/comparison.md): 사용자는 직전판A를 전반적으로 선호하고 수정판B의 접수부터 시작하는 도입 흐름은 좋다고 했다. 도입의 국소 이득과 전체 우세 미확인을 구별했다. 구현·정합성·4응답 시험은 완료했고 후속 재수정·재생성은 없다.
+
+- [04-03 맥락 책임과 새 스킬 구성의 종합 비교](2026-10-25-context-responsibility-and-skill-architecture.md): 조사 전 세 대안과 후속 정정을 보존한다. 개발 중 사용 우선·직접 요청 병행, Work 적용 의미와 원문 직접 읽기, Main·담당자·Owner를 구별했다. 현재 추천은 원문 조사 종합으로 이어지며 하나의 스킬 안은 미채택 비교 후보다.
 
 - [04-02 설명 전체 구성의 본체·상세 교체안](2026-10-25-ticket04-02-explanation-composition-proposal.md): 기존 기준의 부재로 진단하지 않고 전체 구성과 국소 예시의 불균형, 실제 작동 관계와 설명 순서, 목적별 마무리를 재대조했다. 인증 전체/후속 예시와 본체 교체 문구를 제안했다. 실행 스킬 미변경·새 시험·별도 리뷰 없음.
 
@@ -31,6 +52,8 @@
 - [04-02 코드·표현 보완 적용과 동일 상황 재시험](2026-10-25-ticket04-02-code-presentation-adoption.md): 본체·작성 상세·배경과 열람 화면에 리뷰 반영. 같은03·04에서 수정 직전/수정판과03 기본 조건의 다섯 최초 응답을 모두 GPT-6-sol high로 생성하고 입력·읽기·응답 보존을 확인했다. [조건을 가린 원문](experiments/explain-source03-04-presentation-60high-2026-10-25/blind-responses.md)을 반환하며 사용자 평가·효과 판단은 아직이다.
 
 - [04-02 코드·표현 구체 개선안과 독립 개선 리뷰](2026-10-24-ticket04-02-code-presentation-improvement-proposal.md): 역할·실제 코드·해설·배치·종료를 연결한 교체 후보. 리뷰1회에서 역할·위임, 비중·대비·도식, 기존 예시 구성과 과잉 제한을 보완했다. 실행 스킬 미적용·추가 시험 없음.
+
+- [04-03 실제 context 연결안과 세 스킬 대조](2026-10-24-ticket04-03-context-connection-proposal.md): 기존 재개·한정 인수·추가 탐색·Owner 갱신을 네 장면으로 구체화했다. 대상 root 식별과 현재/과거 입력판 전달, Work 생성 계약과 runtime 의존의 분리를 권고한다. 첫 제안이며 실행 본문 반영·설치·수행 시험은 없다.
 
 - [워크플로 완료 경계와04-03 context 연결 재개](2026-10-24-workflow-context-connection-checkpoint.md): 스킬 보완으로 좁아진 설명을 바로잡고, 실제 context의 읽기·적용·갱신·재개 연결을 다음 범위로 명시했다. 사용자 원문·정본·원형 자료·첫 산출물·미착수 범위를 보존했다.
 

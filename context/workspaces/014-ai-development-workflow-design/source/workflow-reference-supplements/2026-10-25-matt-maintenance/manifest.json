@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/mattpocock/skills",
+  "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+  "retrieved_at": "2026-10-25T09:31:43.320089+00:00",
+  "scope": "Same revision as preserved 1.3.1 materials; two contribution/maintenance policy references only.",
+  "files": [
+    {
+      "path": "new-skills.md",
+      "original_path": ".out-of-scope/new-skills.md",
+      "url": "https://raw.githubusercontent.com/mattpocock/skills/5beb35b040e3de97e54fa9e386d7e42d15c295c2/.out-of-scope/new-skills.md",
+      "bytes": 1539,
+      "sha256": "4c82c95cf84ae340a09513db8764848c2e144f94d183ae0407e90eba44c8c52f"
+    },
+    {
+      "path": "harness-name-collisions.md",
+      "original_path": ".out-of-scope/harness-name-collisions.md",
+      "url": "https://raw.githubusercontent.com/mattpocock/skills/5beb35b040e3de97e54fa9e386d7e42d15c295c2/.out-of-scope/harness-name-collisions.md",
+      "bytes": 1606,
+      "sha256": "d4fae0db17921efb822edcad7af449c700a62beea3a4f3193d73655817580b2c"
+    }
+  ]
+}

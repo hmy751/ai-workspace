@@ -1,5 +1,7 @@
 # AI 개발 작업 체계의 개선 설계
 
+**04-03 네 구체안을 순차 검토 중이다.** [통합안](records/2026-10-26-context-integrated-proposal.md)과 [전체 책임 대조](records/2026-10-26-context-whole-scope-reconciliation.md)를 바탕으로 1번의 독립 개선 리뷰·적용 설명을 마쳤다. 사용자 진행 요청에 따라 development의 재개 문장과 1번 실제 사례·후속 확인 방법을 한정 보완했다. [반영 범위와 근거](records/2026-10-26-context-01-goal-improvement-review.md)에서 확인한다. 다음은 2번 담당자 수행의 연결을 검토한다. USAGE/context-update 사용감 유보, 나머지 세부·설치·수행 효과의 미확인은 유지한다.
+
 **01-01·01-03 설계 결과를 마감했다.** [완료 조건 대조와 Spec·04의 다음 범위](records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)에서 근거·비용·한계를 확인한다. 다음은 **04-03: 개발 워크플로와 실제 context의 읽기·적용·갱신·재개 연결**이다. 기존 세 스킬은 이 연결을 구현하는 수단으로 대조한다. [재개 메모](records/2026-10-24-workflow-context-connection-checkpoint.md)에 완료 경계·입력·첫 산출물을 정리했다. 상위01·04와 전체 Workspace는 아직 완료가 아니며 실제 운영 효과와 구별한다.
 
 검증자 실행 반영: [검증 상세](records/prototypes/development-workflow/skills/development/references/verification.md)를 생성하고 development·review·execution과 연결했다. [합의 대조와 확인 기록](records/2026-10-24-verifier-runtime-integration.md)에서 항목별 반영·대표 장면·실제 검사·한계를 읽는다.
