@@ -2,7 +2,7 @@
 
 **04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 운영 설치·일반 효과는 미확인이며 다음 중심은04-03 검토다.
 
-**04-03 순차 검토 — 1번 재개 보완 반영:** [통합안](../records/2026-10-26-context-integrated-proposal.md)과 [전체 책임 대조](../records/2026-10-26-context-whole-scope-reconciliation.md)를 바탕으로 1번의 [독립 리뷰·적용 설명·한정 반영](../records/2026-10-26-context-01-goal-improvement-review.md)을 마쳤다. development의 재개 문장과 1번 사례·후속 확인 방법을 보완했고 기존 책임을 유지했다. 다음은 2번 담당자 수행의 연결을 검토한다. 나머지 세부·USAGE/context-update·설치·수행 효과는 아직이며 초기 항목별 리뷰와 이번 후속을 구별한다.
+**04-03 순차 검토 — 다음은3번 실제 반영 범위·종료 조건:** [2번 담당자의 제안](../records/2026-10-26-context-02-role-execution-proposal.md)과 [앞선 대화 대조·리뷰·구체화](../records/2026-10-26-context-proposal-review-apply-design.md)를 기록 정리한 뒤, [3번 Main의 검토·반영](../records/2026-10-26-context-03-change-records-proposal.md)에서 이어간다. 직접 수정 기본값은 이전 후보이며 현재는 담당자의 제안과 Main 검토·갱신을 사용한다. 중요한 제안·처리 근거의 보존과 재개·루프의 재사용도 연결했다. [통합안](../records/2026-10-26-context-integrated-proposal.md)과 [state](state.md)에서 전체 관계·남은 세부를 확인한다. 이번 설계 구체화를 실제 스킬 적용·05 전체 설계·효과 확인으로 확대하지 않는다.
 
 **01-01·01-03 설계 결과 완료.** [완료 조건 대조와 Spec·04의 남은 일](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)을 먼저 읽는다. 다음은04-03의 **워크플로와 실제 context 연결 구체화**다. [재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)에서 완료 경계·읽을 자료·첫 산출물을 확인한다. 스킬 보완만으로 범위를 좁히지 않으며,01-02 전체 종합·02/05/06/07의 후속 설계는 구별한다.04-02의 설계 결과는 위 마감 기록을 따른다. 실제 운영 효과·전체 Workspace 완료는 아니다.
 

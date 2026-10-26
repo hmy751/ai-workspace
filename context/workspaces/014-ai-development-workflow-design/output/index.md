@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+- [04-03 담당자의 제안과 Main의 검토·반영 연결](../records/2026-10-26-context-proposal-review-apply-design.md): [2번](../records/2026-10-26-context-02-role-execution-proposal.md)·[3번](../records/2026-10-26-context-03-change-records-proposal.md)·[통합안](../records/2026-10-26-context-integrated-proposal.md)을 현재 설계로 읽는다. 직접 수정 기본값을 대체하고 중요한 제안·처리 근거의 보존, 재개·루프에서의 재사용을 연결했다. 설계 구체화이며 실행 스킬·설치·효과 확인은 아니다.
+
 - [04-02 설계 마감·완료 조건과 후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md): explain 본체·두 상세·형성 자료와 development의 설명/조사 연결을 현재 산출물로 유지한다. [실행 진입](../records/prototypes/development-workflow/skills/explain/SKILL.md), [반영·의미 확인](../records/2026-10-26-ticket04-02-choice-investigation-adoption.md), [두 원응답·남은 한계](../records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/comparison.md)를 연결한다. 설계 완료이며 운영 설치·일반 효과는 미확인이다.
 
 아래04-02의 최초 수행·제안·당시 최신/다음/미완료 표기는 각 기록 당시 상태다. 현재 결과와 후속 책임은 위 마감 기록을 따른다.
