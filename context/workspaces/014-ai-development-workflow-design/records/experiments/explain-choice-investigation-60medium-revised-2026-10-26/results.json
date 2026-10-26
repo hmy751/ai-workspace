@@ -1,0 +1,236 @@
+{
+  "runs": [
+    {
+      "case": "case02-access",
+      "model_requested": "gpt-6-sol",
+      "effort_requested": "medium",
+      "required_read_complete": true,
+      "input_hashes_unchanged": true,
+      "prior_materials_identical": true,
+      "read_chunk_hashes_match": true,
+      "prior_response_unchanged": true,
+      "response_sha256": "c302603b27e36ca1292a274d4699c8c55b99da935fcbb71584dd8d2ed37f1315",
+      "response_bytes": 1955,
+      "execution_note_sha256": "0a8107c30e28afc53b9250361b3b54c13a0cdb4e3ffef41f4a9b02e808db7449",
+      "read_files": 13,
+      "read_chunks": 24,
+      "search_events": 0,
+      "opened": {
+        "skills/explain/SKILL.md": [
+          1,
+          2,
+          3
+        ],
+        "materials/conversation.txt": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "skills/explain/references/prior-explanation.md": [
+          1
+        ],
+        "skills/explain/references/constructing-explanations.md": [
+          1,
+          2
+        ],
+        "materials/README.md": [
+          1
+        ],
+        "materials/code/apps/client/src/features/trip/read-query/read-query.ts": [
+          1,
+          2
+        ],
+        "materials/code/apps/client/src/features/trip/read-query/index.ts": [
+          1
+        ],
+        "materials/code/apps/client/src/screens/read-query.ts": [
+          1
+        ],
+        "materials/diffs/ScheduleScreen.diff": [
+          1,
+          2
+        ],
+        "materials/code/apps/client/src/shared/policy/types.ts": [
+          1
+        ],
+        "materials/code/apps/client/src/entities/schedule/data/useGetSchedules.ts": [
+          1
+        ],
+        "materials/excerpts/ExpenseForm.lines20-92.tsx.txt": [
+          1
+        ],
+        "materials/excerpts/useCreateScheduleForm.lines30-110.ts.txt": [
+          1
+        ]
+      },
+      "worker_check": {
+        "complete": true,
+        "missing_required": [],
+        "changed_inputs": [],
+        "opened_files": 13,
+        "partially_read": {}
+      },
+      "protocol_limit": "실행 메모상 출력 잘림·범위 밖 접근 없음."
+    },
+    {
+      "case": "case04-investigation",
+      "model_requested": "gpt-6-sol",
+      "effort_requested": "medium",
+      "required_read_complete": true,
+      "input_hashes_unchanged": true,
+      "prior_materials_identical": true,
+      "read_chunk_hashes_match": true,
+      "prior_response_unchanged": true,
+      "response_sha256": "010d06a2094040f0b79510dacb74eafc65b6c76cde9f868256395683220fb489",
+      "response_bytes": 8053,
+      "execution_note_sha256": "c2c9b4bafd2d075f761d4468c94482f71a7bcffc2d4e8f1ec9e06f97970e52c6",
+      "read_files": 23,
+      "read_chunks": 65,
+      "search_events": 8,
+      "opened": {
+        "skills/development/SKILL.md": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "materials/conversation.txt": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "materials/observations/pre-779-observations/663.txt": [
+          1
+        ],
+        "materials/observations/pre-779-observations/672.txt": [
+          1
+        ],
+        "materials/observations/pre-779-observations/703.txt": [
+          1
+        ],
+        "materials/observations/pre-779-observations/731.txt": [
+          1
+        ],
+        "skills/explain/SKILL.md": [
+          1,
+          2,
+          3
+        ],
+        "skills/development/references/verification.md": [
+          1,
+          2,
+          3
+        ],
+        "materials/repository/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md": [
+          1,
+          2,
+          3,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "materials/observations/pre-619-tool-evidence/156.txt": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "materials/repository/apps/client/src/screens/CreateScheduleScreen.tsx": [
+          1,
+          2
+        ],
+        "materials/repository/apps/client/src/screens/CreateExpenseScreen.tsx": [
+          1
+        ],
+        "materials/repository/apps/client/src/screens/ScheduleQueryFeedback.tsx": [
+          1
+        ],
+        "materials/repository/apps/client/src/screens/ExpenseQueryFeedback.tsx": [
+          1
+        ],
+        "materials/repository/apps/client/src/screens/ScheduleScreen.tsx": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "materials/repository/apps/client/src/screens/ExpensesScreen.tsx": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "materials/repository/apps/client/src/screens/ExpenseDetailScreen.tsx": [
+          1,
+          2,
+          3
+        ],
+        "materials/repository/apps/client/src/screens/ScheduleDetailScreen.tsx": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "materials/repository/apps/client/src/features/expense/create-expense/ExpenseForm.tsx": [
+          1,
+          2,
+          3
+        ],
+        "materials/repository/apps/client/src/features/expense/create-expense/useCreateExpenseForm.ts": [
+          1
+        ],
+        "materials/repository/apps/client/src/features/expense/expense-form/ExpenseSubmitActions.tsx": [
+          1
+        ],
+        "materials/repository/apps/client/src/features/expense/expense-form/ExpenseScheduleField.tsx": [
+          1,
+          2,
+          3
+        ],
+        "materials/repository/apps/client/tests/screens/expense-recovery.test.tsx": [
+          2,
+          3,
+          4
+        ]
+      },
+      "worker_check": {
+        "complete": true,
+        "missing_required": [],
+        "changed_inputs": [],
+        "opened_files": 23,
+        "partially_read": {
+          "materials/observations/pre-619-tool-evidence/156.txt": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "materials/repository/apps/client/tests/screens/expense-recovery.test.tsx": [
+            1
+          ],
+          "materials/repository/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      },
+      "protocol_limit": "4번은 일부 선택 자료 출력 잘림을 보고하고 해당 불완전 출력은 근거로 사용하지 않았다고 밝힘. 필수 입력 완독과 별도로 이 한계를 보존."
+    }
+  ],
+  "interpretation": "읽기·해시 확인은 이해나 판단의 충분성과 별도. 출력 범위 준수는 로그와 실행자 보고로 확인하며 OS 감사는 아님."
+}

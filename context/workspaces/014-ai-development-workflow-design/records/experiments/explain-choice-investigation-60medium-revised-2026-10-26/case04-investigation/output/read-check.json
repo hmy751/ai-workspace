@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "missing_required": [],
+  "changed_inputs": [],
+  "opened_files": 23,
+  "partially_read": {
+    "materials/observations/pre-619-tool-evidence/156.txt": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "materials/repository/apps/client/tests/screens/expense-recovery.test.tsx": [
+      1
+    ],
+    "materials/repository/context/work/workspaces/002-code-readability-refactoring/current/memory/tickets/06-app-startup-lifecycle.md": [
+      4,
+      5,
+      6,
+      7
+    ]
+  }
+}

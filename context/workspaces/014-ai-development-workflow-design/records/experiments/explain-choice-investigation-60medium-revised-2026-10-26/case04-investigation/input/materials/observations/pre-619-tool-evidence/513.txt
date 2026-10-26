@@ -1,0 +1,19 @@
+Script completed
+Wall time 0.3 seconds
+Output:
+
+
+# Ticket 06 홈 수집 — 2026-10-04
+
+현재 수집 중. UX 수락·원인·수정 설계는 이 문서에서 판정하지 않는다.
+
+- 기기: iPhone 15 Pro / iOS 26.0 / D22939DA-F2A4-4F24-B286-197DC62F415C / com.noline.dev.
+- 시작 Simulator 화면은 SpringBoard. 설치된 앱 실행 시 `No bundle URL present` 오류. 설치된 root Expo CLI로 Metro를 시작하고 Reload하여 기존 앱을 열었다. 재설치·빌드·DB 초기화는 하지 않았다.
+- 기존 Metro 없었음. 첫 sandbox 실행은 ready에 도달하지 않아 중단했고, `EXPO_OFFLINE=1 ../../node_modules/.bin/expo start --localhost --port 8081`을 권한 절차로 실행했다. EXPO_OFFLINE은 Expo CLI 외부 점검 설정이며 제품 network override나 실제 네트워크 단절이 아니다. Metro session 46846 유지 중.
+- 첫 앱 홈: 파리 9월30일~10월2일, `준비 완료`, 일정 `2개`, 경비 `EUR 56.00`, 상단 `온라인`. 다른 여행은 파리 1월6일~1월9일. 과거 비활성 홈 자료와 현재 활성 상태가 다르다.
+- `01-current-active-online-home.jpg`는 API 복구 전의 현재 활성 홈 첫 캡처이며, 하단 sync network error 개발 경고와 오류 개수 표시가 있다. 비활성 제한 안내의 새 증거가 아니다.
+- 보이는 홈 동작: 메인 여행 수정 아이콘, `오프라인 해제`, 다른 여행 메뉴 아이콘, `새 여행 추가`, 하단 탭4개. 비활성 제한 설명/다시 확인 버튼은 이 활성 홈에서 보이지 않는다.
+- 기존 다른 여행의 메뉴는 `오프라인 활성화 / 수정 / 삭제`. 여행 활성화·해제는 누르지 않았다.
+- Debug 원래 상태 확인: `현재 상태: 🟢 온라인`, `실제 네트워크: online`, 강제 설정 행 없음. override null, 활성 여행1/여행2, sync 대기0/실패0.
+- 화면 조작은 기존 Debug UI와 Native Simulator AX를 사용. 제품 파일 수정, 데이터 생성·저장·삭제, 계정 변경 없음. 실제 네트워크를 끊지 않았다.
+- 종료/추가 캡처 및 원상복구 여부는 마무리 시 갱신한다.

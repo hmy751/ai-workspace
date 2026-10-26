@@ -1,0 +1,82 @@
+// ========================================
+// Schedule Repository - 활성화 상태에 따른 Local/Remote 분기
+// ========================================
+
+import { createScheduleRequest, updateScheduleRequest } from '@repo/schema/requests/schedule';
+import { routeChildQuery, routeChildMutation } from '@/shared/services/offline-prep/router';
+import * as ScheduleLocal from '../lib/schedule-local';
+import * as ScheduleApi from '../api/schedules';
+import type { Schedule, CreateScheduleRequest, UpdateScheduleRequest } from '../model';
+
+/**
+ * Schedule Repository
+ *
+ * - 활성화된 Trip: Local DB 사용
+ * - 비활성 Trip: Server API 사용
+ * - routeChildQuery/Mutation이 tripId 기반으로 자동 분기
+ */
+export const ScheduleRepository = {
+  /**
+   * 여행의 일정 목록 조회
+   */
+  getByTripId: async (tripId: string): Promise<Schedule[]> => {
+    return await routeChildQuery(tripId, {
+      local: () => ScheduleLocal.getSchedulesLocal(tripId),
+      remote: () => ScheduleApi.fetchSchedules(tripId),
+    });
+  },
+
+  /**
+   * 특정 일정 조회
+   * @param id - 일정 ID
+   * @param tripId - 여행 ID (라우팅 판단용)
+   */
+  getById: async (id: string, tripId: string): Promise<Schedule | undefined> => {
+    return await routeChildQuery(tripId, {
+      local: () => ScheduleLocal.getScheduleByIdLocal(id),
+      remote: () => ScheduleApi.fetchScheduleById(id),
+    });
+  },
+
+  /**
+   * 여행의 일정 개수 조회
+   * - 로컬 전용 (오프라인 지도 다운로드 트리거용)
+   */
+  getCount: async (tripId: string): Promise<number> => {
+    return await ScheduleLocal.getScheduleCountLocal(tripId);
+  },
+
+  /**
+   * 일정 생성
+   */
+  create: async (data: CreateScheduleRequest): Promise<Schedule> => {
+    const input = createScheduleRequest.parse(data);
+    return await routeChildMutation(input.tripId, {
+      local: () => ScheduleLocal.createScheduleLocal(input),
+      remote: () => ScheduleApi.fetchCreateSchedule(input),
+    });
+  },
+
+  /**
+   * 일정 수정
+   * - 화면이 이미 알고 있는 tripId로 로컬 선조회 없이 라우팅
+   */
+  update: async (id: string, tripId: string, data: UpdateScheduleRequest): Promise<Schedule> => {
+    const input = updateScheduleRequest.parse(data);
+    return await routeChildMutation(tripId, {
+      local: () => ScheduleLocal.updateScheduleLocal(id, input),
+      remote: () => ScheduleApi.fetchUpdateSchedule(id, input),
+    });
+  },
+
+  /**
+   * 일정 삭제 (Soft Delete)
+   * - 화면이 이미 알고 있는 tripId로 로컬 선조회 없이 라우팅
+   */
+  delete: async (id: string, tripId: string): Promise<{ id: string; deletedAt: string }> => {
+    return await routeChildMutation(tripId, {
+      local: () => ScheduleLocal.deleteScheduleLocal(id),
+      remote: () => ScheduleApi.fetchDeleteSchedule(id),
+    });
+  },
+};

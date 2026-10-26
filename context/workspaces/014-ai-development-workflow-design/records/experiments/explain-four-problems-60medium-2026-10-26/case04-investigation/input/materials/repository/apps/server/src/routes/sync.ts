@@ -1,0 +1,212 @@
+import { Router } from 'express';
+import type { Request, Response } from 'express';
+import { db, trips, schedules, expenses } from '../db/index.js';
+import { gte, inArray, and, eq } from 'drizzle-orm';
+import {
+  syncPullQuerySchema,
+  syncPullResponseSchema,
+  syncPushRequestSchema,
+  syncPushResponseSchema,
+} from '@repo/schema/sync/sync-status';
+import { requireAuth } from '../middleware/auth.js';
+import { serializeExpense } from '../serializers/expense.js';
+import { serializeSchedule } from '../serializers/schedule.js';
+import { serializeTrip } from '../serializers/trip.js';
+
+const router = Router();
+
+/**
+ * GET /api/sync/pull
+ *
+ * 서버의 최신 데이터를 클라이언트로 전송 (Pull 동기화)
+ *
+ * Query Parameters:
+ * - lastSyncedAt: ISO 8601 날짜 문자열 (선택, 없으면 전체 데이터)
+ * - activatedTripIds: 활성화된 여행 ID 배열 (쉼표로 구분, 선택)
+ *
+ * Response:
+ * {
+ *   trips: Trip[], // 모든 여행 메타데이터
+ *   schedules: Schedule[], // 활성화된 여행의 일정만
+ *   expenses: Expense[], // 활성화된 여행의 경비만
+ *   serverTime: string (ISO 8601)
+ * }
+ *
+ * @example
+ * GET /api/sync/pull?lastSyncedAt=2025-10-24T10:00:00.000Z&activatedTripIds=trip1,trip2
+ */
+router.get('/pull', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const userId = req.userId!;
+    const query = syncPullQuerySchema.safeParse(req.query);
+    if (!query.success) {
+      return res.status(400).json({
+        error: 'Validation error',
+        message: 'Invalid sync query',
+        details: query.error.errors,
+      });
+    }
+    const { lastSyncedAt } = query.data;
+    const { activatedTripIds } = req.query;
+
+    console.log('📥 [Sync Pull] Request received:', {
+      lastSyncedAt: lastSyncedAt || 'Not provided (full sync)',
+      activatedTripIds: activatedTripIds || 'None (metadata only)',
+    });
+
+    // lastSyncedAt이 있으면 증분 동기화, 없으면 전체 동기화
+    const sinceDate = lastSyncedAt ? new Date(lastSyncedAt) : new Date(0); // Epoch (1970-01-01) = 전체 데이터
+
+    // 활성화된 여행 ID 배열 파싱
+    const activatedIds = activatedTripIds ? (activatedTripIds as string).split(',').filter((id) => id.trim()) : [];
+
+    console.log('📥 [Sync Pull] Activated trip IDs:', activatedIds);
+
+    // updatedAt >= sinceDate인 레코드 조회 (인증된 사용자 소유 row만)
+    // - trips: 사용자의 모든 여행 (메타데이터)
+    // - schedules/expenses: 사용자의 활성화된 여행만
+    const [tripsData, schedulesData, expensesData] = await Promise.all([
+      db
+        .select()
+        .from(trips)
+        .where(and(eq(trips.userId, userId), gte(trips.updatedAt, sinceDate)))
+        .orderBy(trips.updatedAt),
+
+      activatedIds.length > 0
+        ? db
+            .select()
+            .from(schedules)
+            .where(
+              and(
+                eq(schedules.userId, userId),
+                gte(schedules.updatedAt, sinceDate),
+                inArray(schedules.tripId, activatedIds),
+              ),
+            )
+            .orderBy(schedules.updatedAt)
+        : Promise.resolve([]),
+
+      activatedIds.length > 0
+        ? db
+            .select()
+            .from(expenses)
+            .where(
+              and(
+                eq(expenses.userId, userId),
+                gte(expenses.updatedAt, sinceDate),
+                inArray(expenses.tripId, activatedIds),
+              ),
+            )
+            .orderBy(expenses.updatedAt)
+        : Promise.resolve([]),
+    ]);
+
+    console.log('📥 [Sync Pull] Sending data:', {
+      trips: tripsData.length,
+      schedules: schedulesData.length,
+      expenses: expensesData.length,
+    });
+
+    // ✅ Date 객체를 ISO string으로 변환
+    const tripsFormatted = tripsData.map(serializeTrip);
+
+    const schedulesFormatted = schedulesData.map(serializeSchedule);
+
+    const expensesFormatted = expensesData.map(serializeExpense);
+
+    // 서버 시간 반환 (다음 동기화의 기준점)
+    const serverTime = new Date().toISOString();
+
+    // 정책: { success, data } 구조로 응답
+    const response = {
+      success: true as const,
+      data: {
+        trips: tripsFormatted,
+        schedules: schedulesFormatted,
+        expenses: expensesFormatted,
+        serverTime,
+      },
+    };
+
+    // Zod로 응답 데이터 검증
+    const validatedResponse = syncPullResponseSchema.safeParse(response);
+
+    if (!validatedResponse.success) {
+      console.error('❌ [Sync Pull] Response validation error:', validatedResponse.error);
+      return res.status(500).json({
+        error: 'Internal validation error',
+        message: 'Response validation failed',
+      });
+    }
+
+    res.status(200).json(validatedResponse.data);
+  } catch (error) {
+    console.error('❌ [Sync Pull] Error:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        success: false,
+        error: 'Sync pull failed',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        success: false,
+        error: 'Sync pull failed',
+        message: 'Unknown error occurred',
+      });
+    }
+  }
+});
+
+/**
+ * POST /api/sync/push
+ *
+ * 클라이언트 변경사항을 서버에 반영 (Push 동기화)
+ *
+ * Body:
+ * {
+ *   tableName: 'trips' | 'schedules',
+ *   recordId: string,
+ *   action: 'CREATE' | 'UPDATE' | 'DELETE',
+ *   payload: object
+ * }
+ *
+ * @example
+ * POST /api/sync/push
+ * {
+ *   tableName: 'trips',
+ *   recordId: '01K8BFTX...',
+ *   action: 'CREATE',
+ *   payload: { id: '01K8...', name: 'Tokyo', ... }
+ * }
+ */
+router.post('/push', requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { tableName, recordId, action, payload } = req.body;
+
+    console.log('📤 [Sync Push] Request received:', {
+      tableName,
+      recordId,
+      action,
+    });
+
+    // TODO: Phase 5에서 구현
+    // 현재는 기존 REST API (/api/trips, /api/schedules) 사용
+
+    res.status(501).json({
+      success: false,
+      error: 'Not implemented yet',
+      message: 'Please use existing REST endpoints (/api/trips, /api/schedules) for now',
+    });
+  } catch (error) {
+    console.error('❌ [Sync Push] Error:', error);
+
+    res.status(500).json({
+      success: false,
+      error: 'Sync push failed',
+    });
+  }
+});
+
+export default router;

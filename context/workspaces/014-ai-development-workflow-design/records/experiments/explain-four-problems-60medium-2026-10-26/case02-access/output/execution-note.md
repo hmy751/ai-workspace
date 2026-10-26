@@ -1,0 +1,5 @@
+- 읽은 자료: prompt.txt; read_material.py로 skills/explain/SKILL.md 전체 3조각, materials/conversation.txt 전체 7조각, materials/README.md, skills/explain/references/prior-explanation.md, features/trip/read-query/read-query.ts 전체 2조각과 index.ts, screens/read-query.ts, ScheduleScreen.diff 전체 2조각.
+- 확인 결과: 현재 useSchedulesRead는 access를 만들어 Query의 enabled 및 useReadQuery에 전달한다. useReadQuery의 반환은 query, actions, view이며 access는 포함하지 않는다. actions.canRefetch는 access.enabled이고, view의 blocked 분기는 정책을 포함한다. 일정 화면 변경 diff는 actions와 view만 소비한다. 이전 대화의 제안에는 access가 반환값에 있었다.
+- read_material.py --check 결과: complete=true, missing_required=[], changed_inputs=[], partially_read={}.
+- 못 한 확인: 제공 자료 밖의 제품 코드와 실제 앱 실행은 확인하지 않았다. 제품 수정·실행은 하지 않았다.
+- 도구 출력 잘림: 없었다. 범위 밖 자료 접근: 없었다.

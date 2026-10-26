@@ -6,7 +6,7 @@
 
 **구현·개선 검토1~15와 검증자1~12의 합의를 실행 prototype에 통합했다.** [전체 흐름 대조·실제 확인](records/2026-10-24-verifier-runtime-integration.md)에서 구현 중 검사·개선 수정·별도 검증·재검증·Main 완료와 기록의 연결을 확인한다. Main의 대표 장면 대조와 메모리 예제 실행을 마쳤으며, 여러 agent의 전체 개발 수행·운영 설치·일반 효과 검증은 별도다. 개별 맥락 스킬 보완과 대상별 연결·전체 체계 종합은 해당 후속 Ticket에 남아 있다.
 
-04-02는 explain 통합과 본체 정리·기존 예시 분리까지 `b6195d4`에 반영했다. 현재 남은 문제는 첫 전달·선택 판단·앞선 말 보완/정정·부족한 조사/구현/검증을 설명으로 덮지 않기, 네 가지다. [현재 Ticket](current/tickets/04-skill-improvements/04-02-artifact-explanation.md)과 [정정·미실행 첫 전달 비교안](records/2026-10-26-ticket04-02-four-problems-and-comparison-checkpoint.md)에서 이어간다.04-03의 컨텍스트 연결과 구별하며 새 응답 시험·운영 설치·Ticket 완료는 하지 않았다.
+**04-02 설명 구성·적용 설계 완료.** [완료 조건 대조와 후속 인계](records/2026-10-26-ticket04-02-closeout-and-followups.md)에서 다섯 조건의 근거·비용·한계를 확인했다. 현재 explain·development를 유지하며 배치·전환은06, 실제 적용·관찰은07, 경험 재검토는05, 맥락 연결은04-03으로 이어진다. 실제 운영 설치·일반 효과·두 시험의 모든 부족 해결을 완료로 선언하지 않는다.
 
 **현재 상태: Ticket03의 구성안·대표 본문·읽기와 갱신 책임 구체화를 완료했다.** [마무리119](records/2026-10-20-119-ticket03-closeout.md)와 [03 완료 조건](current/tickets/03-project-context.md)에서 판단 근거와 후속 범위를 확인한다. Workspace014 전체는 계속 진행 중이며, 이번 마무리에서 다음 Ticket을 착수하지 않았다.
 

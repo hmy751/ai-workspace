@@ -1,0 +1,22 @@
+{
+  "complete": true,
+  "missing_required": [],
+  "changed_inputs": [],
+  "opened_files": 16,
+  "partially_read": {
+    "materials/repository/apps/client/src/screens/ExpenseDetailScreen.tsx": [
+      2,
+      3
+    ],
+    "materials/repository/apps/client/src/screens/ExpensesScreen.tsx": [
+      1,
+      2,
+      5
+    ],
+    "materials/repository/apps/client/src/screens/ScheduleDetailScreen.tsx": [
+      2,
+      3,
+      4
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+Script completed
+Wall time 0.4 seconds
+Output:
+
+
+
+      at Object.error [as onError] (src/entities/schedule/data/useCreateSchedule.ts:51:15)
+      at Mutation.execute (../../node_modules/@tanstack/query-core/src/mutation.ts:282:28)
+
+PASS tests/screens/create-expense-flow.test.tsx
+PASS tests/shared/lib/datetime.test.ts
+
+Test Suites: 4 passed, 4 total
+Tests:       1 skipped, 55 passed, 56 total
+Snapshots:   0 total
+Time:        1.669 s, estimated 4 s
+Ran all test suites matching /tests\/screens\/create-schedule-flow.test.tsx|tests\/screens\/create-expense-flow.test.tsx|tests\/shared\/lib\/datetime.test.ts|tests\/screens\/read-query-consumers.test.tsx/i.
+
+
+{"content":[{"type":"text","text":"{\"status\":\"queued\",\"threadId\":\"01a1052a-4e61-7072-9b81-ff44449e5b85\"}"}],"isError":false}

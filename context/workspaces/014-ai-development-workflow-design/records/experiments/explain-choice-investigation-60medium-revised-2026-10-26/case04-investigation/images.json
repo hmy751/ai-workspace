@@ -1,0 +1,66 @@
+[
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/images/pre-619-tool-evidence/174-3.jpg",
+    "sha256": "8a8f38cd82f124358ac0694decfb000076249767e675ff91131d27975bb4a8dc"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/images/pre-779-observations/672-1.jpg",
+    "sha256": "93cd3b6422d7a5fc83a55e799ae69a770349dc191f1dc14ece9a6504af59faab"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/images/pre-779-observations/672-2.jpg",
+    "sha256": "1e561347f5ab80a55e797b27fd65d203b4dd00ab28f7e7223a9986388cb28b7f"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/images/pre-779-observations/672-3.jpg",
+    "sha256": "98ff263e81cf343827f9eb682d24d5e84903c040302b8fcc89a8d2047150375b"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/images/pre-779-observations/703-2.jpg",
+    "sha256": "e6dcc80a50b005de2166737dbc13cf25e5fe59ac6ffd5100f49eae62d114d1cc"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/images/pre-779-observations/703-3.jpg",
+    "sha256": "cf9fd915ce885b049ce2d18e48f757a73f7f307927c0db1481351faed79027e3"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/images/pre-779-observations/703-4.jpg",
+    "sha256": "130bca5b63e04cff74f2f762309ac5e8db253ee637e4b6e383489e87feb704b8"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/images/pre-779-observations/731-1.jpg",
+    "sha256": "cf9fd915ce885b049ce2d18e48f757a73f7f307927c0db1481351faed79027e3"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/repository/apps/client/assets/adaptive-icon.png",
+    "sha256": "90874e300d89b16b34f60a3e3bff327fbd3f4ff292feccacb70c8cdc8e78ccf4"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/repository/apps/client/assets/favicon.png",
+    "sha256": "2129d9c5535cf700d2eed21aa9afdd000ab85dae3209e3f7373941dedee73ba4"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/repository/apps/client/assets/icon.png",
+    "sha256": "90874e300d89b16b34f60a3e3bff327fbd3f4ff292feccacb70c8cdc8e78ccf4"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/repository/apps/client/assets/splash-icon.png",
+    "sha256": "90874e300d89b16b34f60a3e3bff327fbd3f4ff292feccacb70c8cdc8e78ccf4"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/repository/public/assets/manual-input1.png",
+    "sha256": "71fb9e1b912275f0874d835e224e1dde156f8a7f3d52d67e27283dc4f1849ad4"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/repository/public/assets/manual-input2.png",
+    "sha256": "c899c5e7ce8d1b03a97148f7a7a145d2c2e82c4a941532891add367eda945036"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/repository/public/assets/manual-input3.png",
+    "sha256": "acb12e0dd829029fbdd71f7160e1c5973e490e020abebc931ed747e276ead37b"
+  },
+  {
+    "path": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/case04-investigation/input/materials/repository/public/assets/network-indicator.png",
+    "sha256": "13c8b3fa28105b42219483c85f919b2fe607b8564e49a294e6af354b3b5d80c3"
+  }
+]

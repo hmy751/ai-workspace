@@ -1,0 +1,73 @@
+  isPending: boolean;
+};
+
+/**
+ * 경비 입력 폼 컴포넌트
+ */
+export function ExpenseForm({ form, tripId, onSubmit, onCancel, isPending }: ExpenseFormProps) {
+  const { control, watch } = form;
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
+  const policy = useAppPolicy(tripId);
+
+  // 선택한 날짜 추적
+  const selectedDate = watch('date');
+
+  // 여행의 모든 일정 조회 (Policy에 따라 비활성화 가능)
+  const { data: schedules = [], isError: schedulesFetchError } = useGetSchedules(tripId);
+
+  // 선택한 날짜의 일정만 필터링
+  const schedulesOnSelectedDate = useMemo(() => {
+    if (!selectedDate) {
+      return [];
+    }
+
+    const selectedLocalDate = formatISOToLocalDate(selectedDate);
+
+    return schedules.filter((schedule) => {
+      const scheduleDate = formatISOToLocalDate(schedule.scheduledAt);
+      return scheduleDate === selectedLocalDate;
+    });
+  }, [selectedDate, schedules]);
+
+  return (
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <View className='px-md py-md gap-md'>
+        {/* 제목 */}
+        <Controller
+          control={control}
+          name='title'
+          render={({ field: { value, onChange }, fieldState: { error } }) => (
+            <Field>
+              <Field.Title>제목 *</Field.Title>
+              <Field.ElementsBox>
+                <TextInput
+                  value={value}
+                  onChangeText={onChange}
+                  placeholder='예: 에펠탑 입장권'
+                  className='h-11 rounded-md border border-input bg-background px-sm text-body text-foreground'
+                  placeholderTextColor='#808080'
+                />
+              </Field.ElementsBox>
+              {error && <Field.Message>{error.message}</Field.Message>}
+            </Field>
+          )}
+        />
+
+        {/* 금액 */}
+        <Controller
+          control={control}
+          name='amount'
+          render={({ field: { value, onChange }, fieldState: { error } }) => (
+            <Field>
+              <Field.Title>금액 *</Field.Title>
+              <Field.ElementsBox>
+                <View className='flex-row items-center'>
+                  <View className='flex-1'>
+                    <TextInput
+                      value={value}
+                      onChangeText={onChange}
+                      placeholder='0.00'
+                      keyboardType='decimal-pad'
+                      className='h-11 rounded-md border border-input bg-background px-sm text-body text-foreground'
+                      placeholderTextColor='#808080'
+                    />

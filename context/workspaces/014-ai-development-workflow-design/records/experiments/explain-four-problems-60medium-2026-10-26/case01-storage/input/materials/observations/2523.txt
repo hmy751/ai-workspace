@@ -1,0 +1,28 @@
+Script completed
+Wall time 2.3 seconds
+Output:
+
+
+RESULT 1
+exit=2
+
+> @apps/client@1.0.0 test:typecheck /Users/hammyeong-yeon/Desktop/10_work/noline/apps/client
+> tsc --project tsconfig.json --noEmit
+
+src/shared/lib/mapbox.ts(61,26): error TS2345: Argument of type 'number[][]' is not assignable to parameter of type '[number, number][]'.
+  Type 'number[]' is not assignable to type '[number, number]'.
+    Target requires 2 element(s) but source may have fewer.
+src/shared/services/offline-map/download.ts(165,22): error TS2339: Property 'size' does not exist on type 'OfflinePack'.
+src/shared/services/offline-map/download.ts(166,22): error TS2339: Property 'tileCount' does not exist on type 'OfflinePack'.
+/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @apps/client@1.0.0 test:typecheck: `tsc --project tsconfig.json --noEmit`
+Exit status 2
+
+
+RESULT 2
+exit=2
+apps/client/src/shared/lib/mapbox.ts:61:26 TS2345 Argument of type 'number[][]' is not assignable to parameter of type '[number, number][]'.
+  Type 'number[]' is not assignable to type '[number, number]'.
+    Target requires 2 element(s) but source may have fewer.
+apps/client/src/shared/services/offline-map/download.ts:165:22 TS2339 Property 'size' does not exist on type 'OfflinePack'.
+apps/client/src/shared/services/offline-map/download.ts:166:22 TS2339 Property 'tileCount' does not exist on type 'OfflinePack'.

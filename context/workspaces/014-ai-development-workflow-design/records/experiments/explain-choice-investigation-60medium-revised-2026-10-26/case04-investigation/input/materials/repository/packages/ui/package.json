@@ -1,0 +1,41 @@
+{
+  "name": "@repo/ui",
+  "version": "0.1.0",
+  "main": "src/index.tsx",
+  "types": "src/index.tsx",
+  "exports": {
+    ".": "./src/index.tsx",
+    "./styles/*": "./styles/*"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@rn-primitives/avatar": "^1.2.0",
+    "@rn-primitives/checkbox": "^1.2.0",
+    "@rn-primitives/label": "^1.2.0",
+    "@rn-primitives/portal": "^1.2.0",
+    "@rn-primitives/radio-group": "^1.2.0",
+    "@rn-primitives/separator": "^1.2.0",
+    "@rn-primitives/switch": "^1.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "nativewind": "^4.0.36",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-native": "0.74.5",
+    "react-native-calendars": "^1.1313.0",
+    "react-native-reanimated": "~3.10.0",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.14.12",
+    "@types/react": "^18.2.79",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.5.3"
+  }
+}

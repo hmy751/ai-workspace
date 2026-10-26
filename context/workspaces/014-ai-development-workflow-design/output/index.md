@@ -1,5 +1,13 @@
 # 현재 선택한 설계 자료와 산출물
 
+- [04-02 설계 마감·완료 조건과 후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md): explain 본체·두 상세·형성 자료와 development의 설명/조사 연결을 현재 산출물로 유지한다. [실행 진입](../records/prototypes/development-workflow/skills/explain/SKILL.md), [반영·의미 확인](../records/2026-10-26-ticket04-02-choice-investigation-adoption.md), [두 원응답·남은 한계](../records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/comparison.md)를 연결한다. 설계 완료이며 운영 설치·일반 효과는 미확인이다.
+
+아래04-02의 최초 수행·제안·당시 최신/다음/미완료 표기는 각 기록 당시 상태다. 현재 결과와 후속 책임은 위 마감 기록을 따른다.
+
+- [04-02 네 사례의 최초 응답 원문](../records/experiments/explain-four-problems-60medium-2026-10-26/raw-responses.md) · [수행 평가와 남은 부족](../records/experiments/explain-four-problems-60medium-2026-10-26/assessment.md): 사용자 요청의 GPT-6-sol medium 각1회 완료. 첫 전달·인증은 주요 미충족을 찾지 못했고 access 선택 근거와 종합 UX 검사 범위 조사·설명 연결은 부족이 남았다. 사용자 평가 전이며 재생성·스킬 수정·Ticket 완료는 없다.
+
+- [04-02 문제별 사례·확인 방법 제안](../records/2026-10-26-ticket04-02-case-selection-and-method.md): 저장 용량 첫 보고·access 선택·인증 자기평가·보고서의 제한된 추가 조사. access 질문 이전 코드의 확보 경로·원문 발췌를 확인했다. 현재판 수행 우선은 Main의 새 추천이며 시험·스킬 수정·Ticket 마감은 하지 않았다.
+
 - [04-02 네 해결 과제와 현재 논의](../records/2026-10-26-ticket04-02-four-problems-and-comparison-checkpoint.md): 사례별 시험 단계와 문제 지도를 구별하고 네 번째 조사·구현·검증 공백 문제를 복원했다. source04 첫 전달의 입력·두 조건·판정·종료는 미실행 제안이며 본체는 `b6195d4`를 유지한다.
 
 - [04-02 본체 구조 정리 반영](../records/2026-10-25-ticket04-02-body-organization-adoption.md): 본체의 책임·조건 배치를 정리하고 기존 인증 전체·후속 예시를 내용 그대로 함께 분리했다. 기존 의미·읽기 조건과 배경을 대조했다. 새 응답 시험은 없다. [당시 구조 제안](../records/2026-10-25-ticket04-02-body-structure-reconsideration.md)은 이력으로 보존한다.

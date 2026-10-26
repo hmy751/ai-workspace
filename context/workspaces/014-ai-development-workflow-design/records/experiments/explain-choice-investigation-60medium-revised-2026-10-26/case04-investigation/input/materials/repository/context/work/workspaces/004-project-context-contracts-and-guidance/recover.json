@@ -1,0 +1,26 @@
+{
+  "schema_version": 6,
+  "workspace_id": "004-project-context-contracts-and-guidance",
+  "project_context": [
+    {
+      "path": "context/project/README.md",
+      "reason": "Project의 주제별 진입과 내용·관리 책임을 찾는다."
+    },
+    {
+      "path": "context/project/common/product.md",
+      "reason": "Selective Local-First와 사용자 데이터 보존이라는 현재 Project 전제를 유지한다."
+    },
+    {
+      "path": "context/project/common/currency.md",
+      "reason": "통화 분리와 표시 계약, 대표값·금액 정밀도의 열린 판단을 적용한다."
+    },
+    {
+      "path": "context/project/common/date-and-time.md",
+      "reason": "datetime과 date-only의 현재 경계 차이 및 열린 제품 판단을 적용한다."
+    },
+    {
+      "path": "context/project/guidance/api-contracts.md",
+      "reason": "API schema·serializer·접근 경계와 미결정 오류 계약을 적용한다."
+    }
+  ]
+}

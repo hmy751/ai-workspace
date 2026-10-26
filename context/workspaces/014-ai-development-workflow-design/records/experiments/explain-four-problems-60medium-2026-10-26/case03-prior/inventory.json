@@ -1,0 +1,38 @@
+{
+  "materials/conversation.md": {
+    "sha256": "5637b1ce61f4fa7eafa2090a1268a0ed69cb32149f1b5bfe929784ed927127b4",
+    "bytes": 38682,
+    "chars": 22641,
+    "chunks": 8
+  },
+  "skills/explain/SKILL.md": {
+    "sha256": "506ea98cf0cc5f94e7feab6e908e1b0a8762e788f753c3f38fad5fd9768310e9",
+    "bytes": 14648,
+    "chars": 6338,
+    "chunks": 3
+  },
+  "skills/explain/references/constructing-explanations.md": {
+    "sha256": "8da56e660351bc9c44e826e705aee8f969fde7da766b820929ecdd5882a84a49",
+    "bytes": 11606,
+    "chars": 5394,
+    "chunks": 2
+  },
+  "skills/explain/references/examples/auth-flow.md": {
+    "sha256": "88bb3aa1bfcb1c0459e461175ab37f23f2e033ae60f3f8b06d7085c90dff7243",
+    "bytes": 11650,
+    "chars": 6233,
+    "chunks": 3
+  },
+  "skills/explain/references/prior-explanation.md": {
+    "sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889",
+    "bytes": 6065,
+    "chars": 2591,
+    "chunks": 1
+  },
+  "skills/shared/explanation-and-evidence-criteria.md": {
+    "sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a",
+    "bytes": 6255,
+    "chars": 3055,
+    "chunks": 2
+  }
+}

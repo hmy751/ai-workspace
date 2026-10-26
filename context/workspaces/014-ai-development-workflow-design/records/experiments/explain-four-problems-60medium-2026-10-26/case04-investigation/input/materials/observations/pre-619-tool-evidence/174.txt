@@ -1,0 +1,381 @@
+Script completed
+Wall time 0.5 seconds
+Output:
+
+
+import { View, Text, ActivityIndicator, Alert } from 'react-native';
+import { useMemo, useState, useEffect, useCallback } from 'react';
+import { TripCard, type TripData, type ActivationStatus, useDeactivateTrip } from '@/entities/trip';
+import { useTripExpensesReadQuery } from '@/features/expense/read-expenses';
+import { useTripSchedulesReadQuery } from '@/features/schedule/read-schedules';
+import type { ReadQueryView } from '@/shared/services/policy-query';
+import { PolicyErrorDisplay } from '@/shared/components/ErrorBoundary';
+import { Pressable } from '@repo/ui';
+import { ScheduleRefreshError } from '../ScheduleQueryFeedback';
+import { ExpenseRefreshError } from '../ExpenseQueryFeedback';
+import { groupExpensesByCurrency } from '@/shared/lib/currency';
+import { getTripActivationStatusDetail } from '@/shared/services/offline-prep/metadata';
+
+interface MainTripSectionProps {
+  mainTripData: TripData | null;
+  isLoading: boolean;
+  isError: boolean;
+  onEditPress: () => void;
+  onActivatePress: (tripId: string, tripName: string) => void;
+  /** 외부에서 상태 갱신을 트리거하기 위한 키 */
+  refreshKey?: number;
+}
+
+export function MainTripSection({
+  mainTripData,
+  isLoading,
+  isError,
+  onEditPress,
+  onActivatePress,
+  refreshKey,
+}: MainTripSectionProps) {
+  // 날짜 포맷팅 함수
+  const formatDate = (dateString: string | null) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return `${date.getMonth() + 1}월 ${date.getDate()}일`;
+  };
+
+  const schedulesRead = useTripSchedulesReadQuery(mainTripData?.id);
+  const expensesRead = useTripExpensesReadQuery(mainTripData?.id);
+  const schedules = schedulesRead.view.kind === 'ready' ? schedulesRead.view.data : undefined;
+  const expenses = expensesRead.view.kind === 'ready' ? expensesRead.view.data : undefined;
+  const expensesByCurrency = useMemo(
+    () => (expenses ? groupExpensesByCurrency(expenses, mainTripData?.baseCurrency) : undefined),
+    [expenses, mainTripData?.baseCurrency],
+  );
+
+  // 비활성화 mutation
+  const { mutate: deactivateTrip } = useDeactivateTrip();
+
+  // ✅ 활성화 상태 조회 (service 레이어 사용)
+  const [activationStatus, setActivationStatus] = useState<ActivationStatus>('online');
+
+  // 활성화 상태 확인 함수
+  const checkActivationStatus = useCallback(async () => {
+    if (!mainTripData?.id) {
+      setActivationStatus('online');
+      return;
+    }
+
+    try {
+      const status = await getTripActivationStatusDetail(mainTripData.id);
+      setActivationStatus(status);
+    } catch (error) {
+      console.error('❌ Failed to check activation status:', error);
+      setActivationStatus('online');
+    }
+  }, [mainTripData?.id]);
+
+  // mainTripData 또는 refreshKey 변경 시 상태 확인
+  useEffect(() => {
+    checkActivationStatus();
+  }, [checkActivationStatus, refreshKey]);
+
+  // 비활성화 핸들러
+  const handleDeactivate = () => {
+    if (!mainTripData) return;
+
+    Alert.alert(
+      '오프라인 해제',
+      `"${mainTripData.destination}" 여행을 오프라인 해제하시겠습니까?\n\n• 오프라인 지도 삭제\n• 로컬 일정/경비 데이터 삭제\n\n서버에 저장된 데이터는 유지됩니다.`,
+      [
+        {
+          text: '취소',
+          style: 'cancel',
+        },
+        {
+          text: '해제',
+          style: 'destructive',
+          onPress: () => {
+            // UI 즉시 업데이트 (Optimistic Update)
+            setActivationStatus('online');
+
+            deactivateTrip(
+              { tripId: mainTripData.id, cleanupData: true },
+              {
+                onSuccess: () => {
+                  Alert.alert('완료', '오프라인이 해제되었습니다.');
+                },
+                onError: () => {
+                  // 실패 시 상태 다시 확인
+                  checkActivationStatus();
+                  Alert.alert('오류', '오프라인 해제에 실패했습니다.');
+                },
+              },
+            );
+          },
+        },
+      ],
+    );
+  };
+
+  // 메인 여행 데이터 변환
+  const mainTrip = mainTripData
+    ? {
+        destination: mainTripData.destination,
+        country: mainTripData.country || '',
+        startDate: formatDate(mainTripData.startDate),
+        endDate: formatDate(mainTripData.endDate),
+        scheduleCount: schedules?.length,
+        expensesByCurrency, // ✅ 통화별 경비 데이터 전달
+        baseCurrency: mainTripData.baseCurrency, // ✅ 빈 경비 시 표시용
+      }
+    : null;
+
+  // 로딩 상태
+  if (isLoading) {
+    return (
+      <View className='flex-row items-center justify-center rounded-xl bg-card p-lg'>
+        <ActivityIndicator size='large' color='#228B22' />
+      </View>
+    );
+  }
+
+  // 에러 상태
+  if (isError) {
+    return (
+      <View className='rounded-xl bg-card p-md'>
+        <Text className='text-body text-muted-foreground text-center'>여행 정보를 불러올 수 없습니다.</Text>
+      </View>
+    );
+  }
+
+  // 여행 없음
+  if (!mainTrip || !mainTripData) {
+    return (
+      <View className='rounded-xl bg-card p-md'>
+        <Text className='text-body text-muted-foreground text-center'>아직 생성된 여행이 없습니다.</Text>
+      </View>
+    );
+  }
+
+  // 메인 여행 카드
+  return (
+    <>
+      <TripCard
+        {...mainTrip}
+        scheduleSummary={
+          schedulesRead.view.kind !== 'ready' ? (
+            <SummaryFeedback view={schedulesRead.view} label='일정을' retry={() => schedulesRead.actions.refetch()} />
+          ) : undefined
+        }
+        expenseSummary={
+          expensesRead.view.kind !== 'ready' ? (
+            <SummaryFeedback view={expensesRead.view} label='경비를' retry={() => expensesRead.actions.refetch()} />
+          ) : undefined
+        }
+        activationStatus={activationStatus}
+        onActivatePress={
+          activationStatus !== 'online' ? undefined : () => onActivatePress(mainTripData.id, mainTrip.destination)
+        }
+        onDeactivatePress={activationStatus !== 'online' ? handleDeactivate : undefined}
+        onEditPress={onEditPress}
+      />
+      {schedulesRead.view.kind === 'ready' && schedulesRead.view.refreshFailed && (
+        <ScheduleRefreshError
+          retry={schedulesRead.access.canFetch ? () => schedulesRead.actions.refetch() : undefined}
+        />
+      )}
+      {expensesRead.view.kind === 'ready' && expensesRead.view.refreshFailed && (
+        <ExpenseRefreshError retry={expensesRead.access.canFetch ? () => expensesRead.actions.refetch() : undefined} />
+      )}
+    </>
+  );
+}
+
+function SummaryFeedback({ view, label, retry }: { view: ReadQueryView<unknown>; label: string; retry: () => void }) {
+  if (view.kind === 'blocked') return <PolicyErrorDisplay policy={view.policy} variant='inline' />;
+  if (view.kind === 'error') {
+    return (
+      <View>
+        <Text className='text-body text-primary-foreground'>{label} 불러오지 못했어요.</Text>
+        <Pressable variant='outline' onPress={retry}>
+          다시 불러오기
+        </Pressable>
+      </View>
+    );
+  }
+  return <Text className='text-body text-primary-foreground'>{view.kind === 'loading' ? '불러오는 중' : '—'}</Text>;
+}
+cat: apps/client/src/shared/components/PolicyErrorDisplay.tsx: No such file or directory
+import { View, Text, Keyboard, KeyboardAvoidingView, Platform, ActivityIndicator } from 'react-native';
+import { useState } from 'react';
+import { ArrowLeft } from 'lucide-react-native';
+import { router, useLocalSearchParams } from 'expo-router';
+import { MobileHeader, DatePicker, TimePicker } from '@/shared/components';
+import { useGetTrips, type TripResponse } from '@/entities/trip';
+import { useAppPolicy } from '@/shared/policy';
+import { useCreateScheduleForm, ScheduleForm, type Location } from '@/features/schedule/create-schedule';
+import { useCreateScheduleSearch } from '@/features/schedule/create-schedule/useCreateScheduleSearch';
+import { useSubmitSchedule } from '@/features/schedule/create-schedule/useSubmitSchedule';
+import { ScheduleSearchPanel } from '@/features/schedule/create-schedule/ScheduleSearchPanel';
+
+function exitCreateSchedule() {
+  if (router.canGoBack()) router.back();
+  else router.replace('/(tabs)/schedule');
+}
+
+export default function CreateScheduleScreen() {
+  const { tripId = '', date } = useLocalSearchParams<{ tripId?: string; date?: string }>();
+  return <CreateScheduleContent key={tripId} tripId={tripId} initialDate={date} />;
+}
+
+function CreateScheduleContent({ tripId, initialDate }: { tripId: string; initialDate?: string }) {
+  const { data: trips, isLoading } = useGetTrips();
+  const trip = trips?.find((item: TripResponse) => item.id === tripId);
+  // 사용자 행동으로만 단계를 바꾼다. 연결 변화는 각 기능의 가용성에만 반영한다.
+  const [step, setStep] = useState<'search' | 'form' | 'change-place'>('search');
+  const draft = useCreateScheduleForm({ initialDate });
+  const submission = useSubmitSchedule({ tripId, onSuccess: exitCreateSchedule });
+  const policy = useAppPolicy(tripId);
+
+  const search = useCreateScheduleSearch(
+    trip
+      ? {
+          cityName: trip.destination,
+          latitude: trip.latitude ? parseFloat(trip.latitude) : undefined,
+          longitude: trip.longitude ? parseFloat(trip.longitude) : undefined,
+        }
+      : undefined,
+    !!trip && step !== 'form',
+  );
+
+  const selectPlace = (place: Location) => {
+    if (!search.canSelectPlace(place)) return;
+    Keyboard.dismiss();
+    draft.selectLocation(place);
+    setStep('form');
+  };
+
+  const { form } = draft;
+
+  const onSubmit = form.handleSubmit((values) => submission.submit(values, draft.selectedLocation));
+
+  const back = () => {
+    if (submission.isPending) return;
+    if (step === 'change-place') setStep('form');
+    else exitCreateSchedule();
+  };
+
+  return (
+    <KeyboardAvoidingView className='flex-1 bg-background' behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <MobileHeader title='새 일정 추가' leftIcon={<ArrowLeft size={20} color='#1F1F1F' />} onLeftPress={back} />
+      {!trip ? (
+        <View className='flex-1 items-center justify-center p-md'>
+          {isLoading && <ActivityIndicator />}
+          <Text>{isLoading ? '여행 정보를 불러오는 중...' : '일정을 추가할 여행을 확인할 수 없어요.'}</Text>
+        </View>
+      ) : step !== 'form' ? (
+        <ScheduleSearchPanel
+          tripId={tripId}
+          search={search}
+          selectedLocation={draft.selectedLocation}
+          returning={step === 'change-place'}
+          onContinue={() => setStep('form')}
+          onSelect={selectPlace}
+        />
+      ) : (
+        <ScheduleForm
+          form={form}
+          location={{
+            selectedLocation: draft.selectedLocation,
+            searchAccess: search.policy,
+            isPending: submission.isPending,
+            onSearch: () => setStep('change-place'),
+            onEditLocationManually: draft.editLocationManually,
+          }}
+          submission={{
+            creationPolicy: policy.schedule.create,
+            submitError: submission.submitError,
+            isPending: submission.isPending,
+            onSubmit,
+            onCancel: exitCreateSchedule,
+          }}
+          onShowDatePicker={draft.handleShowDatePicker}
+          onShowTimePicker={draft.handleShowTimePicker}
+        />
+      )}
+      <DatePicker
+        visible={draft.datePickerVisible}
+        onClose={() => draft.handleSelectDate(form.getValues('date'))}
+        onSelectDate={draft.handleSelectDate}
+      />
+      <TimePicker
+        visible={draft.timePickerVisible}
+        onClose={() => draft.handleSelectTime(form.getValues('time'))}
+        onSelectTime={draft.handleSelectTime}
+        initialTime={form.watch('time') || '09:00'}
+      />
+    </KeyboardAvoidingView>
+  );
+}
+
+
+apps/client/src/screens/ScheduleScreen.tsx:92:  const dateRange = selectedTrip
+apps/client/src/screens/ScheduleScreen.tsx:93:    ? getUTCDateRange(selectedTrip.startDate, selectedTrip.endDate)
+apps/client/src/screens/ScheduleScreen.tsx:175:      ? dateRange.map((date) => {
+apps/client/src/screens/ScheduleScreen.tsx:203:    mapSelection.date && dateRange.includes(mapSelection.date) ? mapSelection.date : (dateRange[0] ?? null);
+apps/client/src/screens/ScheduleScreen.tsx:269:          hasDates={!!(selectedTrip?.startDate && selectedTrip?.endDate)}
+apps/client/src/screens/ScheduleScreen.tsx:277:          dateRange={dateRange}
+apps/client/src/screens/ExpensesScreen.tsx:14:import { groupExpensesByCurrency, formatCurrencyDisplay, getCurrencyFractionDigits } from '@/shared/lib/currency';
+apps/client/src/screens/ExpensesScreen.tsx:60:  const dateRange = useMemo(
+apps/client/src/screens/ExpensesScreen.tsx:61:    () => (selectedTrip ? getUTCDateRange(selectedTrip.startDate, selectedTrip.endDate) : []),
+apps/client/src/screens/ExpensesScreen.tsx:68:    const allDates = new Set([...dateRange, ...expenses.map((e) => e.date)]);
+apps/client/src/screens/ExpensesScreen.tsx:74:      const isInTripRange = dateRange.includes(date);
+apps/client/src/screens/ExpensesScreen.tsx:85:    const outsideTripRange = dateGroups.filter((group) => !group.isInTripRange);
+apps/client/src/screens/ExpensesScreen.tsx:86:    const insideTripRange = dateGroups.filter((group) => group.isInTripRange);
+apps/client/src/screens/ExpensesScreen.tsx:89:  }, [dateRange, expenses]);
+apps/client/src/screens/ExpensesScreen.tsx:92:    () => groupExpensesByCurrency(expenses, selectedTrip?.baseCurrency),
+apps/client/src/screens/ExpensesScreen.tsx:242:                expensesByDate.map((group) => (
+apps/client/src/screens/ExpensesScreen.tsx:243:                  <View key={group.date} className='flex-col gap-sm'>
+apps/client/src/screens/ExpensesScreen.tsx:247:                        <Text className='text-title-large text-foreground'>{group.dateLabel}</Text>
+apps/client/src/screens/ExpensesScreen.tsx:249:                          <Text className='text-label text-foreground'>{group.items.length}개</Text>
+apps/client/src/screens/ExpensesScreen.tsx:251:                        {!group.isInTripRange && (
+apps/client/src/screens/ExpensesScreen.tsx:262:                            router.push(`/create-expense?tripId=${selectedTripId}&date=${group.date}`);
+apps/client/src/screens/ExpensesScreen.tsx:273:                    {group.items.length > 0 ? (
+apps/client/src/screens/ExpensesScreen.tsx:274:                      group.items.map((expense) => (
+apps/client/tests/screens/create-schedule-flow.test.tsx:32:    PolicyBasedMapView: ({ locations, selectedLocation }: { locations: unknown[]; selectedLocation: unknown }) =>
+apps/client/tests/screens/create-schedule-flow.test.tsx:50:jest.mock('@/shared/services/offline-prep/metadata', () => ({ getTripActivationStatus: async () => mockActive }));
+apps/client/tests/screens/create-schedule-flow.test.tsx:53:    create: (data: unknown) =>
+apps/client/tests/screens/create-schedule-flow.test.tsx:55:        .requireActual<typeof import('@/shared/services/offline-prep/router')>('@/shared/services/offline-prep/router')
+apps/client/tests/screens/create-schedule-flow.test.tsx:68:  authAxios: { post: (...args: unknown[]) => mockSearch(...args), get: () => mockPlaceDetail() },
+apps/client/tests/screens/create-schedule-flow.test.tsx:73:const mockLocal = jest.fn<(data: unknown) => Promise<unknown>>();
+apps/client/tests/screens/create-schedule-flow.test.tsx:74:const mockRemote = jest.fn<(data: unknown) => Promise<unknown>>();
+apps/client/tests/screens/create-schedule-flow.test.tsx:75:const mockSearch = jest.fn<(...args: unknown[]) => Promise<unknown>>();
+apps/client/tests/screens/create-schedule-flow.test.tsx:76:const mockPlaceDetail = jest.fn<() => Promise<unknown>>();
+apps/client/tests/screens/create-schedule-flow.test.tsx:83:  useNetworkStore.setState({ realStatus: 'online', overrideStatus: null, checkStatus: 'idle' });
+apps/client/tests/screens/create-schedule-flow.test.tsx:106:function connect(realStatus: 'online' | 'offline' | 'unknown') {
+apps/client/tests/screens/create-schedule-flow.test.tsx:107:  act(() => useNetworkStore.setState({ realStatus, checkStatus: realStatus === 'unknown' ? 'checking' : 'idle' }));
+apps/client/tests/screens/create-schedule-flow.test.tsx:130:  connect('offline');
+apps/client/tests/screens/create-schedule-flow.test.tsx:136:  connect('online');
+apps/client/tests/screens/create-schedule-flow.test.tsx:150:  connect('offline');
+apps/client/tests/screens/create-schedule-flow.test.tsx:164:it('이미 시작한 비활성 여행의 폼은 unknown에도 편집되고 저장만 Router가 거부한다', async () => {
+apps/client/tests/screens/create-schedule-flow.test.tsx:170:  connect('unknown');
+apps/client/tests/screens/create-schedule-flow.test.tsx:178:  connect('online');
+apps/client/tests/screens/create-schedule-flow.test.tsx:191:  connect('offline');
+apps/client/tests/screens/create-schedule-flow.test.tsx:222:  connect('offline');
+apps/client/tests/screens/create-schedule-flow.test.tsx:255:  connect('offline');
+apps/client/tests/screens/create-schedule-flow.test.tsx:263:it('장소 영역은 unknown의 확인 중·확인 불가와 offline 이유를 구별하며 초안을 유지한다', () => {
+apps/client/tests/screens/create-schedule-flow.test.tsx:264:  connect('offline');
+apps/client/tests/screens/create-schedule-flow.test.tsx:268:  connect('unknown');
+apps/client/tests/screens/create-schedule-flow.test.tsx:272:  connect('offline');
+apps/client/tests/screens/create-schedule-flow.test.tsx:282:  connect('offline');
+apps/client/tests/screens/create-schedule-flow.test.tsx:296:it('강제 online이 실제 unknown에서 검색 요청을 열지 않는다', async () => {
+apps/client/tests/screens/create-schedule-flow.test.tsx:297:  connect('unknown');
+apps/client/tests/screens/create-schedule-flow.test.tsx:298:  act(() => useNetworkStore.setState({ overrideStatus: 'online' }));
+apps/client/tests/screens/create-schedule-flow.test.tsx:308:  let finish!: (value: unknown) => void;
+apps/client/tests/screens/create-schedule-flow.test.tsx:321:  connect('offline');
+apps/client/tests/screens/create-schedule-flow.test.tsx:336:  connect('online');
+apps/client/tests/screens/create-schedule-flow.test.tsx:371:  let finish!: (value: unknown) => void;
+apps/client/tests/screens/create-schedule-flow.test.tsx:385:  fireEvent.press(view.getByText('취소'));
+apps/client/tests/screens/create-schedule-flow.test.tsx:436:  connect('unknown');
+apps/client/tests/screens/create-schedule-flow.test.tsx:439:  connect('online');
+apps/client/tests/screens/create-schedule-flow.test.tsx:471:  let finish!: (value: unknown) => void;
+apps/client/src/shared/components/ErrorBoundary/PolicyErrorDisplay.tsx
+cat: apps/client/src/features/schedule/create-schedule/useScheduleDraft.ts: No such file or directory

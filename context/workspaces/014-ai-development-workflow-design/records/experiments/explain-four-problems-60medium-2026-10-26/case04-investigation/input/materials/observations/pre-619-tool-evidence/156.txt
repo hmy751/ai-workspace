@@ -1,0 +1,239 @@
+Script completed
+Wall time 0.5 seconds
+Output:
+
+
+Warning: truncated output (original token count: 10151)
+Total output lines: 231
+
+# Ticket 06 UX 판단용 1차 증거 — 2026-09-30
+
+수집 담당이 기존 자료를 색인하고 실제 화면의 빈 부분을 보완한 묶음이다. UX 수락, 결함 원인, 수정 우선순위는 이 문서에서 결정하지 않는다. 재사용 3묶음과 신규 2묶음을 구성했다. 기존 증거를 이번에 새 실행한 것처럼 해석하지 않는다.
+
+## 환경·변경 범위
+
+- iPhone 15 Pro / iOS 26.0 / simulator `D22939DA-F2A4-4F24-B286-197DC62F415C` / 개발 앱 `com.noline.dev`.
+- 시작: 홈, 온라인, 파리 9월30일~10월2일, 온라인 전용(비활성), 일정 2개, 경비 EUR 25.00. 하단에 기존 Controller/CreateScheduleScreen 개발 경고가 있었다.
+- MobileBuildMCP의 이 subagent 세션 defaults는 비어 있었다. simulatorId/bundleId를 세션에만 설정(`persist:false`)했다. 빌드·앱 재설치·프로젝트 설정 변경은 하지 않았다.
+- 신규 수집에서 네트워크 override를 바꾸지 않았다. 읽기 화면만 이동했고 데이터 생성·수정·삭제·로그아웃은 하지 않았다.
+- 신규 캡처와 원문 발췌만 이 폴더에 추가했다. 제품 코드·Workspace 문서·기존 자료는 수정하지 않았다.
+
+## 검토 질문별 증거 색인
+
+### 1. 홈의 연결 상태·제한 안내·복귀 표시를 함께 읽을 수 있는가 — 재사용
+
+근거: [기존 화면 색인](../index.html), [온라인 활성 홈](../01-online-home.jpg), [활성 offline 홈](../02-active-offline-home.jpg), [비활성 offline 홈](../04-inactive-offline-home.jpg), [비활성 unknown 홈](../06-inactive-unknown-home.jpg), [온라인 복귀 홈](../07-online-restored-home.jpg).
+
+조건·행동: 앞선 검증에서 활성/비활성 여행과 Debug override offline/unknown을 비교하고 override를 해제했다. 이번 수집에서는 04·06·07을 직접 열어 화면을 확인했고 홈 제한을 다시 재현하지 않았다.
+
+관찰:
+
+- 04의 상단은 ‘오프라인’, 여행 카드에는 ‘온라인 전용’이다. 일정·경비 숫자 각각의 자리에서 동일한 ‘인터넷에 연결되어 있지 않아요. 오프라인에서는 활성 여행을 선택해주세요.’ 문장을 표시한다. 캡처에서 문장은 좁은 두 영역 안에서 여러 줄로 나뉜다.
+- 06의 상단은 ‘확인 불가’이다. 일정·경비 자리 각각에 아이콘과 ‘다시 확인’ 버튼이 보인다. 이 캡처에서 원인 설명 문장은 시각적으로 보이지 않는다.
+- 07은 상단 ‘온라인’, 같은 여행 카드, 일정 2개·EUR 25.00을 표시한다. 제한 카드 대신 숫자가 보이는 비교 근거다.
+- 02의 기존 캡션은 활성 여행의 offline 상태에서 로컬 데이터 숫자가 유지됐다고 기록한다.
+
+전/후: 04 또는 06 → 07. 한계: Debug override 기반의 정지 화면이며 실제 단절·실제 통신 재접속·조회 성공 시각·사용자가 복귀를 알아차린 시점을 보여주는 영상은 없다. 07 제목의 ‘실제 온라인 복귀’는 override 해제 후 실제 관측 상태로 돌아왔다는 앞선 기록이며 실제 네트워크 단절을 새로 검증한 근거는 아니다.
+
+### 2. 상세에서 활성/비활성 여행의 제한 범위를 이해할 수 있는가 — 재사용
+
+근거: [활성 offline 일정 상세](../03-active-offline-detail.jpg), [비활성 offline 일정 상세](../05-inactive-offline-detail.jpg).
+
+조건·행동: 앞선 검증의 여행 활성 상태 차이와 offline override. 이번 수집에서 05를 직접 열었다. 03은 기존 캡션을 재사용한다.
+
+관찰: 05는 ‘일정 상세’ 제목과 하단 탭을 유지하고 중앙에 ‘작업을 수행할 수 없습니다’, ‘인터넷에 연결되어 있지 않아요. 오프라인에서는 활성 여행을 선택해주세요.’를 표시한다. 일정 A 내용은 보이지 않는다. 03의 기존 캡션은 일정 A와 연결 경비 1개가 표시됐다고 기록한다.
+
+전/후: 같은 소비자의 활성/비활성 조건 비교이며 연속 전환 증거가 아니다. 05의 우측 상단에는 연결 상태 아이콘과 ‘오프라인’ 라벨이 보인다. 한계: 현재 온라인 상세는 아래 신규 5번과 비교할 수 있지만 촬영 시점·하단 개발 경고가 달라 단일 전환 영상으로 취급하지 않는다.
+
+### 3. 작성 중 제한·복귀와 입력 유지가 어떤 흐름을 만드는가 — 재사용
+
+근거: [앞선 폼 검증 원문](../form-verification.md), [수동 일정 작성](../08-manual-schedule-offline.jpg), [online 복귀로 폼 숨김](../09-manual-schedule-online-hidden.jpg), [장소 선택 후 offline](../10-selected-schedule-offline.jpg), [취소 개발 경고](../11-schedule-cancel-warning.jpg).
+
+조건·행동: 앞선 실제 화면에서 미저장 입력을 둔 채 기존 networkStore override를 전환했다. 이번 수집에서 폼 입력보존이나 알려진 일정 생성 문제를 반복하지 않았다.
+
+관찰은 원문에서 재사용한다:
+
+- 경비 생성은 제한 중 안내 화면으로 교체되고 복귀 후 제목·금액·선택 일정이 유지됐다.
+- 경비 수정과 일정 수정은 Drawer 안에 제한 안내가 표시됐고 복귀 후 미저장 제목과 기존 값이 유지됐다.
+- 수동 일정 입력 중 online 복귀하면 검색 단계가 보였고 unknown에서 입력값이 다시 보였다. 08→09는 작성 화면 표시가 바뀐 근거다.
+- 장소 선택 후 offline에서 접근성 트리에 일반·수동 폼이 함께 존재했다. 10 한 장에 두 폼이 모두 선명하게 보인다고 해석하지 않는다.
+- 일반 폼 취소 뒤 Controller/CreateScheduleScreen 경고가 표시됐다. 11은 앞선 재현 근거다.
+
+한계: 경비·일정 수정의 입력보존은 원문 관찰 기록을 근거로 하며 해당 전/후 신규 이미지가 없다. 실제 단절·저장 성공·키보드/팝업 조합은 미확인이다. 알려진 문제의 코드 원인·이번 변경과의 관계는 앞선 원문에 조사 내용이 있으나 수집 담당이 새로 판정하지 않았다.
+
+### 4. 정상 일정 목록의 여행·상태·내용·추가 동작 배치는 어떤가 — 신규
+
+근거: [12 온라인 일정 목록](12-online-schedule-list.jpg), [실제 UI 발췌](ui-excerpts.md).
+
+조건·행동: 시작 홈에서 기존 개발 경고 상세 overlay를 Minimize하고 ‘일정’ 탭을 눌렀다. 여행과 Debug 상태는 변경하지 않았다.
+
+관찰:
+
+- 헤더 ‘일정’, 우측 ‘온라인’과 지도 보기 버튼, 그 아래 ‘파리, 프랑스 / 메인’ 여행 선택 영역이 보인다.
+- 첫 날짜 구간은 `2026-09-29`, `0개`, ‘이 날의 일정을 추가해보세요’와 ‘추가’이다. 이어 `2026-09-30`, `2개`, 일정 A(루브르/17:00), 일정 B(오르세/21:00)가 보인다. 아래에는 `2026-10-01`, `0개`가 보인다.
+- 시작 홈의 여행 카드 기간은 9월30일~10월2일이었다. 목록 첫 구간에 9월29일이 표시되는 사실만 기록하며 원인은 확정하지 않는다.
+- 기존 개발 경고가 하단 영역을 일부 덮고 있다. 제품 UX의 일반 상태와 개발 경고가 섞인 캡처임을 고려해야 한다.
+
+전/후: 시작 홈의 원문 발췌 → 12. 한계: 목록의 offline/unknown 표시, 지도 보기, 추가 버튼 진입, 날짜 전체 범위와 스크롤은 이번에 확인하지 않았다.
+
+### 5. 정상 상세의 연결 상태·내용·연결 경비는 어떤가 — 신규
+
+근거: [13 온라인 일정 A 상세](13-online-schedule-detail.jpg), [실제 UI 발췌](ui-excerpts.md).
+
+조건·행동: 12의 기존 ‘검증 일정 A’ 카드를 눌렀다. 데이터 수정은 하지 않았다.
+
+관찰: ‘일정 상세’와 뒤로 가기, 우측 ‘온라인’이 보인다. 일정 A/루브르/Paris/2026-09-30/17:00, 총 경비 EUR 25.00(1개), ‘지도에서 보기’, ‘경비 추가’, 경비 내역 1개와 ‘검증 입장료 / EUR 25.00 / 기타’가 표시된다. 하단 기존 개발 경고도 남아 있다.
+
+전/후: 12 → 13. 05와 13으로 제한 상태의 내용 가림과 정상 상태의 내용 영역 차이를 비교할 수 있다. 한계: 상세에서 제한→복귀를 이번에 새 실행하지 않았고 경비 상세로 이동하지 않았다.
+
+## 수집 중 장애와 범위 종료
+
+첫 MobileBuildMCP 일정 탭 ref 조작은 기존 개발 경고 상세 overlay를 열었다. runtime snapshot에 Dismiss/Minimize가 tap target으로 나오지 않았다. 이 overlay는 신규 결함 재현이라고 주장하지 않는다. native Simulator AX에 보이는 Minimize를 한 번 눌러 홈으로 돌아왔고 이후 정상 목록·상세 이동이 가능했다. CUA 초기화 호출 자체가 약 114초 걸렸다. 긴 runtime 우회·새 harness 설치·오류 상태 주입은 하지 않았다.
+
+Main의 1차 수집 종료 지시에 따라 일정 목록·상세 2장으로 신규 수집을 마쳤다. 경비 목록·경비 상세, 최초 조회 실패·갱신 실패와 재시도, 시작/인증/foreground 재확인, mutation 제한 이유, 실제 통신 단절·재접속·저장 성공은 이번 1차 수집에서 미확인이다. 위 범위를 기존 자료가 입증한 것처럼 확장하지 않는다.
+
+## 최종 UI 상태와 제어 반환
+
+홈 탭으로 돌아가 native AX로 복구를 확인했다: 온라인, 파리 9월30일~10월2일, 온라인 전용, 일정 2개, 경비 EUR25.00. 기존 개발 경고는 시작과 같은 하단 Minimize 상태이다. override·활성 여부·서버 데이터를 변경하지 않았다. 이후 추가 조작은 하지 않으며 시뮬레이터 제어를 Main에 반환한다.
+
+현재 복구 토스트를 추가하지 않는 결정은 [작업 기록](../../../context/work/workspaces/002-code-readability-refactoring/records/2026-09-30-02-recovery-toast-and-ux-review.md)에 있다. 이 증거 묶음은 그 결정의 종합 UX 검증 완료를 뜻하지 않는다.
+# 실제 UI 발췌 — 2026-09-30
+
+MobileBuildMCP runtime snapshot과 Simulator native AX에서 화면 수집에 필요한 부분만 발췌했다. 화면 판정/원인 추론은 포함하지 않는다.
+
+## 시작 홈
+
+screenHash: `05vvy7n`
+
+```text
+e40|text|text|온라인||
+e50|text|text|파리, 프랑스||
+e58|text|text|9월 30일 - 10월 2일||
+e71|text|text|온라인 전용||
+e75|text|text|일정||
+e78|text|text|경비||
+e76|text|text|2개||
+e80|text|text|EUR 25.00||
+e84|text|text|다른 여행||
+e87|text|text|파리, 프랑스||
+e88|text|text|1월 6일 ~ 1월 9일||
+```
+
+## 온라인 일정 목록
+
+screenHash: `14u8han`
+
+```text
+e50|text|text|온라인||
+e63|text|text|2026-09-29||
+e65|text|text|0개||
+e67|text|text|이 날의 일정을 추가해보세요||
+e72|text|text|2026-09-30||
+e74|text|text|2개||
+e81|text|text|2026-10-01||
+e83|text|text|0개||
+e85|text|text|이 날의 일정을 추가해보세요||
+```
+
+## 온라인 일정 상세
+
+screenHash: `0rbo8q1`
+
+```text
+e49|text|text|온라인||
+e56|text|text|검증 일정 A||
+e63|text|text|루브르||
+e64|text|text|Paris||
+e72|text|text|2026-09-30||
+e74|text|text|17:00||
+e78|text|text|EUR 25.00||
+e85|text|text|총 경비||
+e79|text|text|(1개)||
+e92|text|text|경비 내역||
+e94|text|text|1개||
+```
+
+## native AX 보완
+
+온라인 일정 목록: 파리, 프랑스 메인 / 2026-09-29 0개 / 이 날의 일정을 추가해보세요 / 2026-09-30 2개 / 검증 일정 A 루브르 2026-09-30 17:00 / 검증 일정 B 오르세 2026-09-30 21:00 / 2026-10-01 0개.
+
+온라인 일정 상세: 검증 일정 A / 루브르 / Paris / 2026-09-30 / 17:00 / EUR 25.00 / 총 경비 (1개) / 지도에서 보기 / 경비 추가 / 경비 내역 1개 / 검증 입장료 EUR 25.00 기타.
+
+복구 후 홈: 온라인 / 파리, 프랑스 / 9월 30일 - 10월 2일 / 온라인 전용 / 일정 2개 / 경비 EUR 25.00 / 홈 탭 selected. 기존 Controller/CreateScheduleScreen 경고는 하단 Minimize 상태.
+
+# Ticket 06 폼 연결 전환 검증 — 2026-09-30
+
+남아 있던 실제 화면의 입력 보존을 확인했다. 확인한 경비 생성·경비 수정·일정 수정·검색 후 일정 생성에서 연결 상태 변화만으로 입력이 초기화되지는 않았다. 그러나 기존 일정 생성 화면에서 작성 흐름이 끊기는 동작과 React 경고를 재현했다. 따라서 이번 공통 조회 훅의 신규 회귀는 발견하지 않았지만, 관련 화면 전체가 오류 없이 검증됐다고 결론 내리지는 않는다.
+
+## 환경과 방법
+
+- iPhone 15 Pro / iOS 26.0 / 개발 앱 `com.noline.dev`, HEAD `ffe022c`와 현재 미커밋 공통 조회 훅 변경.
+- 기존 검증 여행 `조회 검증 0930`(파리), 일정 A/B와 A에 연결된 EUR 25 경비를 사용했다.
+- 폼은 열린 채 유지했다. 개발 Hermes 런타임에서 기존 `networkStore.setOverride`만 호출해 offline/unknown을 설정하고 `null`로 해제했다. 실제 네트워크는 online이었으며 실제 통신 단절, 재접속, 저장 성공을 검증한 것은 아니다.
+- Main이 시뮬레이터 화면·접근성 트리로 전환 전후를 확인했다. 별도 읽기 전용 subagent가 화면 조건과 HEAD/과거 커밋을 비교했다. 제품 코드와 테스트는 이번 검증에서 수정하지 않았다.
+
+## 확인한 입력 보존
+
+| 실제 화면 / 조건 | 입력 및 전환 | 결과 |
+| --- | --- | --- |
+| 경비 생성 / 비활성 여행 | 제목 `FORM-KEEP-0930`, 금액 `37`, 일정 B 선택 후 online→offline→online, 이어 unknown→online | 제한 중 안내 화면으로 교체. 복귀 후 제목·금액·일정 B 모두 유지 |
+| 경비 수정 / 비활성 여행 | 제목 `EDIT-KEEP-0930` 수정 후 online→offline→unknown→online | Drawer는 유지되고 내부에 제한 안내 표시. 복귀 후 미저장 제목, 기존 금액 25.00·통화 EUR·일정 A 유지 |
+| 일정 수정 / 비활성 여행 | 제목 `SCHEDULE-KEEP-0930` 수정 후 online→offline→unknown→online | Drawer 내부 제한 안내 후 제목 및 기존 날짜 2026-09-30·시간 17:00 유지 |
+| 일정 생성 / 활성 여행, 장소 검색 후 | Eiffel Tower 선택 후 제목 `SEARCH-KEEP-0930`, online→offline→online | 복귀 후 수정 제목·선택 장소·날짜·시간 유지. 제한 중 두 폼이 함께 존재하는 문제는 아래에 분리 |
+
+이는 위 값과 전환에 대한 확인이다. 모든 입력 항목·팝업·키보드·실제 단절 조합을 망라하지 않는다. 제한 중 폼 전체를 안내로 교체하는 표시 방식은 입력 유실과 별개의 UX 검토 대상이다.
+
+## 재현한 일정 생성 문제
+
+### 수동 작성 도중 online 복귀 시 작성 폼이 사라짐
+
+활성 여행의 장소 검색 단계에서 offline으로 전환하고 수동 제목 `MANUAL-KEEP-0930`, 장소 `MANUAL-PLACE`, 주소 `MANUAL-ADDRESS`를 입력했다. online 복귀 시 수동 폼이 사라지고 장소 검색 화면이 나타났다. unknown으로 바꾸면 세 값이 다시 표시돼, 연결 전환 자체가 값을 지운 것은 아님을 확인했다.
+
+이후 online에서 Eiffel을 검색해 Eiffel Tower를 선택하자 수동 제목·장소·주소가 검색 결과로 바뀌었다. 장소 선택 시 기본값을 넣는 기존 처리이지만, 작성 중이던 내용에서 검색으로 전환되는 전체 흐름에 대한 판단이 필요하다.
+
+- 화면 조건: `apps/client/src/screens/CreateScheduleScreen.tsx:38,154,193`
+- 장소 선택 값 적용: `apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts:35`
+- 증거: [수동 작성](08-manual-schedule-offline.jpg), [online 복귀로 폼 숨김](09-manual-schedule-online-hidden.jpg)
+
+### 장소 선택 후 offline 전환 시 일반·수동 폼이 함께 장착됨
+
+장소를 선택한 일반 폼에서 offline으로 바꾸면 접근성 트리에 일반 폼과 수동 폼의 제목·날짜·시간·저장·취소가 함께 남았다. 화면 캡처에서는 지도 아래 수동 폼이 주로 보였다. 두 폼이 나란히 선명하게 보였다고 확대 해석하지 않는다.
+
+`CreateScheduleScreen.tsx:180`의 일반 폼 조건과 `:193`의 수동 폼 조건이 독립적이어서 동시에 성립한다. [전환 화면](10-selected-schedule-offline.jpg)을 남겼으며 렌더 조건·배치·접근성 측면의 후속 검토가 필요하다.
+
+### 일반 폼 취소 시 React 경고
+
+날짜가 지정된 일정 추가에서 장소를 선택하고 작성한 뒤 ‘취소’를 누르자 검색 단계로 돌아가면서 다음 개발 경고가 표시됐다.
+
+> Cannot update a component (`Controller`) while rendering a different component (`CreateScheduleScreen`).
+
+`CreateScheduleScreen.tsx:103`의 취소 경로가 `form.reset()`을 실행한다. 이어 날짜가 비면 렌더 본문 `:79`에서 `form.setValue('date', prefilledDate)`를 실행하는 경로가 경고와 부합한다. 정확한 stack 전체를 추적한 원인 확정이나 수정 검증은 하지 않았다. [경고 화면](11-schedule-cancel-warning.jpg).
+
+### 이번 변경과의 관계
+
+읽기 전용 비교에서 `CreateScheduleScreen.tsx`는 HEAD와 동일했다. 일반 폼 조건·장소 선택 값 적용·취소 reset은 `c7f07f23`, 수동 폼 조건은 `93ebaa2b`, 렌더 중 날짜 setValue는 `683a4563`부터 존재한다. 이번 미커밋 훅 변경이 만든 조건이 아니라 기존 화면 전환 문제로 분류한다.
+
+## 검증 범위와 다음 작업
+
+기존 자동 테스트의 경비 생성은 `ExpenseForm`을 직접 장착하고 일정 생성은 `useCreateScheduleForm`만 장착한다. 실제 생성 화면의 폼 교체·검색 단계 복귀·동시 렌더 조건은 그 테스트의 검증 범위 밖이다. 이전 전체 테스트 통과 결과를 화면 전환까지 보장하는 근거로 확대하지 않는다. 이번에는 제품 변경이 없어 테스트를 재실행하지 않았다.
+
+2-C 복구 알림은 아직 구현하지 않았다. 이번 결과를 바탕으로 일정 생성의 재현 문제를 별도 수정 범위로 판단하고, 2-C 완료 뒤 시작·인증·제한·조회 복구를 포함한 종합 UX 검토로 이어갈 계획이다. 폼 입력 보존 확인을 티켓 06 전체 완료로 해석하지 않는다.
+
+검증 입력은 모두 저장하지 않고 취소했다. 테스트 override는 해제했고, 검증을 위해 잠시 활성화했던 여행은 다시 비활성화했다. 기존 서버 일정 2개·경비 EUR 25는 유지한다.
+
+Warning: truncated output (original token count: 177646)
+Total output lines: 19
+
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ticket 06 — UX 종합 검토 현황 보고서</title><style>
+:root{--ink:#172a2b;--muted:#596a6b;--line:#dbe4e1;--paper:#f5f7f4;--green:#195c49;--amber:#8a4c12}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif}a{color:var(--green)}button{font:inherit;cursor:pointer}header{background:#173e36;color:white;padding:56px max(24px,calc((100vw - 1260px)/2)) 36px}header h1{font-size:clamp(30px,4vw,48px);line-height:1.25;margin:12px 0 20px;letter-spacing:-1.5px}header p{max-width:850px;color:#e0eae5}header .eyebrow{color:#b9d9ca}.eyebrow{font-size:12px;font-weight:750;letter-spacing:1px;text-transform:uppercase;color:var(--green)}.scope-note{border-left:4px solid #e1b35c;padding:12px 20px;background:#284b40;max-width:1000px}nav{position:sticky;top:0;z-index:5;display:flex;gap:22px;overflow:auto;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px max(24px,calc((100vw - 1260px)/2))}nav a{white-space:nowrap;text-decoration:none;font-size:14px;font-weight:650}main{max-width:1310px;margin:auto;padding:32px 25px 70px}section{margin:34px 0 62px}h2{font-size:28px;letter-spacing:-.7px;li…151 tokens truncated…argin:0 0 12px}.process p{margin:0}.process small{display:block;margin-top:16px;color:var(--muted)}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:white}table{width:100%;border-collapse:collapse;font-size:14px;min-width:1000px}th,td{padding:16px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}thead th{background:#eaf0ec;white-space:nowrap}tbody th{width:19%;font-weight:650}td:nth-child(2){white-space:nowrap}td:last-child{width:31%}.badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:6px;background:#edf1ed;color:#455655}.badge.green{background:#e5f2e8;color:#215c3f}.badge.warn{background:#fff0d5;color:#895116}.badge.muted{background:#eef0f2;color:#586574}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.toolbar button,.btn{border:1px solid #c4d1c9;border-radius:8px;background:white;color:var(--ink);padding:9px 15px}.toolbar button[aria-pressed=true],.btn.primary{background:var(--green);color:white;border-color:var(--green)}.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.shot{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden}.shot-top{padding:18px 20px 12px}.shot-top h3{margin:7px 0 0;font-size:18px}.shot-image{display:block;padding:12px;background:#eaf0ed;border:0;width:100%}.shot-image img{display:block;width:100%;max-width:280px;height:auto;margin:auto;border-radius:9px;box-shadow:0 5px 20px #152c2b19}.caption{padding:18px 20px;font-size:14px}.caption p{margin:0 0 14px}.caption .limit{color:var(--muted);border-top:1px solid var(--line);padding-top:12px}.caption small{overflow-wrap:anywhere;color:#6a7975}.findings{display:grid;grid-template-columns:1fr 1fr;gap:18px}.finding h3{margin:8px 0}.source{font-size:13px;color:var(--muted)}dt{font-size:13px;font-weight:750;color:var(--green);margin-top:14px}dd{margin:3px 0;color:#465958;font-size:14px}.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}li{margin-bottom:10px}.small{font-size:14px;color:var(--muted)}details{background:white;border:1px solid var(--line);border-radius:10px;padding:18px;margin:12px 0}summary{font-weight:700;cursor:pointer}dialog{max-width:96vw;max-height:94vh;padding:0;border:0;border-radius:14px;background:#fbfcf9;color:var(--ink);width:960px}dialog::backdrop{background:#0c211dde}.modal-head{position:sticky;top:0;background:#fbfcf9;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.modal-head h3{font-size:17px;margin:0}.modal-body{display:grid;grid-template-columns:minmax(240px,430px) 1fr;gap:24px;padding:20px;align-items:start}.modal-body img{width:100%;max-width:369px;margin:auto;display:block}.modal-body p{font-size:15px}.modal-foot{display:flex;gap:8px;flex-wrap:wrap}.hidden,[hidden]{display:none!important}footer{border-top:1px solid var(--line);padding-top:24px;color:var(--muted);font-size:13px}@media(max-width:850px){.metrics,.process,.split,.findings{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}header{padding:36px 24px}.modal-body{grid-template-columns:1fr}.modal-body img{max-width:330px}.process .panel:last-child{grid-column:1/-1}}@media(max-width:560px){.gallery,.findings,.split,.process{grid-template-columns:1fr}.process .panel:last-child{grid-column:auto}main{padding:18px 15px}.metric{padding:16px}.metric b{font-size:27px}h2{font-size:24px}.shot-image img{max-width:300px}nav{gap:18px;padding:12px 16px}}@media print{nav,.toolbar,.btn,dialog{display:none!important}header{background:white;color:black;padding:20px}header p,header .eyebrow{color:black}.scope-note{background:#eee;color:black}main{padding:0}.gallery{grid-template-columns:repeat(3,1fr)}.shot,.finding{break-inside:avoid}.shot-image img{max-width:170px}.hidden{display:block!important}}
+@media(max-width:850px){.table-wrap{overflow:visible;background:none;border:0}table{min-width:0;display:block}thead{display:none}tbody{display:grid;grid-template-columns:1fr 1fr;gap:14px}tbody tr{display:block;background:white;border:1px solid var(--line);border-radius:12px;padding:15px}tbody th,tbody td,tbody td:last-child{display:block;width:auto;padding:5px 0;border:0}tbody th{font-size:16px}tbody td:nth-child(3)::before{content:"근거: ";font-weight:700}tbody td:nth-child(4)::before{content:"방법: ";font-weight:700}tbody td:last-child{margin-top:6px;padding-top:10px;border-top:1px solid var(--line)}}@media(max-width:560px){tbody{grid-template-columns:1fr}}</style></head><body>
+<header id="top"><div class="eyebrow">Noline · Ticket 06 · 2026.09.30</div><h1>UX 종합 검토<br>현황과 증거 보고서</h1><p>앱 시작·인증·네트워크 제한·조회 복구·작성 흐름을 대상으로, 실제 수집 범위와 발견한 문제, 별도 검토 결과와 남은 확인을 함께 정리했습니다.</p><div class="scope-note"><strong>종합 검토 전체는 아직 끝나지 않았습니다.</strong><br>채팅에 보여드린 여섯 장은 설명용 선택이었습니다. 나머지가 괜찮아서 제외한 것이 아닙니다. 이번 신규 실행은 정상 일정 목록·상세 두 화면이며, 경비 화면·실패/재시도·시작/인증·foreground 경험 등은 이번에 확인하지 못했습니다.</div></header>
+<nav aria-label="보고서 목차"><a href="#summary">범위와 방법</a><a href="#coverage">전체 확인 현황</a><a href="#screens">스크린샷 13장</a><a href="#judgment">판단과 별도 검증</a><a href="#next">남은 일</a><a href="#sources">근거·한계</a></nav>
+<main><section id="summary"><div class="metrics"><div class="metric"><b>11장</b><span>이전 화면 증거</span><small>재사용 자료 · 이번 신규 실행 아님</small></div><div class="metric"><b>2장</b><span>이번 신규 캡처</span><small>온라인 일정 목록·일정 A 상세</small></div><div class="metric"><b>2개 관점</b><span>별도 검토</span><small>UX / 클라이언트 상태·행동</small></div><div class="metric"><b>미완료</b><span>종합 UX 검토</span><small>확인하지 않은 항목을 정상으로 판정하지 않음</small></div></div>
+<h2>무엇을, 어떻게 했는가</h2><p class="lead">기존 화면·폼 기록을 먼저 재사용하고, 부족한 정상 화면만 추가했습니다. 수집과 판단을 나누었으며 제품 코드·데이터는 수정하지 않았습니다.</p><div class="process"><article class="panel"><div class="eyebrow">수집 담당</div><h3>기존 자료 + 새 화면</h3><p>기존 홈 제한·복귀, 상세 제한, 폼 전환 자료를 세 주제로 색인했습니다. 시뮬레이터에서 홈→일정 목록→일정 A 상세→홈으로 이동해 두 장을 촬영하고 접근성 텍스트를 보존했습니다.</p><small>신규 실행에서는 네트워크 override·여행 활성 여부·서버 데이터를 바꾸지 않았습니다.</small></article><article class="panel"><div class="eyebrow">Main</div><h3>관찰을 UX 판단으로 연결</h3><p>작성 흐름 단절과 두 폼 장착을 우선 문제로, 홈 안내 반복·본문 비가시를 다음 문제로 판단했습니다. 입력값이 남는 것과 사용자가 작업을 이어갈 수 있는 것은 구별했습니다.</p><small>정지 화면에서 보이는 것, 이전 실행 기록, 현재 코드와 추정을 구별했습니다.</small></article><article class="panel"><div class="eyebrow">별도 검토자</div><h3>UX와 기술 근거 확인</h3><p>UX 담당은 Main 결론을 먼저 받지 않고 원자료에서 흐름·문구·접근성을 봤습니다. 기술 담당은 검증할 주장과 코드에서 정책·조회 상태·폼 조건을 대조했습니다.</p><small>두 검토자는 시뮬레이터 재실행이나 테스트를 하지 않았습니다. 검토 인원은 증거 범위를 늘리지 않습니다.</small></article></div>
+<details><summary>수집 지연·종료 이유와 복구 상태</summary><p>시작부터 남아 있던 React 경고 overlay가 화면 조작을 막았고, native UI 도구 초기화에 약 114초가 걸렸다는 수집 기록이 있습니다. 경고를 최소화한 뒤 두 화면을 확보했고 Main이 1차 수집을 종료하도록 했습니다. 따라서 수집 효율을 제한한 실제 장애가 있었으며, 모든 계획 항목을 수행한 것은 아닙니다.</p><p>최종 상태: 홈 / 온라인 / 비활성 여행 / 일정 2개 / EUR 25 / 기존 개발 경고 최소화. 앱 재설치·빌드·로그아웃·데이터 쓰기 없이 원래 표시 상태로 돌아왔습니다.</p></details></section>
+<section id="coverage"><div class="eyebrow">계획 범위와 실제 수행의 차이</div><h2>전체 확인 현황</h2><p class="lead">아래는 검토할 경험을 기준으로 정리한 현황입니다. ‘이번 미확인’은 과거 구현·테스트가 없다는 뜻이 아니라, 이번 수집과 UX 판단의 근거가 부족하다는 뜻입니다. …172146 tokens truncated…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"}];
+const gallery=document.getElementById('gallery'),viewer=document.getElementById('viewer');let current=0;const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function render(filter='all'){const list=shots.filter(s=>filter==='all'||s.group===filter);gallery.innerHTML=list.map(s=>`<article class="shot"><div class="shot-top"><span class="badge ${s.kind==='신규'?'green':''}">${s.kind} 증거 · ${String(s.id).padStart(2,'0')}</span><h3>${esc(s.title)}</h3></div><button class="shot-image" data-id="${s.id}" aria-label="${esc(s.title)} 확대"><img loading="lazy" width="369" height="800" src="${s.image}" alt="${esc(s.title)}"></button><div class="caption"><p>${esc(s.observation)}</p><p class="limit"><b>확인 한계</b><br>${esc(s.limit)}</p><small>${esc(s.source)}</small></div></article>`).join('');document.getElementById('galleryCount').textContent=`${list.length}장 표시 / 전체 ${shots.length}장`;}
+function show(id){current=id;const s=shots[id-1];document.getElementById('viewTitle').textContent=`${String(id).padStart(2,'0')} · ${s.title}`;document.getElementById('viewImage').src=s.image;document.getElementById('viewImage').alt=s.title;document.getElementById('viewKind').textContent=s.kind+' 증거';document.getElementById('viewObs').textContent=s.observation;document.getElementById('viewLimit').textContent=s.limit;document.getElementById('viewSource').textContent=s.source;const d=document.getElementById('downloadImage');d.href=s.image;d.download=s.source.split('/').pop();if(!viewer.open)viewer.showModal();}
+gallery.addEventListener('click',e=>{const b=e.target.closest('button[data-id]');if(b)show(Number(b.dataset.id));});document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(!b)return;document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));render(b.dataset.filter);});document.getElementById('closeView').onclick=()=>viewer.close();document.getElementById('prevView').onclick=()=>show(current===1?13:current-1);document.getElementById('nextView').onclick=()=>show(current===13?1:current+1);viewer.addEventListener('click',e=>{if(e.target===viewer)viewer.close();});viewer.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(current===13?1:current+1);if(e.key==='ArrowLeft')show(current===1?13:current-1);});document.getElementById('openOnly').onclick=function(){const on=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',String(on));document.querySelectorAll('tbody tr').forEach(r=>r.hidden=on&&r.dataset.state!=='이번 미확인');this.textContent=on?'전체 항목 보기':'이번 미확인 항목만 보기';};render();</script></body></html>

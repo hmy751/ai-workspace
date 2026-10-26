@@ -1,0 +1,55 @@
+{
+  "authorization": "좋아 그럼 종합한 방향으로 본체랑 상세, _background까지 반영해봐. 기존 의미 잘 유지됐는지 확인하고 2번이랑 4번 다시 6.0 sol 미디엄으로 테스트해보자",
+  "fresh_context": true,
+  "first_response_only": true,
+  "runs": [
+    {
+      "case": "case02-access",
+      "prior_case": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-four-problems-60medium-2026-10-26/case02-access",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "required": [
+        "skills/explain/SKILL.md",
+        "materials/conversation.txt"
+      ],
+      "required_chunks": 10,
+      "changed_skill_files": [
+        "skills/explain/SKILL.md",
+        "skills/explain/references/constructing-explanations.md"
+      ],
+      "unchanged_materials": true,
+      "unchanged_prompt": true,
+      "prompt_sha256": "9a75468ba973e8cbfd809973d5a550d789b7d527ac199883200ea8bdbc175890",
+      "helper_sha256": "905a75fd5c3593eb05871ad75d1873bd8a3730e193cd001ebdb3ad8ee2248140",
+      "text_files": 18,
+      "images": 0,
+      "prior_response_sha256": "33e8ecbdf3a4a36e3c3f8c19ef49a2a2c1dfef3ea5a460263d30a12ad396c1e1"
+    },
+    {
+      "case": "case04-investigation",
+      "prior_case": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-four-problems-60medium-2026-10-26/case04-investigation",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "required": [
+        "skills/development/SKILL.md",
+        "materials/conversation.txt"
+      ],
+      "required_chunks": 9,
+      "changed_skill_files": [
+        "skills/development/SKILL.md",
+        "skills/development/references/verification.md",
+        "skills/explain/SKILL.md",
+        "skills/explain/references/constructing-explanations.md"
+      ],
+      "unchanged_materials": true,
+      "unchanged_prompt": true,
+      "prompt_sha256": "5a16eaa123fed00540e0571093632fbda0c216945dd8f049a294e07e92b21533",
+      "helper_sha256": "905a75fd5c3593eb05871ad75d1873bd8a3730e193cd001ebdb3ad8ee2248140",
+      "text_files": 830,
+      "images": 16,
+      "prior_response_sha256": "155c4a5840acc7b30912cde2c4008e30bfbe3c6bba2d46cea93b63ee2a7bbc01"
+    }
+  ],
+  "scope": "이전과 같은 자료·prompt·도구조건, 수정한 실행 스킬만 교체. 형성 자료·평가·기대 답 제외.",
+  "isolation": "폴더/지침/로그로 범위 구분. OS 수준 접근 격리는 아님."
+}

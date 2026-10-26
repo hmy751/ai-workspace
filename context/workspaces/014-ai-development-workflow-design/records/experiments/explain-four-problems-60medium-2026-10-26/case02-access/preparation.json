@@ -1,0 +1,381 @@
+{
+  "status": "prepared-for-read-only-response",
+  "cutoff_source_line": 2757,
+  "input_conversation": {
+    "first_source_line": 2267,
+    "last_source_line": 2757,
+    "messages": 34
+  },
+  "source_file": "/Users/hammyeong-yeon/.codex/sessions/2026/09/29/rollout-2026-09-29T16-47-19-01a0ec21-e59e-7370-8432-8434271aa669.jsonl.zst",
+  "decompressed_source_sha256": "9f6df322184a78c975c2ff733cd383b1f4604a6e6a11b44a99b216949617037d",
+  "source_metadata_hash_match": true,
+  "corpus_file": "source/noline-evaluation/corpus/01a0ec21-e59e-7370-8432-8434271aa669/messages.jsonl",
+  "selection_evidence": "records/receipts/case-selection/access-source-evidence-2026-10-26.json",
+  "files": [
+    {
+      "path": "input/materials/messages.jsonl",
+      "bytes": 43399,
+      "sha256": "8486f32fc05c10759cb62f84c4bf465d0830d1163ea720765e774d0a0f86fab9",
+      "source_lines": [
+        2267,
+        2274,
+        2277,
+        2296,
+        2303,
+        2308,
+        2315,
+        2318,
+        2351,
+        2395,
+        2402,
+        2407,
+        2416,
+        2423,
+        2428,
+        2435,
+        2440,
+        2449,
+        2456,
+        2459,
+        2471,
+        2476,
+        2516,
+        2550,
+        2588,
+        2626,
+        2633,
+        2638,
+        2645,
+        2650,
+        2704,
+        2740,
+        2745,
+        2757
+      ],
+      "method": "corpus 레코드 원바이트를 범위로 선택",
+      "original_path": null
+    },
+    {
+      "path": "input/materials/conversation.txt",
+      "bytes": 36266,
+      "sha256": "656581bb1145e113e70d789f27a0a0f7616e4d1be45b048f162ea1eeb508d10b",
+      "source_lines": [
+        2267,
+        2274,
+        2277,
+        2296,
+        2303,
+        2308,
+        2315,
+        2318,
+        2351,
+        2395,
+        2402,
+        2407,
+        2416,
+        2423,
+        2428,
+        2435,
+        2440,
+        2449,
+        2456,
+        2459,
+        2471,
+        2476,
+        2516,
+        2550,
+        2588,
+        2626,
+        2633,
+        2638,
+        2645,
+        2650,
+        2704,
+        2740,
+        2745,
+        2757
+      ],
+      "method": "공개 발화 전문을 순서대로 보존하고 화자·시각·source_line 구분자만 추가",
+      "original_path": null
+    },
+    {
+      "path": "input/materials/code/apps/client/src/features/trip/read-query/read-query.ts",
+      "bytes": 4156,
+      "sha256": "609fd5d856cee841364a7d1aa5c0313ded790d67d93c240f1e3615886511ac86",
+      "source_lines": [
+        2714,
+        2715
+      ],
+      "method": "전체 추가 내용에 기록된 주석 치환만 적용; 원 명령 실행 없음",
+      "original_path": "apps/client/src/features/trip/read-query/read-query.ts",
+      "completeness": "full-file"
+    },
+    {
+      "path": "input/materials/code/apps/client/src/features/trip/read-query/index.ts",
+      "bytes": 514,
+      "sha256": "8ad7c341d56812a818fc13fe2b08a220b7d07085aa8bd881f3c755096ded4a6f",
+      "source_lines": [
+        2714,
+        2753
+      ],
+      "method": "전체 추가 내용에서 기록된 경비 import 및 export 함수 제거만 적용",
+      "original_path": "apps/client/src/features/trip/read-query/index.ts",
+      "completeness": "full-file"
+    },
+    {
+      "path": "input/materials/code/apps/client/src/screens/read-query.ts",
+      "bytes": 1880,
+      "sha256": "7e6ccbf45c12289155f71a2e4be76bb9b84d51ed54720a2aa27b04503bebc11b",
+      "source_lines": [
+        2754
+      ],
+      "method": "복구된 전체 추가 내용 원문",
+      "original_path": "apps/client/src/screens/read-query.ts",
+      "completeness": "full-file"
+    },
+    {
+      "path": "input/materials/code/apps/client/src/entities/schedule/data/useGetSchedules.ts",
+      "bytes": 987,
+      "sha256": "b6c33982cddaeea9065b71ca262fe2bf7642ea0680b16b9c1ec7507af627f8a0",
+      "source_lines": [
+        2653
+      ],
+      "method": "연속 cat 출력에서 파일 경계로 분리: stdout 1~28행",
+      "original_path": "apps/client/src/entities/schedule/data/useGetSchedules.ts",
+      "completeness": "full-file"
+    },
+    {
+      "path": "input/materials/code/apps/client/src/entities/expense/data/useGetTripExpenses.ts",
+      "bytes": 972,
+      "sha256": "739829a340c5520e642892aaf6efda179395aaf0206b2df76191061935b41a91",
+      "source_lines": [
+        2653
+      ],
+      "method": "연속 cat 출력에서 파일 경계로 분리: stdout 29~56행",
+      "original_path": "apps/client/src/entities/expense/data/useGetTripExpenses.ts",
+      "completeness": "full-file"
+    },
+    {
+      "path": "input/materials/code/apps/client/src/shared/policy/useAppPolicy.ts",
+      "bytes": 4137,
+      "sha256": "48af1ac203a6788e23a38d83cf82867867a9fb83fac9d69ead9001eb1384dd07",
+      "source_lines": [
+        2322,
+        2722
+      ],
+      "method": "연속 cat 출력에서 import 경계로 분리; 이전 전체 읽기와 동일함을 대조",
+      "original_path": "apps/client/src/shared/policy/useAppPolicy.ts",
+      "completeness": "full-file"
+    },
+    {
+      "path": "input/materials/code/apps/client/src/shared/policy/types.ts",
+      "bytes": 978,
+      "sha256": "784f147ed9570bbeb02a8bc34b531f501083ced20fec1a3f07df7e4493338372",
+      "source_lines": [
+        2697
+      ],
+      "method": "연속 출력에서 policy 타입 파일의 시작과 다음 파일 제목 경계로 분리",
+      "original_path": "apps/client/src/shared/policy/types.ts",
+      "completeness": "full-file"
+    },
+    {
+      "path": "input/materials/diffs/ScheduleScreen.diff",
+      "bytes": 4552,
+      "sha256": "52253f0980b34f6575d8b4ef8af641a8298eceda0b8a359096a0181e54c218e0",
+      "source_lines": [
+        2748
+      ],
+      "method": "당시 git diff에서 일정 화면 파일 부분만 원문 그대로 선택",
+      "original_path": "apps/client/src/screens/ScheduleScreen.tsx",
+      "completeness": "diff-only"
+    },
+    {
+      "path": "input/materials/excerpts/ExpenseForm.lines20-92.tsx.txt",
+      "bytes": 2634,
+      "sha256": "04bb030fef7ee0dc6518c8ad8fdf0847d60034c580be27fa2c0ba99d564971b4",
+      "source_lines": [
+        2498
+      ],
+      "method": "sed로 관측한 원 파일 20~92행을 원문 그대로 분리",
+      "original_path": "apps/client/src/features/expense/create-expense/ExpenseForm.tsx",
+      "completeness": "excerpt-only"
+    },
+    {
+      "path": "input/materials/excerpts/useCreateScheduleForm.lines30-110.ts.txt",
+      "bytes": 2850,
+      "sha256": "74a78905ecadbbb326bce50aaf969516a70fe9a57a879b61c4c96e2ccd9c680d",
+      "source_lines": [
+        2498
+      ],
+      "method": "sed로 관측한 원 파일 30~110행을 원문 그대로 분리",
+      "original_path": "apps/client/src/features/schedule/create-schedule/useCreateScheduleForm.ts",
+      "completeness": "excerpt-only"
+    },
+    {
+      "path": "input/materials/README.md",
+      "bytes": 1099,
+      "sha256": "6c7fae6e726036a4d4d509f4d75bdeb051ae7698c722d610e283b328c5d7f4fe",
+      "source_lines": [],
+      "method": "파일 구성과 자료 범위만 안내",
+      "original_path": null
+    }
+  ],
+  "source_line_sha256": {
+    "2267": "4a806cc551e923d42d00b10597ea83e9f2dccb6f542d7fe988d641b6892215f5",
+    "2274": "f82931c8a9b2fc9de970825dd6de9f62a648cbdd56dcacaaa0e741978db3e6e2",
+    "2277": "a1bf2d8821ec9a292bfef37beab6ffdf9340a88e1d39740bc9f602173d3d4ed7",
+    "2296": "c6b797dc62a09beee91c5dfdbd0d53d7e7d329e8eb66978dec99fe32ee6325fd",
+    "2303": "9cf5e575bf31638f9a11100393679f9d00dee60ed022cbbe27315adfe1940930",
+    "2308": "c69fd6b2557a3b4f5bbbf4cfc3d5f330295de20cbc2230f54bce8ad1977dae0c",
+    "2315": "334acc04dada11ca9e0f88a17007fc788f26217ba5a17d3e1b357021160ad418",
+    "2318": "55757a5a47b03faab1c7b802b940bb48365344b3b6bc1d18da2e32f639f1f4e0",
+    "2322": "f16e62fe132d2adbabb5da12a5ba458fe7d26656c14218ba4d88b48590c3a09c",
+    "2351": "723125eeb99571f388095a966ed0551896a05d35e0c7eb196cffa813ecca6f5d",
+    "2395": "9617429b4c2bd9956658bcff3ec6009fa2910f74c4930790d6b0abe472994509",
+    "2402": "f6039b29f7695fd040d358468c948761a6196f4b9e6dd1a5e42501986f09da3d",
+    "2407": "bfa09c2c12e2dc00e81f1b235ae916c7d7b75adfbed70abed8302926bb2f1a8c",
+    "2416": "8848e20b7d3b2fc536c5941937f8869a7c8016325ba3c8d7fca2798c75355db2",
+    "2423": "3f5e40af4e62582f77ac7c9b5d5726c4eb8e51ad6c3eeba90ef75d0b084e4ab3",
+    "2428": "bf56aaaf1c883bc222caa57986e41ff2b84dd962b46e5003330e60360606bcaa",
+    "2435": "87d99e935f9ff1257f1b7af97dcaf6436affc2042a853cbf8527c890091af328",
+    "2440": "c2bd246fa4c2746cc6bf742e7938d0ae7654ca4682e1f73f174f2d8d51e82bfd",
+    "2449": "dae8480d3c9f5e180d4886f9818a1d683287e9247c913d21e4b24730c41df9b2",
+    "2456": "d521bb5156aa0d35f2667c6e579a165b5ccc98391e11dc5c476e98450a882df1",
+    "2459": "774bb8f68c4a8d639e7cb341b88bcd1dbe8512ba1f80b3fdd2cb18338d82f740",
+    "2471": "ccbe0810297b02418f29b050732767c99ebc3b14dfd95e86a201e620dc96f0d8",
+    "2476": "26b7ed3ef6f9e129e598c26b421fe1bb63b7c63f8af5545766509c9d0909ac17",
+    "2498": "bf12551d774ac589acbb31e8c14786c369f3400129e55323506d85e207e1f993",
+    "2516": "358430dfdba5de261aa823b9327fff516a0f69d1b2c35102a4931cea045e653a",
+    "2550": "f100595aa2ad18b7b1890204a991ead59b604bdcad0f98af032aef9eb4f3e7ce",
+    "2588": "02dfe35fe93f0f4b5a3d0e58f3ec463f2da5d442da9c18efbbb8dfacbeb703e5",
+    "2626": "944bcade6dcce2ee090ea426de4da46a40bca0b1fd56f79e9906d0cba51f5d96",
+    "2633": "0256abffde3876c613023daf80353a24f3268218990b622913e83587f8711340",
+    "2638": "eb666ae6b44a8658b5e8c717423a92add08e8183aa3ea09dec83b7bb74613076",
+    "2645": "2a33154738987f153e06ab8cd20e16dbb98625f05ab95ddf0f03dfb65ac70433",
+    "2650": "730bdffc1fa3cd314f05bac9b8d67ebc807a13f93b2adedfe70167d7731f5863",
+    "2653": "de25c6265706c19b20e0bbf142b6cf12a8e3f402d4eac08113008376c847975d",
+    "2697": "2c8dd8ca332fe49db1e01e243e0f2b3e4e3d97a328fbb4c3b31b5dfcd44aeab5",
+    "2704": "0eef8de197626aa0a22526f3f290d625cf52e0ec99b364a373b014ce0bef5192",
+    "2714": "efea498cf35a3c278ccc6babadebf12de40c9ceedbc76c80eb1e82dbc8c4ef9f",
+    "2715": "ea1dbd688d7da049c326d08fe04267db7183072656266040564c8077d558cc83",
+    "2722": "9941e47379ed094d970c34e6b05861913f2cf5aa1816fc7f9d198cbb512c5a18",
+    "2740": "5d70d75ee68b8b6225adde53607eb4c8a5a8a7ccc79b9d2290858d058ed26351",
+    "2745": "c35629b482f883121c0a3b0b94b87ac12389916e8bbcacd0c5008d9792d00303",
+    "2748": "a49a294e23d5e0cfc6fe7f84c1ae05cbfc7d9633b7f3f1b53aef08c076a59df3",
+    "2753": "a2bc754e9027119520e17decfc79becbf51080b522b7d692a9d3177f4db122d1",
+    "2754": "530b80cafe188a6f34bccd96421807f97a4ceab261c456af328f718743e05e90",
+    "2757": "4b3f4d4eb9eb65efd49b3e1c1c05a67cdbc889b5315509cbff82f8d27446f2b4"
+  },
+  "last_change_audit": {
+    "reviewed_interval": [
+      2714,
+      2756
+    ],
+    "timeline": [
+      {
+        "source_line": 2714,
+        "changes": [
+          "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/trip/read-query/index.ts",
+          "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/features/trip/read-query/read-query.ts",
+          "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/read-query.ts"
+        ],
+        "source_line_sha256": "efea498cf35a3c278ccc6babadebf12de40c9ceedbc76c80eb1e82dbc8c4ef9f"
+      },
+      {
+        "source_line": 2715,
+        "command": [
+          "/bin/zsh",
+          "-lc",
+          "python3 - <<'PY'\nfrom pathlib import Path\nbase=Path('apps/client/src')\np=base/'features/trip/read-query/read-query.ts'\ns=p.read_text().replace('成功した undefined や空配列も有効な結果。背景再取得の失敗で既存内容を隠さない。','성공한 undefined나 빈 배열도 유효한 결과다. 재조회 실패로 기존 내용을 가리지 않는다.')\np.write_text(s)\nfor screen,entity,hook,old in [('ScheduleScreen','schedule','useSchedulesRead','useGetSchedules'),('ExpensesScreen','expense','useTripExpensesRead','useGetTripExpenses')]:\n p=base/f'screens/{screen}.tsx'; s=p.read_text()\n s=s.replace(f'{old}, ', '')\n s=s.replace(\"import { useTripReadAccess, getReadQueryView } from './read-query';\",f\"import {{ {hook} }} from '@/features/trip/read-query';\")\n start=s.index('  const access = useTripReadAccess(')\n end=s.index('  const visible',start)\n s=s[:start]+f'  const {{ actions, view }} = {hook}(selectedTripId);\\n  const {{ canRefetch, refetch }} = actions;\\n'+s[end:]\n s=s.replace('access.enabled','canRefetch')\n p.write_text(s)\np=base/'screens/ExpenseDetailScreen.tsx';s=p.read_text()\ns=s.replace(\"import { useTripReadAccess, getReadQueryView } from './read-query';\", \"import { useSchedulesRead, useTripExpensesRead } from '@/features/trip/read-query';\")\ns=s.replace(\"import { useGetTripExpenses } from '@/entities/expense';\\n\",'').replace(\"import { useGetSchedules } from '@/entities/schedule';\\n\",'')\nstart=s.index('  const { expense: access,');end=s.index('  // 카테고리별',start)\ns=s[:start]+'''  const { query: expenseQuery, actions, view } = useTripExpensesRead(tripId);\n  const expense = view.kind === 'ready' ? view.data.find((item) => item.id === id) : undefined;\n  const retry = () => { void actions.refetch(); };\n\n  // 보조 조회의 수명은 화면이 정하고, 읽기 제한은 조회 조합에서 적용한다.\n  const { view: scheduleView } = useSchedulesRead(tripId, { enabled: !!expense?.scheduleId });\n  const linkedSchedule = scheduleView.kind === 'ready' && expense?.scheduleId\n    ? scheduleView.data.find((schedule) => schedule.id === expense.scheduleId)\n    : null;\n\n'''+s[end:]\ns=s.replace('access.enabled','actions.canRefetch')\ns=s.replace(\"retry={retry} />\", \"retry={actions.canRefetch ? retry : undefined} />\")\np.write_text(s)\np=base/'features/expense/update-expense/UpdateExpenseDrawer.tsx';s=p.read_text().replace(\"import { useGetSchedules } from '@/entities/schedule';\", \"import { useSchedulesRead } from '@/features/trip/read-query';\")\ns=s.replace(\"  const { data: schedules = [] } = useGetSchedules(expenseData?.tripId || '', { enabled: isOpen });\", \"  const { view: scheduleView } = useSchedulesRead(expenseData?.tripId, { enabled: isOpen });\\n  const schedules = scheduleView.kind === 'ready' ? scheduleView.data : [];\")\np.write_text(s)\nPY"
+        ],
+        "exit_code": 0,
+        "source_line_sha256": "ea1dbd688d7da049c326d08fe04267db7183072656266040564c8077d558cc83"
+      },
+      {
+        "source_line": 2722,
+        "command": [
+          "/bin/zsh",
+          "-lc",
+          "cat apps/client/src/screens/ExpenseQueryFeedback.tsx\nsed -n '1,95p' apps/client/tests/features/edit/offline-values.test.tsx\ncat apps/client/jest.config.cjs\ncat apps/client/src/shared/policy/useAppPolicy.ts\ncat apps/client/src/entities/expense/data/useGetTripExpenses.ts"
+        ],
+        "exit_code": 0,
+        "source_line_sha256": "9941e47379ed094d970c34e6b05861913f2cf5aa1816fc7f9d198cbb512c5a18"
+      },
+      {
+        "source_line": 2725,
+        "command": [
+          "/bin/zsh",
+          "-lc",
+          "node ../../node_modules/typescript/bin/tsc --project tsconfig.json --noEmit > /private/tmp/ticket06-query-actions-typecheck.log 2>&1"
+        ],
+        "exit_code": 2,
+        "source_line_sha256": "3b4b5d97847b85b457dcec4549e6a2f1306bd8c493a7df49b9f8ff8346915d9b"
+      },
+      {
+        "source_line": 2730,
+        "command": [
+          "/bin/zsh",
+          "-lc",
+          "python3 - <<'PY'\nfrom pathlib import Path\np=Path('apps/client/src/screens/ExpenseQueryFeedback.tsx');s=p.read_text().replace(\"{ status: 'error'; retry: () => void }\", \"{ status: 'error'; retry?: () => void }\").replace(\"          <Pressable variant='outline' size='md' accessibilityRole='button' onPress={props.retry}>\\n            다시 불러오기\\n          </Pressable>\",\"          {props.retry && (\\n            <Pressable variant='outline' size='md' accessibilityRole='button' onPress={props.retry}>\\n              다시 불러오기\\n            </Pressable>\\n          )}\");p.write_text(s)\np=Path('apps/client/tests/features/edit/offline-values.test.tsx');s=p.read_text().replace(\"useGetSchedules: () => ({ data:\",\"useGetSchedules: () => ({ isSuccess: true, data:\");p.write_text(s)\np=Path('apps/client/tests/screens/auth-policy.test.tsx');s=p.read_text().replace(\"  useGetTripExpenses: () => ({\\n\", \"  useGetTripExpenses: () => ({\\n    isSuccess: true,\\n\");p.write_text(s)\nPY"
+        ],
+        "exit_code": 0,
+        "source_line_sha256": "170f79c0cab569471b6cb77422eac35b77762d65a125c8c6c8f37b6bf1583764"
+      },
+      {
+        "source_line": 2731,
+        "command": [
+          "/bin/zsh",
+          "-lc",
+          "cat /private/tmp/ticket06-query-actions-typecheck.log\nsed -n '1,180p' apps/client/tests/screens/expense-recovery.test.tsx"
+        ],
+        "exit_code": 0,
+        "source_line_sha256": "029cbe441cec8e70861a3ac1f78e41914028a23fdea0eab807f4b4af2612ec13"
+      },
+      {
+        "source_line": 2748,
+        "command": [
+          "/bin/zsh",
+          "-lc",
+          "git diff -- apps/client/src/screens/ScheduleScreen.tsx apps/client/src/screens/ExpensesScreen.tsx apps/client/src/screens/ExpenseDetailScreen.tsx apps/client/src/features/expense/update-expense/UpdateExpenseDrawer.tsx apps/client/src/screens/ExpenseQueryFeedback.tsx apps/client/tests/features/edit/offline-values.test.tsx apps/client/tests/screens/auth-policy.test.tsx"
+        ],
+        "exit_code": 0,
+        "source_line_sha256": "a49a294e23d5e0cfc6fe7f84c1ae05cbfc7d9633b7f3f1b53aef08c076a59df3"
+      },
+      {
+        "source_line": 2753,
+        "command": [
+          "/bin/zsh",
+          "-lc",
+          "python3 - <<'PY'\nfrom pathlib import Path\nimport subprocess\n# 이번 턴에서만 변경한 파일은 확인한 HEAD 내용으로 복원한다.\nfor name in ['src/features/expense/update-expense/UpdateExpenseDrawer.tsx','src/screens/ExpenseQueryFeedback.tsx','tests/features/edit/offline-values.test.tsx','tests/screens/auth-policy.test.tsx']:\n p=Path('apps/client')/name\n p.write_bytes(subprocess.check_output(['git','show',f'HEAD:{p}']))\np=Path('apps/client/src/screens/ExpensesScreen.tsx');s=p.read_text()\ns=s.replace('import { useDeleteExpense }', 'import { useGetTripExpenses, useDeleteExpense }')\ns=s.replace(\"import { useTripExpensesRead } from '@/features/trip/read-query';\", \"import { useTripReadAccess, getReadQueryView } from './read-query';\")\ns=s.replace('  const { actions, view } = useTripExpensesRead(selectedTripId);\\n  const { canRefetch, refetch } = actions;', \"  const access = useTripReadAccess(selectedTripId).expense;\\n  const expenseQuery = useGetTripExpenses(selectedTripId ?? '', { enabled: access.enabled });\\n  const { refetch } = expenseQuery;\\n  const view = getReadQueryView(access, expenseQuery);\")\ns=s.replace('canRefetch','access.enabled');p.write_text(s)\np=Path('apps/client/src/screens/ExpenseDetailScreen.tsx');s=p.read_text()\ns=s.replace(\"import { useSchedulesRead, useTripExpensesRead } from '@/features/trip/read-query';\", \"import { useTripReadAccess, getReadQueryView } from './read-query';\")\ns=s.replace(\"import { MapPin,\", \"import { useGetTripExpenses } from '@/entities/expense';\\nimport { useGetSchedules } from '@/entities/schedule';\\nimport { MapPin,\")\nstart=s.index('  const { query: expenseQuery,');end=s.index('  // 카테고리별',start)\ns=s[:start]+'''  const { expense: access, schedule: scheduleAccess } = useTripReadAccess(tripId);\n  const expenseQuery = useGetTripExpenses(tripId || '', { enabled: access.enabled });\n  const view = getReadQueryView(access, expenseQuery);\n  const expense = view.kind === 'ready' ? view.data.find((item) => item.id === id) : undefined;\n  const retry = () => {\n    if (access.enabled) expenseQuery.refetch();\n  };\n\n  // 연결된 일정 조회는 표시할 경비와 일정 접근 조건이 갖춰졌을 때 시작한다.\n  const { data: schedules = [] } = useGetSchedules(tripId || '', {\n    enabled: access.enabled && !!expense?.scheduleId && scheduleAccess.enabled,\n  });\n  const linkedSchedule =\n    expense?.scheduleId && scheduleAccess.display.allowed ? schedules.find((s) => s.id === expense.scheduleId) : null;\n\n'''+s[end:]\ns=s.replace(\"retry={actions.canRefetch ? retry : undefined} />\", \"retry={access.enabled ? retry : undefined} />\")\ns=s.replace(\"<ExpenseQueryFeedback status={expenseQuery.isError ? 'error' : 'loading'} retry={access.enabled ? retry : undefined} />\", \"<ExpenseQueryFeedback status={expenseQuery.isError ? 'error' : 'loading'} retry={retry} />\")\np.write_text(s)\np=Path('apps/client/src/features/trip/read-query/index.ts');s=p.read_text().replace(\"import { useGetTripExpenses } from '@/entities/expense';\\n\",'');s=s[:s.index('\\nexport function useTripExpensesRead')];p.write_text(s)\nPY"
+        ],
+        "exit_code": 0,
+        "source_line_sha256": "a2bc754e9027119520e17decfc79becbf51080b522b7d692a9d3177f4db122d1"
+      },
+      {
+        "source_line": 2754,
+        "changes": [
+          "/Users/hammyeong-yeon/Desktop/10_work/noline/apps/client/src/screens/read-query.ts"
+        ],
+        "source_line_sha256": "530b80cafe188a6f34bccd96421807f97a4ceab261c456af328f718743e05e90"
+      }
+    ],
+    "read_query": "2714 전체 추가 → 2715 주석 치환. 이후2756까지 대상 변경 없음.",
+    "index": "2714 전체 추가 → 2753 경비 import와 useTripExpensesRead 제거.",
+    "screen_read_query": "2754에 기존 화면 공통 파일 전체 복구.",
+    "schedule_screen": "2715 연결 변경 뒤2748 diff를 제공.2753은 다른 화면을 복구하고 ScheduleScreen은 변경하지 않음.",
+    "formatting": "2714~2756 원 이벤트에서 formatter 실행을 찾지 못함. 준비 중 추가 정형화 없음."
+  },
+  "limitations": [
+    "전체 저장소·전체 화면·전체 폼·DB·앱 실행 환경을 복원하지 않았다.",
+    "일정 화면은 당시 diff, 두 보조 소비자는 당시 발췌이며 전체 파일이 아니다.",
+    "코드 판단에 필요한 관련 범위를 제공하며 라이브러리·Router·Policy 상수 전체는 포함하지 않는다.",
+    "선택 판단용 읽기 자료 준비이며 동작·타입·제품 회귀 검증이나 모델 응답 시험은 하지 않았다.",
+    "원래 shell/Python 명령은 실행하지 않고 명시된 텍스트 변환만 현재 준비 코드로 구현했다."
+  ],
+  "excluded": [
+    "source_line 2762 이후 발화",
+    "인터뷰",
+    "과거 시험 답·평가",
+    "예상 답과 본 조사 판단"
+  ]
+}

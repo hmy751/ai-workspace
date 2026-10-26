@@ -14,6 +14,7 @@
 | 도입 흐름과 본문의 가독성을 어떻게 함께 다듬었나 | [흐름·문단 배치 반영](records/2026-10-25-flow-readability-adoption.md) |
 | 기존 예시를 분리하고 본체의 책임과 조건을 어떻게 정리했나 | [본체 구조 정리](records/2026-10-25-body-organization.md) |
 | 이전 두 스킬은 어떤 이유로 만들어졌나 | [브리핑의 이전 형성 자료](legacy/work-artifact-briefing/README.md), [복구의 이전 형성 자료](legacy/explanation-recovery/README.md) |
+| 선택 질문에서 지원 목표와 실제 사용처를 어떻게 함께 비교하게 했나 | [선택 판단 보완](records/2026-10-26-choice-judgment-adoption.md) |
 
 이전 형성 자료는 과거 선택의 근거다. 현재 설명 스킬을 사용하려고 이전 두 본문을 함께 읽거나, 그 조항 전부를 새 본문의 필수 조건으로 취하지 않는다. 새 스킬은 기존 두 실행 본문을 제거하는 전제로 작성했으며, 필요한 설명 행동을 현재 목표·source·사용자 논의로 다시 구성했다.
 

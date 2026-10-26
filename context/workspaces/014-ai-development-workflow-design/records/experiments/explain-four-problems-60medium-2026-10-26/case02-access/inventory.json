@@ -1,0 +1,110 @@
+{
+  "materials/README.md": {
+    "sha256": "6c7fae6e726036a4d4d509f4d75bdeb051ae7698c722d610e283b328c5d7f4fe",
+    "bytes": 1099,
+    "chars": 701,
+    "chunks": 1
+  },
+  "materials/code/apps/client/src/entities/expense/data/useGetTripExpenses.ts": {
+    "sha256": "739829a340c5520e642892aaf6efda179395aaf0206b2df76191061935b41a91",
+    "bytes": 972,
+    "chars": 846,
+    "chunks": 1
+  },
+  "materials/code/apps/client/src/entities/schedule/data/useGetSchedules.ts": {
+    "sha256": "b6c33982cddaeea9065b71ca262fe2bf7642ea0680b16b9c1ec7507af627f8a0",
+    "bytes": 987,
+    "chars": 851,
+    "chunks": 1
+  },
+  "materials/code/apps/client/src/features/trip/read-query/index.ts": {
+    "sha256": "8ad7c341d56812a818fc13fe2b08a220b7d07085aa8bd881f3c755096ded4a6f",
+    "bytes": 514,
+    "chars": 514,
+    "chunks": 1
+  },
+  "materials/code/apps/client/src/features/trip/read-query/read-query.ts": {
+    "sha256": "609fd5d856cee841364a7d1aa5c0313ded790d67d93c240f1e3615886511ac86",
+    "bytes": 4156,
+    "chars": 3822,
+    "chunks": 2
+  },
+  "materials/code/apps/client/src/screens/read-query.ts": {
+    "sha256": "7e6ccbf45c12289155f71a2e4be76bb9b84d51ed54720a2aa27b04503bebc11b",
+    "bytes": 1880,
+    "chars": 1696,
+    "chunks": 1
+  },
+  "materials/code/apps/client/src/shared/policy/types.ts": {
+    "sha256": "784f147ed9570bbeb02a8bc34b531f501083ced20fec1a3f07df7e4493338372",
+    "bytes": 978,
+    "chars": 928,
+    "chunks": 1
+  },
+  "materials/code/apps/client/src/shared/policy/useAppPolicy.ts": {
+    "sha256": "48af1ac203a6788e23a38d83cf82867867a9fb83fac9d69ead9001eb1384dd07",
+    "bytes": 4137,
+    "chars": 3731,
+    "chunks": 2
+  },
+  "materials/conversation.txt": {
+    "sha256": "656581bb1145e113e70d789f27a0a0f7616e4d1be45b048f162ea1eeb508d10b",
+    "bytes": 36266,
+    "chars": 19105,
+    "chunks": 7
+  },
+  "materials/diffs/ScheduleScreen.diff": {
+    "sha256": "52253f0980b34f6575d8b4ef8af641a8298eceda0b8a359096a0181e54c218e0",
+    "bytes": 4552,
+    "chars": 4478,
+    "chunks": 2
+  },
+  "materials/excerpts/ExpenseForm.lines20-92.tsx.txt": {
+    "sha256": "04bb030fef7ee0dc6518c8ad8fdf0847d60034c580be27fa2c0ba99d564971b4",
+    "bytes": 2634,
+    "chars": 2512,
+    "chunks": 1
+  },
+  "materials/excerpts/useCreateScheduleForm.lines30-110.ts.txt": {
+    "sha256": "74a78905ecadbbb326bce50aaf969516a70fe9a57a879b61c4c96e2ccd9c680d",
+    "bytes": 2850,
+    "chars": 2766,
+    "chunks": 1
+  },
+  "materials/messages.jsonl": {
+    "sha256": "8486f32fc05c10759cb62f84c4bf465d0830d1163ea720765e774d0a0f86fab9",
+    "bytes": 43399,
+    "chars": 26238,
+    "chunks": 9
+  },
+  "skills/explain/SKILL.md": {
+    "sha256": "506ea98cf0cc5f94e7feab6e908e1b0a8762e788f753c3f38fad5fd9768310e9",
+    "bytes": 14648,
+    "chars": 6338,
+    "chunks": 3
+  },
+  "skills/explain/references/constructing-explanations.md": {
+    "sha256": "8da56e660351bc9c44e826e705aee8f969fde7da766b820929ecdd5882a84a49",
+    "bytes": 11606,
+    "chars": 5394,
+    "chunks": 2
+  },
+  "skills/explain/references/examples/auth-flow.md": {
+    "sha256": "88bb3aa1bfcb1c0459e461175ab37f23f2e033ae60f3f8b06d7085c90dff7243",
+    "bytes": 11650,
+    "chars": 6233,
+    "chunks": 3
+  },
+  "skills/explain/references/prior-explanation.md": {
+    "sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889",
+    "bytes": 6065,
+    "chars": 2591,
+    "chunks": 1
+  },
+  "skills/shared/explanation-and-evidence-criteria.md": {
+    "sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a",
+    "bytes": 6255,
+    "chars": 3055,
+    "chunks": 2
+  }
+}

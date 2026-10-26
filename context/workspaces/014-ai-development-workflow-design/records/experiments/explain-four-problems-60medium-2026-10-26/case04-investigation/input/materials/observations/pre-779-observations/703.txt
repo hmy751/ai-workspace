@@ -1,0 +1,42 @@
+Script completed
+Wall time 1.1 seconds
+Output:
+
+
+# Ticket 06 추가 화면 수집 — 2026-10-04
+
+실제 화면 관찰만 기록한다. 원인·UX 수락·우선순위는 판정하지 않는다. 기존 앱·Metro·API·DB를 재사용했다. iPhone15Pro/iOS26.0, com.noline.dev. 시작·종료는 온라인, override null, 활성 파리9월30일~10월2일 홈, 일정2개/EUR56.00이다.
+
+| 파일 | 실제 관찰·조작 |
+| --- | --- |
+| 01-foreground-home.jpg | 묶음B 종료 후 홈→hardware Home→SpringBoard의 바로 보이는 Noline(Dev) 아이콘 tap. 온라인/준비완료/9월30일~10월2일/2개/EUR56.00 홈. 보완에는 launch_app_sim 사용 없음. refresh 호출 여부를 화면만으로 주장하지 않는다. |
+| 02-schedule-list-top.jpg | 일정탭, 파리/메인/활성화/온라인. 첫날2026-09-29 0개, 다음9/30 2개. A 루브르9/30 17:00, B 오르세9/30 21:00. |
+| 03-schedule-list-bottom.jpg | 목록 위로 스와이프1회 후 하단. 마지막2026-10-01 0개. 홈9/30~10/2와 목록9/29~10/1의 차이 관찰. 원인확정 안 함. |
+| 04-expense-list.jpg | 온라인/메인/활성화, 합계EUR56.00. 위쪽10/2 1개/여행기간외/Expense flow1002 EUR19, 다음9/29 0개, 다음9/30 2개. AX에는9/30 EUR12/EUR25 카드와10/1 0개도 있지만 캡처 하단 밖이다. |
+| 05-foreground-settled-home.jpg | 최초 복귀시도 후 일정·경비관찰을 거쳐 다시 연 홈. 온라인/준비완료/2개/EUR56.00. 순수foreground 직후 캡처로 쓰지 않는다. |
+| 06-schedule-detail.jpg | 기존A 클릭. 일정상세/A/루브르/Paris/9/30 17:00, 총경비EUR25(1개), 지도에서보기/경비추가/검증입장료EUR25. |
+| 07-expense-detail.jpg | A 상세의 기존 연결경비 클릭. 경비상세/EUR25/검증입장료/기타/9/30/영수증없음/연결된일정A 루브르. |
+| 08-expense-create-unsaved.jpg | A 상세→경비추가. 제목·금액 빈값, EUR, 카테고리선택, 날짜9/30, 기존A 연결, 저장·취소. 입력·저장 없이 취소했다. |
+
+## 복귀 시도와 미수집 경계
+
+- 최초 hardware Home→launch_app_sim 시도는 반환PID가 앞선 실행과 달랐고 직후 `Loading from Metro…` 화면이었다. 순수foreground refresh 검증이라고 하지 않는다. 해당 중간 이미지는01에서 마지막 정상 아이콘복귀 캡처로 교체했다.
+- 보완 hardware Home→SpringBoard→Noline(Dev) 아이콘 직접tap1회로 정상홈을 확인했다. 실제단절·refresh호출·재접속조회 성공은 미확인이다.
+- 경비입력에는 하단탭이나Debug진입이 없어 기존DebugUI로 같은 열린초안을 유지하며 unknown 왕복하는 경로를 확보하지 못했다. override변경·긴runtime우회 없이 미수집으로 반환한다. 과거 폼전환 증거와 이번 기본입력 화면을 구분한다.
+- 이번8장에는 앞선 홈수집의 sync개발경고가 보이지 않았다. 별도 경고닫기 조작은 하지 않았다.
+
+입력취소·홈복귀·보완아이콘복귀 완료. 여행선택·활성상태·날짜설정·계정·서버데이터 변경 없음. 이번묶음 내내 override null을 유지했다. 기존Metro 유지, 시뮬레이터 제어를Main에 반환한다.
+
+06·07 실제 캡처 헤더에는 온라인 라벨이 보이지 않는다. AX에 남은 온라인 text를 시각적으로 보이는 상태로 확대하지 않는다. 08 헤더에는 온라인 라벨이 보인다.
+artifacts/ticket-06-simulator/remaining-review-20261004/07-expense-detail.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/observations.md
+artifacts/ticket-06-simulator/remaining-review-20261004/04-expense-list.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/01-foreground-home.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/05-foreground-settled-home.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/02-schedule-list-top.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/03-schedule-list-bottom.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/06-schedule-detail.jpg
+artifacts/ticket-06-simulator/remaining-review-20261004/08-expense-create-unsaved.jpg
+
+
+unable to locate image at `/Users/hammyeong-yeon/Desktop/10_work/noline/artifacts/ticket-06-simulator/remaining-review-20261004/08-expense-create-form.jpg`: No such file or directory (os error 2)

@@ -1,0 +1,48 @@
+{
+  "baseline_git_head": "a199fb4278f895a83d0104372cc677c469c60537",
+  "runtime": {
+    "skills/explain/SKILL.md": {
+      "before_sha256": "506ea98cf0cc5f94e7feab6e908e1b0a8762e788f753c3f38fad5fd9768310e9",
+      "after_sha256": "4f9cdbc3528a37fc4ddb312e90305e7b3e7956a366885cad7f2000764107bb6c"
+    },
+    "skills/explain/references/constructing-explanations.md": {
+      "before_sha256": "8da56e660351bc9c44e826e705aee8f969fde7da766b820929ecdd5882a84a49",
+      "after_sha256": "ba4a93dfbb3dc34ed73fa3036a0c47f2a110c2647d414f356c178884bac66cc5"
+    },
+    "skills/development/SKILL.md": {
+      "before_sha256": "86f0981a26ba2bcfe95cc38ae36645c97d0dbfb4bf2170c6bdd147a6e8219be2",
+      "after_sha256": "452e479439a55e740bb3f00ff6235819e31336b09bd0dcef4f2905f15a21a54f"
+    },
+    "skills/development/references/verification.md": {
+      "before_sha256": "13b65089c6e682decb09a1a57644c4ecf72ea71691bd2906f966a4fe9e1ff419",
+      "after_sha256": "ea8b7a82d2903dcccf7d5dd4375f2570b55912b1daf42d29d62a38a0dcfbc4f2"
+    }
+  },
+  "protected_files_byte_equal": {
+    "skills/explain/references/prior-explanation.md": true,
+    "skills/explain/references/examples/auth-flow.md": true,
+    "skills/shared/explanation-and-evidence-criteria.md": true,
+    "skills/development/references/review.md": true,
+    "skills/development/references/execution.md": true
+  },
+  "protected_sections_equal": {
+    "explain_before_choice": true,
+    "explain_composition_through_authority": true,
+    "construction_existing_examples": true,
+    "construction_goal_report": true,
+    "development_before_report": true,
+    "development_context_recording": true
+  },
+  "semantic_review": "Main이 변경 diff와 배경에서 범위·선택·조사·권한·독립성 보존을 대조. 의미표는 adoption 기록에 있음. 바이트 확인이 의미 판단을 대신하지 않음.",
+  "quick_validate": "PyYAML 부재로 실행불가; 기존 Ruby YAML로 주요 metadata와 placeholder 대체 확인 통과",
+  "viewer": {
+    "documents": 170,
+    "code_files": 5,
+    "internal_links": 956,
+    "anchor_links": 284,
+    "missing": 0,
+    "source_sha": "일치",
+    "syntax": "통과",
+    "browser": "미실행"
+  }
+}

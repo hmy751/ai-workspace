@@ -1,0 +1,33 @@
+{
+  "name": "noline",
+  "private": true,
+  "packageManager": "pnpm@9.6.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "pnpm --filter @repo/schema build",
+    "client": "pnpm --filter @apps/client",
+    "server": "pnpm --filter @apps/server",
+    "schema": "pnpm --filter @repo/schema",
+    "harness:check": "node scripts/check-harness.mjs",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "prettier": "^3.6.2",
+    "typescript": "^5.5.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "pnpm": {}
+}

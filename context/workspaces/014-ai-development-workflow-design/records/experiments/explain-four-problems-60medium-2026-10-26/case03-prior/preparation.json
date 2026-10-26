@@ -1,0 +1,101 @@
+{
+  "case": "case03-prior",
+  "prepared_date": "2026-10-26",
+  "status": "input_materials_prepared; response_not_generated",
+  "scope": "인증 설명의 이전 발화 대조용 입력 준비. 스킬·prompt·reader는 Main이 별도로 준비한다.",
+  "input_file": {
+    "path": "input/materials/conversation.md",
+    "sha256": "5637b1ce61f4fa7eafa2090a1268a0ed69cb32149f1b5bfe929784ed927127b4",
+    "bytes": 38682
+  },
+  "previous_prepared_input": {
+    "path": "records/experiments/artifact-explanation-intent-2026-10-21/inputs/recovery/conversation.md",
+    "sha256": "0f27272d37d0fbc5b1715c584753124f0f1d134c95f14212fca6c4205a90e2ae",
+    "reuse": "네 발화의 본문 전문은 기존 입력 및 corpus 원문과 동일하다. 기존 편집 제목은 제거하고 출처·화자·source_line 표지만 붙였다. 컨테이너 전체 바이트는 기존 입력과 다르다."
+  },
+  "sources": [
+    {
+      "path": "source/noline-evaluation/corpus/01a0c3ac-f144-7251-805b-2e582aed07c6/messages.jsonl",
+      "sha256": "c6aefe58aeee6505e9c36b9f6ec919e1a4642349613c59b46dfcabb59f27d829"
+    },
+    {
+      "path": "source/noline-evaluation/corpus/01a0c7bd-f413-7551-836d-3203775e7c38/messages.jsonl",
+      "sha256": "4541005eb5c6a93273370255d39e876b7dd4903708813e29372ec22fccc05f1f"
+    }
+  ],
+  "records": [
+    {
+      "source": "source/noline-evaluation/corpus/01a0c3ac-f144-7251-805b-2e582aed07c6/messages.jsonl",
+      "session_id": "01a0c3ac-f144-7251-805b-2e582aed07c6",
+      "source_line": 1546,
+      "jsonl_physical_line": 61,
+      "role": "assistant",
+      "raw_record_sha256": "46d8d258a3867157fe69378f3d23cc458d270175df6af8974db8aa78bd420b74",
+      "text_utf8_sha256": "64cc678649848f7f0067a08fdb3646a65e7c205ca730249f5c588da8fe986367",
+      "text_utf8_bytes": 25594,
+      "text_characters": 14924,
+      "verbatim_in_previous_input": true,
+      "verbatim_in_current_input": true
+    },
+    {
+      "source": "source/noline-evaluation/corpus/01a0c7bd-f413-7551-836d-3203775e7c38/messages.jsonl",
+      "session_id": "01a0c7bd-f413-7551-836d-3203775e7c38",
+      "source_line": 50,
+      "jsonl_physical_line": 4,
+      "role": "user",
+      "raw_record_sha256": "d80c3c1578325586e2aea5d58831580bf601ebfa0c250203a3d3f157b495b250",
+      "text_utf8_sha256": "a45f7f1f3065214cbb1aeb2a104ba8e2be3d3006fc4f528220aaf7873791c53e",
+      "text_utf8_bytes": 330,
+      "text_characters": 134,
+      "verbatim_in_previous_input": true,
+      "verbatim_in_current_input": true
+    },
+    {
+      "source": "source/noline-evaluation/corpus/01a0c7bd-f413-7551-836d-3203775e7c38/messages.jsonl",
+      "session_id": "01a0c7bd-f413-7551-836d-3203775e7c38",
+      "source_line": 55,
+      "jsonl_physical_line": 5,
+      "role": "assistant",
+      "raw_record_sha256": "fbb0b859eece10cd146e057ecfd3fb6f26e422545566f86d3d4039062559c721",
+      "text_utf8_sha256": "eee63974265904dcfaebec5b556b881ead0d9dfd3779ee23f2079602fda58db5",
+      "text_utf8_bytes": 12167,
+      "text_characters": 7084,
+      "verbatim_in_previous_input": true,
+      "verbatim_in_current_input": true
+    },
+    {
+      "source": "source/noline-evaluation/corpus/01a0c7bd-f413-7551-836d-3203775e7c38/messages.jsonl",
+      "session_id": "01a0c7bd-f413-7551-836d-3203775e7c38",
+      "source_line": 80,
+      "jsonl_physical_line": 8,
+      "role": "user",
+      "raw_record_sha256": "a2490d92548827041792de24a816b672840da01f2f02d46d54fc8d171927421c",
+      "text_utf8_sha256": "ed9d23634994b8c52ab72755d12811bb23f93f9e5ba2a614db1f63500241549c",
+      "text_utf8_bytes": 281,
+      "text_characters": 189,
+      "verbatim_in_previous_input": true,
+      "verbatim_in_current_input": true
+    }
+  ],
+  "validation": {
+    "record_count": 4,
+    "ordered_source_lines": [
+      1546,
+      50,
+      55,
+      80
+    ],
+    "all_record_texts_verbatim": true,
+    "assembled_bytes_match_selected_texts_plus_neutral_metadata": true,
+    "only_selected_records_included": true,
+    "no_post_80_reply_or_user_132": true,
+    "no_experiment_response_evaluation_or_expected_answer": true,
+    "source_files_modified": false
+  },
+  "limitations": [
+    "이미 조사와 과거 비교에 사용한 인증 원문을 재사용하는 회귀 확인 입력이다. 새로운 일반화 사례가 아니다.",
+    "첫 발화1546은 별도 앞선 세션의 보존된 AI 설명이며 이후50·55·80은 다음 세션에서 이어진 발화다.",
+    "당시 제품 코드와 실행 환경은 제공되지 않는다. 발화 대조를 넘어 원문 밖 제품 사실의 정확성까지 검증할 입력이 아니다.",
+    "원문 안의 제품·옛 스킬 절대경로는 역사적 출처 그대로 보존했다. 현재 접근·실행 권한 또는 현재 시험판 지정을 뜻하지 않는다."
+  ]
+}

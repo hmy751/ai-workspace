@@ -1,0 +1,22 @@
+{
+  "case": "case02-access",
+  "prior_case": "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/experiments/explain-four-problems-60medium-2026-10-26/case02-access",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "required": [
+    "skills/explain/SKILL.md",
+    "materials/conversation.txt"
+  ],
+  "required_chunks": 10,
+  "changed_skill_files": [
+    "skills/explain/SKILL.md",
+    "skills/explain/references/constructing-explanations.md"
+  ],
+  "unchanged_materials": true,
+  "unchanged_prompt": true,
+  "prompt_sha256": "9a75468ba973e8cbfd809973d5a550d789b7d527ac199883200ea8bdbc175890",
+  "helper_sha256": "905a75fd5c3593eb05871ad75d1873bd8a3730e193cd001ebdb3ad8ee2248140",
+  "text_files": 18,
+  "images": 0,
+  "prior_response_sha256": "33e8ecbdf3a4a36e3c3f8c19ef49a2a2c1dfef3ea5a460263d30a12ad396c1e1"
+}

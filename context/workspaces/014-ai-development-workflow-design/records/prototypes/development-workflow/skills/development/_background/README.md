@@ -11,3 +11,5 @@
 - [실행 통합 기록](records/2026-10-23-execution-integration.md): 구현·검토·수정·종료·배치·기록 합의의 실제 반영과 확인 범위.
 
 - [검증 통합 기록](records/2026-10-24-verification-integration.md): 검증 역할·기계 검사·수정 왕복을 나눈 이유와 실행 본문 통합, 사용자 정정·확인 한계.
+
+- [조사·보고의 근거 대조 연결](records/2026-10-26-investigation-evidence-adoption.md): 기존 검사를 사용하는 담당자의 확인과 실행 공백을 구별하고, 독립 검증·설명 책임을 유지한 보완.

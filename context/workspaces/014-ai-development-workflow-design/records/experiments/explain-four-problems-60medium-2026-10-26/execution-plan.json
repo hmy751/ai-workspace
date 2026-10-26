@@ -1,0 +1,65 @@
+{
+  "authorization": "그럼 각각 테스트 돌려봐 먼저 6.0 sol 미디엄으로",
+  "fresh_context": true,
+  "first_response_only": true,
+  "runs": [
+    {
+      "case": "case01-storage",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "entry": "skills/development/SKILL.md",
+      "required": [
+        "skills/development/SKILL.md",
+        "materials/conversation/01-prior.txt",
+        "materials/conversation/02-current.txt"
+      ],
+      "text_files": 19,
+      "images": 3,
+      "prompt_sha256": "365f9fe6de409f8bbebdc94c776f910c37df3dc9381f4e093032ac23d436acfc",
+      "required_chunks": 29
+    },
+    {
+      "case": "case02-access",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "entry": "skills/explain/SKILL.md",
+      "required": [
+        "skills/explain/SKILL.md",
+        "materials/conversation.txt"
+      ],
+      "text_files": 18,
+      "images": 0,
+      "prompt_sha256": "9a75468ba973e8cbfd809973d5a550d789b7d527ac199883200ea8bdbc175890",
+      "required_chunks": 10
+    },
+    {
+      "case": "case03-prior",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "entry": "skills/explain/SKILL.md",
+      "required": [
+        "skills/explain/SKILL.md",
+        "materials/conversation.md"
+      ],
+      "text_files": 6,
+      "images": 0,
+      "prompt_sha256": "362238b2e9869bd26cdb67113cc085bd5b84a901009c2cf67b4500d1f1653339",
+      "required_chunks": 11
+    },
+    {
+      "case": "case04-investigation",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "entry": "skills/development/SKILL.md",
+      "required": [
+        "skills/development/SKILL.md",
+        "materials/conversation.txt"
+      ],
+      "text_files": 830,
+      "images": 16,
+      "prompt_sha256": "5a16eaa123fed00540e0571093632fbda0c216945dd8f049a294e07e92b21533",
+      "required_chunks": 9
+    }
+  ],
+  "isolation": "폴더/지침/로그로 범위통제. OS접근격리 아님."
+}

@@ -1,0 +1,113 @@
+import { View, Text, ActivityIndicator } from 'react-native';
+import { Pressable } from '@repo/ui';
+import { AlertCircle, WifiOff, Lock } from 'lucide-react-native';
+import type { OperationPolicy } from '@/shared/policy/types';
+import { useNetworkCheck } from '@/shared/store/network';
+
+type PolicyErrorDisplayProps = {
+  policy: OperationPolicy;
+  /**
+   * 에러 표시 스타일
+   * - banner: 상단 배너 (노란색, 경고)
+   * - block: 화면 차단 (빨간색, 치명적)
+   * - inline: 인라인 메시지 (컴포넌트 내부)
+   */
+  variant?: 'banner' | 'block' | 'inline';
+  /**
+   * 커스텀 메시지 (policy.reason 대신 사용)
+   */
+  message?: string;
+};
+
+/**
+ * Policy 에러 표시 컴포넌트
+ *
+ * @example
+ * ```tsx
+ * const policy = useAppPolicy(tripId);
+ *
+ * if (!policy.schedule.create.allowed) {
+ *   return <PolicyErrorDisplay policy={policy.schedule.create} variant="block" />;
+ * }
+ * ```
+ */
+export function PolicyErrorDisplay({ policy, variant = 'banner', message }: PolicyErrorDisplayProps) {
+  const displayMessage = message || policy.reason || '이 작업을 수행할 수 없습니다';
+  const canRecheckNetwork = !policy.allowed && policy.recoveryAction === 'recheck-network';
+
+  if (policy.pending) {
+    return (
+      <View
+        accessibilityState={{ busy: true }}
+        className={
+          variant === 'block' ? 'flex-1 items-center justify-center px-lg' : 'px-sm py-xs flex-row items-center'
+        }
+      >
+        <ActivityIndicator color='hsl(120, 61%, 34%)' />
+        <Text className='text-body text-muted-foreground text-center m-xs'>{displayMessage}</Text>
+      </View>
+    );
+  }
+
+  // 에러 아이콘 선택
+  const getIcon = () => {
+    if (policy.reason?.includes('오프라인')) {
+      return <WifiOff size={20} color={variant === 'block' ? '#DC2626' : '#D97706'} />;
+    }
+    if (policy.reason?.includes('비활성')) {
+      return <Lock size={20} color={variant === 'block' ? '#DC2626' : '#D97706'} />;
+    }
+    return <AlertCircle size={20} color={variant === 'block' ? '#DC2626' : '#D97706'} />;
+  };
+
+  // Banner 스타일 (경고)
+  if (variant === 'banner') {
+    return (
+      <View className='bg-yellow-50 px-md py-sm border-b border-yellow-200 flex-row items-center'>
+        {getIcon()}
+        <Text className='text-small text-yellow-800 ml-xs flex-1'>{displayMessage}</Text>
+        {canRecheckNetwork && <NetworkRecheckButton />}
+      </View>
+    );
+  }
+
+  // Block 스타일 (화면 차단)
+  if (variant === 'block') {
+    return (
+      <View className='flex-1 items-center justify-center px-lg'>
+        <View className='w-16 h-16 rounded-full bg-red-50 items-center justify-center mb-md'>{getIcon()}</View>
+        <Text className='text-h3 text-foreground mb-sm text-center'>작업을 수행할 수 없습니다</Text>
+        <Text className='text-body text-muted-foreground text-center'>{displayMessage}</Text>
+        {canRecheckNetwork && <NetworkRecheckButton />}
+      </View>
+    );
+  }
+
+  // Inline 스타일 (컴포넌트 내부)
+  return (
+    <View className='bg-yellow-50 border border-yellow-200 rounded-md px-sm py-xs flex-row items-center'>
+      {getIcon()}
+      <Text className='text-small text-yellow-800 ml-xs flex-1'>{displayMessage}</Text>
+      {canRecheckNetwork && <NetworkRecheckButton />}
+    </View>
+  );
+}
+
+function NetworkRecheckButton() {
+  const { refresh, isRefreshing } = useNetworkCheck();
+
+  return (
+    <Pressable
+      variant='outline'
+      size='md'
+      accessibilityRole='button'
+      accessibilityState={{ disabled: isRefreshing, busy: isRefreshing }}
+      disabled={isRefreshing}
+      onPress={() => {
+        refresh();
+      }}
+    >
+      {isRefreshing ? '확인 중' : '다시 확인'}
+    </Pressable>
+  );
+}

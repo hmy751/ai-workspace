@@ -1,0 +1,4 @@
+- 읽은 자료: `input/materials/conversation.md` 전체 8조각, `input/skills/explain/SKILL.md` 전체 3조각, `input/skills/explain/references/prior-explanation.md`, `input/skills/explain/references/constructing-explanations.md` 전체 2조각, `input/skills/shared/explanation-and-evidence-criteria.md` 전체 2조각.
+- 확인: `read_material.py --list`로 제공 파일 목록 확인, `--images` 결과 `[]`, 답안 작성 전 `--check` 결과 `complete: true`, `missing_required: []`, `changed_inputs: []`, `partially_read: {}`.
+- 대화의 최초 브리핑과 후속 자기평가를 대조했다. 제품 저장소나 과거 `work-artifact-briefing` 본문은 제공되지 않아 실제 적용 여부와 현재 구현은 확인하지 못했다.
+- 최초 병렬 읽기 출력은 전체 집계가 잘렸으므로 대화 1~4조각을 개별 호출로 다시 확인했다. 각 조각의 BEGIN/END를 확인했다. 범위 밖 자료나 웹, 다른 agent는 사용하지 않았다.

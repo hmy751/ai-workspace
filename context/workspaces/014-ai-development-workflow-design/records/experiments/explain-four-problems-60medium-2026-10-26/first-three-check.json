@@ -1,0 +1,60 @@
+[
+  {
+    "case": "case01-storage",
+    "opened_files": 15,
+    "read_events": 48,
+    "response_bytes": 1785,
+    "response_sha256": "e18e066d1eee16a5b5ef9181ea7cc75d9339221c2020b996fb8c291c1fa2429b",
+    "check_before_response": true,
+    "read_paths": [
+      "materials/after/useStorageStats.ts",
+      "materials/before/useStorageStats.test.ts",
+      "materials/before/useStorageStats.ts",
+      "materials/changes/useStorageStats.diff",
+      "materials/conversation/01-prior.txt",
+      "materials/conversation/02-current.txt",
+      "materials/documents/spec-quality.md",
+      "materials/documents/ticket03.md",
+      "materials/observations/2513.txt",
+      "materials/observations/2523.txt",
+      "skills/development/SKILL.md",
+      "skills/development/references/verification.md",
+      "skills/explain/SKILL.md",
+      "skills/explain/references/constructing-explanations.md",
+      "skills/shared/explanation-and-evidence-criteria.md"
+    ]
+  },
+  {
+    "case": "case02-access",
+    "opened_files": 8,
+    "read_events": 18,
+    "response_bytes": 1463,
+    "response_sha256": "33e8ecbdf3a4a36e3c3f8c19ef49a2a2c1dfef3ea5a460263d30a12ad396c1e1",
+    "check_before_response": true,
+    "read_paths": [
+      "materials/README.md",
+      "materials/code/apps/client/src/features/trip/read-query/index.ts",
+      "materials/code/apps/client/src/features/trip/read-query/read-query.ts",
+      "materials/code/apps/client/src/screens/read-query.ts",
+      "materials/conversation.txt",
+      "materials/diffs/ScheduleScreen.diff",
+      "skills/explain/SKILL.md",
+      "skills/explain/references/prior-explanation.md"
+    ]
+  },
+  {
+    "case": "case03-prior",
+    "opened_files": 5,
+    "read_events": 20,
+    "response_bytes": 3078,
+    "response_sha256": "77b3b3397099f3c89e2037425e7572748ab554d146cabffbc88419090f403c6a",
+    "check_before_response": true,
+    "read_paths": [
+      "materials/conversation.md",
+      "skills/explain/SKILL.md",
+      "skills/explain/references/constructing-explanations.md",
+      "skills/explain/references/prior-explanation.md",
+      "skills/shared/explanation-and-evidence-criteria.md"
+    ]
+  }
+]

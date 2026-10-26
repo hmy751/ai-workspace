@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "case": "case01-storage",
+  "prepared_date": "2026-10-26",
+  "role": "input-preparation-only",
+  "source_session_id": "01a08ff3-0e91-7921-afe4-69f0968638ef",
+  "state": "2456 제품 변경 요청에 따른 첫 적용·검사 완료 뒤, 2560 첫 사용자 보고 작성 직전",
+  "conversation": {
+    "public_message_count": 123,
+    "source_ranges": [
+      [
+        9,
+        1542
+      ],
+      [
+        1549,
+        2456
+      ]
+    ],
+    "last_user_source_line": 2456,
+    "last_user_text": "그래 이제 코드 변경해봐"
+  },
+  "files": [
+    {
+      "input_path": "input/materials/conversation/01-prior.txt",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/prior-context/conversation.txt",
+      "bytes": 85566,
+      "sha256": "0b92705eacfd2d8c4b86c40f169455d793edc1d773921433dab106372069f76f",
+      "copy": "byte-identical",
+      "source_lines": [
+        9,
+        1542
+      ],
+      "public_messages": 73
+    },
+    {
+      "input_path": "input/materials/conversation/02-current.txt",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/input/conversation.txt",
+      "bytes": 30476,
+      "sha256": "8eec9ecf0b2d9315b0763f6921a80239ddf47d7ae3fa506d719c064f137108cf",
+      "copy": "byte-identical",
+      "source_lines": [
+        1549,
+        2456
+      ],
+      "public_messages": 50
+    },
+    {
+      "input_path": "input/materials/documents/ticket03.md",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/pre-change/pre-2456-last-commit-ticket03.md",
+      "bytes": 4694,
+      "sha256": "7fbcb9ab48c0f000762f564ff9a5662cf39c6696a23f743293c77c911af99b2d",
+      "copy": "byte-identical",
+      "historical_commit": "309b9e6"
+    },
+    {
+      "input_path": "input/materials/documents/spec-quality.md",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/pre-change/pre-2456-last-commit-spec-quality.md",
+      "bytes": 5984,
+      "sha256": "9d13de78269fb7cca486ba2cd07bb44b84cccfb90d80b74edca5b9bc56d08e9f",
+      "copy": "byte-identical",
+      "historical_commit": "309b9e6"
+    },
+    {
+      "input_path": "input/materials/before/useStorageStats.ts",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/pre-change/pre-2456-tool-read-useStorageStats.ts",
+      "bytes": 2870,
+      "sha256": "b747559e4f8c0d08b39d5fa9b1e61f3ad30a74d93da2f88ca004623cebae6913",
+      "copy": "byte-identical",
+      "source_line": 2468
+    },
+    {
+      "input_path": "input/materials/before/useStorageStats.test.ts",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/pre-change/pre-2456-tool-read-useStorageStats.test.ts",
+      "bytes": 6110,
+      "sha256": "2f74a2a75348d839512c3a11f70c620b33d8415db5f4e81409fdc69862c53438",
+      "copy": "byte-identical",
+      "source_line": 2468
+    },
+    {
+      "input_path": "input/materials/after/useStorageStats.ts",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/first-change/first-application-final-useStorageStats.ts",
+      "bytes": 2752,
+      "sha256": "4466b5dd3f5fdbe8c9ff3dc9bae43df250afdb4384676240b962dd22c0acc2c1",
+      "copy": "byte-identical",
+      "source_line": 2555
+    },
+    {
+      "input_path": "input/materials/changes/useStorageStats.diff",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/first-change/first-application-actual-hook.diff",
+      "bytes": 2444,
+      "sha256": "ab01624759e540e1256441aa996b2a38eb4b2cf05ece56d879c9c588da3ebbd6",
+      "copy": "byte-identical",
+      "source_line": 2537
+    },
+    {
+      "input_path": "input/materials/observations/2513.txt",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/first-change/readings/2513.txt",
+      "bytes": 725,
+      "sha256": "0653c2c2062a79666d684ac7215adbaa5043049b7f18f45d0f8e21b35a0a29cf",
+      "copy": "byte-identical",
+      "source_line": 2513
+    },
+    {
+      "input_path": "input/materials/observations/2523.txt",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/first-change/readings/2523.txt",
+      "bytes": 1430,
+      "sha256": "00ed40dc4448ffec0bac453126d700d74b1894698044979dfa62256d47135072",
+      "copy": "byte-identical",
+      "source_line": 2523
+    },
+    {
+      "input_path": "input/materials/attachments/1720.png",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/prior-images/1720-2.png",
+      "bytes": 107165,
+      "sha256": "8ba04f958c583414f9fb7add6352b354b357e08aebac3f0dadcf0770b9fbc51c",
+      "copy": "byte-identical",
+      "source_line": 1720,
+      "source_content_index": 2
+    },
+    {
+      "input_path": "input/materials/attachments/1933.png",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/prior-images/1933-2.png",
+      "bytes": 197949,
+      "sha256": "2db1a3f1e4548eb27fa0be6892f583fbaf8e091b69fa22145417d977b064fa72",
+      "copy": "byte-identical",
+      "source_line": 1933,
+      "source_content_index": 2
+    },
+    {
+      "input_path": "input/materials/attachments/2089.png",
+      "source_path": "source/artifact-explanation-scenes/04-storage-stats-delivery/historical-materials/prior-images/2089-1.png",
+      "bytes": 256865,
+      "sha256": "b8bb94e3c0f828c747125789a5067e1f0b6bad8f73b8c3391d523739124d2489",
+      "copy": "byte-identical",
+      "source_line": 2089,
+      "source_content_index": 1
+    }
+  ],
+  "checks": {
+    "source_manifest_sha256_match": true,
+    "copy_byte_identity": true,
+    "transcript_message_order_and_text_match": true,
+    "before_plus_actual_diff_equals_after": true,
+    "included_public_source_lines_after_2456": false,
+    "product_code_executed": false,
+    "experiment_response_generated": false
+  },
+  "excluded": [
+    "evaluation/의 2560 첫 보고와 이후 발화",
+    "later-reference 전체",
+    "갱신 후 Ticket과 실행결과 해석",
+    "과거 시험 답·평가·기대 답",
+    "AI 진행 서술 2464~2542",
+    "원자료 설명 README·manifest 및 전체 tool-events"
+  ],
+  "limits": [
+    "Ticket·Spec은 309b9e6의 선행 문서이며 마지막 상태 문구가 첫 적용 후 상태를 나타내지 않는다.",
+    "코드·테스트·검사 출력의 보존 사본이다. 전체 working tree·설치 의존성·기기 상태는 복원하지 않았다.",
+    "2513·2523은 당시 결과이며 이번 준비에서 검사를 재실행하지 않았다.",
+    "원 대화의 외부 경로·링크는 원문대로 보존했고 새 입력 안의 대응 자료를 별도로 배치했다.",
+    "세 첨부 이미지는 1720·1933·2089 원 이미지의 보존 PNG 사본이다."
+  ]
+}

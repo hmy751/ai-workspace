@@ -1,0 +1,404 @@
+/**
+ * MapboxScheduleMapView - Mapbox 기반 오프라인 지도
+ *
+ * 사용 시나리오:
+ * - offline_active: 오프라인 활성화된 여행의 일정을 Mapbox 지도에 표시
+ * - 실제 도로 경로 표시 (저장된 경로)
+ * - 직선 경로 표시 (미저장 경로)
+ * - 순서 번호 마커
+ */
+
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { useRef, useEffect, useMemo, useState } from 'react';
+import MapboxGL from '@rnmapbox/maps';
+import { useGetRoutes } from '@/entities/route';
+import { decodePolyline } from '@/shared/lib/mapbox';
+import { formatDistance, formatDuration, type MapboxProfile } from '@/shared/services/directions/mapbox';
+import type { ScheduleMapViewProps } from './types';
+
+const styles = StyleSheet.create({
+  map: {
+    flex: 1,
+  },
+  emptyContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#F5F5F5',
+    padding: 32,
+  },
+  profileSelector: {
+    position: 'absolute',
+    top: 60, // 날짜 선택 UI 아래로 이동
+    right: 16,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  profileButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+  },
+  profileButtonActive: {
+    backgroundColor: '#4CAF50',
+  },
+  profileButtonText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#666',
+  },
+  profileButtonTextActive: {
+    color: 'white',
+  },
+  routeInfo: {
+    position: 'absolute',
+    top: 104, // 프로필 선택기 아래
+    right: 16,
+    backgroundColor: 'white',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  routeInfoItem: {
+    alignItems: 'center',
+  },
+  routeInfoLabel: {
+    fontSize: 10,
+    color: '#999',
+    marginBottom: 2,
+  },
+  routeInfoValue: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#333',
+  },
+  routeInfoDivider: {
+    width: 1,
+    height: 24,
+    backgroundColor: '#E0E0E0',
+  },
+  routeInfoNoRoute: {
+    fontSize: 13,
+    color: '#999',
+  },
+});
+
+/**
+ * 일정 목록을 Mapbox 지도에 표시 (오프라인)
+ * - 저장된 경로: 실제 도로 polyline (초록색 실선)
+ * - 미저장 경로: 직선 (회색 점선)
+ */
+export function MapboxScheduleMapView({
+  schedules,
+  tripId,
+  accommodationCoords,
+  selectedScheduleId,
+}: ScheduleMapViewProps) {
+  const cameraRef = useRef<MapboxGL.Camera>(null);
+
+  // 이동 수단 선택 상태 (기본값: walking)
+  const [selectedProfile, setSelectedProfile] = useState<MapboxProfile>('walking');
+
+  // 저장된 경로 조회
+  const { data: savedRoutes = [] } = useGetRoutes({ tripId });
+
+  // 좌표가 있는 일정만 필터링
+  const schedulesWithCoords = schedules.filter(
+    (s) => s.latitude && s.longitude && !isNaN(s.latitude) && !isNaN(s.longitude),
+  );
+
+  // 경로 데이터 계산 (저장 vs 미저장)
+  const routeSegments = useMemo(() => {
+    const segments: Array<{
+      id: string;
+      type: 'saved' | 'straight';
+      coordinates: [number, number][]; // [lng, lat]
+      color: string;
+      width: number;
+      dashed?: boolean;
+      distance?: number; // 미터
+      duration?: number; // 초
+    }> = [];
+
+    // 1. 숙소 → 첫 일정 (있는 경우)
+    if (accommodationCoords && schedulesWithCoords[0]) {
+      const firstSchedule = schedulesWithCoords[0];
+      const savedRoute = savedRoutes.find(
+        (r) => r.fromScheduleId === null && r.toScheduleId === firstSchedule.id && r.profile === selectedProfile,
+      );
+
+      if (savedRoute) {
+        // 저장된 경로 - 실제 도로
+        segments.push({
+          id: `route-accommodation-${firstSchedule.id}`,
+          type: 'saved',
+          coordinates: decodePolyline(savedRoute.geometry),
+          color: '#4CAF50', // 초록색
+          width: 4,
+          distance: savedRoute.distance,
+          duration: savedRoute.duration,
+        });
+      } else {
+        // 미저장 경로 - 직선
+        segments.push({
+          id: `route-accommodation-${firstSchedule.id}`,
+          type: 'straight',
+          coordinates: [
+            [accommodationCoords.longitude, accommodationCoords.latitude],
+            [firstSchedule.longitude!, firstSchedule.latitude!],
+          ],
+          color: '#9E9E9E', // 회색
+          width: 2,
+          dashed: true,
+        });
+      }
+    }
+
+    // 2. 일정 → 일정 경로들
+    for (let i = 0; i < schedulesWithCoords.length - 1; i++) {
+      const currentSchedule = schedulesWithCoords[i];
+      const nextSchedule = schedulesWithCoords[i + 1];
+
+      const savedRoute = savedRoutes.find(
+        (r) =>
+          r.fromScheduleId === currentSchedule.id &&
+          r.toScheduleId === nextSchedule.id &&
+          r.profile === selectedProfile,
+      );
+
+      if (savedRoute) {
+        // 저장된 경로 - 실제 도로
+        segments.push({
+          id: `route-${currentSchedule.id}-${nextSchedule.id}`,
+          type: 'saved',
+          coordinates: decodePolyline(savedRoute.geometry),
+          color: '#4CAF50', // 초록색
+          width: 4,
+          distance: savedRoute.distance,
+          duration: savedRoute.duration,
+        });
+      } else {
+        // 미저장 경로 - 직선
+        segments.push({
+          id: `route-${currentSchedule.id}-${nextSchedule.id}`,
+          type: 'straight',
+          coordinates: [
+            [currentSchedule.longitude!, currentSchedule.latitude!],
+            [nextSchedule.longitude!, nextSchedule.latitude!],
+          ],
+          color: '#9E9E9E', // 회색
+          width: 2,
+          dashed: true,
+        });
+      }
+    }
+
+    return segments;
+  }, [schedulesWithCoords, savedRoutes, accommodationCoords, selectedProfile]);
+
+  // 총 거리/시간 계산 (저장된 경로만)
+  const routeSummary = useMemo(() => {
+    const savedSegments = routeSegments.filter((s) => s.type === 'saved' && s.distance && s.duration);
+    const totalDistance = savedSegments.reduce((sum, s) => sum + (s.distance || 0), 0);
+    const totalDuration = savedSegments.reduce((sum, s) => sum + (s.duration || 0), 0);
+    const hasAllRoutes = routeSegments.length > 0 && savedSegments.length === routeSegments.length;
+
+    return { totalDistance, totalDuration, hasAllRoutes, savedCount: savedSegments.length };
+  }, [routeSegments]);
+
+  // 초기 카메라 설정
+  const initialCamera = useMemo(() => {
+    if (schedulesWithCoords.length === 1) {
+      // 일정이 1개만 있으면 중심점 + 줌 레벨
+      return {
+        centerCoordinate: [schedulesWithCoords[0].longitude!, schedulesWithCoords[0].latitude!] as [number, number],
+        zoomLevel: 15,
+      };
+    }
+
+    // 일정이 여러 개면 bounds로 자동 조정
+    const lngs = schedulesWithCoords.map((s) => s.longitude!);
+    const lats = schedulesWithCoords.map((s) => s.latitude!);
+
+    return {
+      bounds: {
+        ne: [Math.max(...lngs), Math.max(...lats)] as [number, number],
+        sw: [Math.min(...lngs), Math.min(...lats)] as [number, number],
+        paddingTop: 100,
+        paddingRight: 50,
+        paddingBottom: 300,
+        paddingLeft: 50,
+      },
+    };
+  }, [schedulesWithCoords]);
+
+  // 선택된 일정으로 카메라 이동
+  useEffect(() => {
+    if (cameraRef.current && selectedScheduleId) {
+      const selectedSchedule = schedulesWithCoords.find((s) => s.id === selectedScheduleId);
+      if (selectedSchedule?.latitude && selectedSchedule?.longitude) {
+        cameraRef.current.setCamera({
+          centerCoordinate: [selectedSchedule.longitude, selectedSchedule.latitude],
+          zoomLevel: 15,
+          animationDuration: 300, // 애니메이션 짧게
+        });
+      }
+    }
+  }, [selectedScheduleId, schedulesWithCoords]);
+
+  // 좌표가 있는 일정이 없는 경우
+  if (schedulesWithCoords.length === 0) {
+    return (
+      <View style={styles.emptyContainer}>
+        <Text className='text-title-large text-foreground mb-xs'>지도에 표시할 일정이 없어요</Text>
+        <Text className='text-body text-muted-foreground text-center'>
+          일정 추가 시 장소를 선택하면{'\n'}지도에서 위치를 확인할 수 있어요
+        </Text>
+      </View>
+    );
+  }
+
+  // 이동 수단 라벨 매핑
+  const profileLabels: Record<MapboxProfile, string> = {
+    walking: '도보',
+    cycling: '자전거',
+    'driving-traffic': '자동차',
+  };
+
+  return (
+    <View style={styles.map}>
+      <MapboxGL.MapView style={styles.map} styleURL='mapbox://styles/mapbox/streets-v11'>
+        {/* 카메라 - 모든 일정을 포함하도록 자동 조정 */}
+        <MapboxGL.Camera ref={cameraRef} {...initialCamera} animationDuration={0} />
+
+        {/* 경로 선들 */}
+        {routeSegments.map((segment) => (
+          <MapboxGL.ShapeSource
+            key={segment.id}
+            id={segment.id}
+            shape={{
+              type: 'Feature',
+              geometry: {
+                type: 'LineString',
+                coordinates: segment.coordinates,
+              },
+              properties: {},
+            }}
+          >
+            <MapboxGL.LineLayer
+              id={`${segment.id}-layer`}
+              style={{
+                lineColor: segment.color,
+                lineWidth: segment.width,
+                lineDasharray: segment.dashed ? [2, 2] : undefined,
+              }}
+            />
+          </MapboxGL.ShapeSource>
+        ))}
+
+        {/* 마커들 - 일정 */}
+        {schedulesWithCoords.map((schedule, index) => {
+          const isSelected = schedule.id === selectedScheduleId;
+          return (
+            <MapboxGL.PointAnnotation
+              key={schedule.id}
+              id={schedule.id}
+              coordinate={[schedule.longitude!, schedule.latitude!]}
+            >
+              {/* 커스텀 마커 (순서 번호 표시) */}
+              <View className='items-center'>
+                <View
+                  className={`rounded-full border-2 border-white shadow-md ${
+                    isSelected ? 'h-10 w-10 bg-primary' : 'h-8 w-8 bg-primary/70'
+                  }`}
+                  style={{ justifyContent: 'center', alignItems: 'center' }}
+                >
+                  <Text
+                    className={`font-semibold ${
+                      isSelected ? 'text-body text-primary-foreground' : 'text-label text-primary-foreground/80'
+                    }`}
+                  >
+                    {index + 1}
+                  </Text>
+                </View>
+                {isSelected && (
+                  <View
+                    className='mt-1 h-2 w-2 rounded-full bg-primary'
+                    style={{ shadowColor: '#000', shadowOpacity: 0.3, shadowRadius: 2 }}
+                  />
+                )}
+              </View>
+            </MapboxGL.PointAnnotation>
+          );
+        })}
+
+        {/* 숙소 마커 (있는 경우) */}
+        {accommodationCoords && (
+          <MapboxGL.PointAnnotation
+            id='accommodation'
+            coordinate={[accommodationCoords.longitude, accommodationCoords.latitude]}
+          >
+            <View className='items-center'>
+              <View
+                className='h-10 w-10 rounded-full border-2 border-white bg-blue-500 shadow-md'
+                style={{ justifyContent: 'center', alignItems: 'center' }}
+              >
+                <Text className='text-body font-semibold text-white'>🏠</Text>
+              </View>
+            </View>
+          </MapboxGL.PointAnnotation>
+        )}
+      </MapboxGL.MapView>
+
+      {/* 이동 수단 선택 버튼 */}
+      <View style={styles.profileSelector}>
+        {(['walking', 'cycling', 'driving-traffic'] as MapboxProfile[]).map((profile) => (
+          <TouchableOpacity
+            key={profile}
+            style={[styles.profileButton, selectedProfile === profile && styles.profileButtonActive]}
+            onPress={() => setSelectedProfile(profile)}
+          >
+            <Text style={[styles.profileButtonText, selectedProfile === profile && styles.profileButtonTextActive]}>
+              {profileLabels[profile]}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
+      {/* 경로 정보 (거리 / 예상 시간) */}
+      {routeSegments.length > 0 && (
+        <View style={styles.routeInfo}>
+          {routeSummary.savedCount > 0 ? (
+            <>
+              <View style={styles.routeInfoItem}>
+                <Text style={styles.routeInfoLabel}>총 거리</Text>
+                <Text style={styles.routeInfoValue}>{formatDistance(routeSummary.totalDistance)}</Text>
+              </View>
+              <View style={styles.routeInfoDivider} />
+              <View style={styles.routeInfoItem}>
+                <Text style={styles.routeInfoLabel}>예상 시간</Text>
+                <Text style={styles.routeInfoValue}>{formatDuration(routeSummary.totalDuration)}</Text>
+              </View>
+            </>
+          ) : (
+            <Text style={styles.routeInfoNoRoute}>경로 없음</Text>
+          )}
+        </View>
+      )}
+    </View>
+  );
+}

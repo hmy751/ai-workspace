@@ -1,0 +1,116 @@
+{
+  "materials/after/useStorageStats.ts": {
+    "sha256": "4466b5dd3f5fdbe8c9ff3dc9bae43df250afdb4384676240b962dd22c0acc2c1",
+    "bytes": 2752,
+    "chars": 2614,
+    "chunks": 1
+  },
+  "materials/before/useStorageStats.test.ts": {
+    "sha256": "2f74a2a75348d839512c3a11f70c620b33d8415db5f4e81409fdc69862c53438",
+    "bytes": 6110,
+    "chars": 5760,
+    "chunks": 2
+  },
+  "materials/before/useStorageStats.ts": {
+    "sha256": "b747559e4f8c0d08b39d5fa9b1e61f3ad30a74d93da2f88ca004623cebae6913",
+    "bytes": 2870,
+    "chars": 2732,
+    "chunks": 1
+  },
+  "materials/changes/useStorageStats.diff": {
+    "sha256": "ab01624759e540e1256441aa996b2a38eb4b2cf05ece56d879c9c588da3ebbd6",
+    "bytes": 2444,
+    "chars": 2444,
+    "chunks": 1
+  },
+  "materials/conversation/01-prior.txt": {
+    "sha256": "0b92705eacfd2d8c4b86c40f169455d793edc1d773921433dab106372069f76f",
+    "bytes": 85566,
+    "chars": 53048,
+    "chunks": 18
+  },
+  "materials/conversation/02-current.txt": {
+    "sha256": "8eec9ecf0b2d9315b0763f6921a80239ddf47d7ae3fa506d719c064f137108cf",
+    "bytes": 30476,
+    "chars": 19835,
+    "chunks": 7
+  },
+  "materials/documents/spec-quality.md": {
+    "sha256": "9d13de78269fb7cca486ba2cd07bb44b84cccfb90d80b74edca5b9bc56d08e9f",
+    "bytes": 5984,
+    "chars": 2781,
+    "chunks": 1
+  },
+  "materials/documents/ticket03.md": {
+    "sha256": "7fbcb9ab48c0f000762f564ff9a5662cf39c6696a23f743293c77c911af99b2d",
+    "bytes": 4694,
+    "chars": 2649,
+    "chunks": 1
+  },
+  "materials/observations/2513.txt": {
+    "sha256": "0653c2c2062a79666d684ac7215adbaa5043049b7f18f45d0f8e21b35a0a29cf",
+    "bytes": 725,
+    "chars": 725,
+    "chunks": 1
+  },
+  "materials/observations/2523.txt": {
+    "sha256": "00ed40dc4448ffec0bac453126d700d74b1894698044979dfa62256d47135072",
+    "bytes": 1430,
+    "chars": 1426,
+    "chunks": 1
+  },
+  "skills/development/SKILL.md": {
+    "sha256": "86f0981a26ba2bcfe95cc38ae36645c97d0dbfb4bf2170c6bdd147a6e8219be2",
+    "bytes": 21138,
+    "chars": 9462,
+    "chunks": 4
+  },
+  "skills/development/references/execution.md": {
+    "sha256": "d464ced8767285732148065d646f610e1777724fb625260ed99e20f556db43a6",
+    "bytes": 4899,
+    "chars": 2102,
+    "chunks": 1
+  },
+  "skills/development/references/review.md": {
+    "sha256": "b2a8fba74b537c55f4537f3e1053c2e9148177b4b3fe67bbe2aadd2e00abbb64",
+    "bytes": 12106,
+    "chars": 5212,
+    "chunks": 2
+  },
+  "skills/development/references/verification.md": {
+    "sha256": "13b65089c6e682decb09a1a57644c4ecf72ea71691bd2906f966a4fe9e1ff419",
+    "bytes": 17140,
+    "chars": 7414,
+    "chunks": 3
+  },
+  "skills/explain/SKILL.md": {
+    "sha256": "506ea98cf0cc5f94e7feab6e908e1b0a8762e788f753c3f38fad5fd9768310e9",
+    "bytes": 14648,
+    "chars": 6338,
+    "chunks": 3
+  },
+  "skills/explain/references/constructing-explanations.md": {
+    "sha256": "8da56e660351bc9c44e826e705aee8f969fde7da766b820929ecdd5882a84a49",
+    "bytes": 11606,
+    "chars": 5394,
+    "chunks": 2
+  },
+  "skills/explain/references/examples/auth-flow.md": {
+    "sha256": "88bb3aa1bfcb1c0459e461175ab37f23f2e033ae60f3f8b06d7085c90dff7243",
+    "bytes": 11650,
+    "chars": 6233,
+    "chunks": 3
+  },
+  "skills/explain/references/prior-explanation.md": {
+    "sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889",
+    "bytes": 6065,
+    "chars": 2591,
+    "chunks": 1
+  },
+  "skills/shared/explanation-and-evidence-criteria.md": {
+    "sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a",
+    "bytes": 6255,
+    "chars": 3055,
+    "chunks": 2
+  }
+}

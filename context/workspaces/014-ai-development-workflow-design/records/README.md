@@ -1,5 +1,17 @@
 # 논의와 보존 기록
 
+- [04-02 설계 마감과 후속 책임](2026-10-26-ticket04-02-closeout-and-followups.md): 최종 점검 네 사항을 정리하고 기존 다섯 완료 조건을 대조했다. 현재판을 유지하며06·07·05·04-03에 남은 배치·적용 관찰·경험 판단·맥락 연결을 반영했다. 운영 설치·일반 효과와 구별한다.
+
+- [04-02 최종 정합성 점검](2026-10-26-ticket04-02-final-consistency-review.md): 실행 의미·배경·원응답·관련 Ticket을 대조하고 옛 범위·모델 지시, 마감과 후속 적용의 연결, 배경 안내의 정리 지점을 확인했다. 새 응답 시험·실행 본문 수정 없이 보존 해시와 viewer를 재확인했다.
+
+- [04-02 종합 방향 반영과 두 재시험](2026-10-26-ticket04-02-choice-investigation-adoption.md): 본체·상세·형성 자료 반영, 기존 의미·정적 검사, 같은 자료의 GPT-6-sol medium 두 최초 수행 완료. [원응답](experiments/explain-choice-investigation-60medium-revised-2026-10-26/raw-responses.md)과 [부분 개선·남은 부족](experiments/explain-choice-investigation-60medium-revised-2026-10-26/comparison.md)을 연결한다.
+
+- [04-02 선택 판단·조사 충분성의 구체 보완안과 배경 종합 재판단](2026-10-26-ticket04-02-choice-and-investigation-improvement-proposal.md): 최초 교체안 뒤 형성 근거·변경 기록·원대화를 대조했다. 지원 목표와 한 곳 적용을 구별해 내부 유지 추천 예시를 철회하고, 상세 열람 연결은 보조로 한정했다. 선택 비교와 필요한 추가 확인의 책임은 유지하며 실행 스킬 반영·재시험은 없다.
+
+- [04-02 네 사례의 GPT-6-sol medium 최초 수행](experiments/explain-four-problems-60medium-2026-10-26/README.md): 저장 용량·access·인증 자기평가·종합 UX 조사 각1회와 원응답·읽기·입력 해시를 보존했다. Main은 access의 선택 근거와 보고서의 검사 범위 조사·설명 연결을 후속 보완 대상으로 판단했다. 사용자 평가·스킬 수정·Ticket 마감은 아직이다.
+
+- [04-02 문제별 사례 선정과 확인 방법](2026-10-26-ticket04-02-case-selection-and-method.md): 저장 용량 첫 보고·access 선택·인증 자기평가·보고서의 제한된 추가 조사를 추천한다. access 질문 이전 코드 원자료를 찾아 해시·발췌를 보존했다. 현재판 수행을 우선하며 새 시험·스킬 수정은 없다.
+
 - [04-02 네 해결 과제와 현재 논의](2026-10-26-ticket04-02-four-problems-and-comparison-checkpoint.md): 사례별 시험 단계와 문제 지도를 구별하고 네 번째 조사·구현·검증 공백 문제를 복원했다. source04 첫 전달의 입력·두 조건·판정·종료는 미실행 제안이며 본체는 `b6195d4`를 유지한다.
 
 - [04-02 본체 구조 정리 반영](2026-10-25-ticket04-02-body-organization-adoption.md): 본체의 책임·조건 배치를 정리하고 기존 인증 전체·후속 예시를 내용 그대로 함께 분리했다. 기존 의미·읽기 조건과 배경을 대조했다. 새 응답 시험은 없다. [당시 구조 제안](2026-10-25-ticket04-02-body-structure-reconsideration.md)은 이력으로 보존한다.

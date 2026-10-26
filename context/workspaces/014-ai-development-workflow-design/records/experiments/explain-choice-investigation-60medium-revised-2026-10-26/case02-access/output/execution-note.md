@@ -1,0 +1,5 @@
+- 읽은 자료: `prompt.txt`; `read_material.py --list`, `--images`, `--check`; `input/skills/explain/SKILL.md` 전체, `references/prior-explanation.md` 전체, `references/constructing-explanations.md` 전체; `input/materials/conversation.txt` 전체, `README.md`, `code/apps/client/src/features/trip/read-query/read-query.ts` 전체, 해당 `index.ts` 전체, `screens/read-query.ts` 전체, `shared/policy/types.ts` 전체, `entities/schedule/data/useGetSchedules.ts` 전체, `diffs/ScheduleScreen.diff` 전체, 두 폼 발췌 전체.
+- 확인 결과: 현재 조합 훅은 내부에서 access를 계산하고 Query 활성 조건·view·actions에 사용하지만 반환하지 않는다. 일정 화면 diff는 actions와 view만 소비한다. 캐시가 준비된 상태에서 실제 조회만 제한되면 view가 ready일 수 있으며, 반환값의 canRefetch만으로 제한 이유를 표시하기 어렵다. 앞선 대화의 `{ query, access, view }` 제안과 현행 `{ query, actions, view }` 구현을 대조했다.
+- `read_material.py --check`: `complete: true`, `missing_required: []`, `changed_inputs: []`, `partially_read: {}`. `--images`: 빈 목록.
+- 하지 못한 확인: 제공 자료 밖의 제품 전체 파일·실행·테스트는 확인하지 않았다. 일정 화면은 제공된 diff 범위만 확인했다.
+- 도구 출력 잘림 없음. 범위 밖 자료 접근 없음. 제품 파일 수정·실행 없음.

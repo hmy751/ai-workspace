@@ -1,0 +1,218 @@
+Script completed
+Wall time 0.3 seconds
+Output:
+
+
+import '../styles/global.css';
+
+import React, { useEffect, useRef } from 'react';
+import { useColorScheme } from 'react-native';
+import { Stack, useRouter, useSegments } from 'expo-router';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { PortalHost } from '@rn-primitives/portal';
+import { QueryClientProvider } from '@tanstack/react-query';
+import MapboxGL from '@rnmapbox/maps';
+
+import { AppInitialization } from '@/application/AppInitialization';
+
+import { useTripSelection } from '@/entities/trip/data/useTripSelection';
+import { SessionExpiredBanner } from '@/shared/components';
+import { queryClient } from '@/shared/lib/queryClient';
+import { useOfflineMapCleanup } from '@/shared/services/offline-map';
+import { usePendingCleanups } from '@/shared/services/sync/usePendingCleanups';
+import { SyncProvider } from '@/shared/services/sync/provider';
+import { useAuthStore, hasLocalSession, type AuthStatus } from '@/shared/store/auth';
+
+MapboxGL.setAccessToken(process.env.EXPO_PUBLIC_MAPBOX_PUBLIC_ACCESS_TOKEN!);
+
+// 전체 앱의 구성: 준비가 끝난 뒤 화면과 인증 후 작업을 연결한다.
+export default function RootLayout() {
+  const authStatus = useAuthStore((state) => state.status);
+  const userId = useAuthStore((state) => state.userId);
+  const hasSession = hasLocalSession({ status: authStatus });
+
+  return (
+    <SafeAreaProvider>
+      <AppInitialization>
+        <QueryClientProvider client={queryClient}>
+          <SyncProvider>
+            <SessionExpiredBanner />
+            <AppNavigation status={authStatus} userId={userId} />
+            <PortalHost />
+            {hasSession && <AuthenticatedEffects />}
+          </SyncProvider>
+        </QueryClientProvider>
+      </AppInitialization>
+    </SafeAreaProvider>
+  );
+}
+
+// 준비 완료 후의 화면 구성과 로그인 상태에 따른 이동을 함께 관리한다.
+function AppNavigation({ status, userId }: { status: AuthStatus; userId: string | null }) {
+  const previousUserRef = useRef(userId);
+  const colorScheme = useColorScheme();
+  const router = useRouter();
+  const segments = useSegments();
+
+  useEffect(() => {
+    const previousUserId = previousUserRef.current;
+    previousUserRef.current = userId;
+    const isAuthRoute = segments[0] === '(auth)';
+
+    if (!hasLocalSession({ status }) && !isAuthRoute) {
+      console.debug('[AppNavigation] redirect', {
+        reason: 'unauthenticated',
+        target: 'login',
+      });
+
+      router.replace('/(auth)/login');
+      return;
+    }
+
+    if (status === 'signed-in' && isAuthRoute) {
+      console.debug('[AppNavigation] redirect', {
+        reason: 'authenticated',
+        target: 'home',
+      });
+
+      if (previousUserId === userId && router.canGoBack()) router.back();
+      else router.replace('/(tabs)');
+    }
+  }, [status, userId, segments, router]);
+
+  return (
+    <Stack
+      key={userId ?? 'signed-out'}
+      screenOptions={{
+        headerShown: false,
+        contentStyle: {
+          backgroundColor: colorScheme === 'dark' ? '#1F1F1F' : '#FAFAFA',
+        },
+      }}
+    >
+      <Stack.Screen name='(auth)' />
+      <Stack.Screen name='(tabs)' />
+    </Stack>
+  );
+}
+
+// 로그인할 때 연결되고 로그아웃하면 해제된다. 완료를 기다리지 않고 화면을 사용할 수 있다.
+function AuthenticatedEffects() {
+  useTripSelection();
+  useOfflineMapCleanup();
+  usePendingCleanups();
+
+  return null;
+}
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { ActivityIndicator, Text, View } from 'react-native';
+import { Pressable } from '@repo/ui';
+import * as SplashScreen from 'expo-splash-screen';
+
+import { initializeDatabase } from '@/shared/db';
+import { useAuthStore } from '@/shared/store/auth';
+import { networkStore } from '@/shared/store/network';
+
+type AppStartupStatus = 'preparing' | 'database-error' | 'ready';
+
+void SplashScreen.preventAutoHideAsync();
+
+// 앱을 사용할 수 있는 조건과 그때까지의 UI를 소유한다.
+// 네트워크 감지는 mount 동안 유지하고, 실패 재시도는 DB·인증 준비만 다시 실행한다.
+export function AppInitialization({ children }: { children: React.ReactNode }) {
+  const [startupStatus, setStartupStatus] = useState<AppStartupStatus>('preparing');
+  const activeAttempt = useRef<object | null>(null);
+
+  const initializeApp = useCallback(async () => {
+    if (activeAttempt.current) {
+      return;
+    }
+
+    const attempt = {};
+    activeAttempt.current = attempt;
+    setStartupStatus('preparing');
+    const startedAt = Date.now();
+
+    try {
+      await initializeDatabase();
+    } catch (error) {
+      console.error('[AppInitialization] failed', {
+        phase: 'database',
+        durationMs: Date.now() - startedAt,
+        error,
+      });
+
+      if (activeAttempt.current === attempt) {
+        activeAttempt.current = null;
+        setStartupStatus('database-error');
+      }
+
+      return;
+    }
+
+    if (activeAttempt.current !== attempt) {
+      return;
+    }
+
+    // 저장소 복원 실패는 로그인 화면에서 안내하고 명시적으로 재시도한다.
+    await useAuthStore.getState().restoreSessionOnce();
+
+    if (activeAttempt.current !== attempt) {
+      return;
+    }
+
+    activeAttempt.current = null;
+    setStartupStatus('ready');
+    console.info('[AppInitialization] completed', { durationMs: Date.now() - startedAt });
+  }, []);
+
+  useEffect(() => {
+    networkStore.init();
+    void initializeApp();
+
+    return () => {
+      // 이전 실행의 늦은 완료가 다음 실행이나 해제된 화면에 반영되지 않게 한다.
+      activeAttempt.current = null;
+      networkStore.cleanup();
+    };
+  }, [initializeApp]);
+
+  useEffect(() => {
+    if (startupStatus === 'preparing') {
+      return;
+    }
+
+    // 성공하면 앱을, 실패하면 재시도 화면을 보여준다.
+    void SplashScreen.hideAsync();
+  }, [startupStatus]);
+
+  if (startupStatus === 'ready') {
+    return <>{children}</>;
+  }
+
+  return (
+    <View className='flex-1 items-center justify-center bg-background px-lg'>
+      {startupStatus === 'preparing' ? (
+        <>
+          <ActivityIndicator accessibilityLabel='앱 준비 중' />
+          <Text className='mt-md text-body text-foreground'>앱을 준비하고 있어요</Text>
+        </>
+      ) : (
+        <>
+          <Text accessibilityRole='header' className='text-h3 text-foreground mb-sm text-center'>
+            앱을 준비하지 못했어요
+          </Text>
+          <Text className='text-body text-muted-foreground text-center mb-lg'>
+            이 기기의 여행 데이터를 열지 못했어요. 잠시 후 다시 시도해주세요.
+          </Text>
+          <Pressable accessibilityRole='button' onPress={() => void initializeApp()}>
+            다시 시도
+          </Pressable>
+        </>
+      )}
+    </View>
+  );
+}
+apps/client/src/shared/store/network.ts:176:       * addEventListener 등록 시 현재 네트워크 상태도 전달되므로
+apps/client/src/shared/store/network.ts:179:      session.unsubscribe = NetInfo.addEventListener((state) => {
+apps/client/src/shared/store/network.ts:370:      state = await NetInfo.refresh();

@@ -1,0 +1,325 @@
+import type { Application } from 'express';
+import { deleteScheduleResponse } from '@repo/schema/responses/schedule';
+import { syncPullResponseSchema } from '@repo/schema/sync/sync-status';
+import { activateTripResponse } from '@repo/schema/responses/trip';
+import request from 'supertest';
+import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import {
+  dbInsertMock,
+  dbSelectMock,
+  dbUpdateMock,
+  loadTestApp,
+  resetDbMock,
+  setInsertResult,
+  setSelectResults,
+  setUpdateResult,
+  TEST_USER_ID,
+} from '../support/test-app.js';
+
+const TRIP_ID = '01ARZ3NDEKTSV4RRFFQ69G5FAC';
+const SCHEDULE_ID = '01ARZ3NDEKTSV4RRFFQ69G5FAB';
+const EXPENSE_ID = '01ARZ3NDEKTSV4RRFFQ69G5FAD';
+const SCHEDULED_AT = '2026-09-20T01:30:00.000Z';
+const EXPENSE_DATE = '2026-09-20';
+const CREATED_AT = '2026-09-13T02:00:00.000Z';
+const UPDATED_AT = '2026-09-13T03:00:00.000Z';
+
+const scheduleRow = {
+  id: SCHEDULE_ID,
+  userId: TEST_USER_ID,
+  tripId: TRIP_ID,
+  title: 'Museum visit',
+  location: 'National Museum',
+  address: null,
+  scheduledAt: new Date(SCHEDULED_AT),
+  latitude: null,
+  longitude: null,
+  createdAt: new Date(CREATED_AT),
+  updatedAt: new Date(UPDATED_AT),
+  deletedAt: null,
+  version: 1,
+};
+
+const serializedSchedule = {
+  ...scheduleRow,
+  scheduledAt: SCHEDULED_AT,
+  createdAt: CREATED_AT,
+  updatedAt: UPDATED_AT,
+  deletedAt: null,
+};
+
+const tripRow = {
+  id: TRIP_ID,
+  userId: TEST_USER_ID,
+  name: 'Seoul trip',
+  destination: 'Seoul',
+  country: 'KR',
+  baseCurrency: 'KRW',
+  latitude: null,
+  longitude: null,
+  cityId: null,
+  startDate: new Date('2026-09-19T00:00:00.000Z'),
+  endDate: new Date('2026-09-22T00:00:00.000Z'),
+  createdAt: new Date(CREATED_AT),
+  updatedAt: new Date(UPDATED_AT),
+  deletedAt: null,
+  version: 1,
+};
+
+const expenseRow = {
+  id: EXPENSE_ID,
+  userId: TEST_USER_ID,
+  tripId: TRIP_ID,
+  scheduleId: SCHEDULE_ID,
+  title: 'Lunch',
+  amount: '12000.00',
+  currency: 'KRW',
+  category: 'food',
+  date: new Date(`${EXPENSE_DATE}T00:00:00.000Z`),
+  hasReceipt: 1,
+  receiptUrl: null,
+  createdAt: new Date(CREATED_AT),
+  updatedAt: new Date(UPDATED_AT),
+  deletedAt: null,
+  version: 1,
+};
+
+const serializedExpense = {
+  ...expenseRow,
+  date: EXPENSE_DATE,
+  hasReceipt: true,
+  createdAt: CREATED_AT,
+  updatedAt: UPDATED_AT,
+  deletedAt: null,
+};
+
+let app: Application;
+
+beforeAll(async () => {
+  app = await loadTestApp();
+});
+
+beforeEach(() => {
+  resetDbMock();
+});
+
+describe('Schedule 기본 API 응답 계약', () => {
+  it('생성된 Schedule의 날짜를 ISO 문자열로 반환한다', async () => {
+    setSelectResults([tripRow]);
+    setInsertResult([scheduleRow]);
+
+    const response = await request(app)
+      .post('/api/schedules')
+      .send({
+        id: SCHEDULE_ID,
+        tripId: TRIP_ID,
+        title: scheduleRow.title,
+        location: scheduleRow.location,
+        address: scheduleRow.address,
+        scheduledAt: SCHEDULED_AT,
+        latitude: null,
+        longitude: null,
+      })
+      .expect(201);
+
+    expect(response.body).toEqual({ success: true, data: serializedSchedule });
+    expect(dbSelectMock).toHaveBeenCalledOnce();
+    expect(dbInsertMock).toHaveBeenCalledOnce();
+  });
+
+  it('접근할 수 없는 부모 Trip에는 Schedule을 생성하지 않는다', async () => {
+    setSelectResults([]);
+    setInsertResult([scheduleRow]);
+
+    await request(app)
+      .post('/api/schedules')
+      .send({
+        id: SCHEDULE_ID,
+        tripId: TRIP_ID,
+        title: scheduleRow.title,
+        location: scheduleRow.location,
+        address: scheduleRow.address,
+        scheduledAt: SCHEDULED_AT,
+        latitude: null,
+        longitude: null,
+      })
+      .expect(404);
+
+    expect(dbSelectMock).toHaveBeenCalledOnce();
+    expect(dbInsertMock).not.toHaveBeenCalled();
+  });
+
+  it('Schedule 목록의 날짜를 ISO 문자열로 반환한다', async () => {
+    setSelectResults([scheduleRow]);
+
+    const response = await request(app).get('/api/schedules').query({ tripId: TRIP_ID }).expect(200);
+
+    expect(response.body).toEqual({
+      success: true,
+      data: [serializedSchedule],
+    });
+    expect(dbSelectMock).toHaveBeenCalledOnce();
+  });
+
+  it('Schedule 단건의 날짜를 ISO 문자열로 반환한다', async () => {
+    setSelectResults([scheduleRow]);
+
+    const response = await request(app).get(`/api/schedules/${SCHEDULE_ID}`).expect(200);
+
+    expect(response.body).toEqual({ success: true, data: serializedSchedule });
+    expect(dbSelectMock).toHaveBeenCalledOnce();
+  });
+
+  it('수정된 Schedule의 날짜를 ISO 문자열로 반환한다', async () => {
+    setUpdateResult([scheduleRow]);
+
+    const response = await request(app)
+      .put(`/api/schedules/${SCHEDULE_ID}`)
+      .send({ title: scheduleRow.title })
+      .expect(200);
+
+    expect(response.body).toEqual({ success: true, data: serializedSchedule });
+    expect(dbSelectMock).not.toHaveBeenCalled();
+    expect(dbUpdateMock).toHaveBeenCalledOnce();
+  });
+
+  it('소유권이 적용된 수정에서 대상이 없으면 404를 반환한다', async () => {
+    setUpdateResult([]);
+
+    await request(app).put(`/api/schedules/${SCHEDULE_ID}`).send({ title: 'Updated title' }).expect(404);
+
+    expect(dbUpdateMock).toHaveBeenCalledOnce();
+  });
+
+  it('삭제된 Schedule을 삭제 응답 계약으로 반환한다', async () => {
+    const deletedAt = new Date('2026-09-13T04:00:00.000Z');
+    setUpdateResult([{ ...scheduleRow, deletedAt }]);
+
+    const response = await request(app).delete(`/api/schedules/${SCHEDULE_ID}`).expect(200);
+
+    expect(response.body).toEqual({
+      success: true,
+      data: {
+        id: SCHEDULE_ID,
+        deletedAt: deletedAt.toISOString(),
+      },
+    });
+    expect(deleteScheduleResponse.safeParse(response.body).success).toBe(true);
+  });
+
+  it('계약에 맞지 않는 Schedule 삭제 결과를 성공 응답으로 노출하지 않는다', async () => {
+    setUpdateResult([{ ...scheduleRow, id: 'invalid-id', deletedAt: null }]);
+
+    await request(app).delete(`/api/schedules/${SCHEDULE_ID}`).expect(500);
+  });
+
+  it('소유권이 적용된 삭제에서 대상이 없으면 404를 반환한다', async () => {
+    setUpdateResult([]);
+
+    await request(app).delete(`/api/schedules/${SCHEDULE_ID}`).expect(404);
+
+    expect(dbUpdateMock).toHaveBeenCalledOnce();
+  });
+});
+
+describe('Schedule을 포함하는 연관 API 응답 계약', () => {
+  it('Trip 하위 Schedule 목록의 날짜를 ISO 문자열로 반환한다', async () => {
+    setSelectResults([tripRow], [scheduleRow]);
+
+    const response = await request(app).get(`/api/trips/${TRIP_ID}/schedules`).expect(200);
+
+    expect(response.body).toEqual({ success: true, data: [serializedSchedule] });
+    expect(dbSelectMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('접근할 수 없는 부모 Trip의 Schedule 목록을 노출하지 않는다', async () => {
+    setSelectResults([]);
+
+    await request(app).get(`/api/trips/${TRIP_ID}/schedules`).expect(404);
+
+    expect(dbSelectMock).toHaveBeenCalledOnce();
+  });
+
+  it('Trip 활성화 응답 전체를 선언된 데이터 계약에 맞게 반환한다', async () => {
+    setSelectResults([tripRow], [tripRow], [scheduleRow], [expenseRow]);
+
+    const response = await request(app).post(`/api/trips/${TRIP_ID}/activate`).expect(200);
+
+    expect(response.body).toEqual({
+      success: true,
+      data: {
+        trips: [
+          {
+            ...tripRow,
+            startDate: tripRow.startDate.toISOString(),
+            endDate: tripRow.endDate.toISOString(),
+            createdAt: CREATED_AT,
+            updatedAt: UPDATED_AT,
+            deletedAt: null,
+          },
+        ],
+        schedules: [serializedSchedule],
+        expenses: [serializedExpense],
+      },
+      message: 'Trip activated successfully (1 trips, 1 schedules, 1 expenses)',
+    });
+    expect(activateTripResponse.safeParse(response.body).success).toBe(true);
+    expect(dbSelectMock).toHaveBeenCalledTimes(4);
+  });
+
+  it('계약에 맞지 않는 Trip 활성화 결과를 성공 응답으로 노출하지 않는다', async () => {
+    setSelectResults([tripRow], [tripRow], [{ ...scheduleRow, id: 'invalid-id' }], []);
+
+    await request(app).post(`/api/trips/${TRIP_ID}/activate`).expect(500);
+  });
+
+  it('Sync pull 응답에 포함된 삭제 Schedule 날짜도 ISO 문자열로 반환한다', async () => {
+    const deletedAt = new Date('2026-09-13T04:00:00.000Z');
+    setSelectResults([], [{ ...scheduleRow, deletedAt }], []);
+
+    const response = await request(app).get('/api/sync/pull').query({ activatedTripIds: TRIP_ID }).expect(200);
+
+    expect(response.body).toMatchObject({
+      success: true,
+      data: {
+        schedules: [
+          {
+            ...serializedSchedule,
+            deletedAt: deletedAt.toISOString(),
+          },
+        ],
+      },
+    });
+    expect(syncPullResponseSchema.safeParse(response.body).success).toBe(true);
+    expect(dbSelectMock).toHaveBeenCalledTimes(3);
+  });
+});
+
+it.each(['2026-10-02T09:00:00', '2026-10-02T09:00:00+99:99', '2026-02-30T09:00:00Z'])(
+  '해석 불가능한 일정 시각 %s는 생성·수정 모두 DB 쓰기 전에 거절한다',
+  async (scheduledAt) => {
+    await request(app)
+      .post('/api/schedules')
+      .send({
+        id: SCHEDULE_ID,
+        tripId: TRIP_ID,
+        title: '일정',
+        location: '장소',
+        address: null,
+        scheduledAt,
+      })
+      .expect(400);
+    await request(app).put(`/api/schedules/${SCHEDULE_ID}`).send({ scheduledAt }).expect(400);
+    expect(dbInsertMock).not.toHaveBeenCalled();
+    expect(dbUpdateMock).not.toHaveBeenCalled();
+  },
+);
+
+it('Sync pull의 세 entity와 serverTime은 직렬화된 전체 JSON 계약을 만족한다', async () => {
+  setSelectResults([tripRow], [scheduleRow], [expenseRow]);
+  const response = await request(app).get('/api/sync/pull').query({ activatedTripIds: TRIP_ID }).expect(200);
+  expect(syncPullResponseSchema.safeParse(response.body).success).toBe(true);
+  expect(response.body.data.trips[0].startDate).toBe(tripRow.startDate.toISOString());
+  expect(response.body.data.schedules[0].scheduledAt).toBe(SCHEDULED_AT);
+  expect(response.body.data.expenses[0].date).toBe(serializedExpense.date);
+});

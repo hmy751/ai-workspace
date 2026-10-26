@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-26",
+  "status": "four_first_responses_completed",
+  "attempts_per_case": 1,
+  "prototype_changed": false,
+  "cases": [
+    {
+      "case": "case01-storage",
+      "agent": "/root/trial_storage_60medium",
+      "model_requested": "gpt-6-sol",
+      "effort_requested": "medium",
+      "response_sha256": "e18e066d1eee16a5b5ef9181ea7cc75d9339221c2020b996fb8c291c1fa2429b",
+      "response_bytes": 1785,
+      "input_files_verified": 19,
+      "image_hashes_verified": 3,
+      "read_events": 48,
+      "search_events": 0,
+      "read_paths": [
+        "materials/after/useStorageStats.ts",
+        "materials/before/useStorageStats.test.ts",
+        "materials/before/useStorageStats.ts",
+        "materials/changes/useStorageStats.diff",
+        "materials/conversation/01-prior.txt",
+        "materials/conversation/02-current.txt",
+        "materials/documents/spec-quality.md",
+        "materials/documents/ticket03.md",
+        "materials/observations/2513.txt",
+        "materials/observations/2523.txt",
+        "skills/development/SKILL.md",
+        "skills/development/references/verification.md",
+        "skills/explain/SKILL.md",
+        "skills/explain/references/constructing-explanations.md",
+        "skills/shared/explanation-and-evidence-criteria.md"
+      ],
+      "read_check": {
+        "complete": true,
+        "missing_required": [],
+        "changed_inputs": [],
+        "opened_files": 15,
+        "partially_read": {}
+      },
+      "read_check_precedes_response": true,
+      "outside_access_and_output_truncation": "실행메모의자기보고;전체도구감사나OS격리로확인한항목아님"
+    },
+    {
+      "case": "case02-access",
+      "agent": "/root/trial_access_60medium",
+      "model_requested": "gpt-6-sol",
+      "effort_requested": "medium",
+      "response_sha256": "33e8ecbdf3a4a36e3c3f8c19ef49a2a2c1dfef3ea5a460263d30a12ad396c1e1",
+      "response_bytes": 1463,
+      "input_files_verified": 18,
+      "image_hashes_verified": 0,
+      "read_events": 18,
+      "search_events": 0,
+      "read_paths": [
+        "materials/README.md",
+        "materials/code/apps/client/src/features/trip/read-query/index.ts",
+        "materials/code/apps/client/src/features/trip/read-query/read-query.ts",
+        "materials/code/apps/client/src/screens/read-query.ts",
+        "materials/conversation.txt",
+        "materials/diffs/ScheduleScreen.diff",
+        "skills/explain/SKILL.md",
+        "skills/explain/references/prior-explanation.md"
+      ],
+      "read_check": {
+        "complete": true,
+        "missing_required": [],
+        "changed_inputs": [],
+        "opened_files": 8,
+        "partially_read": {}
+      },
+      "read_check_precedes_response": true,
+      "outside_access_and_output_truncation": "실행메모의자기보고;전체도구감사나OS격리로확인한항목아님"
+    },
+    {
+      "case": "case03-prior",
+      "agent": "/root/trial_prior_60medium",
+      "model_requested": "gpt-6-sol",
+      "effort_requested": "medium",
+      "response_sha256": "77b3b3397099f3c89e2037425e7572748ab554d146cabffbc88419090f403c6a",
+      "response_bytes": 3078,
+      "input_files_verified": 6,
+      "image_hashes_verified": 0,
+      "read_events": 20,
+      "search_events": 0,
+      "read_paths": [
+        "materials/conversation.md",
+        "skills/explain/SKILL.md",
+        "skills/explain/references/constructing-explanations.md",
+        "skills/explain/references/prior-explanation.md",
+        "skills/shared/explanation-and-evidence-criteria.md"
+      ],
+      "read_check": {
+        "complete": true,
+        "missing_required": [],
+        "changed_inputs": [],
+        "opened_files": 5,
+        "partially_read": {}
+      },
+      "read_check_precedes_response": true,
+      "outside_access_and_output_truncation": "실행메모의자기보고;전체도구감사나OS격리로확인한항목아님"
+    },
+    {
+      "case": "case04-investigation",
+      "agent": "/root/trial_investigation_60medium",
+      "model_requested": "gpt-6-sol",
+      "effort_requested": "medium",
+      "response_sha256": "155c4a5840acc7b30912cde2c4008e30bfbe3c6bba2d46cea93b63ee2a7bbc01",
+      "response_bytes": 6690,
+      "input_files_verified": 830,
+      "image_hashes_verified": 16,
+      "read_events": 31,
+      "search_events": 14,
+      "read_paths": [
+        "materials/conversation.txt",
+        "materials/observations/pre-619-tool-evidence/156.txt",
+        "materials/observations/pre-779-observations/663.txt",
+        "materials/observations/pre-779-observations/672.txt",
+        "materials/observations/pre-779-observations/703.txt",
+        "materials/observations/pre-779-observations/731.txt",
+        "materials/repository/apps/client/app/(tabs)/schedules/index.tsx",
+        "materials/repository/apps/client/src/features/schedule/read-schedules/useTripSchedulesReadQuery.ts",
+        "materials/repository/apps/client/src/screens/CreateScheduleScreen.tsx",
+        "materials/repository/apps/client/src/screens/ExpenseDetailScreen.tsx",
+        "materials/repository/apps/client/src/screens/ExpensesScreen.tsx",
+        "materials/repository/apps/client/src/screens/ScheduleDetailScreen.tsx",
+        "materials/repository/apps/client/src/screens/ScheduleQueryFeedback.tsx",
+        "materials/repository/apps/client/src/screens/ScheduleScreen.tsx",
+        "materials/repository/apps/client/src/shared/services/policy-query/usePolicyReadQuery.ts",
+        "skills/development/SKILL.md",
+        "skills/development/references/review.md"
+      ],
+      "read_check": {
+        "complete": true,
+        "missing_required": [],
+        "changed_inputs": [],
+        "opened_files": 16,
+        "partially_read": {
+          "materials/repository/apps/client/src/screens/ExpenseDetailScreen.tsx": [
+            2,
+            3
+          ],
+          "materials/repository/apps/client/src/screens/ExpensesScreen.tsx": [
+            1,
+            2,
+            5
+          ],
+          "materials/repository/apps/client/src/screens/ScheduleDetailScreen.tsx": [
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "read_check_precedes_response": true,
+      "outside_access_and_output_truncation": "실행메모의자기보고;전체도구감사나OS격리로확인한항목아님"
+    }
+  ],
+  "raw_responses_sha256": "fdc8aa7d3c975cabe8ec9e5daa4b638ba19dd65e243e493d25ad3f04d9af6002"
+}
