@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+- [04-03 실행 연결·확인·완료 조건](../records/2026-10-26-context-prototype-adoption.md): [prototype](../records/prototypes/development-workflow/README.md)의 development·USAGE·context-update·Work 생성/전환과 create를 현재 결과로 선택한다. [복사본 수행](../records/experiments/context-prototype-integration-2026-10-26/README.md)과 [독립 리뷰](../records/2026-10-26-context-prototype-integration-review.md)를 확인했다. 운영 설치·일반 효과와 구별한다. 아래 계획·상세안의 미생성/다음 표시는 당시 설계 단계다.
+
 - [04-03 프로토타입 통합 적용 계획](../records/2026-10-26-context-prototype-integration-plan.md): 네 구체안을 실제 실행 지침·공통 방법·Work 계약·진입에 옮길 범위와 이관 전 정리, 대표 확인을 연결했다. 계획 결과이며 실제 스킬 생성·프로토타입 적용·설치는 아직이다.
 
 - [04-03 4번의 완료·연속 구체안](../records/2026-10-26-context-04-completion-continuation-proposal.md) · [외부 대조·독립 리뷰와 보완](../records/2026-10-26-context-04-goal-improvement-review.md): 이번 요청/Work 완료와 중단·재개, 요청된 생성/전환의 결과를 구별하고 늦은 결과·최신 수정 권한·05 시점 미정을 연결했다. 사용자가 기록·커밋을 요청한 현재 구체안이며 실제 생성·전환·스킬 실행의 확인은 아니다.

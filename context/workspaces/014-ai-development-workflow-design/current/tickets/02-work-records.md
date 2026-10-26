@@ -1,5 +1,7 @@
 # 02 — 기록 운영과 Workspace 구성을 구체화한다
 
+2026-10-26 [04-03 프로토타입 적용](../../records/2026-10-26-context-prototype-adoption.md)에서 기존 Work 지침의 현재 의미·중요한 제안·처리 근거·중단 뒤 남은 행동을 실행 연결로 보완했다. 생성 계약도 기존 Spec·Ticket 구조를 사용한다. 이 결과를 입력으로 받되02의 전체 구성·분량·보존·재개 운영과 Work의 새 background 적용 여부를 완료한 것으로 보지 않는다.
+
 상태: **기록의 Main 책임·의미별 Owner·의미 변화 시 갱신은15번에서 합의 · Work 전체 구성과 구체 기록 운영안은 미완료**. [전체 관계 정리](../../records/2026-10-24-workflow-framework-and-checkpoint.md)를 따른다.1~15번의 실행 기록 계약과 이 Ticket이 맡는 전체 기록·구성 비교를 구별한다.
 
 2026-10-20 후속 입력: [03 마감119](../../records/2026-10-20-119-ticket03-closeout.md)에서 본문과 형성 자료의 관리 결과를 이어받되, **Work는 기존 형태와 제약을 유지한다.** 새 background·Spec/Ticket 본문 재배치는 [116](../../records/2026-10-20-116-defer-work-content-policy.md)에서 복구했다. 이 Ticket에서 기존 current·source·output·records와 형성 맥락의 관계를 논의할 때 복구 이유를 먼저 읽으며,03의 정책을 자동 적용하지 않는다. 이 입력을 남긴 것이02의 기록 운영안 완료나 착수는 아니다.

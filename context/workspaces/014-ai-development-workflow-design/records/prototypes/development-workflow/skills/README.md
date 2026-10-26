@@ -1,10 +1,13 @@
 # 개발·작업 판단·설명 스킬 prototype
 
-현재 실행 본문은 `development`, `work-discussion`, `explain`이다. 이 폴더는 설계 prototype이며 전역이나 실제 제품에 설치한 상태는 아니다. 각 SKILL.md가 호출 조건과 실행 방법을 소유한다.
+현재 실행 본문은 `development`, `work-discussion`, `explain`, `context-update`, `create-context-workspace`다. 이 폴더는 실행 지침을 구성한 prototype이며 전역이나 실제 제품에 설치한 상태는 아니다. 각 SKILL.md가 호출 조건과 실행 방법을 소유한다.
 
 | 필요한 일 | 현재 본문과 상세 |
 | --- | --- |
 | 개발 작업의 맥락·구현·검토·확인·결과를 조율한다 | [development](development/SKILL.md) · [개선 검토](development/references/review.md) · [검증 상세](development/references/verification.md) · [실행 배치](development/references/execution.md) |
+| 질문에 필요한 원문을 골라 실제 판단에 사용한다 | 대상 context의 공통 참조. 이 demo에서는 [USAGE](../noline-demo/context/USAGE.md)를 사용한다. |
+| 지정한 Personal·Project 본문에 확인된 의미를 반영한다 | [context-update](context-update/SKILL.md). 내용의 권위·관리 기준은 대상 영역에 남는다. |
+| 요청된 새 독립 Work를 구성하고 인수 가능한지 확인한다 | [create-context-workspace](create-context-workspace/SKILL.md) · demo의 [생성·전환 계약](../noline-demo/context/work/workspaces/CREATE-AND-TRANSITION.md) |
 | 기존 작업 정의가 충분한지, 무엇을 더 구체화할지 판단한다 | [work-discussion](work-discussion/SKILL.md) |
 | 개념·코드·작업 결과·앞선 말의 뜻과 관계·선택 이유를 설명한다 | [explain](explain/SKILL.md) |
 | 원자료를 골라 관계·조건·이유를 실제 설명으로 만든다 | [설명 작성 상세](explain/references/constructing-explanations.md) |
@@ -16,6 +19,10 @@ explain은 기존 작업물 브리핑과 설명 복구를 대신하는 현재 �
 development는 Main의 맥락 선택·재탐색·종합·전달·갱신을 소유한다. Personal은 개인 판단 기준을, Project와 Work는 제품 맥락과 이번 작업을 계속 소유한다. 첫 결과를 구성할 때 explain으로 목표·실제 변경·확인에서 결론까지 연결하며, 답을 바꿀 사실 공백의 추가 확인은 작업 담당자가 맡는다. 상세 인계·호출·수정·종료의 설계 상태는 development 본문과 [형성 자료](development/_background/README.md)에서 확인한다.
 
 work-discussion은04-01에서 기존 정의의 충분성과 필요한 구체화를 직접 답하는 최소 보완을 채택했다. reconsider-work는 보존 원형을 유지하고 여기에 설치한 스킬로 취급하지 않는다. development가 현재 본문에서 전제 재판단을 수행하며 실제 대상의 호환 스킬이 있으면 그 발동 조건에 따라 연결한다. [형성 자료](work-discussion/_background/README.md)에서 근거를 확인한다.
+
+기존 read의 일반적인 선택·대조 방법은 USAGE로 옮겼다. 개발 중 담당자와 직접 읽기 요청이 같은 방법을 사용하며, 새 읽기 스킬의 호출이나 보고서를 전제하지 않는다. 기존 update는 대상의 관리 기준을 따르는 한정 반영 과업으로 재구성했고, create는 수동 demo의 생성·인수·전환 계약에 연결했다. Work의 일상 유지와 전체 완료는 Main·Work·development가 맡는다. 실제 설치판의 옛 호출·bridge 교체는 별도 배치 과제다.
+
+USAGE와 context-update라는 형태는 잠정 합의를 이 prototype에서 실행할 수 있게 펼친 것이다. 같은 수행자가 유효한 근거로 읽기·검토·반영을 이어가며, 파일이 나뉘었다는 이유로 재입력·전면 재독·새 담당자를 요구하지 않는다. 실제 사용 부담이 드러나면 이 묶음을 다시 판단할 수 있다.
 
 ## 공통 기준과 관리
 

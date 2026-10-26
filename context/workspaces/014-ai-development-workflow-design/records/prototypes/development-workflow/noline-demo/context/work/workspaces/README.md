@@ -1,6 +1,18 @@
 # Workspaces
 
-하나의 Workspace는 하나의 작업 목표와 그 작업을 이어 갈 상태를 소유한다. 현재 적용 예시는 [001-login-completion-names](001-login-completion-names/README.md)다. 다른 Workspace의 current를 이어 읽어야만 이해할 수 있는 구조로 만들지 않는다.
+하나의 Workspace는 하나의 작업 목표와 그 작업을 이어 갈 상태를 소유한다. 다른 Workspace의 current를 이어 읽어야만 이해할 수 있는 구조로 만들지 않는다. 이 목록은 작업의 위치와 일반 재개의 기본 선택을 소유하고, 각 Workspace는 자기 현재 의미와 상태를 소유한다.
+
+## 기본 선택과 작업 목록
+
+**일반 재개의 기본 선택: [001-login-completion-names](001-login-completion-names/README.md).** 사용자 지정 Work가 우선하며, 특정 Work를 읽거나 수행하라는 요청만으로 이 기본 선택을 바꾸지 않는다. root·context·Work의 일반 재개는 여기의 선택을 따른다.
+
+| Workspace | 맡은 목표 |
+| --- | --- |
+| [001-login-completion-names](001-login-completion-names/README.md) | 로그인 완료의 표현과 실행 경계. 실제 결과·미확인은 해당 Work에서 확인한다. |
+
+같은 목표의 재개는 [Work 지침](../AGENTS.md)을 따른다. 독립 목표 생성이나 지속 전환이 요청되면 [생성과 전환 계약](CREATE-AND-TRANSITION.md)을 사용한다. 생성만 마친 Work는 목록에 연결하되 위 기본 선택은 유지한다. 이 목록의 선택은 수동 재개 기준이며 host binding을 만들지 않는다.
+
+## Workspace 내부의 책임
 
 | 위치 | 책임 |
 | --- | --- |

@@ -1,5 +1,9 @@
 # 04-03 — 맥락 읽기·갱신·Workspace 생성 스킬을 보완한다
 
+**현재 상태: 설계·prototype 실행 연결 완료.** [적용·독립 리뷰·제한 수행·다섯 완료 조건](../../../records/2026-10-26-context-prototype-adoption.md)을 근거로 마감했다. 실제 설치·자동 발견·host 전환·일반 효과는06·07로 연결하며02·05 전체 설계도 유지한다. 적용 변경은 아직 미커밋이다.
+
+## 적용 전 설계 경과
+
 2026-10-26 **전체 연결·실제 조항 배치 대조:** [프로토타입 통합 적용 계획](../../../records/2026-10-26-context-prototype-integration-plan.md)에서 기존 실행 책임·공통화할 방법·보완할 조항·대표 확인을 연결했다. 2번의 일부 예시와 권한 표현을3·4번 후속 합의로 맞출 자리도 확인했다. 현재는 계획 설명·기록까지이며 실행 본문·새 스킬은 아직 수정하지 않았다.
 
 2026-10-26 **4번 구체화·독립 개선 리뷰·보완 완료:** [완료·연속 구체안](../../../records/2026-10-26-context-04-completion-continuation-proposal.md)과 [근거·리뷰 기록](../../../records/2026-10-26-context-04-goal-improvement-review.md)에 이번 요청/Work 완료·대화 중단·재개와 요청된 생성/전환을 연결했다. 늦은 결과 귀속과 최신 수정 권한,05의 루프 시점 미정을 보완했다. 사용자는 현재 구체안으로 기록·커밋을 요청했다. 다음은 네 항목 전체 연결·조항 배치 점검이다. 새 실행 스킬·생성·전환은 수행하지 않았다.
@@ -8,18 +12,11 @@
 
 2026-10-26 **제안·검토 후 반영 방향의 구체화:** [2번](../../../records/2026-10-26-context-02-role-execution-proposal.md)의 기존 결과 반환에 반영 제안·근거를 연결하고, [3번](../../../records/2026-10-26-context-03-change-records-proposal.md)에서 Main의 검토·실제 반영·중요한 제안의 보존과 재사용을 구체화했다. [앞선 대화 대조·이번 근거와 리뷰](../../../records/2026-10-26-context-proposal-review-apply-design.md)와 [통합안](../../../records/2026-10-26-context-integrated-proposal.md)으로 이어 본다. 구현자 직접 수정 기본값은 대체한 후보이며 이번에는 설계·기록·재진입만 맞췄다. 1번 한정 실행 반영은 유지하고 USAGE/context-update 사용감·정확한 형태·설치·수행 효과와04-03 전체 완료는 아직이다.
 
-## 지금 이어갈 지점 — 워크플로와 실제 context의 통합 연결
+## 현재 결과와 다음 연결
 
-**현재 다음 작업은 [통합 적용 계획](../../../records/2026-10-26-context-prototype-integration-plan.md)에 따른 프로토타입 본문·진입의 연결과 확인이다.** 네 항목의 전체 흐름·책임·실제 위치를 대조했으며, 후속 합의가 덜 반영된2번의 예시·권한 표현도 이관 전에 맞춘다. 이번에는 계획 설명·기록만 했고 실제 스킬 생성은 시작하지 않았다.
+네 구체안의 실제 결과는 [development](../../../records/prototypes/development-workflow/skills/development/SKILL.md), [USAGE](../../../records/prototypes/development-workflow/noline-demo/context/USAGE.md), [context-update](../../../records/prototypes/development-workflow/skills/context-update/SKILL.md), [Work 생성·전환 계약](../../../records/prototypes/development-workflow/noline-demo/context/work/workspaces/CREATE-AND-TRANSITION.md)과 [create](../../../records/prototypes/development-workflow/skills/create-context-workspace/SKILL.md)다. 내용의 정본·권위는 기존 영역에, 수행 시점·배정·종합은 development에 남겼다. 공통 읽기에 목표 정의·Work 생성·전체 완료를 흡수하지 않았다.
 
-역할·진행·인계 설계,03의 실제 context·관리 계약, 기존 스킬과 Work/Harness, 잠정 틀과 외부 고정판을 종합한 [통합안](../../../records/2026-10-26-context-integrated-proposal.md)을 사용자와 검토한다. 기존 합의 복원만으로 끝내지 않고 네 항목에서 무엇을 유지·보완·공통화할지와 실제 흐름을 설명한다. 일반 읽기에 목표 정의·전체 완료를 흡수하지 않고, 형성 자료의 이해 목적과 제안·검토·반영의 현재 책임을 유지한다. 관련 선택이 바뀌면 다른 항목의 의존도 함께 맞춘다. 아래 원래 입력과 완료 조건은 유지한다.
-
-- 시작·재개와 수행 중 추가 탐색: Main과 담당자가 무엇을 읽고 어떻게 실제 판단에 적용하는가. 담당자 원문 직접 읽기와 질문별 선택은 이미 합의된 입력이다.
-- 작업 중 변화와 연속성: 현재 Work의 선택·판단·상태, 지속할 Personal·Project 본문을 각각 누가 어떤 기준으로 유지하는가.
-- 경험 개선과 작업 생성: 현재 사실을 맞추는 것과 앞으로의 방식을 재판단하는 것, 기존 Work 재개와 새 독립 목표의 인수를 구별한다.
-- 실행 수단의 구성: 기존 스킬 재구성, 공통 진입, 수행 흐름 흡수와 독립 과업별 스킬을 같은 장면에 대입해 비교한다. 독립 스킬이 별도 agent·전체 재독·보고서를 요구한다고 가정하지 않는다.
-
-03의 context 정본과 관리 기준,02의 기록 운영,05의 경험 개선,06의 실제 배치·전환,07의 전체 연결을 함께 보되 각 Ticket을 스킬 단계로 바꾸지 않는다. 기존 스킬의 독립 존속·새 스킬 신설·정확한 이름과 개수는 아직 채택하지 않았다. 아래 날짜별 기록은 형성 경과다.
+USAGE/context-update의 현재 배치는 실제 prototype 적용안이며 이름·사용감의 일반 효과를 확정한 것은 아니다. 02 기록 구성,05 경험 판단·채택,06 설치·호환·기존 의존·전환,07 전체 연결·적용 관찰에 [후속](../../../records/2026-10-26-context-prototype-adoption.md#후속-책임)을 연결했다. 아래 원래 범위·입력과 완료 조건은 마감 근거이며, 날짜별 미생성/미완료는 당시 경과다.
 
 ## 04-02 마감에서 이어받는 연결
 
@@ -49,7 +46,7 @@
 
 2026-10-19 당시 후속 입력: [103](../../../records/2026-10-19-103-prototype-session-checkpoint.md)에서 사용자는 Development의 최종 위치·역할과 스킬 관계를 워크플로 관련 작업 때 더 구체화하기로 했다.01-01과 함께 스킬 본문 통합 또는 별도 절차 문서 연결을 비교하되 현재 안을 확정하지 않는다. [102](../../../records/2026-10-19-102-personal-project-update-ownership.md)의 Personal·Work·Project별 갱신 기본값과 필요한 설명 중복 허용을 실제 스킬 행동에 연결한다. 이번 세션은 기록·커밋이며 스킬 수정·설치는 하지 않는다.
 
-상태: **Project 읽기·갱신 스킬 첫 대조와 workflow 시안 수정 완료 · 실제 스킬 보완은 미완료**.76에서 기존 read/update 스킬과 읽기·관리 기준을 비교했고82·83에 본문·적용 장면을 만들었다. 앞선 [책임 정정84](../../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)는 Project가 개인 문서를 관리하는 직접 연결을 대체한다. 현재는 [88](../../../records/2026-10-19-88-living-applied-prototype.md)의 [단일 프로토타입 workflow](../../../records/prototypes/development-workflow/skills/development/SKILL.md)에서 입력 선택·충돌 판단·구현/검토 인계·결과별 갱신을 구체화하며 실제 스킬 수정·호출 효과·Workspace 생성 대조는 미완료다. 전체 기준은 [Spec](../../spec.md)에 있다.
+당시 상태: **Project 읽기·갱신 스킬 첫 대조와 workflow 시안 수정 완료 · 실제 스킬 보완은 미완료**.76에서 기존 read/update 스킬과 읽기·관리 기준을 비교했고82·83에 본문·적용 장면을 만들었다. 앞선 [책임 정정84](../../../records/2026-10-19-84-personal-project-ownership-and-format-correction.md)는 Project가 개인 문서를 관리하는 직접 연결을 대체한다. 현재는 [88](../../../records/2026-10-19-88-living-applied-prototype.md)의 [단일 프로토타입 workflow](../../../records/prototypes/development-workflow/skills/development/SKILL.md)에서 입력 선택·충돌 판단·구현/검토 인계·결과별 갱신을 구체화하며 실제 스킬 수정·호출 효과·Workspace 생성 대조는 미완료다. 전체 기준은 [Spec](../../spec.md)에 있다.
 
 [중간 정리90](../../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md): 사용자는 DEVELOPMENT.md의 현재 위치를 미완성의 예로 짚었다. 이 파일이 Work의 확정 운영 계약이라는 전제 없이 위치·이름·소유 책임, 기존 read/update/작업 스킬과의 행동 분담을 구체화한다. 이번 커밋·정리는 대체 위치 선택이나 실제 skill 설치가 아니다.
 
@@ -94,4 +91,4 @@ Project·Work 정본의 내용과 관리 책임을 스킬 안에 복제하지 �
 - 적용하지 않을 경우, 중복 읽기·기록·책임을 만들 수 있는 경우와 그 비용을 확인한다.
 - 보완안이 02·03의 정본 책임 및 06의 전환안과 연결된다. 남은 사용자 선택과 실제 host 적용 뒤 확인할 경로를 남긴다.
 
-현재는 [네 항목 재종합안](../../../records/2026-10-26-context-integrated-proposal.md)에 전체 대조를 반영해 사용자와 흐름·추가 조건을 검토할 상태다. [이번 반영 근거](../../../records/2026-10-26-context-whole-scope-reconciliation.md)는 초기 개선 리뷰와 구별한다. 기존 스킬 대조·대표 장면·입력/반환·비적용/비용·후속 책임을 설계안에 연결했다. 위 1번 한정 반영 외 세부 채택·실행 연결·호출 효과·운영 설치·Ticket 완료는 별도다.02·05·06·07의 전체 과제를 이 결과만으로 완료 처리하지 않는다.
+위 다섯 조건을 [현재 적용 결과와 대조](../../../records/2026-10-26-context-prototype-adoption.md#기존-완료-조건-대조)해 설계·prototype 연결을 마감했다. 대표 수행·정적 대조·직접 파일 확인과 미확인 운영 효과를 구별하며,02·05·06·07이나 전체 Workspace 완료로 확대하지 않는다.

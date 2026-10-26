@@ -1,0 +1,11 @@
+--- before/noline-demo/context/project/current/authentication-flow/INDEX.md
++++ after/noline-demo/context/project/current/authentication-flow/INDEX.md
+@@ -34,7 +34,7 @@
+ 
+ ## 지원 범위와 확인
+ 
+-여기서 Query는 주입한 비동기 함수이며 실제 Query 라이브러리는 연결하지 않았다. 진행 작업 종료 역시 주입한 대기 함수만 실행한다. 제품의 DB·queue 귀속 검사와 조율, UI·네트워크·디스크 저장까지 실제 환경에서 확인했다. 후속 응답에서 인증 거부를 판정하고 보호된 요청을 막거나 재인증으로 전환하는 경로도 구현하지 않았다.
++여기서 Query는 주입한 비동기 함수이며 실제 Query 라이브러리는 연결하지 않았다. 진행 작업 종료 역시 주입한 대기 함수만 실행한다. 제품의 DB·queue 귀속 검사와 조율, UI·네트워크·디스크 저장은 연결하지 않았으며 실제 환경에서 확인하지 않았다. 후속 응답에서 인증 거부를 판정하고 보호된 요청을 막거나 재인증으로 전환하는 경로도 구현하지 않았다.
+ 
+ [동작 검사](../../../../examples/authentication/tests/authentication.test.mjs)는 제어 가능한 대기로 저장 전 공개 여부, 저장 실패 보존, Query 비대기 완료와 후속 오류 분리를 확인한다. [이번 실행 기록](../../../work/workspaces/001-login-completion-names/records/2026-10-19-03-execution.md)에 실제 실행 명령·결과·한계가 있다. 계약 의미는 [인증 가이드](../../guidance/authentication-and-session/INDEX.md)가 소유하고 이 문서는 현재 연결만 갱신한다.
+ 

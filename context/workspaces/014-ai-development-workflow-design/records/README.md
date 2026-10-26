@@ -1,5 +1,7 @@
 # 논의와 보존 기록
 
+- [04-03 프로토타입 적용·완료 조건·후속](2026-10-26-context-prototype-adoption.md): 계획을 `9eb012f3`로 먼저 커밋한 뒤 실행 본문·관리 계약·진입을 연결했다. [독립 리뷰](2026-10-26-context-prototype-integration-review.md)의 옛 갱신 예시를 보완하고 [복사본의 읽기·정정·생성·전환](experiments/context-prototype-integration-2026-10-26/README.md)을 확인했다. 적용 변경은 아직 미커밋이다.
+
 - [04-03 네 구체안의 프로토타입 통합 적용 계획](2026-10-26-context-prototype-integration-plan.md): 앞선 합의·네 설계·실제 실행 본문을 대조해 적용 위치와 흐름,2번의 잔여 예시/권한 정리, 직접 요청·후속 루프·운영 전환 경계를 연결했다. 이번에는 계획과 기록만 갱신했다.
 
 - [04-03 4번 완료·연속과 독립 개선 리뷰](2026-10-26-context-04-goal-improvement-review.md): 기존 development/explain/Work 책임과 생성 계약·맷/로렌 고정판을 대조한 Main 초안 뒤 새 독립 리뷰를 받았다. 늦은 결과의 귀속과 계속 수정할 최신 권한을 구별하고,05의 대화 경계·발동 조건을 열어 두도록 보완했다. [현재4번](2026-10-26-context-04-completion-continuation-proposal.md)과 통합안에 반영했으며 실제 스킬·생성·전환·제품은 바꾸지 않았다.

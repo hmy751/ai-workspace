@@ -6,5 +6,6 @@
 - 빠졌던 Project 관리 계층을 복원한 과정과 이후 관리 단위 재배치를 되돌린 이유: [구성·원복 기록](records/2026-10-20-project-management.md).
 - 기존 운영 기준의 실제 문장과 보존판의 한계: [근거 발췌](evidence.md).
 - 개인 기준 변경과 Project 갱신이 왜 다른지: [소유 정정 기록](../../../personal/development/naming-and-completion/_background/records/2026-10-19-personal-ownership.md).
+- 공통 읽기·반영 방법을 연결하면서 Project 내용 선별을 먼저 둔 이유: [2026-10-26 연결 기록](records/2026-10-26-context-use-update.md). 해당 사용자 정정은 [반영 과업의 직접 근거](../../../../../skills/context-update/_background/evidence.md#project에-남길-내용의-선별)에서 읽는다.
 
 과거 기록에는 대체된 배치와 당시 미채택 제안도 있다. 현재 실행할 읽기·구성·갱신은 본문에서 찾고, 과거 지침 속 자동 runtime을 이 demo에 연결된 것으로 읽지 않는다.

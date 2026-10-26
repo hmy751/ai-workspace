@@ -1,12 +1,12 @@
 # 현재 논의의 진입점
 
-**04-03 현재 진입:** [프로토타입 통합 적용 계획](../records/2026-10-26-context-prototype-integration-plan.md)에서 네 항목의 전체 흐름·실제 조항 배치·이관 전 정리·대표 확인을 읽는다. 설계·리뷰를 마친 뒤의 적용 계획이며 실제 본문·스킬 생성은 아직이다. 아래 항목별 결과는 그 입력이다.
+**04-03 현재 진입 — 설계·prototype 연결 완료:** [적용·독립 검토·복사본 확인·완료 조건](../records/2026-10-26-context-prototype-adoption.md)을 읽는다. 실행은 [prototype](../records/prototypes/development-workflow/README.md)의 development·USAGE·context-update·Work 생성/전환과 create에 연결됐다. 계획은 `9eb012f3`로 선행 커밋했고 적용 변경은 아직 미커밋이다. 운영 설치·host 연결·일반 효과는 후속이며 네 상세안은 설계 근거로 보존한다.
 
 **04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 운영 설치·일반 효과는 미확인이며 다음 중심은04-03 검토다.
 
-**04-03 순차 검토 — 네 항목 구체화·리뷰 보완 기록, 다음은 전체 연결 점검:** [4번](../records/2026-10-26-context-04-completion-continuation-proposal.md)에 이번 요청·Work 완료·대화 중단과 재개, 요청된 생성·전환의 각각 끝나는 결과를 구체화했다. [기존 합의·외부 대조와 리뷰](../records/2026-10-26-context-04-goal-improvement-review.md)의 두 보완은 늦은 결과의 귀속과 최신 쓰기 권한의 구별,05의 루프 시점 미정 유지다. 사용자는 현재 구체안으로 기록·커밋을 요청했다. 다음은 [통합안](../records/2026-10-26-context-integrated-proposal.md)의 전체 연결·조항 배치를 점검하는 일이다. [state](state.md)에서3번 후속의 내용 선별과 남은 책임을 확인한다. 새 스킬 생성·설치·05 전체 설계·효과 확인은 아니다.
+**04-03 이후의 범위:** 01-02 전체 품질 기준 종합,02 Work 구성·기록 운영,05 대화 기준 개선 루프,06 실제 배치·기존 의존·전환,07 전체 연결·적용 관찰이 남는다. [state](state.md)의 후속에서 이어가며 이번 작업에서 다음 Ticket의 구체화를 자동 착수하지 않았다. 기존 네 항목을 다시 미정으로 열거나 실제 설치가 끝났다고 간주하지 않는다.
 
-**01-01·01-03 설계 결과 완료.** [완료 조건 대조와 Spec·04의 남은 일](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)을 먼저 읽는다. 다음은04-03의 **워크플로와 실제 context 연결 구체화**다. [재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)에서 완료 경계·읽을 자료·첫 산출물을 확인한다. 스킬 보완만으로 범위를 좁히지 않으며,01-02 전체 종합·02/05/06/07의 후속 설계는 구별한다.04-02의 설계 결과는 위 마감 기록을 따른다. 실제 운영 효과·전체 Workspace 완료는 아니다.
+**01-01·01-03 설계 결과 완료.** [기존 완료 조건 대조](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)와 [당시04-03 재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)는 형성 근거다. 그 뒤04-03도 위 적용 기록의 범위로 마쳤다. 상위01·04와 전체 Workspace 완료·실제 운영 효과로 확대하지 않는다.
 
 아래 날짜별04-02 비교·반영의 현재/다음/미완료 표기는 당시 상태다. 최신 결과는 위 설계 마감을 따른다.
 

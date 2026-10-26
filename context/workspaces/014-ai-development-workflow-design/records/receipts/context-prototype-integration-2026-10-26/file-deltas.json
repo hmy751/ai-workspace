@@ -1,0 +1,77 @@
+{
+  "read": {
+    "added": [],
+    "modified": [],
+    "deleted": []
+  },
+  "update": {
+    "added": [],
+    "modified": [
+      "noline-demo/context/project/current/authentication-flow/INDEX.md"
+    ],
+    "deleted": []
+  },
+  "create": {
+    "added": [
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/README.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/records/2026-10-26-creation.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/records/2026-10-26-transition.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/source/user-request.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/source/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/output/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/project-context.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/personal-context.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/state/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/tickets/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/tickets/01-storage-and-recovery-contract.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/01-problem-goal-scope.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/02-behavior-and-cases.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/05-constraints-design-assumptions.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/03-concepts-and-contracts.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/04-quality-and-completion.md"
+    ],
+    "modified": [
+      "noline-demo/context/work/workspaces/README.md"
+    ],
+    "deleted": []
+  },
+  "generation": {
+    "added": [
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/README.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/records/2026-10-26-creation.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/source/user-request.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/source/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/output/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/project-context.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/personal-context.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/state/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/tickets/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/tickets/01-storage-and-recovery-contract.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/01-problem-goal-scope.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/02-behavior-and-cases.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/05-constraints-design-assumptions.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/03-concepts-and-contracts.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/04-quality-and-completion.md"
+    ],
+    "modified": [
+      "noline-demo/context/work/workspaces/README.md"
+    ],
+    "deleted": []
+  },
+  "transition": {
+    "added": [
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/records/2026-10-26-transition.md"
+    ],
+    "modified": [
+      "noline-demo/context/work/workspaces/README.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/README.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/state/index.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/tickets/01-storage-and-recovery-contract.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/01-problem-goal-scope.md",
+      "noline-demo/context/work/workspaces/002-device-authentication-recovery/current/memory/spec/05-constraints-design-assumptions.md"
+    ],
+    "deleted": []
+  }
+}

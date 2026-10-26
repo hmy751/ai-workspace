@@ -1,8 +1,8 @@
 # AI 개발 작업 체계의 개선 설계
 
-**04-03 다음 적용 계획을 전체 흐름으로 대조했다.** [프로토타입 통합 적용 계획](records/2026-10-26-context-prototype-integration-plan.md)은 네 구체안을 기존 development·역할 상세, 공통 읽기 방법, 지속 본문 반영, Work 생성·전환과 실제 진입에 옮길 범위를 연결한다. 2번에 남은 예시·권한 문장을3·4번 후속 합의로 맞출 필요도 확인했다. 현재는 계획 설명·기록까지이며 실제 스킬·프로토타입은 수정하지 않았다. 아래4번까지의 구체화·리뷰 결과와 USAGE/context-update 사용감 유보는 유지한다.
+**04-03 설계·프로토타입 연결을 완료했다.** [실제 적용·검토·수행 확인과 완료 조건](records/2026-10-26-context-prototype-adoption.md)에서 결과를 읽는다. development의 역할·시점, USAGE의 공통 읽기, context-update의 한정 반영, Work 생성·전환 계약과 create를 실제 본문·진입에 연결했다. 읽기·정정·생성·전환의 복사본 수행과 원문/링크 검사를 확인했다. 계획 기록은 `9eb012f3`로 먼저 커밋했고 이번 적용 변경은 아직 커밋하지 않았다.
 
-**04-03의4번까지 초안·독립 개선 리뷰·보완을 진행했다.** [4번 완료·연속](records/2026-10-26-context-04-completion-continuation-proposal.md)과 [기존 합의·외부 대조·리뷰 기록](records/2026-10-26-context-04-goal-improvement-review.md)에서 이번 요청·Work 완료·대화 중단, 재개·요청된 생성과 전환의 관계를 읽는다. 사용자는 현재 구체안으로 기록·커밋을 요청했다. 다음은 네 항목의 전체 연결·실제 조항 배치를 점검하는 일이다. [통합안](records/2026-10-26-context-integrated-proposal.md)과 [current](current/index.md)가 현재 진입이다. 1번의 한정 실행 반영은 유지하며 새 스킬 생성·설치·전체 효과와04-03 전체 완료는 아직이다. USAGE/context-update 사용감 유보와3번의 Project 내용 선별·05의 대화 기준 루프 방향을 유지한다.
+USAGE/context-update의 사용감 유보, 실제 운영 설치·host 전환·전체 역할 수행과 일반 효과의 미확인은 유지한다. 현재 결과는 [prototype](records/prototypes/development-workflow/README.md)과 [열람 화면](records/prototypes/development-workflow/viewer.html), 다음 설계 범위는 [current](current/index.md)에서 찾는다. 아래 날짜별 설계·반영 설명의 당시 다음 행동은 이 최신 결과를 대체하지 않는다.
 
 **01-01·01-03 설계 결과를 마감했다.** [완료 조건 대조와 Spec·04의 다음 범위](records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)에서 근거·비용·한계를 확인한다. 다음은 **04-03: 개발 워크플로와 실제 context의 읽기·적용·갱신·재개 연결**이다. 기존 세 스킬은 이 연결을 구현하는 수단으로 대조한다. [재개 메모](records/2026-10-24-workflow-context-connection-checkpoint.md)에 완료 경계·입력·첫 산출물을 정리했다. 상위01·04와 전체 Workspace는 아직 완료가 아니며 실제 운영 효과와 구별한다.
 

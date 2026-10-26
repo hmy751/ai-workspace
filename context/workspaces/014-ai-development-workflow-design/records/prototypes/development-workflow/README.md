@@ -9,6 +9,7 @@
 | 보고 싶은 것 | 시작점 | 여기서 이해할 차이 |
 | --- | --- | --- |
 | 개발 작업의 맥락·역할·판단을 연결하는 방법 | [development 스킬](skills/development/SKILL.md) · [개선 검토](skills/development/references/review.md) · [검증 상세](skills/development/references/verification.md) | Main의 전체 조율과 구현 단계 검토자의 독립 판단, 수정 뒤 검증의 책임 |
+| 필요한 맥락을 읽고 변화·재개를 연결하는 방법 | [공통 읽기](noline-demo/context/USAGE.md) · [지속 본문 반영](skills/context-update/SKILL.md) · [Work 생성·전환](noline-demo/context/work/workspaces/CREATE-AND-TRANSITION.md) | 담당자의 직접 읽기와 제안, Main의 선별·반영, 같은 Work 재개와 요청된 새 Work의 구별 |
 | 스킬 본문과 형성 자료를 작성·갱신하는 방법 | [스킬 본문 관리 정책](skills/SKILLS-CONTENT-POLICY.md) | 실행 지침·조건부 상세·형성 맥락과 근거의 책임 및 읽을 조건 |
 | 개념·작업물·앞선 말의 의미와 관계를 설명하는 방법 | [explain 본체](skills/explain/SKILL.md) · [구성과 이전 경로](skills/README.md) | 공통 설명 수행과 자료 선정·작성 상세, 앞선 발화 대조. 통합 prototype 반영과 실제 효과 확인은 구별한다. |
 | 공통으로 묶을 범위와 사용처에 남길 선택 | [공통 제공과 사용처 선택](noline-demo/context/personal/development/shared-boundaries/INDEX.md) · [코드 사례](noline-demo/context/personal/development/shared-boundaries/INDEX.cases.md) | Field의 배치·입력 교체, Container의 오류 표시, 같은 주문 API와 같은 구매 흐름의 차이 |
@@ -41,3 +42,5 @@
 현재 선택된 인증 이름과 같은 동작의 유지 대안은 [두 코드 비교](noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md)에 있다. 사례의 설명용 API나 조건부 권고를 제품에 이미 구현한 것으로 읽지 않는다. 역할 배정·검토 생략 조건·설치된 스킬의 조건별 연결은 development와 실행 배치에서 찾는다. 현재 prototype을 실제 대상에 설치한 것은 아니다.
 
 본문과 실행 코드가 정본이며 `viewer.html`은 이를 담은 열람 화면이다. 수정한 뒤에는 [화면 생성 안내](viewer/README.md)에 따라 표시 내용을 갱신한다.
+
+맥락 연결은 시작·재개, 역할별 수행, 변화·기록, 완료·연속의 관계를 기존 개발 흐름에 적용했다. 이 네 관계는 네 스킬이나 매 요청의 고정 관문이 아니다. 직접 읽기·반영 요청도 같은 방법을 사용한다. 개인 기준·제품 계약·작업 상태의 내용 책임은 유지하며, 대화 기준의 경험 개선 단계와 실제 host 설치·자동 발견·전환·운영 효과는 별도 후속이다.

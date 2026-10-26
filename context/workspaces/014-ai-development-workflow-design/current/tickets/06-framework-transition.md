@@ -1,5 +1,7 @@
 # 06 — ai-workspace와 대상 프로젝트에 배치할 변경을 설계한다
 
+2026-10-26 [04-03 프로토타입 적용](../../records/2026-10-26-context-prototype-adoption.md)의 USAGE·context-update·create-context-workspace와 Work 생성/전환 계약을 입력으로 받는다. 실제 대상의 기존 read/update/create 호출·참조·bridge·권한·Recover/Verify·자동 장치 의존을 대조하고 이관·복구 및 직접 확인 범위를 정한다. prototype의 수동 목록 선택을 host activation으로 옮기지 않으며, 전역 설치·실제 Noline 변경은 아직 하지 않았다.
+
 상태: **로컬 context/personal 배치 정정 · 실제 운영 전환과 전체 계획은 미완료**. [정정89](../../records/2026-10-19-89-local-context-structure-correction.md)에서 사용자는 글로벌 분리가 아니라 context 안에 개인 기준을 두려는 뜻이라고 확인했다. 별도 ai-workspace 모형을 필수 호스트로 둔 해석을 대체하고 demo의 context/personal·project·work로 적용했다. 개발 본문은 personal/development에 있다. 이 prototype 내부 수정과 실제 Noline·글로벌·다른 운영 저장소의 전환은 구별한다. 전체 기준은 [Spec](../spec.md)에 있다.
 
 현재 입력: [01-01·01-03 설계 마감](../../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)과 검증자 실행 통합을 이어받는다. 검증 역할의 설계를 다시 열지 않고 대상별 실행 도구·권한·Recover/Verify 의존·기록 연결·적용 및 복구 계획을 맡는다. [1~15번 통합](../../records/2026-10-23-development-workflow-1-15-integration.md)에서 development의 본체·상세·실행 배치와 root/Work·기록 연결을 prototype에 반영했다. 실제 대상의 스킬·기존 장치 의존·설치·복구 계획은 이 Ticket에서 이어간다. [중간 정리90](../../records/2026-10-19-90-prototype-checkpoint-and-open-design.md)의 DEVELOPMENT 위치 미정은 당시 상태이며 이미 정한 prototype 진입을 다시 미정으로 열지 않는다.

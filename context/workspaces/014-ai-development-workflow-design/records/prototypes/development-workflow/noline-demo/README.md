@@ -2,7 +2,7 @@
 
 인증을 기기에 저장하고 공개 상태를 바꾼 뒤 조회 갱신을 요청하는 작은 실행 예시다. Login과 Reauth는 함수로 된 두 사용처이며 UI는 만들지 않았다. context는 Personal·Project·Work를 나란히 두며, 실행 코드는 examples/authentication에 있다. 이 폴더의 코드와 문서는 함께 발전시키는 대상이다.
 
-[이번 Work](context/work/workspaces/001-login-completion-names/README.md)에서 목표·선택 근거·실제 검사 결과를 읽고, 제품 의미나 개발 계약을 판단할 때 [Project context](context/project/README.md)를 찾는다. Project는 자체 계약을 소유한다. 한 작업에서 다른 입력을 함께 고른 이유는 Work 기록에 남긴다.
+[Workspace 목록](context/work/workspaces/README.md)에서 지정 대상과 일반 재개의 기본 선택을 찾는다. [로그인 예제 Work](context/work/workspaces/001-login-completion-names/README.md)는 이 코드의 목표·선택 근거·실제 검사 결과를 담는다. 제품 의미나 개발 계약은 [Project context](context/project/README.md)가 소유하며, 한 작업에서 다른 입력을 함께 고른 이유는 Work 기록에 남긴다. 읽기·지속 본문 반영·요청된 Work 생성은 [context 진입](context/README.md)에서 각 방법으로 연결한다.
 
 ## 직접 실행한다
 

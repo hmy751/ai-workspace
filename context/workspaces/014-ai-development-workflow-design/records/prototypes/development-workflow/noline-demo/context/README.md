@@ -1,6 +1,6 @@
 # Noline demo context
 
-이 context는 개인이 가져오는 판단 기준, 제품이 계속 지킬 의미, 한 작업의 현재 상태를 구별해 제공한다. 이번에는 **로그인 함수·완료 알림이 인증 완료와 조회 갱신 완료를 혼동시키지 않게 하는 작업**에 적용한다.
+이 context는 개인이 가져오는 판단 기준, 제품이 계속 지킬 의미, 각 작업의 현재 상태를 구별해 제공한다. 현재 담긴 대표 예제는 **로그인 함수·완료 알림이 인증 완료와 조회 갱신 완료를 혼동시키지 않게 하는 작업**이다. 실제 요청의 대상과 일반 재개의 기본 선택은 [Workspace 목록](work/workspaces/README.md)에서 구별한다.
 
 | 필요한 것 | 시작점 | 담당하는 내용 |
 | --- | --- | --- |
@@ -8,11 +8,16 @@
 | Noline demo의 제품 맥락 | [project](project/README.md) | 기기 세션의 의미, 인증 적용·조회 후속 실패 계약, 현재 예제의 구현 경계 |
 | 이번 작업을 이어 가기 | [work](work/README.md) | 작업의 Spec·Ticket·현재 상태와 입력·결과·기록 |
 
-Personal과 Project는 자기 내용만으로 담당 의미를 설명한다. Main은 [development 스킬](../../skills/development/SKILL.md)에 따라 이번 작업에 필요한 기준과 계약을 선택하고 결과·새 질문에 맞춰 다시 살핀다. 스킬은 수행 방법을, 이 context는 기준·제품 맥락·이번 작업의 상태를 소유한다. Project가 개인 기준의 채택 목록을 관리하거나 개인 원문을 알아야 제품 계약을 이해할 수 있게 만들지 않는다.
+Personal과 Project는 자기 내용만으로 담당 의미를 설명한다. 필요한 원문 선택·재사용·실물 대조는 [USAGE](USAGE.md)가 맡고, 개발 중 시점·역할·변화의 연결은 [development 스킬](../../skills/development/SKILL.md)이 맡는다. 이 context의 각 영역은 내용·권위·관리 기준을 계속 소유한다. Project가 개인 기준의 채택 목록을 관리하거나 개인 원문을 알아야 제품 계약을 이해할 수 있게 만들지 않는다.
 
-현재 작업은 [001 로그인 완료 표현](work/workspaces/001-login-completion-names/README.md)이다. 같은 프로젝트에서 다른 작업을 시작하면 별도 Workspace가 그 목표와 상태를 맡으며, 이번 작업의 함수명 선택을 다른 작업의 고정 규칙으로 올리지 않는다.
+| 이번 요청 | 이어갈 방법 |
+| --- | --- |
+| 맥락을 읽고 설명한다 | USAGE로 관련 본문·실물을 선택하고 필요한 답을 만든다. 전체 Work 인수나 갱신을 전제하지 않는다. |
+| 기존 작업을 재개하거나 이번 상태를 정리한다 | [Work 지침](work/AGENTS.md)과 해당 Workspace의 현재 의미를 사용한다. |
+| 확인한 의미를 Personal·Project에 반영한다 | 해당 영역의 관리 기준과 [context-update](../../skills/context-update/SKILL.md)를 사용한다. |
+| 새 독립 목표의 Work를 만들거나 Work를 전환한다 | [Work 생성·전환 계약](work/workspaces/CREATE-AND-TRANSITION.md)과 요청된 생성의 [수행 스킬](../../skills/create-context-workspace/SKILL.md)을 사용한다. |
 
-문서와 코드가 갱신되면 달라진 내용을 소유한 본문을 직접 맞춘다. 운영 Harness·자동 hook은 이 demo에 연결하지 않았다.
+내용을 고칠 때에는 해당 영역에서 지속할 의미가 달라졌는지 먼저 판단한다. 이번 작업의 구현·검사 진행과 선택은 Work에, 여러 작업의 제품 이해·계약·구조·지원 제약의 변화는 Project에 남긴다. 기존 계약으로 충분하면 코드가 달라져도 Project 무수정으로 끝날 수 있다. 필요한 개인 기준의 변화는 Personal의 선택 권한과 관리 기준을 따른다. 운영 Harness·자동 hook은 이 demo에 연결하지 않았다.
 
 Personal·Project·Work의 독립 책임과 같은 로컬 context에 둔 이유는 [형성 자료 안내](_background/README.md)에서 관련 맥락·기록·원문을 고른다. 이 자료는 현재 본문을 만든 이유를 복원하는 층이며, 평소 적용은 위 각 본문에서 시작한다.
 

@@ -13,3 +13,5 @@
 - [검증 통합 기록](records/2026-10-24-verification-integration.md): 검증 역할·기계 검사·수정 왕복을 나눈 이유와 실행 본문 통합, 사용자 정정·확인 한계.
 
 - [조사·보고의 근거 대조 연결](records/2026-10-26-investigation-evidence-adoption.md): 기존 검사를 사용하는 담당자의 확인과 실행 공백을 구별하고, 독립 검증·설명 책임을 유지한 보완.
+
+- [맥락 사용·반영·완료와 연속성 통합](records/2026-10-26-context-integration.md): 담당자의 제안과 Main의 검토·반영, Project 내용 선별, 공통 읽기와 한정 수행의 배치, 후속 루프·생성·전환과의 경계 및 직접 발화.

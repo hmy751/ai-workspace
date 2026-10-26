@@ -61,6 +61,6 @@ Personal이 비교할 관점을 제공하고 Project가 제품의 약속을 정�
 
 ## 다음 변경은 달라진 내용을 소유한 곳에 남긴다
 
-새 소비자가 최신 결과를 필요로 하면 Project의 완료 계약과 해당 Work의 요구를 함께 판단한다. 코드 연결만 바뀌면 [Project current](noline-demo/context/project/current/authentication-flow/INDEX.md)를 맞춘다. 이번 선택과 확인·미확인은 [Work 상태](noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md)에 남기고, 결과 파일은 [output](noline-demo/context/work/workspaces/001-login-completion-names/output/index.md)에서 찾는다.
+새 소비자가 최신 결과를 필요로 하면 Project의 완료 계약과 해당 Work의 요구를 함께 판단한다. 구현자는 실제 변경에서 드러난 지속 설명의 수정 후보와 근거를 제안하고, Main은 여러 작업에 적용할 제품 의미·구조·지원 제약이 달라졌는지 먼저 선별한다. 그런 변화가 있으면 [Project current](noline-demo/context/project/current/authentication-flow/INDEX.md) 등 해당 본문을 맞추고, 기존 계약 안에서 소비자 연결만 추가했다면 Project를 수정하지 않을 수 있다. 이번 선택·구현과 확인·미확인은 [Work 상태](noline-demo/context/work/workspaces/001-login-completion-names/current/state/index.md)에 남기고, 결과 파일은 [output](noline-demo/context/work/workspaces/001-login-completion-names/output/index.md)에서 찾는다.
 
 ‘가능한 한 설명 없이 이해되는 코드’처럼 여러 작업에 가져갈 개인 판단은 Personal에서 관리한다. 그 기준이 바뀌면 이번 A/B 선택의 이유도 Work에서 다시 살핀다. 인증 완료의 보장이나 프로젝트의 공통 개발 규약이 달라진 것이 아니라면 Project 가이드를 함께 바꿀 필요는 없다. 이번 함수명을 새 공통 명명 규칙으로 등록하거나 모든 인증 작업에 조회 비대기를 강제하지 않는다.
