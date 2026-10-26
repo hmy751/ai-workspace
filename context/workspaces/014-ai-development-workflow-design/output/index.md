@@ -1,5 +1,9 @@
 # 현재 선택한 설계 자료와 산출물
 
+- [04-03 4번의 완료·연속 구체안](../records/2026-10-26-context-04-completion-continuation-proposal.md) · [외부 대조·독립 리뷰와 보완](../records/2026-10-26-context-04-goal-improvement-review.md): 이번 요청/Work 완료와 중단·재개, 요청된 생성/전환의 결과를 구별하고 늦은 결과·최신 수정 권한·05 시점 미정을 연결했다. 사용자가 기록·커밋을 요청한 현재 구체안이며 실제 생성·전환·스킬 실행의 확인은 아니다.
+
+- [04-03 3번의 반영 범위·종료 구체안](../records/2026-10-26-context-03-change-records-proposal.md) · [외부 대조·독립 리뷰와 보완](../records/2026-10-26-context-03-goal-improvement-review.md): 필요한 본문·형성 자료·읽기 경로와 부분 미완료를 구별하고, 검증 후 Project 재갱신·문서 수정 전 안내까지 연결했다. 사용자와 논의할 설계 결과이며 실제 스킬·제품 수행은 없다.
+
 - [04-03 담당자의 제안과 Main의 검토·반영 연결](../records/2026-10-26-context-proposal-review-apply-design.md): [2번](../records/2026-10-26-context-02-role-execution-proposal.md)·[3번](../records/2026-10-26-context-03-change-records-proposal.md)·[통합안](../records/2026-10-26-context-integrated-proposal.md)을 현재 설계로 읽는다. 직접 수정 기본값을 대체하고 중요한 제안·처리 근거의 보존, 재개·루프에서의 재사용을 연결했다. 설계 구체화이며 실행 스킬·설치·효과 확인은 아니다.
 
 - [04-02 설계 마감·완료 조건과 후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md): explain 본체·두 상세·형성 자료와 development의 설명/조사 연결을 현재 산출물로 유지한다. [실행 진입](../records/prototypes/development-workflow/skills/explain/SKILL.md), [반영·의미 확인](../records/2026-10-26-ticket04-02-choice-investigation-adoption.md), [두 원응답·남은 한계](../records/experiments/explain-choice-investigation-60medium-revised-2026-10-26/comparison.md)를 연결한다. 설계 완료이며 운영 설치·일반 효과는 미확인이다.

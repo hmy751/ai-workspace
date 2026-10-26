@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**04-03 네 구체안을 순차 검토 중이다.** 1번의 재개 문장·사례는 [한정 반영](records/2026-10-26-context-01-goal-improvement-review.md)했고, 현재는 담당자의 반영 제안과 Main의 검토·갱신을 [2번·3번과 통합안](records/2026-10-26-context-integrated-proposal.md)에 구체화했다. [앞선 대화 대조·이번 기록](records/2026-10-26-context-proposal-review-apply-design.md)과 [current](current/index.md)에서 리뷰 상태·다음 논의를 잇는다. 구현자 직접 수정 기본값은 이전 후보로 남긴다. USAGE/context-update 사용감 유보, 나머지 세부·설치·수행 효과의 미확인은 유지한다.
+**04-03의4번까지 초안·독립 개선 리뷰·보완을 진행했다.** [4번 완료·연속](records/2026-10-26-context-04-completion-continuation-proposal.md)과 [기존 합의·외부 대조·리뷰 기록](records/2026-10-26-context-04-goal-improvement-review.md)에서 이번 요청·Work 완료·대화 중단, 재개·요청된 생성과 전환의 관계를 읽는다. 사용자는 현재 구체안으로 기록·커밋을 요청했다. 다음은 네 항목의 전체 연결·실제 조항 배치를 점검하는 일이다. [통합안](records/2026-10-26-context-integrated-proposal.md)과 [current](current/index.md)가 현재 진입이다. 1번의 한정 실행 반영은 유지하며 새 스킬 생성·설치·전체 효과와04-03 전체 완료는 아직이다. USAGE/context-update 사용감 유보와3번의 Project 내용 선별·05의 대화 기준 루프 방향을 유지한다.
 
 **01-01·01-03 설계 결과를 마감했다.** [완료 조건 대조와 Spec·04의 다음 범위](records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)에서 근거·비용·한계를 확인한다. 다음은 **04-03: 개발 워크플로와 실제 context의 읽기·적용·갱신·재개 연결**이다. 기존 세 스킬은 이 연결을 구현하는 수단으로 대조한다. [재개 메모](records/2026-10-24-workflow-context-connection-checkpoint.md)에 완료 경계·입력·첫 산출물을 정리했다. 상위01·04와 전체 Workspace는 아직 완료가 아니며 실제 운영 효과와 구별한다.
 
