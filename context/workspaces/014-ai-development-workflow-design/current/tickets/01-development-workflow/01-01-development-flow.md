@@ -1,5 +1,7 @@
 # 01-01 — 개발 진행과 사람의 판단을 연결한다
 
+2026-10-26 구조 후속: 기존 설계 결과를 유지하며 [실행 상세의 계층 확장](../../../records/2026-10-26-development-detail-expansion.md)을 적용한다. 구현 수행은 독립 상세로, 검사 근거 판단·재사용은 검증 본문 아래 공유해서 사용하는 상세로 나눈다. 새 역할·선행 단계·권한·완료 조건을 추가하는 과제가 아니다.
+
 상태: **설계 결과 완료 — 개발 진행·사람 판단의 합의·실행 prototype 반영·대표 대조를 완료했다.** [완료 조건별 근거와 마감](../../../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md#01-01-완료-조건별-대조)에서 기존 다섯 조건을 실제 결과에 대조했다. Main의 이번 마감 판단이며 실제 운영 설치·여러 역할의 전체 개발 수행·일반 효과의 입증과 구별한다.
 
 ## 맡은 결과와 범위
@@ -12,7 +14,7 @@
 
 - [development](../../../records/prototypes/development-workflow/skills/development/SKILL.md): 맥락 이해·적용, 구현 첫 완성·인계, Main의 수정·종료·결과·기록 책임.
 - [검토 상세](../../../records/prototypes/development-workflow/skills/development/references/review.md): 관련 기준을 읽고 독립적으로 대안을 비교하는 목적, 입력·추가 탐색·권한·호출, 근거와 Main의 선택.
-- [검증 상세](../../../records/prototypes/development-workflow/skills/development/references/verification.md): 독립 기대 결과·기계 검사·실제 경로·공백·재현·반환·재검증과 충분성.
+- [검증 상세](../../../records/prototypes/development-workflow/skills/development/references/verification/INDEX.md): 독립 기대 결과·기계 검사·실제 경로·공백·재현·반환·재검증과 충분성.
 - [실행 배치](../../../records/prototypes/development-workflow/skills/development/references/execution.md): 초기 모델·추론·인원, 세션 상속·재사용, 실제 입력·권한·판본과 재배정 조건.
 - root/Work 진입의 일반 재개·한정 위임, work-discussion의 명시 호출, Main의 지침 기반 갱신, Personal A·B를 실제 본문에 연결했다. 자동 Maintain과 신규 기록 스킬은 연결하지 않았다.
 - 독립 대조에서6번의 실제 사용 경로 완성 조건을 복원했다. 정적 문서·링크·열람 화면 확인은 완료했고, 실제 개발 전체 수행이나 일반 효과의 검증과 구별한다.

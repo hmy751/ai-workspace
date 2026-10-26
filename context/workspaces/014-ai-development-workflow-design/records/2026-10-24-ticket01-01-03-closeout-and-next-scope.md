@@ -15,7 +15,7 @@
 | 기존 완료 조건 | 실제 근거와 판단 |
 | --- | --- |
 | 목표를 결과로 나누고 필요한 조사·개발·검토를 찾는 방법 | [development](prototypes/development-workflow/skills/development/SKILL.md)의 요청 복원·맥락 선택·재탐색·구현 완성과 [로그인 해설](prototypes/development-workflow/walkthrough.md)이 요구·제품 계약·소비자 결과·검사로 연결한다. 파일 완성을 전체 결과로 간주하지 않고 부분 단위의 남은 통합을 명시한다. 충족. |
-| 추가 확인·판단 가능한 결과·사람 선택을 사례로 구별 | [review](prototypes/development-workflow/skills/development/references/review.md)의 Main 판단·사용자 결정, [verification](prototypes/development-workflow/skills/development/references/verification.md)의 공백·반환·종료, [대표10개 장면](2026-10-24-verifier-runtime-integration.md#대표-장면의-전체-연결-대조)이 국소 결함·공개 계약 변경·접근 공백을 구별한다. 위임 안의 수정은 수행하고 목표·계약·권한 선택만 필요한 사용자 결정으로 연결한다. 충족. |
+| 추가 확인·판단 가능한 결과·사람 선택을 사례로 구별 | [review](prototypes/development-workflow/skills/development/references/review.md)의 Main 판단·사용자 결정, [verification](prototypes/development-workflow/skills/development/references/verification/INDEX.md)의 공백·반환·종료, [대표10개 장면](2026-10-24-verifier-runtime-integration.md#대표-장면의-전체-연결-대조)이 국소 결함·공개 계약 변경·접근 공백을 구별한다. 위임 안의 수정은 수행하고 목표·계약·권한 선택만 필요한 사용자 결정으로 연결한다. 충족. |
 | 지적 판단·수정·재확인·종료·첫 보고·기록과01-02/01-03의 연결 | 개선 문제와 해결책 채택을 분리하고 원 구현자 수정·독립 검증·재검증을 연결했다. 첫 결과의 explain 사용과 Main의 의미별 Owner 갱신을 본체가 맡는다. ‘국소 Main 확인’은 개선 의견 처리로 한정해 최종 검증 생략과 구별했다.01-02의 옛 B 직접 수정 문구는 현재 역할 합의로 갱신한다. 충족. |
 | 작은 변경과 큰 구조 개선의 방법·생략·역할/자료/도구 비용·후속 관찰 | [execution](prototypes/development-workflow/skills/development/references/execution.md)의 필요한 역할·선별 입력·재사용, 본체와 상세의 영향 기준·기존 도구 우선·근거 재사용을 아래 대비표로 모았다. 비용은 정성 비교이며 시간·토큰 절감의 실측 주장은 없다. 충족. |
 | 초기 초안과 관련 결과를 통합한 설계 완료를 구별 | [구현·개선 검토1~15 통합](2026-10-23-development-workflow-1-15-integration.md), [검증1~12 통합](2026-10-24-verifier-runtime-integration.md), 실제 본문과 형성 자료·진입점이 연결됐다. 제품 설치나 효과 입증으로 완료 범위를 올리지 않는다. 충족. |

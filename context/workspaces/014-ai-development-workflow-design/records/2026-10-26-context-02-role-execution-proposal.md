@@ -4,7 +4,7 @@
 
 **Main은 목표·보존 조건·대상과 관련 접근점을 전달하고, 담당자는 그 원문을 자기 질문으로 읽어 결과를 만든다.** current는 이번 선택을 이해하는 입력이다. 구현자의 선택 이유와 Main의 해석도 검토 가능한 주장으로 두며, 원문 직접 읽기나 별도 판단을 대신하지 않는다.
 
-현재 [development](prototypes/development-workflow/skills/development/SKILL.md), [execution](prototypes/development-workflow/skills/development/references/execution.md), [review](prototypes/development-workflow/skills/development/references/review.md), [verification](prototypes/development-workflow/skills/development/references/verification.md)에 이 역할 분담이 있다. [항목1](2026-10-26-context-01-start-resume-proposal.md)의 공통 방법을 역할별로 어떻게 사용하고 무엇을 넘기는지 구체화한다. 모델·세션·검토 호출 기준을 새로 정하지 않는다.
+현재 [development](prototypes/development-workflow/skills/development/SKILL.md), [execution](prototypes/development-workflow/skills/development/references/execution.md), [review](prototypes/development-workflow/skills/development/references/review.md), [verification](prototypes/development-workflow/skills/development/references/verification/INDEX.md)에 이 역할 분담이 있다. [항목1](2026-10-26-context-01-start-resume-proposal.md)의 공통 방법을 역할별로 어떻게 사용하고 무엇을 넘기는지 구체화한다. 모델·세션·검토 호출 기준을 새로 정하지 않는다.
 
 ## 기존 책임과 이번 추가안
 

@@ -1,0 +1,14 @@
+{
+  "verificationEntry": "skills/development/references/verification/INDEX.md",
+  "groupedFiles": [
+    "INDEX.md",
+    "evidence.md"
+  ],
+  "oldEntryRemoved": true,
+  "bodyPreservedExceptLinkPaths": true,
+  "outgoingTargetsAndAnchorsPreserved": true,
+  "changedMarkdownFiles": 34,
+  "localFileReferences": 1190,
+  "missingPaths": [],
+  "browserRendering": "실행하지 않음"
+}

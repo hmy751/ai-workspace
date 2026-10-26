@@ -10,7 +10,7 @@
 
 - [최초 수행과 조건](experiments/explain-four-problems-60medium-2026-10-26/README.md), [Main의 기존 평가](experiments/explain-four-problems-60medium-2026-10-26/assessment.md).
 - [2번 원응답](experiments/explain-four-problems-60medium-2026-10-26/case02-access/output/response.md), [4번 원응답](experiments/explain-four-problems-60medium-2026-10-26/case04-investigation/output/response.md). 이 제안의 예시는 Main이 자료를 추가 대조해 작성한 보완 방향이며 모델 재시험 결과가 아니다.
-- 현재 실행 기준은 [explain 본체](prototypes/development-workflow/skills/explain/SKILL.md), [작성 상세](prototypes/development-workflow/skills/explain/references/constructing-explanations.md), [공통 근거 기준](prototypes/development-workflow/skills/shared/explanation-and-evidence-criteria.md), [development 본체](prototypes/development-workflow/skills/development/SKILL.md), [검증 상세](prototypes/development-workflow/skills/development/references/verification.md)다.
+- 현재 실행 기준은 [explain 본체](prototypes/development-workflow/skills/explain/SKILL.md), [작성 상세](prototypes/development-workflow/skills/explain/references/constructing-explanations.md), [공통 근거 기준](prototypes/development-workflow/skills/shared/explanation-and-evidence-criteria.md), [development 본체](prototypes/development-workflow/skills/development/SKILL.md), [검증 상세](prototypes/development-workflow/skills/development/references/verification/INDEX.md)다.
 - 각 사례는 GPT-6-sol medium 최초 1회다. 읽지 않은 상세와 부족한 응답이 함께 관찰됐다는 사실은 인과 증명이 아니다. 아래는 구체적인 수정 가설이며 효과는 미확인이다.
 
 스킬 본문 관리 정책의 실행 본문·상세·형성 자료 구별을 따른다. 실패 사례의 역사와 긴 원응답은 이 기록과 실험에 두고, 채택 시 실행 상세에는 다른 사례에도 판단을 옮길 수 있는 짧은 대비만 둔다. 형성 맥락에서 유지해 온 설명/개발의 책임 분리와 기존 근거 재사용도 보존한다.

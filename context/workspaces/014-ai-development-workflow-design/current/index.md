@@ -1,6 +1,6 @@
 # 현재 논의의 진입점
 
-**04-03 현재 진입 — 설계·prototype 연결 완료:** [적용·독립 검토·복사본 확인·완료 조건](../records/2026-10-26-context-prototype-adoption.md)을 읽는다. 실행은 [prototype](../records/prototypes/development-workflow/README.md)의 development·USAGE·context-update·Work 생성/전환과 create에 연결됐다. 계획은 `9eb012f3`로 선행 커밋했고 적용 변경은 아직 미커밋이다. 운영 설치·host 연결·일반 효과는 후속이며 네 상세안은 설계 근거로 보존한다.
+**현재 진입 — Development 실행 상세 확장 완료:** [구조 판단·반영·검토와 확인](../records/2026-10-26-development-detail-expansion.md)을 읽는다. 기존 맥락 연결은 `191e2d86`으로 커밋했고, 구현 수행을 `implementation.md`, 검사 근거 판단·재사용을 `verification/evidence.md`로 나눠 실제 읽기 경로에 연결했다. 역할·권한·종료를 보존하고 중복 판단 조건은 한곳으로 모았다. 상세 확장과 후속 구성 정정을 기록·커밋 범위로 묶었으며 반복 사용 효과와 운영 설치는 별도다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
 
 **04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 운영 설치·일반 효과는 미확인이며 다음 중심은04-03 검토다.
 
@@ -22,7 +22,7 @@
 
 후속 실행 본문·참조 문서 구체화에는 [단계·층위·개념과 책임의 공통 메모](../records/2026-10-24-workflow-structure-and-responsibility-guidance.md)도 적용한다. 검증에 한정하지 않는 사용자 요청이며, 실제 구체화 범위에서 역할·정본·인계 관계로 이어 간다.
 
-**검증자1~12번의 실행 본문 반영과 전체 흐름 대조를 완료했다.** [실행 상세](../records/prototypes/development-workflow/skills/development/references/verification.md), [통합·확인 기록](../records/2026-10-24-verifier-runtime-integration.md)을 읽는다. 기존 구현·개선 검토와 인계·수정·종료를 맞추고 대표 장면을 대조했으며 메모리 인증 예제7개 검사·두 실행을 확인했다. 실제 역할 전체의 수행 실험·운영 설치는 별도다.
+**검증자1~12번의 실행 본문 반영과 전체 흐름 대조를 완료했다.** [실행 상세](../records/prototypes/development-workflow/skills/development/references/verification/INDEX.md), [통합·확인 기록](../records/2026-10-24-verifier-runtime-integration.md)을 읽는다. 기존 구현·개선 검토와 인계·수정·종료를 맞추고 대표 장면을 대조했으며 메모리 인증 예제7개 검사·두 실행을 확인했다. 실제 역할 전체의 수행 실험·운영 설치는 별도다.
 
 6번 실행 반영: [구현 완성·인계안](../records/2026-10-23-implementation-completion-and-handoff-proposal.md)의 맥락 이해·적용, 실제 사용·변경 장면, 독립 기대 결과와 근거 인계를 development에 반영했다. 설계 경과와 현재 실행 상태는 구별한다.
 
@@ -32,7 +32,7 @@
 
 04-02 이전 본문 비교: [책임 설명 통합판과 직전 채택판 시험](../records/experiments/artifact-explanation-trip-responsibility-2026-10-23/comparison.md)은 통합 전 브리핑의 관찰이다. 양쪽 코드 발췌가 없어 핵심 개선은 미관찰이었다. 현재 explain의 수행 효과로 해석하지 않으며, 기존 입력·응답·당시 판본은 보존한다.
 
-실행 prototype은 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[개선 검토](../records/prototypes/development-workflow/skills/development/references/review.md)·[검증 상세](../records/prototypes/development-workflow/skills/development/references/verification.md)·[실행 배치](../records/prototypes/development-workflow/skills/development/references/execution.md)다. 구현·개선 검토1~15와 검증자1~12의 실제 반영·확인 범위는 [최신 통합 기록](../records/2026-10-24-verifier-runtime-integration.md)에서 이어 본다.
+실행 prototype은 [development](../records/prototypes/development-workflow/skills/development/SKILL.md)·[개선 검토](../records/prototypes/development-workflow/skills/development/references/review.md)·[검증 상세](../records/prototypes/development-workflow/skills/development/references/verification/INDEX.md)·[실행 배치](../records/prototypes/development-workflow/skills/development/references/execution.md)다. 구현·개선 검토1~15와 검증자1~12의 실제 반영·확인 범위는 [최신 통합 기록](../records/2026-10-24-verifier-runtime-integration.md)에서 이어 본다.
 
 **Ticket 03의 구성안·본문 예시 구체화를 완료했다.** [state](state.md)에서 마감 상태와 후속 범위, [03](tickets/03-project-context.md)에서 완료 조건별 근거, [119](../records/2026-10-20-119-ticket03-closeout.md)에서 이번 마무리 판단을 읽는다. Workspace014 전체와 다른 Ticket은 계속 열려 있다.
 

@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+- [Development 실행 상세의 계층 확장](../records/2026-10-26-development-detail-expansion.md): [구현 수행](../records/prototypes/development-workflow/skills/development/references/implementation.md)과 [검사 근거 판단·재사용](../records/prototypes/development-workflow/skills/development/references/verification/evidence.md)을 실제 본문·소비 경로에 연결하고 독립 검토 보완·정적 확인을 마쳤다. 기존 전체 수행·검증 역할과 내용 Owner를 유지하며 반복 사용 효과와 구별한다. 검증 묶음의 진입 본문은 [verification/INDEX.md](../records/prototypes/development-workflow/skills/development/references/verification/INDEX.md)로 모았다.
+
 - [04-03 실행 연결·확인·완료 조건](../records/2026-10-26-context-prototype-adoption.md): [prototype](../records/prototypes/development-workflow/README.md)의 development·USAGE·context-update·Work 생성/전환과 create를 현재 결과로 선택한다. [복사본 수행](../records/experiments/context-prototype-integration-2026-10-26/README.md)과 [독립 리뷰](../records/2026-10-26-context-prototype-integration-review.md)를 확인했다. 운영 설치·일반 효과와 구별한다. 아래 계획·상세안의 미생성/다음 표시는 당시 설계 단계다.
 
 - [04-03 프로토타입 통합 적용 계획](../records/2026-10-26-context-prototype-integration-plan.md): 네 구체안을 실제 실행 지침·공통 방법·Work 계약·진입에 옮길 범위와 이관 전 정리, 대표 확인을 연결했다. 계획 결과이며 실제 스킬 생성·프로토타입 적용·설치는 아직이다.
@@ -34,7 +36,7 @@
 
 04-02 최신 반영: [선별한 개선안의 구체화·적용·확인](../records/2026-10-24-ticket04-02-selective-improvement-adoption.md). 원래 목적·Noline 사용 경험·논의·외부 자료를 선별한 안과 개선 리뷰를 바탕으로 explain 본체·작성 상세, development 호출과 형성 자료·열람 화면을 갱신했다. 질문 범위와 실제 빠진 연결, 역할 설명과 선택 판단을 구별한다. 앞선 발화 상세와 공통 근거 기준은 유지한다. 실행 본문 반영 완료이며 새 응답 비교·운영 설치·실제 효과 확인은 별도다.
 
-현재 검증 실행 본문: [verification](../records/prototypes/development-workflow/skills/development/references/verification.md). [합의1~12](../records/2026-10-24-verifier-workflow-proposal.md)를 기존 구현·개선 검토 흐름에 [통합·대조](../records/2026-10-24-verifier-runtime-integration.md)했다. 시작·입력·기계 검사·공백·반환·재검증·충분성을 연결했다. 대표 장면 대조·메모리 예제 실행과 실제 역할 전체의 수행·운영 효과를 구별한다.
+현재 검증 실행 본문: [verification](../records/prototypes/development-workflow/skills/development/references/verification/INDEX.md). [합의1~12](../records/2026-10-24-verifier-workflow-proposal.md)를 기존 구현·개선 검토 흐름에 [통합·대조](../records/2026-10-24-verifier-runtime-integration.md)했다. 시작·입력·기계 검사·공백·반환·재검증·충분성을 연결했다. 대표 장면 대조·메모리 예제 실행과 실제 역할 전체의 수행·운영 효과를 구별한다.
 
 04-02 최신 비교: [조건 공개·응답 대조·다음 판단](../records/experiments/explain-source03-04-60high-2026-10-24/comparison.md). 사용자는 다섯 답이 비슷하다고 평가했다.03 A=스킬 없음·B=직전 explain·C=현재판,04 A=현재판·B=직전판이다. Main은03 현재판의 세 방어 조건 설명에서 국소적 보완을 확인했으나 기본 응답도 핵심을 설명했고,04는 판단·근거가 비슷하며 질문에 직접 답하는 시작은 직전판이 낫다고 판단했다. 이번 수정의 뚜렷한 추가 이득은 미확인이다. 현재판을 고정하고 추가 문구 보강·재생성은 하지 않았으며 첫 전달 연결 효과는 미시험으로 남긴다.
 

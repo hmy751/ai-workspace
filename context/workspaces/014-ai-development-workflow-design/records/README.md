@@ -1,6 +1,8 @@
 # 논의와 보존 기록
 
-- [04-03 프로토타입 적용·완료 조건·후속](2026-10-26-context-prototype-adoption.md): 계획을 `9eb012f3`로 먼저 커밋한 뒤 실행 본문·관리 계약·진입을 연결했다. [독립 리뷰](2026-10-26-context-prototype-integration-review.md)의 옛 갱신 예시를 보완하고 [복사본의 읽기·정정·생성·전환](experiments/context-prototype-integration-2026-10-26/README.md)을 확인했다. 적용 변경은 아직 미커밋이다.
+- [Development 실행 상세의 계층 확장](2026-10-26-development-detail-expansion.md): 사용자 확장 의도, 예전 구상과 현재 소비 관계의 독립 검토, 구현 수행/검사 근거 분리와 이번 반영·확인을 기록한다. 기존 적용분은 `191e2d86`으로 먼저 커밋했다.
+
+- [04-03 프로토타입 적용·완료 조건·후속](2026-10-26-context-prototype-adoption.md): 계획을 `9eb012f3`로 먼저 커밋한 뒤 실행 본문·관리 계약·진입을 연결했다. [독립 리뷰](2026-10-26-context-prototype-integration-review.md)의 옛 갱신 예시를 보완하고 [복사본의 읽기·정정·생성·전환](experiments/context-prototype-integration-2026-10-26/README.md)을 확인했다. 해당 적용 변경은 후속 요청에 따라 `191e2d86`으로 커밋했다.
 
 - [04-03 네 구체안의 프로토타입 통합 적용 계획](2026-10-26-context-prototype-integration-plan.md): 앞선 합의·네 설계·실제 실행 본문을 대조해 적용 위치와 흐름,2번의 잔여 예시/권한 정리, 직접 요청·후속 루프·운영 전환 경계를 연결했다. 이번에는 계획과 기록만 갱신했다.
 

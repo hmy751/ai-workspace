@@ -1,6 +1,6 @@
 # Development의 형성 자료
 
-개발 실행을 하나의 스킬로 구성한 목적, 관련 기준을 공유하면서 독립적으로 검토하게 된 이유, 현재 실행 본문과 적용 한계를 설명한다. 스킬을 적용할 때는 [SKILL.md](../SKILL.md)와 필요한 [검토 상세](../references/review.md)·[검증 상세](../references/verification.md)·[실행 배치](../references/execution.md)를 사용한다. 이 자료는 의미·구성·과거 선택을 재검토할 때 읽는다.
+개발 실행을 하나의 스킬로 구성한 목적, 관련 기준을 공유하면서 독립적으로 검토하게 된 이유, 현재 실행 본문과 적용 한계를 설명한다. 스킬을 적용할 때는 [SKILL.md](../SKILL.md)와 필요한 [구현 상세](../references/implementation.md)·[검토 상세](../references/review.md)·[검증 상세](../references/verification/INDEX.md)·[실행 배치](../references/execution.md)를 사용한다. 이 자료는 의미·구성·과거 선택을 재검토할 때 읽는다.
 
 - [형성 맥락](context.md): 사용자 목표, 스킬과 context의 소유 관계, 파일을 나눈 이유와 열린 실행 설계.
 - [근거](evidence.md): 판단을 바꾼 사용자 발화·외부 참고·리뷰 의견의 지위, 이전 DEVELOPMENT 원문.
@@ -15,3 +15,5 @@
 - [조사·보고의 근거 대조 연결](records/2026-10-26-investigation-evidence-adoption.md): 기존 검사를 사용하는 담당자의 확인과 실행 공백을 구별하고, 독립 검증·설명 책임을 유지한 보완.
 
 - [맥락 사용·반영·완료와 연속성 통합](records/2026-10-26-context-integration.md): 담당자의 제안과 Main의 검토·반영, Project 내용 선별, 공통 읽기와 한정 수행의 배치, 후속 루프·생성·전환과의 경계 및 직접 발화.
+
+- [실행 상세의 계층 확장](records/2026-10-26-detail-expansion.md): 초기 유보 뒤 성숙한 구현 수행과 여러 담당자가 사용하는 검사 근거를 나눈 이유, 사용자 의도와 유지한 책임.

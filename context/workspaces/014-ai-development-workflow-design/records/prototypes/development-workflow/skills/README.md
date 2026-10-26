@@ -4,7 +4,9 @@
 
 | 필요한 일 | 현재 본문과 상세 |
 | --- | --- |
-| 개발 작업의 맥락·구현·검토·확인·결과를 조율한다 | [development](development/SKILL.md) · [개선 검토](development/references/review.md) · [검증 상세](development/references/verification.md) · [실행 배치](development/references/execution.md) |
+| 개발 작업의 맥락·구현·검토·확인·결과를 조율한다 | [development](development/SKILL.md) · [개선 검토](development/references/review.md) · [검증 상세](development/references/verification/INDEX.md) · [실행 배치](development/references/execution.md) |
+| 구현·수정의 설계·완성·자기 확인·인계를 수행한다 | [구현 상세](development/references/implementation.md). Main이 구현을 겸해도 같은 책임을 적용한다. |
+| 검사·기존 결과가 현재 주장을 뒷받침하는지 판단한다 | [검사 근거 판단](development/references/verification/evidence.md). 검증자뿐 아니라 Main·구현·조사 담당이 필요한 때 사용한다. |
 | 질문에 필요한 원문을 골라 실제 판단에 사용한다 | 대상 context의 공통 참조. 이 demo에서는 [USAGE](../noline-demo/context/USAGE.md)를 사용한다. |
 | 지정한 Personal·Project 본문에 확인된 의미를 반영한다 | [context-update](context-update/SKILL.md). 내용의 권위·관리 기준은 대상 영역에 남는다. |
 | 요청된 새 독립 Work를 구성하고 인수 가능한지 확인한다 | [create-context-workspace](create-context-workspace/SKILL.md) · demo의 [생성·전환 계약](../noline-demo/context/work/workspaces/CREATE-AND-TRANSITION.md) |

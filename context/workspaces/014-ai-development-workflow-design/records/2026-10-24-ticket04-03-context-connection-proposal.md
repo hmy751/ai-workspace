@@ -22,7 +22,7 @@
 | --- | --- | --- |
 | 대상 root·context·Work 입구 | 어느 Project와 Workspace인지, 일반 재개인지 한정 위임인지 정하고 실제 본문으로 안내 | [root](prototypes/development-workflow/noline-demo/AGENTS.md), [context](prototypes/development-workflow/noline-demo/context/README.md), [Work 지침](prototypes/development-workflow/noline-demo/context/work/AGENTS.md) |
 | development | 이번 질문에 필요한 Personal·Project·Work를 선택하고 적용·추가 탐색·결과 갱신을 조율 | [공통 수행 본문](prototypes/development-workflow/skills/development/SKILL.md) |
-| 역할별 수행 상세 | 같은 자료를 어떤 질문으로 판단하고 무엇을 반환할지 정함 | [실행 배치](prototypes/development-workflow/skills/development/references/execution.md), [개선 검토](prototypes/development-workflow/skills/development/references/review.md), [검증](prototypes/development-workflow/skills/development/references/verification.md) |
+| 역할별 수행 상세 | 같은 자료를 어떤 질문으로 판단하고 무엇을 반환할지 정함 | [실행 배치](prototypes/development-workflow/skills/development/references/execution.md), [개선 검토](prototypes/development-workflow/skills/development/references/review.md), [검증](prototypes/development-workflow/skills/development/references/verification/INDEX.md) |
 | Personal·Project | 실제 판단 기준·이유·조건, 제품 약속·개발 규약·현재 구현 사실을 소유 | [Personal](prototypes/development-workflow/noline-demo/context/personal/README.md), [Project](prototypes/development-workflow/noline-demo/context/project/README.md) |
 | Work | 이번 목표·선택·진행·근거·결과 위치를 이어감 | [001 Workspace](prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/README.md) |
 

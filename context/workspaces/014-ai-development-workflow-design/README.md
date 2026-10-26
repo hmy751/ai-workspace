@@ -1,12 +1,12 @@
 # AI 개발 작업 체계의 개선 설계
 
-**04-03 설계·프로토타입 연결을 완료했다.** [실제 적용·검토·수행 확인과 완료 조건](records/2026-10-26-context-prototype-adoption.md)에서 결과를 읽는다. development의 역할·시점, USAGE의 공통 읽기, context-update의 한정 반영, Work 생성·전환 계약과 create를 실제 본문·진입에 연결했다. 읽기·정정·생성·전환의 복사본 수행과 원문/링크 검사를 확인했다. 계획 기록은 `9eb012f3`로 먼저 커밋했고 이번 적용 변경은 아직 커밋하지 않았다.
+**현재 후속 — Development 실행 상세의 계층 확장 완료:** 기존04-03 연결·확인 결과를 `191e2d86`으로 먼저 커밋했다. 사용자의 구조 확장 요청에 따라 [구현 수행·검사 근거 상세와 소비 경로](records/2026-10-26-development-detail-expansion.md)를 구성하고 독립 검토 보완·원문/링크 확인을 마쳤다. 전체 조율·검토·검증·정본 관리의 책임은 유지한다. 상세 확장·구성 정정·확인 기록을 이번 커밋 범위로 묶었다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
 
 USAGE/context-update의 사용감 유보, 실제 운영 설치·host 전환·전체 역할 수행과 일반 효과의 미확인은 유지한다. 현재 결과는 [prototype](records/prototypes/development-workflow/README.md)과 [열람 화면](records/prototypes/development-workflow/viewer.html), 다음 설계 범위는 [current](current/index.md)에서 찾는다. 아래 날짜별 설계·반영 설명의 당시 다음 행동은 이 최신 결과를 대체하지 않는다.
 
 **01-01·01-03 설계 결과를 마감했다.** [완료 조건 대조와 Spec·04의 다음 범위](records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)에서 근거·비용·한계를 확인한다. 다음은 **04-03: 개발 워크플로와 실제 context의 읽기·적용·갱신·재개 연결**이다. 기존 세 스킬은 이 연결을 구현하는 수단으로 대조한다. [재개 메모](records/2026-10-24-workflow-context-connection-checkpoint.md)에 완료 경계·입력·첫 산출물을 정리했다. 상위01·04와 전체 Workspace는 아직 완료가 아니며 실제 운영 효과와 구별한다.
 
-검증자 실행 반영: [검증 상세](records/prototypes/development-workflow/skills/development/references/verification.md)를 생성하고 development·review·execution과 연결했다. [합의 대조와 확인 기록](records/2026-10-24-verifier-runtime-integration.md)에서 항목별 반영·대표 장면·실제 검사·한계를 읽는다.
+검증자 실행 반영: [검증 상세](records/prototypes/development-workflow/skills/development/references/verification/INDEX.md)를 생성하고 development·review·execution과 연결했다. [합의 대조와 확인 기록](records/2026-10-24-verifier-runtime-integration.md)에서 항목별 반영·대표 장면·실제 검사·한계를 읽는다.
 
 **구현·개선 검토1~15와 검증자1~12의 합의를 실행 prototype에 통합했다.** [전체 흐름 대조·실제 확인](records/2026-10-24-verifier-runtime-integration.md)에서 구현 중 검사·개선 수정·별도 검증·재검증·Main 완료와 기록의 연결을 확인한다. Main의 대표 장면 대조와 메모리 예제 실행을 마쳤으며, 여러 agent의 전체 개발 수행·운영 설치·일반 효과 검증은 별도다. 개별 맥락 스킬 보완과 대상별 연결·전체 체계 종합은 해당 후속 Ticket에 남아 있다.
 

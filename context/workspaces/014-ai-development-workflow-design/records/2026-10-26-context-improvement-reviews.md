@@ -40,7 +40,7 @@
 
 초안의 “미확인·관련 문서 반영 필요” 반환과 뒤쪽의 “함께 배정됐다면”은 구현자가 보고하고 Main이 다시 조사하는 흐름을 기본처럼 보이게 할 수 있었다. **채택하되 조건부 배치:** Main이 초기 배정에서 구현과 함께 바뀔 현재 사실 설명·관련 입구까지 맡길지 정한다. 포함하면 같은 담당자가 항목3의 반영을 이어 한다. 작은 변경은 Main 직접 처리도 유지하고 제품 약속·Personal 채택 권한을 자동 확대하지 않는다.
 
-리뷰어는 [execution](prototypes/development-workflow/skills/development/references/execution.md)의 공유 상태 대조와 [verification](prototypes/development-workflow/skills/development/references/verification.md)의 최종 대상 비교를 근거로 반환의 유효성을 보완했다. **채택:** 중요한 반환/수용 시 판단을 가른 대상·요구·계약의 변화를 대조하고 현재판을 못 봤다면 해당 판본·조건의 의견으로 한정한다. 새 해시 체계·감시 장치·전체 재검토는 도입하지 않는다.
+리뷰어는 [execution](prototypes/development-workflow/skills/development/references/execution.md)의 공유 상태 대조와 [verification](prototypes/development-workflow/skills/development/references/verification/INDEX.md)의 최종 대상 비교를 근거로 반환의 유효성을 보완했다. **채택:** 중요한 반환/수용 시 판단을 가른 대상·요구·계약의 변화를 대조하고 현재판을 못 봤다면 해당 판본·조건의 의견으로 한정한다. 새 해시 체계·감시 장치·전체 재검토는 도입하지 않는다.
 
 ## 항목3 — 중단 후 남은 연결·약속의 지위·수행 방법의 유지
 

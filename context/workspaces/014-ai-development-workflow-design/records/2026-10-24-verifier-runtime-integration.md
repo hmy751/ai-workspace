@@ -16,7 +16,7 @@
 | --- | --- |
 | [development 본체](prototypes/development-workflow/skills/development/SKILL.md) | 요구·구현 중 기계 검사·개선 수정·검증·문제 해결·재검증·Main 완료와 기록의 전체 관계 |
 | [review](prototypes/development-workflow/skills/development/references/review.md) | 더 나은 선택의 독립 비교와 Main 채택·수정·이득 확인. 최신 결과를 검증에 넘기며 중요한 설계 변화만 관련 질문으로 되받음 |
-| [verification](prototypes/development-workflow/skills/development/references/verification.md) | 시작·입력·기계 검사 유효성/적절성/추가 실행·공백·재현 작성·반환·재검증·충분성 |
+| [verification](prototypes/development-workflow/skills/development/references/verification/INDEX.md) | 시작·입력·기계 검사 유효성/적절성/추가 실행·공백·재현 작성·반환·재검증·충분성 |
 | [execution](prototypes/development-workflow/skills/development/references/execution.md) | 첫 검증의 독립 배치, 실제 입력·권한, 좁은 후속 재사용·담당 교체 |
 | Project·Work | 제품 약속·실행 방법과 이번 선택·재현·관찰·다음 행동을 각각 유지. 검증 상세가 정본을 흡수하지 않음 |
 

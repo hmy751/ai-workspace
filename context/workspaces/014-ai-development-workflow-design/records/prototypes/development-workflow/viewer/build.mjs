@@ -82,6 +82,9 @@ const labels = {
   [namingRoot + '_background/evidence.md']: '근거 발췌 · 당시 발화와 확인 범위',
   [personalCases]: '상세 사례 · 같은 코드의 선택 비교',
   [workflow]: 'Development · Main의 조율과 독립 검토',
+  'skills/development/references/implementation.md': '구현 수행 · 설계·완성·자기 확인·인계',
+  'skills/development/references/verification/INDEX.md': '검증 수행 · 의뢰·확인·반환·재검증',
+  'skills/development/references/verification/evidence.md': '검사 근거 · 주장 범위와 재사용 판단',
   [project + 'README.md']: 'Project 입구 · 담당 본문 선택',
   [project + 'current/authentication-flow/INDEX.md']: '작업 후 · 인증 흐름 현황',
   [work + 'records/2026-10-19-01-input-selection.md']: '이번 Work에서 실제 선택한 입력',
@@ -123,8 +126,8 @@ const stages = [
   {label: 'Context와 작업', title: '1. 한 프로젝트 안의 Context와 Work', description: '같은 context 안에 Personal·Project·Work를 두고, 이번 작업의 Spec·Ticket·현재 상태를 찾습니다.', documents: ['noline-demo/context/README.md', work + 'README.md', work + 'current/memory/index.md', work + 'current/memory/spec/01-problem-goal-scope.md', work + 'current/memory/tickets/01-authentication-completion.md', work + 'source/scenario-input.md', 'README.md']},
   {label: '필요 본문 선택', title: '2. 질문에 필요한 Personal과 Project를 선택', description: '담당자가 관련 원문을 직접 읽고 새 질문에 따라 다시 선택합니다. 현재 읽기 경로이며 최초 전달 판본의 복원본은 아닙니다.', documents: [workflow, 'noline-demo/context/USAGE.md', work + 'current/memory/personal-context.md', work + 'current/memory/project-context.md', personalRoot + 'README.md', personalCommon, personal, personalCases, project + 'README.md', project + 'guidance/code-readability/INDEX.md']},
   {label: '대안·계약 판단', title: '3. 초기 판단 조건과 대안을 재구성해 읽음', description: '보존된 시작 입력으로 판단 조건을 풀고 현재 기준과 대조한 해설입니다. 새 작업자가 독립적으로 적용한 실험은 아닙니다.', documents: ['walkthrough.md', work + 'source/scenario-input.md', personal, personalCases, project + 'guidance/authentication-and-session/INDEX.md']},
-  {label: '구현과 결과', title: '4. Output에서 실제 구현을 찾음', description: '선택 후 이름·코드는 결과로 읽습니다. 당시 작성 기록과 현재 보완된 선택 이유를 구별합니다.', documents: [work + 'output/index.md', work + 'current/memory/spec/05-constraints-design-assumptions.md', project + 'current/authentication-flow/INDEX.md', work + 'records/2026-10-19-02-implementation.md', ...demoSources]},
-  {label: '검토와 검사', title: '5. 실제 수행과 한계를 구별', description: '현재 실행 방법과 당시 검사·검토 결과에서 확인한 경계와 남은 조건을 구별합니다.', documents: ['noline-demo/README.md', work + 'current/memory/spec/04-quality-and-completion.md', work + 'records/2026-10-19-03-execution.md', work + 'records/2026-10-19-04-review.md', ...demoTests]},
+  {label: '구현과 결과', title: '4. Output에서 실제 구현을 찾음', description: '선택 후 이름·코드는 결과로 읽습니다. 당시 작성 기록과 현재 보완된 선택 이유를 구별합니다.', documents: ['skills/development/references/implementation.md', work + 'output/index.md', work + 'current/memory/spec/05-constraints-design-assumptions.md', project + 'current/authentication-flow/INDEX.md', work + 'records/2026-10-19-02-implementation.md', ...demoSources]},
+  {label: '검토와 검사', title: '5. 실제 수행과 한계를 구별', description: '현재 실행 방법과 당시 검사·검토 결과에서 확인한 경계와 남은 조건을 구별합니다.', documents: ['skills/development/references/verification/INDEX.md', 'skills/development/references/verification/evidence.md', 'noline-demo/README.md', work + 'current/memory/spec/04-quality-and-completion.md', work + 'records/2026-10-19-03-execution.md', work + 'records/2026-10-19-04-review.md', ...demoTests]},
   {label: '현재와 다음', title: '6. 필요한 반영과 다음 재개를 연결', description: '지속할 의미를 선별해 반영하고 현재 상태·결과를 맞춥니다. 같은 목표 재개와 요청된 새 Work 생성·전환을 구별합니다.', documents: [work + 'current/state/index.md', work + 'output/index.md', 'skills/context-update/SKILL.md', project + 'MAINTENANCE.md', personalRoot + 'README.md', 'noline-demo/context/work/workspaces/README.md', 'noline-demo/context/work/workspaces/CREATE-AND-TRANSITION.md', 'skills/create-context-workspace/SKILL.md', workflow]},
 ];
 const comparison = [
