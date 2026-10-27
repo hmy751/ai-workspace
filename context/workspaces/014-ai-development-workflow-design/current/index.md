@@ -1,8 +1,8 @@
 # 현재 논의의 진입점
 
-2026-10-27 [마무리 점검](../records/2026-10-27-workspace-checkpoint.md): 현재 중심은 완료된04-03의 반복 구체화가 아니라01-02·02·05·06·07 중 다음 범위를 정하는 것이다. 구체 착수 순서는 아직 합의하지 않았다.
+**현재 초점: 05 인터뷰 결과를 한 번의 루프 흐름으로 구체화하기 전.** [05 Ticket](tickets/05-learning-loop.md)과 [인터뷰 체크포인트](../records/2026-10-27-ticket05-interview-checkpoint.md)에 합의·열린 후보·정정과 다음 권고를 모았다. 질문 응답을 더 기다리는 상태는 아니며 전체 흐름안의 채택·구현은 아직이다. [기타-01 범용 개선 리뷰](tickets/misc-01-improvement-review.md)는 사용자 요청으로 지금 진행하지 않는다.
 
-**현재 진입 — Development 실행 상세 확장 완료:** [구조 판단·반영·검토와 확인](../records/2026-10-26-development-detail-expansion.md)을 읽는다. 기존 맥락 연결은 `191e2d86`으로 커밋했고, 구현 수행을 `implementation.md`, 검사 근거 판단·재사용을 `verification/evidence.md`로 나눠 실제 읽기 경로에 연결했다. 역할·권한·종료를 보존하고 중복 판단 조건은 한곳으로 모았다. 상세 확장과 후속 구성 정정은 `0dd23464`로 커밋했으며 반복 사용 효과와 운영 설치는 별도다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
+**앞선 완료 결과 — Development 실행 상세 확장 완료:** [구조 판단·반영·검토와 확인](../records/2026-10-26-development-detail-expansion.md)을 읽는다. 기존 맥락 연결은 `191e2d86`으로 커밋했고, 구현 수행을 `implementation.md`, 검사 근거 판단·재사용을 `verification/evidence.md`로 나눠 실제 읽기 경로에 연결했다. 역할·권한·종료를 보존하고 중복 판단 조건은 한곳으로 모았다. 상세 확장과 후속 구성 정정은 `0dd23464`로 커밋했으며 반복 사용 효과와 운영 설치는 별도다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
 
 **04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 맥락 연결도 이후04-03에서 마쳤다. 운영 설치·일반 효과는 후속 확인 범위다.
 
@@ -48,13 +48,13 @@
 
 1. [state](state.md)와 [output](../output/index.md)에서 이번에 끝낸 결과·현재 실물·다음 행동을 확인하고 Git 상태를 대조한다.
 2. [memory](memory.md)의 대상물 경계·독립 책임·형성 자료·체계 지침에 관한 지속 기준과 [Spec](spec.md)의 전체 목표·3절·5절을 읽는다.
-3. [01-01](tickets/01-development-workflow/01-01-development-flow.md)·[01-03](tickets/01-development-workflow/01-03-behavior-verification.md)과 [04의 관계](tickets/04-skill-improvements/README.md)를 함께 읽는다. 구현·개선 검토·검증·수정의 실행 반영·대표 대조와01-01·01-03 완료 조건 대조는 마쳤다. [04-03](tickets/04-skill-improvements/04-03-context-skills.md)의 실제 context 읽기·적용·갱신·재개 연결도 마쳤다. 다음은 [state의 남은 범위](state.md#다음에-이어갈-일)에서 이어갈 항목을 사용자와 정한 뒤 해당 Ticket과 관련 결과를 읽는다.01-02 품질 기준 전체 종합도 이 결과를 이어받는다. 실제 역할 전체의 수행 효과와 운영 설치는 별도로 계획한다.
+3. 현재 선택된 [05](tickets/05-learning-loop.md)와 [인터뷰 체크포인트](../records/2026-10-27-ticket05-interview-checkpoint.md)를 읽고 합의·열린 후보를 복원한다. 먼저 사용자에게 이미 답한 질문을 다시 묻지 않는다. 그다음 실제 한 번의 루프 흐름을 검토할 때 필요한04-03의 반영 방법·04-02의 관찰 사례·외부 원문만 추가로 읽는다. 다른 미완료 Ticket은 [state](state.md#다음에-이어갈-일)에서 구별한다.
 
 ## 문서별 책임
 
 - [memory.md](memory.md): 단계가 바뀌어도 유지할 사용자 의도·기준·선택과 배경.
 - [spec.md](spec.md): 전체 목표·공통 기준·전체 잠정안과 미결정.
-- [tickets/index.md](tickets/index.md): 01~07과 하위 결과의 관계. 상세 결과·완료 조건은 각 Ticket이 맡는다.
+- [tickets/index.md](tickets/index.md): 01~07과 하위 결과 및 기타 후속 사항의 관계. 상세 결과·완료 조건은 각 Ticket이 맡는다.
 - [state.md](state.md): 지금의 상태·다음 행동·검증 상한.
 - [design-map.md](design-map.md): 전체안에서 놓친 관점을 살필 논의 지도. 확정 아키텍처가 아니다.
 

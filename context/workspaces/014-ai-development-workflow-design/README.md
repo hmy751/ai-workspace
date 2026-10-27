@@ -1,8 +1,10 @@
 # AI 개발 작업 체계의 개선 설계
 
+**현재 작업은 05 경험 반영 루프 설계다.** [인터뷰 체크포인트](records/2026-10-27-ticket05-interview-checkpoint.md)에 합의·열린 후보·정정·다음 재개를 모았다. 기존 세션에서 검토하고 함께 선택한 개선을 바로 반영하는 방향을 정했으며, 다음 권고는 한 번의 루프 흐름에 대입해 빠진 부분을 확인하는 것이다. 실행 스킬·후보 구조의 실제 적용·효과 검증은 아직 하지 않았다. 범용 개선 리뷰는 [기타-01](current/tickets/misc-01-improvement-review.md)에 후속 보관하고 지금 진행하지 않는다.
+
 2026-10-27 [Workspace 점검·마무리 기록](records/2026-10-27-workspace-checkpoint.md): 이번 맥락 연결과 계층 정리의 완료를 재확인하고, 남은 전체 설계와 구별해 재진입 안내를 정리했다. Workspace014는 계속 진행 중이다.
 
-**현재 후속 — Development 실행 상세의 계층 확장 완료:** 기존04-03 연결·확인 결과를 `191e2d86`으로 먼저 커밋했다. 사용자의 구조 확장 요청에 따라 [구현 수행·검사 근거 상세와 소비 경로](records/2026-10-26-development-detail-expansion.md)를 구성하고 독립 검토 보완·원문/링크 확인을 마쳤다. 전체 조율·검토·검증·정본 관리의 책임은 유지한다. 상세 확장·구성 정정·확인 기록은 `0dd23464`로 커밋했다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
+**앞선 완료 결과 — Development 실행 상세의 계층 확장 완료:** 기존04-03 연결·확인 결과를 `191e2d86`으로 먼저 커밋했다. 사용자의 구조 확장 요청에 따라 [구현 수행·검사 근거 상세와 소비 경로](records/2026-10-26-development-detail-expansion.md)를 구성하고 독립 검토 보완·원문/링크 확인을 마쳤다. 전체 조율·검토·검증·정본 관리의 책임은 유지한다. 상세 확장·구성 정정·확인 기록은 `0dd23464`로 커밋했다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
 
 USAGE/context-update의 사용감 유보, 실제 운영 설치·host 전환·전체 역할 수행과 일반 효과의 미확인은 유지한다. 현재 결과는 [prototype](records/prototypes/development-workflow/README.md)과 [열람 화면](records/prototypes/development-workflow/viewer.html), 다음 설계 범위는 [current](current/index.md)에서 찾는다. 아래 날짜별 설계·반영 설명의 당시 다음 행동은 이 최신 결과를 대체하지 않는다.
 
@@ -34,7 +36,7 @@ Work는 기존 current·Spec·Ticket·source·output·records의 형태와 제�
 
 1. [current/index](current/index.md), [현재 상태](current/state.md), [현재 산출물](output/index.md)을 읽고 실제 Git 상태를 확인한다.
 2. [memory](current/memory.md)의 지속할 사용자 의도·정정과 [Spec](current/spec.md)의 전체 목표·3절·5절을 읽는다.03 마감과 아직 열린 다른 Ticket을 구별한다.
-3. [state의 남은 범위](current/state.md#다음에-이어갈-일)에서01-02·02·05·06·07 중 이어갈 항목을 사용자와 정하고 해당 Ticket·현재 prototype·관련 합의를 읽는다. 다음 항목은 아직 선택하지 않았다. 완료된01-01·01-03·04-03은 후속의 입력으로 사용한다.
+3. 선택된 [05](current/tickets/05-learning-loop.md)와 [인터뷰 체크포인트](records/2026-10-27-ticket05-interview-checkpoint.md)에서 이어간다.04-03·04-02 결과와 원문은 필요한 판단에만 추가로 읽는다. 다른 남은 범위는 [state](current/state.md#다음에-이어갈-일)에서 확인하며, 완료된01-01·01-03·04-03은 후속의 입력으로 사용한다.
 4. 특정 판단의 이유가 필요할 때 [기록 색인](records/README.md)에서 해당 기록을 고른다.03 마감은119, 체계 지침은118, 정책 적용·정정은117, Work 복구는116이다. 기존 Project 비교는77·78,01-02의 입력·당시 유보는72·73으로 돌아간다.
 5. 원자료 대조에는 [source](source/README.md), 전체 관점 재검토에는 [논의 지도](current/design-map.md)를 사용한다. 과거 인계·시안의 “다음 행동”을 현재 지시로 가져오지 않는다.
 

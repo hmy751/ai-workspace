@@ -1,0 +1,59 @@
+{
+  "repository": "https://github.com/cursor/plugins",
+  "commit": "190d28736eff128ec94f502a22c7fe0c4b56cd37",
+  "captured_on": "2026-10-27",
+  "timezone": "Asia/Seoul",
+  "method": "read-only copy from clean local Desktop checkout",
+  "scope": "Seven source files for Ticket05 automatic invocation and incremental processing comparison. No transcript, user memory, installed state, execution, or remote fetch.",
+  "files": [
+    {
+      "path": "repository/README.md",
+      "original_path": "/Users/hammyeong-yeon/Desktop/plugins/continual-learning/README.md",
+      "repository_path": "continual-learning/README.md",
+      "bytes": 2301,
+      "sha256": "0b45e42eca8536add2d1ae5a45e5e93898f9613587345853988c365dcdd4d0ea"
+    },
+    {
+      "path": "repository/.cursor-plugin/plugin.json",
+      "original_path": "/Users/hammyeong-yeon/Desktop/plugins/continual-learning/.cursor-plugin/plugin.json",
+      "repository_path": "continual-learning/.cursor-plugin/plugin.json",
+      "bytes": 768,
+      "sha256": "274196bf1fc7755fbf6d86cb7987f8248110d3b3b81557f87b936a6a1918affc"
+    },
+    {
+      "path": "repository/skills/continual-learning/SKILL.md",
+      "original_path": "/Users/hammyeong-yeon/Desktop/plugins/continual-learning/skills/continual-learning/SKILL.md",
+      "repository_path": "continual-learning/skills/continual-learning/SKILL.md",
+      "bytes": 634,
+      "sha256": "f627f733a33879b63523da7e92c8b33e6086df42a49a8139a87d1c21e7bd9b16"
+    },
+    {
+      "path": "repository/agents/agents-memory-updater.md",
+      "original_path": "/Users/hammyeong-yeon/Desktop/plugins/continual-learning/agents/agents-memory-updater.md",
+      "repository_path": "continual-learning/agents/agents-memory-updater.md",
+      "bytes": 1811,
+      "sha256": "93dfb244f173e2240d8d6bffe4870a647d1da27d402b8de83197e3e2b471527d"
+    },
+    {
+      "path": "repository/hooks/hooks.json",
+      "original_path": "/Users/hammyeong-yeon/Desktop/plugins/continual-learning/hooks/hooks.json",
+      "repository_path": "continual-learning/hooks/hooks.json",
+      "bytes": 157,
+      "sha256": "bc26f31a03e0cd4be8f62c58e263117191067df726e7363af5a88084304c7c8c"
+    },
+    {
+      "path": "repository/hooks/continual-learning-stop.ts",
+      "original_path": "/Users/hammyeong-yeon/Desktop/plugins/continual-learning/hooks/continual-learning-stop.ts",
+      "repository_path": "continual-learning/hooks/continual-learning-stop.ts",
+      "bytes": 7813,
+      "sha256": "ad2610f3e3fe10981e9aa80a6be56e1d7ee20a203ec94585b003bd49904dc1e2"
+    },
+    {
+      "path": "repository/LICENSE",
+      "original_path": "/Users/hammyeong-yeon/Desktop/plugins/continual-learning/LICENSE",
+      "repository_path": "continual-learning/LICENSE",
+      "bytes": 1063,
+      "sha256": "702f5f331b56aff0e33d8c7826df5202559f894145eb70355c6477b55b5bb8a0"
+    }
+  ]
+}

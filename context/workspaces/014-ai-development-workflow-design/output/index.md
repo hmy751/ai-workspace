@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+**05의 현재 논의 결과(2026-10-27):** [인터뷰 체크포인트](../records/2026-10-27-ticket05-interview-checkpoint.md)에서 합의·열린 후보·정정·다음 재개를 읽는다. [05 Ticket](../current/tickets/05-learning-loop.md)이 현재 책임과 완료 조건을 소유하고, [인터뷰 원문](../records/2026-10-27-ticket05-interview.md)은 형성 근거다. 실행 가능한 전체 루프·새 스킬·후보층 구조의 적용 결과는 아직 없다. 아래 prototype은 앞선 완료 결과로 유지한다.
+
 **2026-10-27 확인한 현재 결과:** 맥락 연결은 `191e2d86`, Development 상세 확장과 검증 INDEX 묶음은 `0dd23464`다. [마무리 점검](../records/2026-10-27-workspace-checkpoint.md)에서 완료 범위·한계·후속을 읽는다. 아래 구체안·계획·비교 기록은 현재 결과의 형성 근거이며 각 시점의 미완료 문장을 현재 작업으로 가져오지 않는다.
 
 - [Development 실행 상세의 계층 확장](../records/2026-10-26-development-detail-expansion.md): [구현 수행](../records/prototypes/development-workflow/skills/development/references/implementation.md)과 [검사 근거 판단·재사용](../records/prototypes/development-workflow/skills/development/references/verification/evidence.md)을 실제 본문·소비 경로에 연결하고 독립 검토 보완·정적 확인을 마쳤다. 기존 전체 수행·검증 역할과 내용 Owner를 유지하며 반복 사용 효과와 구별한다. 검증 묶음의 진입 본문은 [verification/INDEX.md](../records/prototypes/development-workflow/skills/development/references/verification/INDEX.md)로 모았다.
