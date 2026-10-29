@@ -8,6 +8,7 @@
 
 | 보고 싶은 것 | 시작점 | 여기서 이해할 차이 |
 | --- | --- | --- |
+| 대화 경험과 현재 체계에서 개선을 찾아 선택·반영하는 방법 | [적용 사례](skills/improvement-loop/references/application.md) · [루프 실행 본문](skills/improvement-loop/SKILL.md) · [Personal 경험 길잡이](noline-demo/context/personal/experience/README.md) | 실제 수행과 적용 사례, 경험 보존의 역할 및 후보·채택의 차이 |
 | 개발 작업의 맥락·역할·판단을 연결하는 방법 | [development 스킬](skills/development/SKILL.md) · [개선 검토](skills/development/references/review.md) · [검증 상세](skills/development/references/verification/INDEX.md) | Main의 전체 조율과 구현 단계 검토자의 독립 판단, 수정 뒤 검증의 책임 |
 | 구현과 수정의 실제 수행 | [구현 상세](skills/development/references/implementation.md) | 설계·사용 경로 완성·자기 확인·관찰 준비와 인계 |
 | 검사 결과를 현재 판단의 근거로 사용하는 방법 | [근거 판단 상세](skills/development/references/verification/evidence.md) | 기대 결과·검사 적절성·대체 경계·기존 결과의 유효성과 재사용 |
@@ -45,4 +46,4 @@
 
 본문과 실행 코드가 정본이며 `viewer.html`은 이를 담은 열람 화면이다. 수정한 뒤에는 [화면 생성 안내](viewer/README.md)에 따라 표시 내용을 갱신한다.
 
-맥락 연결은 시작·재개, 역할별 수행, 변화·기록, 완료·연속의 관계를 기존 개발 흐름에 적용했다. 이 네 관계는 네 스킬이나 매 요청의 고정 관문이 아니다. 직접 읽기·반영 요청도 같은 방법을 사용한다. 개인 기준·제품 계약·작업 상태의 내용 책임은 유지하며, 대화 기준의 경험 개선 단계와 실제 host 설치·자동 발견·전환·운영 효과는 별도 후속이다.
+맥락 연결은 시작·재개, 역할별 수행, 변화·기록, 완료·연속의 관계를 기존 개발 흐름에 적용했다. 이 네 관계는 네 스킬이나 매 요청의 고정 관문이 아니다. 직접 읽기·반영 요청도 같은 방법을 사용한다. 개인 기준·제품 계약·작업 상태의 내용 책임은 유지하며, 대화 기준 경험 개선의 실행 본문은 [improvement-loop](skills/improvement-loop/SKILL.md)에 연결했다. 실제 host 설치·자동 발견·전환·운영 효과는 별도 후속이다.

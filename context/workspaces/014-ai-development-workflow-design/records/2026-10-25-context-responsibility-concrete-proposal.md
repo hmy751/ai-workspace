@@ -118,4 +118,4 @@ Project는 인증 완료·실패에 관한 제품 약속을, Personal은 완료 
 
 영역마다 새 스킬·adapter·담당자를 두거나 고정 입출력 형식을 도입해야 이 분리가 성립하는 것은 아니다. 기존 정본과 진입 관계를 우선 사용하고, 같은 내용을 반복 수정하게 하는 실제 차이가 드러날 때만 별도 책임이나 연결을 구성한다.
 
-전역 [하네스 제거 가능성 기준](/Users/hammyeong-yeon/.claude/references/ai-system_harness-rippability.md)과 [05의 책임](../current/tickets/05-learning-loop.md), 현재 구체안을 대조했다. 별도 읽기 전용 점검도 일상 유지·개선 선택·반영의 구별과 위 세 사례를 확인했다. 새 스킬 구성은 계속 논의 중이며 이번에 실행 본문·설치·수행 시험은 변경하지 않았다.
+전역 [하네스 제거 가능성 기준](/Users/hammyeong-yeon/.claude/references/ai-system_harness-rippability.md)과 [05의 책임](../current/tickets/05-improvement-loop.md), 현재 구체안을 대조했다. 별도 읽기 전용 점검도 일상 유지·개선 선택·반영의 구별과 위 세 사례를 확인했다. 새 스킬 구성은 계속 논의 중이며 이번에 실행 본문·설치·수행 시험은 변경하지 않았다.

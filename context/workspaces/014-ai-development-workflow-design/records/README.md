@@ -1,5 +1,20 @@
 # 논의와 보존 기록
 
+- [2026-10-29 05 관리 단위·근거·현재성 정정 반영](2026-10-29-improvement-loop-consistency-adoption.md): 루트 해설 통합, Personal context/evidence 분리, 평가 주체·현재 상태·수행 순서의 책임 정정과 재확인.
+
+- [2026-10-28 improvement-loop 구조·본문 편집 반영](2026-10-28-improvement-loop-structure-adoption.md): 사용자 선택에 따른 실제 반영과 확인. 앞선 실행 보완 두 안은 미반영.
+
+- [2026-10-28 improvement-loop 파일 배치·본문 형식 제안](2026-10-28-improvement-loop-structure-proposal.md): 루트 안내의 역할, references의 실행 상세와 확인 이력, Personal의 근거 소유를 검토했다. 구조 변경은 미반영.
+
+- [2026-10-28 improvement-loop 개명·검증·개선 리뷰 종합](2026-10-28-improvement-loop-review-synthesis.md): 명칭 정합 수정 완료, 실행 연결과 사례 보완 두 안은 추천·미반영.
+
+- [2026-10-28 05 실행안 prototype 반영·대조·확인](2026-10-28-ticket05-execution-prototype.md): 루프 본문·Personal 실물·원문 접근과 기존 반영 연결. 운영 효과와 구별한다.
+
+**2026-10-28 최신:** 네 묶음의 운영 방향을 모두 합의했다. [합의 범위와 남은 구체화 점검](2026-10-28-ticket05-agreements-and-remaining.md)에서 실행 절차의 배치, Personal 실제 구성·읽기 연결, 전체 대화 원문 접근과 확인 계획을 구별한다. 05 전체 마감·운영 구현·효과 검증은 아직이다.
+- [05 전체 구체안](2026-10-27-ticket05-integrated-proposal.md) · [자료 대조·개선 리뷰·Main 종합](2026-10-27-ticket05-integrated-review.md): 네 묶음의 제안을 종합하고 독립 리뷰 뒤 완결 사례·한정 시도·Personal 읽기 대안을 보완했다. 2026-10-28에 1·2번 방향을 합의했고 현재는 네 묶음 합의 뒤 실행안 구체화 전이다. 구현·효과 검증은 아니다.
+
+- [05 다음 구체화 준비 — 이전 종합·리뷰·항목별 논의 확인](2026-10-27-ticket05-synthesis-process-recall.md): 최근 흐름·두 사례·발견 범위와 남은 결정 권고, 이전 7~12번·검증자·04-03의 실제 순서를 대조했다. 전체 구체안 선행을 권고하며 새 작성·리뷰는 미실행이다.
+
 - [05 인터뷰 체크포인트 — 합의·열린 후보·다음 재개](2026-10-27-ticket05-interview-checkpoint.md): 현재 선택, 정정된 해석, 자료별 확인 범위, 한 번의 루프 흐름으로 이어갈 권고를 모았다. 전체 설계·실행 완료가 아니다.
 - [05 인터뷰 원문과 형성 경과](2026-10-27-ticket05-interview.md): 본문 전체 검토, 협업 자료의 Personal 배치, 현재 세션에서 선택·즉시 반영, 후보층·효과 확인의 열린 방향, 제안·추가 확인 방식과 기대 효과의 질문·응답을 보존한다. 범용 개선 리뷰는 기타-01에 보류했다.
 - [05 앞선 협업 경험 반영안](2026-10-27-ticket05-collaboration-learning-proposal.md) · [그 안의 개선 리뷰](2026-10-27-ticket05-collaboration-learning-review.md): Work 중심 제안과 당시 보완의 형성 근거다. 후속 Personal 배치의 독립 검토·적용·효과 확인으로 취급하지 않는다.

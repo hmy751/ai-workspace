@@ -8,7 +8,7 @@
 | [02 기록·Workspace 구성·Maintain](02-work-records.md) | — |
 | [03 Project context](03-project-context.md) | — |
 | [04 기존 스킬 보완](04-skill-improvements/README.md) | [04-01 작업 정의·재판단](04-skill-improvements/04-01-work-decision-skills.md), [04-02 설명 구성·적용](04-skill-improvements/04-02-artifact-explanation.md), [04-03 맥락 관리](04-skill-improvements/04-03-context-skills.md) |
-| [05 경험 반영 루프](05-learning-loop.md) | — |
+| [05 경험 반영 루프](05-improvement-loop.md) | — |
 | [06 기반 전환·프로젝트 간 개선 반영](06-framework-transition.md) | — |
 | [07 전체 연결과 후속 적용](07-integrated-rehearsal.md) | — |
 
@@ -28,7 +28,7 @@
 
 **2026-10-20:03의 구성안·대표 본문 구체화를 완료했다.** [완료 조건 대조119](../../records/2026-10-20-119-ticket03-closeout.md)와 [03 결과](03-project-context.md)를 후속 입력으로 사용한다.01-02·04-03 등 다른 Ticket의 완료로 확대하지 않으며 이번 마무리에서 새 작업을 시작하지 않았다.
 
-04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다. 네 항목을 다시 순차 구체화할 상태가 아니다. 현재 남은 중심은01-02 전체 종합과02·05·06·07의 기록·경험·전환·전체 적용 설계다. 사용자는05를 선택했고 외부 재조사·인터뷰로 운영 방향을 구체화했다. [체크포인트](../../records/2026-10-27-ticket05-interview-checkpoint.md)와 [05](05-learning-loop.md)에서 합의·열린 후보를 복원해 한 번의 루프 흐름을 구체화할 단계다. 실제 운영 설치·일반 효과는 미확인이다.
+04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다. 네 항목을 다시 순차 구체화할 상태가 아니다. 현재 남은 중심은01-02 전체 종합과02·05·06·07의 기록·경험·전환·전체 적용 설계다. 사용자는05를 선택했고 외부 재조사·인터뷰로 운영 방향을 구체화했다. [체크포인트](../../records/2026-10-27-ticket05-interview-checkpoint.md)와 [05](05-improvement-loop.md)에서 합의와 작성된 실행안·적용 사례를 읽고 남은 실행 보완의 채택 여부와 완료 조건을 대조할 단계다. 실제 운영 설치·일반 효과는 미확인이다.
 
 | 후속 결과 |03에서 이어받을 것과 경계 |
 | --- | --- |

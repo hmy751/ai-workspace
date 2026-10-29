@@ -56,7 +56,7 @@ Main은 실제 코드·본문·확인 결과에서 이번 작업 때문에 설�
 
 - [잠정 합의와 직접 발화](2026-10-25-context-framework-provisional-agreement.md), [전체 대조](2026-10-26-context-whole-scope-reconciliation.md), [통합안](2026-10-26-context-integrated-proposal.md).
 - [2번 상세안](2026-10-26-context-02-role-execution-proposal.md), [앞선 2번 독립 개선 리뷰](2026-10-26-context-02-goal-improvement-review.md), [3번 변화·반영](2026-10-26-context-03-change-records-proposal.md), [4번 완료·연속](2026-10-26-context-04-completion-continuation-proposal.md).
-- [development 실행 본문](prototypes/development-workflow/skills/development/SKILL.md), [execution](prototypes/development-workflow/skills/development/references/execution.md), [Project 관리](prototypes/development-workflow/noline-demo/context/project/MAINTENANCE.md), [내용 관리 정책](prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md), [Work 진입](prototypes/development-workflow/noline-demo/context/work/AGENTS.md), [05 루프](../current/tickets/05-learning-loop.md).
+- [development 실행 본문](prototypes/development-workflow/skills/development/SKILL.md), [execution](prototypes/development-workflow/skills/development/references/execution.md), [Project 관리](prototypes/development-workflow/noline-demo/context/project/MAINTENANCE.md), [내용 관리 정책](prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md), [Work 진입](prototypes/development-workflow/noline-demo/context/work/AGENTS.md), [05 루프](../current/tickets/05-improvement-loop.md).
 - [갱신 수행자 원문 대조](2026-10-26-context-update-actors-reference-comparison.md)와 그 문서의 고정판 Matt·Lauren 원문. 원문이 정한 절차와 우리 권고를 구별한다.
 
 독립 리뷰는 위 Main 권고 자체와 실제 배정·유지 가능성을 검토한다. 이 목록은 시작점이며 기존 사용자 발화·원문이 더 필요하면 Workspace014 안에서 추가 선택한다.

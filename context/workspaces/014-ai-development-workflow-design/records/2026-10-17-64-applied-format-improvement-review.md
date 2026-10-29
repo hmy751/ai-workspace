@@ -104,7 +104,7 @@ Main은 01-02를 중심으로 기준 본문과 조건별 선택 장면을 보완
 | 판단에 따라 수정한 결과를 무엇으로 확인하는가 | [01-03](../current/tickets/01-development-workflow/01-03-behavior-verification.md) | 사례가 보존할 동작과 필요한 확인을 연결한다. 실제 도구·환경·검사 조합과 최종 검증 주체는 해당 Ticket에서 구체화한다. |
 | 현재 계약과 이번 요구·당시 결과·최종 인수를 어디에 남기는가 | [02](../current/tickets/02-work-records.md), [03](../current/tickets/03-project-context.md), [01-01](../current/tickets/01-development-workflow/01-01-development-flow.md) | 각각이 소유할 의미와 갱신·인수 책임을 예시에서 구별한다. 전체 Workspace·Maintain 구조를 먼저 재설계하지 않는다. |
 
-[05](../current/tickets/05-learning-loop.md)는 한 번의 관찰을 일반 기준의 수정으로 올릴 조건, [06](../current/tickets/06-framework-transition.md)은 공통 기반과 프로젝트 사이의 적응·반영, [07](../current/tickets/07-integrated-rehearsal.md)은 부분 설계의 연결과 후속 적용 확인을 맡는다. 07의 연결 관점은 지금부터 사용하지만 전체 연결 검토를 완료했다고 보지 않는다. 지금 예시 하나로 경험 반영 규칙이나 프로젝트 간 이식 방식을 확정하지 않는다.
+[05](../current/tickets/05-improvement-loop.md)는 한 번의 관찰을 일반 기준의 수정으로 올릴 조건, [06](../current/tickets/06-framework-transition.md)은 공통 기반과 프로젝트 사이의 적응·반영, [07](../current/tickets/07-integrated-rehearsal.md)은 부분 설계의 연결과 후속 적용 확인을 맡는다. 07의 연결 관점은 지금부터 사용하지만 전체 연결 검토를 완료했다고 보지 않는다. 지금 예시 하나로 경험 반영 규칙이나 프로젝트 간 이식 방식을 확정하지 않는다.
 
 04는 현재 가상 develop skill을 그대로 완성하는 과제가 아니라 기존 스킬의 실제 조건·입력·반환·기록을 보완하는 과제다. 04-01은 기존 요구 안의 선택과 목표·계약 재판단의 경계, 04-02는 조건과 이유가 드러나는 첫 보고·브리핑·설명 복구, 04-03은 실제 맥락 읽기·갱신·생성을 맡는다. 현재 예시는 그 접점을 드러내는 재료이며 기존 스킬 대조를 대신하지 않는다. 02의 범위도 실행 결과 보고뿐 아니라 후일 다시 볼 분석·대안·시도·검증의 보존을 포함한다.
 

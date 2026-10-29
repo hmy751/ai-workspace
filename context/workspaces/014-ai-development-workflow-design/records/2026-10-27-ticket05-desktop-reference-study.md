@@ -76,7 +76,7 @@ Main의 적용 판단: 이 기각은 해당 스킬 문구를 더하지 않는다
 
 ## 기존 시스템과 연결해 가져올 방향
 
-현재 기준은 [05](../current/tickets/05-learning-loop.md), [대화 기준 루프의 직접 발화](2026-10-26-context-03-goal-improvement-review.md#사용자-후속--project-내용-선별과-대화-기준-루프), [담당자 제안의 재사용](2026-10-26-context-proposal-review-apply-design.md), [실행된 context-update](prototypes/development-workflow/skills/context-update/SKILL.md), [04-02 마감](2026-10-26-ticket04-02-closeout-and-followups.md)이다. 아래는 이 계약에 비춘 Main의 권고다.
+현재 기준은 [05](../current/tickets/05-improvement-loop.md), [대화 기준 루프의 직접 발화](2026-10-26-context-03-goal-improvement-review.md#사용자-후속--project-내용-선별과-대화-기준-루프), [담당자 제안의 재사용](2026-10-26-context-proposal-review-apply-design.md), [실행된 context-update](prototypes/development-workflow/skills/context-update/SKILL.md), [04-02 마감](2026-10-26-ticket04-02-closeout-and-followups.md)이다. 아래는 이 계약에 비춘 Main의 권고다.
 
 | 가져올 판단 | 기존 관계와 실제 의미 |
 | --- | --- |

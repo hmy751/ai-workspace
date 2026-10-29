@@ -50,7 +50,7 @@ Main은 완료 표시만 읽지 않고04-03의 다섯 완료 조건, 실제 실�
 | --- | --- |
 | [01-02 품질 기준 종합](../current/tickets/01-development-workflow/01-02-code-design-quality.md) | 현재 기준의 빠짐·중복·적용 조건과 실제 대비안을 어떻게 종합할 것인가 |
 | [02 Work 기록 운영](../current/tickets/02-work-records.md) | current·기록·보존·재개를 어떤 구성과 책임으로 운영할 것인가 |
-| [05 경험 개선 루프](../current/tickets/05-learning-loop.md) | 대화를 기준으로 무엇을 언제 누가 검토·채택하고 결과를 확인할 것인가 |
+| [05 경험 개선 루프](../current/tickets/05-improvement-loop.md) | 대화를 기준으로 무엇을 언제 누가 검토·채택하고 결과를 확인할 것인가 |
 | [06 배치·전환](../current/tickets/06-framework-transition.md) | 기존 설치·장치 의존을 어떻게 대조하고 적용·복구할 것인가 |
 | [07 전체 연결·관찰](../current/tickets/07-integrated-rehearsal.md) | 부분 설계를 실제 작업에 어떻게 연결하고 사용감·효과를 관찰할 것인가 |
 

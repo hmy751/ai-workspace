@@ -71,7 +71,7 @@ Work current에는 이번 작업에서 채택한 조건·선택과 이유, 진�
 ## 후속 작업과 지금 남은 논의
 
 - [02 기록 운영](../current/tickets/02-work-records.md)은 현재에 남길 적용 의미와 누적 근거, 정리·재개 방식의 상세를 맡는다. Main의 유지 책임은 이미 합의된 입력이다.
-- [05 경험 루프](../current/tickets/05-learning-loop.md)는 경험 선택·해석·개입 대안·채택·반영·효과 관찰을 맡는다. update를 확대하는 것만으로 이 과업 전체가 완성되지는 않는다.
+- [05 경험 루프](../current/tickets/05-improvement-loop.md)는 경험 선택·해석·개입 대안·채택·반영·효과 관찰을 맡는다. update를 확대하는 것만으로 이 과업 전체가 완성되지는 않는다.
 - [06 체계 전환](../current/tickets/06-framework-transition.md)은 공통과 대상별 배치, Recover·Verify 의존, 기존 자동 Maintain 대체와 실제 설치·복구를 맡는다. 저장소 사이 개선 적용의 독립 절차는 이때 기존 이식 수단과 함께 비교한다.
 - [07 전체 연결](../current/tickets/07-integrated-rehearsal.md)은 단독 이해·작은 수정·의미 변경·새 Work·경험 반영 장면에서 빈 책임과 중복을 확인한다. 모든 작업마다 별도 연결 검토 스킬을 호출하는 구조는 아니다.
 

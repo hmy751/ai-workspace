@@ -1,10 +1,10 @@
 # Noline demo context
 
-이 context는 개인이 가져오는 판단 기준, 제품이 계속 지킬 의미, 각 작업의 현재 상태를 구별해 제공한다. 현재 담긴 대표 예제는 **로그인 함수·완료 알림이 인증 완료와 조회 갱신 완료를 혼동시키지 않게 하는 작업**이다. 실제 요청의 대상과 일반 재개의 기본 선택은 [Workspace 목록](work/workspaces/README.md)에서 구별한다.
+이 context는 개인의 판단 기준과 협업 경험, 제품이 계속 지킬 의미, 각 작업의 현재 상태를 구별해 제공한다. 현재 담긴 대표 예제는 **로그인 함수·완료 알림이 인증 완료와 조회 갱신 완료를 혼동시키지 않게 하는 작업**이다. 실제 요청의 대상과 일반 재개의 기본 선택은 [Workspace 목록](work/workspaces/README.md)에서 구별한다.
 
 | 필요한 것 | 시작점 | 담당하는 내용 |
 | --- | --- | --- |
-| 개인의 판단 기준 | [personal](personal/README.md) | 여러 작업에 가져올 판단·이유·조건. 현재는 공통화·계약·이름과 완료에 관한 개발 본문이 있다. |
+| 개인의 판단 기준과 협업 경험 | [personal](personal/README.md) | 적용할 기준·조건과 경험·현재 이해·열린 후보를 구별해 읽는다. |
 | Noline demo의 제품 맥락 | [project](project/README.md) | 기기 세션의 의미, 인증 적용·조회 후속 실패 계약, 현재 예제의 구현 경계 |
 | 이번 작업을 이어 가기 | [work](work/README.md) | 작업의 Spec·Ticket·현재 상태와 입력·결과·기록 |
 
@@ -14,6 +14,7 @@ Personal과 Project는 자기 내용만으로 담당 의미를 설명한다. 필
 | --- | --- |
 | 맥락을 읽고 설명한다 | USAGE로 관련 본문·실물을 선택하고 필요한 답을 만든다. 전체 Work 인수나 갱신을 전제하지 않는다. |
 | 기존 작업을 재개하거나 이번 상태를 정리한다 | [Work 지침](work/AGENTS.md)과 해당 Workspace의 현재 의미를 사용한다. |
+| 사용자 요청으로 대화와 경험을 돌아보고 개선한다 | [improvement-loop](../../skills/improvement-loop/SKILL.md)로 현재 Main이 검토·선택·반영을 잇고 [경험 길잡이](personal/experience/README.md)를 함께 조회한다. |
 | 확인한 의미를 Personal·Project에 반영한다 | 해당 영역의 관리 기준과 [context-update](../../skills/context-update/SKILL.md)를 사용한다. |
 | 새 독립 목표의 Work를 만들거나 Work를 전환한다 | [Work 생성·전환 계약](work/workspaces/CREATE-AND-TRANSITION.md)과 요청된 생성의 [수행 스킬](../../skills/create-context-workspace/SKILL.md)을 사용한다. |
 

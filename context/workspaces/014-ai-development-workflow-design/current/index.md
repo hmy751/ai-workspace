@@ -1,6 +1,7 @@
 # 현재 논의의 진입점
 
-**현재 초점: 05 인터뷰 결과를 한 번의 루프 흐름으로 구체화하기 전.** [05 Ticket](tickets/05-learning-loop.md)과 [인터뷰 체크포인트](../records/2026-10-27-ticket05-interview-checkpoint.md)에 합의·열린 후보·정정과 다음 권고를 모았다. 질문 응답을 더 기다리는 상태는 아니며 전체 흐름안의 채택·구현은 아직이다. [기타-01 범용 개선 리뷰](tickets/misc-01-improvement-review.md)는 사용자 요청으로 지금 진행하지 않는다.
+**2026-10-29 최신:** 루트 안내를 스킬의 적용 사례와 기존 진입에 통합하고 Personal 근거를 분리했다. 평가 주체 혼동·현재 상태의 낡은 설명·스킬 밖 수행 순서 중복도 정정했다. [반영과 확인](../records/2026-10-29-improvement-loop-consistency-adoption.md)에서 이어간다. 앞선 한정 시도 소비/종료 연결과 같은 목적의 수행 수단 비교 사례는 미반영이며, 05 최종 마감·운영 설치·실제 효과 확인은 별도다.
+**현재 초점:** [05 Ticket](tickets/05-improvement-loop.md)의 작성된 실행안과 남은 보완을 기준으로 다음 선택을 잇는다. 네 묶음 합의와 문서 구조·근거 정정은 반영했다. [전체 구체안](../records/2026-10-27-ticket05-integrated-proposal.md)과 [기존 리뷰 종합](../records/2026-10-27-ticket05-integrated-review.md)은 형성 경과이며 실제 재개 상태는 05와 state를 따른다. [기타-01](tickets/misc-01-improvement-review.md)은 계속 보류한다.
 
 **앞선 완료 결과 — Development 실행 상세 확장 완료:** [구조 판단·반영·검토와 확인](../records/2026-10-26-development-detail-expansion.md)을 읽는다. 기존 맥락 연결은 `191e2d86`으로 커밋했고, 구현 수행을 `implementation.md`, 검사 근거 판단·재사용을 `verification/evidence.md`로 나눠 실제 읽기 경로에 연결했다. 역할·권한·종료를 보존하고 중복 판단 조건은 한곳으로 모았다. 상세 확장과 후속 구성 정정은 `0dd23464`로 커밋했으며 반복 사용 효과와 운영 설치는 별도다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
 
@@ -48,7 +49,7 @@
 
 1. [state](state.md)와 [output](../output/index.md)에서 이번에 끝낸 결과·현재 실물·다음 행동을 확인하고 Git 상태를 대조한다.
 2. [memory](memory.md)의 대상물 경계·독립 책임·형성 자료·체계 지침에 관한 지속 기준과 [Spec](spec.md)의 전체 목표·3절·5절을 읽는다.
-3. 현재 선택된 [05](tickets/05-learning-loop.md)와 [인터뷰 체크포인트](../records/2026-10-27-ticket05-interview-checkpoint.md)를 읽고 합의·열린 후보를 복원한다. 먼저 사용자에게 이미 답한 질문을 다시 묻지 않는다. 그다음 실제 한 번의 루프 흐름을 검토할 때 필요한04-03의 반영 방법·04-02의 관찰 사례·외부 원문만 추가로 읽는다. 다른 미완료 Ticket은 [state](state.md#다음에-이어갈-일)에서 구별한다.
+3. 현재 선택된 [05](tickets/05-improvement-loop.md)와 [인터뷰 체크포인트](../records/2026-10-27-ticket05-interview-checkpoint.md)를 읽고 합의·열린 후보를 복원한다. 먼저 사용자에게 이미 답한 질문을 다시 묻지 않는다. 그다음 실제 한 번의 루프 흐름을 검토할 때 필요한04-03의 반영 방법·04-02의 관찰 사례·외부 원문만 추가로 읽는다. 다른 미완료 Ticket은 [state](state.md#다음에-이어갈-일)에서 구별한다.
 
 ## 문서별 책임
 

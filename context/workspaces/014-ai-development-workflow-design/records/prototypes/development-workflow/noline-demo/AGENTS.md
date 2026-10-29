@@ -1,5 +1,7 @@
 # Noline demo 작업 진입
 
+사용자가 이번 대화를 돌아보고 개선을 찾자고 요청하면 [improvement-loop](../skills/improvement-loop/SKILL.md)를 사용한다. 현재 세션 Main이 대화 전체·관련 본문을 검토하고 함께 선택한 범위를 반영한다. AI는 시점을 제안할 수 있지만 일반 작업 완료만으로 실행하지 않는다.
+
 이 지침은 이 demo의 context와 예제 코드에 적용한다. 먼저 [context](context/README.md)에서 Personal·Project·Work의 담당을 확인한다.
 
 Main이 일반 작업을 재개할 때에는 [Work 지침](context/work/AGENTS.md)과 지정된 Workspace의 memory·state·output을 읽는다. 사용자 지정이 없으면 [Workspace 목록](context/work/workspaces/README.md)의 기본 선택을 따른다. 이번 요청의 대상 지정과 다음 일반 재개의 기본 선택을 바꾸는 일은 구별한다.

@@ -12,7 +12,7 @@ Main은 처음에 분할 결과를 평면 목록으로 만들었고, 상위 폴�
 | [02 기록·Maintain](../current/tickets/02-work-records.md) | 바로 재개할 내용과 후일 검토할 자료의 보존·갱신·사용 |
 | [03 Project context](../current/tickets/03-project-context.md) | 실제 본문·구성·읽기·관리의 관계 |
 | [04 기존 스킬 보완](../current/tickets/04-skill-improvements/README.md) | 작업 정의·재판단, 브리핑·설명 복구, 맥락 관리 |
-| [05 경험 반영](../current/tickets/05-learning-loop.md) | 경험 선정·후보·사람 판단·반영·후속 관찰 |
+| [05 경험 반영](../current/tickets/05-improvement-loop.md) | 경험 선정·후보·사람 판단·반영·후속 관찰 |
 | [06 기반 전환](../current/tickets/06-framework-transition.md) | 실제 반영 위치와 Maintainer 제거 이후 책임 |
 | [07 전체 연결](../current/tickets/07-integrated-rehearsal.md) | 부분 설계의 연결 검토와 우선 적용·관찰 계획 |
 

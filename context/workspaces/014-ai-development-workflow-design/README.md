@@ -1,6 +1,7 @@
 # AI 개발 작업 체계의 개선 설계
 
-**현재 작업은 05 경험 반영 루프 설계다.** [인터뷰 체크포인트](records/2026-10-27-ticket05-interview-checkpoint.md)에 합의·열린 후보·정정·다음 재개를 모았다. 기존 세션에서 검토하고 함께 선택한 개선을 바로 반영하는 방향을 정했으며, 다음 권고는 한 번의 루프 흐름에 대입해 빠진 부분을 확인하는 것이다. 실행 스킬·후보 구조의 실제 적용·효과 검증은 아직 하지 않았다. 범용 개선 리뷰는 [기타-01](current/tickets/misc-01-improvement-review.md)에 후속 보관하고 지금 진행하지 않는다.
+**2026-10-29 최신:** 루트 안내를 스킬의 적용 사례와 기존 진입에 통합하고 Personal 근거를 분리했다. 평가 주체 혼동·현재 상태의 낡은 설명·스킬 밖 수행 순서 중복도 정정했다. [반영과 확인](records/2026-10-29-improvement-loop-consistency-adoption.md)에서 이어간다. 앞선 한정 시도 소비/종료 연결과 같은 목적의 수행 수단 비교 사례는 미반영이며, 05 최종 마감·운영 설치·실제 효과 확인은 별도다.
+**현재 작업은 05 작업 체계 개선 루프 설계다.** 네 묶음의 합의를 [실행 스킬](records/prototypes/development-workflow/skills/improvement-loop/SKILL.md), [적용 사례](records/prototypes/development-workflow/skills/improvement-loop/references/application.md), Personal 경험 모음에 반영했다. 현재 남은 것은 두 실행 보완의 선택과 설계 완료 조건 대조다. 실제 운영 설치·사용 효과는 별도이며 범용 개선 리뷰어 [기타-01](current/tickets/misc-01-improvement-review.md)은 보류한다.
 
 2026-10-27 [Workspace 점검·마무리 기록](records/2026-10-27-workspace-checkpoint.md): 이번 맥락 연결과 계층 정리의 완료를 재확인하고, 남은 전체 설계와 구별해 재진입 안내를 정리했다. Workspace014는 계속 진행 중이다.
 
@@ -36,7 +37,7 @@ Work는 기존 current·Spec·Ticket·source·output·records의 형태와 제�
 
 1. [current/index](current/index.md), [현재 상태](current/state.md), [현재 산출물](output/index.md)을 읽고 실제 Git 상태를 확인한다.
 2. [memory](current/memory.md)의 지속할 사용자 의도·정정과 [Spec](current/spec.md)의 전체 목표·3절·5절을 읽는다.03 마감과 아직 열린 다른 Ticket을 구별한다.
-3. 선택된 [05](current/tickets/05-learning-loop.md)와 [인터뷰 체크포인트](records/2026-10-27-ticket05-interview-checkpoint.md)에서 이어간다.04-03·04-02 결과와 원문은 필요한 판단에만 추가로 읽는다. 다른 남은 범위는 [state](current/state.md#다음에-이어갈-일)에서 확인하며, 완료된01-01·01-03·04-03은 후속의 입력으로 사용한다.
+3. 선택된 [05](current/tickets/05-improvement-loop.md)와 [인터뷰 체크포인트](records/2026-10-27-ticket05-interview-checkpoint.md)에서 이어간다.04-03·04-02 결과와 원문은 필요한 판단에만 추가로 읽는다. 다른 남은 범위는 [state](current/state.md#다음에-이어갈-일)에서 확인하며, 완료된01-01·01-03·04-03은 후속의 입력으로 사용한다.
 4. 특정 판단의 이유가 필요할 때 [기록 색인](records/README.md)에서 해당 기록을 고른다.03 마감은119, 체계 지침은118, 정책 적용·정정은117, Work 복구는116이다. 기존 Project 비교는77·78,01-02의 입력·당시 유보는72·73으로 돌아간다.
 5. 원자료 대조에는 [source](source/README.md), 전체 관점 재검토에는 [논의 지도](current/design-map.md)를 사용한다. 과거 인계·시안의 “다음 행동”을 현재 지시로 가져오지 않는다.
 

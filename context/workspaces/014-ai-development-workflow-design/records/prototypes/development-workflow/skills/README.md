@@ -1,9 +1,10 @@
 # 개발·작업 판단·설명 스킬 prototype
 
-현재 실행 본문은 `development`, `work-discussion`, `explain`, `context-update`, `create-context-workspace`다. 이 폴더는 실행 지침을 구성한 prototype이며 전역이나 실제 제품에 설치한 상태는 아니다. 각 SKILL.md가 호출 조건과 실행 방법을 소유한다.
+이 폴더는 실행 지침을 구성한 prototype이며 전역이나 실제 제품에 설치한 상태는 아니다. 각 SKILL.md가 호출 조건과 실행 방법을 소유한다.
 
 | 필요한 일 | 현재 본문과 상세 |
 | --- | --- |
+| 사용자 요청으로 대화와 현재 체계의 개선을 찾고 함께 선택·반영한다 | [improvement-loop](improvement-loop/SKILL.md) · [적용 사례](improvement-loop/references/application.md). 경험 보존·재조회는 [Personal 관리 본문](../noline-demo/context/personal/experience/MAINTENANCE.md)이 맡고 실행·판단은 스킬 본체가 맡는다. |
 | 개발 작업의 맥락·구현·검토·확인·결과를 조율한다 | [development](development/SKILL.md) · [개선 검토](development/references/review.md) · [검증 상세](development/references/verification/INDEX.md) · [실행 배치](development/references/execution.md) |
 | 구현·수정의 설계·완성·자기 확인·인계를 수행한다 | [구현 상세](development/references/implementation.md). Main이 구현을 겸해도 같은 책임을 적용한다. |
 | 검사·기존 결과가 현재 주장을 뒷받침하는지 판단한다 | [검사 근거 판단](development/references/verification/evidence.md). 검증자뿐 아니라 Main·구현·조사 담당이 필요한 때 사용한다. |
