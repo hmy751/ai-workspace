@@ -2,7 +2,7 @@
 
 **06-01 첫 부분 적용 — 2026-10-29:** [적용 결과](../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 독립적인 context·설명·한정 반영과 직접 확인을 기록했다. Maintain·Work 기록/전환은 사용자 요청대로 현행을 유지하고02와 함께 다룬다. [06-01](06-framework-transition/06-01-reference-project-application.md)은 진행 중이며 새 host 호출·전체 workflow 전환은 미완료다. [06-02](06-framework-transition/06-02-noline-reapplication.md)는 미착수다.
 
-**2026-10-29 현재:** 사용자 선택으로01-02를 재개하고 [기존 기준 대조](../../records/2026-10-29-ticket01-02-current-criteria-reconciliation.md)·계승안 뒤 [표현 기준을 prototype에 반영](../../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)했다. 코드 표현·진단과 이름·계약 보완을 확인했으며, 계산·입력 경계와 책임 배치 설명·사례의 충분성·전체 마감은 남아 있다. 병행 Reference·Noline 적용의 책임은 [state](../state.md)에 구별했다.
+**2026-10-29 현재:** 사용자 선택으로01-02를 재개하고 [기존 기준 대조](../../records/2026-10-29-ticket01-02-current-criteria-reconciliation.md)·계승안 뒤 [표현 기준을 prototype에 반영](../../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)했다. 코드 표현·진단과 이름·계약 보완 뒤 [책임 배치 충분성](../../records/2026-10-29-ticket01-02-responsibility-sufficiency.md)을 대조했다. 현재 기준을 유지하고 다음은 완료 조건의 종합과 전체 마감 판단이다. 날짜 사례는 필수 보완 순서에서 제외했다. 병행 Reference·Noline 적용의 책임은 [state](../state.md)에 구별했다.
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 

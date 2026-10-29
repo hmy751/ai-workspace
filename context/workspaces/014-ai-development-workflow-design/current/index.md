@@ -6,7 +6,7 @@
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 
-**병행 품질 기준 작업:** [01-02](tickets/01-development-workflow/01-02-code-design-quality.md)의 [기존 논의·현재 기준 대조](../records/2026-10-29-ticket01-02-current-criteria-reconciliation.md) 뒤 사용자 요청으로 [표현 기준을 prototype에 반영](../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)했다. 코드 표현·진단 주제와 기존 이름·계약 보완, 형성 자료·읽기 진입·열람 화면을 갱신했다. 전체01-02는 진행 중이며 다음은 계산·입력 경계와 책임 배치 설명·사례의 충분성이다.05 완료·기타-01 보류와02·06의 병행 책임을 유지한다.
+**병행 품질 기준 작업:** [01-02](tickets/01-development-workflow/01-02-code-design-quality.md)의 [기존 논의·현재 기준 대조](../records/2026-10-29-ticket01-02-current-criteria-reconciliation.md) 뒤 사용자 요청으로 [표현 기준을 prototype에 반영](../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)했다. 코드 표현·진단 주제와 기존 이름·계약 보완, 형성 자료·읽기 진입·열람 화면을 갱신했다. 후속 [책임 배치 대조](../records/2026-10-29-ticket01-02-responsibility-sufficiency.md)는 현재 기준 유지를 추천한다. 날짜 사례는 필수 순서에서 제외했고, 전체01-02의 완료 조건 종합과 마감 판단이 다음이다.05 완료·기타-01 보류와02·06의 병행 책임을 유지한다.
 
 01-02의 [계승안](../records/2026-10-29-ticket01-02-code-expression-inheritance-proposal.md)은 제안 당시 기록이며, 현재 반영 내용과 검사·한계는 [적용 기록](../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)을 따른다. Reference·Noline으로의 후속 반영은06에서 대상별 차이를 대조한다.
 

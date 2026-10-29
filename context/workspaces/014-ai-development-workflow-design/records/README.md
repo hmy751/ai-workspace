@@ -1,5 +1,7 @@
 # 논의와 보존 기록
 
+- [01-02 초대 기능의 책임 배치 기준 충분성](2026-10-29-ticket01-02-responsibility-sufficiency.md): 한 함수 유지·내부 책임 분리·파일 분리를 가르는 조건과 기존 도구의 책임을 현재 본문에서 대조했다. 새 기준의 필수 추가는 추천하지 않으며 다음은 완료 조건 종합이다. 날짜 사례는 필수 순서에서 제외했다.
+
 - [01-02 코드 표현 기준 prototype 반영](2026-10-29-ticket01-02-code-expression-prototype-adoption.md): 사용자 적용 요청에 따라 새 표현·진단 주제와 이름·계약 보완, 형성 자료·읽기 진입·열람 화면을 갱신했다. 정적 확인 결과와 Reference/Noline 후속 대조·남은01-02를 구별한다.
 
 - [01-02 기존 코드 표현 기준의 계승안](2026-10-29-ticket01-02-code-expression-inheritance-proposal.md): 항목별 Personal·Project·개발 절차의 소유, 실제 표현 본문 후보, 배치 대안과 적용 장면. 제안 당시 미반영이며 이후 prototype 적용은 위 후속 기록을 따른다.
