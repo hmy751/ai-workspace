@@ -28,7 +28,7 @@ Main은 유지·보완·합침의 일반 분류를 제시하면서 이미 펼친
 - [context 입구](prototypes/development-workflow/noline-demo/context/README.md), [CONTENT-POLICY](prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md), [SYSTEM-GUIDANCE](prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md), [Project 관리](prototypes/development-workflow/noline-demo/context/project/MAINTENANCE.md), [Work 지침](prototypes/development-workflow/noline-demo/context/work/AGENTS.md): 내용·권한·본문/형성 자료·진입/상세·Work 유지의 실제 기준.
 - [기존 read](../source/ai-workspace-baseline/reference-project/.agents/skills/read-project-context/SKILL.md), [기존 update](../source/ai-workspace-baseline/reference-project/.agents/skills/update-project-context/SKILL.md), [첫 전체 연결과 생성 방향](2026-10-24-ticket04-03-context-connection-proposal.md): 보존 원형의 반복 선택·한정 반영·소비 영향 반환 및 앞선 create 구상. 보존판을 현 설치판으로 간주하지 않는다.
 - [잠정 합의](2026-10-25-context-framework-provisional-agreement.md), [배치와 사용 장면](2026-10-25-context-composition-walkthrough.md), [외부 고정판 종합](2026-10-25-context-reference-synthesis.md): USAGE/context-update의 출발점과 사용감 유보, 차용한 관계와 적용 한계.
-- [단계·층위·책임 메모](2026-10-24-workflow-structure-and-responsibility-guidance.md), [전체 Spec](../current/spec.md), [02 기록 운영](../current/tickets/02-work-records.md), [05 개선 루프](../current/tickets/05-improvement-loop.md), [06 전환](../current/tickets/06-framework-transition.md): 네 장면을 네 스킬·고정 순서로 만들지 않고 후속 책임과 연결할 기준.
+- [단계·층위·책임 메모](2026-10-24-workflow-structure-and-responsibility-guidance.md), [전체 Spec](../current/spec.md), [02 기록 운영](../current/tickets/02-work-records.md), [05 개선 루프](../current/tickets/05-improvement-loop.md), [06 전환](../current/tickets/06-framework-transition/README.md): 네 장면을 네 스킬·고정 순서로 만들지 않고 후속 책임과 연결할 기준.
 
 ## 항목별 판정과 실제 반영
 

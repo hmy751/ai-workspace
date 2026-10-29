@@ -23,7 +23,7 @@
 | Personal의 실제 구성·읽기 | [Personal](prototypes/development-workflow/noline-demo/context/personal/README.md)은 현재 개인 판단 기준 중심이며 협업 경험·후보 길잡이와 주제별 기록은 없다. [USAGE](prototypes/development-workflow/noline-demo/context/USAGE.md)의 질문별 읽기가 후보 재조회까지 자동 보장하지 않는다. | 기존 기준과 경험·미결 후보의 관계, 길잡이·상세·미분류 기록의 실제 파일, 루프가 그곳을 찾는 경로. 실제 예시 한 주제로 내용을 채워 읽을 수 있게 한다. |
 | 전체 세션 대화의 입력 | 설계는 전체 훑기·관련 원문 확인·공백 구별을 요구하지만 현재 prototype에 host별 전체 세션 원문 접근 방법은 없다. 이번 점검에서 live 로그를 탐색하거나 새 수집기를 설치하지 않았다. | 현재 세션 식별과 원문 위치·범위 확인, 압축된 앞부분의 복구, 누락·접근 불가 시 한정 검토 표시와 가능한 부분 수행. 요약만 읽고 전체 훑기를 완료했다고 말하지 않는다. |
 
-이는 방향을 정하는 추가 장기 인터뷰보다 Main이 실제 배치와 수행 예를 묶어 제시할 항목이다. 파일 이름·추천 개수·상태 점수·반복 횟수 등을 별도 사용자 결정으로 모두 돌릴 필요는 없다. 서로 다른 선택이 목적·부담·권한을 바꿀 때 그 차이를 제시한다. 다른 저장소 설치·동기화는 [06](../current/tickets/06-framework-transition.md), 전체 실제 적용·장기 관찰은 [07](../current/tickets/07-integrated-rehearsal.md)과 연결한다.
+이는 방향을 정하는 추가 장기 인터뷰보다 Main이 실제 배치와 수행 예를 묶어 제시할 항목이다. 파일 이름·추천 개수·상태 점수·반복 횟수 등을 별도 사용자 결정으로 모두 돌릴 필요는 없다. 서로 다른 선택이 목적·부담·권한을 바꿀 때 그 차이를 제시한다. 다른 저장소 설치·동기화는 [06](../current/tickets/06-framework-transition/README.md), 전체 실제 적용·장기 관찰은 [07](../current/tickets/07-integrated-rehearsal.md)과 연결한다.
 
 ## 05 완료 조건에 대한 현재 근거와 한계
 

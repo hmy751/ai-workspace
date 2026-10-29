@@ -29,7 +29,7 @@
 
 [01-01](01-01-development-flow.md)에 진행·검토·첫 보고에서 사용할 증거와 그 한계를 제공하고, [01-02](01-02-code-design-quality.md)의 설계 변경에서 유지할 동작과 실패 조건을 받는다. [02](../02-work-records.md)에는 후일 보존할 실행 근거, [03](../03-project-context.md)에는 기능·조작·검증 맥락의 필요를 전달한다.
 
-실제 도구 배치·기존 장치와의 결합은 [06](../06-framework-transition.md), 전체 적용·효과 관찰은 [07](../07-integrated-rehearsal.md)과 연결한다. 보존한 실행 기록과 이번 설계에서 직접 실행한 결과를 구별한다.
+실제 도구 배치·기존 장치와의 결합은 [06](../06-framework-transition/README.md), 전체 적용·효과 관찰은 [07](../07-integrated-rehearsal.md)과 연결한다. 보존한 실행 기록과 이번 설계에서 직접 실행한 결과를 구별한다.
 
 ## 완료 조건과 확인 방법
 

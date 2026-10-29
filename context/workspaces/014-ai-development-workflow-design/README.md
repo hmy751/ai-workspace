@@ -1,8 +1,10 @@
 # AI 개발 작업 체계의 개선 설계
 
+**06 적용 티켓 구성(2026-10-29):** [06](current/tickets/06-framework-transition/README.md)을 Reference 적용과 Noline 재적용으로 나눴다. 먼저 [06-01](current/tickets/06-framework-transition/06-01-reference-project-application.md)의 유지·교체·제거안을 구체화하고 이후 [06-02](current/tickets/06-framework-transition/06-02-noline-reapplication.md)로 이어간다. 이번에는 티켓 구성만 했으며 실제 적용은 미착수다.02 기록 운영은 다른 쪽에서 병렬 진행한다.
+
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 
-**05 작업 체계 개선 루프의 설계·프로토타입 작업을 마감했다.** [실행 스킬](records/prototypes/development-workflow/skills/improvement-loop/SKILL.md), [적용 사례](records/prototypes/development-workflow/skills/improvement-loop/references/application.md), Personal 경험 모음이 현재 산출물이다. 다음 설계 대상은01-02·02·06·07 중 작업 목적에 맞춰 선택하며 이번 마감에서 새 티켓을 착수하지 않았다. 범용 개선 리뷰어 [기타-01](current/tickets/misc-01-improvement-review.md)은 보류한다.
+**05 작업 체계 개선 루프의 설계·프로토타입 작업을 마감했다.** [실행 스킬](records/prototypes/development-workflow/skills/improvement-loop/SKILL.md), [적용 사례](records/prototypes/development-workflow/skills/improvement-loop/references/application.md), Personal 경험 모음이 현재 산출물이다. 마감 뒤06을 Reference 적용·Noline 재적용으로 나눴으며01-02·02·07도 남아 있다. 범용 개선 리뷰어 [기타-01](current/tickets/misc-01-improvement-review.md)은 보류한다.
 
 2026-10-27 [Workspace 점검·마무리 기록](records/2026-10-27-workspace-checkpoint.md): 이번 맥락 연결과 계층 정리의 완료를 재확인하고, 남은 전체 설계와 구별해 재진입 안내를 정리했다. Workspace014는 계속 진행 중이다.
 

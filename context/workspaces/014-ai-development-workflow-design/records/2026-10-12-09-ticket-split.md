@@ -13,7 +13,7 @@ Main은 처음에 분할 결과를 평면 목록으로 만들었고, 상위 폴�
 | [03 Project context](../current/tickets/03-project-context.md) | 실제 본문·구성·읽기·관리의 관계 |
 | [04 기존 스킬 보완](../current/tickets/04-skill-improvements/README.md) | 작업 정의·재판단, 브리핑·설명 복구, 맥락 관리 |
 | [05 경험 반영](../current/tickets/05-improvement-loop.md) | 경험 선정·후보·사람 판단·반영·후속 관찰 |
-| [06 기반 전환](../current/tickets/06-framework-transition.md) | 실제 반영 위치와 Maintainer 제거 이후 책임 |
+| [06 기반 전환](../current/tickets/06-framework-transition/README.md) | 실제 반영 위치와 Maintainer 제거 이후 책임 |
 | [07 전체 연결](../current/tickets/07-integrated-rehearsal.md) | 부분 설계의 연결 검토와 우선 적용·관찰 계획 |
 
 개발 진행과 판단 책임은 01-01, 설계 품질과 검토·수정 방법은 01-02, 실제 동작과 검사의 증거는 01-03이 맡는다. 첫 연결 초안을 구체적인 품질·검증 선택으로 보완하며, 초기 초안이 생겼다는 이유로 개발 방식 전체를 완료하지 않는다.

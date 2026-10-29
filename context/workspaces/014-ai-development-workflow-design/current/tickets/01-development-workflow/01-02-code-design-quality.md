@@ -114,7 +114,7 @@ fetcher에서는 기존 호출·정상 반환·현재 구조를 유지하고, �
 
 [01-01](01-01-development-flow.md)은 전체 진행·책임 연결, 이 Ticket은 설계 품질의 판단·검토·수정 방법, [01-03](01-03-behavior-verification.md)는 테스트와 실제 동작 근거를 맡는다. 검토의 기준 diff·미커밋 변경 범위, 지적을 누가 판단·수정하고 언제 다시 확인하는지를 01-01과 맞춘다.
 
-선택한 내용 중 코드·검사·개발 가이드·스킬에 둘 것을 비교하고 [03](../03-project-context.md)·[04-01](../04-skill-improvements/04-01-work-decision-skills.md)·[06](../06-framework-transition.md)에 영향을 전달한다. reviewer에게 세부 기준을 집중한다는 강연의 제안을 구현자에게 필요한 제품·구조 맥락까지 생략하는 규칙으로 확대하지 않는다.
+선택한 내용 중 코드·검사·개발 가이드·스킬에 둘 것을 비교하고 [03](../03-project-context.md)·[04-01](../04-skill-improvements/04-01-work-decision-skills.md)·[06](../06-framework-transition/README.md)에 영향을 전달한다. reviewer에게 세부 기준을 집중한다는 강연의 제안을 구현자에게 필요한 제품·구조 맥락까지 생략하는 규칙으로 확대하지 않는다.
 
 ## 완료 조건과 확인 방법
 

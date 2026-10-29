@@ -94,7 +94,7 @@ React hook이나 transaction이 언급됐다는 사실만으로 모두 Noline �
 
 Reference는 실행 가능한 기준 Project이며 실제 개인 기준 전체의 정본으로 정해진 곳이 아니다. 각 제품에 별도의 개인 원본을 만들어 서로 다르게 관리하기보다 중앙 정본과 프로젝트별 적용을 구별한다. 다른 환경으로 전달할 때의 적용본은 개인 원본과 독립된 두 번째 정본으로 취급하지 않는다.
 
-아직 `personal/`은 없고 이번에 만들지 않았다. 실제 루트 진입점 갱신·소유 관계 연결·접근/전달 방식·전역 routing 변경은 이번 제안을 채택해 구현할 때 [06](../current/tickets/06-framework-transition.md)·[04-03](../current/tickets/04-skill-improvements/04-03-context-skills.md)과 구체화한다. 경로를 제안하는 일을 후속 Ticket까지 미루지는 않는다.
+아직 `personal/`은 없고 이번에 만들지 않았다. 실제 루트 진입점 갱신·소유 관계 연결·접근/전달 방식·전역 routing 변경은 이번 제안을 채택해 구현할 때 [06](../current/tickets/06-framework-transition/README.md)·[04-03](../current/tickets/04-skill-improvements/04-03-context-skills.md)과 구체화한다. 경로를 제안하는 일을 후속 Ticket까지 미루지는 않는다.
 
 ## 확인 범위와 남은 판단
 

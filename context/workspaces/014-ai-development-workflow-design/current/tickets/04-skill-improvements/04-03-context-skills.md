@@ -79,7 +79,7 @@ read-project-context, update-project-context, create-context-workspace를 포함
 
 읽기·갱신 행동을 구체화할 때 [01-02의 과정과 후속 재검토 65](../../../records/2026-10-18-65-criteria-status-and-cross-ticket-refinement.md)를 진입점으로 삼는다. Main이 기준을 골라 준 가상 전달 장면만으로 실제 스킬의 발견·적용을 보장하지 않고, 필요한 자료를 고르는 조건과 일반 기준·사례·현재 계약의 지위를 함께 판단한다. 기존 스킬·도구·비용에 비춰 다른 전달량이나 배치가 필요하면 01-02 기준의 설명·읽기 안내와 03의 구성을 함께 재검토한다.
 
-[01-01](../01-development-workflow/01-01-development-flow.md)·[01-02](../01-development-workflow/01-02-code-design-quality.md)·[01-03](../01-development-workflow/01-03-behavior-verification.md)가 실제 소비할 맥락을 03과 함께 검토한다. 작업 중심과 선택이 바뀔 때는 [04-01](04-01-work-decision-skills.md), 자동 Maintainer의 기록 인계 문구와 제거 후 연결은 [06](../06-framework-transition.md)과 맞춘다.
+[01-01](../01-development-workflow/01-01-development-flow.md)·[01-02](../01-development-workflow/01-02-code-design-quality.md)·[01-03](../01-development-workflow/01-03-behavior-verification.md)가 실제 소비할 맥락을 03과 함께 검토한다. 작업 중심과 선택이 바뀔 때는 [04-01](04-01-work-decision-skills.md), 자동 Maintainer의 기록 인계 문구와 제거 후 연결은 [06](../06-framework-transition/README.md)과 맞춘다.
 
 Project·Work 정본의 내용과 관리 책임을 스킬 안에 복제하지 않는다. 근거 사본과 현행 대상의 차이를 확인하며, 호출 설정·bridge의 존재를 실제 발견·호출·문서 반영·재진입 성공과 혼동하지 않는다.
 

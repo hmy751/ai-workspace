@@ -1,14 +1,14 @@
 # 현재 논의의 진입점
 
-**05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
+**06 적용 작업의 진입:** [06-01 Reference 적용](tickets/06-framework-transition/06-01-reference-project-application.md), [06-02 Noline 재적용](tickets/06-framework-transition/06-02-noline-reapplication.md)으로 나눴다. 기존06의 낡은 미정·설계 한정 문구를 정리했으며, 다음은06-01의 근거 대조와 유지·교체·제거 전환안이다. 이번은 티켓 구성이고 실제 적용은 미착수다.02 기록 운영은 별도 병렬 작업으로 유지한다.
 
-**현재 초점:** [05](tickets/05-improvement-loop.md)는 설계 완료다. 다음은01-02 품질 기준 종합·02 기록/Work 구성·06 배치/전환·07 전체 연결/관찰 계획 중 진행할 범위를 선택하는 일이다. 현재 실행안은 유지하고 실제 적용에서 구체 결함이 드러나면 해당 부분을 다시 연다. [state](state.md)에서 후속 경계를 읽는다. 기타-01은 보류한다.
+**05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 
 **앞선 완료 결과 — Development 실행 상세 확장 완료:** [구조 판단·반영·검토와 확인](../records/2026-10-26-development-detail-expansion.md)을 읽는다. 기존 맥락 연결은 `191e2d86`으로 커밋했고, 구현 수행을 `implementation.md`, 검사 근거 판단·재사용을 `verification/evidence.md`로 나눠 실제 읽기 경로에 연결했다. 역할·권한·종료를 보존하고 중복 판단 조건은 한곳으로 모았다. 상세 확장과 후속 구성 정정은 `0dd23464`로 커밋했으며 반복 사용 효과와 운영 설치는 별도다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
 
 **04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 맥락 연결도 이후04-03에서 마쳤다. 운영 설치·일반 효과는 후속 확인 범위다.
 
-**05 마감 뒤 남은 범위:** 01-02 품질 기준 전체 종합,02 Work 구성·기록 운영,06 배치·기존 의존·전환,07 전체 연결·적용 관찰 계획이다. [state](state.md)의 후속에서 선택하며 이번에는 다음 Ticket을 착수하지 않았다. 실제 설치·사용 효과의 확인과 각 설계 마감을 구별한다.
+**05 마감 뒤 남은 범위:** 01-02 품질 기준 전체 종합,02 Work 구성·기록 운영,06-01 Reference 적용·06-02 Noline 재적용,07 전체 연결·적용 관찰 계획도 남아 있다. 실제 설치·사용 효과의 확인과 각 설계 마감을 구별한다.
 
 **01-01·01-03 설계 결과 완료.** [기존 완료 조건 대조](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)와 [당시04-03 재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)는 형성 근거다. 그 뒤04-03도 위 적용 기록의 범위로 마쳤다. 상위01·04와 전체 Workspace 완료·실제 운영 효과로 확대하지 않는다.
 

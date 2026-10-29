@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+**06 적용 티켓 구성:** [상위06](../current/tickets/06-framework-transition/README.md)과06-01 Reference 적용·06-02 Noline 재적용을 구성했다. [분할 기록](../records/2026-10-29-ticket06-split.md)은 범위 정리의 근거다. 기존 prototype이 현재 설계 산출물이며, Reference·Noline에 반영한 새 결과는 아직 없다.
+
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 
 **05 설계 완료 산출물:** [실행 스킬](../records/prototypes/development-workflow/skills/improvement-loop/SKILL.md) · [적용 사례](../records/prototypes/development-workflow/skills/improvement-loop/references/application.md) · [Personal 경험 모음](../records/prototypes/development-workflow/noline-demo/context/personal/experience/README.md). 네 묶음 합의, 관리 단위·근거 정정, 한정 시도 연결과 수행 수단 비교를 반영했다. [05 Ticket](../current/tickets/05-improvement-loop.md)이 완료 범위와 후속 책임을, [인터뷰](../records/2026-10-27-ticket05-interview.md)가 직접 발화·정정을 소유한다. 실제 운영 설치·효과 확인은 이 결과에 포함하지 않는다.

@@ -37,7 +37,7 @@
 
 ## 다음 설계와 연결
 
-03에서는 개인 기준과 Project가 각각 맡을 내용·필요한 연결을 지금 판단할 수 있다. 실제 저장·배포 위치와 프로젝트 간 반영은 [06](../current/tickets/06-framework-transition.md), 경험이 어느 기준을 바꿀지는 [05](../current/tickets/05-improvement-loop.md), 읽기·갱신 행동은 [04-03](../current/tickets/04-skill-improvements/04-03-context-skills.md)와 연결한다. 후속 Ticket을 기다려야만 분리 방향을 논의할 수 있다는 뜻은 아니다.
+03에서는 개인 기준과 Project가 각각 맡을 내용·필요한 연결을 지금 판단할 수 있다. 실제 저장·배포 위치와 프로젝트 간 반영은 [06](../current/tickets/06-framework-transition/README.md), 경험이 어느 기준을 바꿀지는 [05](../current/tickets/05-improvement-loop.md), 읽기·갱신 행동은 [04-03](../current/tickets/04-skill-improvements/04-03-context-skills.md)와 연결한다. 후속 Ticket을 기다려야만 분리 방향을 논의할 수 있다는 뜻은 아니다.
 
 06의 공통 기반은 ai-workspace·Reference의 문서·스킬·설정·코드·검증까지 포함하므로 개인 기준과 같은 뜻으로 부르지 않는다. 이 논의를 개인 작업 방식 전체나 전역 하네스 재편으로 확대하지 않는다.
 

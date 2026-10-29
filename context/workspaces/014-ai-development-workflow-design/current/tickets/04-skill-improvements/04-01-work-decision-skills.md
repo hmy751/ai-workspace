@@ -36,7 +36,7 @@ work-discussion은 현행 직접 호출 조건에서 출발하고 일반 작업 
 
 ## 다른 Ticket과 주고받을 것
 
-[01-01](../01-development-workflow/01-01-development-flow.md)은 일반 개발 진행과 판단 책임을, 이 Ticket은 그 중 두 스킬의 조건·입력·행동·반환·기록 연결을 맡는다. [02](../02-work-records.md)의 기록 운영, [03](../03-project-context.md)의 맥락, [06](../06-framework-transition.md)의 Maintainer 제거 이후 인계와 맞춘다.
+[01-01](../01-development-workflow/01-01-development-flow.md)은 일반 개발 진행과 판단 책임을, 이 Ticket은 그 중 두 스킬의 조건·입력·행동·반환·기록 연결을 맡는다. [02](../02-work-records.md)의 기록 운영, [03](../03-project-context.md)의 맥락, [06](../06-framework-transition/README.md)의 Maintainer 제거 이후 인계와 맞춘다.
 
 [04-02](04-02-artifact-explanation.md)·[04-03](04-03-context-skills.md)과 같은 현행 스킬 근거를 재사용한다. 한 스킬의 개선으로 다른 스킬의 책임을 중복하거나 비우는지 함께 확인한다.
 

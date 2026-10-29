@@ -25,7 +25,7 @@
 
 | 후속 책임 | 이어받을 범위 |
 | --- | --- |
-| [06 실제 배치·전환](../current/tickets/06-framework-transition.md) | 실제 Personal 정본·스킬/상세·호출 위치와 기존 장치 의존, host별 같은 세션 원문 접근·압축/재개/누락, 적용·활성화·복구 계획. 현재 로컬 경로 예를 범용 지원으로 간주하지 않는다. |
+| [06 실제 배치·전환](../current/tickets/06-framework-transition/README.md) | 실제 Personal 정본·스킬/상세·호출 위치와 기존 장치 의존, host별 같은 세션 원문 접근·압축/재개/누락, 적용·활성화·복구 계획. 현재 로컬 경로 예를 범용 지원으로 간주하지 않는다. |
 | [07 전체 연결·적용 관찰](../current/tickets/07-integrated-rehearsal.md) | 첫 실제 요청 루프의 전체 범위·경험 재조회, 실제 선택한 시도의 재개/종료, 다음 요청된 관련 루프에서 사용·도움·부담 대조. 누락·오독·불명확한 이득이 드러나면 해당 연결 수정·범위 축소·유지·철회를 판단한다. |
 | [02 기록·Work 구성](../current/tickets/02-work-records.md) | Work의 기록·분량·보존·재개·형성 자료 관계. 이번 Personal 배치가 Work 범위를 제한하거나 새 background 적용 보류를 해제하지 않는다. |
 | [기타-01 개선 리뷰](../current/tickets/misc-01-improvement-review.md) | 루프에 한정하지 않는 범용 판단 보조 방식. 아직 구체화·제작하지 않으며 루프의 필수 역할이 아니다. |
