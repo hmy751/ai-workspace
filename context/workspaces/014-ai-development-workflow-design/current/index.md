@@ -1,5 +1,7 @@
 # 현재 논의의 진입점
 
+**후속 테스트 선택:** 첫 부분 적용은 `e38ce52b`로 보존했다. 통합 테스트는02에서 기록·전환 계약을 Reference에 연결한 뒤 진행한다. 지금 별도 host 테스트를 먼저 시작하지 않으며, 결과를06-01 완료 판단에 연결한다. [선택 기록](../records/2026-10-29-ticket06-01-reference-partial-application.md#후속-선택--통합-테스트는02에서-진행).
+
 **06-01 첫 부분 적용:** [적용 결과·보존·검사](../records/2026-10-29-ticket06-01-reference-partial-application.md)에 Personal·Project 관리·USAGE·context-update·explain의 Reference 반영을 남겼다. 제품7개·임시 순환1개 검사 통과, Work·Maintain·제품 원본 보존을 확인했다. [06-01](tickets/06-framework-transition/06-01-reference-project-application.md)은 부분 적용 상태이며 Maintain 연동은02와 함께, [06-02](tickets/06-framework-transition/06-02-noline-reapplication.md)는 후속으로 남는다. 새 host 호출·일반 효과를 확인한 것은 아니다.
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
