@@ -6,11 +6,15 @@
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 
+**병행 품질 기준 작업:** [01-02](tickets/01-development-workflow/01-02-code-design-quality.md)의 [기존 논의·현재 기준 대조](../records/2026-10-29-ticket01-02-current-criteria-reconciliation.md) 뒤 사용자 요청으로 [표현 기준을 prototype에 반영](../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)했다. 코드 표현·진단 주제와 기존 이름·계약 보완, 형성 자료·읽기 진입·열람 화면을 갱신했다. 전체01-02는 진행 중이며 다음은 계산·입력 경계와 책임 배치 설명·사례의 충분성이다.05 완료·기타-01 보류와02·06의 병행 책임을 유지한다.
+
+01-02의 [계승안](../records/2026-10-29-ticket01-02-code-expression-inheritance-proposal.md)은 제안 당시 기록이며, 현재 반영 내용과 검사·한계는 [적용 기록](../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)을 따른다. Reference·Noline으로의 후속 반영은06에서 대상별 차이를 대조한다.
+
 **앞선 완료 결과 — Development 실행 상세 확장 완료:** [구조 판단·반영·검토와 확인](../records/2026-10-26-development-detail-expansion.md)을 읽는다. 기존 맥락 연결은 `191e2d86`으로 커밋했고, 구현 수행을 `implementation.md`, 검사 근거 판단·재사용을 `verification/evidence.md`로 나눠 실제 읽기 경로에 연결했다. 역할·권한·종료를 보존하고 중복 판단 조건은 한곳으로 모았다. 상세 확장과 후속 구성 정정은 `0dd23464`로 커밋했으며 반복 사용 효과와 운영 설치는 별도다. 후속 구성 정정으로 검증 본문을 `verification/INDEX.md`로 옮겨 `evidence.md`와 같은 폴더에 묶었다.
 
 **04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 맥락 연결도 이후04-03에서 마쳤다. 운영 설치·일반 효과는 후속 확인 범위다.
 
-**05 마감 뒤 남은 범위:** 01-02 품질 기준 전체 종합,02 Work 구성·기록 운영,06-01 Reference 적용·06-02 Noline 재적용,07 전체 연결·적용 관찰 계획도 남아 있다. 실제 설치·사용 효과의 확인과 각 설계 마감을 구별한다.
+**05 마감 뒤 남은 범위:** 01-02 품질 기준 전체 종합을 재개했고,02 Work 구성·기록 운영,06-01 Reference 적용·06-02 Noline 재적용,07 전체 연결·적용 관찰 계획도 남아 있다. 실제 설치·사용 효과의 확인과 각 설계 마감을 구별한다.
 
 **01-01·01-03 설계 결과 완료.** [기존 완료 조건 대조](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)와 [당시04-03 재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)는 형성 근거다. 그 뒤04-03도 위 적용 기록의 범위로 마쳤다. 상위01·04와 전체 Workspace 완료·실제 운영 효과로 확대하지 않는다.
 

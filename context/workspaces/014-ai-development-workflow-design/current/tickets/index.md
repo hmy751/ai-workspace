@@ -2,6 +2,8 @@
 
 **06-01 첫 부분 적용 — 2026-10-29:** [적용 결과](../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 독립적인 context·설명·한정 반영과 직접 확인을 기록했다. Maintain·Work 기록/전환은 사용자 요청대로 현행을 유지하고02와 함께 다룬다. [06-01](06-framework-transition/06-01-reference-project-application.md)은 진행 중이며 새 host 호출·전체 workflow 전환은 미완료다. [06-02](06-framework-transition/06-02-noline-reapplication.md)는 미착수다.
 
+**2026-10-29 현재:** 사용자 선택으로01-02를 재개하고 [기존 기준 대조](../../records/2026-10-29-ticket01-02-current-criteria-reconciliation.md)·계승안 뒤 [표현 기준을 prototype에 반영](../../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)했다. 코드 표현·진단과 이름·계약 보완을 확인했으며, 계산·입력 경계와 책임 배치 설명·사례의 충분성·전체 마감은 남아 있다. 병행 Reference·Noline 적용의 책임은 [state](../state.md)에 구별했다.
+
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 
 전체 목표·기준·현재 전체 잠정안은 [Spec](../spec.md), 전체 진행은 [state](../state.md)가 맡는다. 이 목록은 **014의 설계와 선택된 적용 작업을 나누는 Ticket**이며 개선할 시스템의 Ticket 표준을 확정한 것이 아니다. **상위 Ticket은01~07이며,01·04는 각각 세 하위 Ticket,06은 두 하위 Ticket으로 나뉜다.** 파일명·제목·참조에 같은 번호를 사용한다. 01-01에서 자료 기반 워크플로를 비교했고, 01-02·01-03의 품질·검증 책임 연결도 초안으로 다뤘다. 상세 진행은 각 Ticket이 소유한다. 01-01·01-03은 합의·실행 본문·대표 대조를 완료 조건에 맞춰 설계 마감했다.01-02의 품질 기준 전체 종합은 남아 있고,04-03의 후속 결과는 아래 최신 마감을 따른다. [이번 마감과 Spec·04의 다음 범위](../../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)에서 완료 범위와 후속 책임을 확인한다.
@@ -32,7 +34,7 @@
 
 **2026-10-20:03의 구성안·대표 본문 구체화를 완료했다.** [완료 조건 대조119](../../records/2026-10-20-119-ticket03-closeout.md)와 [03 결과](03-project-context.md)를 후속 입력으로 사용한다.01-02·04-03 등 다른 Ticket의 완료로 확대하지 않으며 이번 마무리에서 새 작업을 시작하지 않았다.
 
-04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다.05도 [설계 마감](../../records/2026-10-29-ticket05-closeout.md)을 완료했다. 현재 남은 설계·적용은01-02 품질 기준 전체 종합,02 기록·Work 구성,06-01 Reference 적용과06-02 Noline 재적용,07 전체 연결·적용 관찰 계획이다. 번호순 완결을 강제하지 않는다. Reference 첫 부분 설치·직접 확인은 위06-01에 기록했고 일반 효과·전체 운영 연결은 미확인이다.
+04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다.05도 [설계 마감](../../records/2026-10-29-ticket05-closeout.md)을 완료했다. 현재 남은 주요 설계는 재개한01-02 품질 기준 전체 종합,02 기록·Work 구성,06-01 Reference 적용과06-02 Noline 재적용,07 전체 연결·적용 관찰 계획이다. 번호순 완결을 강제하지 않는다. Reference 첫 부분 설치·직접 확인은 위06-01에 기록했고 일반 효과·전체 운영 연결은 미확인이다.
 
 | 후속 결과 |03에서 이어받을 것과 경계 |
 | --- | --- |

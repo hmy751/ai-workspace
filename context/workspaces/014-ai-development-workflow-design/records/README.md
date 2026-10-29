@@ -1,10 +1,16 @@
 # 논의와 보존 기록
 
+- [01-02 코드 표현 기준 prototype 반영](2026-10-29-ticket01-02-code-expression-prototype-adoption.md): 사용자 적용 요청에 따라 새 표현·진단 주제와 이름·계약 보완, 형성 자료·읽기 진입·열람 화면을 갱신했다. 정적 확인 결과와 Reference/Noline 후속 대조·남은01-02를 구별한다.
+
+- [01-02 기존 코드 표현 기준의 계승안](2026-10-29-ticket01-02-code-expression-inheritance-proposal.md): 항목별 Personal·Project·개발 절차의 소유, 실제 표현 본문 후보, 배치 대안과 적용 장면. 제안 당시 미반영이며 이후 prototype 적용은 위 후속 기록을 따른다.
+
 - [06-01 Reference 첫 부분 적용](2026-10-29-ticket06-01-reference-partial-application.md): Personal·Project 관리·읽기·한정 반영·설명 이식과 직접 확인. Maintain·Work·제품 보존, 새 host 확인·전체 전환의 남은 범위를 구별한다.
 
 - [06-01 Reference 전환 검토안](2026-10-29-ticket06-01-reference-transition-proposal.md): 합의·현행 대조와 구체 대상·의존·확인·복구. 후속 사용자 요청으로 Maintain 관련은02와 함께 다루기로 보류하고, 먼저 가능한 context·설명·한정 반영과 연동 유보를 나눴다. 검토 당시에는 미반영이었으며 위 후속 첫 적용 기록과 구별한다.
 
 - [06 분할·기존 내용 정리](2026-10-29-ticket06-split.md): 06-01 Reference 적용과06-02 Noline 재적용의 목표·완료 조건,02 병렬 책임·07 관찰 경계. 이번은 티켓 구성이며 실제 적용은 미착수다.
+
+- [01-02 재개·기존 논의와 현재 품질 본문 대조](2026-10-29-ticket01-02-current-criteria-reconciliation.md): 이미 갖춘 기준·사례·실행 연결, 표현 가이드 계승·계산 경계·책임 배치 설명과 후속 관찰 제안. 병행 reference-project → Noline 반영의 사용자 안내와 미확인을 구별한다. prototype 변경·기준 채택·Ticket 마감은 아니다.
 
 - [05 설계 마감·워크스페이스 점검](2026-10-29-ticket05-closeout.md): 완료 범위, 열린 기준,06·07·02·기타-01의 후속 책임과 최종 확인.
 

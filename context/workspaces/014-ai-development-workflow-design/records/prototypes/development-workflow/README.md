@@ -1,6 +1,6 @@
 # 개발 판단을 코드와 한 작업에 적용하기
 
-공통화할 범위, 신뢰할 계약, 이름과 완료 표현을 **코드와 사용 조건으로 판단하는 개발 프로토타입**이다. 개인의 일반 기준과 사례를 읽고, Noline 인증 예제에서 제품 계약과 함께 적용한 선택·코드·검사 결과를 확인할 수 있다.
+공통화할 범위, 신뢰할 계약, 이름과 완료, 코드 표현과 진단을 **코드와 사용 조건으로 판단하는 개발 프로토타입**이다. 개인의 일반 기준과 사례를 읽고, Noline 인증 예제에서 제품 계약과 함께 적용한 선택·코드·검사 결과를 확인할 수 있다.
 
 [폴더와 본문 열기](viewer.html) · [이름 유지·개명 나란히 보기](viewer.html#naming) · [로그인 작업 따라가기](walkthrough.md)
 
@@ -18,6 +18,7 @@
 | 공통으로 묶을 범위와 사용처에 남길 선택 | [공통 제공과 사용처 선택](noline-demo/context/personal/development/shared-boundaries/INDEX.md) · [코드 사례](noline-demo/context/personal/development/shared-boundaries/INDEX.cases.md) | Field의 배치·입력 교체, Container의 오류 표시, 같은 주문 API와 같은 구매 흐름의 차이 |
 | 공통 오류와 시간·자원의 의미 | [계약과 수명](noline-demo/context/personal/development/contracts-and-lifetime/INDEX.md) · [코드 사례](noline-demo/context/personal/development/contracts-and-lifetime/INDEX.cases.md) | 파싱 실패·HTTP 상태, 옵션의 적용 순서, Toast의 3초가 시작되는 시점 |
 | 이름을 유지할지, 바꿀지, 동작을 고칠지 | [이름과 완료](noline-demo/context/personal/development/naming-and-completion/INDEX.md) · [판단 사례](noline-demo/context/personal/development/naming-and-completion/INDEX.cases.md) | 같은 코드의 이름 유지·개명 비용과 이득, 설명만으로 해결할 수 없는 완료 요구 |
+| 코드의 묶음·배치·주석과 실패 진단을 판단하는 방법 | [코드 표현과 진단](noline-demo/context/personal/development/code-expression/INDEX.md) · [형성 자료](noline-demo/context/personal/development/code-expression/_background/README.md) | 개인의 표현 판단과 Project의 실제 도구·제품 계약을 구별한다. |
 | 이름 기준이 왜 이렇게 만들어졌고 어떻게 고칠지 | [형성 자료 안내](noline-demo/context/personal/development/naming-and-completion/_background/README.md) | 현재 맥락, 당시 선택·정정 기록, 발화 근거를 질문에 따라 찾는 경로 |
 | 체계 지침의 본체·진입과 상세 분할을 어떻게 구별할지 | [체계 지침의 역할과 구성](noline-demo/context/SYSTEM-GUIDANCE.md) | 일반 내용의 기준과 체계를 다루는 지침, 진입 본문·상세·형성 자료의 책임 |
 | 기준을 실제 작업에서 어떻게 사용하는지 | [로그인 완료 표현을 정리하는 작업](walkthrough.md) | Personal의 판단 관점, Project의 계약, Work의 선택이 코드에 연결되는 과정 |
