@@ -1,5 +1,7 @@
 # 설계 Ticket
 
+**05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
+
 전체 목표·기준·현재 전체 잠정안은 [Spec](../spec.md), 전체 진행은 [state](../state.md)가 맡는다. 이 목록은 **014의 설계 작업을 나누는 Ticket**이며 개선할 시스템의 Ticket 표준을 확정한 것이 아니다. **상위 Ticket은 01~07이며, 01과 04는 각각 세 하위 Ticket으로 나뉜다.** 파일명·제목·참조에 같은 번호를 사용한다. 01-01에서 자료 기반 워크플로를 비교했고, 01-02·01-03의 품질·검증 책임 연결도 초안으로 다뤘다. 상세 진행은 각 Ticket이 소유한다. 01-01·01-03은 합의·실행 본문·대표 대조를 완료 조건에 맞춰 설계 마감했다.01-02의 품질 기준 전체 종합은 남아 있고,04-03의 후속 결과는 아래 최신 마감을 따른다. [이번 마감과 Spec·04의 다음 범위](../../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)에서 완료 범위와 후속 책임을 확인한다.
 
 | 상위 Ticket | 하위 Ticket |
@@ -8,7 +10,7 @@
 | [02 기록·Workspace 구성·Maintain](02-work-records.md) | — |
 | [03 Project context](03-project-context.md) | — |
 | [04 기존 스킬 보완](04-skill-improvements/README.md) | [04-01 작업 정의·재판단](04-skill-improvements/04-01-work-decision-skills.md), [04-02 설명 구성·적용](04-skill-improvements/04-02-artifact-explanation.md), [04-03 맥락 관리](04-skill-improvements/04-03-context-skills.md) |
-| [05 경험 반영 루프](05-improvement-loop.md) | — |
+| [05 작업 체계 개선 루프](05-improvement-loop.md) | 설계 완료 · 실제 배치/관찰은06·07 |
 | [06 기반 전환·프로젝트 간 개선 반영](06-framework-transition.md) | — |
 | [07 전체 연결과 후속 적용](07-integrated-rehearsal.md) | — |
 
@@ -28,7 +30,7 @@
 
 **2026-10-20:03의 구성안·대표 본문 구체화를 완료했다.** [완료 조건 대조119](../../records/2026-10-20-119-ticket03-closeout.md)와 [03 결과](03-project-context.md)를 후속 입력으로 사용한다.01-02·04-03 등 다른 Ticket의 완료로 확대하지 않으며 이번 마무리에서 새 작업을 시작하지 않았다.
 
-04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다. 네 항목을 다시 순차 구체화할 상태가 아니다. 현재 남은 중심은01-02 전체 종합과02·05·06·07의 기록·경험·전환·전체 적용 설계다. 사용자는05를 선택했고 외부 재조사·인터뷰로 운영 방향을 구체화했다. [체크포인트](../../records/2026-10-27-ticket05-interview-checkpoint.md)와 [05](05-improvement-loop.md)에서 합의와 작성된 실행안·적용 사례를 읽고 남은 실행 보완의 채택 여부와 완료 조건을 대조할 단계다. 실제 운영 설치·일반 효과는 미확인이다.
+04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다.05도 [설계 마감](../../records/2026-10-29-ticket05-closeout.md)을 완료했다. 현재 남은 주요 설계는01-02 품질 기준 전체 종합,02 기록·Work 구성,06 실제 배치·전환 계획,07 전체 연결·적용 관찰 계획이다. 번호순 완결을 강제하지 않으며 새 티켓 착수는 아직 하지 않았다. 운영 설치·일반 효과는 미확인이다.
 
 | 후속 결과 |03에서 이어받을 것과 경계 |
 | --- | --- |

@@ -1,7 +1,8 @@
 # 현재 선택한 설계 자료와 산출물
 
-**2026-10-29 최신:** 루트 안내를 스킬의 적용 사례와 기존 진입에 통합하고 Personal 근거를 분리했다. 평가 주체 혼동·현재 상태의 낡은 설명·스킬 밖 수행 순서 중복도 정정했다. [반영과 확인](../records/2026-10-29-improvement-loop-consistency-adoption.md)에서 이어간다. 앞선 한정 시도 소비/종료 연결과 같은 목적의 수행 수단 비교 사례는 미반영이며, 05 최종 마감·운영 설치·실제 효과 확인은 별도다.
-**05 현재 산출물:** [실행 스킬](../records/prototypes/development-workflow/skills/improvement-loop/SKILL.md) · [적용 사례](../records/prototypes/development-workflow/skills/improvement-loop/references/application.md) · [Personal 경험 모음](../records/prototypes/development-workflow/noline-demo/context/personal/experience/README.md). 네 묶음 합의와 후속 관리 단위·근거 정정을 반영했다. [05 Ticket](../current/tickets/05-improvement-loop.md)이 현재 책임과 완료 조건을, [인터뷰](../records/2026-10-27-ticket05-interview.md)가 직접 발화·정정을 소유한다. [전체 구체안](../records/2026-10-27-ticket05-integrated-proposal.md)은 이 결과의 형성 자료다.
+**05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
+
+**05 설계 완료 산출물:** [실행 스킬](../records/prototypes/development-workflow/skills/improvement-loop/SKILL.md) · [적용 사례](../records/prototypes/development-workflow/skills/improvement-loop/references/application.md) · [Personal 경험 모음](../records/prototypes/development-workflow/noline-demo/context/personal/experience/README.md). 네 묶음 합의, 관리 단위·근거 정정, 한정 시도 연결과 수행 수단 비교를 반영했다. [05 Ticket](../current/tickets/05-improvement-loop.md)이 완료 범위와 후속 책임을, [인터뷰](../records/2026-10-27-ticket05-interview.md)가 직접 발화·정정을 소유한다. 실제 운영 설치·효과 확인은 이 결과에 포함하지 않는다.
 
 **2026-10-27 확인한 현재 결과:** 맥락 연결은 `191e2d86`, Development 상세 확장과 검증 INDEX 묶음은 `0dd23464`다. [마무리 점검](../records/2026-10-27-workspace-checkpoint.md)에서 완료 범위·한계·후속을 읽는다. 아래 구체안·계획·비교 기록은 현재 결과의 형성 근거이며 각 시점의 미완료 문장을 현재 작업으로 가져오지 않는다.
 

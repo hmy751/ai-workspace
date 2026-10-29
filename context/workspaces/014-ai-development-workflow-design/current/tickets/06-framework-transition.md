@@ -60,4 +60,6 @@
 
 ## 05에서 이어받은 실행안 배치 입력
 
+[05 설계 마감](../../records/2026-10-29-ticket05-closeout.md)의 완료 경계와 열린 기준을 입력으로 받는다. prototype 설계 완료를 실제 운영 확인으로 바꾸지 않는다.
+
 [루프 실행 구체안](../../records/prototypes/development-workflow/skills/improvement-loop/SKILL.md)의 본체·원문/효과 상세와 Personal 경험 모음·기존 호출 경로를 대상에 맞게 배치한다. 현재 Main의 요청 실행, Personal 실제 위치·진입·정본, 동반 자료·기존 스킬 참조, 같은 세션 전체 원문의 접근/압축/재개/누락 처리를 확인한다. 로컬 Codex에서 파일 식별·형식만 확인했고 전체 범위·다른 host 지원은 아직이다. 새 동기화·자동 hook을 전제하지 않는다. 전환 계획과 실제 설치·활성화·복구 확인을 구별한다.

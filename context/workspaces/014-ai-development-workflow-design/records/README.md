@@ -1,5 +1,11 @@
 # 논의와 보존 기록
 
+- [05 설계 마감·워크스페이스 점검](2026-10-29-ticket05-closeout.md): 완료 범위, 열린 기준,06·07·02·기타-01의 후속 책임과 최종 확인.
+
+- [수행 수단 비교 사례 반영·05 완료 조건 대조](2026-10-29-improvement-loop-means-comparison-adoption.md): 두 개선안 반영 후 설계 조건과 후속 확인을 구별한 Main 대조.
+
+- [한정 시도의 작업 연결·종료 정리 반영](2026-10-29-improvement-loop-limited-trial-adoption.md): 첫 번째 개선안 반영과 확인 범위. 두 번째 비교 사례 개선은 미반영.
+
 - [2026-10-29 05 관리 단위·근거·현재성 정정 반영](2026-10-29-improvement-loop-consistency-adoption.md): 루트 해설 통합, Personal context/evidence 분리, 평가 주체·현재 상태·수행 순서의 책임 정정과 재확인.
 
 - [2026-10-28 improvement-loop 구조·본문 편집 반영](2026-10-28-improvement-loop-structure-adoption.md): 사용자 선택에 따른 실제 반영과 확인. 앞선 실행 보완 두 안은 미반영.
