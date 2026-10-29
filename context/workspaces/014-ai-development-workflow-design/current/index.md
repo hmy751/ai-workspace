@@ -6,7 +6,7 @@
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 
-**병행 품질 기준 작업:** [01-02](tickets/01-development-workflow/01-02-code-design-quality.md)의 [기존 논의·현재 기준 대조](../records/2026-10-29-ticket01-02-current-criteria-reconciliation.md) 뒤 사용자 요청으로 [표현 기준을 prototype에 반영](../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)했다. 코드 표현·진단 주제와 기존 이름·계약 보완, 형성 자료·읽기 진입·열람 화면을 갱신했다. 후속 [책임 배치 대조](../records/2026-10-29-ticket01-02-responsibility-sufficiency.md)는 현재 기준 유지를 추천한다. 날짜 사례는 필수 순서에서 제외했고, 전체01-02의 완료 조건 종합과 마감 판단이 다음이다.05 완료·기타-01 보류와02·06의 병행 책임을 유지한다.
+**01-02 설계 완료:** [01-02 설계 마감](../records/2026-10-29-ticket01-02-closeout.md)에서 최종 기준·조건별 사례·검토/수정/검증 연결과 다섯 완료 조건을 확인한다. 새 품질 기준 추가나 과거 날짜 정책의 재논의는 다음 필수 작업이 아니다. 다음은 병행02 기록 운영,06 실제 적용·직접 확인,07 전체 연결·효과 관찰이다.
 
 01-02의 [계승안](../records/2026-10-29-ticket01-02-code-expression-inheritance-proposal.md)은 제안 당시 기록이며, 현재 반영 내용과 검사·한계는 [적용 기록](../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)을 따른다. Reference·Noline으로의 후속 반영은06에서 대상별 차이를 대조한다.
 
@@ -14,9 +14,9 @@
 
 **04-02 설계 완료:** [완료 조건 대조·후속 책임](../records/2026-10-26-ticket04-02-closeout-and-followups.md)과 [현재 티켓](tickets/04-skill-improvements/04-02-artifact-explanation.md)을 읽는다. 현재 explain·development를 유지하고 같은 사례의 반복 보완을 마쳤다. 남은 적용·관찰은06·07, 경험 재검토는05, 맥락 연결은04-03으로 이었다. 맥락 연결도 이후04-03에서 마쳤다. 운영 설치·일반 효과는 후속 확인 범위다.
 
-**05 마감 뒤 남은 범위:** 01-02 품질 기준 전체 종합을 재개했고,02 Work 구성·기록 운영,06-01 Reference 적용·06-02 Noline 재적용,07 전체 연결·적용 관찰 계획도 남아 있다. 실제 설치·사용 효과의 확인과 각 설계 마감을 구별한다.
+**05 마감 뒤 남은 범위:** 01-02도 설계 마감했으며,02 Work 구성·기록 운영,06-01 Reference 적용·06-02 Noline 재적용,07 전체 연결·적용 관찰 계획도 남아 있다. 실제 설치·사용 효과의 확인과 각 설계 마감을 구별한다.
 
-**01-01·01-03 설계 결과 완료.** [기존 완료 조건 대조](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)와 [당시04-03 재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)는 형성 근거다. 그 뒤04-03도 위 적용 기록의 범위로 마쳤다. 상위01·04와 전체 Workspace 완료·실제 운영 효과로 확대하지 않는다.
+**01-01·01-03 설계 결과 완료.** [기존 완료 조건 대조](../records/2026-10-24-ticket01-01-03-closeout-and-next-scope.md)와 [당시04-03 재개 메모](../records/2026-10-24-workflow-context-connection-checkpoint.md)는 형성 근거다. 그 뒤04-03도 위 적용 기록의 범위로 마쳤다. 후속01-02 마감으로01의 설계 결과도 갖춰졌다. 전체 Workspace 완료·실제 운영 효과는 별도다.
 
 아래 날짜별04-02 비교·반영의 현재/다음/미완료 표기는 당시 상태다. 최신 결과는 위 설계 마감을 따른다.
 

@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+**01-02 설계 마감 결과:** [완료 조건·최종 기준·후속 책임](../records/2026-10-29-ticket01-02-closeout.md). 현재 품질 본문과 수행 연결은 prototype이 소유하며 실제 대상 적용·확인과 효과 관찰은06·07로 이어진다.
+
 **01-02 표현 기준 반영:** [코드 표현과 진단](../records/prototypes/development-workflow/noline-demo/context/personal/development/code-expression/INDEX.md)과 기존 이름·계약 보완이 현재 prototype에 반영됐다. [적용 범위·검사·후속](../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)에서 Reference/Noline 적용과 전체01-02의 남은 범위를 구별한다.
 
 **06-01 첫 적용 산출물:** [Reference](../../../../reference-project/README.md)에 독립적인 Personal·Project 관리·공통 읽기·한정 반영·설명을 반영했다. [적용 결과와 검사](../records/2026-10-29-ticket06-01-reference-partial-application.md)에서 선택·파일별 근거·보존 범위를 찾는다. [전환 검토안](../records/2026-10-29-ticket06-01-reference-transition-proposal.md)은 전체 후속 판단 자료이며 전부 채택한 것이 아니다. [06-01](../current/tickets/06-framework-transition/06-01-reference-project-application.md)이 상태를 소유한다. 기존 prototype은 설계 입력이고 Reference가 적용된 실행 본문을 소유한다. Maintain 연동·Noline 적용·새 host 효과 확인은 남아 있다.

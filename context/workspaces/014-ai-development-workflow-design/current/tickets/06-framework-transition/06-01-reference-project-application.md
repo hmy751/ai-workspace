@@ -1,5 +1,7 @@
 # 06-01 — Reference에 프로토타입을 적용한다
 
+**01-02 후속 입력 — 2026-10-29:** [품질 기준 설계 마감](../../../records/2026-10-29-ticket01-02-closeout.md)을 적용 입력으로 받는다. 첫 Reference 적용 이후 prototype의 `10153862`에 코드 표현·진단과 이름·계약 보완, 형성 자료·진입 변경이 담겼다. 현재 적용판과 이 차이를 대조하고 실제 대상의 규약·도구·사용자 변경을 보존하며 반영·직접 확인한다.01-02 마감 자체를 Reference 반영 완료로 세지 않으며02의 미정은 유지한다.
+
 상태: **독립적인 첫 묶음 적용·직접 확인 완료 · 전체06-01 진행 중 · Maintain 연동은02와 함께 유보**.2026-10-29 사용자가 “maintain 관련은 02에서 하는 걸로 두고, 먼저 가능한 부분부터 reference-project에 반영해봐”라고 승인했다. [적용 기록](../../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 실제 변경·보존·검사·복구 범위를 남겼다. 제품7개·임시 Workspace 순환1개 검사, 링크·호출 설정·상대 연결을 확인했다. 새 host의 실제 자동 발견·호출·일반 효과는 아직 확인하지 않았다.
 
 이번 반영은 Personal·공통 정책·USAGE·Project의 비충돌 관리 부분·explain/shared·context-update다. 기존 제품·Project 사실·Work 이력은 보존했다. Maintain 장치와 Work 기록 담당·생성/전환 activation·해당 이식 운영 계약은 현행이다. 기존 create·reconsider·work-discussion 호출 계약을 유지하고 development·새 work-discussion·improvement-loop는 설치하지 않았다.02·01-02를 대신 설계하거나 미채택 제안을 기준으로 올리지 않는다.
