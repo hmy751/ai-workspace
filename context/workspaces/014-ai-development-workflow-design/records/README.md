@@ -1,5 +1,9 @@
 # 논의와 보존 기록
 
+- [06-01 Reference 첫 부분 적용](2026-10-29-ticket06-01-reference-partial-application.md): Personal·Project 관리·읽기·한정 반영·설명 이식과 직접 확인. Maintain·Work·제품 보존, 새 host 확인·전체 전환의 남은 범위를 구별한다.
+
+- [06-01 Reference 전환 검토안](2026-10-29-ticket06-01-reference-transition-proposal.md): 합의·현행 대조와 구체 대상·의존·확인·복구. 후속 사용자 요청으로 Maintain 관련은02와 함께 다루기로 보류하고, 먼저 가능한 context·설명·한정 반영과 연동 유보를 나눴다. 검토 당시에는 미반영이었으며 위 후속 첫 적용 기록과 구별한다.
+
 - [06 분할·기존 내용 정리](2026-10-29-ticket06-split.md): 06-01 Reference 적용과06-02 Noline 재적용의 목표·완료 조건,02 병렬 책임·07 관찰 경계. 이번은 티켓 구성이며 실제 적용은 미착수다.
 
 - [05 설계 마감·워크스페이스 점검](2026-10-29-ticket05-closeout.md): 완료 범위, 열린 기준,06·07·02·기타-01의 후속 책임과 최종 확인.

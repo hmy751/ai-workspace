@@ -1,0 +1,1420 @@
+{
+  "kind": "reference-partial-application-audit",
+  "date": "2026-10-29",
+  "baseline_commit": "56643f48f355aca017554149687982d02af7d434",
+  "scope": "Personal / Project management / USAGE / context-update / explain; Preserve Maintain and Work",
+  "source_mapping": [
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/README.md",
+      "target": "reference-project/context/personal/README.md",
+      "source_sha256": "e07ef866fdbb02135041b4093f8e697f6166b225997445ef9d8136b1aabc8c69",
+      "target_sha256": "6afee8159d6a0c83fadee35e5de85a949b58323f3724188d59c237a54626110f"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/experience/README.md",
+      "target": "reference-project/context/personal/experience/README.md",
+      "source_sha256": "d5f7491893714959654c8219503dd007be6b8eeae25fb1b05c0958f015d2051d",
+      "target_sha256": "95330794648f437cc2de7d1a37207d20bd5b0788d047b4d8678fae7286fe1f90"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/experience/MAINTENANCE.md",
+      "target": "reference-project/context/personal/experience/MAINTENANCE.md",
+      "source_sha256": "26ded867ad4456df9e0079482f9df203264eecb2c7db24585f2d66a4ae5a006f",
+      "target_sha256": "95995e1870b76ffb8d78206bff86e1a1dde22c1b6f900f824e500b4713a57eab"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/README.md",
+      "target": "reference-project/context/personal/development/README.md",
+      "source_sha256": "e54addf638b47779d702dc6ca90e5cc6bc0804498fc3c7daf9047377860d755f",
+      "target_sha256": "e54addf638b47779d702dc6ca90e5cc6bc0804498fc3c7daf9047377860d755f"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/INDEX.md",
+      "target": "reference-project/context/personal/development/INDEX.md",
+      "source_sha256": "a15505a272f8829859e73e2c659e129dfed4447097d0c67479de86ff26d79f5f",
+      "target_sha256": "a15505a272f8829859e73e2c659e129dfed4447097d0c67479de86ff26d79f5f"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/_background/context.md",
+      "target": "reference-project/context/personal/development/_background/context.md",
+      "source_sha256": "8d57fb0657a957b308e7137ace6769dcefe5a65865266a8d6454ab2643062e6c",
+      "target_sha256": "8d57fb0657a957b308e7137ace6769dcefe5a65865266a8d6454ab2643062e6c"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/_background/evidence.md",
+      "target": "reference-project/context/personal/development/_background/evidence.md",
+      "source_sha256": "f6b93f3f73a4d6fa11af8bb34e2180cf61cdb31745dae13f860fb4b748e1f657",
+      "target_sha256": "f6b93f3f73a4d6fa11af8bb34e2180cf61cdb31745dae13f860fb4b748e1f657"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/_background/README.md",
+      "target": "reference-project/context/personal/development/_background/README.md",
+      "source_sha256": "7ae94e5f85700736b313bf640efddbf1715d4cfd3656c61dc69fd25250c2400f",
+      "target_sha256": "7ae94e5f85700736b313bf640efddbf1715d4cfd3656c61dc69fd25250c2400f"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/README.md",
+      "target": "reference-project/context/personal/development/shared-boundaries/README.md",
+      "source_sha256": "f2c33c414d2c8d8c773e6be5b64f51acf9237db57d83d40f26a35f8e9dae4ab7",
+      "target_sha256": "f2c33c414d2c8d8c773e6be5b64f51acf9237db57d83d40f26a35f8e9dae4ab7"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/INDEX.md",
+      "target": "reference-project/context/personal/development/shared-boundaries/INDEX.md",
+      "source_sha256": "9e5b3744a553f982df72a2d4d513dc08bf8e5b9e507559f10ea97b70b0d09dab",
+      "target_sha256": "9e5b3744a553f982df72a2d4d513dc08bf8e5b9e507559f10ea97b70b0d09dab"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/INDEX.cases.md",
+      "target": "reference-project/context/personal/development/shared-boundaries/INDEX.cases.md",
+      "source_sha256": "b265dca9eff082e4a2631d6f8ab57f6df04a0779af6d8ed471c46d00f5232704",
+      "target_sha256": "b265dca9eff082e4a2631d6f8ab57f6df04a0779af6d8ed471c46d00f5232704"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/README.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/README.md",
+      "source_sha256": "742ad9e1823e9617e79db5523ea1040c3149cda93d64a92b3fb6e5e63ac384cf",
+      "target_sha256": "742ad9e1823e9617e79db5523ea1040c3149cda93d64a92b3fb6e5e63ac384cf"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/INDEX.md",
+      "source_sha256": "fe00c0b67f7abf09558f5e3aaebd93ad5c14516b5a8c8a31d4bc47bd61c4c94d",
+      "target_sha256": "fe00c0b67f7abf09558f5e3aaebd93ad5c14516b5a8c8a31d4bc47bd61c4c94d"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.cases.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/INDEX.cases.md",
+      "source_sha256": "6f2055b544126ea4fe39299d0f5a3c14f452deab9e740b596226b0209e09cf0e",
+      "target_sha256": "f2d84753054ae25b4a9003a4a7d1734fe9cf2c94027f5662c38f7cd64fa71be0"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/README.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/README.md",
+      "source_sha256": "14207d377a15eaadde906a808148b03e4bf618a98bbd818ace869d73bdfeb362",
+      "target_sha256": "14207d377a15eaadde906a808148b03e4bf618a98bbd818ace869d73bdfeb362"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/INDEX.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/INDEX.md",
+      "source_sha256": "4aca8f6d6242f51f9db2b18ba4818da3e6cf491500a2b1deb0bf8cea24dbb1d8",
+      "target_sha256": "4aca8f6d6242f51f9db2b18ba4818da3e6cf491500a2b1deb0bf8cea24dbb1d8"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/INDEX.cases.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/INDEX.cases.md",
+      "source_sha256": "047d53fd895d6a9f23394cd42d3d15dbc8bd9b68ebee9ebb98b04f67e23fe11b",
+      "target_sha256": "047d53fd895d6a9f23394cd42d3d15dbc8bd9b68ebee9ebb98b04f67e23fe11b"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/_background/context.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/_background/context.md",
+      "source_sha256": "3517387a09ecfb8c8f9cd7b48132fe4f345369fdc8cf0bb3980046e831aa9318",
+      "target_sha256": "3517387a09ecfb8c8f9cd7b48132fe4f345369fdc8cf0bb3980046e831aa9318"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/_background/evidence.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/_background/evidence.md",
+      "source_sha256": "4d682e432198a12bd62f05962ff82d88d4a5d44bece090be20c377132a8af88e",
+      "target_sha256": "4d682e432198a12bd62f05962ff82d88d4a5d44bece090be20c377132a8af88e"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/_background/README.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/_background/README.md",
+      "source_sha256": "f848218f3ba9c0d7ee5d08b68c17bfaf39a229ccaab276acea32e9905dd24bc7",
+      "target_sha256": "f848218f3ba9c0d7ee5d08b68c17bfaf39a229ccaab276acea32e9905dd24bc7"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-error-contract-and-review.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-error-contract-and-review.md",
+      "source_sha256": "d49f684cee96da4f8add39328af6a17916e891324a65418f415bbb97db8bcda3",
+      "target_sha256": "d49f684cee96da4f8add39328af6a17916e891324a65418f415bbb97db8bcda3"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/_background/records/2026-10-23-conditional-criteria.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/_background/records/2026-10-23-conditional-criteria.md",
+      "source_sha256": "c8256ae1c30929fa7347e7172570f5a37c3d24787245cf9ce0a6bd3dfaaa7bcd",
+      "target_sha256": "c8256ae1c30929fa7347e7172570f5a37c3d24787245cf9ce0a6bd3dfaaa7bcd"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-lifetime-and-supported-scope.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-lifetime-and-supported-scope.md",
+      "source_sha256": "6877f4dd75555784a7b0f61bca56cff3f23d84552b092747853a030a6743598b",
+      "target_sha256": "6877f4dd75555784a7b0f61bca56cff3f23d84552b092747853a030a6743598b"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/context.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/_background/context.md",
+      "source_sha256": "c4022fa6e0a832ef792d1cb5ae70b7d63960d3a8400f78ae965fbf91af85f71a",
+      "target_sha256": "c4022fa6e0a832ef792d1cb5ae70b7d63960d3a8400f78ae965fbf91af85f71a"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/evidence.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/_background/evidence.md",
+      "source_sha256": "5ea4249fdb7654d825c56c1aa6aa9bdadb24182b6bc07c97572d64cbf07b490d",
+      "target_sha256": "bacf131b55ae5ac50773176c196660ca137a725e35d91b9da888b9bb1b26d93d"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/README.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/_background/README.md",
+      "source_sha256": "e12ab8f1fc4cc2e3acd0ef55e4e7cc7ddbef25dbc975a77d2d8b1ec19627dff5",
+      "target_sha256": "e12ab8f1fc4cc2e3acd0ef55e4e7cc7ddbef25dbc975a77d2d8b1ec19627dff5"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/records/2026-10-19-clarity-and-renaming.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/_background/records/2026-10-19-clarity-and-renaming.md",
+      "source_sha256": "61ccf9ab1e6db8034664c89686e9c47126af7dd68680539bf30bccfa1ddc073f",
+      "target_sha256": "61ccf9ab1e6db8034664c89686e9c47126af7dd68680539bf30bccfa1ddc073f"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/records/2026-10-19-personal-ownership.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/_background/records/2026-10-19-personal-ownership.md",
+      "source_sha256": "e378d8accd825c0ec509fe09c0d313c49f7f1fba66f1e9241d1d06137df73d77",
+      "target_sha256": "e378d8accd825c0ec509fe09c0d313c49f7f1fba66f1e9241d1d06137df73d77"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/records/2026-10-18-conditional-application.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/_background/records/2026-10-18-conditional-application.md",
+      "source_sha256": "091bc6ed8fc783b94f2f636653d5bfd039aec69aedf01417d6d234d6d658a628",
+      "target_sha256": "091bc6ed8fc783b94f2f636653d5bfd039aec69aedf01417d6d234d6d658a628"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/records/2026-10-23-conditional-criteria.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/_background/records/2026-10-23-conditional-criteria.md",
+      "source_sha256": "df76d9da86ff0b4a319157a29cd97cdb758fbc3263f712bd6343b6e3e182e27e",
+      "target_sha256": "df76d9da86ff0b4a319157a29cd97cdb758fbc3263f712bd6343b6e3e182e27e"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/records/2026-10-16-iserror-retention.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/_background/records/2026-10-16-iserror-retention.md",
+      "source_sha256": "c727e392e13254378af5bc75b554bff2f044d7c79f52fb51f7c2fa1fbe113ceb",
+      "target_sha256": "c727e392e13254378af5bc75b554bff2f044d7c79f52fb51f7c2fa1fbe113ceb"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/_background/context.md",
+      "target": "reference-project/context/personal/development/shared-boundaries/_background/context.md",
+      "source_sha256": "3f29ab38d948516a5165cebdea21feda5b038616fc53745680fc21a8d5971567",
+      "target_sha256": "3f29ab38d948516a5165cebdea21feda5b038616fc53745680fc21a8d5971567"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/_background/evidence.md",
+      "target": "reference-project/context/personal/development/shared-boundaries/_background/evidence.md",
+      "source_sha256": "fbff37c0d69b004da83ab69e71d0766406f46171f7b9cb2ac75789d24f349fa3",
+      "target_sha256": "fbff37c0d69b004da83ab69e71d0766406f46171f7b9cb2ac75789d24f349fa3"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/_background/README.md",
+      "target": "reference-project/context/personal/development/shared-boundaries/_background/README.md",
+      "source_sha256": "ce9f486163c81ae1c5b9c826a0f52a57b93be7d8097505db22cf436258b1d06c",
+      "target_sha256": "ce9f486163c81ae1c5b9c826a0f52a57b93be7d8097505db22cf436258b1d06c"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/_background/records/2026-10-16-workflow-and-related-improvement.md",
+      "target": "reference-project/context/personal/development/shared-boundaries/_background/records/2026-10-16-workflow-and-related-improvement.md",
+      "source_sha256": "5508f36980ce48cd6dfea1e6d62857774f7d6704e29a508f17c990604542dcb6",
+      "target_sha256": "5508f36980ce48cd6dfea1e6d62857774f7d6704e29a508f17c990604542dcb6"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/_background/records/2026-10-14-composition-and-common-form.md",
+      "target": "reference-project/context/personal/development/shared-boundaries/_background/records/2026-10-14-composition-and-common-form.md",
+      "source_sha256": "2a84109ff9b4bf9399c646190211a83a0d1eb0a96c69d5063ce67284680fd4d8",
+      "target_sha256": "2a84109ff9b4bf9399c646190211a83a0d1eb0a96c69d5063ce67284680fd4d8"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/_background/records/2026-10-19-topic-restoration.md",
+      "target": "reference-project/context/personal/development/_background/records/2026-10-19-topic-restoration.md",
+      "source_sha256": "8ac3df0bde61afa067bc50afde241bc88334d80cfed21b965370282e9b50f100",
+      "target_sha256": "8ac3df0bde61afa067bc50afde241bc88334d80cfed21b965370282e9b50f100"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/_background/records/2026-10-13-responsibility-and-tools.md",
+      "target": "reference-project/context/personal/development/_background/records/2026-10-13-responsibility-and-tools.md",
+      "source_sha256": "0724677bf85174e08bafba5126276270eff404d18c25c5707ef6f9e4e8546e43",
+      "target_sha256": "0724677bf85174e08bafba5126276270eff404d18c25c5707ef6f9e4e8546e43"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/_background/experience-collection/context.md",
+      "target": "reference-project/context/personal/_background/experience-collection/context.md",
+      "source_sha256": "cdf1320cd73b741b2610eff29894055bda5f260cf94f054fd064d23e615fe445",
+      "target_sha256": "cdf1320cd73b741b2610eff29894055bda5f260cf94f054fd064d23e615fe445"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/_background/experience-collection/evidence.md",
+      "target": "reference-project/context/personal/_background/experience-collection/evidence.md",
+      "source_sha256": "1e5786d7e9642c478aaba7d7f20e034b88f6f049d2400d4053ab4ed24599523b",
+      "target_sha256": "1e5786d7e9642c478aaba7d7f20e034b88f6f049d2400d4053ab4ed24599523b"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/_background/experience-collection/README.md",
+      "target": "reference-project/context/personal/_background/experience-collection/README.md",
+      "source_sha256": "ce6c7bbc809f902d719d3b845106c90036db5b563ddbe493e8916e4156231a55",
+      "target_sha256": "ce6c7bbc809f902d719d3b845106c90036db5b563ddbe493e8916e4156231a55"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/_background/experience-collection/records/2026-10-29-ownership.md",
+      "target": "reference-project/context/personal/_background/experience-collection/records/2026-10-29-ownership.md",
+      "source_sha256": "5527678c9ae175b09876af51da086f1c20cb387bfce7f85d47f629c22b0b9fe5",
+      "target_sha256": "5527678c9ae175b09876af51da086f1c20cb387bfce7f85d47f629c22b0b9fe5"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/experience/topics/explanation-effects.md",
+      "target": "reference-project/context/personal/experience/topics/explanation-effects.md",
+      "source_sha256": "5c9714479540c60796edc3722efd07b76a223750690447ec00bbe7b873debb23",
+      "target_sha256": "b15d83b11e763d7a42f815822e5a655313f2b132e7bd655abe7a006f23f94ed1"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/experience/topics/design-conversation.md",
+      "target": "reference-project/context/personal/experience/topics/design-conversation.md",
+      "source_sha256": "d2a4a22da297c796782488eaec54aab1df816d2e557894bd237075883d113260",
+      "target_sha256": "d2a4a22da297c796782488eaec54aab1df816d2e557894bd237075883d113260"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/experience/topics/document-quality.md",
+      "target": "reference-project/context/personal/experience/topics/document-quality.md",
+      "source_sha256": "841f866cb62b9fa7aa550c88ce4d8b43e199ef29a999db9e0f73b76451685314",
+      "target_sha256": "841f866cb62b9fa7aa550c88ce4d8b43e199ef29a999db9e0f73b76451685314"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/context.md",
+      "target": "reference-project/context/_background/context.md",
+      "source_sha256": "fc9a311b15c5c4501c2755ed8fa1eb4b22420af5418de68be629f1a36044776f",
+      "target_sha256": "fc9a311b15c5c4501c2755ed8fa1eb4b22420af5418de68be629f1a36044776f"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/evidence.md",
+      "target": "reference-project/context/_background/evidence.md",
+      "source_sha256": "289f23c2314c6096ab8845bd7fc71cf7b5ab272d0e45f01452188c29230151a2",
+      "target_sha256": "289f23c2314c6096ab8845bd7fc71cf7b5ab272d0e45f01452188c29230151a2"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/README.md",
+      "target": "reference-project/context/_background/README.md",
+      "source_sha256": "b1a6120dde959a2da52f14a9d88a79e541d3d275b196225aececf208c203caf8",
+      "target_sha256": "7efca82d62fa016497d4e11cc454e53eb825b0d7158123c3a46d95a05c2055c8"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/records/2026-10-19-ownership-and-local-context.md",
+      "target": "reference-project/context/_background/records/2026-10-19-ownership-and-local-context.md",
+      "source_sha256": "6bd33ad6db23cd054185735ccbabd4e25bd6a621b3f2bbaa763ad2d04bd04c9e",
+      "target_sha256": "6bd33ad6db23cd054185735ccbabd4e25bd6a621b3f2bbaa763ad2d04bd04c9e"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/usage/context.md",
+      "target": "reference-project/context/_background/usage/context.md",
+      "source_sha256": "8c9199c01ee6488300d38095fd0a47639a58c497c554392524efda583fb74e0f",
+      "target_sha256": "55e57d6bc4da5be20e9dad9b8248a7bb092d0caef64937e9061f3a9a3449f639"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/usage/evidence.md",
+      "target": "reference-project/context/_background/usage/evidence.md",
+      "source_sha256": "ae4814db39edc79d80ebd862f3202829495b4e5e89272f8e60f1b0855fd8d978",
+      "target_sha256": "ae4814db39edc79d80ebd862f3202829495b4e5e89272f8e60f1b0855fd8d978"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/usage/README.md",
+      "target": "reference-project/context/_background/usage/README.md",
+      "source_sha256": "ec3a69f843a4d10e364c27392575c9c7f18964738a18a32d3d5d1abb2f7ea113",
+      "target_sha256": "ec3a69f843a4d10e364c27392575c9c7f18964738a18a32d3d5d1abb2f7ea113"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/content-policy/context.md",
+      "target": "reference-project/context/_background/content-policy/context.md",
+      "source_sha256": "19f0fcd8f30f0fbfa031cafd3f50ef8bb09fbfa0e0f6e2531a762426cafef31c",
+      "target_sha256": "19f0fcd8f30f0fbfa031cafd3f50ef8bb09fbfa0e0f6e2531a762426cafef31c"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/content-policy/evidence.md",
+      "target": "reference-project/context/_background/content-policy/evidence.md",
+      "source_sha256": "3aa571e362d34b959cf27bd33d7abd1d9c57d70b75bd344a6f03f47fdf33a910",
+      "target_sha256": "3aa571e362d34b959cf27bd33d7abd1d9c57d70b75bd344a6f03f47fdf33a910"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/content-policy/README.md",
+      "target": "reference-project/context/_background/content-policy/README.md",
+      "source_sha256": "4dde76ab5a8866d4abd6744f8439d3433a7cf1df0cd128bd5afaf16987532208",
+      "target_sha256": "4dde76ab5a8866d4abd6744f8439d3433a7cf1df0cd128bd5afaf16987532208"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/system-guidance/context.md",
+      "target": "reference-project/context/_background/system-guidance/context.md",
+      "source_sha256": "1882a2713e0a4cad9f971c801224814a693dc996b7b791616b93f582b1ee6ae9",
+      "target_sha256": "93a94bf1efe097fadbbc4930cf8587f53062b187a50c2821b8edeb092198c50d"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/system-guidance/evidence.md",
+      "target": "reference-project/context/_background/system-guidance/evidence.md",
+      "source_sha256": "a47f5a48e4d6b9ecbe6e011871af7135e264b455d87452fe24eee22a24545bca",
+      "target_sha256": "a47f5a48e4d6b9ecbe6e011871af7135e264b455d87452fe24eee22a24545bca"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/system-guidance/README.md",
+      "target": "reference-project/context/_background/system-guidance/README.md",
+      "source_sha256": "53dee78c052139bc44c076bdb4f4a58d4e908f30e989edb74783bc38f601beaa",
+      "target_sha256": "53dee78c052139bc44c076bdb4f4a58d4e908f30e989edb74783bc38f601beaa"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/system-guidance/records/2026-10-20-role-and-entry.md",
+      "target": "reference-project/context/_background/system-guidance/records/2026-10-20-role-and-entry.md",
+      "source_sha256": "389ff47cf3460652d2d77c70c7bf288322e94ffa1c55e39c63b810aa7c52c0e1",
+      "target_sha256": "389ff47cf3460652d2d77c70c7bf288322e94ffa1c55e39c63b810aa7c52c0e1"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/content-policy/records/2026-10-20-formation-sources-and-role-separation.md",
+      "target": "reference-project/context/_background/content-policy/records/2026-10-20-formation-sources-and-role-separation.md",
+      "source_sha256": "89b66960033fa163548a4985871e12e59ae22978d705874c3793d35d4ac1a152",
+      "target_sha256": "89b66960033fa163548a4985871e12e59ae22978d705874c3793d35d4ac1a152"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/content-policy/records/2026-10-20-entry-restoration-and-complete-moves.md",
+      "target": "reference-project/context/_background/content-policy/records/2026-10-20-entry-restoration-and-complete-moves.md",
+      "source_sha256": "e78052e47dfb6554637ad051a45b23682e88a6742b72e0ead696a3b76924a33b",
+      "target_sha256": "e78052e47dfb6554637ad051a45b23682e88a6742b72e0ead696a3b76924a33b"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/content-policy/records/2026-10-20-visible-file-roles.md",
+      "target": "reference-project/context/_background/content-policy/records/2026-10-20-visible-file-roles.md",
+      "source_sha256": "1d80de8a30a048a835843ff53809c6b8407a862603a43e1099abcc8c6b958ce1",
+      "target_sha256": "1d80de8a30a048a835843ff53809c6b8407a862603a43e1099abcc8c6b958ce1"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/content-policy/records/2026-10-20-scope-and-construction.md",
+      "target": "reference-project/context/_background/content-policy/records/2026-10-20-scope-and-construction.md",
+      "source_sha256": "8054f10e3366ca4cf3c078af2f96765861875cad9f74f0019a9fed4aa15dedc9",
+      "target_sha256": "8054f10e3366ca4cf3c078af2f96765861875cad9f74f0019a9fed4aa15dedc9"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/usage/records/2026-10-26-common-usage.md",
+      "target": "reference-project/context/_background/usage/records/2026-10-26-common-usage.md",
+      "source_sha256": "489ada70398a3e9c485765ed859ad464542c25b866655a0bdc6b67ddcf27a64c",
+      "target_sha256": "489ada70398a3e9c485765ed859ad464542c25b866655a0bdc6b67ddcf27a64c"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/SKILL.md",
+      "target": "reference-project/.agents/skills/explain/SKILL.md",
+      "source_sha256": "4f9cdbc3528a37fc4ddb312e90305e7b3e7956a366885cad7f2000764107bb6c",
+      "target_sha256": "4f9cdbc3528a37fc4ddb312e90305e7b3e7956a366885cad7f2000764107bb6c"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/context.md",
+      "target": "reference-project/.agents/skills/explain/_background/context.md",
+      "source_sha256": "9784091bb26d293d74583df4872d83b1fa189ceff77e495aebad33d22ba277a7",
+      "target_sha256": "5e3a280defef16bdf68fcdd12b77a0b8c9bbf7e8370de0c507e7fecbd9d50284"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/evidence.md",
+      "target": "reference-project/.agents/skills/explain/_background/evidence.md",
+      "source_sha256": "7555b9beb733f9184cad16c0220bb2097f1745341e833971b62f2d12fa4ac7af",
+      "target_sha256": "7555b9beb733f9184cad16c0220bb2097f1745341e833971b62f2d12fa4ac7af"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/README.md",
+      "target": "reference-project/.agents/skills/explain/_background/README.md",
+      "source_sha256": "b19a279b5122bfd84fdf3cfa369cb9cf891fc743d581f1dc654274edc7905d9c",
+      "target_sha256": "073a2716a6aeab83596e4e6618be826576b1f1cacbd1fc159b4ea9e1dda9e118"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/references/prior-explanation.md",
+      "target": "reference-project/.agents/skills/explain/references/prior-explanation.md",
+      "source_sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889",
+      "target_sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/references/constructing-explanations.md",
+      "target": "reference-project/.agents/skills/explain/references/constructing-explanations.md",
+      "source_sha256": "ba4a93dfbb3dc34ed73fa3036a0c47f2a110c2647d414f356c178884bac66cc5",
+      "target_sha256": "ba4a93dfbb3dc34ed73fa3036a0c47f2a110c2647d414f356c178884bac66cc5"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/references/examples/auth-flow.md",
+      "target": "reference-project/.agents/skills/explain/references/examples/auth-flow.md",
+      "source_sha256": "88bb3aa1bfcb1c0459e461175ab37f23f2e033ae60f3f8b06d7085c90dff7243",
+      "target_sha256": "88bb3aa1bfcb1c0459e461175ab37f23f2e033ae60f3f8b06d7085c90dff7243"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/records/2026-10-24-selective-improvement-adoption.md",
+      "target": "reference-project/.agents/skills/explain/_background/records/2026-10-24-selective-improvement-adoption.md",
+      "source_sha256": "7eafd18334efaebe17e4992c46faa1059c39676aef861e08fde07a862f26ee05",
+      "target_sha256": "90e65e7a65b9c63b036785f577db733e3d73786e2c4c3bb5dd7598a0fb30cef2"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/records/2026-10-25-body-organization.md",
+      "target": "reference-project/.agents/skills/explain/_background/records/2026-10-25-body-organization.md",
+      "source_sha256": "f1996e91601a5c2d675e70bd2cc4a4ce42f8c47f9c7743b660de11ded0b5ff32",
+      "target_sha256": "c2dfcc2a7042b98ce91a99dd32e72e0b5c917839fdce4c37a1bcf424cb84827f"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/records/2026-10-23-unification.md",
+      "target": "reference-project/.agents/skills/explain/_background/records/2026-10-23-unification.md",
+      "source_sha256": "df499f785b9a86c04ad471dcc27beaf7fe86b591fccf6e880dbd2ff05fcb9252",
+      "target_sha256": "df499f785b9a86c04ad471dcc27beaf7fe86b591fccf6e880dbd2ff05fcb9252"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/records/2026-10-26-choice-judgment-adoption.md",
+      "target": "reference-project/.agents/skills/explain/_background/records/2026-10-26-choice-judgment-adoption.md",
+      "source_sha256": "ab3c42b26a954abf202a83df65c4be5a64dd3e21daacacfe3af1d004fed36a22",
+      "target_sha256": "25ec74b126b74eb6834d8c6f9dd1c8fa46fe638df307ed48359bcc6149f3144d"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/records/2026-10-25-flow-readability-adoption.md",
+      "target": "reference-project/.agents/skills/explain/_background/records/2026-10-25-flow-readability-adoption.md",
+      "source_sha256": "8ebc5520d7a1ed84fc35477f644023f808ed03c264fc1a96bb1fc5dfdecdfef1",
+      "target_sha256": "8ebc5520d7a1ed84fc35477f644023f808ed03c264fc1a96bb1fc5dfdecdfef1"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/records/2026-10-23-skills-index-before-explain.txt",
+      "target": "reference-project/.agents/skills/explain/_background/records/2026-10-23-skills-index-before-explain.txt",
+      "source_sha256": "68ddb7931c0ab4c269b2e60c11c44d0675396c124d901af9d7c80cc7d66656a5",
+      "target_sha256": "c1639e2a72e5cbb687e2b0169ec0b077e982ef78e0c33078e8645d356f39f1ae"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/records/2026-10-25-composition-adoption.md",
+      "target": "reference-project/.agents/skills/explain/_background/records/2026-10-25-composition-adoption.md",
+      "source_sha256": "354a41f837a15b1b4be74e548e840c7984f2462eb82fa5f8816d7780c402f959",
+      "target_sha256": "354a41f837a15b1b4be74e548e840c7984f2462eb82fa5f8816d7780c402f959"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/records/2026-10-24-explanation-revision.md",
+      "target": "reference-project/.agents/skills/explain/_background/records/2026-10-24-explanation-revision.md",
+      "source_sha256": "ae0e0a632662cb6313530437b9599a96cf11ed8b37e423b0eebd947f2de587a7",
+      "target_sha256": "ae0e0a632662cb6313530437b9599a96cf11ed8b37e423b0eebd947f2de587a7"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/records/2026-10-25-code-presentation-adoption.md",
+      "target": "reference-project/.agents/skills/explain/_background/records/2026-10-25-code-presentation-adoption.md",
+      "source_sha256": "a7210e740e5c2c9c8e378a275a4ae0cd311d839ec0a9949521b01e913a411ed6",
+      "target_sha256": "a7210e740e5c2c9c8e378a275a4ae0cd311d839ec0a9949521b01e913a411ed6"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/context.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/work-artifact-briefing/context.md",
+      "source_sha256": "48a56a814c9c148c729c164721a9ee27a571602fdbfa2743cebad278428e03de",
+      "target_sha256": "48a56a814c9c148c729c164721a9ee27a571602fdbfa2743cebad278428e03de"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/evidence.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/work-artifact-briefing/evidence.md",
+      "source_sha256": "6cc995c9cb83fd6e47769acab18d5faf2304955dd579c0967169b33d8bbec98f",
+      "target_sha256": "6cc995c9cb83fd6e47769acab18d5faf2304955dd579c0967169b33d8bbec98f"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/README.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/work-artifact-briefing/README.md",
+      "source_sha256": "46310623fd1fdd32918810df6816bff50350a3e3d91f649814ab56c3d8437fb2",
+      "target_sha256": "46310623fd1fdd32918810df6816bff50350a3e3d91f649814ab56c3d8437fb2"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/explanation-recovery/context.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/explanation-recovery/context.md",
+      "source_sha256": "3bba0c7a2e945e480fd1ba26fbcc2eafbcd8d7b1a8db5ca2a25b1b6cc3a942fd",
+      "target_sha256": "3bba0c7a2e945e480fd1ba26fbcc2eafbcd8d7b1a8db5ca2a25b1b6cc3a942fd"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/explanation-recovery/evidence.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/explanation-recovery/evidence.md",
+      "source_sha256": "4dbed738da768a07f6af15df252f2670e301f41e835e40b667bffbb56ecbc701",
+      "target_sha256": "4dbed738da768a07f6af15df252f2670e301f41e835e40b667bffbb56ecbc701"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/explanation-recovery/README.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/explanation-recovery/README.md",
+      "source_sha256": "f503cd470726071de75f8c38d22a0c3b55c3e5dd4fdb348cde16d753d5f842e3",
+      "target_sha256": "f503cd470726071de75f8c38d22a0c3b55c3e5dd4fdb348cde16d753d5f842e3"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/explanation-recovery/records/2026-10-21-original-formation.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/explanation-recovery/records/2026-10-21-original-formation.md",
+      "source_sha256": "550d374277608ee4c73eb0a88880049a9debd5db844eb349bedf786b2b50cdc7",
+      "target_sha256": "550d374277608ee4c73eb0a88880049a9debd5db844eb349bedf786b2b50cdc7"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/explanation-recovery/records/2026-10-23-before-explain.txt",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/explanation-recovery/records/2026-10-23-before-explain.txt",
+      "source_sha256": "c0d0a791bce4cc2468915f3c38e5bce128cb9a396d26c86c684a3078b01bfb1d",
+      "target_sha256": "3cce16d31b4548907fb5c7f9a4b1846b372cf72113345f06bb0a313ba05c24ae"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-22-code-depth-adoption.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-22-code-depth-adoption.md",
+      "source_sha256": "781fb24926b510de39fd4fd37e46c05ac817f026da875bc1ca249acb25b55201",
+      "target_sha256": "781fb24926b510de39fd4fd37e46c05ac817f026da875bc1ca249acb25b55201"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-21-original-formation.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-21-original-formation.md",
+      "source_sha256": "977315c7b25a053790542cab8d55b05e59119f408355d75b3a17910d06daba88",
+      "target_sha256": "977315c7b25a053790542cab8d55b05e59119f408355d75b3a17910d06daba88"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-responsibility-explanation-integration.md",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-responsibility-explanation-integration.md",
+      "source_sha256": "be2843dbfd4c99ee26535aca00929a2695652e58accda74e272b97f13075a2d1",
+      "target_sha256": "be2843dbfd4c99ee26535aca00929a2695652e58accda74e272b97f13075a2d1"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-before-explain.txt",
+      "target": "reference-project/.agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-before-explain.txt",
+      "source_sha256": "a8af2ca17805e6b7610202da0321ec5ccc83572555de6c8724e57d31ee0f7f97",
+      "target_sha256": "e269db374b2d3565fecc6d7dc419699f27f0fa74b17f7bc7fd53f0c8eb93f675"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/context-update/SKILL.md",
+      "target": "reference-project/.agents/skills/context-update/SKILL.md",
+      "source_sha256": "da716acceeb16f53c25acd8ff160aa835c8b03b94418cb3ab319990d76fee0a9",
+      "target_sha256": "d79dad6257e895c63da41f161f778b5bf44cdb2e247a28ef3e96688536663e5d"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/context-update/_background/context.md",
+      "target": "reference-project/.agents/skills/context-update/_background/context.md",
+      "source_sha256": "72afef292cfdf9c9d2bfea9e6b8bef2c3cf70a76a017899880825cc55f7b29c4",
+      "target_sha256": "113aa0cbd30163c6c194a48859d1f31831b5003aaabddfb3b1f8f8f842d71d36"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/context-update/_background/evidence.md",
+      "target": "reference-project/.agents/skills/context-update/_background/evidence.md",
+      "source_sha256": "7ea6118c23b5a3cba8cc53e94826dce640cf72da1e2a09c7b8d8e0babe9811ee",
+      "target_sha256": "b3f56e446e5ff887efb54639cea3e3a81c46781291b860fc16d3d685d0c47ca7"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/context-update/_background/README.md",
+      "target": "reference-project/.agents/skills/context-update/_background/README.md",
+      "source_sha256": "0f0d106c897844cc2075255a5c9c88f02c6c12579acce543797d5de1deaa9919",
+      "target_sha256": "ea16c2c478565bcf58abf0f13fa34d83627b2dc665003b302dc8c47c3fac1f12"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/context-update/_background/records/2026-10-26-bounded-context-update.md",
+      "target": "reference-project/.agents/skills/context-update/_background/records/2026-10-26-bounded-context-update.md",
+      "source_sha256": "a36f730d5801d74e32bb6894d5ad80bf888f977e44322274b7036c3a5d46ce9e",
+      "target_sha256": "a36f730d5801d74e32bb6894d5ad80bf888f977e44322274b7036c3a5d46ce9e"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/shared/explanation-and-evidence-criteria.md",
+      "target": "reference-project/.agents/skills/shared/explanation-and-evidence-criteria.md",
+      "source_sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a",
+      "target_sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/_background/skills-content-policy/context.md",
+      "target": "reference-project/.agents/skills/_background/skills-content-policy/context.md",
+      "source_sha256": "057966af50e98f792268a058a990ded9ce651af320a3c625bde79a0213ccc5b9",
+      "target_sha256": "c7074fb519a2f1d7e8da0bb4281e34e1fe8598dd9a1aa6af89c3def37b4cd5d2"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/_background/skills-content-policy/evidence.md",
+      "target": "reference-project/.agents/skills/_background/skills-content-policy/evidence.md",
+      "source_sha256": "e48aa853bc0230185f04d0f5a88896434fd1c020c0e760aaf2155c4c7118fdd4",
+      "target_sha256": "cb4e1525d82542bc6b5a73b8521ed7665fdeb91a348fc150cb9d65f42453159a"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/_background/skills-content-policy/README.md",
+      "target": "reference-project/.agents/skills/_background/skills-content-policy/README.md",
+      "source_sha256": "929028b9e4e03a6698c183fc295da14ae8512764b7f551221f7c85b64b0b41f0",
+      "target_sha256": "929028b9e4e03a6698c183fc295da14ae8512764b7f551221f7c85b64b0b41f0"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/_background/skills-content-policy/records/2026-10-22-revision-lifecycle.md",
+      "target": "reference-project/.agents/skills/_background/skills-content-policy/records/2026-10-22-revision-lifecycle.md",
+      "source_sha256": "ec60706428b86467433f00a50dcb30456b909d8f42fca926862ec3c1e5182608",
+      "target_sha256": "ec60706428b86467433f00a50dcb30456b909d8f42fca926862ec3c1e5182608"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/_background/skills-content-policy/records/2026-10-21-initial-policy.md",
+      "target": "reference-project/.agents/skills/_background/skills-content-policy/records/2026-10-21-initial-policy.md",
+      "source_sha256": "09acf1a5f52f2f971d962fc0e6d513e5e1c154f8d6cfca7c1240df267f5423ce",
+      "target_sha256": "09acf1a5f52f2f971d962fc0e6d513e5e1c154f8d6cfca7c1240df267f5423ce"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/USAGE.md",
+      "target": "reference-project/context/USAGE.md",
+      "source_sha256": "37f140ee8278bfae8a60b6b57ec62c8f8ec6559d09e2457cda649315b0be000d",
+      "target_sha256": "41e6fca90718da4c8d95fea02a7cd763adaaa1756b54890511fcfa5a5c916f35"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/CONTENT-POLICY.md",
+      "target": "reference-project/context/CONTENT-POLICY.md",
+      "source_sha256": "df6fb57df9bb18692159a8f01983e5286e284c0b53ecc15c6c0b45949a0b3eb3",
+      "target_sha256": "5978236e8e958a99a1a4de8008e55c26942f6ac4352f8cf34591a4bc53307d96"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/SYSTEM-GUIDANCE.md",
+      "target": "reference-project/context/SYSTEM-GUIDANCE.md",
+      "source_sha256": "26044c38265e2b196a305587a5fa85b05c172c3314b4b4d7d808be77d65f2657",
+      "target_sha256": "77523dae7de38a877b0044f7c9bb7649a72f8d94f2b36fa541a78f0cf2e4bd1c"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/SKILLS-CONTENT-POLICY.md",
+      "target": "reference-project/.agents/skills/SKILLS-CONTENT-POLICY.md",
+      "source_sha256": "5f88552ab2f42e9679fdd4ea1b78f297202aa1fec776a163bd2f68606b4a209f",
+      "target_sha256": "8caf702e870e074ff36b6e045bf4212cfff1bcc664235071c033b478bc20e9b3"
+    }
+  ],
+  "reference_changes": [
+    {
+      "path": ".agents/skills/README.md",
+      "before": "eda28e59607dcd6aaf77ae64d4b6871754762f84b36143d8440d82e9f6264d7e",
+      "after": "f6dd8a5fc6b065b48d0c2065b761baee6a788d036c85efbd9b5f536823e86ff1"
+    },
+    {
+      "path": ".agents/skills/SKILLS-CONTENT-POLICY.md",
+      "before": null,
+      "after": "8caf702e870e074ff36b6e045bf4212cfff1bcc664235071c033b478bc20e9b3"
+    },
+    {
+      "path": ".agents/skills/_background/skills-content-policy/README.md",
+      "before": null,
+      "after": "929028b9e4e03a6698c183fc295da14ae8512764b7f551221f7c85b64b0b41f0"
+    },
+    {
+      "path": ".agents/skills/_background/skills-content-policy/context.md",
+      "before": null,
+      "after": "c7074fb519a2f1d7e8da0bb4281e34e1fe8598dd9a1aa6af89c3def37b4cd5d2"
+    },
+    {
+      "path": ".agents/skills/_background/skills-content-policy/evidence.md",
+      "before": null,
+      "after": "cb4e1525d82542bc6b5a73b8521ed7665fdeb91a348fc150cb9d65f42453159a"
+    },
+    {
+      "path": ".agents/skills/_background/skills-content-policy/records/2026-10-21-initial-policy.md",
+      "before": null,
+      "after": "09acf1a5f52f2f971d962fc0e6d513e5e1c154f8d6cfca7c1240df267f5423ce"
+    },
+    {
+      "path": ".agents/skills/_background/skills-content-policy/records/2026-10-22-revision-lifecycle.md",
+      "before": null,
+      "after": "ec60706428b86467433f00a50dcb30456b909d8f42fca926862ec3c1e5182608"
+    },
+    {
+      "path": ".agents/skills/context-update/SKILL.md",
+      "before": null,
+      "after": "d79dad6257e895c63da41f161f778b5bf44cdb2e247a28ef3e96688536663e5d"
+    },
+    {
+      "path": ".agents/skills/context-update/_background/README.md",
+      "before": null,
+      "after": "ea16c2c478565bcf58abf0f13fa34d83627b2dc665003b302dc8c47c3fac1f12"
+    },
+    {
+      "path": ".agents/skills/context-update/_background/context.md",
+      "before": null,
+      "after": "113aa0cbd30163c6c194a48859d1f31831b5003aaabddfb3b1f8f8f842d71d36"
+    },
+    {
+      "path": ".agents/skills/context-update/_background/evidence.md",
+      "before": null,
+      "after": "b3f56e446e5ff887efb54639cea3e3a81c46781291b860fc16d3d685d0c47ca7"
+    },
+    {
+      "path": ".agents/skills/context-update/_background/records/2026-10-26-bounded-context-update.md",
+      "before": null,
+      "after": "a36f730d5801d74e32bb6894d5ad80bf888f977e44322274b7036c3a5d46ce9e"
+    },
+    {
+      "path": ".agents/skills/context-update/agents/openai.yaml",
+      "before": null,
+      "after": "cd84b54416890264a44b52c7f657a87e0e5fd660ffb3e0754db09ed150cfef0c"
+    },
+    {
+      "path": ".agents/skills/explain/SKILL.md",
+      "before": null,
+      "after": "4f9cdbc3528a37fc4ddb312e90305e7b3e7956a366885cad7f2000764107bb6c"
+    },
+    {
+      "path": ".agents/skills/explain/_background/README.md",
+      "before": null,
+      "after": "073a2716a6aeab83596e4e6618be826576b1f1cacbd1fc159b4ea9e1dda9e118"
+    },
+    {
+      "path": ".agents/skills/explain/_background/context.md",
+      "before": null,
+      "after": "5e3a280defef16bdf68fcdd12b77a0b8c9bbf7e8370de0c507e7fecbd9d50284"
+    },
+    {
+      "path": ".agents/skills/explain/_background/evidence.md",
+      "before": null,
+      "after": "7555b9beb733f9184cad16c0220bb2097f1745341e833971b62f2d12fa4ac7af"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/explanation-recovery/README.md",
+      "before": null,
+      "after": "f503cd470726071de75f8c38d22a0c3b55c3e5dd4fdb348cde16d753d5f842e3"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/explanation-recovery/context.md",
+      "before": null,
+      "after": "3bba0c7a2e945e480fd1ba26fbcc2eafbcd8d7b1a8db5ca2a25b1b6cc3a942fd"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/explanation-recovery/evidence.md",
+      "before": null,
+      "after": "4dbed738da768a07f6af15df252f2670e301f41e835e40b667bffbb56ecbc701"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/explanation-recovery/records/2026-10-21-original-formation.md",
+      "before": null,
+      "after": "550d374277608ee4c73eb0a88880049a9debd5db844eb349bedf786b2b50cdc7"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/explanation-recovery/records/2026-10-23-before-explain.txt",
+      "before": null,
+      "after": "3cce16d31b4548907fb5c7f9a4b1846b372cf72113345f06bb0a313ba05c24ae"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/work-artifact-briefing/README.md",
+      "before": null,
+      "after": "46310623fd1fdd32918810df6816bff50350a3e3d91f649814ab56c3d8437fb2"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/work-artifact-briefing/context.md",
+      "before": null,
+      "after": "48a56a814c9c148c729c164721a9ee27a571602fdbfa2743cebad278428e03de"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/work-artifact-briefing/evidence.md",
+      "before": null,
+      "after": "6cc995c9cb83fd6e47769acab18d5faf2304955dd579c0967169b33d8bbec98f"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-21-original-formation.md",
+      "before": null,
+      "after": "977315c7b25a053790542cab8d55b05e59119f408355d75b3a17910d06daba88"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-22-code-depth-adoption.md",
+      "before": null,
+      "after": "781fb24926b510de39fd4fd37e46c05ac817f026da875bc1ca249acb25b55201"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-before-explain.txt",
+      "before": null,
+      "after": "e269db374b2d3565fecc6d7dc419699f27f0fa74b17f7bc7fd53f0c8eb93f675"
+    },
+    {
+      "path": ".agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-responsibility-explanation-integration.md",
+      "before": null,
+      "after": "be2843dbfd4c99ee26535aca00929a2695652e58accda74e272b97f13075a2d1"
+    },
+    {
+      "path": ".agents/skills/explain/_background/records/2026-10-23-skills-index-before-explain.txt",
+      "before": null,
+      "after": "c1639e2a72e5cbb687e2b0169ec0b077e982ef78e0c33078e8645d356f39f1ae"
+    },
+    {
+      "path": ".agents/skills/explain/_background/records/2026-10-23-unification.md",
+      "before": null,
+      "after": "df499f785b9a86c04ad471dcc27beaf7fe86b591fccf6e880dbd2ff05fcb9252"
+    },
+    {
+      "path": ".agents/skills/explain/_background/records/2026-10-24-explanation-revision.md",
+      "before": null,
+      "after": "ae0e0a632662cb6313530437b9599a96cf11ed8b37e423b0eebd947f2de587a7"
+    },
+    {
+      "path": ".agents/skills/explain/_background/records/2026-10-24-selective-improvement-adoption.md",
+      "before": null,
+      "after": "90e65e7a65b9c63b036785f577db733e3d73786e2c4c3bb5dd7598a0fb30cef2"
+    },
+    {
+      "path": ".agents/skills/explain/_background/records/2026-10-25-body-organization.md",
+      "before": null,
+      "after": "c2dfcc2a7042b98ce91a99dd32e72e0b5c917839fdce4c37a1bcf424cb84827f"
+    },
+    {
+      "path": ".agents/skills/explain/_background/records/2026-10-25-code-presentation-adoption.md",
+      "before": null,
+      "after": "a7210e740e5c2c9c8e378a275a4ae0cd311d839ec0a9949521b01e913a411ed6"
+    },
+    {
+      "path": ".agents/skills/explain/_background/records/2026-10-25-composition-adoption.md",
+      "before": null,
+      "after": "354a41f837a15b1b4be74e548e840c7984f2462eb82fa5f8816d7780c402f959"
+    },
+    {
+      "path": ".agents/skills/explain/_background/records/2026-10-25-flow-readability-adoption.md",
+      "before": null,
+      "after": "8ebc5520d7a1ed84fc35477f644023f808ed03c264fc1a96bb1fc5dfdecdfef1"
+    },
+    {
+      "path": ".agents/skills/explain/_background/records/2026-10-26-choice-judgment-adoption.md",
+      "before": null,
+      "after": "25ec74b126b74eb6834d8c6f9dd1c8fa46fe638df307ed48359bcc6149f3144d"
+    },
+    {
+      "path": ".agents/skills/explain/agents/openai.yaml",
+      "before": null,
+      "after": "7bd75c67fd51de9c1f4b7b6d3a57e2bb70e1ec37a295aabfa1081097808dbfd6"
+    },
+    {
+      "path": ".agents/skills/explain/references/constructing-explanations.md",
+      "before": null,
+      "after": "ba4a93dfbb3dc34ed73fa3036a0c47f2a110c2647d414f356c178884bac66cc5"
+    },
+    {
+      "path": ".agents/skills/explain/references/examples/auth-flow.md",
+      "before": null,
+      "after": "88bb3aa1bfcb1c0459e461175ab37f23f2e033ae60f3f8b06d7085c90dff7243"
+    },
+    {
+      "path": ".agents/skills/explain/references/prior-explanation.md",
+      "before": null,
+      "after": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889"
+    },
+    {
+      "path": ".agents/skills/explanation-recovery/SKILL.md",
+      "before": "9f3981002424b9e967e98cf8b13c05671f50271fb430e492a8acec749e6668ec",
+      "after": null
+    },
+    {
+      "path": ".agents/skills/explanation-recovery/agents/openai.yaml",
+      "before": "90b68d63cd06b9e30965ad929cb2fa1eae83a54a4121f56ef77a7033795d99ac",
+      "after": null
+    },
+    {
+      "path": ".agents/skills/read-project-context/SKILL.md",
+      "before": "f574da3dc7c0059dfcd6ff0d143f39615d2c224910874681f5592d04ca02938e",
+      "after": null
+    },
+    {
+      "path": ".agents/skills/read-project-context/agents/openai.yaml",
+      "before": "25c902d920babdaf0cf448f29a9805ec2508b48998bdc235ce32390632c645c5",
+      "after": null
+    },
+    {
+      "path": ".agents/skills/shared/explanation-and-evidence-criteria.md",
+      "before": null,
+      "after": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a"
+    },
+    {
+      "path": ".agents/skills/update-project-context/SKILL.md",
+      "before": "362cd3877a6bc1a1529b23f6821cf99c7bddb64a9aa60c6382ef24a8ef551c85",
+      "after": null
+    },
+    {
+      "path": ".agents/skills/update-project-context/agents/openai.yaml",
+      "before": "6948937f8e1c773ad8f3819639bcfec17be0f72dcc0ba4cfbd0de8cf32fcf6dd",
+      "after": null
+    },
+    {
+      "path": ".agents/skills/work-artifact-briefing/SKILL.md",
+      "before": "5ccf61c506591e4f34df09c997738aa60b3bb3cb6c937100606b600c72b3a5fb",
+      "after": null
+    },
+    {
+      "path": ".agents/skills/work-artifact-briefing/agents/openai.yaml",
+      "before": "dfcebd4263c703c2302cf488296719a38fe784ed8d9ffd7dc26d9068beade2d2",
+      "after": null
+    },
+    {
+      "path": ".agents/skills/work-discussion/SKILL.md",
+      "before": "b3b0e00ba1a15663dd796ad8177ddc7a00ae9ab6604fb27867e8feed8aecdffb",
+      "after": "76a576c3afeee8ad74a0a9e9ee06afe5df707a3b90c82d9237c5dc740f31d312"
+    },
+    {
+      "path": ".claude/skills/context-update",
+      "before": null,
+      "after": "symlink:../../.agents/skills/context-update"
+    },
+    {
+      "path": ".claude/skills/explain",
+      "before": null,
+      "after": "symlink:../../.agents/skills/explain"
+    },
+    {
+      "path": ".claude/skills/explanation-recovery",
+      "before": "symlink:../../.agents/skills/explanation-recovery",
+      "after": null
+    },
+    {
+      "path": ".claude/skills/read-project-context",
+      "before": "symlink:../../.agents/skills/read-project-context",
+      "after": null
+    },
+    {
+      "path": ".claude/skills/work-artifact-briefing",
+      "before": "symlink:../../.agents/skills/work-artifact-briefing",
+      "after": null
+    },
+    {
+      "path": ".codex/skills/context-update",
+      "before": null,
+      "after": "symlink:../../.agents/skills/context-update"
+    },
+    {
+      "path": ".codex/skills/explain",
+      "before": null,
+      "after": "symlink:../../.agents/skills/explain"
+    },
+    {
+      "path": ".codex/skills/explanation-recovery",
+      "before": "symlink:../../.agents/skills/explanation-recovery",
+      "after": null
+    },
+    {
+      "path": ".codex/skills/read-project-context",
+      "before": "symlink:../../.agents/skills/read-project-context",
+      "after": null
+    },
+    {
+      "path": ".codex/skills/work-artifact-briefing",
+      "before": "symlink:../../.agents/skills/work-artifact-briefing",
+      "after": null
+    },
+    {
+      "path": "AGENTS.md",
+      "before": "e1067733c081a40b1f84d58e30f22e48d6057708e124636786bf25fa54c0e5d4",
+      "after": "350b044f7c0e5a28d859c1302013bef296379b18e5f08d331264acc8006c4848"
+    },
+    {
+      "path": "README.md",
+      "before": "1c57abd7a9b817173ab35dc7b2a4a696f998e8e7cac592116da8d2298edbf27c",
+      "after": "bbe5383d7bce1655a0712cb3c82a2209172f8464e5dcef332ad5bbdda9b1aa8a"
+    },
+    {
+      "path": "context/CONTENT-POLICY.md",
+      "before": null,
+      "after": "5978236e8e958a99a1a4de8008e55c26942f6ac4352f8cf34591a4bc53307d96"
+    },
+    {
+      "path": "context/README.md",
+      "before": "4cb0d6a982b23d4914fa6c9f88bf03677a4b5bcd3e6435383b534c02f3b81b1e",
+      "after": "0f9ba3c1ba5defc99ea66a346b090e99a3fa415706eaf3941474d28020c4ede3"
+    },
+    {
+      "path": "context/SYSTEM-GUIDANCE.md",
+      "before": null,
+      "after": "77523dae7de38a877b0044f7c9bb7649a72f8d94f2b36fa541a78f0cf2e4bd1c"
+    },
+    {
+      "path": "context/USAGE.md",
+      "before": null,
+      "after": "41e6fca90718da4c8d95fea02a7cd763adaaa1756b54890511fcfa5a5c916f35"
+    },
+    {
+      "path": "context/_background/README.md",
+      "before": null,
+      "after": "7efca82d62fa016497d4e11cc454e53eb825b0d7158123c3a46d95a05c2055c8"
+    },
+    {
+      "path": "context/_background/content-policy/README.md",
+      "before": null,
+      "after": "4dde76ab5a8866d4abd6744f8439d3433a7cf1df0cd128bd5afaf16987532208"
+    },
+    {
+      "path": "context/_background/content-policy/context.md",
+      "before": null,
+      "after": "19f0fcd8f30f0fbfa031cafd3f50ef8bb09fbfa0e0f6e2531a762426cafef31c"
+    },
+    {
+      "path": "context/_background/content-policy/evidence.md",
+      "before": null,
+      "after": "3aa571e362d34b959cf27bd33d7abd1d9c57d70b75bd344a6f03f47fdf33a910"
+    },
+    {
+      "path": "context/_background/content-policy/records/2026-10-20-entry-restoration-and-complete-moves.md",
+      "before": null,
+      "after": "e78052e47dfb6554637ad051a45b23682e88a6742b72e0ead696a3b76924a33b"
+    },
+    {
+      "path": "context/_background/content-policy/records/2026-10-20-formation-sources-and-role-separation.md",
+      "before": null,
+      "after": "89b66960033fa163548a4985871e12e59ae22978d705874c3793d35d4ac1a152"
+    },
+    {
+      "path": "context/_background/content-policy/records/2026-10-20-scope-and-construction.md",
+      "before": null,
+      "after": "8054f10e3366ca4cf3c078af2f96765861875cad9f74f0019a9fed4aa15dedc9"
+    },
+    {
+      "path": "context/_background/content-policy/records/2026-10-20-visible-file-roles.md",
+      "before": null,
+      "after": "1d80de8a30a048a835843ff53809c6b8407a862603a43e1099abcc8c6b958ce1"
+    },
+    {
+      "path": "context/_background/context.md",
+      "before": null,
+      "after": "fc9a311b15c5c4501c2755ed8fa1eb4b22420af5418de68be629f1a36044776f"
+    },
+    {
+      "path": "context/_background/evidence.md",
+      "before": null,
+      "after": "289f23c2314c6096ab8845bd7fc71cf7b5ab272d0e45f01452188c29230151a2"
+    },
+    {
+      "path": "context/_background/records/2026-10-19-ownership-and-local-context.md",
+      "before": null,
+      "after": "6bd33ad6db23cd054185735ccbabd4e25bd6a621b3f2bbaa763ad2d04bd04c9e"
+    },
+    {
+      "path": "context/_background/records/2026-10-29-reference-partial-application.md",
+      "before": null,
+      "after": "27720f86105ee5155cb7c1c34979695b90b13dbcc2c73bccab14b5d99ff8e036"
+    },
+    {
+      "path": "context/_background/system-guidance/README.md",
+      "before": null,
+      "after": "53dee78c052139bc44c076bdb4f4a58d4e908f30e989edb74783bc38f601beaa"
+    },
+    {
+      "path": "context/_background/system-guidance/context.md",
+      "before": null,
+      "after": "93a94bf1efe097fadbbc4930cf8587f53062b187a50c2821b8edeb092198c50d"
+    },
+    {
+      "path": "context/_background/system-guidance/evidence.md",
+      "before": null,
+      "after": "a47f5a48e4d6b9ecbe6e011871af7135e264b455d87452fe24eee22a24545bca"
+    },
+    {
+      "path": "context/_background/system-guidance/records/2026-10-20-role-and-entry.md",
+      "before": null,
+      "after": "389ff47cf3460652d2d77c70c7bf288322e94ffa1c55e39c63b810aa7c52c0e1"
+    },
+    {
+      "path": "context/_background/usage/README.md",
+      "before": null,
+      "after": "ec3a69f843a4d10e364c27392575c9c7f18964738a18a32d3d5d1abb2f7ea113"
+    },
+    {
+      "path": "context/_background/usage/context.md",
+      "before": null,
+      "after": "55e57d6bc4da5be20e9dad9b8248a7bb092d0caef64937e9061f3a9a3449f639"
+    },
+    {
+      "path": "context/_background/usage/evidence.md",
+      "before": null,
+      "after": "ae4814db39edc79d80ebd862f3202829495b4e5e89272f8e60f1b0855fd8d978"
+    },
+    {
+      "path": "context/_background/usage/records/2026-10-26-common-usage.md",
+      "before": null,
+      "after": "489ada70398a3e9c485765ed859ad464542c25b866655a0bdc6b67ddcf27a64c"
+    },
+    {
+      "path": "context/personal/README.md",
+      "before": null,
+      "after": "6afee8159d6a0c83fadee35e5de85a949b58323f3724188d59c237a54626110f"
+    },
+    {
+      "path": "context/personal/_background/experience-collection/README.md",
+      "before": null,
+      "after": "ce6c7bbc809f902d719d3b845106c90036db5b563ddbe493e8916e4156231a55"
+    },
+    {
+      "path": "context/personal/_background/experience-collection/context.md",
+      "before": null,
+      "after": "cdf1320cd73b741b2610eff29894055bda5f260cf94f054fd064d23e615fe445"
+    },
+    {
+      "path": "context/personal/_background/experience-collection/evidence.md",
+      "before": null,
+      "after": "1e5786d7e9642c478aaba7d7f20e034b88f6f049d2400d4053ab4ed24599523b"
+    },
+    {
+      "path": "context/personal/_background/experience-collection/records/2026-10-29-ownership.md",
+      "before": null,
+      "after": "5527678c9ae175b09876af51da086f1c20cb387bfce7f85d47f629c22b0b9fe5"
+    },
+    {
+      "path": "context/personal/development/INDEX.md",
+      "before": null,
+      "after": "a15505a272f8829859e73e2c659e129dfed4447097d0c67479de86ff26d79f5f"
+    },
+    {
+      "path": "context/personal/development/README.md",
+      "before": null,
+      "after": "e54addf638b47779d702dc6ca90e5cc6bc0804498fc3c7daf9047377860d755f"
+    },
+    {
+      "path": "context/personal/development/_background/README.md",
+      "before": null,
+      "after": "7ae94e5f85700736b313bf640efddbf1715d4cfd3656c61dc69fd25250c2400f"
+    },
+    {
+      "path": "context/personal/development/_background/context.md",
+      "before": null,
+      "after": "8d57fb0657a957b308e7137ace6769dcefe5a65865266a8d6454ab2643062e6c"
+    },
+    {
+      "path": "context/personal/development/_background/evidence.md",
+      "before": null,
+      "after": "f6b93f3f73a4d6fa11af8bb34e2180cf61cdb31745dae13f860fb4b748e1f657"
+    },
+    {
+      "path": "context/personal/development/_background/records/2026-10-13-responsibility-and-tools.md",
+      "before": null,
+      "after": "0724677bf85174e08bafba5126276270eff404d18c25c5707ef6f9e4e8546e43"
+    },
+    {
+      "path": "context/personal/development/_background/records/2026-10-19-topic-restoration.md",
+      "before": null,
+      "after": "8ac3df0bde61afa067bc50afde241bc88334d80cfed21b965370282e9b50f100"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/INDEX.cases.md",
+      "before": null,
+      "after": "047d53fd895d6a9f23394cd42d3d15dbc8bd9b68ebee9ebb98b04f67e23fe11b"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/INDEX.md",
+      "before": null,
+      "after": "4aca8f6d6242f51f9db2b18ba4818da3e6cf491500a2b1deb0bf8cea24dbb1d8"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/README.md",
+      "before": null,
+      "after": "14207d377a15eaadde906a808148b03e4bf618a98bbd818ace869d73bdfeb362"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/README.md",
+      "before": null,
+      "after": "f848218f3ba9c0d7ee5d08b68c17bfaf39a229ccaab276acea32e9905dd24bc7"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/context.md",
+      "before": null,
+      "after": "3517387a09ecfb8c8f9cd7b48132fe4f345369fdc8cf0bb3980046e831aa9318"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/evidence.md",
+      "before": null,
+      "after": "4d682e432198a12bd62f05962ff82d88d4a5d44bece090be20c377132a8af88e"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-error-contract-and-review.md",
+      "before": null,
+      "after": "d49f684cee96da4f8add39328af6a17916e891324a65418f415bbb97db8bcda3"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-lifetime-and-supported-scope.md",
+      "before": null,
+      "after": "6877f4dd75555784a7b0f61bca56cff3f23d84552b092747853a030a6743598b"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/records/2026-10-23-conditional-criteria.md",
+      "before": null,
+      "after": "c8256ae1c30929fa7347e7172570f5a37c3d24787245cf9ce0a6bd3dfaaa7bcd"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/INDEX.cases.md",
+      "before": null,
+      "after": "f2d84753054ae25b4a9003a4a7d1734fe9cf2c94027f5662c38f7cd64fa71be0"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/INDEX.md",
+      "before": null,
+      "after": "fe00c0b67f7abf09558f5e3aaebd93ad5c14516b5a8c8a31d4bc47bd61c4c94d"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/README.md",
+      "before": null,
+      "after": "742ad9e1823e9617e79db5523ea1040c3149cda93d64a92b3fb6e5e63ac384cf"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/README.md",
+      "before": null,
+      "after": "e12ab8f1fc4cc2e3acd0ef55e4e7cc7ddbef25dbc975a77d2d8b1ec19627dff5"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/context.md",
+      "before": null,
+      "after": "c4022fa6e0a832ef792d1cb5ae70b7d63960d3a8400f78ae965fbf91af85f71a"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/evidence.md",
+      "before": null,
+      "after": "bacf131b55ae5ac50773176c196660ca137a725e35d91b9da888b9bb1b26d93d"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-16-iserror-retention.md",
+      "before": null,
+      "after": "c727e392e13254378af5bc75b554bff2f044d7c79f52fb51f7c2fa1fbe113ceb"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-18-conditional-application.md",
+      "before": null,
+      "after": "091bc6ed8fc783b94f2f636653d5bfd039aec69aedf01417d6d234d6d658a628"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-19-clarity-and-renaming.md",
+      "before": null,
+      "after": "61ccf9ab1e6db8034664c89686e9c47126af7dd68680539bf30bccfa1ddc073f"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-19-personal-ownership.md",
+      "before": null,
+      "after": "e378d8accd825c0ec509fe09c0d313c49f7f1fba66f1e9241d1d06137df73d77"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-23-conditional-criteria.md",
+      "before": null,
+      "after": "df76d9da86ff0b4a319157a29cd97cdb758fbc3263f712bd6343b6e3e182e27e"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/INDEX.cases.md",
+      "before": null,
+      "after": "b265dca9eff082e4a2631d6f8ab57f6df04a0779af6d8ed471c46d00f5232704"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/INDEX.md",
+      "before": null,
+      "after": "9e5b3744a553f982df72a2d4d513dc08bf8e5b9e507559f10ea97b70b0d09dab"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/README.md",
+      "before": null,
+      "after": "f2c33c414d2c8d8c773e6be5b64f51acf9237db57d83d40f26a35f8e9dae4ab7"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/README.md",
+      "before": null,
+      "after": "ce9f486163c81ae1c5b9c826a0f52a57b93be7d8097505db22cf436258b1d06c"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/context.md",
+      "before": null,
+      "after": "3f29ab38d948516a5165cebdea21feda5b038616fc53745680fc21a8d5971567"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/evidence.md",
+      "before": null,
+      "after": "fbff37c0d69b004da83ab69e71d0766406f46171f7b9cb2ac75789d24f349fa3"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/records/2026-10-14-composition-and-common-form.md",
+      "before": null,
+      "after": "2a84109ff9b4bf9399c646190211a83a0d1eb0a96c69d5063ce67284680fd4d8"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/records/2026-10-16-workflow-and-related-improvement.md",
+      "before": null,
+      "after": "5508f36980ce48cd6dfea1e6d62857774f7d6704e29a508f17c990604542dcb6"
+    },
+    {
+      "path": "context/personal/experience/MAINTENANCE.md",
+      "before": null,
+      "after": "95995e1870b76ffb8d78206bff86e1a1dde22c1b6f900f824e500b4713a57eab"
+    },
+    {
+      "path": "context/personal/experience/README.md",
+      "before": null,
+      "after": "95330794648f437cc2de7d1a37207d20bd5b0788d047b4d8678fae7286fe1f90"
+    },
+    {
+      "path": "context/personal/experience/topics/design-conversation.md",
+      "before": null,
+      "after": "d2a4a22da297c796782488eaec54aab1df816d2e557894bd237075883d113260"
+    },
+    {
+      "path": "context/personal/experience/topics/document-quality.md",
+      "before": null,
+      "after": "841f866cb62b9fa7aa550c88ce4d8b43e199ef29a999db9e0f73b76451685314"
+    },
+    {
+      "path": "context/personal/experience/topics/explanation-effects.md",
+      "before": null,
+      "after": "b15d83b11e763d7a42f815822e5a655313f2b132e7bd655abe7a006f23f94ed1"
+    },
+    {
+      "path": "context/project/MAINTENANCE.md",
+      "before": "5e23ba6896e68ee433af1bea15b0d7316efa9aa6f8bc45576cfd51234d45f5a7",
+      "after": "ccab0670110c27de5695095f7a6b798e4b0fc272ad4dbbab83c61232f764976d"
+    },
+    {
+      "path": "context/project/README.md",
+      "before": "2afd8aea1050e72bd6d9e8b1acee3abfbd8c3760ef58212e1f5a5bded446febf",
+      "after": "7c8fda5245a8f346d41a6255e11c49fae2ba41247345854abdb319382ee9f255"
+    },
+    {
+      "path": "context/project/REFERENCE/composition.md",
+      "before": "1e18de3c92f5a15576ae550575c98cc7692c36aaf5343f122962a5d367196a89",
+      "after": "bf09bb7cd0384c289e40229d1820e522e6d07052b44bce07ba148bf6d8686b01"
+    },
+    {
+      "path": "context/project/REFERENCE/reading.md",
+      "before": "3a1d05069266b1ba5fa912da977a0fb7aca42e03687fabe14ae9de29c4914da5",
+      "after": "390b7aa5bbb474ac3a6e94b5339985b5793197f5e4df868c84c956a1c2ac2590"
+    },
+    {
+      "path": "context/project/guidance/README.md",
+      "before": "4ab9543463ad54d9457ca33be55ad0c5c12fc0a2ae77704ad0a4b4275ab941f1",
+      "after": "394270e34f30e7f1eebb26e2391dd6536c1348d741f4dbcbbc496dc3c44c25a4"
+    },
+    {
+      "path": "context/project/guidance/explanation-and-evidence-criteria.md",
+      "before": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83",
+      "after": null
+    }
+  ],
+  "protected": {
+    "count": 194,
+    "before_sha256": "1a5399e154221a951515969f99fee02c33776638ef68446ec25d76b5b05e45ca",
+    "all_equal": true,
+    "scope": [
+      "context/work/**",
+      "src/**",
+      "tests/**",
+      "context/project/common/**",
+      "context/project/current/**",
+      "context/project/decisions/**",
+      "Maintain hook wrappers/configs",
+      ".gitignore"
+    ]
+  },
+  "checks": {
+    "product_tests": {
+      "passed": 7
+    },
+    "ephemeral_recover_verify_recover": {
+      "passed": 1,
+      "checked_in_machine_state_preserved": true
+    },
+    "recover": {
+      "explicit_exit": 0,
+      "default_exit": 0,
+      "only_difference": "default reads workspaces/index.json",
+      "old_receipt_freshness": "stale, preserved"
+    },
+    "local_links": {
+      "count": 696,
+      "missing": 0
+    },
+    "anchors": {
+      "anchor_count": 201,
+      "unmatched": []
+    },
+    "skill_metadata": {
+      "skills": 5,
+      "host_bridges": 8,
+      "parser": "Ruby YAML.safe_load",
+      "work_discussion_implicit": false,
+      "quick_validate": "not runnable: Python PyYAML unavailable; equivalent schema and metadata checks performed"
+    },
+    "source_prototype_diff": "empty",
+    "maintain_activation": "not performed",
+    "host_discovery": "not tested",
+    "record_and_entry_links": {
+      "checked": 926,
+      "missing": 0
+    },
+    "maintain_router_paragraphs": "identical"
+  },
+  "external_current_body_link": [
+    {
+      "path": "context/personal/experience/topics/explanation-effects.md",
+      "line": 13,
+      "role": "past prototype development linkage, historical explanation-effect evidence; not an installed skill call"
+    }
+  ],
+  "limits": [
+    "No fresh host skill invocation or automatic discovery acceptance",
+    "No full development/improvement-loop installation",
+    "No Noline application",
+    "No durable Verify or new receipt/status on Reference",
+    "No commit or push"
+  ],
+  "consumer_change": {
+    "path": ".agents/skills/apply-context-harness/references/application-contract.md",
+    "before_sha256": "c99615338c4b3617623fa9ebfc1b73bc295334cecb793ff791e27e37b3f96b20",
+    "after_sha256": "4d8f8ac59fe8a1118ed7a41198219d73ae4032b56a4d74d76b504e923976fa96",
+    "maintain_contract_unchanged": true
+  }
+}

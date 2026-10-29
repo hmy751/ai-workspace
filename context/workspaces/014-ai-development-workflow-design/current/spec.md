@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계 — Spec 초안
 
-**06의 범위·분할 선택 — 2026-10-29:** [06](tickets/06-framework-transition/README.md)은 전환 설계에 이어 실제 적용·직접 확인까지 맡는다.06-01에서 reference-project에 먼저 반영하고06-02에서 Noline의 기존 설치에 재적용한다. 이번 요청은 기존06 대조와 티켓 구성까지이며 실제 적용은 미착수다.02 기록 운영은 다른 쪽에서 병렬 진행하고,06은 채택 결과를 받아 연결한다. [분할 기록](../records/2026-10-29-ticket06-split.md)의 최신 선택은 아래 초기 설계 단계의 실행 범위 설명과 구별한다.
+**06의 범위·분할 선택 — 2026-10-29:** [06](tickets/06-framework-transition/README.md)은 전환 설계에 이어 실제 적용·직접 확인까지 맡는다.06-01에서 reference-project에 먼저 반영하고06-02에서 Noline의 기존 설치에 재적용한다. 초기 요청은 기존06 대조와 티켓 구성까지였고, 후속 승인으로06-01의 독립적인 첫 묶음을 [Reference에 적용](../records/2026-10-29-ticket06-01-reference-partial-application.md)했다.02 기록 운영은 다른 쪽에서 병렬 진행하고,06은 채택 결과를 받아 연결한다. [분할 기록](../records/2026-10-29-ticket06-split.md)의 최신 선택은 아래 초기 설계 단계의 실행 범위 설명과 구별한다.
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 
@@ -243,6 +243,6 @@ Ticket의 설계 결과에는 그 범위에 필요한 다음 관계가 드러나
 
 **자료 사용의 주의점:** 사용자가 제외한 코드 퀄리티 문서를 이번 설계 비교의 기준으로 다시 가져오지 않는다. 사용자 자신의 코드 기준을 모두 파악했다고 보지 않으며, 강연·스킬·Vercel의 권고도 구체 사례에서 논의할 후보로 사용한다.
 
-현재 작업의 Main이 사용자 선택과 확인된 근거를 반영해 이 Spec·Ticket·state를 관리한다. 현재 턴의 수행 범위는06 분할과 티켓 문서 작성·보완이다.06의 목표에는 Reference·Noline 적용이 포함되지만, 실제 제품 코드·실행 하네스 변경은 각 하위 Ticket의 전환안을 구체화해 이어서 다룬다. 전역 설치를 이 분할에 포함하지 않는다.
+현재 작업의 Main이 사용자 선택과 확인된 근거를 반영해 이 Spec·Ticket·state를 관리한다.06 분할 후 [전환 검토안](../records/2026-10-29-ticket06-01-reference-transition-proposal.md)을 작성했으며, 후속 사용자 요청으로 Maintain 관련은 현행대로 두고02와 함께 다룬다. 독립적인 context·설명·한정 반영은 첫 부분 적용·직접 확인을 마쳤고, Work 기록 책임·binding/activation·장치와 관련 실행 연결은 유보한다. Recover·Verify 처리를 현재 선행 선택으로 요구하지 않는다. 사용자가 승인한 첫 묶음만 Reference에 반영했다. 새 host 호출·사용 효과와 나머지 연동은 후속으로 남는다.06의 최종 목표에는 Reference·Noline 적용·직접 확인이 포함되지만 부분 준비를 전체 완료로 올리지 않는다. 전역 설치는 이 범위에 포함하지 않는다.
 
 분해 근거와 원문: [최초 초안 구성](../records/2026-10-12-05-spec-ticket-draft.md), [상위·하위 Ticket 분할 기록](../records/2026-10-12-09-ticket-split.md). 참고한 작성 관점: [기준판 Spec](../source/ai-workspace-baseline/reference-project/context/work/workspaces/spec-and-tickets/SPEC.md), [기준판 Ticket](../source/ai-workspace-baseline/reference-project/context/work/workspaces/spec-and-tickets/TICKET.md). 해당 자료의 개발 중심 예시는 이 작업의 설계 결과에 맞춰 해석하며, 자동 Maintain 책임 배치를 가져오지 않는다.

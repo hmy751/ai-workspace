@@ -1,6 +1,6 @@
 # 현재 논의의 진입점
 
-**06 적용 작업의 진입:** [06-01 Reference 적용](tickets/06-framework-transition/06-01-reference-project-application.md), [06-02 Noline 재적용](tickets/06-framework-transition/06-02-noline-reapplication.md)으로 나눴다. 기존06의 낡은 미정·설계 한정 문구를 정리했으며, 다음은06-01의 근거 대조와 유지·교체·제거 전환안이다. 이번은 티켓 구성이고 실제 적용은 미착수다.02 기록 운영은 별도 병렬 작업으로 유지한다.
+**06-01 첫 부분 적용:** [적용 결과·보존·검사](../records/2026-10-29-ticket06-01-reference-partial-application.md)에 Personal·Project 관리·USAGE·context-update·explain의 Reference 반영을 남겼다. 제품7개·임시 순환1개 검사 통과, Work·Maintain·제품 원본 보존을 확인했다. [06-01](tickets/06-framework-transition/06-01-reference-project-application.md)은 부분 적용 상태이며 Maintain 연동은02와 함께, [06-02](tickets/06-framework-transition/06-02-noline-reapplication.md)는 후속으로 남는다. 새 host 호출·일반 효과를 확인한 것은 아니다.
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 

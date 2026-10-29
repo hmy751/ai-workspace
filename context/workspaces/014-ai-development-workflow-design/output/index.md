@@ -1,6 +1,6 @@
 # 현재 선택한 설계 자료와 산출물
 
-**06 적용 티켓 구성:** [상위06](../current/tickets/06-framework-transition/README.md)과06-01 Reference 적용·06-02 Noline 재적용을 구성했다. [분할 기록](../records/2026-10-29-ticket06-split.md)은 범위 정리의 근거다. 기존 prototype이 현재 설계 산출물이며, Reference·Noline에 반영한 새 결과는 아직 없다.
+**06-01 첫 적용 산출물:** [Reference](../../../../reference-project/README.md)에 독립적인 Personal·Project 관리·공통 읽기·한정 반영·설명을 반영했다. [적용 결과와 검사](../records/2026-10-29-ticket06-01-reference-partial-application.md)에서 선택·파일별 근거·보존 범위를 찾는다. [전환 검토안](../records/2026-10-29-ticket06-01-reference-transition-proposal.md)은 전체 후속 판단 자료이며 전부 채택한 것이 아니다. [06-01](../current/tickets/06-framework-transition/06-01-reference-project-application.md)이 상태를 소유한다. 기존 prototype은 설계 입력이고 Reference가 적용된 실행 본문을 소유한다. Maintain 연동·Noline 적용·새 host 효과 확인은 남아 있다.
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 

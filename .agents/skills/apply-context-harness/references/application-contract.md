@@ -35,11 +35,11 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 
 ## Repo-local skills와 공통 기준
 
-현재 Reference skill 색인은 `create-context-workspace`, `read-project-context`, `update-project-context`, `work-discussion`, `reconsider-work`, `work-artifact-briefing`, `explanation-recovery`를 안내한다. 이 목록을 고정 payload로 삼지 않고 호출 시점의 색인과 각 `SKILL.md`·호출 설정에서 실제 책임·입력·연결을 확인한다. Spec·Ticket의 내용과 유지 방식은 live Workspace canonical이, Project 본문 구성·읽기는 `context/project/REFERENCE/`가, 생성·Project 맥락 갱신은 각각의 canonical이 소유한다. 이식 절차에서 skill별 호출 규칙을 다시 정의하지 않는다.
+설치할 스킬은 live Reference 색인과 각 `SKILL.md`·호출 설정에서 실제 책임·입력·연결을 확인해 선택한다. 이름 목록을 이 문서에 고정 payload로 유지하지 않는다. 공통 읽기는 `context/USAGE.md`, Personal·Project의 내용·관리 권한은 해당 영역의 canonical, Spec·Ticket의 내용과 유지 방식은 live Workspace canonical이 소유한다. 이식 절차에서 skill별 호출 규칙이나 Work 기록 담당을 다시 정의하지 않는다.
 
-- **대상별 선택:** 각 skill의 원본·지원 파일·호출 설정, `context/project/REFERENCE/`, 공통 `context/project/guidance/explanation-and-evidence-criteria.md`, guidance 색인, tool별 discovery 연결과 root routing을 dry-run manifest에 `install/adapt/exclude`로 구분한다. 이름이 달라도 같은 책임을 맡는 target Owner와 비교하고, 제외할 때는 그 이유와 필요한 기존 canonical·fallback을 남긴다.
+- **대상별 선택:** 각 skill의 원본·지원 파일·호출 설정, `context/USAGE.md`, Personal·Project의 관리 지침과 필요한 본문·형성 자료, `context/project/REFERENCE/`, `.agents/skills/shared/`의 실제 공통 기준과 consumer 색인, tool별 discovery 연결과 root routing을 dry-run manifest에 `install/adapt/exclude`로 구분한다. 이름이 달라도 같은 책임을 맡는 target Owner와 비교하고, 제외할 때는 그 이유와 필요한 기존 canonical·fallback을 남긴다. Reference의 Personal 경험은 원래 출처와 관찰 한계를 유지하며 target에서 생긴 경험으로 복사하지 않는다.
 - **충돌 보호와 연결:** `.agents/skills/<name>/`의 전체 파일, target이 사용하는 `.claude/skills/<name>`·`.codex/skills/<name>` 같은 연결 경로, 공통 기준과 색인을 exact path로 확인한다. Clean·ignored 파일과 ancestor의 kind, 기존 symlink 목적지도 직접 확인하며 동명 경로를 통째로 덮어쓰지 않는다. Live source의 원본 관계와 호출 설정을 보존하되 도구별 상대 연결은 target 배치에서 해석해 같은 원본으로 이어지는지 확인한다. 도구가 지원하지 않는 연결을 기계적으로 설치하지 않는다.
-- **공통 기준의 병합:** 기존 guidance README의 경계와 다른 항목을 유지하며 필요한 본문·consumer 링크를 좁게 병합한다. Reference의 색인으로 target 색인 전체를 교체하지 않는다. 적용 범위·중요 예외·실제 consumer는 각 live 본문에 맞추며 모든 가이드에 같은 고정 목차를 강제하거나 모든 응답·Recover의 기본 입력으로 확대하지 않는다. 기준 경로를 적응하거나 skill을 제외하면 남는 consumer와 색인을 함께 맞춘다.
+- **공통 기준의 병합:** 대상의 기존 Project guidance와 skill 공통 기준의 소유 경계를 확인하고 필요한 본문·consumer 링크를 해당 Owner에 좁게 병합한다. Reference의 색인으로 target 색인 전체를 교체하지 않는다. 적용 범위·중요 예외·실제 consumer는 각 live 본문에 맞추며 모든 가이드에 같은 고정 목차를 강제하거나 모든 응답·Recover의 기본 입력으로 확대하지 않는다. 기준 경로를 적응하거나 skill을 제외하면 남는 consumer와 색인을 함께 맞춘다.
 - **실제 유지 경로:** 설치한 skill에서 target의 Spec·Ticket·Main·Maintain 계약을 찾을 수 있게 연결한다. Workspace 생성과 Project-wide 문서 관리는 각각의 Owner에 남긴다. Bound·unbound·수동 fallback에서 누가 문서를 실제로 갱신하는지는 target Maintain 계약을 따르며, skill 설치를 session activation이나 문서 전달 완료로 취급하지 않는다.
 
 정적 설치 확인은 frontmatter·호출 설정·일반 파일·상대 연결·canonical과 공통 기준 접근점까지다. 실제 host가 skill을 발견하고 정해진 방식으로 호출했는지, 결과가 Main을 거쳐 유지 경로에 전달되고 문서 의존 실행 전에 반영됐는지는 별도 관찰이다. 하나의 성공을 다른 skill·도구·Maintain binding의 증명으로 확대하지 않는다.

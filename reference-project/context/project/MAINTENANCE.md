@@ -2,9 +2,12 @@
 
 이 문서는 Project context를 작성·복원·재구성·갱신할 때의 시점, 변경 권한과 영향 범위, 반영 완료 기준을 소유한다. 구조·층별 책임·권위는 [Project README](README.md), 내용 선별·주제 구성·분리는 [구성 기준](REFERENCE/composition.md)이 소유한다. 관리 작업을 수행하는 주체는 이 문서와 구성 기준을 직접 읽고 적용한다.
 
+
+본문과 형성 자료의 구성·보존은 [공통 관리 원칙](../CONTENT-POLICY.md)을 따른다. 유효한 기존 진입과 상세 기준을 유지하며 형식을 맞추기 위한 분할·빈 형성 자료를 만들지 않는다. 개인 판단 기준은 Personal이 소유하므로 제품 계약에 자동 승격하지 않는다.
+
 ## 언제 무엇을 반영하나
 
-여러 작업의 이해·판단·행동에 계속 영향을 줄 변화가 명확해지거나, 사용자가 기존 Project 맥락의 복원·재구성·승인된 Owner 이동을 요청하면 [update-project-context](../../.agents/skills/update-project-context/SKILL.md)를 사용한다. 명확해진 경계에서 수행하며 Workspace 종료를 기다리지 않는다. 작업 완료 자체는 새 Project 문서를 만들 근거가 아니다.
+여러 작업의 이해·판단·행동에 계속 영향을 줄 변화가 명확해지거나, 사용자가 기존 Project 맥락의 복원·재구성·승인된 Owner 이동을 요청하면 [context-update](../../.agents/skills/context-update/SKILL.md)를 사용한다. 명확해진 경계에서 수행하며 Workspace 종료를 기다리지 않는다. 작업 완료 자체는 새 Project 문서를 만들 근거가 아니다.
 
 현재 Workspace와 요청에 필요한 source·record·output, 관련 제품 문서와 코드·테스트만 대조한다. 일시적인 방법·후보 전체·실행 이력은 Work에 남기고, 계속 필요한 의미는 기존 주제의 본문에 통합한다. 코드에 있다는 이유로 의미를 제외하거나 모든 구현 사실을 문서에 복제하지 않는 판단은 구성 기준을 따른다.
 
@@ -60,7 +63,7 @@ Local link·diff·설치 검사는 경로와 형식을 확인할 뿐 의미 충�
 
 ## 실행 장치와 보고 경계
 
-[update-project-context](../../.agents/skills/update-project-context/SKILL.md)는 이 계약을 실행하는 절차다. Workspace Maintain의 쓰기 범위를 Project 문서로 넓히지 않는다. 현재 Workspace의 Project 선택을 바꿀 필요가 있으면 기존 Work Owner에 연결하고, path·책임·authority 변경이 live consumer에 영향을 주면 reconciliation 계약을 따른다.
+[context-update](../../.agents/skills/context-update/SKILL.md)는 이 계약을 실행하는 절차다. Workspace Maintain의 쓰기 범위를 Project 문서로 넓히지 않는다. 현재 Workspace의 Project 선택을 바꿀 필요가 있으면 기존 Work Owner에 연결하고, path·책임·authority 변경이 live consumer에 영향을 주면 reconciliation 계약을 따른다.
 
 반영한 현재 내용과 근거, 아직 남은 판단, 근거가 있어도 반영하지 못한 내용과 이유를 보고한다. Skill을 교체하거나 제거해도 사람이 이 문서와 각 내용 Owner를 따라 같은 갱신 책임을 수행할 수 있어야 한다.
 

@@ -2,7 +2,9 @@
 
 ## 06의 대상별 분할과 현재 착수 범위
 
-2026-10-29 사용자는06-01을 reference-project 적용,06-02를 Noline 기존 설치 재적용으로 나누고, 먼저 기존06을 검토해 티켓 구성까지만 하도록 요청했다. 두 하위의 목표는 적용·직접 확인까지이며 이번에 구현을 시작한 것은 아니다. 앞선 유지·교체·제거 분석 요청은06-01의 다음 행동으로 이어간다.02 기록 운영은 다른 쪽에서 병렬 진행한다. [상위06](tickets/06-framework-transition/README.md)과 [원문·기존 내용 정리](../records/2026-10-29-ticket06-split.md)에서 책임 경계를 찾는다.
+후속 범위 선택: 사용자는 Maintain 관련을02와 함께 다루도록 유보한 뒤 “먼저 가능한 부분부터 reference-project에 반영해봐”라고 승인했다. [첫 적용 결과](../records/2026-10-29-ticket06-01-reference-partial-application.md)에 따라 Personal·Project 관리·읽기·한정 반영·설명을 실제 반영했다. Maintain 코드·설정·Work 기록 담당·binding/activation·해당 이식 운영 계약은 현행을 유지한다. Recover·Verify 처리를 선행 선택으로 요구하지 않으며, 영구 존치나 전체 workflow 적용 완료를 뜻하지 않는다.
+
+2026-10-29 사용자는06-01을 reference-project 적용,06-02를 Noline 기존 설치 재적용으로 나누고 먼저 티켓 구성을 요청했다. 후속으로06-01의 관련 기록·합의와 현행 파일을 꼼꼼히 대조해 유지·교체·제거안을 정리하되 **실제 반영은 그 결과를 보고 논의하자**고 명시했다. [전환 검토안](../records/2026-10-29-ticket06-01-reference-transition-proposal.md)은 그 요청의 분석 결과이며 상세 적용 선택·Recover/Verify 존치는 새 합의가 아니다.02 기록 운영은 다른 쪽에서 병렬 진행한다. 두 하위의 최종 목표는 적용·직접 확인까지다. 위 후속 승인으로06-01의 독립적인 첫 묶음은 적용했고 연동 범위와 실제 host 확인은 남았다. [상위06](tickets/06-framework-transition/README.md)과 [분할 근거](../records/2026-10-29-ticket06-split.md)에서 책임 경계를 찾는다.
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 

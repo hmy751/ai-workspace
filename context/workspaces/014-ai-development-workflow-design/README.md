@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**06 적용 티켓 구성(2026-10-29):** [06](current/tickets/06-framework-transition/README.md)을 Reference 적용과 Noline 재적용으로 나눴다. 먼저 [06-01](current/tickets/06-framework-transition/06-01-reference-project-application.md)의 유지·교체·제거안을 구체화하고 이후 [06-02](current/tickets/06-framework-transition/06-02-noline-reapplication.md)로 이어간다. 이번에는 티켓 구성만 했으며 실제 적용은 미착수다.02 기록 운영은 다른 쪽에서 병렬 진행한다.
+**06-01 첫 부분 적용(2026-10-29):** 사용자 승인에 따라 Personal·Project 관리·공통 읽기·한정 반영·설명을 Reference에 [적용하고 직접 확인](records/2026-10-29-ticket06-01-reference-partial-application.md)했다. [06-01](current/tickets/06-framework-transition/06-01-reference-project-application.md)은 계속 진행 중이다. Maintain·Work 기록 담당·생성/전환은 현행을 유지하고02와 함께 다룬다. 새 host의 자동 발견·호출·사용 효과와 전체 workflow 전환은 미확인이다. Noline·prototype은 변경하지 않았다.
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 

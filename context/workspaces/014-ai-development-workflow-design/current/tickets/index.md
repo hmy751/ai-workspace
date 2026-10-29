@@ -1,6 +1,6 @@
 # 설계 Ticket
 
-**06 적용 티켓 분할 — 2026-10-29:** [06-01 Reference 적용](06-framework-transition/06-01-reference-project-application.md)과 [06-02 Noline 재적용](06-framework-transition/06-02-noline-reapplication.md)을 구성했다. 먼저06-01에서 유지·교체·제거안을 정리한다. 이번 결과는 티켓 구성이며 실제 적용은 미착수다.02 기록 운영은 사용자 안내에 따라 다른 쪽에서 병렬 진행한다.
+**06-01 첫 부분 적용 — 2026-10-29:** [적용 결과](../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 독립적인 context·설명·한정 반영과 직접 확인을 기록했다. Maintain·Work 기록/전환은 사용자 요청대로 현행을 유지하고02와 함께 다룬다. [06-01](06-framework-transition/06-01-reference-project-application.md)은 진행 중이며 새 host 호출·전체 workflow 전환은 미완료다. [06-02](06-framework-transition/06-02-noline-reapplication.md)는 미착수다.
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
 
@@ -32,7 +32,7 @@
 
 **2026-10-20:03의 구성안·대표 본문 구체화를 완료했다.** [완료 조건 대조119](../../records/2026-10-20-119-ticket03-closeout.md)와 [03 결과](03-project-context.md)를 후속 입력으로 사용한다.01-02·04-03 등 다른 Ticket의 완료로 확대하지 않으며 이번 마무리에서 새 작업을 시작하지 않았다.
 
-04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다.05도 [설계 마감](../../records/2026-10-29-ticket05-closeout.md)을 완료했다. 현재 남은 설계·적용은01-02 품질 기준 전체 종합,02 기록·Work 구성,06-01 Reference 적용과06-02 Noline 재적용,07 전체 연결·적용 관찰 계획이다. 번호순 완결을 강제하지 않는다. 이번 티켓 구성에서 실제 적용·운영 효과를 확인하지 않았다.
+04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다.05도 [설계 마감](../../records/2026-10-29-ticket05-closeout.md)을 완료했다. 현재 남은 설계·적용은01-02 품질 기준 전체 종합,02 기록·Work 구성,06-01 Reference 적용과06-02 Noline 재적용,07 전체 연결·적용 관찰 계획이다. 번호순 완결을 강제하지 않는다. Reference 첫 부분 설치·직접 확인은 위06-01에 기록했고 일반 효과·전체 운영 연결은 미확인이다.
 
 | 후속 결과 |03에서 이어받을 것과 경계 |
 | --- | --- |
