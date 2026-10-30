@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**06-02 Noline 부분 반영:** [최신 Reference 반영·보존·확인](records/2026-10-30-ticket06-02-noline-partial-application.md)을 마쳤다. Personal·공통 읽기·한정 갱신·설명을 Noline 고유 기준에 맞춰 반영했고 기존 artifacts·제품·Maintain을 보존했다. 전체 상태·다음 행동은 [06-02](current/tickets/06-framework-transition/06-02-noline-reapplication.md), Maintain·통합 확인은02에서 이어간다.
+**06 현재:** [실행 스킬 설치·옛 경로 정리](records/2026-10-30-ticket06-execution-skills-and-retirement.md)까지 반영·직접 확인했다. [남은 책임과 Noline 후속 방향](records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)에서02 의존 작업과06의 별도 실행 확인·완료 책임을 찾는다. 후속 보완·개선 루프는 Noline의 실제 반영본과 기존 작업·기록을 바탕으로 진행하려는 방향이며, 구체 대상·시점은 아직 정하지 않았다.
 
 **후속 테스트 선택:** 첫 부분 적용은 `e38ce52b`로 보존했다. 통합 테스트는02에서 기록·전환 계약을 Reference에 연결한 뒤 진행한다. 지금 별도 host 테스트를 먼저 시작하지 않으며, 결과를06-01 완료 판단에 연결한다. [선택 기록](records/2026-10-29-ticket06-01-reference-partial-application.md#후속-선택--통합-테스트는02에서-진행).
 

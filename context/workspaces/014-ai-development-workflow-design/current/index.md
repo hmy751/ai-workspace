@@ -2,7 +2,7 @@
 
 **02 재개 — 2026-10-30:** 사용자가02를 이 세션에서 보도록 요청했다. [현재 입력·첫 논의](../records/2026-10-30-ticket02-reentry-and-first-discussion.md)와 [02 Ticket](tickets/02-work-records.md)을 읽는다. 첫 쟁점은 현재 행동과 중요한 판단 이력의 역할·중복이며, 이후 작업 규모별 구성과 실제 기록/재개 운영을 비교한다. 기존06 병행 변경은 유지한다.
 
-**06 재진입:** [실행 스킬 반영·옛 경로 정리](../records/2026-10-30-ticket06-execution-skills-and-retirement.md)에서 development·improvement-loop 설치, 논의·생성 보완과 Noline 옛4개 제거·근거 보존·확인 결과를 읽는다. 현행 Work 계약으로 적응했으며 남은 계약 전환·실제 host 통합은02에 둔다. [앞선 부분 반영](../records/2026-10-30-ticket06-02-noline-partial-application.md)은 이전 context 묶음의 근거다.
+**06 재진입:** [남은 책임과 Noline 후속 방향](../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)을 읽는다. 승인된 설치·교체·옛 경로 정리는 완료했다.02의 기록 운영·Maintain 선택·통합 테스트와06의 대상별 반영·실제 수행/원문 접근 확인·완료 판단을 구별한다. 후속 보완·개선 루프는 Noline의 실제 반영본과 기존 작업·기록에서 진행하려는 방향이다. 구체 대상·시점은 미정이며 실제 실행 결과는 아직 없다.
 
 **후속 테스트 선택:** 첫 부분 적용은 `e38ce52b`로 보존했다. 통합 테스트는02에서 기록·전환 계약을 Reference에 연결한 뒤 진행한다. 지금 별도 host 테스트를 먼저 시작하지 않으며, 결과를06-01 완료 판단에 연결한다. [선택 기록](../records/2026-10-29-ticket06-01-reference-partial-application.md#후속-선택--통합-테스트는02에서-진행).
 
