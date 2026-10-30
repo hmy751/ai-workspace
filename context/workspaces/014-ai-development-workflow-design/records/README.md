@@ -1,5 +1,7 @@
 # 논의와 보존 기록
 
+- [06-01 형식 반영 뒤 전반 점검](2026-10-30-ticket06-01-format-overall-review.md): Personal·Project의 조건/설명 구성과 진입·형성 자료 대조. 유지할 본문, 공통화·계약/수명 후속 후보, 커밋/표시 사본/링크 확인과 미실행 범위.
+
 - [06-01 본문 형식 보완·Reference 반영](2026-10-30-ticket06-01-writing-format-application.md): 최신 판단 원본·background와 강도 대조, prototype 표시 사본 확인, Reference의 형식 기준·이름 본문·Project 작성 경로 반영과 보존 범위.
 
 - [02 재개·현재 입력과 첫 논의](2026-10-30-ticket02-reentry-and-first-discussion.md): 이미 정한 기록 책임과 남은 운영안, 현재 방향 정정과 판단 이력 보존의 실제 장면, 구성·시점·Maintain의 후속 비교 범위.
