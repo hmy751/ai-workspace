@@ -16,7 +16,7 @@
 | [04 기존 스킬 보완](04-skill-improvements/README.md) | [04-01 작업 정의·재판단](04-skill-improvements/04-01-work-decision-skills.md), [04-02 설명 구성·적용](04-skill-improvements/04-02-artifact-explanation.md), [04-03 맥락 관리](04-skill-improvements/04-03-context-skills.md) |
 | [05 작업 체계 개선 루프](05-improvement-loop.md) | 설계 완료 · 실제 배치/관찰은06·07 |
 | [06 Reference 적용·Noline 재적용](06-framework-transition/README.md) | [06-01 Reference 적용](06-framework-transition/06-01-reference-project-application.md), [06-02 Noline 재적용](06-framework-transition/06-02-noline-reapplication.md) |
-| [07 전체 연결과 후속 적용](07-integrated-rehearsal.md) | — |
+| [07 Noline의 기존 작업·기록으로 연결 확인](07-integrated-rehearsal.md) | 계획·확인 항목 정리 · 구체 대상 선택과 실제 실행은 Noline에서 |
 
 상위01·04·06의 README는 목적·범위와 하위 결과의 관계를 소유한다. 하위 Ticket은 상세 결과·완료 조건·진행을 소유한다. 나머지 상위 Ticket은 각 본문이 직접 결과를 맡는다. 진행을 두 곳에서 중복 관리하지 않는다.
 
