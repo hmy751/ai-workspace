@@ -1,5 +1,7 @@
 # 원본 판단이 시안에 남았는지 대조
 
+**후속 판본 안내(2026-10-30):** 아래는 `a26d2f95`의 초기 시안·대조를 보존한 기록이다. `3a28e6a1` 도입 이후 최종 본문은 01-02 마감 판 `6e6dccb8`과 [다시 대조·보정](../../prototypes/development-workflow/noline-demo/context/_background/writing-format/records/2026-10-30-format-preservation.md)했다. 아래 당시 상태·수치·미포함 범위를 최종판의 확인 결과로 읽지 않는다.
+
 원본 [INDEX.md](../../prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md)(`a26d2f95` 판)의 문장을 순서대로 읽고, 각 판단이 [시안](naming-and-completion.draft.md)의 어디에 있는지 찾았다. main 작업 트리에 미커밋 변경으로 더해진 상수 판단 문단과 `code-expression/INDEX.md` 링크는 이 대조에 들어 있지 않다. 작성자 본인이 한 대조다. 독립 확인은 [README](README.md)의 다음 시험에서 한다.
 
 ## 절별 위치

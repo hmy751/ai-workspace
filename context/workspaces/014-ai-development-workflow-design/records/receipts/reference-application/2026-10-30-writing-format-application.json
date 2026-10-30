@@ -1,0 +1,124 @@
+{
+  "source_base": "6e6dccb8",
+  "format_introduction": "3a28e6a149bbada963f22d6916392f4b936e4036",
+  "observed_head": "19225e0de39003f4022a89f325665233c34def1e",
+  "reference_links": {
+    "markdown_files": 97,
+    "local_links": 641,
+    "anchors": 194,
+    "errors": [],
+    "unchanged_external_provenance": [
+      [
+        "reference-project/context/_background/system-guidance/context.md",
+        "../../../../context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/SKILL.md"
+      ],
+      [
+        "reference-project/context/_background/system-guidance/context.md",
+        "../../../../context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/_background/context.md"
+      ],
+      [
+        "reference-project/context/personal/development/naming-and-completion/_background/evidence.md",
+        "../../../../../../context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md"
+      ],
+      [
+        "reference-project/context/personal/experience/topics/explanation-effects.md",
+        "../../../../../context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/SKILL.md"
+      ]
+    ]
+  },
+  "source_target": "format/naming/evidence/comparison identical; three formation entry adaptations only",
+  "original_code_blocks_identical": 2,
+  "protected_files_unchanged": 367,
+  "protected_categories": {
+    "reference-project/context/work/": 264,
+    "reference-project/src/": 6,
+    "reference-project/tests/": 7,
+    "reference-project/.agents/": 49,
+    "reference-project/.codex/": 9,
+    "reference-project/.claude/": 6,
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/work/": 26
+  },
+  "changed_existing_target_files": [
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/README.md",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/WRITING-FORMAT.md",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/README.md",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/context.md",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/evidence.md",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/records/2026-10-30-introduction.md",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/viewer.html",
+    "reference-project/AGENTS.md",
+    "reference-project/context/README.md",
+    "reference-project/context/_background/README.md",
+    "reference-project/context/personal/development/naming-and-completion/INDEX.md",
+    "reference-project/context/project/REFERENCE/composition.md"
+  ],
+  "manual_semantic_check": "whole-body comparison against 6e6dccb8 plus five representative questions; Main only",
+  "not_tested": [
+    "independent AI decision equivalence",
+    "new-session writing effect",
+    "browser rendering/clicks",
+    "product/runtime behavior",
+    "host/Maintain integration"
+  ],
+  "prototype_viewer": {
+    "documents": 224,
+    "codeFiles": 5,
+    "sourceContentAndSha": "현재 파일과 모두 일치",
+    "codeRendering": "전체 소스를 escape하여 읽기 전용 표시",
+    "stages": 6,
+    "comparisonColumns": 3,
+    "namingAlternatives": "2개 코드가 이름 두 쌍 외에 주석 포함 동일",
+    "namingContextRelations": "13개 필수 연결 확인 · 의미 일치는 별도 판단",
+    "internalLinks": 1298,
+    "referenceLinks": 44,
+    "anchorLinks": 317,
+    "missingPathsOrAnchors": 0,
+    "localDocumentBoundary": "모든 로컬 링크가 prototype 안에 있음",
+    "rejectedLinkCases": 12,
+    "clientScriptSyntax": "통과",
+    "browserRendering": "실행하지 않음",
+    "demoTests": "이 검사에서는 실행하지 않음"
+  },
+  "changed_files": {
+    "context/workspaces/014-ai-development-workflow-design/current/state.md": "a5eebb42458d9e5c0cbead8c679c1187757a30561f1761ac1586db8b1c2d6729",
+    "context/workspaces/014-ai-development-workflow-design/current/tickets/06-framework-transition/06-01-reference-project-application.md": "276bfe305cc6d74e82a4994077a4f6ec95e4277e43cdf44a6d730ae618f7cbc7",
+    "context/workspaces/014-ai-development-workflow-design/output/index.md": "11bd643afcb547e5ac435a277131b154f88bf28815aefb5223d167920c19e0be",
+    "context/workspaces/014-ai-development-workflow-design/records/2026-10-30-ticket06-01-writing-format-application.md": "cd9d0d83f15d960b02f20991f1a822c854c177397b5f344e3e1d189dc2d395cc",
+    "context/workspaces/014-ai-development-workflow-design/records/README.md": "343429ef6a01da866ffa90bd5515fd36c140afe7764d4d42b22b1f5d82f8e219",
+    "context/workspaces/014-ai-development-workflow-design/records/experiments/principle-readability-2026-10-29/README.md": "8b5077759490f34a9bd3aef424d1493331942669ef2471334b84b8d7299018da",
+    "context/workspaces/014-ai-development-workflow-design/records/experiments/principle-readability-2026-10-29/coverage.md": "56061881e3c6f2fd32f445aadca2f6dace9fc376b6d22be4b87a0d4289be5410",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/README.md": "a7e0d3029080713ffc560095312a137579201c3c55200020b5f3a54593fb42b5",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/WRITING-FORMAT.md": "224dda3f5543ba14a0b2584e2c81007ebab2de72929319a7a21f66992d3a9f25",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/README.md": "393f1b4eb3599a9d889c6e27efdf141f56c31c6555e1414a065b52f92eda5c9b",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/context.md": "88bf54261e13bf5c82b23e9348c1d03e6bff78669e960430f0d0926df58097c6",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/evidence.md": "295fb3a4bbc2e6614d9dcc04f2bc63a6cca8e42905bac97d948e0c86515afcbf",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/records/2026-10-30-format-preservation.md": "2ba06bb65a39a4216691555ce8f77f7cde136181d9169b396d0671eb634e721d",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/records/2026-10-30-introduction.md": "c2f33c9251df00e969b2bd2004f712303ea8a343cf5fa38c7af65b456325e203",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md": "b400db0e348bd78c8ad01b00e38238ec2d13d57f41065c38288cbc1bdeac2f04",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/viewer.html": "67afb7e4ab472bee58a4bce70b3303b0cf5e25048db5135b8391be86fc7506fe",
+    "reference-project/AGENTS.md": "b3c93bbe5c20a81e58645a0243af495d6669136937dc171030b79ab80b86606b",
+    "reference-project/context/README.md": "a306d2cc386a253fa138d37108daeb9025c7f586f362d8f6cc6559da176dff97",
+    "reference-project/context/WRITING-FORMAT.md": "224dda3f5543ba14a0b2584e2c81007ebab2de72929319a7a21f66992d3a9f25",
+    "reference-project/context/_background/README.md": "ad32c7a67be4f44e5069b4abfa83e9ed0f7d6e77df31c3339c7669edd512f37f",
+    "reference-project/context/_background/records/2026-10-30-writing-format-application.md": "1dc8249e799f5e7fea8e1daf5ca8d016cfc5e82132704ef0b2900e7e43829f54",
+    "reference-project/context/_background/writing-format/README.md": "925d31e5a134a5ac5d52e3b96585299bfc6f58855804cacf71d73aed55ad9665",
+    "reference-project/context/_background/writing-format/context.md": "a6c4e3478306e2c48338a9b6f2b80ff8ad596758209833f9fedafd4d1b18be08",
+    "reference-project/context/_background/writing-format/evidence.md": "295fb3a4bbc2e6614d9dcc04f2bc63a6cca8e42905bac97d948e0c86515afcbf",
+    "reference-project/context/_background/writing-format/records/2026-10-30-format-preservation.md": "2ba06bb65a39a4216691555ce8f77f7cde136181d9169b396d0671eb634e721d",
+    "reference-project/context/_background/writing-format/records/2026-10-30-introduction.md": "4f35f37fd8794fb37617b5409136729ed42ea5b8e9ee66ea201b22c40d3520f2",
+    "reference-project/context/personal/development/naming-and-completion/INDEX.md": "b400db0e348bd78c8ad01b00e38238ec2d13d57f41065c38288cbc1bdeac2f04",
+    "reference-project/context/project/REFERENCE/composition.md": "ec8ada114e1fff5053ba9b292e4a369dd2d027af1a1de302aa1d6cf301d18f39"
+  },
+  "preexisting_parallel_files_unchanged": [
+    "context/workspaces/014-ai-development-workflow-design/README.md",
+    "context/workspaces/014-ai-development-workflow-design/current/index.md",
+    "context/workspaces/014-ai-development-workflow-design/current/memory.md",
+    "context/workspaces/014-ai-development-workflow-design/current/tickets/02-work-records.md",
+    "context/workspaces/014-ai-development-workflow-design/current/tickets/06-framework-transition/06-02-noline-reapplication.md",
+    "context/workspaces/014-ai-development-workflow-design/current/tickets/06-framework-transition/README.md",
+    "context/workspaces/014-ai-development-workflow-design/current/tickets/index.md"
+  ],
+  "changed_files_hash_scope": "커밋할 선택 내용의 SHA-256. 공유 state/output/records 색인의 병렬 hunk는 제외한다.",
+  "commit_parent_after_parallel_update": "04daae75d246989cd29ff92df85681b199ba6c7c"
+}

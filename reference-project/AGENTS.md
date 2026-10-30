@@ -11,7 +11,7 @@
 - 이미 만든 Workspace로 현재 작업을 전환해 달라는 요청에는 생성 skill을 다시 실행하지 않는다. 새 Main session을 보편적으로 강제하지 않으며, 같은 session에서는 생성·전환 canonical의 판단과 Maintain session lifecycle 계약을 함께 적용해 현재 turn을 predecessor binding으로 마감하고 activation이 성공한 뒤 다음 turn부터 successor를 사용한다. 설정 파일 변경만으로 actual activation이나 새 grounding을 완료했다고 주장하지 않는다.
 - 필요한 맥락의 선택·대조·재사용은 [`context/USAGE.md`](context/USAGE.md)를 따른다. 개인 판단 기준은 [`Personal`](context/personal/README.md), 제품 의미·현재 구조·계약은 [`Project`](context/project/README.md)에서 질문별로 고른다. 이미 확보한 맥락으로 충분한 작업에 전체 재독을 요구하지 않는다.
 - 작업 중 지속할 변화가 명확해지거나 Personal·Project의 갱신·누락 복원·승인된 이동을 요청받으면 [`context-update`](.agents/skills/context-update/SKILL.md)를 사용한다. Personal의 채택·편집 권한은 [Personal 안내](context/personal/README.md), Project의 권한·영향·완료는 [관리 계약](context/project/MAINTENANCE.md), 내용 구성은 [Project 작성 기준](context/project/REFERENCE/composition.md)이 소유한다. Work 기록은 기존 Main·Maintain 계약으로 연결한다.
-- Personal·Project의 본문이나 구성을 바꿀 때는 [CONTENT-POLICY](context/CONTENT-POLICY.md), 체계 지침의 범위·진입·분할을 바꿀 때는 [SYSTEM-GUIDANCE](context/SYSTEM-GUIDANCE.md)를 읽는다. 스킬을 만들거나 의미·구성을 바꿀 때는 [스킬 관리 정책](.agents/skills/SKILLS-CONTENT-POLICY.md)을 읽는다. Work의 기존 관리 계약에 이 정책을 자동 확장하지 않는다.
+- Personal·Project의 본문이나 구성을 바꿀 때는 [CONTENT-POLICY](context/CONTENT-POLICY.md)를 읽고, 본문을 작성·수정할 때는 [WRITING-FORMAT](context/WRITING-FORMAT.md)의 적용 범위와 형식 기준을 확인한다. 체계 지침의 범위·진입·분할을 바꿀 때는 [SYSTEM-GUIDANCE](context/SYSTEM-GUIDANCE.md)를 읽는다. 스킬을 만들거나 의미·구성을 바꿀 때는 [스킬 관리 정책](.agents/skills/SKILLS-CONTENT-POLICY.md)을 읽는다. Work의 기존 관리 계약에 이 정책을 자동 확장하지 않는다.
 - 제품 구현과 제품 테스트는 `src/`와 `tests/`가 소유한다. Work 문서나 Harness 아래에 복제하지 않는다.
 
 명령은 별도 지시가 없으면 이 Project root에서 실행한다. 하위 `AGENTS.md`의 상세 규칙을 이 파일에 반복하지 않는다.

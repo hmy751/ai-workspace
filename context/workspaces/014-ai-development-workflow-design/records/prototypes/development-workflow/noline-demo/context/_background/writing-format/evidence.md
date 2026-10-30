@@ -31,3 +31,11 @@
 - 글로벌 `ai-system_instruction-clarity.md`의 "관계에 맞는 형식으로 구성한다"
 - `reference-project/context/project/REFERENCE/composition.md`의 "한 주제의 의미가 이어지게 쓴다"
 - `reference-project/context/work/workspaces/DOCUMENT-WRITING.md`의 "구성과 읽기 흐름" (Work 보류로 고치지 않음)
+
+## 2026-10-30 보완·Reference 반영 요청
+
+최종 반영본의 강도와 대조 기록 범위, Reference에서 남길 Project 작성 책임을 설명한 뒤 사용자는 다음과 같이 요청했다.
+
+> 그래 그럼 프로토타입부터 보완하고 확인한 다음 Reference에 반영해봐. 기존 판단과 강도 잘 지키고 background잘 보고
+
+형식 보완·대조·반영의 근거이며 새 개인 기준의 채택이나 Work·Maintain 변경 요청으로 해석하지 않았다. 실제 보정 항목과 확인 상한은 [대조 기록](records/2026-10-30-format-preservation.md)에 남겼다.

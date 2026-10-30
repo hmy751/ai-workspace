@@ -10,5 +10,6 @@
 | 사용자는 실제로 무엇을 보고 어떻게 판단했나 | [사용자 발화](evidence.md#사용자-발화) |
 | 원인 분석의 수치는 무엇이었나 | [관찰한 수치](evidence.md#관찰한-수치) |
 | 어느 본문을 언제 이 형식으로 옮겼나 | [도입과 형식 전환 기록](records/2026-10-30-introduction.md) |
+| 최종 전환본도 기존 판단과 강도를 유지하는가 | [마감 판과 대조·보정한 기록](records/2026-10-30-format-preservation.md) |
 
-같은 판단을 담은 시안·판단 대조표·지표 원본은 ai-workspace의 [Workspace 014 실험 기록](../../../../../../experiments/principle-readability-2026-10-29/README.md)에 있다. 이 데모 밖의 경로라 설치된 Project에서는 열리지 않을 수 있으므로, 판단에 필요한 발화와 수치는 [evidence](evidence.md)에 직접 남겼다.
+초기 시안·대조표·지표의 출처는 ai-workspace의 Workspace 014 `records/experiments/principle-readability-2026-10-29/`다(`3a28e6a1`에 보존). 설치된 Project 밖의 파일에 읽기를 의존하지 않도록 필요한 발화·수치는 [evidence](evidence.md), 최종판의 대조와 보정은 위 형식 전환 기록에 담았다.

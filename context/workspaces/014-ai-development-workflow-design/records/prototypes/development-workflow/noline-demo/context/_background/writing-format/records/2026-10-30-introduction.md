@@ -20,7 +20,7 @@
 
 | 본문 | 판본 | 대조 |
 | --- | --- | --- |
-| [naming-and-completion/INDEX.md](../../../personal/development/naming-and-completion/INDEX.md) | 01-02 마감 판(`6e6dccb8`)을 옮김 | 판단·강도 대조는 [Workspace 014 실험 기록](../../../../../../../experiments/principle-readability-2026-10-29/coverage.md). 01-02에서 더해진 상수 판단·주석 상세 연결·블록 중괄호도 반영했다. |
+| [naming-and-completion/INDEX.md](../../../personal/development/naming-and-completion/INDEX.md) | 01-02 마감 판(`6e6dccb8`)을 옮김 | 초기 대조표는 `a26d2f95` 시안 기준이므로 이 최종판 전체의 확인 근거와 구별한다. 01-02에서 더해진 상수 판단·주석 상세 연결·블록 중괄호는 반영했고, 후속 [마감 판 대조·보정](2026-10-30-format-preservation.md)에서 최종 본문의 판단·강도를 다시 확인했다. |
 
 판단을 바꾸지 않고 형식만 옮겼으므로 naming-and-completion의 형성 자료는 고치지 않았다.
 

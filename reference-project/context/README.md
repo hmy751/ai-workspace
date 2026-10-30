@@ -14,6 +14,6 @@ Project 본문은 제품 문서의 복사본이나 링크 목록이 아니다. [
 
 ## 본문을 관리할 때
 
-Personal·Project와 이 공통 context 본문은 [CONTENT-POLICY](CONTENT-POLICY.md)의 본문·형성 자료 구별을 따른다. 체계 지침의 역할·진입·분할을 바꿀 때는 [SYSTEM-GUIDANCE](SYSTEM-GUIDANCE.md)를 적용한다. Work에는 새 정책의 구성을 적용하지 않고 기존 관리 계약을 따른다.
+Personal·Project와 이 공통 context 본문은 [CONTENT-POLICY](CONTENT-POLICY.md)의 본문·형성 자료 구별을 따른다. 본문을 새로 쓰거나 고칠 때는 [WRITING-FORMAT](WRITING-FORMAT.md)에서 적용 범위와 문장·구성 기준을 확인한다. 체계 지침의 역할·진입·분할을 바꿀 때는 [SYSTEM-GUIDANCE](SYSTEM-GUIDANCE.md)를 적용한다. Work에는 새 정책의 구성을 적용하지 않고 기존 관리 계약을 따른다.
 
 허용된 한정 반영은 [context-update](../.agents/skills/context-update/SKILL.md), 실제 권한과 내용 판단은 [Personal 관리](personal/README.md#기준을-고치는-경우)와 [Project 관리](project/MAINTENANCE.md)가 맡는다. 책임과 위치의 선택 이유는 [형성 자료](_background/README.md)에서 찾는다. Harness나 스킬을 교체해도 각 내용 Owner와 Work의 README·current·source·output·records 의미는 남는다.

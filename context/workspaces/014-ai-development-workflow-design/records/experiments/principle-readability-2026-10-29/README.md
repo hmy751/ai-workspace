@@ -1,5 +1,7 @@
 # 원칙 문서 가독성 시안 (2026-10-29)
 
+**후속 판본 안내(2026-10-30):** 아래는 `a26d2f95`의 초기 시안·대조를 보존한 기록이다. `3a28e6a1` 도입 이후 최종 본문은 01-02 마감 판 `6e6dccb8`과 [다시 대조·보정](../../prototypes/development-workflow/noline-demo/context/_background/writing-format/records/2026-10-30-format-preservation.md)했다. 아래 당시 상태·수치·미포함 범위를 최종판의 확인 결과로 읽지 않는다.
+
 원칙 문서 하나를 판단 내용은 그대로 두고 읽기 쉬운 형식으로 다시 쓴 비교용 시안이다. 원본은 바꾸지 않았고, 채택 여부는 정하지 않았다.
 
 - 원본: [naming-and-completion/INDEX.md](../../prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md) — `a26d2f95` 판

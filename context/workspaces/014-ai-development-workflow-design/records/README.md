@@ -1,5 +1,7 @@
 # 논의와 보존 기록
 
+- [06-01 본문 형식 보완·Reference 반영](2026-10-30-ticket06-01-writing-format-application.md): 최신 판단 원본·background와 강도 대조, prototype 표시 사본 확인, Reference의 형식 기준·이름 본문·Project 작성 경로 반영과 보존 범위.
+
 - [02 재개·현재 입력과 첫 논의](2026-10-30-ticket02-reentry-and-first-discussion.md): 이미 정한 기록 책임과 남은 운영안, 현재 방향 정정과 판단 이력 보존의 실제 장면, 구성·시점·Maintain의 후속 비교 범위.
 
 - [06-01 채택 품질 기준의 Reference 후속 반영](2026-10-30-ticket06-01-personal-quality-update.md): 코드 표현·진단과 이름·계약 보완, 기존 링크 적응·형성 근거, 직접 확인과 Maintain·Work 보존. Noline 적용안은 새 판본 반영이 필요하다.
