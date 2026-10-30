@@ -1,5 +1,9 @@
 # 논의와 보존 기록
 
+- [06-02 Noline 부분 반영·확인](2026-10-30-ticket06-02-noline-partial-application.md): 최신 Reference의153개 경로 적용, Noline 고유 기준·artifacts·Maintain 보존, 정적/Recover 결과와02 후속.
+
+- [06-02 최신 Reference·Noline 고유 기준 재대조](2026-10-30-ticket06-02-reference-refresh-review.md): `f5082bc3` 기준153개 경로 계획, 제품·TypeScript·Project 관리 기준 보존과 좁은 병합, 호환 경로·실행 한계. Noline 실제 반영 전의 검토 결과다.
+
 - [06-01 공통화 선택·오류 계약의 부분 보완](2026-10-30-ticket06-01-shared-contract-format.md): 원본·background와 판단/강도 대조, prototype 확인 뒤 Reference 반영, 기존 절·사례·형성 자료 보존과 미확인 범위.
 
 - [06-01 형식 반영 뒤 전반 점검](2026-10-30-ticket06-01-format-overall-review.md): Personal·Project의 조건/설명 구성과 진입·형성 자료 대조. 유지할 본문, 공통화·계약/수명 후속 후보, 커밋/표시 사본/링크 확인과 미실행 범위.
@@ -15,6 +19,8 @@
 - [01-02 초대 기능의 책임 배치 기준 충분성](2026-10-29-ticket01-02-responsibility-sufficiency.md): 한 함수 유지·내부 책임 분리·파일 분리를 가르는 조건과 기존 도구의 책임을 현재 본문에서 대조했다. 새 기준의 필수 추가는 추천하지 않으며 다음은 완료 조건 종합이다. 날짜 사례는 필수 순서에서 제외했다.
 
 - [01-02 코드 표현 기준 prototype 반영](2026-10-29-ticket01-02-code-expression-prototype-adoption.md): 사용자 적용 요청에 따라 새 표현·진단 주제와 이름·계약 보완, 형성 자료·읽기 진입·열람 화면을 갱신했다. 정적 확인 결과와 Reference/Noline 후속 대조·남은01-02를 구별한다.
+
+- [06-02 Noline 현행 대조·첫 적용안](2026-10-29-ticket06-02-noline-preflight-and-plan.md): 기존 판본·제품별 보완·스킬 원본/bridge·검증 입력과 호환 경로, 계획141개 경로·보호 대상·기존 링크 실패8건. Noline 실제 반영 전의 검토안이다.
 
 - [01-02 기존 코드 표현 기준의 계승안](2026-10-29-ticket01-02-code-expression-inheritance-proposal.md): 항목별 Personal·Project·개발 절차의 소유, 실제 표현 본문 후보, 배치 대안과 적용 장면. 제안 당시 미반영이며 이후 prototype 적용은 위 후속 기록을 따른다.
 

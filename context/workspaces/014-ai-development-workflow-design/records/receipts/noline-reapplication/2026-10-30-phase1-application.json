@@ -1,0 +1,2167 @@
+{
+  "status": "partial_application_verified_static_and_read_only",
+  "source_commit": "f5082bc30ab3470a3e3a4a895cfcb6cb50b3af81",
+  "target_root": "/Users/hammyeong-yeon/Desktop/10_work/noline",
+  "target_head": "4fb309d2ba50afaca44019879d7161964b9b2328",
+  "target_branch": "main",
+  "applied_at": "2026-10-30",
+  "approved_plan": "2026-10-30-phase1-plan-refresh.json",
+  "preflight": "preflight-20261030T055124157918Z-9d393dbdbce84514b7f11c7109b047f1.json",
+  "preflight_sha256": "7e036939facf9b425f155b6d7d111dd3403db3d002941c00b58769995c2a4972",
+  "path_count": 153,
+  "paths": [
+    {
+      "path": "context/personal/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "2b1d848068b4f703af05a0b5e76421d3b246b623b0695b96a8133c185570b709"
+      },
+      "source": "context/personal/README.md",
+      "source_sha256": "821cb8e548565d478a93394a143fe2aebe539965c94130aaa5ce66da9595930a"
+    },
+    {
+      "path": "context/personal/_background/experience-collection/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "ce6c7bbc809f902d719d3b845106c90036db5b563ddbe493e8916e4156231a55"
+      },
+      "source": "context/personal/_background/experience-collection/README.md",
+      "source_sha256": "ce6c7bbc809f902d719d3b845106c90036db5b563ddbe493e8916e4156231a55"
+    },
+    {
+      "path": "context/personal/_background/experience-collection/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "cdf1320cd73b741b2610eff29894055bda5f260cf94f054fd064d23e615fe445"
+      },
+      "source": "context/personal/_background/experience-collection/context.md",
+      "source_sha256": "cdf1320cd73b741b2610eff29894055bda5f260cf94f054fd064d23e615fe445"
+    },
+    {
+      "path": "context/personal/_background/experience-collection/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "1e5786d7e9642c478aaba7d7f20e034b88f6f049d2400d4053ab4ed24599523b"
+      },
+      "source": "context/personal/_background/experience-collection/evidence.md",
+      "source_sha256": "1e5786d7e9642c478aaba7d7f20e034b88f6f049d2400d4053ab4ed24599523b"
+    },
+    {
+      "path": "context/personal/_background/experience-collection/records/2026-10-29-ownership.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "5527678c9ae175b09876af51da086f1c20cb387bfce7f85d47f629c22b0b9fe5"
+      },
+      "source": "context/personal/_background/experience-collection/records/2026-10-29-ownership.md",
+      "source_sha256": "5527678c9ae175b09876af51da086f1c20cb387bfce7f85d47f629c22b0b9fe5"
+    },
+    {
+      "path": "context/personal/development/INDEX.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "289fd0d5e27b1cd20cecce908a0dedb74282d5b24f029b336f12afc355f5a2ad"
+      },
+      "source": "context/personal/development/INDEX.md",
+      "source_sha256": "289fd0d5e27b1cd20cecce908a0dedb74282d5b24f029b336f12afc355f5a2ad"
+    },
+    {
+      "path": "context/personal/development/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "d447fc32af2bf4dfc3027628a88b7358bb2a878e0cc0c935df82de6f95992685"
+      },
+      "source": "context/personal/development/README.md",
+      "source_sha256": "d447fc32af2bf4dfc3027628a88b7358bb2a878e0cc0c935df82de6f95992685"
+    },
+    {
+      "path": "context/personal/development/_background/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "7ae94e5f85700736b313bf640efddbf1715d4cfd3656c61dc69fd25250c2400f"
+      },
+      "source": "context/personal/development/_background/README.md",
+      "source_sha256": "7ae94e5f85700736b313bf640efddbf1715d4cfd3656c61dc69fd25250c2400f"
+    },
+    {
+      "path": "context/personal/development/_background/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "03455216daac6792c1dbc11d339896f90029256e51757e36d1d3c3a0a6d99c19"
+      },
+      "source": "context/personal/development/_background/context.md",
+      "source_sha256": "03455216daac6792c1dbc11d339896f90029256e51757e36d1d3c3a0a6d99c19"
+    },
+    {
+      "path": "context/personal/development/_background/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "f6b93f3f73a4d6fa11af8bb34e2180cf61cdb31745dae13f860fb4b748e1f657"
+      },
+      "source": "context/personal/development/_background/evidence.md",
+      "source_sha256": "f6b93f3f73a4d6fa11af8bb34e2180cf61cdb31745dae13f860fb4b748e1f657"
+    },
+    {
+      "path": "context/personal/development/_background/records/2026-10-13-responsibility-and-tools.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "0724677bf85174e08bafba5126276270eff404d18c25c5707ef6f9e4e8546e43"
+      },
+      "source": "context/personal/development/_background/records/2026-10-13-responsibility-and-tools.md",
+      "source_sha256": "0724677bf85174e08bafba5126276270eff404d18c25c5707ef6f9e4e8546e43"
+    },
+    {
+      "path": "context/personal/development/_background/records/2026-10-19-topic-restoration.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "8ac3df0bde61afa067bc50afde241bc88334d80cfed21b965370282e9b50f100"
+      },
+      "source": "context/personal/development/_background/records/2026-10-19-topic-restoration.md",
+      "source_sha256": "8ac3df0bde61afa067bc50afde241bc88334d80cfed21b965370282e9b50f100"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/INDEX.cases.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "047d53fd895d6a9f23394cd42d3d15dbc8bd9b68ebee9ebb98b04f67e23fe11b"
+      },
+      "source": "context/personal/development/contracts-and-lifetime/INDEX.cases.md",
+      "source_sha256": "047d53fd895d6a9f23394cd42d3d15dbc8bd9b68ebee9ebb98b04f67e23fe11b"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/INDEX.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "bf4ea286a796bde148732aafd7e43a88bf98c76ca6c33a640fd7b27907a48923"
+      },
+      "source": "context/personal/development/contracts-and-lifetime/INDEX.md",
+      "source_sha256": "bf4ea286a796bde148732aafd7e43a88bf98c76ca6c33a640fd7b27907a48923"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "14207d377a15eaadde906a808148b03e4bf618a98bbd818ace869d73bdfeb362"
+      },
+      "source": "context/personal/development/contracts-and-lifetime/README.md",
+      "source_sha256": "14207d377a15eaadde906a808148b03e4bf618a98bbd818ace869d73bdfeb362"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "f848218f3ba9c0d7ee5d08b68c17bfaf39a229ccaab276acea32e9905dd24bc7"
+      },
+      "source": "context/personal/development/contracts-and-lifetime/_background/README.md",
+      "source_sha256": "f848218f3ba9c0d7ee5d08b68c17bfaf39a229ccaab276acea32e9905dd24bc7"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "12d7d83964996180c92835cd107ce47d961f24c2fc7b8ee1efff9ef1842df3e1"
+      },
+      "source": "context/personal/development/contracts-and-lifetime/_background/context.md",
+      "source_sha256": "12d7d83964996180c92835cd107ce47d961f24c2fc7b8ee1efff9ef1842df3e1"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "4d682e432198a12bd62f05962ff82d88d4a5d44bece090be20c377132a8af88e"
+      },
+      "source": "context/personal/development/contracts-and-lifetime/_background/evidence.md",
+      "source_sha256": "4d682e432198a12bd62f05962ff82d88d4a5d44bece090be20c377132a8af88e"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-error-contract-and-review.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "d49f684cee96da4f8add39328af6a17916e891324a65418f415bbb97db8bcda3"
+      },
+      "source": "context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-error-contract-and-review.md",
+      "source_sha256": "d49f684cee96da4f8add39328af6a17916e891324a65418f415bbb97db8bcda3"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-lifetime-and-supported-scope.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "6877f4dd75555784a7b0f61bca56cff3f23d84552b092747853a030a6743598b"
+      },
+      "source": "context/personal/development/contracts-and-lifetime/_background/records/2026-10-16-lifetime-and-supported-scope.md",
+      "source_sha256": "6877f4dd75555784a7b0f61bca56cff3f23d84552b092747853a030a6743598b"
+    },
+    {
+      "path": "context/personal/development/contracts-and-lifetime/_background/records/2026-10-23-conditional-criteria.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c8256ae1c30929fa7347e7172570f5a37c3d24787245cf9ce0a6bd3dfaaa7bcd"
+      },
+      "source": "context/personal/development/contracts-and-lifetime/_background/records/2026-10-23-conditional-criteria.md",
+      "source_sha256": "c8256ae1c30929fa7347e7172570f5a37c3d24787245cf9ce0a6bd3dfaaa7bcd"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/INDEX.cases.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "f2d84753054ae25b4a9003a4a7d1734fe9cf2c94027f5662c38f7cd64fa71be0"
+      },
+      "source": "context/personal/development/naming-and-completion/INDEX.cases.md",
+      "source_sha256": "f2d84753054ae25b4a9003a4a7d1734fe9cf2c94027f5662c38f7cd64fa71be0"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/INDEX.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "b400db0e348bd78c8ad01b00e38238ec2d13d57f41065c38288cbc1bdeac2f04"
+      },
+      "source": "context/personal/development/naming-and-completion/INDEX.md",
+      "source_sha256": "b400db0e348bd78c8ad01b00e38238ec2d13d57f41065c38288cbc1bdeac2f04"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "742ad9e1823e9617e79db5523ea1040c3149cda93d64a92b3fb6e5e63ac384cf"
+      },
+      "source": "context/personal/development/naming-and-completion/README.md",
+      "source_sha256": "742ad9e1823e9617e79db5523ea1040c3149cda93d64a92b3fb6e5e63ac384cf"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "e12ab8f1fc4cc2e3acd0ef55e4e7cc7ddbef25dbc975a77d2d8b1ec19627dff5"
+      },
+      "source": "context/personal/development/naming-and-completion/_background/README.md",
+      "source_sha256": "e12ab8f1fc4cc2e3acd0ef55e4e7cc7ddbef25dbc975a77d2d8b1ec19627dff5"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "f06297816e3f1bcd77306e225428f840b529dca0b5c72ce091589e684cd52bdd"
+      },
+      "source": "context/personal/development/naming-and-completion/_background/context.md",
+      "source_sha256": "f06297816e3f1bcd77306e225428f840b529dca0b5c72ce091589e684cd52bdd"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "602ebdaef0763f18d4803ec39bd6b6dc9cda012e1da5ba74f871751013874c90"
+      },
+      "source": "context/personal/development/naming-and-completion/_background/evidence.md",
+      "source_sha256": "bacf131b55ae5ac50773176c196660ca137a725e35d91b9da888b9bb1b26d93d"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-16-iserror-retention.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c727e392e13254378af5bc75b554bff2f044d7c79f52fb51f7c2fa1fbe113ceb"
+      },
+      "source": "context/personal/development/naming-and-completion/_background/records/2026-10-16-iserror-retention.md",
+      "source_sha256": "c727e392e13254378af5bc75b554bff2f044d7c79f52fb51f7c2fa1fbe113ceb"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-18-conditional-application.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "091bc6ed8fc783b94f2f636653d5bfd039aec69aedf01417d6d234d6d658a628"
+      },
+      "source": "context/personal/development/naming-and-completion/_background/records/2026-10-18-conditional-application.md",
+      "source_sha256": "091bc6ed8fc783b94f2f636653d5bfd039aec69aedf01417d6d234d6d658a628"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-19-clarity-and-renaming.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "61ccf9ab1e6db8034664c89686e9c47126af7dd68680539bf30bccfa1ddc073f"
+      },
+      "source": "context/personal/development/naming-and-completion/_background/records/2026-10-19-clarity-and-renaming.md",
+      "source_sha256": "61ccf9ab1e6db8034664c89686e9c47126af7dd68680539bf30bccfa1ddc073f"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-19-personal-ownership.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "e378d8accd825c0ec509fe09c0d313c49f7f1fba66f1e9241d1d06137df73d77"
+      },
+      "source": "context/personal/development/naming-and-completion/_background/records/2026-10-19-personal-ownership.md",
+      "source_sha256": "e378d8accd825c0ec509fe09c0d313c49f7f1fba66f1e9241d1d06137df73d77"
+    },
+    {
+      "path": "context/personal/development/naming-and-completion/_background/records/2026-10-23-conditional-criteria.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "df76d9da86ff0b4a319157a29cd97cdb758fbc3263f712bd6343b6e3e182e27e"
+      },
+      "source": "context/personal/development/naming-and-completion/_background/records/2026-10-23-conditional-criteria.md",
+      "source_sha256": "df76d9da86ff0b4a319157a29cd97cdb758fbc3263f712bd6343b6e3e182e27e"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/INDEX.cases.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "b265dca9eff082e4a2631d6f8ab57f6df04a0779af6d8ed471c46d00f5232704"
+      },
+      "source": "context/personal/development/shared-boundaries/INDEX.cases.md",
+      "source_sha256": "b265dca9eff082e4a2631d6f8ab57f6df04a0779af6d8ed471c46d00f5232704"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/INDEX.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "b3cf41b821f403558fe33d4901bd90f31c34c5f9994e6990ad1aa973e930089d"
+      },
+      "source": "context/personal/development/shared-boundaries/INDEX.md",
+      "source_sha256": "b3cf41b821f403558fe33d4901bd90f31c34c5f9994e6990ad1aa973e930089d"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "f2c33c414d2c8d8c773e6be5b64f51acf9237db57d83d40f26a35f8e9dae4ab7"
+      },
+      "source": "context/personal/development/shared-boundaries/README.md",
+      "source_sha256": "f2c33c414d2c8d8c773e6be5b64f51acf9237db57d83d40f26a35f8e9dae4ab7"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "ce9f486163c81ae1c5b9c826a0f52a57b93be7d8097505db22cf436258b1d06c"
+      },
+      "source": "context/personal/development/shared-boundaries/_background/README.md",
+      "source_sha256": "ce9f486163c81ae1c5b9c826a0f52a57b93be7d8097505db22cf436258b1d06c"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "3f29ab38d948516a5165cebdea21feda5b038616fc53745680fc21a8d5971567"
+      },
+      "source": "context/personal/development/shared-boundaries/_background/context.md",
+      "source_sha256": "3f29ab38d948516a5165cebdea21feda5b038616fc53745680fc21a8d5971567"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "fbff37c0d69b004da83ab69e71d0766406f46171f7b9cb2ac75789d24f349fa3"
+      },
+      "source": "context/personal/development/shared-boundaries/_background/evidence.md",
+      "source_sha256": "fbff37c0d69b004da83ab69e71d0766406f46171f7b9cb2ac75789d24f349fa3"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/records/2026-10-14-composition-and-common-form.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "2a84109ff9b4bf9399c646190211a83a0d1eb0a96c69d5063ce67284680fd4d8"
+      },
+      "source": "context/personal/development/shared-boundaries/_background/records/2026-10-14-composition-and-common-form.md",
+      "source_sha256": "2a84109ff9b4bf9399c646190211a83a0d1eb0a96c69d5063ce67284680fd4d8"
+    },
+    {
+      "path": "context/personal/development/shared-boundaries/_background/records/2026-10-16-workflow-and-related-improvement.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "5508f36980ce48cd6dfea1e6d62857774f7d6704e29a508f17c990604542dcb6"
+      },
+      "source": "context/personal/development/shared-boundaries/_background/records/2026-10-16-workflow-and-related-improvement.md",
+      "source_sha256": "5508f36980ce48cd6dfea1e6d62857774f7d6704e29a508f17c990604542dcb6"
+    },
+    {
+      "path": "context/personal/experience/MAINTENANCE.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "e33de177c995ebccc5b86bbbd665e1895aa6f7d99920df82e8ce792a699c2d36"
+      },
+      "source": "context/personal/experience/MAINTENANCE.md",
+      "source_sha256": "95995e1870b76ffb8d78206bff86e1a1dde22c1b6f900f824e500b4713a57eab"
+    },
+    {
+      "path": "context/personal/experience/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "06381c283e9b486f7c25273c36536146bc60ae2e55170f8ba7197421a00c1c58"
+      },
+      "source": "context/personal/experience/README.md",
+      "source_sha256": "95330794648f437cc2de7d1a37207d20bd5b0788d047b4d8678fae7286fe1f90"
+    },
+    {
+      "path": "context/personal/experience/topics/design-conversation.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "d2a4a22da297c796782488eaec54aab1df816d2e557894bd237075883d113260"
+      },
+      "source": "context/personal/experience/topics/design-conversation.md",
+      "source_sha256": "d2a4a22da297c796782488eaec54aab1df816d2e557894bd237075883d113260"
+    },
+    {
+      "path": "context/personal/experience/topics/document-quality.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "841f866cb62b9fa7aa550c88ce4d8b43e199ef29a999db9e0f73b76451685314"
+      },
+      "source": "context/personal/experience/topics/document-quality.md",
+      "source_sha256": "841f866cb62b9fa7aa550c88ce4d8b43e199ef29a999db9e0f73b76451685314"
+    },
+    {
+      "path": "context/personal/experience/topics/explanation-effects.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "4eaa990574d9ec09b40dd328519d1663564c17a537b11f8a9fb59c852896decd"
+      },
+      "source": "context/personal/experience/topics/explanation-effects.md",
+      "source_sha256": "b15d83b11e763d7a42f815822e5a655313f2b132e7bd655abe7a006f23f94ed1"
+    },
+    {
+      "path": "context/_background/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "74105137ca22c7b08d72afbf44d12045bbec97e0ca7248e9a04461e46c874871"
+      },
+      "source": "context/_background/README.md",
+      "source_sha256": "ad32c7a67be4f44e5069b4abfa83e9ed0f7d6e77df31c3339c7669edd512f37f"
+    },
+    {
+      "path": "context/_background/content-policy/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "4dde76ab5a8866d4abd6744f8439d3433a7cf1df0cd128bd5afaf16987532208"
+      },
+      "source": "context/_background/content-policy/README.md",
+      "source_sha256": "4dde76ab5a8866d4abd6744f8439d3433a7cf1df0cd128bd5afaf16987532208"
+    },
+    {
+      "path": "context/_background/content-policy/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "19f0fcd8f30f0fbfa031cafd3f50ef8bb09fbfa0e0f6e2531a762426cafef31c"
+      },
+      "source": "context/_background/content-policy/context.md",
+      "source_sha256": "19f0fcd8f30f0fbfa031cafd3f50ef8bb09fbfa0e0f6e2531a762426cafef31c"
+    },
+    {
+      "path": "context/_background/content-policy/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "3aa571e362d34b959cf27bd33d7abd1d9c57d70b75bd344a6f03f47fdf33a910"
+      },
+      "source": "context/_background/content-policy/evidence.md",
+      "source_sha256": "3aa571e362d34b959cf27bd33d7abd1d9c57d70b75bd344a6f03f47fdf33a910"
+    },
+    {
+      "path": "context/_background/content-policy/records/2026-10-20-entry-restoration-and-complete-moves.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "e78052e47dfb6554637ad051a45b23682e88a6742b72e0ead696a3b76924a33b"
+      },
+      "source": "context/_background/content-policy/records/2026-10-20-entry-restoration-and-complete-moves.md",
+      "source_sha256": "e78052e47dfb6554637ad051a45b23682e88a6742b72e0ead696a3b76924a33b"
+    },
+    {
+      "path": "context/_background/content-policy/records/2026-10-20-formation-sources-and-role-separation.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "89b66960033fa163548a4985871e12e59ae22978d705874c3793d35d4ac1a152"
+      },
+      "source": "context/_background/content-policy/records/2026-10-20-formation-sources-and-role-separation.md",
+      "source_sha256": "89b66960033fa163548a4985871e12e59ae22978d705874c3793d35d4ac1a152"
+    },
+    {
+      "path": "context/_background/content-policy/records/2026-10-20-scope-and-construction.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "8054f10e3366ca4cf3c078af2f96765861875cad9f74f0019a9fed4aa15dedc9"
+      },
+      "source": "context/_background/content-policy/records/2026-10-20-scope-and-construction.md",
+      "source_sha256": "8054f10e3366ca4cf3c078af2f96765861875cad9f74f0019a9fed4aa15dedc9"
+    },
+    {
+      "path": "context/_background/content-policy/records/2026-10-20-visible-file-roles.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "1d80de8a30a048a835843ff53809c6b8407a862603a43e1099abcc8c6b958ce1"
+      },
+      "source": "context/_background/content-policy/records/2026-10-20-visible-file-roles.md",
+      "source_sha256": "1d80de8a30a048a835843ff53809c6b8407a862603a43e1099abcc8c6b958ce1"
+    },
+    {
+      "path": "context/_background/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "fc9a311b15c5c4501c2755ed8fa1eb4b22420af5418de68be629f1a36044776f"
+      },
+      "source": "context/_background/context.md",
+      "source_sha256": "fc9a311b15c5c4501c2755ed8fa1eb4b22420af5418de68be629f1a36044776f"
+    },
+    {
+      "path": "context/_background/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "289f23c2314c6096ab8845bd7fc71cf7b5ab272d0e45f01452188c29230151a2"
+      },
+      "source": "context/_background/evidence.md",
+      "source_sha256": "289f23c2314c6096ab8845bd7fc71cf7b5ab272d0e45f01452188c29230151a2"
+    },
+    {
+      "path": "context/_background/records/2026-10-19-ownership-and-local-context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "6bd33ad6db23cd054185735ccbabd4e25bd6a621b3f2bbaa763ad2d04bd04c9e"
+      },
+      "source": "context/_background/records/2026-10-19-ownership-and-local-context.md",
+      "source_sha256": "6bd33ad6db23cd054185735ccbabd4e25bd6a621b3f2bbaa763ad2d04bd04c9e"
+    },
+    {
+      "path": "context/_background/system-guidance/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "53dee78c052139bc44c076bdb4f4a58d4e908f30e989edb74783bc38f601beaa"
+      },
+      "source": "context/_background/system-guidance/README.md",
+      "source_sha256": "53dee78c052139bc44c076bdb4f4a58d4e908f30e989edb74783bc38f601beaa"
+    },
+    {
+      "path": "context/_background/system-guidance/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "5e7dd8c0a5ee085a7a50227574a46337036aeceba3d29278087e0391a93f99eb"
+      },
+      "source": "context/_background/system-guidance/context.md",
+      "source_sha256": "93a94bf1efe097fadbbc4930cf8587f53062b187a50c2821b8edeb092198c50d"
+    },
+    {
+      "path": "context/_background/system-guidance/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "a47f5a48e4d6b9ecbe6e011871af7135e264b455d87452fe24eee22a24545bca"
+      },
+      "source": "context/_background/system-guidance/evidence.md",
+      "source_sha256": "a47f5a48e4d6b9ecbe6e011871af7135e264b455d87452fe24eee22a24545bca"
+    },
+    {
+      "path": "context/_background/system-guidance/records/2026-10-20-role-and-entry.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "389ff47cf3460652d2d77c70c7bf288322e94ffa1c55e39c63b810aa7c52c0e1"
+      },
+      "source": "context/_background/system-guidance/records/2026-10-20-role-and-entry.md",
+      "source_sha256": "389ff47cf3460652d2d77c70c7bf288322e94ffa1c55e39c63b810aa7c52c0e1"
+    },
+    {
+      "path": "context/_background/usage/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "ec3a69f843a4d10e364c27392575c9c7f18964738a18a32d3d5d1abb2f7ea113"
+      },
+      "source": "context/_background/usage/README.md",
+      "source_sha256": "ec3a69f843a4d10e364c27392575c9c7f18964738a18a32d3d5d1abb2f7ea113"
+    },
+    {
+      "path": "context/_background/usage/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "30ce563dfaf1c3393317a7e420cdd2b11b2168ad3faa300fb5d858204ebaadf9"
+      },
+      "source": "context/_background/usage/context.md",
+      "source_sha256": "55e57d6bc4da5be20e9dad9b8248a7bb092d0caef64937e9061f3a9a3449f639"
+    },
+    {
+      "path": "context/_background/usage/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "ae4814db39edc79d80ebd862f3202829495b4e5e89272f8e60f1b0855fd8d978"
+      },
+      "source": "context/_background/usage/evidence.md",
+      "source_sha256": "ae4814db39edc79d80ebd862f3202829495b4e5e89272f8e60f1b0855fd8d978"
+    },
+    {
+      "path": "context/_background/usage/records/2026-10-26-common-usage.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "489ada70398a3e9c485765ed859ad464542c25b866655a0bdc6b67ddcf27a64c"
+      },
+      "source": "context/_background/usage/records/2026-10-26-common-usage.md",
+      "source_sha256": "489ada70398a3e9c485765ed859ad464542c25b866655a0bdc6b67ddcf27a64c"
+    },
+    {
+      "path": ".claude/skills/context-update/SKILL.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c9de5bf2b2f58ffd4fe138550dd4586b9852da40802582e610424fdbec76e0c5"
+      },
+      "source": ".agents/skills/context-update/SKILL.md",
+      "source_sha256": "d79dad6257e895c63da41f161f778b5bf44cdb2e247a28ef3e96688536663e5d"
+    },
+    {
+      "path": ".claude/skills/context-update/_background/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "af653c42403e8a3fdabe54cab78fb3af7e03a0be690f3d1bac692c66bca4a23f"
+      },
+      "source": ".agents/skills/context-update/_background/README.md",
+      "source_sha256": "ea16c2c478565bcf58abf0f13fa34d83627b2dc665003b302dc8c47c3fac1f12"
+    },
+    {
+      "path": ".claude/skills/context-update/_background/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "20a4e80df40d297371148da70f0f9aed8719331bbcfcd0c595dfb0bb9c2e657d"
+      },
+      "source": ".agents/skills/context-update/_background/context.md",
+      "source_sha256": "113aa0cbd30163c6c194a48859d1f31831b5003aaabddfb3b1f8f8f842d71d36"
+    },
+    {
+      "path": ".claude/skills/context-update/_background/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "b3f56e446e5ff887efb54639cea3e3a81c46781291b860fc16d3d685d0c47ca7"
+      },
+      "source": ".agents/skills/context-update/_background/evidence.md",
+      "source_sha256": "b3f56e446e5ff887efb54639cea3e3a81c46781291b860fc16d3d685d0c47ca7"
+    },
+    {
+      "path": ".claude/skills/context-update/_background/records/2026-10-26-bounded-context-update.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "a36f730d5801d74e32bb6894d5ad80bf888f977e44322274b7036c3a5d46ce9e"
+      },
+      "source": ".agents/skills/context-update/_background/records/2026-10-26-bounded-context-update.md",
+      "source_sha256": "a36f730d5801d74e32bb6894d5ad80bf888f977e44322274b7036c3a5d46ce9e"
+    },
+    {
+      "path": ".claude/skills/context-update/agents/openai.yaml",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "cd84b54416890264a44b52c7f657a87e0e5fd660ffb3e0754db09ed150cfef0c"
+      },
+      "source": ".agents/skills/context-update/agents/openai.yaml",
+      "source_sha256": "cd84b54416890264a44b52c7f657a87e0e5fd660ffb3e0754db09ed150cfef0c"
+    },
+    {
+      "path": ".claude/skills/explain/SKILL.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "4f9cdbc3528a37fc4ddb312e90305e7b3e7956a366885cad7f2000764107bb6c"
+      },
+      "source": ".agents/skills/explain/SKILL.md",
+      "source_sha256": "4f9cdbc3528a37fc4ddb312e90305e7b3e7956a366885cad7f2000764107bb6c"
+    },
+    {
+      "path": ".claude/skills/explain/_background/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "fd1e0a3dd1232e0ca545a9ba5227afa5fd669b98972ab3e3777235b645a06d95"
+      },
+      "source": ".agents/skills/explain/_background/README.md",
+      "source_sha256": "073a2716a6aeab83596e4e6618be826576b1f1cacbd1fc159b4ea9e1dda9e118"
+    },
+    {
+      "path": ".claude/skills/explain/_background/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "5e3a280defef16bdf68fcdd12b77a0b8c9bbf7e8370de0c507e7fecbd9d50284"
+      },
+      "source": ".agents/skills/explain/_background/context.md",
+      "source_sha256": "5e3a280defef16bdf68fcdd12b77a0b8c9bbf7e8370de0c507e7fecbd9d50284"
+    },
+    {
+      "path": ".claude/skills/explain/_background/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "7555b9beb733f9184cad16c0220bb2097f1745341e833971b62f2d12fa4ac7af"
+      },
+      "source": ".agents/skills/explain/_background/evidence.md",
+      "source_sha256": "7555b9beb733f9184cad16c0220bb2097f1745341e833971b62f2d12fa4ac7af"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/explanation-recovery/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "f503cd470726071de75f8c38d22a0c3b55c3e5dd4fdb348cde16d753d5f842e3"
+      },
+      "source": ".agents/skills/explain/_background/legacy/explanation-recovery/README.md",
+      "source_sha256": "f503cd470726071de75f8c38d22a0c3b55c3e5dd4fdb348cde16d753d5f842e3"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/explanation-recovery/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "3bba0c7a2e945e480fd1ba26fbcc2eafbcd8d7b1a8db5ca2a25b1b6cc3a942fd"
+      },
+      "source": ".agents/skills/explain/_background/legacy/explanation-recovery/context.md",
+      "source_sha256": "3bba0c7a2e945e480fd1ba26fbcc2eafbcd8d7b1a8db5ca2a25b1b6cc3a942fd"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/explanation-recovery/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "4dbed738da768a07f6af15df252f2670e301f41e835e40b667bffbb56ecbc701"
+      },
+      "source": ".agents/skills/explain/_background/legacy/explanation-recovery/evidence.md",
+      "source_sha256": "4dbed738da768a07f6af15df252f2670e301f41e835e40b667bffbb56ecbc701"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/explanation-recovery/records/2026-10-21-original-formation.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "550d374277608ee4c73eb0a88880049a9debd5db844eb349bedf786b2b50cdc7"
+      },
+      "source": ".agents/skills/explain/_background/legacy/explanation-recovery/records/2026-10-21-original-formation.md",
+      "source_sha256": "550d374277608ee4c73eb0a88880049a9debd5db844eb349bedf786b2b50cdc7"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/explanation-recovery/records/2026-10-23-before-explain.txt",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "3cce16d31b4548907fb5c7f9a4b1846b372cf72113345f06bb0a313ba05c24ae"
+      },
+      "source": ".agents/skills/explain/_background/legacy/explanation-recovery/records/2026-10-23-before-explain.txt",
+      "source_sha256": "3cce16d31b4548907fb5c7f9a4b1846b372cf72113345f06bb0a313ba05c24ae"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/work-artifact-briefing/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "46310623fd1fdd32918810df6816bff50350a3e3d91f649814ab56c3d8437fb2"
+      },
+      "source": ".agents/skills/explain/_background/legacy/work-artifact-briefing/README.md",
+      "source_sha256": "46310623fd1fdd32918810df6816bff50350a3e3d91f649814ab56c3d8437fb2"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/work-artifact-briefing/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "48a56a814c9c148c729c164721a9ee27a571602fdbfa2743cebad278428e03de"
+      },
+      "source": ".agents/skills/explain/_background/legacy/work-artifact-briefing/context.md",
+      "source_sha256": "48a56a814c9c148c729c164721a9ee27a571602fdbfa2743cebad278428e03de"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/work-artifact-briefing/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "6cc995c9cb83fd6e47769acab18d5faf2304955dd579c0967169b33d8bbec98f"
+      },
+      "source": ".agents/skills/explain/_background/legacy/work-artifact-briefing/evidence.md",
+      "source_sha256": "6cc995c9cb83fd6e47769acab18d5faf2304955dd579c0967169b33d8bbec98f"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-21-original-formation.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "977315c7b25a053790542cab8d55b05e59119f408355d75b3a17910d06daba88"
+      },
+      "source": ".agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-21-original-formation.md",
+      "source_sha256": "977315c7b25a053790542cab8d55b05e59119f408355d75b3a17910d06daba88"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-22-code-depth-adoption.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "781fb24926b510de39fd4fd37e46c05ac817f026da875bc1ca249acb25b55201"
+      },
+      "source": ".agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-22-code-depth-adoption.md",
+      "source_sha256": "781fb24926b510de39fd4fd37e46c05ac817f026da875bc1ca249acb25b55201"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-before-explain.txt",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "e269db374b2d3565fecc6d7dc419699f27f0fa74b17f7bc7fd53f0c8eb93f675"
+      },
+      "source": ".agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-before-explain.txt",
+      "source_sha256": "e269db374b2d3565fecc6d7dc419699f27f0fa74b17f7bc7fd53f0c8eb93f675"
+    },
+    {
+      "path": ".claude/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-responsibility-explanation-integration.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "be2843dbfd4c99ee26535aca00929a2695652e58accda74e272b97f13075a2d1"
+      },
+      "source": ".agents/skills/explain/_background/legacy/work-artifact-briefing/records/2026-10-23-responsibility-explanation-integration.md",
+      "source_sha256": "be2843dbfd4c99ee26535aca00929a2695652e58accda74e272b97f13075a2d1"
+    },
+    {
+      "path": ".claude/skills/explain/_background/records/2026-10-23-skills-index-before-explain.txt",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c1639e2a72e5cbb687e2b0169ec0b077e982ef78e0c33078e8645d356f39f1ae"
+      },
+      "source": ".agents/skills/explain/_background/records/2026-10-23-skills-index-before-explain.txt",
+      "source_sha256": "c1639e2a72e5cbb687e2b0169ec0b077e982ef78e0c33078e8645d356f39f1ae"
+    },
+    {
+      "path": ".claude/skills/explain/_background/records/2026-10-23-unification.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "df499f785b9a86c04ad471dcc27beaf7fe86b591fccf6e880dbd2ff05fcb9252"
+      },
+      "source": ".agents/skills/explain/_background/records/2026-10-23-unification.md",
+      "source_sha256": "df499f785b9a86c04ad471dcc27beaf7fe86b591fccf6e880dbd2ff05fcb9252"
+    },
+    {
+      "path": ".claude/skills/explain/_background/records/2026-10-24-explanation-revision.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "ae0e0a632662cb6313530437b9599a96cf11ed8b37e423b0eebd947f2de587a7"
+      },
+      "source": ".agents/skills/explain/_background/records/2026-10-24-explanation-revision.md",
+      "source_sha256": "ae0e0a632662cb6313530437b9599a96cf11ed8b37e423b0eebd947f2de587a7"
+    },
+    {
+      "path": ".claude/skills/explain/_background/records/2026-10-24-selective-improvement-adoption.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "90e65e7a65b9c63b036785f577db733e3d73786e2c4c3bb5dd7598a0fb30cef2"
+      },
+      "source": ".agents/skills/explain/_background/records/2026-10-24-selective-improvement-adoption.md",
+      "source_sha256": "90e65e7a65b9c63b036785f577db733e3d73786e2c4c3bb5dd7598a0fb30cef2"
+    },
+    {
+      "path": ".claude/skills/explain/_background/records/2026-10-25-body-organization.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c2dfcc2a7042b98ce91a99dd32e72e0b5c917839fdce4c37a1bcf424cb84827f"
+      },
+      "source": ".agents/skills/explain/_background/records/2026-10-25-body-organization.md",
+      "source_sha256": "c2dfcc2a7042b98ce91a99dd32e72e0b5c917839fdce4c37a1bcf424cb84827f"
+    },
+    {
+      "path": ".claude/skills/explain/_background/records/2026-10-25-code-presentation-adoption.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "a7210e740e5c2c9c8e378a275a4ae0cd311d839ec0a9949521b01e913a411ed6"
+      },
+      "source": ".agents/skills/explain/_background/records/2026-10-25-code-presentation-adoption.md",
+      "source_sha256": "a7210e740e5c2c9c8e378a275a4ae0cd311d839ec0a9949521b01e913a411ed6"
+    },
+    {
+      "path": ".claude/skills/explain/_background/records/2026-10-25-composition-adoption.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "354a41f837a15b1b4be74e548e840c7984f2462eb82fa5f8816d7780c402f959"
+      },
+      "source": ".agents/skills/explain/_background/records/2026-10-25-composition-adoption.md",
+      "source_sha256": "354a41f837a15b1b4be74e548e840c7984f2462eb82fa5f8816d7780c402f959"
+    },
+    {
+      "path": ".claude/skills/explain/_background/records/2026-10-25-flow-readability-adoption.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "8ebc5520d7a1ed84fc35477f644023f808ed03c264fc1a96bb1fc5dfdecdfef1"
+      },
+      "source": ".agents/skills/explain/_background/records/2026-10-25-flow-readability-adoption.md",
+      "source_sha256": "8ebc5520d7a1ed84fc35477f644023f808ed03c264fc1a96bb1fc5dfdecdfef1"
+    },
+    {
+      "path": ".claude/skills/explain/_background/records/2026-10-26-choice-judgment-adoption.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "25ec74b126b74eb6834d8c6f9dd1c8fa46fe638df307ed48359bcc6149f3144d"
+      },
+      "source": ".agents/skills/explain/_background/records/2026-10-26-choice-judgment-adoption.md",
+      "source_sha256": "25ec74b126b74eb6834d8c6f9dd1c8fa46fe638df307ed48359bcc6149f3144d"
+    },
+    {
+      "path": ".claude/skills/explain/agents/openai.yaml",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "7bd75c67fd51de9c1f4b7b6d3a57e2bb70e1ec37a295aabfa1081097808dbfd6"
+      },
+      "source": ".agents/skills/explain/agents/openai.yaml",
+      "source_sha256": "7bd75c67fd51de9c1f4b7b6d3a57e2bb70e1ec37a295aabfa1081097808dbfd6"
+    },
+    {
+      "path": ".claude/skills/explain/references/constructing-explanations.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "ba4a93dfbb3dc34ed73fa3036a0c47f2a110c2647d414f356c178884bac66cc5"
+      },
+      "source": ".agents/skills/explain/references/constructing-explanations.md",
+      "source_sha256": "ba4a93dfbb3dc34ed73fa3036a0c47f2a110c2647d414f356c178884bac66cc5"
+    },
+    {
+      "path": ".claude/skills/explain/references/examples/auth-flow.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "88bb3aa1bfcb1c0459e461175ab37f23f2e033ae60f3f8b06d7085c90dff7243"
+      },
+      "source": ".agents/skills/explain/references/examples/auth-flow.md",
+      "source_sha256": "88bb3aa1bfcb1c0459e461175ab37f23f2e033ae60f3f8b06d7085c90dff7243"
+    },
+    {
+      "path": ".claude/skills/explain/references/prior-explanation.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889"
+      },
+      "source": ".agents/skills/explain/references/prior-explanation.md",
+      "source_sha256": "8e77040d95e1df0c6e4f049f08b1f8a6c39d65bde6263d1b9ee3f81dd863e889"
+    },
+    {
+      "path": ".claude/skills/shared/explanation-and-evidence-criteria.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a"
+      },
+      "source": ".agents/skills/shared/explanation-and-evidence-criteria.md",
+      "source_sha256": "4a1bcbb6766c703b274d920d470e2e96821c7feaea81f8a4c4fa56c4374cbb1a"
+    },
+    {
+      "path": ".claude/skills/_background/skills-content-policy/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "929028b9e4e03a6698c183fc295da14ae8512764b7f551221f7c85b64b0b41f0"
+      },
+      "source": ".agents/skills/_background/skills-content-policy/README.md",
+      "source_sha256": "929028b9e4e03a6698c183fc295da14ae8512764b7f551221f7c85b64b0b41f0"
+    },
+    {
+      "path": ".claude/skills/_background/skills-content-policy/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c7074fb519a2f1d7e8da0bb4281e34e1fe8598dd9a1aa6af89c3def37b4cd5d2"
+      },
+      "source": ".agents/skills/_background/skills-content-policy/context.md",
+      "source_sha256": "c7074fb519a2f1d7e8da0bb4281e34e1fe8598dd9a1aa6af89c3def37b4cd5d2"
+    },
+    {
+      "path": ".claude/skills/_background/skills-content-policy/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "cb4e1525d82542bc6b5a73b8521ed7665fdeb91a348fc150cb9d65f42453159a"
+      },
+      "source": ".agents/skills/_background/skills-content-policy/evidence.md",
+      "source_sha256": "cb4e1525d82542bc6b5a73b8521ed7665fdeb91a348fc150cb9d65f42453159a"
+    },
+    {
+      "path": ".claude/skills/_background/skills-content-policy/records/2026-10-21-initial-policy.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "09acf1a5f52f2f971d962fc0e6d513e5e1c154f8d6cfca7c1240df267f5423ce"
+      },
+      "source": ".agents/skills/_background/skills-content-policy/records/2026-10-21-initial-policy.md",
+      "source_sha256": "09acf1a5f52f2f971d962fc0e6d513e5e1c154f8d6cfca7c1240df267f5423ce"
+    },
+    {
+      "path": ".claude/skills/_background/skills-content-policy/records/2026-10-22-revision-lifecycle.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "ec60706428b86467433f00a50dcb30456b909d8f42fca926862ec3c1e5182608"
+      },
+      "source": ".agents/skills/_background/skills-content-policy/records/2026-10-22-revision-lifecycle.md",
+      "source_sha256": "ec60706428b86467433f00a50dcb30456b909d8f42fca926862ec3c1e5182608"
+    },
+    {
+      "path": "context/USAGE.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "4c3b8781128321ece9d6ee13db19a93a17c35da42986f80717ba5842d157fcef"
+      },
+      "source": "context/USAGE.md",
+      "source_sha256": "41e6fca90718da4c8d95fea02a7cd763adaaa1756b54890511fcfa5a5c916f35"
+    },
+    {
+      "path": "context/CONTENT-POLICY.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "8db9a517771cf978f49c8d178646df646a9a35b64764b96b41d34e1c827fb1fb"
+      },
+      "source": "context/CONTENT-POLICY.md",
+      "source_sha256": "5978236e8e958a99a1a4de8008e55c26942f6ac4352f8cf34591a4bc53307d96"
+    },
+    {
+      "path": "context/SYSTEM-GUIDANCE.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "0a5fc7a413691321dab1f3e0ff6f84cadb6d4369186cb8ce9ee42c7b6845107b"
+      },
+      "source": "context/SYSTEM-GUIDANCE.md",
+      "source_sha256": "77523dae7de38a877b0044f7c9bb7649a72f8d94f2b36fa541a78f0cf2e4bd1c"
+    },
+    {
+      "path": ".claude/skills/SKILLS-CONTENT-POLICY.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "333839f6fee65c98a1dd0624bf570212281a3e7be1a4ad87bce31643caa295b7"
+      },
+      "source": ".agents/skills/SKILLS-CONTENT-POLICY.md",
+      "source_sha256": "8caf702e870e074ff36b6e045bf4212cfff1bcc664235071c033b478bc20e9b3"
+    },
+    {
+      "path": "CLAUDE.md",
+      "before": {
+        "kind": "file",
+        "sha256": "ead3a9a3062131fcf0b89ecdf46808a510c3d77c8377d9200ca577c4ba423820"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "d6682fee59ab8a533bad193fb6662a08adfc34df23975b795473a5fa2706bde0"
+      }
+    },
+    {
+      "path": ".claude/README.md",
+      "before": {
+        "kind": "file",
+        "sha256": "a1676e34484757e1f362b4395f7550723412b5583c0403a9466edae1615dde55"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "87f796cf24f64d828f04f38db0cde9c8e65333e757377180cd0571c1d8a4ad2a"
+      }
+    },
+    {
+      "path": ".claude/harness/README.md",
+      "before": {
+        "kind": "file",
+        "sha256": "d959ef43f28c62e04d47ffd8a3d75d957ca7c5009a1a591a42a0f46bb80dca77"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "f51d6e4a9e3caa4b85edd2a5cdf58ee91fd756ca6eb7b2dddda72cf7f192d349"
+      }
+    },
+    {
+      "path": ".claude/skills/README.md",
+      "before": {
+        "kind": "file",
+        "sha256": "37df95d92e2c81093d595013ef4daa43290129159dbc621b50e22447889b7bbf"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c614a4eb711c32731a7286d526428cd7d6f40eae32ee557b1ebd136f58b52079"
+      }
+    },
+    {
+      "path": "context/README.md",
+      "before": {
+        "kind": "file",
+        "sha256": "7fafc685425bdb0bbd3c91bdadf26b7ec09b101531da2a615ee93800081d8de5"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "ae31d96a1d452f4d9faea3493b306a2c88354d5f4a305cf2a977d895eb4e6da4"
+      }
+    },
+    {
+      "path": "context/project/README.md",
+      "before": {
+        "kind": "file",
+        "sha256": "937d66f109844c4e0c312c04aafba8779f2b5e39274f2fcdfd60b93250d8fec9"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "0a48273790b8415e4fb612fbfb99b0de0a65a5a6133f7bf7d3618ea12f223b18"
+      }
+    },
+    {
+      "path": "context/project/MAINTENANCE.md",
+      "before": {
+        "kind": "file",
+        "sha256": "a17f60aaa671e234a31ef8240e27d2aa8f2acb833a83f68273ffa8ffc97f0b7e"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "b427ab82d9790efd9903a80c7293419c38f3096539784cde6f130ebc62b2ae2a"
+      }
+    },
+    {
+      "path": "context/project/REFERENCE/README.md",
+      "before": {
+        "kind": "file",
+        "sha256": "a1058dd19a625b473b06259f4e6aeb11bd37a23133842dfea87d520cf818c7a7"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "b2d3151a8d6537bbbb38fd1904bfe451bb23065b000c2f9b56107a65203dbe47"
+      }
+    },
+    {
+      "path": "context/project/REFERENCE/composition.md",
+      "before": {
+        "kind": "file",
+        "sha256": "990359603694b94cb6505bdf59745526eea448f7e0b24877853d997e2866aab6"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "038ff4fca4bbeeaa7c38b0419adf6648c96986350ab85c8d0e957d5360d7e615"
+      }
+    },
+    {
+      "path": "context/project/REFERENCE/reading.md",
+      "before": {
+        "kind": "file",
+        "sha256": "387b8edabf7563116d252fa7c3e6ea485e30898162672d4f16fb44c3d2187069"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c0d5d8f296755e997a7af9ab69f73b33737d947a2a723ab9e1a2024550feb82d"
+      }
+    },
+    {
+      "path": "context/project/guidance/README.md",
+      "before": {
+        "kind": "file",
+        "sha256": "8bfa5b644f6986ab04e79b384b05c509bd049329a33ffc04a92ea87d75a4946e"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "0d93fa3ad5535198735ce0dbdbff28b6b5052612b600e43c6de209b6695138d1"
+      }
+    },
+    {
+      "path": "context/project/guidance/explanation-and-evidence-criteria.md",
+      "before": {
+        "kind": "file",
+        "sha256": "2e6fa681900d1d1e28e3ec520ae22e073761ddde7e04a1272cf50e99c58ede83"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "41da8259f6064a41a102abe5232539d592f02b04279a906cd1e5b7461b9108ed"
+      }
+    },
+    {
+      "path": ".claude/skills/work-discussion/SKILL.md",
+      "before": {
+        "kind": "file",
+        "sha256": "b3b0e00ba1a15663dd796ad8177ddc7a00ae9ab6604fb27867e8feed8aecdffb"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "76a576c3afeee8ad74a0a9e9ee06afe5df707a3b90c82d9237c5dc740f31d312"
+      }
+    },
+    {
+      "path": "scripts/check-harness.mjs",
+      "before": {
+        "kind": "file",
+        "sha256": "41cad74508a3b209189732a8ac1925f0ed951ab2a1b466c5ba441431b6536f38"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "185bf8d96ec97e0fe46cf6eb3ec426c77c3c136ab759572f46eb920216a10054"
+      }
+    },
+    {
+      "path": ".claude/skills/read-project-context/SKILL.md",
+      "before": {
+        "kind": "file",
+        "sha256": "ecbbd74e091c1387fc092fc906c97fbf624f82ea5812d7bc18e98042565547fc"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "977436ebb6b795d3e1a6ae8d4c34fbabec5e21603a423fc857b7c928a1f42c5a"
+      }
+    },
+    {
+      "path": ".claude/skills/read-project-context/agents/openai.yaml",
+      "before": {
+        "kind": "file",
+        "sha256": "25c902d920babdaf0cf448f29a9805ec2508b48998bdc235ce32390632c645c5"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "78caa016fc281d1db2c31bf1ebe181c390017b0cbde8e2d720a0fe147dcf378c"
+      }
+    },
+    {
+      "path": ".claude/skills/update-project-context/SKILL.md",
+      "before": {
+        "kind": "file",
+        "sha256": "90fe055b2c01d1c62c9570851384eeeade613fd856b3bf79fb478cabba2d30f6"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "685ab40bc54cc52da6cbf9313a6b1dd7218313acfd7e1252ad9d26f3bac20f70"
+      }
+    },
+    {
+      "path": ".claude/skills/update-project-context/agents/openai.yaml",
+      "before": {
+        "kind": "file",
+        "sha256": "6948937f8e1c773ad8f3819639bcfec17be0f72dcc0ba4cfbd0de8cf32fcf6dd"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "86d1809e19f07386c9eed90b0f5d9661c45bcc4501cf84ab85f47618c0409823"
+      }
+    },
+    {
+      "path": ".claude/skills/work-artifact-briefing/SKILL.md",
+      "before": {
+        "kind": "file",
+        "sha256": "5ccf61c506591e4f34df09c997738aa60b3bb3cb6c937100606b600c72b3a5fb"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "5000d5f46bf767f980ed661879e98ad6748f0b539b1bfc1d1fa4f73f5041d241"
+      }
+    },
+    {
+      "path": ".claude/skills/work-artifact-briefing/agents/openai.yaml",
+      "before": {
+        "kind": "file",
+        "sha256": "dfcebd4263c703c2302cf488296719a38fe784ed8d9ffd7dc26d9068beade2d2"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "3e4267a690ff694be7b71dd4d700ed4b3ede8efb99801026e083519e49111cde"
+      }
+    },
+    {
+      "path": ".claude/skills/explanation-recovery/SKILL.md",
+      "before": {
+        "kind": "file",
+        "sha256": "9f3981002424b9e967e98cf8b13c05671f50271fb430e492a8acec749e6668ec"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "01b512470b6521ff09c70745eeffbd95a3b8409688c74d1431226d55b748887a"
+      }
+    },
+    {
+      "path": ".claude/skills/explanation-recovery/agents/openai.yaml",
+      "before": {
+        "kind": "file",
+        "sha256": "90b68d63cd06b9e30965ad929cb2fa1eae83a54a4121f56ef77a7033795d99ac"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "457759eb99db0dda09f2031c344dd426189566496f8578ed924939270ef81d5a"
+      }
+    },
+    {
+      "path": "context/work/workspaces/001-noline-context-harness-application/current/state/index.md",
+      "before": {
+        "kind": "file",
+        "sha256": "ba160385f8cf75454714d82d83743a0debca9da580c43dbb3c17e527710f3482"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "b769b0a851758ef72d047ee80e7fc38cce41f6fa8737fe00d2a0d0a749a65dfd"
+      }
+    },
+    {
+      "path": "context/work/workspaces/001-noline-context-harness-application/output/index.md",
+      "before": {
+        "kind": "file",
+        "sha256": "c61b61a0694cd8354f0e427d34d8cf3557d551bc95fb9a237a4e1d144296830a"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "26d3f958e4bf3c4b40379ba885aa983b40ea5458f2b6b25046c52768b1f4a773"
+      }
+    },
+    {
+      "path": "context/work/workspaces/001-noline-context-harness-application/records/README.md",
+      "before": {
+        "kind": "file",
+        "sha256": "41825cabaad2bbcbe2de6c908b4ec3fa1845d6fb97833dc3b4f40c337749bd09"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "8278a6c6a2f236e445aa059da7c938a79931a27cf0afa5219627df3454c8712e"
+      }
+    },
+    {
+      "path": "context/work/workspaces/001-noline-context-harness-application/source/index.md",
+      "before": {
+        "kind": "file",
+        "sha256": "cc93ea40fb3e287d239a225c74c478b6ce850c7ddcf9ae850900ab68d6bdce31"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c53994c041abb3ad0ac0ce0f690813def453c2d62f77364bf6706d652f0b7406"
+      }
+    },
+    {
+      "path": ".agents/skills/context-update",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "symlink",
+        "target": "../../.claude/skills/context-update",
+        "sha256": "3953ded40fcd075caa826a4cbee31626be4fc956d826e4ed45c90898fb960f16"
+      }
+    },
+    {
+      "path": ".agents/skills/explain",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "symlink",
+        "target": "../../.claude/skills/explain",
+        "sha256": "afe94fc476cfb4aca0d863166064709032ad6288fe47e69a7f89d70c83ac6f4a"
+      }
+    },
+    {
+      "path": ".claude/decisions/2026-10-30-context-and-explanation-refresh.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "0b81f75f6c070c7b6387987eff9c9a3b53080a48cad41c6785916fbb41aaa9a7"
+      }
+    },
+    {
+      "path": "context/_background/records/2026-10-30-noline-partial-reapplication.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "169ae9746a9ba1bc0ac9cf540a76d11aeb55d09ec988339fdb0c1d7e7f290192"
+      }
+    },
+    {
+      "path": "context/work/workspaces/001-noline-context-harness-application/records/2026-10-30-01-reference-context-refresh.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "8ee9c6e8c90d65be6ff501910a0751e5bb76d89c1ba8c59787b33724ec4ad0ee"
+      }
+    },
+    {
+      "path": "context/WRITING-FORMAT.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "224dda3f5543ba14a0b2584e2c81007ebab2de72929319a7a21f66992d3a9f25"
+      },
+      "source": "context/WRITING-FORMAT.md",
+      "source_sha256": "224dda3f5543ba14a0b2584e2c81007ebab2de72929319a7a21f66992d3a9f25"
+    },
+    {
+      "path": "context/personal/development/code-expression/INDEX.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c8b824f85aa7168e24792c56f3bbfa69c8c274f217fce79743587890b45a0a35"
+      },
+      "source": "context/personal/development/code-expression/INDEX.md",
+      "source_sha256": "c8b824f85aa7168e24792c56f3bbfa69c8c274f217fce79743587890b45a0a35"
+    },
+    {
+      "path": "context/personal/development/code-expression/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "21c10d63c30bb182d0418c7198c4cc8507f9648f4f83901ee20df0e817426e59"
+      },
+      "source": "context/personal/development/code-expression/README.md",
+      "source_sha256": "21c10d63c30bb182d0418c7198c4cc8507f9648f4f83901ee20df0e817426e59"
+    },
+    {
+      "path": "context/personal/development/code-expression/_background/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "1649f88cb578830cc62eead38fe79ff86955d1689073244ccfe5cd8853ef959f"
+      },
+      "source": "context/personal/development/code-expression/_background/README.md",
+      "source_sha256": "1649f88cb578830cc62eead38fe79ff86955d1689073244ccfe5cd8853ef959f"
+    },
+    {
+      "path": "context/personal/development/code-expression/_background/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "acb205f77ac7c8076094e0ba8405e493a135de4097124c7c1065d8ac9f5668b5"
+      },
+      "source": "context/personal/development/code-expression/_background/context.md",
+      "source_sha256": "acb205f77ac7c8076094e0ba8405e493a135de4097124c7c1065d8ac9f5668b5"
+    },
+    {
+      "path": "context/personal/development/code-expression/_background/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "1cf80c7a06794d58082ed87b7d5e2166106ce416f3b64f8863e03e6c813e909d"
+      },
+      "source": "context/personal/development/code-expression/_background/evidence.md",
+      "source_sha256": "1cf80c7a06794d58082ed87b7d5e2166106ce416f3b64f8863e03e6c813e909d"
+    },
+    {
+      "path": "context/_background/writing-format/README.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "fb865efb20906fbce1eb7735c58d1f67937419ef64e57c8c847b1cc20c12d15d"
+      },
+      "source": "context/_background/writing-format/README.md",
+      "source_sha256": "0ae134378d2776931483674aae383b7d4db64de78d762df70866ac35e891d0f5"
+    },
+    {
+      "path": "context/_background/writing-format/context.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "3e9ac2caab5ee635f34328f953648462705c9e9f6491f04b5a39d53437b91d71"
+      },
+      "source": "context/_background/writing-format/context.md",
+      "source_sha256": "a6c4e3478306e2c48338a9b6f2b80ff8ad596758209833f9fedafd4d1b18be08"
+    },
+    {
+      "path": "context/_background/writing-format/evidence.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "295fb3a4bbc2e6614d9dcc04f2bc63a6cca8e42905bac97d948e0c86515afcbf"
+      },
+      "source": "context/_background/writing-format/evidence.md",
+      "source_sha256": "295fb3a4bbc2e6614d9dcc04f2bc63a6cca8e42905bac97d948e0c86515afcbf"
+    },
+    {
+      "path": "context/_background/writing-format/records/2026-10-30-format-preservation.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "2ba06bb65a39a4216691555ce8f77f7cde136181d9169b396d0671eb634e721d"
+      },
+      "source": "context/_background/writing-format/records/2026-10-30-format-preservation.md",
+      "source_sha256": "2ba06bb65a39a4216691555ce8f77f7cde136181d9169b396d0671eb634e721d"
+    },
+    {
+      "path": "context/_background/writing-format/records/2026-10-30-introduction.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "0f98899e4d2ea5d5f6914b89eb59d23bcac153903c4bfd5be5dcfec8e22deaad"
+      },
+      "source": "context/_background/writing-format/records/2026-10-30-introduction.md",
+      "source_sha256": "4f35f37fd8794fb37617b5409136729ed42ea5b8e9ee66ea201b22c40d3520f2"
+    },
+    {
+      "path": "context/_background/writing-format/records/2026-10-30-shared-contract-format.md",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "177ee0947527940b970e80d16ca0665e476ce1bb8030d7698e6b45a77de9d194"
+      },
+      "source": "context/_background/writing-format/records/2026-10-30-shared-contract-format.md",
+      "source_sha256": "177ee0947527940b970e80d16ca0665e476ce1bb8030d7698e6b45a77de9d194"
+    },
+    {
+      "path": "context/work/workspaces/001-noline-context-harness-application/source/receipts/preflight-20261030T055124157918Z-9d393dbdbce84514b7f11c7109b047f1.json",
+      "before": {
+        "kind": "absent"
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "7e036939facf9b425f155b6d7d111dd3403db3d002941c00b58769995c2a4972"
+      }
+    }
+  ],
+  "adaptations_beyond_reserved_plan": [
+    "Fresh preflight filename replaces prior review receipt reservation",
+    "SYSTEM-GUIDANCE sample product links adapted to Noline product and decision",
+    "check-harness ignores fenced raw-source text while preserving real Markdown link checks; five boundary cases passed"
+  ],
+  "checks": {
+    "local_links": {
+      "local_links_checked": 992,
+      "anchors_checked": 226,
+      "missing_paths": [],
+      "anchor_candidates": [],
+      "external_provenance_links": [
+        [
+          ".claude/skills/context-update/_background/context.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/improvement-loop/SKILL.md"
+        ],
+        [
+          ".claude/skills/context-update/_background/README.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/_background/records/2026-10-29-reference-partial-application.md"
+        ],
+        [
+          ".claude/skills/explain/_background/README.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/_background/records/2026-10-29-reference-partial-application.md"
+        ],
+        [
+          "context/_background/README.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/_background/records/2026-10-29-reference-partial-application.md"
+        ],
+        [
+          "context/_background/README.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/_background/records/2026-10-30-personal-quality-update.md"
+        ],
+        [
+          "context/_background/README.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/_background/records/2026-10-30-writing-format-application.md"
+        ],
+        [
+          "context/_background/writing-format/context.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/_background/records/2026-10-30-writing-format-application.md"
+        ],
+        [
+          "context/_background/writing-format/README.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/_background/records/2026-10-30-writing-format-application.md"
+        ],
+        [
+          "context/_background/system-guidance/context.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/SKILL.md"
+        ],
+        [
+          "context/_background/system-guidance/context.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/_background/context.md"
+        ],
+        [
+          "context/_background/writing-format/records/2026-10-30-introduction.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/reference-project/context/_background/records/2026-10-30-writing-format-application.md"
+        ],
+        [
+          "context/personal/development/naming-and-completion/_background/evidence.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md"
+        ],
+        [
+          "context/personal/experience/topics/explanation-effects.md",
+          "/Users/hammyeong-yeon/Desktop/ai-workspace/context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/SKILL.md"
+        ]
+      ]
+    },
+    "yaml_documents_parsed": 12,
+    "new_relative_bridges": 2,
+    "fenced_code_boundary_cases": 5,
+    "harness_check": {
+      "exit_code": 1,
+      "same_as_before": true,
+      "issues": [
+        "- context/work/workspaces/002-code-readability-refactoring/records/2026-09-18-05-auth-session-implementation.md links to missing ../../../../../apps/client/src/shared/services/auth/session-restoration.ts",
+        "- context/work/workspaces/002-code-readability-refactoring/records/2026-09-29-07-read-query-composition-trial.md links to missing ../../../../../apps/client/src/screens/read-query.ts",
+        "- context/work/workspaces/002-code-readability-refactoring/records/2026-10-01-01-schedule-create-provisional-review.md links to missing ../../../../../apps/client/src/features/schedule/create-schedule/useLocationSearch.ts",
+        "- context/work/workspaces/002-code-readability-refactoring/source/codebase-analysis/components.md links to missing ../../../../../../apps/client/src/features/trip/create-trip/useCreateTripForm.ts",
+        "- context/work/workspaces/003-bug-investigation-and-fixes/current/memory/tickets/09-map-search-route-behavior.md links to missing ../../../../../../../apps/client/src/features/schedule/create-schedule/useLocationSearch.ts",
+        "- context/work/workspaces/003-bug-investigation-and-fixes/records/2026-09-13-02-major-feature-category-investigation.md links to missing ../../../../../apps/client/src/features/schedule/create-schedule/useLocationSearch.ts",
+        "- context/work/workspaces/003-bug-investigation-and-fixes/records/2026-09-13-02-major-feature-category-investigation.md links to missing ../../../../../apps/client/src/features/trip/create-trip/useCreateTripForm.ts",
+        "- context/work/workspaces/003-bug-investigation-and-fixes/source/codebase-analysis/components.md links to missing ../../../../../../apps/client/src/features/trip/create-trip/useCreateTripForm.ts"
+      ]
+    },
+    "recover": [
+      {
+        "invocation": "default",
+        "workspace_id": "001-noline-context-harness-application",
+        "exit_code": 0,
+        "loaded_context_count": 15,
+        "loaded_context_paths": [
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/index.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/01-problem-goal-scope.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/02-behavior-and-cases.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/03-concepts-and-contracts.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/04-quality-and-completion.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/05-constraints-design-assumptions.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/project-context.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/tickets/index.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/state/index.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/state/status.json"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/output/index.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/README.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/common/product.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/current/architecture.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/decisions/0001-selective-local-first.md"
+          }
+        ],
+        "selection_unchanged": true,
+        "machine_status_unchanged": true,
+        "receipt_freshness": {
+          "status": "stale",
+          "snapshot_file_count": 125,
+          "changed_file_count": 57,
+          "missing_file_count": 0,
+          "unavailable_file_count": 0
+        }
+      },
+      {
+        "invocation": "001-noline-context-harness-application",
+        "workspace_id": "001-noline-context-harness-application",
+        "exit_code": 0,
+        "loaded_context_count": 15,
+        "loaded_context_paths": [
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/index.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/01-problem-goal-scope.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/02-behavior-and-cases.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/03-concepts-and-contracts.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/04-quality-and-completion.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/spec/05-constraints-design-assumptions.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/project-context.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/memory/tickets/index.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/state/index.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/current/state/status.json"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/001-noline-context-harness-application/output/index.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/README.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/common/product.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/current/architecture.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/decisions/0001-selective-local-first.md"
+          }
+        ],
+        "selection_unchanged": true,
+        "machine_status_unchanged": true,
+        "receipt_freshness": {
+          "status": "stale",
+          "snapshot_file_count": 125,
+          "changed_file_count": 57,
+          "missing_file_count": 0,
+          "unavailable_file_count": 0
+        }
+      },
+      {
+        "invocation": "002-code-readability-refactoring",
+        "workspace_id": "002-code-readability-refactoring",
+        "exit_code": 0,
+        "loaded_context_count": 20,
+        "loaded_context_paths": [
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/index.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/spec/01-problem-goal-scope.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/spec/02-behavior-and-cases.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/spec/03-concepts-and-contracts.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/spec/04-quality-and-completion.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/spec/05-constraints-design-assumptions.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/additional-research.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/analysis-items.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/project-context.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/memory/tickets/index.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/state/index.md"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/current/state/status.json"
+          },
+          {
+            "path_base": "work_root",
+            "path": "workspaces/002-code-readability-refactoring/output/index.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/README.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/common/product.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/guidance/behavior-preserving-refactoring.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/guidance/api-contracts.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/common/date-and-time.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/common/currency.md"
+          },
+          {
+            "path_base": "project_root",
+            "path": "context/project/current/architecture.md"
+          }
+        ],
+        "selection_unchanged": true,
+        "machine_status_unchanged": true,
+        "receipt_freshness": {
+          "status": "not_applicable",
+          "snapshot_file_count": 0,
+          "changed_file_count": 0,
+          "missing_file_count": 0,
+          "unavailable_file_count": 0
+        }
+      }
+    ],
+    "protected_tracked_count": 954,
+    "protected_untracked_count": 976,
+    "protected_artifact_and_runtime_paths": 2106,
+    "protected_changed_paths": [],
+    "git_diff_check": "passed",
+    "index_empty": true,
+    "reference_clean": true,
+    "source_hashes_verified": 121
+  },
+  "limitations": [
+    "No product test or durable Verify",
+    "No actual-host skill discovery/invocation/automatic use claim",
+    "Maintain and Work transition integration remain Ticket02; runtime/settings/hooks/roles preserved",
+    "Prior failing links eight are retained, not repaired or ignored",
+    "No target commit/push/acceptance/Workspace completion"
+  ],
+  "results_canonical": "/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/001-noline-context-harness-application/records/2026-10-30-01-reference-context-refresh.md"
+}

@@ -2,6 +2,8 @@
 
 **02 재개 — 2026-10-30:** 사용자가02를 이 세션에서 보도록 요청했다. [현재 입력·첫 논의](../records/2026-10-30-ticket02-reentry-and-first-discussion.md)와 [02 Ticket](tickets/02-work-records.md)을 읽는다. 첫 쟁점은 현재 행동과 중요한 판단 이력의 역할·중복이며, 이후 작업 규모별 구성과 실제 기록/재개 운영을 비교한다. 기존06 병행 변경은 유지한다.
 
+**06-02 재진입:** [Noline 부분 반영·검증 연결](../records/2026-10-30-ticket06-02-noline-partial-application.md)에서 실제 결과 정본과153개 경로의 보존·확인 근거를 찾는다. 독립 묶음의 정적·읽기 전용 확인을 마쳤으며 Maintain·Work 계약·통합 테스트는02에 유지한다.
+
 **후속 테스트 선택:** 첫 부분 적용은 `e38ce52b`로 보존했다. 통합 테스트는02에서 기록·전환 계약을 Reference에 연결한 뒤 진행한다. 지금 별도 host 테스트를 먼저 시작하지 않으며, 결과를06-01 완료 판단에 연결한다. [선택 기록](../records/2026-10-29-ticket06-01-reference-partial-application.md#후속-선택--통합-테스트는02에서-진행).
 
 **06-01 첫 부분 적용:** [적용 결과·보존·검사](../records/2026-10-29-ticket06-01-reference-partial-application.md)에 Personal·Project 관리·USAGE·context-update·explain의 Reference 반영을 남겼다. 제품7개·임시 순환1개 검사 통과, Work·Maintain·제품 원본 보존을 확인했다. [06-01](tickets/06-framework-transition/06-01-reference-project-application.md)은 부분 적용 상태이며 Maintain 연동은02와 함께, [06-02](tickets/06-framework-transition/06-02-noline-reapplication.md)는 후속으로 남는다. 새 host 호출·일반 효과를 확인한 것은 아니다.

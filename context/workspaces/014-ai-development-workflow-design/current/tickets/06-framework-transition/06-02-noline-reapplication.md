@@ -1,6 +1,8 @@
 # 06-02 — Noline의 기존 설치에 다시 적용한다
 
-상태: **티켓 구성 완료 · 재적용 미착수**. [06-01](06-01-reference-project-application.md)의 전달 가능한 Reference 변경을 입력으로 받아 진행한다. 기존 Noline 현황을 읽은 것과 실제 재적용·확인을 구별한다.
+**부분 반영·직접 확인 — 2026-10-30:** [적용·보존·검증 연결](../../../records/2026-10-30-ticket06-02-noline-partial-application.md)을 마쳤다. Source `f5082bc3`의153개 경로를 Noline `main @ 4fb309d2`에 반영했다. Noline 고유 기준과 제품·artifacts·Maintain·기존 병렬 변경을 보존했고, 정적 링크·bridge·호출 설정과 기본001·명시001·002 Recover를 확인했다. 자체 검사의 실패는 기존 과거 링크8건 그대로다. Maintain·Work 계약·host 통합 확인은 계속02에 둔다.
+
+상태: **진행 중 · 독립 묶음의 Noline 반영·정적/읽기 전용 확인 완료 · 전체 연동·host 확인은 후속**. [최신 적용 결과](../../../records/2026-10-30-ticket06-02-noline-partial-application.md)가 Noline001의 결과 정본과 receipt를 연결한다. [적용안 재대조](../../../records/2026-10-30-ticket06-02-reference-refresh-review.md)와 [첫 적용안](../../../records/2026-10-29-ticket06-02-noline-preflight-and-plan.md)은 선택·이전 관찰 근거다. Maintain·Work 전환·통합 테스트는02에 유지하며 전체 workflow 적용으로 확대하지 않는다.
 
 ## 만들 결과
 
@@ -37,6 +39,6 @@ Reference에서 확인한 개발 작업 체계를 [Noline](</Users/hammyeong-yeo
 - 실패 시 복구할 범위·판본, 현재 사용할 진입과 알려진 제약이 target의 작업 기록에서 발견된다. 실제 적용 결과의 정본은 Noline에 두고014는 선택·대조·공통 개선 근거를 연결한다.
 - 필요한 개선 왕복에서 전달한 근거와 반영 결과를 찾을 수 있고, 수동 전달 대비 줄어든 재조사와 추가 판본 관리 부담을 비교할 수 있다. 일반 자동 동기화나 새 배포 도구를 필수로 만들지 않으며 관찰하지 않은 시간·토큰 절감을 주장하지 않는다.
 
-현재는 티켓만 구성했다. Noline 실제 편집·설치·활성화·제품 작업·커밋은 수행하지 않았다.
+현재 승인된 독립 묶음의 반영과 직접 확인을 마쳤다. 다음은02의 Work 기록·전환 계약과 Maintain 판단을 받아 전체 연결·host 확인 범위를 정하는 것이다. Noline 부분 반영은 `2839d467`로 커밋했다. 제품 acceptance·push·Workspace 완료는 수행하지 않았다.
 
 [상위06](README.md) · [선행06-01](06-01-reference-project-application.md)

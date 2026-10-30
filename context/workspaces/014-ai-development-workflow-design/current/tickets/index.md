@@ -1,6 +1,6 @@
 # 설계 Ticket
 
-**06-01 첫 부분 적용 — 2026-10-29:** [적용 결과](../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 독립적인 context·설명·한정 반영과 직접 확인을 기록했다. Maintain·Work 기록/전환은 사용자 요청대로 현행을 유지하고02와 함께 다룬다. [06-01](06-framework-transition/06-01-reference-project-application.md)은 진행 중이며 새 host 호출·전체 workflow 전환은 미완료다. [06-02](06-framework-transition/06-02-noline-reapplication.md)는 미착수다.
+**06-01 첫 부분 적용 — 2026-10-29:** [적용 결과](../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 독립적인 context·설명·한정 반영과 직접 확인을 기록했다. Maintain·Work 기록/전환은 사용자 요청대로 현행을 유지하고02와 함께 다룬다. [06-01](06-framework-transition/06-01-reference-project-application.md)은 진행 중이며 새 host 호출·전체 workflow 전환은 미완료다. [06-02](06-framework-transition/06-02-noline-reapplication.md)는 후속 승인으로 독립 묶음의 Noline 반영·정적/읽기 전용 확인을 마쳤다. Maintain·host 통합 확인은02 후속이다.
 
 **2026-10-29 현재:** [01-02 설계 마감](../../records/2026-10-29-ticket01-02-closeout.md)으로 품질 기준·사례·검토/수정 연결의 종합을 마쳤다.01-01·01-03과 함께01의 설계 결과가 갖춰졌다. 남은 주요 작업은02 기록 운영,06-01 Reference·06-02 Noline 적용,07 전체 연결·효과 관찰이다. 적용·운영 효과를 설계 완료와 구별한다.
 
