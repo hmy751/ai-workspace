@@ -1,0 +1,147 @@
+{
+  "source_commit": "6e6dccb80d73ac540e5dbe1ab8e1c3d1d332c1aa",
+  "observed_head_at_final_check": "3a28e6a149bbada963f22d6916392f4b936e4036",
+  "concurrent_source_changes_not_applied": [
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md"
+  ],
+  "source_adoption_commit": "10153862",
+  "status": "applied_static_checks",
+  "mapping": [
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/README.md",
+      "target": "reference-project/context/personal/README.md",
+      "source_sha256": "7b65a999849a38349a1f5a97549162ea73acdb3dfce7487d13d157f543e9d68d",
+      "target_sha256": "821cb8e548565d478a93394a143fe2aebe539965c94130aaa5ce66da9595930a",
+      "adaptation": "Reference context-update 상대 링크 유지"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/INDEX.md",
+      "target": "reference-project/context/personal/development/INDEX.md",
+      "source_sha256": "289fd0d5e27b1cd20cecce908a0dedb74282d5b24f029b336f12afc355f5a2ad",
+      "target_sha256": "289fd0d5e27b1cd20cecce908a0dedb74282d5b24f029b336f12afc355f5a2ad",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/README.md",
+      "target": "reference-project/context/personal/development/README.md",
+      "source_sha256": "d447fc32af2bf4dfc3027628a88b7358bb2a878e0cc0c935df82de6f95992685",
+      "target_sha256": "d447fc32af2bf4dfc3027628a88b7358bb2a878e0cc0c935df82de6f95992685",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/_background/context.md",
+      "target": "reference-project/context/personal/development/_background/context.md",
+      "source_sha256": "03455216daac6792c1dbc11d339896f90029256e51757e36d1d3c3a0a6d99c19",
+      "target_sha256": "03455216daac6792c1dbc11d339896f90029256e51757e36d1d3c3a0a6d99c19",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/code-expression/INDEX.md",
+      "target": "reference-project/context/personal/development/code-expression/INDEX.md",
+      "source_sha256": "c8b824f85aa7168e24792c56f3bbfa69c8c274f217fce79743587890b45a0a35",
+      "target_sha256": "c8b824f85aa7168e24792c56f3bbfa69c8c274f217fce79743587890b45a0a35",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/code-expression/README.md",
+      "target": "reference-project/context/personal/development/code-expression/README.md",
+      "source_sha256": "21c10d63c30bb182d0418c7198c4cc8507f9648f4f83901ee20df0e817426e59",
+      "target_sha256": "21c10d63c30bb182d0418c7198c4cc8507f9648f4f83901ee20df0e817426e59",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/code-expression/_background/README.md",
+      "target": "reference-project/context/personal/development/code-expression/_background/README.md",
+      "source_sha256": "1649f88cb578830cc62eead38fe79ff86955d1689073244ccfe5cd8853ef959f",
+      "target_sha256": "1649f88cb578830cc62eead38fe79ff86955d1689073244ccfe5cd8853ef959f",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/code-expression/_background/context.md",
+      "target": "reference-project/context/personal/development/code-expression/_background/context.md",
+      "source_sha256": "acb205f77ac7c8076094e0ba8405e493a135de4097124c7c1065d8ac9f5668b5",
+      "target_sha256": "acb205f77ac7c8076094e0ba8405e493a135de4097124c7c1065d8ac9f5668b5",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/code-expression/_background/evidence.md",
+      "target": "reference-project/context/personal/development/code-expression/_background/evidence.md",
+      "source_sha256": "1cf80c7a06794d58082ed87b7d5e2166106ce416f3b64f8863e03e6c813e909d",
+      "target_sha256": "1cf80c7a06794d58082ed87b7d5e2166106ce416f3b64f8863e03e6c813e909d",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/INDEX.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/INDEX.md",
+      "source_sha256": "426809bafcc1cdae002a2004c45812bd8dc7abcd0ddec32ffd80162441e51072",
+      "target_sha256": "426809bafcc1cdae002a2004c45812bd8dc7abcd0ddec32ffd80162441e51072",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/_background/context.md",
+      "target": "reference-project/context/personal/development/contracts-and-lifetime/_background/context.md",
+      "source_sha256": "12d7d83964996180c92835cd107ce47d961f24c2fc7b8ee1efff9ef1842df3e1",
+      "target_sha256": "12d7d83964996180c92835cd107ce47d961f24c2fc7b8ee1efff9ef1842df3e1",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/INDEX.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/INDEX.md",
+      "source_sha256": "ec2a8421f136eb8a947747ee422fd005b8e040456954c2a36c739c045840b78f",
+      "target_sha256": "ec2a8421f136eb8a947747ee422fd005b8e040456954c2a36c739c045840b78f",
+      "adaptation": "본문·형성 자료 원문 동일"
+    },
+    {
+      "source": "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/naming-and-completion/_background/context.md",
+      "target": "reference-project/context/personal/development/naming-and-completion/_background/context.md",
+      "source_sha256": "f06297816e3f1bcd77306e225428f840b529dca0b5c72ce091589e684cd52bdd",
+      "target_sha256": "f06297816e3f1bcd77306e225428f840b529dca0b5c72ce091589e684cd52bdd",
+      "adaptation": "본문·형성 자료 원문 동일"
+    }
+  ],
+  "changed_reference_paths": [
+    "context/_background/README.md",
+    "context/_background/records/2026-10-30-personal-quality-update.md",
+    "context/personal/README.md",
+    "context/personal/development/INDEX.md",
+    "context/personal/development/README.md",
+    "context/personal/development/_background/context.md",
+    "context/personal/development/code-expression/INDEX.md",
+    "context/personal/development/code-expression/README.md",
+    "context/personal/development/code-expression/_background/README.md",
+    "context/personal/development/code-expression/_background/context.md",
+    "context/personal/development/code-expression/_background/evidence.md",
+    "context/personal/development/contracts-and-lifetime/INDEX.md",
+    "context/personal/development/contracts-and-lifetime/_background/context.md",
+    "context/personal/development/naming-and-completion/INDEX.md",
+    "context/personal/development/naming-and-completion/_background/context.md"
+  ],
+  "protected_unchanged_count": 420,
+  "protected_categories": {
+    "Work/Maintain/Recover/Verify": 264,
+    "tool settings and skills": 64,
+    "product and Project": 25
+  },
+  "protected_digest": "b290e21c87115faaaec52b2ca2b67f2484869800ceac030a768628845077ed03",
+  "validation": {
+    "markdown_files": 52,
+    "local_links": 328,
+    "anchors": 135,
+    "errors": [],
+    "preserved_provenance_links": [
+      {
+        "file": "context/personal/development/naming-and-completion/_background/evidence.md",
+        "link": "../../../../../../context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/records/2026-10-19-06-naming-alternatives.md",
+        "reason": "변경하지 않은 당시 prototype 근거의 재접근 경로; 현재 실행 의존 아님"
+      },
+      {
+        "file": "context/personal/experience/topics/explanation-effects.md",
+        "link": "../../../../../context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/skills/development/SKILL.md",
+        "reason": "변경하지 않은 당시 prototype 근거의 재접근 경로; 현재 실행 의존 아님"
+      }
+    ],
+    "source_target_mapping": "13 files match; one existing context-update link adaptation",
+    "runtime_tests": "not run; documentation-only, runtime/product/Work preserved",
+    "actual_host_effect": "not tested; remains with Ticket02"
+  }
+}

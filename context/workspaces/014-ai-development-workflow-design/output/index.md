@@ -1,5 +1,7 @@
 # 현재 선택한 설계 자료와 산출물
 
+**06-01 최신 반영 — 2026-10-30:** [적용 결과](../records/2026-10-30-ticket06-01-personal-quality-update.md)와 [Reference 개발 기준](../../../../reference-project/context/personal/development/README.md).01-02에서 채택한 코드 표현·진단·이름·계약 보완까지 실제 반영했다. Maintain·통합 테스트는02에 남으며 Noline에는 아직 적용하지 않았다.
+
 **01-02 설계 마감 결과:** [완료 조건·최종 기준·후속 책임](../records/2026-10-29-ticket01-02-closeout.md). 현재 품질 본문과 수행 연결은 prototype이 소유하며 실제 대상 적용·확인과 효과 관찰은06·07로 이어진다.
 
 **01-02 표현 기준 반영:** [코드 표현과 진단](../records/prototypes/development-workflow/noline-demo/context/personal/development/code-expression/INDEX.md)과 기존 이름·계약 보완이 현재 prototype에 반영됐다. [적용 범위·검사·후속](../records/2026-10-29-ticket01-02-code-expression-prototype-adoption.md)에서 Reference/Noline 적용과 전체01-02의 남은 범위를 구별한다.
