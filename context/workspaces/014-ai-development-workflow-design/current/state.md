@@ -6,7 +6,7 @@
 
 첫 논의는 이번01-02의 다음 행동 정정에서 state·Ticket·진입 안내와 이유 기록의 역할·중복을 대조하는 것이다. Work 전체 구조·background·자동 Maintain 방식은 아직 선택하지 않았다. Reference의 현행 Work·Maintain은 유지하며 계약 연결 뒤 통합 테스트를02에서 수행하는 후속을 이어받는다. 아래06 진행 기록은 병행 작업의 상태다.
 
-## 현재 — 06 실행 묶음 반영과 병행 작업
+## 현재 — 06 적용 단계 마무리 · 후속 확인 대기
 
 2026-10-30 [실행 스킬 반영·옛 경로 정리](../records/2026-10-30-ticket06-execution-skills-and-retirement.md)를 Reference `c96c6c1b`·Noline `41170efd`로 커밋했다. development·improvement-loop 설치, 논의·생성 보완, Noline 옛4개 제거와 정적·읽기 전용 확인은 완료다. [남은 책임과 후속 방향](../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)에 따라02의 기록 운영·Maintain 선택·통합 테스트와06의 실제 반영·실행/원문 접근 확인·완료 판단을 구별한다.
 
@@ -14,9 +14,9 @@
 
 2026-10-29 [전환 검토안](../records/2026-10-29-ticket06-01-reference-transition-proposal.md) 뒤 사용자가 Maintain을 유지한 독립 범위의 실제 적용을 승인했다. [첫 적용 기록](../records/2026-10-29-ticket06-01-reference-partial-application.md)에 Personal·Project 관리·USAGE·context-update·explain과 연결·직접 확인을 남겼다. 제품7개와 임시 순환1개 검사 통과, 기존 제품·Work·Maintain 파일194개의 동일성을 확인했다. prototype·Noline은 변경하지 않았다. 첫 부분 적용과 기록은 `e38ce52b`로 커밋했으며 병렬01-02 변경은 작업 트리에 남겼다. Push는 하지 않았다.
 
-- **06-01:** 독립적인 첫 묶음의 반영·직접 확인 완료, 전체 Ticket은 진행 중이다. development·improvement-loop 설치와 work-discussion·create의 비충돌 적응은 이번에 마쳤다. Maintain·Work 기록/전환·장치의 새 계약 연결은02 결과와 함께 판단한다. 새 host discovery·호출·일반 효과는 미확인이다. 후속 사용자 선택으로 통합 테스트는02에서 진행한다. 기록·전환 계약을 Reference에 연결한 뒤 스킬 발견·중복 표시·설명·맥락 갱신·Work 기록/재개를 함께 확인하며 지금 별도 테스트를 먼저 하지 않는다.
+- **06-01:** 적용 단계 마무리 · 후속 확인 대기다. development·improvement-loop 설치와 work-discussion·create의 비충돌 적응은 이번에 마쳤다. Maintain·Work 기록/전환·장치의 새 계약 연결은02 결과와 함께 판단한다. 새 host discovery·호출·일반 효과는 미확인이다. 후속 사용자 선택으로 통합 테스트는02에서 진행한다. 기록·전환 계약을 Reference에 연결한 뒤 스킬 발견·중복 표시·설명·맥락 갱신·Work 기록/재개를 함께 확인하며 지금 별도 테스트를 먼저 하지 않는다.
 - **06-01 후속 반영(2026-10-30):** 01-02 품질 보완은 `19225e0d`, 형식·이름 본문 반영은 `02ea702c`, 전반 점검은 `340ba128`로 보존했다. 사용자 후속 요청에 따라 [공통화 선택 조건·계약/수명 오류 처리 부분](../records/2026-10-30-ticket06-01-shared-contract-format.md)도 prototype에서 대조·확인한 뒤 Reference에 반영했다. 기존 판단·강도·주제 background와 나머지 절을 유지했고 표시 사본·링크/앵커·범위 밖 파일 보존을 확인했다. 이번 요청 범위의 반영·대조를 마쳤다. Work·Maintain·통합 테스트는02, Noline 재적용은06-02에 남으며 Noline에는 아직 쓰지 않았다.
-- **06-02:** [최신 Reference의 Noline 부분 반영](../records/2026-10-30-ticket06-02-noline-partial-application.md)과 정적·읽기 전용 확인을 마쳤다. Source `f5082bc3`의153개 경로를 Noline 고유 기준에 맞춰 적용했고 제품·artifacts·Maintain·기존 변경을 보존했다. 기본001·명시001·002 Recover 성공, 기존 링크8건 실패는 그대로며 새 실패는 없다. 실제 host·전체 workflow 완료는 미확인이고 Maintain·Work 계약·통합 테스트는02에서 이어간다.
+- **06-02:** 적용 단계 마무리 · 후속 확인 대기다. [최신 Reference의 Noline 부분 반영](../records/2026-10-30-ticket06-02-noline-partial-application.md)과 정적·읽기 전용 확인을 마쳤다. Source `f5082bc3`의153개 경로를 Noline 고유 기준에 맞춰 적용했고 제품·artifacts·Maintain·기존 변경을 보존했다. 기본001·명시001·002 Recover 성공, 기존 링크8건 실패는 그대로며 새 실패는 없다. 실제 host·전체 workflow 완료는 미확인이고 Maintain·Work 계약·통합 테스트는02에서 이어간다.
 - **병렬 책임:** 사용자 안내에 따라02 기록 운영은 다른 쪽에서 진행한다. 별도01-02의 진행·미채택 제안도 유지한다.06은 두 영역의 채택 결과와 영향을 연결하며 미정을 대신 확정하지 않는다.
 
 **05 설계 완료 — 2026-10-29:** [마감 결과·열린 기준·후속 범위](../records/2026-10-29-ticket05-closeout.md). 네 묶음 합의와 두 실행 보완을 prototype에 반영하고 완료 조건을 대조했다. 실제 운영 설치·사용 효과와 Workspace014 전체 완료는 별도다.
@@ -198,7 +198,7 @@
 
 - 01-02: 설계 완료. 현재 결과를06 적용과07 관찰의 입력으로 사용하며 실제 누락·충돌이 확인되면 관련 기준을 다시 본다.
 - 02: 2026-10-30 사용자 요청으로 이 세션에서 검토를 시작했다. Main의 기록 책임을 유지한 채 실제 정정 장면에서 문서별 내용·중복을 먼저 비교하고, Work 구성·분량·보존·재개 운영을 구체화한다. 새 background 적용 보류를 자동 해제하지 않는다.
-- 06: [남은 책임과 Noline 후속 방향](../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)을 따른다.06-01은02 채택 계약의 Reference 연결·실제 수행/원문 접근 확인·전달 판본 확정을,06-02는 Noline 적응·대상별 확인·필요한 공통 개선 반환을 맡는다. 실제 host 통합은02에서 진행한다. Noline의 기존 작업·기록으로 루프를 진행하려는 방향과 이미 실행한 결과를 구별한다. 두 Ticket은 계속 진행 중이다.
+- 06: [남은 책임과 Noline 후속 방향](../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)을 따른다.06-01은02 채택 계약의 Reference 연결·실제 수행/원문 접근 확인·전달 판본 확정을,06-02는 Noline 적응·대상별 확인·필요한 공통 개선 반환을 맡는다. 실제 host 통합은02에서 진행한다. Noline의 기존 작업·기록으로 루프를 진행하려는 방향과 이미 실행한 결과를 구별한다. 두 Ticket은 적용 단계 마무리 · 후속 확인 대기다.02 채택 결과·통합 테스트 결과나 Noline에서 확인한 적용 문제를 입력으로 해당 후속을 이어간다.
 - 07: 전체 연결·우선 적용·관찰 계획을 구성한다. 실제 요청 루프, 선택한 시도의 재개/종료, 다음 관련 요청 루프의 효과 판단을 구별한다.
 
 번호순 완결을 강제하지 않는다.01-02 마감은 다른 세션의 적용 완료를 뜻하지 않는다. 현재 Workspace는 계속 active이며 기타-01 개선 리뷰어는 별도 보류다.

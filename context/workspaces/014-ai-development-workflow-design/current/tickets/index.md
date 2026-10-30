@@ -1,6 +1,6 @@
 # 설계 Ticket
 
-**06-01 첫 부분 적용 — 2026-10-29:** [적용 결과](../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 독립적인 context·설명·한정 반영과 직접 확인을 기록했다. Maintain·Work 기록/전환은 사용자 요청대로 현행을 유지하고02와 함께 다룬다. [06-01](06-framework-transition/06-01-reference-project-application.md)은 진행 중이며 새 host 호출·전체 workflow 전환은 미완료다. [06-02](06-framework-transition/06-02-noline-reapplication.md)는 후속 승인으로 독립 묶음의 Noline 반영·정적/읽기 전용 확인을 마쳤다. Maintain·host 통합 확인은02 후속이다.
+**06 적용 단계 마무리 · 후속 확인 대기 — 2026-10-30:** [06-01](06-framework-transition/06-01-reference-project-application.md)·[06-02](06-framework-transition/06-02-noline-reapplication.md)의 승인된 반영·교체·옛 경로 정리와 직접 확인·커밋을 마쳤다.02 채택 계약·통합 테스트 결과와 Noline 실사용에서 나온 적용 문제를 후속 입력으로 받는다. [책임 구분과 상태 선택](../../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)을 따르며 전체 운영 검증 완료로 확대하지 않는다. 아래 날짜별 설명은 당시 경과다.
 
 **2026-10-29 현재:** [01-02 설계 마감](../../records/2026-10-29-ticket01-02-closeout.md)으로 품질 기준·사례·검토/수정 연결의 종합을 마쳤다.01-01·01-03과 함께01의 설계 결과가 갖춰졌다. 남은 주요 작업은02 기록 운영,06-01 Reference·06-02 Noline 적용,07 전체 연결·효과 관찰이다. 적용·운영 효과를 설계 완료와 구별한다.
 
@@ -34,7 +34,7 @@
 
 **2026-10-20:03의 구성안·대표 본문 구체화를 완료했다.** [완료 조건 대조119](../../records/2026-10-20-119-ticket03-closeout.md)와 [03 결과](03-project-context.md)를 후속 입력으로 사용한다.01-02·04-03 등 다른 Ticket의 완료로 확대하지 않으며 이번 마무리에서 새 작업을 시작하지 않았다.
 
-04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다.05도 [설계 마감](../../records/2026-10-29-ticket05-closeout.md)을 완료했다. 현재 남은 주요 설계·적용은02 기록·Work 구성,06-01 Reference 적용과06-02 Noline 재적용,07 전체 연결·적용 관찰 계획이다. 번호순 완결을 강제하지 않는다. Reference 첫 부분 설치·직접 확인은 위06-01에 기록했고 일반 효과·전체 운영 연결은 미확인이다.
+04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다.05도 [설계 마감](../../records/2026-10-29-ticket05-closeout.md)을 완료했다. 현재 주요 작업은02 기록·Work 구성과07 전체 연결·적용 관찰 계획이다.06-01·06-02는 적용 단계 마무리 · 후속 확인 대기로 두고 채택 계약과 실제 사용 근거에 따라 이어간다. 번호순 완결을 강제하지 않는다. Reference 첫 부분 설치·직접 확인은 위06-01에 기록했고 일반 효과·전체 운영 연결은 미확인이다.
 
 | 후속 결과 |03에서 이어받을 것과 경계 |
 | --- | --- |

@@ -1,10 +1,10 @@
 # 06-02 — Noline의 기존 설치에 다시 적용한다
 
-**현재 — 2026-10-30 실행 묶음 반영·직접 확인:** [이번 결과](../../../records/2026-10-30-ticket06-execution-skills-and-retirement.md). development·improvement-loop 설치와 work-discussion·create의 비충돌 보완을 Reference에서 확인한 뒤 Noline에 적응했다. Noline 옛4개 실행 스킬·bridge는 소비 경로·근거 보존을 처리한 뒤 제거했다. 기존 Work 기록·생성/전환·Maintain 계약을 유지했다. 전체 Ticket은 진행 중이다.02는 기록 운영·Maintain 관련 선택과 통합 테스트의 진행 위치이며, 채택 계약의 실제 반영·대상별 수정·완료 판단은06에 남는다. 아래 날짜별 첫 부분 반영은 이전 경과이고, 전환표의 ‘착수 시’는 이번 적용 전 상태다.
+**현재 — 2026-10-30 실행 묶음 반영·직접 확인:** [이번 결과](../../../records/2026-10-30-ticket06-execution-skills-and-retirement.md). development·improvement-loop 설치와 work-discussion·create의 비충돌 보완을 Reference에서 확인한 뒤 Noline에 적응했다. Noline 옛4개 실행 스킬·bridge는 소비 경로·근거 보존을 처리한 뒤 제거했다. 기존 Work 기록·생성/전환·Maintain 계약을 유지했다. 현재 상태는 **적용 단계 마무리 · 후속 확인 대기**다. 전체 전환·실제 host 확인의 최종 완료와 구별한다.02는 기록 운영·Maintain 관련 선택과 통합 테스트의 진행 위치이며, 채택 계약의 실제 반영·대상별 수정·완료 판단은06에 남는다. 아래 날짜별 첫 부분 반영은 이전 경과이고, 전환표의 ‘착수 시’는 이번 적용 전 상태다.
 
 **부분 반영·직접 확인 — 2026-10-30:** [적용·보존·검증 연결](../../../records/2026-10-30-ticket06-02-noline-partial-application.md)을 마쳤다. Source `f5082bc3`의153개 경로를 Noline `main @ 4fb309d2`에 반영했다. Noline 고유 기준과 제품·artifacts·Maintain·기존 병렬 변경을 보존했고, 정적 링크·bridge·호출 설정과 기본001·명시001·002 Recover를 확인했다. 자체 검사의 실패는 기존 과거 링크8건 그대로다. Maintain·Work 계약·host 통합 확인은 계속02에 둔다.
 
-상태: **진행 중 · context·실행 스킬 반영과 옛4개 제거·정적/읽기 전용 확인 완료**.02 채택 계약의 Noline 적응, 별도 실행·원문 접근 확인과 필요한 개선 왕복이 남는다. 통합 테스트는02에서 진행하며 상세 책임은 아래 현재 표를 따른다. [앞선 context 적용 결과](../../../records/2026-10-30-ticket06-02-noline-partial-application.md)가 Noline001의 결과 정본과 receipt를 연결한다. [적용안 재대조](../../../records/2026-10-30-ticket06-02-reference-refresh-review.md)와 [첫 적용안](../../../records/2026-10-29-ticket06-02-noline-preflight-and-plan.md)은 선택·이전 관찰 근거다. Maintain·Work 전환·통합 테스트는02에 유지하며 전체 workflow 적용으로 확대하지 않는다.
+상태: **적용 단계 마무리 · 후속 확인 대기**. context·실행 스킬 반영과 옛4개 제거·정적/읽기 전용 확인은 마쳤다.02 채택 계약의 Noline 적응, 별도 실행·원문 접근 확인과 필요한 개선 왕복이 남는다. 통합 테스트는02에서 진행하며 상세 책임은 아래 현재 표를 따른다. [앞선 context 적용 결과](../../../records/2026-10-30-ticket06-02-noline-partial-application.md)가 Noline001의 결과 정본과 receipt를 연결한다. [적용안 재대조](../../../records/2026-10-30-ticket06-02-reference-refresh-review.md)와 [첫 적용안](../../../records/2026-10-29-ticket06-02-noline-preflight-and-plan.md)은 선택·이전 관찰 근거다. Maintain·Work 전환·통합 테스트는02에 유지하며 전체 workflow 적용으로 확대하지 않는다.
 
 ## 현재 남은 일과 Noline에서 이어갈 방향
 

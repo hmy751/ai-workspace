@@ -1,6 +1,6 @@
 # 06-01 — Reference에 프로토타입을 적용한다
 
-**현재 — 2026-10-30 실행 묶음 반영·직접 확인:** [이번 결과](../../../records/2026-10-30-ticket06-execution-skills-and-retirement.md). development·improvement-loop 설치와 work-discussion·create의 비충돌 보완을 Reference에서 확인한 뒤 Noline에 적응했다. Noline 옛4개 실행 스킬·bridge는 소비 경로·근거 보존을 처리한 뒤 제거했다. 기존 Work 기록·생성/전환·Maintain 계약을 유지했다. 전체 Ticket은 진행 중이다.02는 기록 운영·Maintain 관련 선택과 통합 테스트의 진행 위치이며, 채택 계약의 실제 반영·대상별 수정·완료 판단은06에 남는다. 아래 날짜별 첫 부분 반영은 이전 경과이고, 전환표의 ‘착수 시’는 이번 적용 전 상태다.
+**현재 — 2026-10-30 실행 묶음 반영·직접 확인:** [이번 결과](../../../records/2026-10-30-ticket06-execution-skills-and-retirement.md). development·improvement-loop 설치와 work-discussion·create의 비충돌 보완을 Reference에서 확인한 뒤 Noline에 적응했다. Noline 옛4개 실행 스킬·bridge는 소비 경로·근거 보존을 처리한 뒤 제거했다. 기존 Work 기록·생성/전환·Maintain 계약을 유지했다. 현재 상태는 **적용 단계 마무리 · 후속 확인 대기**다. 전체 전환·실제 host 확인의 최종 완료와 구별한다.02는 기록 운영·Maintain 관련 선택과 통합 테스트의 진행 위치이며, 채택 계약의 실제 반영·대상별 수정·완료 판단은06에 남는다. 아래 날짜별 첫 부분 반영은 이전 경과이고, 전환표의 ‘착수 시’는 이번 적용 전 상태다.
 
 **공통화·계약/수명 부분 보완 — 2026-10-30:** [적용·대조 결과](../../../records/2026-10-30-ticket06-01-shared-contract-format.md). 전반 점검의 두 후보를 사용자 요청에 따라 prototype에서 보완·확인한 뒤 Reference에 반영했다. 선택 가능성과 필수 보존의 강도를 유지했고 각 주제 background·사례·나머지 절은 그대로다. 이번 요청 범위의 반영·대조를 마쳤으며 전체06-01 완료·host 효과 확인과 구별한다.
 
@@ -10,7 +10,7 @@
 
 **01-02 후속 입력 — 2026-10-29:** [품질 기준 설계 마감](../../../records/2026-10-29-ticket01-02-closeout.md)을 적용 입력으로 받는다. 첫 Reference 적용 이후 prototype의 `10153862`에 코드 표현·진단과 이름·계약 보완, 형성 자료·진입 변경이 담겼다. 현재 적용판과 이 차이를 대조하고 실제 대상의 규약·도구·사용자 변경을 보존하며 반영·직접 확인한다.01-02 마감 자체를 Reference 반영 완료로 세지 않으며02의 미정은 유지한다.
 
-상태: **승인된 context·실행 스킬 반영과 직접 확인 완료 · 전체06-01 진행 중**.02 채택 계약의 실제 연결, 별도 실행·원문 접근 확인과 최종 판본 판단이 남는다. 통합 테스트는02에서 진행하며 상세 책임은 아래 현재 표를 따른다.2026-10-29 사용자가 “maintain 관련은 02에서 하는 걸로 두고, 먼저 가능한 부분부터 reference-project에 반영해봐”라고 승인했다. [적용 기록](../../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 실제 변경·보존·검사·복구 범위를 남겼다. 제품7개·임시 Workspace 순환1개 검사, 링크·호출 설정·상대 연결을 확인했다. 새 host의 실제 자동 발견·호출·일반 효과는 아직 확인하지 않았다.
+상태: **적용 단계 마무리 · 후속 확인 대기**. 승인된 context·실행 스킬 반영과 직접 확인은 마쳤다.02 채택 계약의 실제 연결, 별도 실행·원문 접근 확인과 최종 판본 판단이 남는다. 통합 테스트는02에서 진행하며 상세 책임은 아래 현재 표를 따른다.2026-10-29 사용자가 “maintain 관련은 02에서 하는 걸로 두고, 먼저 가능한 부분부터 reference-project에 반영해봐”라고 승인했다. [적용 기록](../../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 실제 변경·보존·검사·복구 범위를 남겼다. 제품7개·임시 Workspace 순환1개 검사, 링크·호출 설정·상대 연결을 확인했다. 새 host의 실제 자동 발견·호출·일반 효과는 아직 확인하지 않았다.
 
 첫 부분 반영은 Personal·공통 정책·USAGE·Project의 비충돌 관리 부분·explain/shared·context-update였다. 기존 제품·Project 사실·Work 이력은 보존했다. Maintain 장치와 Work 기록 담당·생성/전환 activation·해당 이식 운영 계약은 현행이다. 첫 부분 반영에서는 기존 create·reconsider·work-discussion 호출 계약을 유지하고 development·새 work-discussion·improvement-loop는 설치하지 않았다. 이후 이번 실행 묶음에서 현행 Work 계약에 적응해 반영했다.02·01-02를 대신 설계하거나 미채택 제안을 기준으로 올리지 않는다.
 

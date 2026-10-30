@@ -1,6 +1,6 @@
 # 현재 선택한 설계 자료와 산출물
 
-**06 최신 실행 산출물 — 2026-10-30:** [Reference·Noline 실행 묶음과 옛 경로 전환](../records/2026-10-30-ticket06-execution-skills-and-retirement.md). Reference `c96c6c1b`, Noline `41170efd`에 설치·적응·제거 결과를 보존했다. 실제 적용 결과의 정본은 각 대상에 있으며 기존 Work 계약을 유지한다. [남은 책임과 후속 방향](../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)은 완료된 설치와 미확인인 실제 수행·원문 접근,02 의존 전환을 구별한다. 아래 context 부분 반영은 이전 묶음의 근거다.
+**06 적용 단계 마무리 · 후속 확인 대기 — 2026-10-30:** [Reference·Noline 실행 묶음과 옛 경로 전환](../records/2026-10-30-ticket06-execution-skills-and-retirement.md). Reference `c96c6c1b`, Noline `41170efd`에 설치·적응·제거 결과를 보존했다. 실제 적용 결과의 정본은 각 대상에 있으며 기존 Work 계약을 유지한다. [남은 책임과 후속 방향](../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)은 완료된 설치와 미확인인 실제 수행·원문 접근,02 의존 전환을 구별한다. 아래 context 부분 반영은 이전 묶음의 근거다.
 
 **06-01 앞선 품질 반영 — 2026-10-30:** [공통화 선택·오류 계약의 부분 보완](../records/2026-10-30-ticket06-01-shared-contract-format.md). 앞선 [형식·이름 본문 반영](../records/2026-10-30-ticket06-01-writing-format-application.md)을 유지하며 두 후보를 prototype 확인 후 Reference에 반영했다. 기존 판단·강도·주제 background·나머지 절은 보존했다. Maintain·통합 테스트는02, Noline 재적용은06-02에 남는다.
 

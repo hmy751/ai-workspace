@@ -1,6 +1,6 @@
 # AI 개발 작업 체계의 개선 설계
 
-**06 현재:** [실행 스킬 설치·옛 경로 정리](records/2026-10-30-ticket06-execution-skills-and-retirement.md)까지 반영·직접 확인했다. [남은 책임과 Noline 후속 방향](records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)에서02 의존 작업과06의 별도 실행 확인·완료 책임을 찾는다. 후속 보완·개선 루프는 Noline의 실제 반영본과 기존 작업·기록을 바탕으로 진행하려는 방향이며, 구체 대상·시점은 아직 정하지 않았다.
+**06 적용 단계 마무리 · 후속 확인 대기:** [실행 스킬 설치·옛 경로 정리](records/2026-10-30-ticket06-execution-skills-and-retirement.md)까지 반영·직접 확인했다. [남은 책임과 Noline 후속 방향](records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)에서02 의존 작업과06의 별도 실행 확인·완료 책임을 찾는다. 후속 보완·개선 루프는 Noline의 실제 반영본과 기존 작업·기록을 바탕으로 진행하려는 방향이며, 구체 대상·시점은 아직 정하지 않았다.
 
 **후속 테스트 선택:** 첫 부분 적용은 `e38ce52b`로 보존했다. 통합 테스트는02에서 기록·전환 계약을 Reference에 연결한 뒤 진행한다. 지금 별도 host 테스트를 먼저 시작하지 않으며, 결과를06-01 완료 판단에 연결한다. [선택 기록](records/2026-10-29-ticket06-01-reference-partial-application.md#후속-선택--통합-테스트는02에서-진행).
 
