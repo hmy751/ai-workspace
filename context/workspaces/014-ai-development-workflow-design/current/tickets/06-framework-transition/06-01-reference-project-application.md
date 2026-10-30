@@ -1,16 +1,33 @@
 # 06-01 — Reference에 프로토타입을 적용한다
 
+**현재 — 2026-10-30 실행 묶음 반영·직접 확인:** [이번 결과](../../../records/2026-10-30-ticket06-execution-skills-and-retirement.md). development·improvement-loop 설치와 work-discussion·create의 비충돌 보완을 Reference에서 확인한 뒤 Noline에 적응했다. Noline 옛4개 실행 스킬·bridge는 소비 경로·근거 보존을 처리한 뒤 제거했다. 기존 Work 기록·생성/전환·Maintain 계약을 유지했다. 전체 Ticket은 진행 중이며 남은 운영 계약 전환과 실제 host 통합은02에 둔다. 아래 날짜별 첫 부분 반영은 이전 경과이고, 전환표의 ‘착수 시’는 이번 적용 전 상태다.
+
 **공통화·계약/수명 부분 보완 — 2026-10-30:** [적용·대조 결과](../../../records/2026-10-30-ticket06-01-shared-contract-format.md). 전반 점검의 두 후보를 사용자 요청에 따라 prototype에서 보완·확인한 뒤 Reference에 반영했다. 선택 가능성과 필수 보존의 강도를 유지했고 각 주제 background·사례·나머지 절은 그대로다. 이번 요청 범위의 반영·대조를 마쳤으며 전체06-01 완료·host 효과 확인과 구별한다.
 
-**본문 형식 후속 반영 — 2026-10-30:** [보완·대조·반영 결과](../../../records/2026-10-30-ticket06-01-writing-format-application.md). `3a28e6a1`을 최신 판단 원본과 background에 대조해 prototype을 보정하고 확인한 뒤 Reference에 반영했다. 형식·이름 본문·형성 자료·작성 진입과 Project의 중복 형식 안내를 맞췄다. 기존 판단·강도, Work·Maintain·제품·병렬 변경은 유지했다. 전체06-01과 host 통합 확인은 남으며02에서 이어간다. `02ea702c`로 이번 범위를 커밋하고 [전반 점검](../../../records/2026-10-30-ticket06-01-format-overall-review.md)을 마쳤다. 현재 반영을 되돌릴 충돌은 찾지 못했고 공통화 선택 조건·계약/수명 오류 처리의 가독성 보완을 후속 후보로 남겼다. 다른 본문은 추가 수정하지 않았다.
+**본문 형식 후속 반영 — 2026-10-30:** [보완·대조·반영 결과](../../../records/2026-10-30-ticket06-01-writing-format-application.md). `3a28e6a1`을 최신 판단 원본과 background에 대조해 prototype을 보정하고 확인한 뒤 Reference에 반영했다. 형식·이름 본문·형성 자료·작성 진입과 Project의 중복 형식 안내를 맞췄다. 기존 판단·강도, Work·Maintain·제품·병렬 변경은 유지했다. 전체06-01의 미반영 실행 묶음은 아래 전환표에서 이어가고, host 통합 확인은02에서 진행한다. `02ea702c`로 이번 범위를 커밋하고 [전반 점검](../../../records/2026-10-30-ticket06-01-format-overall-review.md)을 마쳤다. 현재 반영을 되돌릴 충돌은 찾지 못했고 공통화 선택 조건·계약/수명 오류 처리의 가독성 보완을 후속 후보로 남겼다. 다른 본문은 추가 수정하지 않았다.
 
 **01-02 후속 반영 완료 — 2026-10-30:** [적용·대조 결과](../../../records/2026-10-30-ticket06-01-personal-quality-update.md)에 따라 코드 표현·진단과 이름·계약 보완, 형성 근거·진입을 Reference Personal에 반영했다. 원문/해시·링크·앵커와 기존 파일 보존을 확인했다. 아래 후속 입력의 적용 차이는 이번 범위에서 해소했으며 전체06-01 완료·실제 host 효과 검증은 아니다. Maintain·Work·통합 테스트는 계속02에 둔다. 입력은 `6e6dccb8`로 고정했다. 작업 중 별도로 커밋된 본문 형식 기준·이름 본문 재편 `3a28e6a1`은 당시 적용에서 제외했고, 위 후속 반영에서 보정·확인했다.
 
 **01-02 후속 입력 — 2026-10-29:** [품질 기준 설계 마감](../../../records/2026-10-29-ticket01-02-closeout.md)을 적용 입력으로 받는다. 첫 Reference 적용 이후 prototype의 `10153862`에 코드 표현·진단과 이름·계약 보완, 형성 자료·진입 변경이 담겼다. 현재 적용판과 이 차이를 대조하고 실제 대상의 규약·도구·사용자 변경을 보존하며 반영·직접 확인한다.01-02 마감 자체를 Reference 반영 완료로 세지 않으며02의 미정은 유지한다.
 
-상태: **독립적인 첫 묶음 적용·직접 확인 완료 · 전체06-01 진행 중 · Maintain 연동은02와 함께 유보**.2026-10-29 사용자가 “maintain 관련은 02에서 하는 걸로 두고, 먼저 가능한 부분부터 reference-project에 반영해봐”라고 승인했다. [적용 기록](../../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 실제 변경·보존·검사·복구 범위를 남겼다. 제품7개·임시 Workspace 순환1개 검사, 링크·호출 설정·상대 연결을 확인했다. 새 host의 실제 자동 발견·호출·일반 효과는 아직 확인하지 않았다.
+상태: **context 첫 묶음과 실행 스킬 후속 반영·직접 확인 완료 · 전체06-01 진행 중 · 새 Work/Maintain 계약 연결·host 통합은02 후속**.2026-10-29 사용자가 “maintain 관련은 02에서 하는 걸로 두고, 먼저 가능한 부분부터 reference-project에 반영해봐”라고 승인했다. [적용 기록](../../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 실제 변경·보존·검사·복구 범위를 남겼다. 제품7개·임시 Workspace 순환1개 검사, 링크·호출 설정·상대 연결을 확인했다. 새 host의 실제 자동 발견·호출·일반 효과는 아직 확인하지 않았다.
 
-이번 반영은 Personal·공통 정책·USAGE·Project의 비충돌 관리 부분·explain/shared·context-update다. 기존 제품·Project 사실·Work 이력은 보존했다. Maintain 장치와 Work 기록 담당·생성/전환 activation·해당 이식 운영 계약은 현행이다. 기존 create·reconsider·work-discussion 호출 계약을 유지하고 development·새 work-discussion·improvement-loop는 설치하지 않았다.02·01-02를 대신 설계하거나 미채택 제안을 기준으로 올리지 않는다.
+첫 부분 반영은 Personal·공통 정책·USAGE·Project의 비충돌 관리 부분·explain/shared·context-update였다. 기존 제품·Project 사실·Work 이력은 보존했다. Maintain 장치와 Work 기록 담당·생성/전환 activation·해당 이식 운영 계약은 현행이다. 첫 부분 반영에서는 기존 create·reconsider·work-discussion 호출 계약을 유지하고 development·새 work-discussion·improvement-loop는 설치하지 않았다. 이후 이번 실행 묶음에서 현행 Work 계약에 적응해 반영했다.02·01-02를 대신 설계하거나 미채택 제안을 기준으로 올리지 않는다.
+
+## Reference의 남은 전환과 지금 적용할 범위
+
+**2026-10-30 재대조·착수:** 사용자 지적 “development 생기지도 않았고 또 기존 스킬중에 지워야 하는 게 있을 수도”에 따라, 남은 일을02 이후 통합 테스트로만 묶었던 안내를 바로잡는다. 사용자는 두 티켓 보완과 Maintain에서 분리 가능한 부분의 실제 반영을 요청했다. 아래는 착수 시 상태와 선택한 범위다. 해당 비충돌 설치·교체·제거를 마쳤으며 실제 결과·검증·보존·미확인은 위 이번 결과에서 확인한다.
+
+| 대상 | 착수 시 실제 상태 | 이번 반영과 후속 경계 |
+| --- | --- | --- |
+| development | prototype에만 있고 Reference에는 없음 | 본체·구현·검토·검증·실행 상세와 형성 자료를 추가한다. Work 갱신은 현행 Main·Maintain 계약에 적응하고 장치·기록 책임 전환은02에 둔다. |
+| improvement-loop | 경험 자료만 설치, 실행 스킬 없음 | 사용자 요청 실행과 실제 개선·한정 시도 종료 책임을 설치한다. Work의 기록·전환은 현행 Owner를 사용한다. 원문 접근·host 효과는 미확인으로 구별한다. |
+| work-discussion | 기존 본체, 공통 기준 링크만 변경 | 충분한 기존 정의와 필요한 보완을 구별하는 prototype판을 반영하되 현행 기록 담당을 유지한다. 명시 호출 조건은 바꾸지 않는다. |
+| create-context-workspace | 기존 생성·전환 계약 | 대상 확인·의미 구성·인수의 보완을 기존 JSON·Recover·activation 계약에 맞춘다. demo의 수동 목록이나 전환 계약은 복사하지 않는다. |
+| reconsider-work·explain·context-update | 설치됨 | 역할·판단 강도 유지. reconsider의 기록 담당 전환은02 결과와 연결한다. |
+| 옛 읽기·갱신·설명4개 | Reference 실행 폴더는 이미 제거됨 | 다시 만들지 않는다. 신규 스킬·실행 참조·호출 설정·도구 연결을 함께 확인한다. |
+
+Maintain 유보는 모든 실행 본문의 준비·설치·옛 스킬 정리를 유보한다는 뜻이 아니다. 이번에는 기존 Work 계약으로 적응한 실행 묶음을 반영한다.02가 소유하는 기록·구성·전환 정책을 새로 정하지 않으며, 실제 host 통합 테스트는 기존 선택대로02에서 진행한다. 설치·정적 확인과 실제 발견·호출·효과를 구별한다.
 
 ## 만들 결과
 

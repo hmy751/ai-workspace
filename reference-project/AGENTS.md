@@ -4,6 +4,9 @@
 
 ## 범위별 지침
 
+- 기능 구현·버그 수정·리팩터링·개발 결과 검토·개발 작업 재개에는 [development](.agents/skills/development/SKILL.md)를 사용한다. 이번 요청의 범위에서 수행하며 제품 기준·작업의 기록·전환은 각 Owner의 기존 계약을 따른다.
+- 사용자가 대화를 돌아보고 체계의 개선을 찾자고 요청하면 [improvement-loop](.agents/skills/improvement-loop/SKILL.md)를 사용한다. 작업 종료만으로 자동 실행하지 않는다.
+
 - `context/work/`의 Workspace·Harness·Recover·Maintain·Verify를 읽거나 변경하기 전에 [`context/work/AGENTS.md`](context/work/AGENTS.md)를 끝까지 읽는다. Work 운영 규칙과 Maintain agent routing은 그 파일이 소유한다.
 - 작업 논의·재판단·작업물 설명·앞선 설명 복구에는 [Project skill 색인](.agents/skills/README.md)에서 관련 스킬을 찾고 그 호출 조건을 따른다. Spec·Ticket의 의미와 Main·Maintain의 반영 관계는 [Workspace 운영 기준](context/work/workspaces/spec-and-tickets/README.md)이 소유한다. 스킬 설치·호출을 session activation이나 실제 문서 반영으로 간주하지 않는다.
 - 이미 Context Harness가 설치된 이 Project에서 새 독립 Workspace를 만들거나 기존 작업을 후속 Workspace로 분리해 달라는 요청에는 [`.agents/skills/create-context-workspace/SKILL.md`](.agents/skills/create-context-workspace/SKILL.md)를 사용한다. 기존 Workspace 재진입·수정이나 최초 Context Harness 이식에는 사용하지 않는다.
