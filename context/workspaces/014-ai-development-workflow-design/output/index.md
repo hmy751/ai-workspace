@@ -1,6 +1,6 @@
 # 현재 선택한 설계 자료와 산출물
 
-**06-01 최신 반영 — 2026-10-30:** [본문 형식 보완·Reference 반영](../records/2026-10-30-ticket06-01-writing-format-application.md)과 [Reference 형식 기준](../../../../reference-project/context/WRITING-FORMAT.md). 앞서 반영한 [01-02 품질 보완](../records/2026-10-30-ticket06-01-personal-quality-update.md)의 판단·강도를 유지하며 이름 본문을 새 형식으로 옮기고 형성 자료·읽기 경로를 맞췄다. Maintain·통합 테스트는02에 남으며 Noline에는 아직 적용하지 않았다.
+**06-01 최신 반영 — 2026-10-30:** [공통화 선택·오류 계약의 부분 보완](../records/2026-10-30-ticket06-01-shared-contract-format.md). 앞선 [형식·이름 본문 반영](../records/2026-10-30-ticket06-01-writing-format-application.md)을 유지하며 두 후보를 prototype 확인 후 Reference에 반영했다. 기존 판단·강도·주제 background·나머지 절은 보존했다. Maintain·통합 테스트는02, Noline 재적용은06-02에 남는다.
 
 **01-02 설계 마감 결과:** [완료 조건·최종 기준·후속 책임](../records/2026-10-29-ticket01-02-closeout.md). 현재 품질 본문과 수행 연결은 prototype이 소유하며 실제 대상 적용·확인과 효과 관찰은06·07로 이어진다.
 

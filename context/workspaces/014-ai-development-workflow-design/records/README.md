@@ -1,5 +1,7 @@
 # 논의와 보존 기록
 
+- [06-01 공통화 선택·오류 계약의 부분 보완](2026-10-30-ticket06-01-shared-contract-format.md): 원본·background와 판단/강도 대조, prototype 확인 뒤 Reference 반영, 기존 절·사례·형성 자료 보존과 미확인 범위.
+
 - [06-01 형식 반영 뒤 전반 점검](2026-10-30-ticket06-01-format-overall-review.md): Personal·Project의 조건/설명 구성과 진입·형성 자료 대조. 유지할 본문, 공통화·계약/수명 후속 후보, 커밋/표시 사본/링크 확인과 미실행 범위.
 
 - [06-01 본문 형식 보완·Reference 반영](2026-10-30-ticket06-01-writing-format-application.md): 최신 판단 원본·background와 강도 대조, prototype 표시 사본 확인, Reference의 형식 기준·이름 본문·Project 작성 경로 반영과 보존 범위.

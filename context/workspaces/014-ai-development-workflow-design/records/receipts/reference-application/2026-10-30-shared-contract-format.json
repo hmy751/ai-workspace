@@ -1,0 +1,52 @@
+{
+  "baseline_commit": "340ba128a860b53fef6508b0e1c07209e120268d",
+  "status": "prototype_checked_then_reference_applied",
+  "changed_artifacts": {
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/README.md": "3c319e7f6a08af61444e61add4aa24a11d1e328451222361e57bc05bdae83605",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/_background/writing-format/records/2026-10-30-shared-contract-format.md": "177ee0947527940b970e80d16ca0665e476ce1bb8030d7698e6b45a77de9d194",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/contracts-and-lifetime/INDEX.md": "bf4ea286a796bde148732aafd7e43a88bf98c76ca6c33a640fd7b27907a48923",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/noline-demo/context/personal/development/shared-boundaries/INDEX.md": "b3cf41b821f403558fe33d4901bd90f31c34c5f9994e6990ad1aa973e930089d",
+    "context/workspaces/014-ai-development-workflow-design/records/prototypes/development-workflow/viewer.html": "d4a5b6800db789d62f9d19159e6c4903487184bb15ea25b85ddeabe40b760340",
+    "reference-project/context/_background/writing-format/README.md": "0ae134378d2776931483674aae383b7d4db64de78d762df70866ac35e891d0f5",
+    "reference-project/context/_background/writing-format/records/2026-10-30-shared-contract-format.md": "177ee0947527940b970e80d16ca0665e476ce1bb8030d7698e6b45a77de9d194",
+    "reference-project/context/personal/development/contracts-and-lifetime/INDEX.md": "bf4ea286a796bde148732aafd7e43a88bf98c76ca6c33a640fd7b27907a48923",
+    "reference-project/context/personal/development/shared-boundaries/INDEX.md": "b3cf41b821f403558fe33d4901bd90f31c34c5f9994e6990ad1aa973e930089d"
+  },
+  "all_other_existing_artifacts_unchanged": 673,
+  "outside_selected_sections_headings_and_links": "unchanged; verified before transfer",
+  "topic_backgrounds_and_cases": "unchanged in both prototype and Reference",
+  "prototype_viewer": {
+    "documents": 225,
+    "codeFiles": 5,
+    "sourceContentAndSha": "현재 파일과 모두 일치",
+    "codeRendering": "전체 소스를 escape하여 읽기 전용 표시",
+    "stages": 6,
+    "comparisonColumns": 3,
+    "namingAlternatives": "2개 코드가 이름 두 쌍 외에 주석 포함 동일",
+    "namingContextRelations": "13개 필수 연결 확인 · 의미 일치는 별도 판단",
+    "internalLinks": 1308,
+    "referenceLinks": 44,
+    "anchorLinks": 319,
+    "missingPathsOrAnchors": 0,
+    "localDocumentBoundary": "모든 로컬 링크가 prototype 안에 있음",
+    "rejectedLinkCases": 12,
+    "clientScriptSyntax": "통과",
+    "browserRendering": "실행하지 않음",
+    "demoTests": "이 검사에서는 실행하지 않음"
+  },
+  "reference_links": {
+    "markdown_files": 98,
+    "local_links": 651,
+    "anchors": 196,
+    "errors": [],
+    "unchanged_external_provenance_count": 4
+  },
+  "source_target": "two bodies and comparison byte-identical; Reference formation README keeps existing adaptation",
+  "semantic_review": "Main comparison of selected original clauses and five representative conditions; no independent AI evaluation",
+  "not_tested": [
+    "independent AI decision equivalence",
+    "actual browser rendering/clicks",
+    "product runtime",
+    "host/Maintain integration"
+  ]
+}
