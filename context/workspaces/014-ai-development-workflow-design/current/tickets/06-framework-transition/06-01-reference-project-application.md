@@ -1,5 +1,7 @@
 # 06-01 — Reference에 프로토타입을 적용한다
 
+**02 채택 결과 연결 — 2026-10-30:** [record-work의 Reference 적용](../../../records/2026-10-30-ticket02-record-work-prototype-and-reference.md)으로 새 Work 기록 수행·생성/전환 연결과 자동 Maintain 제거를 반영했다. 제품/Harness95개·Recover·정적 연결은 확인했으며 전체 host 통합·사용 효과와06 완료는 별도다. 아래 Maintain 보존·02 대기는 이 변경 전 적용 경과다.
+
 **현재 — 2026-10-30 실행 묶음 반영·직접 확인:** [이번 결과](../../../records/2026-10-30-ticket06-execution-skills-and-retirement.md). development·improvement-loop 설치와 work-discussion·create의 비충돌 보완을 Reference에서 확인한 뒤 Noline에 적응했다. Noline 옛4개 실행 스킬·bridge는 소비 경로·근거 보존을 처리한 뒤 제거했다. 기존 Work 기록·생성/전환·Maintain 계약을 유지했다. 현재 상태는 **적용 단계 마무리 · 후속 확인 대기**다. 전체 전환·실제 host 확인의 최종 완료와 구별한다.02는 기록 운영·Maintain 관련 선택과 통합 테스트의 진행 위치이며, 채택 계약의 실제 반영·대상별 수정·완료 판단은06에 남는다. 아래 날짜별 첫 부분 반영은 이전 경과이고, 전환표의 ‘착수 시’는 이번 적용 전 상태다.
 
 **공통화·계약/수명 부분 보완 — 2026-10-30:** [적용·대조 결과](../../../records/2026-10-30-ticket06-01-shared-contract-format.md). 전반 점검의 두 후보를 사용자 요청에 따라 prototype에서 보완·확인한 뒤 Reference에 반영했다. 선택 가능성과 필수 보존의 강도를 유지했고 각 주제 background·사례·나머지 절은 그대로다. 이번 요청 범위의 반영·대조를 마쳤으며 전체06-01 완료·host 효과 확인과 구별한다.
@@ -10,17 +12,17 @@
 
 **01-02 후속 입력 — 2026-10-29:** [품질 기준 설계 마감](../../../records/2026-10-29-ticket01-02-closeout.md)을 적용 입력으로 받는다. 첫 Reference 적용 이후 prototype의 `10153862`에 코드 표현·진단과 이름·계약 보완, 형성 자료·진입 변경이 담겼다. 현재 적용판과 이 차이를 대조하고 실제 대상의 규약·도구·사용자 변경을 보존하며 반영·직접 확인한다.01-02 마감 자체를 Reference 반영 완료로 세지 않으며02의 미정은 유지한다.
 
-상태: **적용 단계 마무리 · 후속 확인 대기**. 승인된 context·실행 스킬 반영과 직접 확인은 마쳤다.02 채택 계약의 실제 연결, 별도 실행·원문 접근 확인과 최종 판본 판단이 남는다. 통합 테스트는02에서 진행하며 상세 책임은 아래 현재 표를 따른다.2026-10-29 사용자가 “maintain 관련은 02에서 하는 걸로 두고, 먼저 가능한 부분부터 reference-project에 반영해봐”라고 승인했다. [적용 기록](../../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 실제 변경·보존·검사·복구 범위를 남겼다. 제품7개·임시 Workspace 순환1개 검사, 링크·호출 설정·상대 연결을 확인했다. 새 host의 실제 자동 발견·호출·일반 효과는 아직 확인하지 않았다.
+상태: **적용 단계 마무리 · 후속 확인 대기**. 승인된 context·실행 스킬 반영과 직접 확인은 마쳤다.02의 record-work 연결과 자동 Maintain 제거까지 반영했다. 전체 host 실행·원문 접근 확인과 최종 판본 판단은 남는다. 통합 테스트는02에서 진행하며 상세 책임은 아래 현재 표를 따른다.2026-10-29 사용자가 “maintain 관련은 02에서 하는 걸로 두고, 먼저 가능한 부분부터 reference-project에 반영해봐”라고 승인했다. [적용 기록](../../../records/2026-10-29-ticket06-01-reference-partial-application.md)에 실제 변경·보존·검사·복구 범위를 남겼다. 제품7개·임시 Workspace 순환1개 검사, 링크·호출 설정·상대 연결을 확인했다. 새 host의 실제 자동 발견·호출·일반 효과는 아직 확인하지 않았다.
 
-첫 부분 반영은 Personal·공통 정책·USAGE·Project의 비충돌 관리 부분·explain/shared·context-update였다. 기존 제품·Project 사실·Work 이력은 보존했다. Maintain 장치와 Work 기록 담당·생성/전환 activation·해당 이식 운영 계약은 현행이다. 첫 부분 반영에서는 기존 create·reconsider·work-discussion 호출 계약을 유지하고 development·새 work-discussion·improvement-loop는 설치하지 않았다. 이후 이번 실행 묶음에서 현행 Work 계약에 적응해 반영했다.02·01-02를 대신 설계하거나 미채택 제안을 기준으로 올리지 않는다.
+첫 부분 반영은 Personal·공통 정책·USAGE·Project의 비충돌 관리 부분·explain/shared·context-update였다. 기존 제품·Project 사실·Work 이력은 보존했다. 당시에는 Maintain 장치와 Work 기록 담당·생성/전환 activation을 유지했으며, 현재는 상단02 적용 결과로 전환했다. 첫 부분 반영에서는 기존 create·reconsider·work-discussion 호출 계약을 유지하고 development·새 work-discussion·improvement-loop는 설치하지 않았다. 이후 이번 실행 묶음에서 현행 Work 계약에 적응해 반영했다.02·01-02를 대신 설계하거나 미채택 제안을 기준으로 올리지 않는다.
 
 ## 현재 남은 일과 진행 위치
 
-설치·교체·옛 경로 정리의 승인 범위는 `c96c6c1b`로 반영했다. 아래는 그 이후의 미완료이며, [책임 구분과 Noline 후속 방향](../../../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)에 사용자 요청과 판단 근거를 보존한다.
+설치·교체·옛 경로 정리의 승인 범위는 `c96c6c1b`로 반영했다. 아래는 그 이후의 반영 결과와 남은 범위이며, [책임 구분과 Noline 후속 방향](../../../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)에 사용자 요청과 판단 근거를 보존한다.
 
 | 구분 | 06-01에 남은 결과 | 진행 조건 |
 | --- | --- | --- |
-| 02에 의존하는 반영 | 채택된 Work 기록·생성/전환 계약에 맞춰 Reference의 문서·스킬·장치·설정·검사를 연결한다. Recover·Verify와 기존 의존의 유지·변경도 선택에 맞춰 처리한다. | Maintain 관련은 계속02와 함께 다루며 현행 계약을 먼저 바꾸지 않는다. |
+| 02 채택 결과 반영 | record-work·작성 기준·워크플로·생성/전환을 연결하고 자동 Maintain 전용 코드·설정을 제거했다. Recover·Verify와 기존 증거는 유지했다. | 제품/Harness95개·기본/명시 Recover·정적 연결 확인. 격리2회 기록 시험은 전체 host 통합·장기 효과와 구별한다. |
 | Maintain과 별개의 실행 확인 | 설치된 스킬의 실제 발견·호출·기준 읽기·수행 연결, improvement-loop의 host별 같은 세션 원문 접근과 압축·재개·누락 처리를 확인한다. | 정적 검사로 대체하지 않는다. 실제 host 통합 확인은 기존 합의대로02에서 진행하고 결과를 이 Ticket에 연결한다. |
 | 최종 판본과 반환 | 확인에서 드러난 공통 결함을 필요한 범위에서 보완하고, 반영 판본·제약·복구 범위를06-02에 전달해 완료를 판단한다. | Noline에서 나온 차이는 공통 문제인지 먼저 판단한다. 대상 고유 변경을 자동 역반영하지 않는다. |
 
@@ -54,7 +56,7 @@ Maintain 유보는 모든 실행 본문의 준비·설치·옛 스킬 정리를 
 | Personal·Project·Work 진입 | 로컬 Personal과 Project 본문·형성 자료·관리 지침, Work의 기존 구조 및02 후속 합의, root부터 실제 본문까지 읽는 경로를 연결한다. Noline demo의 제품 사실·작업 이력을 Reference 제품의 사실로 복사하지 않는다. |
 | 개발·설명·경험 개선 | development의 본체·구현/검토/검증/실행 상세, explain, improvement-loop와 Personal 경험 모음의 필요한 자료를 배치한다. 원문 접근의 host별 가능 범위도 확인한다. |
 | 기존 스킬·공통 자료 | work-discussion·reconsider-work의 유지/보완, 기존 두 설명 스킬의 explain 전환, read/update/create와 USAGE/context-update/생성 계약의 대응을 판단한다. shared 기준·호출 설정·Claude/Codex 연결과 옛 참조를 함께 처리한다. |
-| 기존 실행 장치 | 이번 단계는 현행 유지다. 기존 의존 조사 결과는 보존하며 Maintain의 자동 연결·fallback·기록 책임·생성/전환은02와 함께 다룬다. Recover·Verify·CLI·Workspace 계약·검사의 변경도 후속 연동 판단으로 남긴다. |
+| 기존 실행 장치 | 02의 record-work 채택에 따라 자동 Maintain과 해당 CLI·hook·role을 제거했다. Recover·Verify와 Workspace machine 계약은 유지하며 현재 설치·확인은 상단 적용 기록을 따른다. |
 | 적용·복구·전달 | 반영 전 판본과 기존 작업을 보존하고 변경 단위를 정한다. Reference의 직접 확인과 되돌릴 범위를 남기며 Noline에 넘길 공통 변경·조건·확인 경로를 정리한다. 이식 절차의 보완이 필요하면 이번 변경과 실제로 연결되는 범위에서 포함한다. |
 
 02는 기록·Work 구성의 설계를 소유한다. 현행을 읽고 유지할 기능·의존을 조사하는 일은 먼저 할 수 있지만,02에서 바뀌는 문서 구조와 갱신 계약을 여기서 별도로 확정하지 않는다. 적용안에는 현재 사용할 판본과02의 결과가 바꿀 수 있는 부분을 드러낸다.01-02의 미채택 품질 제안도 현재 기준으로 자동 승격하지 않는다.

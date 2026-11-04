@@ -4,6 +4,7 @@
 
 | 필요한 일 | 현재 본문과 상세 |
 | --- | --- |
+| 작업 원문과 결과를 보고 Work의 현재 의미·과정을 직접 기록한다 | [record-work](record-work/SKILL.md) · [기록 담당자 수행](record-work/references/maintainer.md). 같은 대화의 담당자를 필요할 때 다시 호출한다. |
 | 사용자 요청으로 대화와 현재 체계의 개선을 찾고 함께 선택·반영한다 | [improvement-loop](improvement-loop/SKILL.md) · [적용 사례](improvement-loop/references/application.md). 경험 보존·재조회는 [Personal 관리 본문](../noline-demo/context/personal/experience/MAINTENANCE.md)이 맡고 실행·판단은 스킬 본체가 맡는다. |
 | 개발 작업의 맥락·구현·검토·확인·결과를 조율한다 | [development](development/SKILL.md) · [개선 검토](development/references/review.md) · [검증 상세](development/references/verification/INDEX.md) · [실행 배치](development/references/execution.md) |
 | 구현·수정의 설계·완성·자기 확인·인계를 수행한다 | [구현 상세](development/references/implementation.md). Main이 구현을 겸해도 같은 책임을 적용한다. |
@@ -23,11 +24,13 @@ development는 Main의 맥락 선택·재탐색·종합·전달·갱신을 소�
 
 work-discussion은04-01에서 기존 정의의 충분성과 필요한 구체화를 직접 답하는 최소 보완을 채택했다. reconsider-work는 보존 원형을 유지하고 여기에 설치한 스킬로 취급하지 않는다. development가 현재 본문에서 전제 재판단을 수행하며 실제 대상의 호환 스킬이 있으면 그 발동 조건에 따라 연결한다. [형성 자료](work-discussion/_background/README.md)에서 근거를 확인한다.
 
-기존 read의 일반적인 선택·대조 방법은 USAGE로 옮겼다. 개발 중 담당자와 직접 읽기 요청이 같은 방법을 사용하며, 새 읽기 스킬의 호출이나 보고서를 전제하지 않는다. 기존 update는 대상의 관리 기준을 따르는 한정 반영 과업으로 재구성했고, create는 수동 demo의 생성·인수·전환 계약에 연결했다. Work의 일상 유지와 전체 완료는 Main·Work·development가 맡는다. 실제 설치판의 옛 호출·bridge 교체는 별도 배치 과제다.
+기존 read의 일반적인 선택·대조 방법은 USAGE로 옮겼다. 개발 중 담당자와 직접 읽기 요청이 같은 방법을 사용하며, 새 읽기 스킬의 호출이나 보고서를 전제하지 않는다. 기존 update는 대상의 관리 기준을 따르는 한정 반영 과업으로 재구성했고, create는 수동 demo의 생성·인수·전환 계약에 연결했다. Work 기록 수행은 record-work가 맡고 기준은 Work가 소유한다. Main·development는 전체 판단과 실제 반영 확인을 이어간다. 실제 설치판의 옛 호출·bridge 교체는 별도 배치 과제다.
 
 USAGE와 context-update라는 형태는 잠정 합의를 이 prototype에서 실행할 수 있게 펼친 것이다. 같은 수행자가 유효한 근거로 읽기·검토·반영을 이어가며, 파일이 나뉘었다는 이유로 재입력·전면 재독·새 담당자를 요구하지 않는다. 실제 사용 부담이 드러나면 이 묶음을 다시 판단할 수 있다.
 
 ## 공통 기준과 관리
+
+[대화 원문 접근](shared/conversation-source.md)은 improvement-loop와 record-work가 공유한다. 전체 검토와 직전 반영 이후 기록의 범위는 각 스킬이 소유한다.
 
 공통 설명·근거 기준의 현재 consumer는 work-discussion과 explain이다. consumer가 필요한 조건에서 읽으며 모든 AI 응답의 상위 workflow로 자동 적용하지 않는다. 이 안내가 현재 본문과 의존 자료의 읽기 경로를 소유하고, 실행 방법과 읽을 조건은 각 본문이 소유한다.
 

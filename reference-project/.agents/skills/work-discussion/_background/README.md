@@ -14,3 +14,5 @@
 현재 선택은 work-discussion 최소 보완의 prototype 반영이다. 최초 작성 전체 대화, 실제 제품 효과와 장기 안정성까지 복원·입증한 자료는 아니다. 바깥 Workspace 기록을 필독 경로로 만들지 않으며, 상세 원자료 위치는 evidence의 코드 경로와 source_line·판본으로 식별한다.
 
 현재 실행의 Main 갱신 책임과 명시 호출 연결은 [후속 맥락](context.md#실행-연결-후속-반영)에서 찾는다.
+
+2026-10-30 Work 기록 연결 변경은 [record-work 도입](records/2026-10-30-record-work-connection.md)에서 확인한다. 이전 자동 Maintain 보존·Main 직접 기록 안내는 당시 판본의 근거다.

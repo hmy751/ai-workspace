@@ -1,6 +1,6 @@
 # Workspace 공통 실행 계약
 
-Recover·Maintain·Verify에서 실제로 공유하는 값 검사, Workspace 식별,
+Recover·Verify에서 실제로 공유하는 값 검사, Workspace 식별,
 안전한 파일 읽기, status 인계만 소유한다. Context의 의미·Owner·acceptance나
 Recover·Verify 전용 설정·프로세스 실행은 소유하지 않는다.
 

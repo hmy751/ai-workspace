@@ -1,0 +1,5 @@
+# 현재 산출물
+
+선택한 설계는 [현재 목표와 조건](../current/memory/index.md)에 있다. `record-work` 스킬과 development·improvement-loop·Work 지침·스킬 색인의 연결을 프로토타입에 먼저 반영하고, 그다음 Reference에 적용하는 순서다.
+
+완료된 구현 산출물로 확인해 연결한 것은 아직 없다. 설계 대화는 구현 요청까지이며, 제공된 기록 스킬의 존재만으로 원래 프로토타입·Reference의 적용 완료를 판정하지 않는다.

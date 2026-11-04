@@ -11,15 +11,15 @@
 - 순환이 성공하고 제품 상태가 보존되는지를 회귀 테스트로 고정한다.
 
 Recover와 Verify 각각의 계약·단위 검증은 각 책임 경계가 소유한다. 이 경계는
-제품 claim의 충분성, 사람 acceptance, Maintain, 실제 제품 Workspace의 durable
+제품 claim의 충분성, 사람 acceptance, 작업 기록, 실제 제품 Workspace의 durable
 검증을 소유하지 않는다.
 
 ## 내부 구성
 
 - [`tests/test_ephemeral_workspace_state_preservation.py`](tests/test_ephemeral_workspace_state_preservation.py):
   임시 순환과 checked-in 기계 상태 보존을 검증한다.
-- [`tests/test_cli.py`](tests/test_cli.py): 공통 CLI 도움말에서 Recover·Maintain·Verify 진입점을 찾을 수 있는지 확인한다.
-- [`tests/test_cli_contracts.py`](tests/test_cli_contracts.py): stdin·파일 입력, 오류 반환과 기존 공개 import 경로의 호환을 직접 검증한다.
+- [`tests/test_cli.py`](tests/test_cli.py): 공통 CLI 도움말에서 Recover·Verify 진입점을 찾을 수 있는지 확인한다.
+- [`tests/test_cli_contracts.py`](tests/test_cli_contracts.py): 오류 반환·제거된 명령 거부과 기존 공개 import 경로의 호환을 직접 검증한다.
 - [`../testing.py`](../testing.py): Recover·Verify 단위 테스트도 함께 사용하는
   최소 Project/Workspace fixture 지원이다. 공유 기반일 뿐 validation의 판단
   계약을 소유하지 않는다.

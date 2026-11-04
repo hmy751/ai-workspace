@@ -1,3 +1,2 @@
-[agents.workspace_context_maintainer]
-description = "Main의 수동 fallback에서 explicit Workspace로 grounding하고 response-end의 durable 변화·Owner·ambiguity·보고 중요도를 판단하는 read-only Reference Project maintainer."
-config_file = "../context/work/harness/maintain/workspace-context-maintainer.toml"
+# Work 기록은 record-work 스킬이 host의 서브 생성·후속 호출로 수행한다.
+# 별도 Maintain agent role이나 자동 session bridge를 등록하지 않는다.

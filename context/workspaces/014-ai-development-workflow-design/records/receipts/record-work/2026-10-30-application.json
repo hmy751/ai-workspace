@@ -1,0 +1,633 @@
+{
+  "kind": "record-work-application-check",
+  "date": "2026-10-30",
+  "baseline_commit": "a0f59ffa8a7cdc09fed3f9a5cb63711ed2742bc4",
+  "working_tree_application": true,
+  "removed_reference_paths": [
+    "context/work/harness/maintain/README.md",
+    "context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md",
+    "context/work/harness/maintain/STRUCTURE.md",
+    "context/work/harness/maintain/__init__.py",
+    "context/work/harness/maintain/adapters/__init__.py",
+    "context/work/harness/maintain/adapters/claude.py",
+    "context/work/harness/maintain/adapters/codex.py",
+    "context/work/harness/maintain/adapters/codex_session.py",
+    "context/work/harness/maintain/adapters/events.py",
+    "context/work/harness/maintain/apply/__init__.py",
+    "context/work/harness/maintain/apply/policy.py",
+    "context/work/harness/maintain/apply/prepare.py",
+    "context/work/harness/maintain/apply/service.py",
+    "context/work/harness/maintain/apply/transaction.py",
+    "context/work/harness/maintain/bootstrap.py",
+    "context/work/harness/maintain/claude_hook.py",
+    "context/work/harness/maintain/codex_session.py",
+    "context/work/harness/maintain/contracts/__init__.py",
+    "context/work/harness/maintain/contracts/decision.py",
+    "context/work/harness/maintain/contracts/response.py",
+    "context/work/harness/maintain/decision.schema.json",
+    "context/work/harness/maintain/grounding.schema.json",
+    "context/work/harness/maintain/host_adapter.py",
+    "context/work/harness/maintain/operation.py",
+    "context/work/harness/maintain/resources.py",
+    "context/work/harness/maintain/runtime/__init__.py",
+    "context/work/harness/maintain/runtime/binding.py",
+    "context/work/harness/maintain/runtime/context.py",
+    "context/work/harness/maintain/runtime/engine.py",
+    "context/work/harness/maintain/runtime/events.py",
+    "context/work/harness/maintain/runtime/notices.py",
+    "context/work/harness/maintain/runtime/state.py",
+    "context/work/harness/maintain/runtime/status.py",
+    "context/work/harness/maintain/runtime/storage.py",
+    "context/work/harness/maintain/runtime/storage_io.py",
+    "context/work/harness/maintain/runtime/worker.py",
+    "context/work/harness/maintain/semantic/__init__.py",
+    "context/work/harness/maintain/semantic/prompt.py",
+    "context/work/harness/maintain/semantic/session.py",
+    "context/work/harness/maintain/tests/README.md",
+    "context/work/harness/maintain/tests/__init__.py",
+    "context/work/harness/maintain/tests/adapters/__init__.py",
+    "context/work/harness/maintain/tests/adapters/test_claude_hook.py",
+    "context/work/harness/maintain/tests/adapters/test_codex_session.py",
+    "context/work/harness/maintain/tests/adapters/test_tool_boundaries.py",
+    "context/work/harness/maintain/tests/apply/__init__.py",
+    "context/work/harness/maintain/tests/apply/test_bootstrap.py",
+    "context/work/harness/maintain/tests/apply/test_owner_links.py",
+    "context/work/harness/maintain/tests/apply/test_policy.py",
+    "context/work/harness/maintain/tests/apply/test_transaction.py",
+    "context/work/harness/maintain/tests/contracts/__init__.py",
+    "context/work/harness/maintain/tests/contracts/test_decision.py",
+    "context/work/harness/maintain/tests/runtime/__init__.py",
+    "context/work/harness/maintain/tests/runtime/test_binding.py",
+    "context/work/harness/maintain/tests/runtime/test_cli_runtime.py",
+    "context/work/harness/maintain/tests/runtime/test_compatibility.py",
+    "context/work/harness/maintain/tests/runtime/test_failure_ordering.py",
+    "context/work/harness/maintain/tests/runtime/test_hooks.py",
+    "context/work/harness/maintain/tests/semantic/__init__.py",
+    "context/work/harness/maintain/tests/semantic/test_prompt.py",
+    "context/work/harness/maintain/tests/support/__init__.py",
+    "context/work/harness/maintain/tests/support/apply.py",
+    "context/work/harness/maintain/tests/support/host.py",
+    "context/work/harness/maintain/tests/support/semantic.py",
+    "context/work/harness/maintain/tests/test_cli.py",
+    "context/work/harness/maintain/workspace-context-maintainer.toml",
+    ".codex/hooks/maintain.py",
+    ".claude/hooks/maintain.py",
+    ".codex/maintain.json",
+    ".claude/maintain.json"
+  ],
+  "protected": [
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/workspace.json",
+      "before": "b11bf5da266fb08837c51ecfb9e9dab3d31ed828155a0f96a46f1d2e991e1488",
+      "after": "b11bf5da266fb08837c51ecfb9e9dab3d31ed828155a0f96a46f1d2e991e1488",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/verify.json",
+      "before": "5b0cf09873914cf2e12f3116e4fdff0163588f979e6cbb991489304fdc0ca641",
+      "after": "5b0cf09873914cf2e12f3116e4fdff0163588f979e6cbb991489304fdc0ca641",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/README.md",
+      "before": "de907eaeb674ffcca6ab317d0433193ce1f8929c631613a58119dd92a5015006",
+      "after": "426bdfd2a88a981ebf5203923729aa2c46e9e0a0f70aa4fea08da7d6a5b3971d",
+      "unchanged": false
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/recover.json",
+      "before": "274613ecf7fba7e2e739404e9c26d6e5a337601d8c9ead19e47ce9e4474074cc",
+      "after": "274613ecf7fba7e2e739404e9c26d6e5a337601d8c9ead19e47ce9e4474074cc",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-03-harness-responsibility-boundary-refactor.md",
+      "before": "5dbe17bd22fd4c7a9e07954e9ceded50b104f3a19c5cf52cc2900f230f4f918d",
+      "after": "5dbe17bd22fd4c7a9e07954e9ceded50b104f3a19c5cf52cc2900f230f4f918d",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-01-default-timeout-verification-cycle.md",
+      "before": "de0019a5ed9e674b1280c811caa5321c9a26d46c3e151e77fae783b1e2dd7dcd",
+      "after": "de0019a5ed9e674b1280c811caa5321c9a26d46c3e151e77fae783b1e2dd7dcd",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/2026-08-14-05-machine-receipt-boundary.md",
+      "before": "87fe954a98965b1fa03c7428e33e42ae37b729ab115554618cd429c2c7de706a",
+      "after": "87fe954a98965b1fa03c7428e33e42ae37b729ab115554618cd429c2c7de706a",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/README.md",
+      "before": "c1ffeaa83e8289631264f4c50fe574ed65b4acea738faf392696fb6728c8af61",
+      "after": "c1ffeaa83e8289631264f4c50fe574ed65b4acea738faf392696fb6728c8af61",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-02-current-folder-migration.md",
+      "before": "77c63aac29dc32df5d19859172521aaedbb8a15a4dd00cd5f51c277e0a44f3e5",
+      "after": "77c63aac29dc32df5d19859172521aaedbb8a15a4dd00cd5f51c277e0a44f3e5",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/2026-08-13-04-project-work-context-boundary-migration.md",
+      "before": "1317501f8cd768cf98020d0d94253c8536c6661a206ac0a34a4ca744b3841e84",
+      "after": "1317501f8cd768cf98020d0d94253c8536c6661a206ac0a34a4ca744b3841e84",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/source/index.md",
+      "before": "84284336c9ddfe5c1c692d5bf16d187b2b8e75f21ca390692b03f5ded6253f75",
+      "after": "84284336c9ddfe5c1c692d5bf16d187b2b8e75f21ca390692b03f5ded6253f75",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/output/index.md",
+      "before": "ff26774fbee2262657e30adf5aad6a0932877fa3b9f8ef1306128ac1a2cae073",
+      "after": "ff26774fbee2262657e30adf5aad6a0932877fa3b9f8ef1306128ac1a2cae073",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/memory/project-context.md",
+      "before": "0b8142ea428c1e638dfda89dea3cd1490b2953526f64dedd1939cfed5713faaf",
+      "after": "0b8142ea428c1e638dfda89dea3cd1490b2953526f64dedd1939cfed5713faaf",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/memory/index.md",
+      "before": "70497b1fc7735260ed16eac7dbca259bb3256cfa51543d565d38ab75d7cfed02",
+      "after": "70497b1fc7735260ed16eac7dbca259bb3256cfa51543d565d38ab75d7cfed02",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/state/index.md",
+      "before": "af7182cb9d2e4750d321f693e5f517409a6b8f3b46e3a8713ccecbc831c9986e",
+      "after": "a266ef27edc569c5ab0c39c79ea8930348a1ddba774919e6b9a4e88c36308df7",
+      "unchanged": false
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/state/status.json",
+      "before": "bac5a68e08fcce53c3bf84afaa8c19ca97d94e4055b8389d118cae8061a85f52",
+      "after": "bac5a68e08fcce53c3bf84afaa8c19ca97d94e4055b8389d118cae8061a85f52",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/memory/tickets/index.md",
+      "before": "a0c3ee7192535d68cc1b54ec10d5662127cb713fa8436bb29a9f8b3101c2a092",
+      "after": "a0c3ee7192535d68cc1b54ec10d5662127cb713fa8436bb29a9f8b3101c2a092",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/01-problem-goal-scope.md",
+      "before": "18de8d00244ee7377091f2e08e8dced7b37dd6cc9c87632395b0d6213f6820a3",
+      "after": "18de8d00244ee7377091f2e08e8dced7b37dd6cc9c87632395b0d6213f6820a3",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/02-behavior-and-cases.md",
+      "before": "127d9c4394aa7e3c50b737aabeee340d35f523cb8a0c023cd72957bbf360dbb8",
+      "after": "127d9c4394aa7e3c50b737aabeee340d35f523cb8a0c023cd72957bbf360dbb8",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/05-constraints-design-assumptions.md",
+      "before": "6083663a05ffbade46c5a3b2acf61ae3ec9573e56e1e9586231322753017bac6",
+      "after": "6083663a05ffbade46c5a3b2acf61ae3ec9573e56e1e9586231322753017bac6",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/03-concepts-and-contracts.md",
+      "before": "2fa52bbe134a4d2c602b4cb3b9dd9b667dc79b2844b241573dff0f0fd3f841e9",
+      "after": "2fa52bbe134a4d2c602b4cb3b9dd9b667dc79b2844b241573dff0f0fd3f841e9",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/memory/spec/04-quality-and-completion.md",
+      "before": "c6ae7407b8ea62d9d581bcb5caa5f63140b44caa24b3f5e5060d5ba6a5b2023c",
+      "after": "c6ae7407b8ea62d9d581bcb5caa5f63140b44caa24b3f5e5060d5ba6a5b2023c",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/README.md",
+      "before": "b555620e360d38955051683cb7d0898d695bb98db360740107c82c13e75f440f",
+      "after": "b555620e360d38955051683cb7d0898d695bb98db360740107c82c13e75f440f",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T125144640368Z-5dd549bd4b3244ba97787b7bdc80b503.json",
+      "before": "710b1b305dd5e950bcc89869db0bcf4f3705e10a4881a9aa95deb038f174f50c",
+      "after": "710b1b305dd5e950bcc89869db0bcf4f3705e10a4881a9aa95deb038f174f50c",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T045930913927Z-e6a729ee16834df8a16d1fc7d412e5ab.json",
+      "before": "5209a1ebec6073a7613463f2bdf2f7094325654f8344cfa2c7f9da411333b3b5",
+      "after": "5209a1ebec6073a7613463f2bdf2f7094325654f8344cfa2c7f9da411333b3b5",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T064854356201Z-2b17198a679c47e0ba9f7bbc23aefad6.json",
+      "before": "db67ffcb5b2069d2b3631d60bb612723ac6776a1d9727bde5ca5106c56ed4be9",
+      "after": "db67ffcb5b2069d2b3631d60bb612723ac6776a1d9727bde5ca5106c56ed4be9",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T070729765148Z-4de3a77434444335b088d4944631e94f.json",
+      "before": "7af71a6f60211171fa890aae34d6759c42692dd05e4a44dccd38f8bbb7e6cda4",
+      "after": "7af71a6f60211171fa890aae34d6759c42692dd05e4a44dccd38f8bbb7e6cda4",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T124912507712Z-d2e85f3cf26a4372a2fc5bf476ebd245.json",
+      "before": "511ce23c8c7891079d0539a738dfd29d0bcacac2100bd27cd7d7ecec0aa5c319",
+      "after": "511ce23c8c7891079d0539a738dfd29d0bcacac2100bd27cd7d7ecec0aa5c319",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260812T184154363967Z-68493bb4ec064a6d97b134737782dfe5.json",
+      "before": "d29de213d95b0019df623fd6f5e8c4dcfed9b97baac2014c79b246315ea38f20",
+      "after": "d29de213d95b0019df623fd6f5e8c4dcfed9b97baac2014c79b246315ea38f20",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T135739719409Z-2c773fcd8f4f4409b9a7c394194b3b13.json",
+      "before": "1d1fd95cd4697549c99c4ea1a83f5ea241614d4bd1551454a58530058ec07129",
+      "after": "1d1fd95cd4697549c99c4ea1a83f5ea241614d4bd1551454a58530058ec07129",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260812T184205182632Z-fdc6909a55634d82b1156fb825e490b3.json",
+      "before": "610912427fde5d985a88b0d18c4305dd8cd1b0155d44f37c582837ceaf04d5cd",
+      "after": "610912427fde5d985a88b0d18c4305dd8cd1b0155d44f37c582837ceaf04d5cd",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260813T163439925334Z-bd9a7ed98d7c468797d2efc12d1505f4.json",
+      "before": "38f21bd25a05bb813a3de35edf67aeab2d3124fcfa6af32a8b81444c70b43cd8",
+      "after": "38f21bd25a05bb813a3de35edf67aeab2d3124fcfa6af32a8b81444c70b43cd8",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T063043445861Z-0b38bf91d06f4edcb3d86d9ee1cb1bcd.json",
+      "before": "0d81a0b1ecc30305bba6ef5ed358e3c3871385d07aaca775955e6f048ffd8182",
+      "after": "0d81a0b1ecc30305bba6ef5ed358e3c3871385d07aaca775955e6f048ffd8182",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T033807136133Z-6688019152ce406bb6778a58a3417fc2.json",
+      "before": "6f4db570fe7c6024d6713fde593d1ccc0720c771b7ef6ae4f2ccc28ebb740f64",
+      "after": "6f4db570fe7c6024d6713fde593d1ccc0720c771b7ef6ae4f2ccc28ebb740f64",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/records/receipts/verify/verify-20260814T103703075846Z-a1cde45907164974a19c22564a956127.json",
+      "before": "b7a64a1c3a8b59e337c8a21deb5026f4494c4de25beeff97e5c65d03949ed2eb",
+      "after": "b7a64a1c3a8b59e337c8a21deb5026f4494c4de25beeff97e5c65d03949ed2eb",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/src/config_loader.py",
+      "before": "dd224530943d6e49e196752fbe6d6b8df033c32f719b2a906be7922438da0665",
+      "after": "dd224530943d6e49e196752fbe6d6b8df033c32f719b2a906be7922438da0665",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/src/__init__.py",
+      "before": "8f15b5d681babaa88b741030693909d24e43370e3568260b2b4b4188f43de3a9",
+      "after": "8f15b5d681babaa88b741030693909d24e43370e3568260b2b4b4188f43de3a9",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/tests/test_config_loader.py",
+      "before": "f5de705fdaa935387e0eb1fe55b167c938056f0bcadcbd14900bdb27bbf665d0",
+      "after": "f5de705fdaa935387e0eb1fe55b167c938056f0bcadcbd14900bdb27bbf665d0",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/tests/__init__.py",
+      "before": "3c6a0d1d9c0f88bf9c30818a7c9b60379b7b6d65f876d037ecbc361848d96fa9",
+      "after": "3c6a0d1d9c0f88bf9c30818a7c9b60379b7b6d65f876d037ecbc361848d96fa9",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/receipts.py",
+      "before": "21fb6d41e851ae8278fb16c6b90b23eca77c9a0f3723338dd699b3e31fb289dd",
+      "after": "21fb6d41e851ae8278fb16c6b90b23eca77c9a0f3723338dd699b3e31fb289dd",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/render.py",
+      "before": "6a76982719a998cf3ae4fb8ac99afcf526a817d7f3a3d77612e293c13c08092d",
+      "after": "6a76982719a998cf3ae4fb8ac99afcf526a817d7f3a3d77612e293c13c08092d",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/__init__.py",
+      "before": "40c3e9549e3dc903873fc5d7cedc6785542b73ad573bfceab8874e245375e20b",
+      "after": "40c3e9549e3dc903873fc5d7cedc6785542b73ad573bfceab8874e245375e20b",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/operation.py",
+      "before": "5649181e400045fe20576a6744170b72f0b18f95ccfdaa07024b9c4c3addb7ca",
+      "after": "5649181e400045fe20576a6744170b72f0b18f95ccfdaa07024b9c4c3addb7ca",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/README.md",
+      "before": "77b63cb4748b183ceeb3185aeb51274a0777bf010eced581672fe8b50f507934",
+      "after": "77b63cb4748b183ceeb3185aeb51274a0777bf010eced581672fe8b50f507934",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/context.py",
+      "before": "49ad0e8829c04c3cdb2512d663d23b66a5f8ea71b7ec2aa372d87fafa3e885bd",
+      "after": "49ad0e8829c04c3cdb2512d663d23b66a5f8ea71b7ec2aa372d87fafa3e885bd",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/packet.py",
+      "before": "14872272dee43afab676b66d3acbeb6aa995bd052fc5c32c43385718a98cd78a",
+      "after": "14872272dee43afab676b66d3acbeb6aa995bd052fc5c32c43385718a98cd78a",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/contract.py",
+      "before": "9c62b41cdebd8463d29e91dfc6d914fa895a9a17467f63044c1375588ad860e3",
+      "after": "9c62b41cdebd8463d29e91dfc6d914fa895a9a17467f63044c1375588ad860e3",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/support.py",
+      "before": "c37291ec871066f62736be62b408fd8b7d5ed2d3b92a92d30492ec21930b5f60",
+      "after": "c37291ec871066f62736be62b408fd8b7d5ed2d3b92a92d30492ec21930b5f60",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_packet.py",
+      "before": "2219e334abfa54e2cd893ecb32b73cf9c782248a4d7d42f97cc4a410c17d4310",
+      "after": "2219e334abfa54e2cd893ecb32b73cf9c782248a4d7d42f97cc4a410c17d4310",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/__init__.py",
+      "before": "0b4c28328b4422d0186ef992d5c4f9ad90301c2d518f640150bdbf0cb1315277",
+      "after": "0b4c28328b4422d0186ef992d5c4f9ad90301c2d518f640150bdbf0cb1315277",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_receipts.py",
+      "before": "caafc1ffb1ee700ce22547952752b98657d95864110126442eddf1be88a5890c",
+      "after": "caafc1ffb1ee700ce22547952752b98657d95864110126442eddf1be88a5890c",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_status.py",
+      "before": "8ed6e6a22dc42ce318a412519bf6a5edfd3f45a19fe01ec3b95258f23127396b",
+      "after": "8ed6e6a22dc42ce318a412519bf6a5edfd3f45a19fe01ec3b95258f23127396b",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_selection.py",
+      "before": "308d526608c9d7274407cc63b5f02eba55f97d595fe77dab2b215707a4c06ac6",
+      "after": "308d526608c9d7274407cc63b5f02eba55f97d595fe77dab2b215707a4c06ac6",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_contract.py",
+      "before": "76f5dd0d87ab41c8aff1b76df25b867bf95465fa6c27d568a754dd7fa3f9d254",
+      "after": "76f5dd0d87ab41c8aff1b76df25b867bf95465fa6c27d568a754dd7fa3f9d254",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_render.py",
+      "before": "03e9f46ecb2bbedb5aeba4e5e01c02556ba1c9665df5ab5f005338fec3dd4949",
+      "after": "03e9f46ecb2bbedb5aeba4e5e01c02556ba1c9665df5ab5f005338fec3dd4949",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_context.py",
+      "before": "baabea76e5d07035e4d46918c5e06e34eaabe80b1f8b4dae10503731b7c8cb19",
+      "after": "baabea76e5d07035e4d46918c5e06e34eaabe80b1f8b4dae10503731b7c8cb19",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/service.py",
+      "before": "3762f10cff7f3515fb1bf203d9ca4b1937533acb67d739b6a628085f1418867a",
+      "after": "3762f10cff7f3515fb1bf203d9ca4b1937533acb67d739b6a628085f1418867a",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/execution.py",
+      "before": "d00e728dc40faf5350156d2c0adb3cd8b2e501503f125f7b64767d21e0dd4aff",
+      "after": "d00e728dc40faf5350156d2c0adb3cd8b2e501503f125f7b64767d21e0dd4aff",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/__init__.py",
+      "before": "48839d6d4fa70cbc26ee2ad5ad94731854f8e75eb6854d56a9a61a71770796a2",
+      "after": "48839d6d4fa70cbc26ee2ad5ad94731854f8e75eb6854d56a9a61a71770796a2",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/operation.py",
+      "before": "412627c6b018b2dc5a36db5932791bc5b1972dc950abafa401ccb7f8837b71fb",
+      "after": "412627c6b018b2dc5a36db5932791bc5b1972dc950abafa401ccb7f8837b71fb",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/README.md",
+      "before": "4b92e1198379c0aeaf65997c2a98a6f8028cde74a19a438f316556fa837a55fb",
+      "after": "4b92e1198379c0aeaf65997c2a98a6f8028cde74a19a438f316556fa837a55fb",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/storage.py",
+      "before": "b0a5c23545f9175d4eabb9ca20a736e2e1b85e10ebda0f4486cbcbed3ae99ad5",
+      "after": "b0a5c23545f9175d4eabb9ca20a736e2e1b85e10ebda0f4486cbcbed3ae99ad5",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/process_scope.py",
+      "before": "826ce8606c80de49e9a3f06e58ed24a15d0efe30de79fc5286e6d947ee0732f6",
+      "after": "826ce8606c80de49e9a3f06e58ed24a15d0efe30de79fc5286e6d947ee0732f6",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/contract.py",
+      "before": "e552558bb8eb8541e1391fd730b883003b91ef7823583ce398043752d371123d",
+      "after": "e552558bb8eb8541e1391fd730b883003b91ef7823583ce398043752d371123d",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/evidence.py",
+      "before": "e5718d3406d20107dd26c7556f0f6144cfb9031564ebfb7114b418321a2da294",
+      "after": "e5718d3406d20107dd26c7556f0f6144cfb9031564ebfb7114b418321a2da294",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/output.py",
+      "before": "5adef56072bac731cbaf682b07fd61c1d449e5fad9e8eecbc22b7a6162c5d1ac",
+      "after": "5adef56072bac731cbaf682b07fd61c1d449e5fad9e8eecbc22b7a6162c5d1ac",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/support.py",
+      "before": "f42ff46ae8a441f69f47cc17f06bec4e724cafe7017e41cbe0e041da7c26b1b5",
+      "after": "f42ff46ae8a441f69f47cc17f06bec4e724cafe7017e41cbe0e041da7c26b1b5",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_preflight.py",
+      "before": "4ee365b36c6d197f0980312f819ed95f55f0b70d04e91f9c35eedc03d789476d",
+      "after": "4ee365b36c6d197f0980312f819ed95f55f0b70d04e91f9c35eedc03d789476d",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/__init__.py",
+      "before": "216c3169bd721618b21fd607a581328e3d67850ca56a6c5ab3fbd66921bce509",
+      "after": "216c3169bd721618b21fd607a581328e3d67850ca56a6c5ab3fbd66921bce509",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_receipts.py",
+      "before": "fa7695b535ba492458a750b1d0a07708a24716f1b69f0b1814b14b07d740572d",
+      "after": "fa7695b535ba492458a750b1d0a07708a24716f1b69f0b1814b14b07d740572d",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_output.py",
+      "before": "a5c516caaedf95148c4e0058d55ee324308e54fbd0e34c24a34f6c98da1d2fff",
+      "after": "a5c516caaedf95148c4e0058d55ee324308e54fbd0e34c24a34f6c98da1d2fff",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_process_scope.py",
+      "before": "934b2178e2cd3b02effc9ee21c1785521dc810efaf5a93cd18be8d6272e19b2b",
+      "after": "934b2178e2cd3b02effc9ee21c1785521dc810efaf5a93cd18be8d6272e19b2b",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_storage.py",
+      "before": "30962ab2b600f147483da0f40e23942cda92ac9cc49d70b519bf7baa7fb03d13",
+      "after": "30962ab2b600f147483da0f40e23942cda92ac9cc49d70b519bf7baa7fb03d13",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_contract.py",
+      "before": "609a879088351f1fc8a04d7eb2f2417b38b6e3b78c050f13f31905979e4bc94b",
+      "after": "609a879088351f1fc8a04d7eb2f2417b38b6e3b78c050f13f31905979e4bc94b",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_execution.py",
+      "before": "c107c0be7a166aa7136adb74996f06ff1b4805ba98fe09628a976ef195b09cc0",
+      "after": "c107c0be7a166aa7136adb74996f06ff1b4805ba98fe09628a976ef195b09cc0",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_failure_ordering.py",
+      "before": "dea65535b7170defe30359a075ba58bcc19ff02660474b1cf08ad698db4ecc46",
+      "after": "dea65535b7170defe30359a075ba58bcc19ff02660474b1cf08ad698db4ecc46",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_process.py",
+      "before": "9c0ec79d35bf386a6521efd1fd424a0799a01dc82c73ab274513f7f6eee467c6",
+      "after": "9c0ec79d35bf386a6521efd1fd424a0799a01dc82c73ab274513f7f6eee467c6",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_evidence.py",
+      "before": "03366d631569a6684e9f42e1f497a3d6edafe19008f3a3ac11040d767c767fc0",
+      "after": "03366d631569a6684e9f42e1f497a3d6edafe19008f3a3ac11040d767c767fc0",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_stream_capture.py",
+      "before": "90883359ffb1fd70013a6b8ffc74d1cc3b9d8e4550c243f3743393189bf5696c",
+      "after": "90883359ffb1fd70013a6b8ffc74d1cc3b9d8e4550c243f3743393189bf5696c",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/paths.py",
+      "before": "0e8ce7ab2c83d5e4c055f46d82811996407c1105f716c8e332f845515958ecf7",
+      "after": "0e8ce7ab2c83d5e4c055f46d82811996407c1105f716c8e332f845515958ecf7",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/__init__.py",
+      "before": "b002074047822f0441b9493f145aa6f240a38af3e2b963a1e85bc4b9c82f6317",
+      "after": "b002074047822f0441b9493f145aa6f240a38af3e2b963a1e85bc4b9c82f6317",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/README.md",
+      "before": "3c8ca481452f10466570b6096c0150883ef0ef75ea2f1de29144aedeaef506c4",
+      "after": "46f570e34fbb344b556fcb73048398cbb892aa71db8dafa433906476bf37857e",
+      "unchanged": false
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/identity.py",
+      "before": "b50140f50fcef6acc5c2f7b2b405ea0efc872700070b5c712c9e8f86d8f7221f",
+      "after": "b50140f50fcef6acc5c2f7b2b405ea0efc872700070b5c712c9e8f86d8f7221f",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/status.py",
+      "before": "6428947672db85a0fc589bd38d2a46f669e8414ced427f7a3c8ebcc07c84f552",
+      "after": "6428947672db85a0fc589bd38d2a46f669e8414ced427f7a3c8ebcc07c84f552",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/validation.py",
+      "before": "414a3f8f045103c2b63732d248a24b95b10afbd616a7e24431515516bb1b3c56",
+      "after": "414a3f8f045103c2b63732d248a24b95b10afbd616a7e24431515516bb1b3c56",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/tests/test_contracts.py",
+      "before": "e43c9f13e11975cfaf3ff4e0725ba4a899ffd5053ef9fca1df84797637a48543",
+      "after": "e43c9f13e11975cfaf3ff4e0725ba4a899ffd5053ef9fca1df84797637a48543",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/tests/__init__.py",
+      "before": "4ae3d2927f686c74ff21d7be3145beda44561496731507adf64b2b6ccd5f22eb",
+      "after": "4ae3d2927f686c74ff21d7be3145beda44561496731507adf64b2b6ccd5f22eb",
+      "unchanged": true
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/tests/test_paths.py",
+      "before": "f9c3869c2f098eedaed0ed6670ea337eac80f45631074f15885877148d168e73",
+      "after": "f9c3869c2f098eedaed0ed6670ea337eac80f45631074f15885877148d168e73",
+      "unchanged": true
+    }
+  ],
+  "verification": {
+    "baseline_harness_tests": 172,
+    "after_product_and_harness_tests": 95,
+    "recover_default_and_explicit": {
+      "workspace_id": "001-default-timeout",
+      "loaded_context_paths": 15
+    },
+    "prototype": {
+      "documents": 242,
+      "code_files": 5,
+      "internal_links": 1375,
+      "anchors": 322,
+      "missing": 0
+    },
+    "reference_links": 1296,
+    "reference_anchors": 261,
+    "missing_reference_targets": 0,
+    "recording_trial": {
+      "same_agent_calls": 2,
+      "isolated_workspace_only": true,
+      "first_record_unchanged": true,
+      "first_attempt_discarded_due_to_input_exposure": true
+    },
+    "cost_and_long_term_effects_measured": false
+  }
+}

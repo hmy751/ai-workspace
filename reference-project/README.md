@@ -9,13 +9,13 @@
 - **Work context**: [`context/work/`](context/work/)가 여러 Workspace와 공용 Harness의 운영 관계를 소유한다.
 - **제품**: [`src/`](src/)와 [`tests/test_config_loader.py`](tests/test_config_loader.py)가 실제 구현과 제품 검증을 소유한다.
 
-Harness는 Work context 안의 공용 관리 장치다. Project 기준이나 Workspace의 의미를 소유하지 않고, Recover·Maintain·Verify의 작업 책임과 Harness validation을 구조적으로 분리한다. Recover는 bounded 재진입을, 같은 session의 Maintain agent는 response-end 의미 판단을, guarded apply는 허용된 Context side effect를, Verify는 제품 증거 기록을, 임시 fixture validation은 관리 장치 회귀를 맡는다.
+Harness는 Work 안에서 Recover의 읽기 전용 복구와 Verify의 제품 증거 기록을 맡는다. 작업 중 의미·과정의 기록은 [record-work](.agents/skills/record-work/SKILL.md)의 서브가 원문을 읽고 직접 수행한다. 필요할 때 호출하고 같은 대화에서 재사용하며 기존 자동 Maintain과 hook·binding·guarded apply는 제거했다.
 
 ## 시작점
 
 전체 context 관계는 [context README](context/README.md), 사람이 현재 작업을 볼 때는 [active Workspace README](context/work/workspaces/001-default-timeout/README.md)에서 시작한다. 새 Workspace를 만드는 사람은 [생성·전환 canonical](context/work/workspaces/CREATE-AND-TRANSITION.md), 실행하는 AI는 repo-local [Workspace 생성 skill](.agents/skills/create-context-workspace/SKILL.md)에서 시작한다. Work·Harness의 AI 운영 지침은 [Work AGENTS](context/work/AGENTS.md), Harness 책임과 workflow는 [Harness README](context/work/harness/README.md)에서 시작한다.
 
-필요한 맥락은 [USAGE](context/USAGE.md)의 선택·대조·재사용 방법으로 읽고, 제품별 판단은 [Project 읽기 기준](context/project/REFERENCE/reading.md)을 따른다. Personal·Project의 허용된 갱신·누락 복원에는 [context-update](.agents/skills/context-update/SKILL.md)와 해당 영역의 관리 계약을 사용한다. Work의 기록·생성·전환은 기존 Main·Maintain 계약을 유지한다.
+필요한 맥락은 [USAGE](context/USAGE.md)의 선택·대조·재사용 방법으로 읽고, 제품별 판단은 [Project 읽기 기준](context/project/REFERENCE/reading.md)을 따른다. Personal·Project의 허용된 갱신·누락 복원에는 [context-update](.agents/skills/context-update/SKILL.md)와 해당 영역의 관리 계약을 사용한다. Work 기록은 record-work와 대상 작성 기준을, 생성·전환은 해당 Work 계약을 따른다.
 
 Work를 구체화하거나 실제 결과에 따라 판단을 다시 보고, 코드·작업물·앞선 설명을 이해할 때는 [스킬 색인](.agents/skills/README.md)에서 해당 역할과 호출 조건을 찾는다. `work-discussion`의 명시 호출 조건과 `reconsider-work`의 기존 역할을 유지하며, 설명은 `explain`으로 연결한다. [공통 설명과 근거 기준](.agents/skills/shared/explanation-and-evidence-criteria.md)은 `work-discussion`과 `explain`이 필요한 때 읽는다.
 
@@ -23,20 +23,11 @@ Work를 구체화하거나 실제 결과에 따라 판단을 다시 보고, 코�
 
 ```bash
 python3 -m context.work.harness recover 001-default-timeout
-python3 -m context.work.harness maintain bootstrap 001-default-timeout --json
-python3 -m context.work.harness maintain apply \
-  001-default-timeout path/to/maintain-decision.json
-python3 .codex/hooks/maintain.py status
-python3 .codex/hooks/maintain.py activate 001-default-timeout
-python3 .codex/hooks/maintain.py deactivate
 python3 -m context.work.harness verify 001-default-timeout
 python3 -m unittest discover -s . -p 'test_*.py' -v
 ```
 
 - `recover`: 명시한 Workspace를 우선하고 id가 없을 때만 active 기본값을 사용해, 필요한 current와 선택된 Project context를 read-only recovery packet으로 만든다.
-- `maintain bootstrap`: 기존 Recover를 explicit Workspace id로 재사용해 새 semantic agent가 한 번 grounding할 bounded packet을 만든다.
-- `maintain apply`: agent가 판단한 structured decision에 의미를 더하지 않고 outcome별 zero-write, 허용 Owner·symlink·stale preimage를 검사해 명확한 update만 반영한다.
-- `.codex/hooks/maintain.py status|activate|deactivate`: [`Maintain session binding·lifecycle contract`](context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md)에 따라 `CODEX_SESSION_ID`의 binding을 조회하고, 명시한 Workspace를 grounding해 future turn에 연결하거나 연결을 해제한다.
 - `verify`: claim·canonical basis·evidence를 실행 전에 snapshot하고 고정 argv를 제한 안에서 실행한 뒤 receipt와 machine status만 갱신한다.
 - 전체 test discovery: 제품 테스트와 임시 fixture에서 실행되는 Harness validation을 포함한 책임별 테스트를 실행한다. Active 제품 Workspace의 receipt와 status는 바꾸지 않는다.
 
@@ -48,19 +39,18 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
 │   └── skills/
 │       ├── README.md                 # 설치 스킬의 역할·canonical·연결 색인
 │       ├── create-context-workspace/ # 설치 뒤 새 Workspace 생성·재진입 검토
+│       ├── record-work/             # 필요 시 원문 판단·Work 직접 기록
 │       ├── context-update/          # Personal·Project의 한정 반영
 │       ├── work-discussion/          # 명시 호출로 Work 구체화
 │       ├── reconsider-work/          # 실제 결과에 따른 재판단
 │       ├── explain/                 # 뜻·동작·선택 이유와 앞선 말 설명
 │       ├── shared/                  # 소비자가 선택하는 공통 설명 기준
 │       └── SKILLS-CONTENT-POLICY.md  # 스킬 본문·형성 자료 관리
-├── .claude/skills/               # 한정 갱신·논의·재판단·설명 스킬 네 개의 상대 연결
+├── .claude/skills/               # 설치 스킬 원본의 상대 연결
 ├── .codex/
-│   ├── skills/                  # 같은 네 스킬 원본으로 상대 연결
-│   ├── config.toml               # 수동 fallback용 Maintain agent 발견 경로
-│   ├── maintain.json             # session별 explicit admission mode
-│   ├── hooks.json                # Maintain lifecycle command routing
-│   └── hooks/maintain.py         # Project-root hook wrapper
+│   ├── skills/                  # 같은 스킬 원본으로 상대 연결
+│   ├── config.toml               # 전용 Maintain agent 등록 없음
+│   ├── hooks.json                # 빈 자동 hook 집합
 ├── AGENTS.md                     # 책임별 하위 지침을 찾는 최소 router
 ├── src/                          # 실제 제품 코드
 ├── tests/
@@ -88,10 +78,9 @@ python3 -m unittest discover -s . -p 'test_*.py' -v
     │       └── 0001-default-timeout.md
     └── work/
         ├── README.md             # Work context 운영 경계
-        ├── AGENTS.md             # Work·Harness 운영과 Maintain agent routing
+        ├── AGENTS.md             # Work·Harness 운영과 기록 담당 연결
         ├── harness/              # 교체 가능한 Workspace 관리 장치
         │   ├── recover/          # 읽기 전용 재진입
-        │   ├── maintain/         # 전체 Maintain 계약과 SESSION-BINDING-AND-LIFECYCLE canonical
         │   ├── verify/           # durable 제품 검증 증거
         │   └── validation/       # 제품 상태를 보존하는 Harness 자체 검증
         └── workspaces/
@@ -138,10 +127,10 @@ reference 순환을 확인하기 위해 기본 timeout 구현을 의도적으로
 
 ## 증명 범위
 
-이 reference가 결정적으로 확인하는 것은 명시적 또는 active-default Workspace의 선택적 context 복구, Maintain의 explicit bootstrap과 guarded decision side effect, claim·canonical basis·evidence snapshot, 고정 검증 실행, 실패·성공 receipt 생성, machine-only status 갱신, 선언된 snapshot freshness의 재복구다. Harness 회귀 순환은 임시 fixture에서 실행해 active 제품 상태를 오염시키지 않는다.
+이 reference의 결정적 실행 장치는 명시 또는 active-default Workspace의 선택적 복구와 claim·canonical basis·evidence snapshot, 고정 검증 실행, receipt·machine status·선언된 snapshot freshness의 재복구를 다룬다. 임시 fixture 회귀는 active 제품 상태를 바꾸지 않는다.
 
-정적 연결과 unit test는 Maintain agent가 실제 변화에서 어떤 의미를 남겨야 하는지, 같은 agent session이 실제 host에서 유지되는지, 연결된 generation의 모든 사용자 대상 Main response-end가 관찰되는지, Main 비차단과 중요 보고·ambiguity 질문이 실제 UI에 도달하는지를 증명하지 않는다. 이 항목은 semantic eval과 actual Codex host acceptance가 필요하며, 그 전에는 role 등록을 automatic Maintain이라고 부르지 않는다. Workspace 생성 skill은 canonical을 적용해 새 Workspace를 구성하고 bounded 재진입을 검토하는 실행 장치를 제공하지만, 자동 skill 선택, deterministic generator와 자동 의미 선별·충분성 판정은 구현하거나 증명하지 않았다. Reference host adapter는 새 session의 default-unbound, session별 explicit activation과 same-session binding generation 전환을 구현하고 unit test하지만, 실제 host의 hook trust·event 전달·재개·UI 표면까지 acceptance하지는 않는다. `.codex/maintain.json` 변경만으로 session을 연결하거나 전환하지 않는다. Workspace acceptance·완료·보관, concurrent Verify 조정, 실제 네트워크 요청과 운영 서비스 효과도 아직 구현하거나 증명하지 않았다. POSIX Verify timeout은 같은 process group의 일반 descendant까지 다루지만 스스로 새 session으로 분리한 process와 비-POSIX descendant 전체 종료는 보장하지 않는다. Harness 계약은 저장소가 신뢰하는 입력이며 악의적인 검증 프로그램을 격리하는 sandbox가 아니다. Receipt와 status는 각각 atomic하게 쓰지만 하나의 transaction으로 묶이지 않는다.
+record-work는 원문 해석·문서 수정·같은 서브 재사용의 실행 지침이다. 기존 guarded apply의 경로·preimage·schema 거부 보장을 그대로 제공하지 않으며 지침과 host의 실제 권한으로 범위를 지킨다. 설치·정적 검사·unit test만으로 실제 host의 발견·호출·서브 재사용·기록 품질·재개 효과를 증명하지 않는다. 기존 자동 Maintain의 코드는 Git 이력에서 복구할 수 있고 현재 실행 목록에는 두지 않는다.
 
-Project 맥락 갱신은 `context-update` skill이 해당 내용 Owner의 계약을 적용하는 절차로 제공한다. Workspace 결과의 자동 승격이나 제품 결정·acceptance를 구현하지 않으며, 정적 설치만으로 새 session의 실제 discovery·invocation, 맥락 보존의 충분성과 장기 유지 효과를 증명하지 않는다.
+Workspace 생성의 의미 충분성·사람 수락·전체 완료, concurrent Verify 조정·실제 네트워크·운영 서비스 효과는 별도다. POSIX Verify timeout은 같은 process group의 일반 descendant를 다루지만 스스로 새 session으로 분리한 process와 비-POSIX descendant 전체 종료를 보장하지 않는다. Harness 입력은 신뢰된 계약이며 악의적인 프로그램을 격리하는 sandbox가 아니다. Receipt와 status는 각각 atomic하지만 하나의 transaction은 아니다.
 
-현재 스킬의 설치와 상대 연결도 실제 host의 발견·호출·본문 적용이나 Main 결과가 Maintain의 문서 갱신·다음 실행자 입력까지 이어지는 운영 효과를 증명하지 않는다. 새 session은 기존처럼 default-unbound이며, 자동 lifecycle을 사용하지 않는 경우의 허용된 문서 반영은 Maintain 수동 fallback을 따른다. Codex·Claude Maintain 연결 코드와 책임별 테스트는 [구현 안내](context/work/harness/maintain/STRUCTURE.md)에서 찾는다. 두 호스트의 의미 판단은 기존 Codex 실행을 사용하며, Claude hook의 실제 등록·활성화·사용자 UI 전달은 별도 확인이 필요하다.
+Project·Personal의 반영은 context-update와 해당 Owner의 관리 계약을 적용한다. Work 결과를 자동 승격하지 않으며 기록 반영·제품 검증·다음 실제 사용 효과를 구별한다.

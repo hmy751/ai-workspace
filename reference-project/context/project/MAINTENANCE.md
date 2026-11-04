@@ -63,7 +63,7 @@ Local link·diff·설치 검사는 경로와 형식을 확인할 뿐 의미 충�
 
 ## 실행 장치와 보고 경계
 
-[context-update](../../.agents/skills/context-update/SKILL.md)는 이 계약을 실행하는 절차다. Workspace Maintain의 쓰기 범위를 Project 문서로 넓히지 않는다. 현재 Workspace의 Project 선택을 바꿀 필요가 있으면 기존 Work Owner에 연결하고, path·책임·authority 변경이 live consumer에 영향을 주면 reconciliation 계약을 따른다.
+[context-update](../../.agents/skills/context-update/SKILL.md)는 이 계약을 실행하는 절차다. record-work의 쓰기 범위를 Project 문서로 넓히지 않는다. 현재 Workspace의 Project 선택을 바꿀 필요가 있으면 기존 Work Owner에 연결하고, path·책임·authority 변경이 live consumer에 영향을 주면 reconciliation 계약을 따른다.
 
 반영한 현재 내용과 근거, 아직 남은 판단, 근거가 있어도 반영하지 못한 내용과 이유를 보고한다. Skill을 교체하거나 제거해도 사람이 이 문서와 각 내용 Owner를 따라 같은 갱신 책임을 수행할 수 있어야 한다.
 

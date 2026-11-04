@@ -23,7 +23,7 @@ Machine 계약은 책임별로 분리되어 있다.
 - [`recover.json`](recover.json): Project root를 기준으로 이번 작업에 선택한 `context/project/` 문서
 - [`verify.json`](verify.json): 확인할 claim, Project canonical basis, 고정 검증 명령, evidence와 실행 제한
 
-사람이 읽는 현재 문서와 machine 계약은 분리되어 있다. 각 책임의 동작과 경계는 [`Harness README`](../../harness/README.md), [`Recover`](../../harness/recover/README.md), [`Maintain`](../../harness/maintain/README.md), [`Verify`](../../harness/verify/README.md)에서 시작한다.
+사람이 읽는 현재 문서와 machine 계약은 분리되어 있다. 각 책임의 동작과 경계는 [`Harness README`](../../harness/README.md), [`Recover`](../../harness/recover/README.md), [`record-work`](../../../../.agents/skills/record-work/SKILL.md), [`Verify`](../../harness/verify/README.md)에서 시작한다.
 
 ## Workspace가 소유하는 내용 층
 

@@ -1,5 +1,9 @@
 # 설계 논의의 배경과 평가
 
+**2026-11-04 재개·검증 방향:** 다른 세션에서도 흐름·이유·조건을 유지하되 Workspace 전체를 기본 입력으로 읽히지 않는다. Workspace별 Markdown `recover.md`와 Work 진입 지침의 공통 기준을 선택했다. 현재 의미는 기존 current, 읽을 대상·이유·조건은 재개 안내가 맡고 생성 담당과 record-work가 관리한다. Verify는 아카이빙 방향을 채택했으며 검증 판단은 development, 필요한 기록은 기존 Work 흐름에 유지한다. 기존 도구와 기계 보장의 차이를 인정한다. [선택·적용·한계](../records/2026-11-04-ticket02-recovery-guide-prototype.md)를 따르며 실제 Reference 전환은 state에서 구별한다.
+
+**2026-10-30 기록 방식 선택:** 원문 판단·직접 수정하는 `record-work` 서브를 필요 시 호출하고 같은 대화에서 재사용한다. 직전 반영 이후가 기본 입력이며 필요한 이전 대화도 읽는다. 기본 쓰기는 Work, development·improvement-loop·context-update의 관련 영역 책임은 유지한다. 기존 기록 지침을 사용하며 세부 적용·한계는 [반영 기록](../records/2026-10-30-ticket02-record-work-prototype-and-reference.md)에서 확인한다.
+
 2026-10-29 후속으로 사용자는 “그래 그럼 06-02 진행해보자”라고 요청했다.02의 기록·전환·통합 테스트를 기다리며 모든06-02 준비를 멈추지 않고, 이미 반영한 독립 묶음의 Noline 현행 대조부터 시작한다. [적용안](../records/2026-10-29-ticket06-02-noline-preflight-and-plan.md)은 Noline 고유 기준·원본 위치·제품·Work·Maintain 보존과 옛 경로 호환을 제안한다. 이는 당시 적용 전 판단이다.2026-10-30 사용자는 최신 적용안대로 Noline 반영·확인을 승인했으며 고유 기준·기존 artifacts·병렬 변경 보존과 Maintain의02 분리를 다시 명시했다. [부분 적용 결과](../records/2026-10-30-ticket06-02-noline-partial-application.md)에 실제 반영·검증과 남은 host 범위를 연결한다.
 
 ## 06의 대상별 분할과 현재 착수 범위

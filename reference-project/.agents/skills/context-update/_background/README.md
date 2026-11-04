@@ -9,3 +9,5 @@ Reference의 현재 배치와 프로토타입 당시 기록의 차이는 [2026-1
 - 구현자의 제안·Main 검토, Project 내용 선별, 루프 연결에 대한 사용자 원문과 외부 고정판: [근거](evidence.md).
 
 공통 읽기와 반영의 파일 형태를 나눈 잠정 선택은 [USAGE 형성 자료](../../../../context/_background/usage/README.md)에서 한 번 관리한다. 과거 후보나 사용자 유보를 현재 실행 권한과 혼동하지 않는다.
+
+2026-10-30 Work 기록 연결 변경은 [record-work 도입](records/2026-10-30-record-work-connection.md)에서 확인한다. 이전 자동 Maintain 보존·Main 직접 기록 안내는 당시 판본의 근거다.

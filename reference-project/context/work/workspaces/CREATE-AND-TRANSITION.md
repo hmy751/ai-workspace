@@ -13,7 +13,7 @@ Repo-local [`create-context-workspace` skill](../../../.agents/skills/create-con
 - 사람은 새 goal, 완료 장면, 범위, 중요한 source 권위, Project 전체 반영과 acceptance를 결정한다.
 - Main 또는 이 계약을 적용하는 skill은 새 goal을 해석하고 필요한 현재 의미를 선별해 새 Workspace의 기존 Owner 구조에 배치한다.
 - Workspace schema와 Harness validation은 id·shape·경로·파일 안전처럼 명시 가능한 조건만 검사한다. 중요한 의미가 빠지지 않았다는 보장은 하지 않는다.
-- Recover는 완성된 bounded packet을 읽고, Maintain은 explicit Workspace 하나 안의 변화를 관리한다. 둘 다 새 Workspace 생성, predecessor 탐색과 Workspace 사이 동기화를 소유하지 않는다.
+- Recover는 완성된 bounded packet을 읽고, record-work의 담당자는 지정 Workspace 하나 안의 변화를 기록한다. 둘 다 새 Workspace 생성, predecessor 탐색과 Workspace 사이 동기화를 소유하지 않는다.
 
 새 Workspace는 predecessor의 다음 번호이거나 후속 작업이어도 자기 goal과 current를 소유하는 독립된 지속 단위다. 서로 무관한 새 작업에는 predecessor 관계를 만들지 않는다.
 
@@ -22,7 +22,7 @@ Repo-local [`create-context-workspace` skill](../../../.agents/skills/create-con
 1. 사용자가 정한 새 goal, 완료 장면, 범위와 하지 않을 것을 먼저 고정한다. 새 Workspace id나 goal을 안전하게 추론할 수 없거나 검증 기준·source 권위의 선택이 결과를 바꾼다면 관련 write 전에 사용자에게 묻는다.
 2. [Project 읽기 기준](../../project/REFERENCE/reading.md)에 따라 `context/project/README.md`의 작업·주제별 진입에서 새 goal의 판단을 바꾸는 실제 본문과 관련 Decision을 선택한다. Root와 layer README 자체를 충분한 내용 payload로 보지 않으며 물리 layer를 먼저 분류하거나 모두 읽지 않는다. 그 뒤 새 goal에 실제로 이어지는 predecessor의 current, 선택된 output, 정확한 source와 필요한 record만 확인하며 관련 이유가 없는 다른 Workspace를 넓게 탐색하지 않는다.
 3. 후보마다 그것을 모르면 새 goal, 계속 지킬 제약, 첫 판단, 현재 산출물의 의미 또는 다음 행동이 달라지는지 판단한다. 지금도 유효한지, 원문을 직접 다시 읽어야 하는지, 실제 canonical과 Owner가 어디인지 함께 확인한다.
-4. 다음 재진입에 계속 적용되는 의미는 링크로 대신하지 않고 새 Workspace의 적절한 current Owner에 직접 서술한다. [Spec과 Ticket](spec-and-tickets/README.md)에 따라 Work당 하나의 Spec을 다섯 파일로 구성한다. Work의 결과·공통 계약·품질 기준·제약과 공통 설계는 Spec에, 이번 실행의 결과·범위·맥락·설계·확인 방법과 진행·실제 결과는 필요한 Ticket에, 전체 상황과 다음 행동은 사람용 state에 둔다. Spec의 각 관점을 조사·논의로 구체화하되 미정 부분은 가정·열린 판단으로 드러내고 근거 없이 채우지 않는다. Ticket이 아직 없으면 색인에 없다고 적고 빈 작업을 만들어 채우지 않는다. 초기 구성은 Main/생성 skill이 맡고 이후 문서 유지에는 Spec·Ticket의 Main·Maintain 관계를 적용한다.
+4. 다음 재진입에 계속 적용되는 의미는 링크로 대신하지 않고 새 Workspace의 적절한 current Owner에 직접 서술한다. [Spec과 Ticket](spec-and-tickets/README.md)에 따라 Work당 하나의 Spec을 다섯 파일로 구성한다. Work의 결과·공통 계약·품질 기준·제약과 공통 설계는 Spec에, 이번 실행의 결과·범위·맥락·설계·확인 방법과 진행·실제 결과는 필요한 Ticket에, 전체 상황과 다음 행동은 사람용 state에 둔다. Spec의 각 관점을 조사·논의로 구체화하되 미정 부분은 가정·열린 판단으로 드러내고 근거 없이 채우지 않는다. Ticket이 아직 없으면 색인에 없다고 적고 빈 작업을 만들어 채우지 않는다. 초기 구성은 Main/생성 skill이 맡고 이후 문서 유지에는 Spec·Ticket의 Main·기록 담당자의 갱신 관계를 적용한다.
 5. 원문 전체가 기본 current에는 불필요하지만 특정 판단 전에 직접 읽어야 한다면 `source/index.md`에 원래 canonical과 provenance를 선택한다. Recover가 읽는 current에도 exact canonical 경로나 직접 링크, 문서의 역할, 필요한 이유와 읽을 시점을 함께 남긴다. Source나 current의 링크만으로 필수 재진입 의미 자체를 대신하지 않는다.
 6. Predecessor만 소유하는 당시 선택 이유나 상세 과정은 복제하지 않고 exact output·record·source를 단방향으로 가리킨다. 관련 있어도 새 goal의 판단과 행동을 바꾸지 않는 과거 상태, 세부 과정, 후보와 실행 기록은 predecessor에 그대로 둔다.
 7. 과거의 특정 범주가 successor에도 계속 적용된다고 오해할 가능성이 있고 그 오해가 현재 판단을 바꾼다면, 빠진 파일을 전부 열거하지 않고 그 범주와 지금 적용하지 않는 이유·현재 영향만 successor current에 적는다. 선택·제외 판단을 나중에 재검토할 필요가 있으면 새 Workspace record에 남긴다.
@@ -51,17 +51,13 @@ Repo-local [`create-context-workspace` skill](../../../.agents/skills/create-con
 
 새 Workspace 생성과 함께 Project 문서의 path·책임·authority도 바꿨다면 [`Workspace collection 계약`](README.md#project-context-변경과-live-consumer)의 영향을 받는 live consumer를 함께 reconcile한다. 단순 Workspace 생성만으로 Project 전체 consumer scan을 요구하지 않는다.
 
-## 생성과 활성화 경계
+## 생성과 전환의 경계를 구별한다
 
-Workspace 생성과 실제 활성화는 별도 결정이다. 생성만 요청받았으면 `workspaces/index.json`과 현재 Main session의 explicit binding을 바꾸지 않는다. 새 Main session은 Project의 active index, 기본 Workspace나 대화 주제로 Maintain에 자동 가입하지 않는다.
+생성만 요청받았으면 `workspaces/index.json`의 기본값과 이번 대화의 작업 대상을 바꾸지 않는다. 준비된 Workspace로 전환할 때 Main은 그 목표·현재 의미를 인수하고, 요청이 이번 대화에만 해당하는지 이후 일반 재개의 기본값까지 바꾸는지 구별한다. 지속 전환 요청이면 기본 index도 맞추고 명시 Recover와 필요하면 기본 Recover로 실제 선택을 확인한다.
 
-현재 작업을 successor로 전환할 때 새 Main session을 보편적으로 강제하지 않는다. 먼저 현재 binding과 background Maintain의 처리 중·pending·failed 상태를 확인한다. 미반영 내용이 successor의 goal·제약·첫 판단·다음 행동을 바꾸면 predecessor current를 먼저 보완하거나 successor가 알아야 할 의미를 직접 남긴다. 관련 없는 미처리 상태는 predecessor에 그대로 보존할 수 있으며, 존재 자체만으로 전환을 막지 않는다.
+전환 전에 원래 Work의 기록 담당자가 수행 중인 수정·반환과 미반영 사항을 확인한다. 새 목표·제약·첫 판단에 영향을 주는 의미는 원래 Work의 기록을 마치거나 새 Work가 알아야 할 의미를 직접 구성한다. 관련 없는 미완료가 있다는 이유로 모든 전환을 막지는 않는다. 늦은 결과는 원래 배정과 입력 구간에 귀속하며 새 대상의 결과로 합치지 않는다.
 
-같은 Main session을 이어 간다면 Main이 현재 사용자 turn 안에서 `CODEX_SESSION_ID`를 대상으로 `python3 .codex/hooks/maintain.py activate <successor_workspace_id>`를 실행한다. 실행 메커니즘과 operational state의 canonical은 [`Maintain session binding과 lifecycle`](../harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md)이다. 이 전환에서는 새 Maintain grounding이 실제로 성공한 뒤에만 future turn binding을 바꾸고, 이미 접수된 현재 prompt와 그 Stop은 predecessor로 마감하며 다음 prompt부터 successor를 사용한다. Grounding이 실패하면 기존 binding을 유지한다. 현재 host가 이 경계를 지원하지 않으면 새 Main session을 fallback으로 사용하며, 더 강한 격리나 독립 재진입이 필요할 때도 새 session을 선택할 수 있다.
-
-Successor 판단을 실제로 바꾸는 미반영 의미는 전환 전에 정리하지만, 관련 없는 pending의 존재만으로 이동을 막거나 successor로 넘기지 않는다. 이전 generation의 pending·failed·late worker 귀속과 `deactivate`의 runtime 보존 계약은 Maintain session lifecycle canonical이 소유한다.
-
-Active 기본값이나 `.codex/maintain.json`을 바꿨다는 사실만으로 actual activation, background event 반영 또는 새 grounding 완료를 주장하지 않는다. `activate` 성공 결과와 session별 persisted binding을 확인한다. Adapter test와 actual Codex host acceptance의 증명 범위는 Maintain session lifecycle canonical을 따른다.
+같은 Main 대화를 이어 쓸 수 있다. 기록 담당자를 이어 쓰면 새 대상·원문 구간·기존 미반영 책임을 명시하고, 다른 담당자를 쓰면 실제 문서와 필요한 원문에서 인수한다. 자동 session binding·activation CLI·hook을 실행하지 않는다. 실제 배정 변경, index 기본값 변경, 문서 준비와 host의 대화 상태는 구별한다.
 
 ## 완료와 증명 상한
 

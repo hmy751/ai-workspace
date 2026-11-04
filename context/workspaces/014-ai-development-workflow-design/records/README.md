@@ -1,5 +1,11 @@
 # 논의와 보존 기록
 
+- [재개 안내와 직접 검증 흐름의 prototype 적용](2026-11-04-ticket02-recovery-guide-prototype.md): recover.md·공통 재개 지침·생성/기록 연결, Verify 선택 권고 정리와 두 새 독자의 읽기 확인. Reference 아카이빙은 후속.
+
+- [Verify 제거 시 기존 도구와의 기능 비교](2026-11-04-verify-removal-tool-comparison.md): 동일 제품 검사·임시 실행 대조, 자동 증거 보존과 자식 프로세스 종료의 차이, 실제 소비자와 미결정 전환 범위.
+
+- [2026-10-30-ticket02-record-work-prototype-and-reference.md](2026-10-30-ticket02-record-work-prototype-and-reference.md): record-work 선택·prototype/Reference 연결·자동 Maintain 제거·직접 확인과 남은 범위.
+
 - [06-02 Noline 부분 반영·확인](2026-10-30-ticket06-02-noline-partial-application.md): 최신 Reference의153개 경로 적용, Noline 고유 기준·artifacts·Maintain 보존, 정적/Recover 결과와02 후속.
 
 - [06-02 최신 Reference·Noline 고유 기준 재대조](2026-10-30-ticket06-02-reference-refresh-review.md): `f5082bc3` 기준153개 경로 계획, 제품·TypeScript·Project 관리 기준 보존과 좁은 병합, 호환 경로·실행 한계. Noline 실제 반영 전의 검토 결과다.
@@ -8,11 +14,13 @@
 
 - [06-01 형식 반영 뒤 전반 점검](2026-10-30-ticket06-01-format-overall-review.md): Personal·Project의 조건/설명 구성과 진입·형성 자료 대조. 유지할 본문, 공통화·계약/수명 후속 후보, 커밋/표시 사본/링크 확인과 미실행 범위.
 
+- [02 문서별 내용과 중복의 구체 비교](2026-10-30-ticket02-document-duplication-comparison.md): 날짜 우선 제안을 정정한 장면에서 state·Ticket·records의 문안, 입구의 요약 범위와 갱신 조건을 비교한 미채택 제안.
+
 - [06-01 본문 형식 보완·Reference 반영](2026-10-30-ticket06-01-writing-format-application.md): 최신 판단 원본·background와 강도 대조, prototype 표시 사본 확인, Reference의 형식 기준·이름 본문·Project 작성 경로 반영과 보존 범위.
 
-- [02 재개·현재 입력과 첫 논의](2026-10-30-ticket02-reentry-and-first-discussion.md): 이미 정한 기록 책임과 남은 운영안, 현재 방향 정정과 판단 이력 보존의 실제 장면, 구성·시점·Maintain의 후속 비교 범위.
-
 - [06-01 채택 품질 기준의 Reference 후속 반영](2026-10-30-ticket06-01-personal-quality-update.md): 코드 표현·진단과 이름·계약 보완, 기존 링크 적응·형성 근거, 직접 확인과 Maintain·Work 보존. Noline 적용안은 새 판본 반영이 필요하다.
+
+- [02 재개·현재 입력과 첫 논의](2026-10-30-ticket02-reentry-and-first-discussion.md): 이미 정한 기록 책임과 남은 운영안, 현재 방향 정정과 판단 이력 보존의 실제 장면, 구성·시점·Maintain의 후속 비교 범위.
 
 - [01-02 설계 마감](2026-10-29-ticket01-02-closeout.md): 다섯 완료 조건, 유지·보완·범위 정정의 최종 결과,06 적용·07 관찰과 확인 한계.01의 세 하위 설계 결과가 갖춰졌다.
 

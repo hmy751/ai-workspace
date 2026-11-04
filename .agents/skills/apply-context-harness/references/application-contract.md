@@ -30,7 +30,7 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 
 - 각 책임의 live Owner와 파일을 target에 그대로 둘지, target 구조에 맞춰 적응할지, 제외할지 판단한다.
 - [Live Reference skill 색인](../../../../reference-project/.agents/skills/README.md)에서 각 repo-local skill과 필요한 공통 기준·도구별 연결을 확인하고 아래 기준으로 설치·적응·제외를 정한다. 첫 Workspace는 이식 책임이 직접 만들며 아직 설치되지 않은 운영 skill을 중첩 호출하지 않는다.
-- Tool-specific Maintain 연결과 Project 설정은 target의 기존 role·설정 Owner를 먼저 확인한다. 수동 role, [session binding·lifecycle canonical](../../../../reference-project/context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md), lifecycle hook, schema v2 explicit admission config, session별 activation wrapper와 runtime ignore를 하나의 Maintain 내부 관계로 설치·적응·제외하고, role 등록만으로 automatic lifecycle을 주장하지 않는다. Project 공통 Workspace id, active index나 대화 의미로 새 session을 자동 binding하지 않는다. Schema v1 설치를 올릴 때는 legacy session state를 보존하는 v2 adapter를 먼저 배치한 뒤 config를 v2로 바꾸며 runtime을 일괄 삭제·retarget하지 않는다. Project-local Codex hook은 target root의 Codex task에서 hook review/trust, 사용자가 선택한 session의 explicit activation과 같은 binding generation의 runtime event receipt가 확인되기 전까지 `activation_pending`으로 둔다. Unbound 새 session은 정상 no-op이다. 일부 또는 전체 adapter를 등록하지 않으면 canonical 계약을 main이 수행하는 fallback과 proof ceiling을 남긴다.
+- 기록 실행은 [record-work](../../../../reference-project/.agents/skills/record-work/SKILL.md)와 target Work의 작성·갱신 기준에 연결한다. 원문 접근·서브 생성·재사용·직접 수정은 실제 host의 지원을 확인한다. 기존 자동 Maintain이 있으면 진행 중 작업과 미반영 책임을 확인하고 승인된 전환에서 중복 hook·role·wrapper·전용 코드를 정리한다. 기존 대화 원문·runtime 이력·Work 기록을 일괄 삭제하거나 이식으로 새 Workspace에 귀속하지 않는다. Reference에 없는 자동 binding·activation을 다시 설치하지 않는다. 직접 수정하는 스킬의 지침과 host 권한을 기존 guarded apply의 결정적 보장과 구별한다.
 - Reference sample의 제품·Workspace 내용과 과거 receipt는 payload에서 제외한다.
 
 ## Repo-local skills와 공통 기준
@@ -40,9 +40,9 @@ Reference의 schema, status, 내부 경로와 호환 이력은 live canonical에
 - **대상별 선택:** 각 skill의 원본·지원 파일·호출 설정, `context/USAGE.md`, Personal·Project의 관리 지침과 필요한 본문·형성 자료, `context/project/REFERENCE/`, `.agents/skills/shared/`의 실제 공통 기준과 consumer 색인, tool별 discovery 연결과 root routing을 dry-run manifest에 `install/adapt/exclude`로 구분한다. 이름이 달라도 같은 책임을 맡는 target Owner와 비교하고, 제외할 때는 그 이유와 필요한 기존 canonical·fallback을 남긴다. Reference의 Personal 경험은 원래 출처와 관찰 한계를 유지하며 target에서 생긴 경험으로 복사하지 않는다.
 - **충돌 보호와 연결:** `.agents/skills/<name>/`의 전체 파일, target이 사용하는 `.claude/skills/<name>`·`.codex/skills/<name>` 같은 연결 경로, 공통 기준과 색인을 exact path로 확인한다. Clean·ignored 파일과 ancestor의 kind, 기존 symlink 목적지도 직접 확인하며 동명 경로를 통째로 덮어쓰지 않는다. Live source의 원본 관계와 호출 설정을 보존하되 도구별 상대 연결은 target 배치에서 해석해 같은 원본으로 이어지는지 확인한다. 도구가 지원하지 않는 연결을 기계적으로 설치하지 않는다.
 - **공통 기준의 병합:** 대상의 기존 Project guidance와 skill 공통 기준의 소유 경계를 확인하고 필요한 본문·consumer 링크를 해당 Owner에 좁게 병합한다. Reference의 색인으로 target 색인 전체를 교체하지 않는다. 적용 범위·중요 예외·실제 consumer는 각 live 본문에 맞추며 모든 가이드에 같은 고정 목차를 강제하거나 모든 응답·Recover의 기본 입력으로 확대하지 않는다. 기준 경로를 적응하거나 skill을 제외하면 남는 consumer와 색인을 함께 맞춘다.
-- **실제 유지 경로:** 설치한 skill에서 target의 Spec·Ticket·Main·Maintain 계약을 찾을 수 있게 연결한다. Workspace 생성과 Project-wide 문서 관리는 각각의 Owner에 남긴다. Bound·unbound·수동 fallback에서 누가 문서를 실제로 갱신하는지는 target Maintain 계약을 따르며, skill 설치를 session activation이나 문서 전달 완료로 취급하지 않는다.
+- **실제 유지 경로:** 설치한 skill에서 target의 Spec·Ticket·Main·기록 담당자 관계를 찾게 한다. Workspace 생성과 Project·Personal 관리는 각 Owner에 남는다. record-work의 담당자가 같은 Work 문서를 직접 수정하고 Main은 필요한 실제 반영을 확인한다. 사용할 수 없는 host에서는 동일 문서 기준을 수행한 실제 주체와 한계를 남긴다. 설치·호출·반영·재개 효과를 구별한다.
 
-정적 설치 확인은 frontmatter·호출 설정·일반 파일·상대 연결·canonical과 공통 기준 접근점까지다. 실제 host가 skill을 발견하고 정해진 방식으로 호출했는지, 결과가 Main을 거쳐 유지 경로에 전달되고 문서 의존 실행 전에 반영됐는지는 별도 관찰이다. 하나의 성공을 다른 skill·도구·Maintain binding의 증명으로 확대하지 않는다.
+정적 설치 확인은 frontmatter·호출 설정·일반 파일·상대 연결·canonical과 공통 기준 접근점까지다. 실제 host가 skill을 발견하고 정해진 방식으로 호출했는지, 결과가 Main을 거쳐 유지 경로에 전달되고 문서 의존 실행 전에 반영됐는지는 별도 관찰이다. 하나의 성공을 다른 skill·도구·기록 재사용의 증명으로 확대하지 않는다.
 
 ## 기존 문서의 전환
 
@@ -120,10 +120,10 @@ Root `README.md`는 작업·주제에서 실제 본문, 세 책임 layer와 Owne
 Project 문서의 path·책임·authority를 새로 만들거나 크게 바꿀 때에는 producer만 검사하지 않고 영향을 받는 live consumer를 고정한다.
 
 - id 없는 Recover가 선택하는 active/default Workspace
-- Maintain runtime의 current generation에 explicit session-bound된 Workspace
+- 현재 Main·기록 담당자에게 명시적으로 배정되어 실제 작업 중인 Workspace. 전환 전 자동 Maintain이 남아 있다면 현재 연결된 작업도 포함한다.
 - 이번 적용에서 명시적으로 생성·변경하는 Workspace
 
-과거 generation, unbound session과 이미 소비 경로에서 내려온 역사 Workspace는 자동 갱신하지 않는다. Private turn·prompt·response payload는 열지 않고 binding 식별에 필요한 session metadata만 본다. 역사 Workspace 비동기화 원칙은 해당 Workspace가 live consumer에서 내려온 뒤에 적용한다.
+과거 배정과 이미 소비 경로에서 내려온 역사 Workspace는 자동 갱신하지 않는다. 현재 배정·문서 선택으로 소비자를 확인하며 무관한 대화 원문을 열거나 복제하지 않는다. 옛 자동 연결의 처리가 필요한 경우 해당 대상의 운영 metadata부터 확인한다. 역사 Workspace 비동기화 원칙은 해당 Workspace가 live consumer에서 내려온 뒤에 적용한다.
 
 각 live consumer는 Project 선택, 사람용 current의 경로·machine Owner 설명, output target을 현재 canonical에 맞게 reconcile하거나 successor 전환·deactivation으로 소비 경로에서 내린다. 모든 id에 `recover <workspace_id> --json`을 실행하고 active/default 경로는 id 없는 Recover도 실행한다. Recover 성공만으로 의미 정합성을 통과시키지 않고 fresh reader가 packet의 실제 내용과 target을 대조한다.
 
@@ -177,9 +177,9 @@ Cache hit만으로 fresh pass를 선언하지 않는다. Force/no-cache option�
 | Harness 코드·machine 계약·path 방어 | 관련 단위 테스트 | 공통 경계나 target 배치가 달라짐 |
 | Target Harness 적응 | 전체 Harness tests와 ephemeral validation | 실패, source 변경 또는 proof 공백 |
 | 상태 전환·인계 | Product Verify와 후속 Recover | Evidence closure나 runtime 불확실성 |
-| Context 의미 변화 | 명시 Workspace Maintain과 main diff 검토 | 새 목표·canonical·acceptance 판단 필요 |
+| Context 의미 변화 | 명시 Workspace의 record-work 반영과 Main 결과 확인 | 새 목표·canonical·acceptance 판단 필요 |
 | Project path·책임·authority 변화 | 모든 live consumer의 explicit Recover, active fallback Recover, local link·residue 탐지와 fresh semantic review | consumer를 유지할 수 없거나 successor·deactivation 선택 필요 |
-| Codex lifecycle hook | v2 default-unbound, installed/activation_pending/activated 상태 분리 | target task의 hook trust, explicit session activation 또는 같은 generation의 runtime event receipt 부재 |
+| 기록 실행 전환 | 원문 접근·동일 담당자 재사용·직접 반영과 옛 자동 경로 제거 확인 | 실제 host 입력·호출·반영의 미확인 또는 미반영 책임 |
 | 신규 이식·사용자 파일 충돌 | 독립 review | P1/P2 또는 원자료 충돌 |
 
 반복 개발 확인과 durable evidence를 구분한다. Harness validation은 임시 fixture의 회귀 검사이고, Harness test receipt는 target-specific 관리 장치 증거이며, Product Verify는 실제 Workspace 상태 전환 증거다. 서로를 대신하지 않는다.
@@ -208,5 +208,5 @@ Target 사실로 다음을 답한다.
 4. Local link·semantic target·residue와 machine Owner 설명을 어디까지 확인했는가.
 5. 각 repo-local skill·Project REFERENCE·공통 기준·guidance 색인·도구별 연결과 root routing이 설치·적응·제외 중 무엇이며, 실제 발견·호출·본문 적용·문서 유지 흐름은 어디까지 확인됐는가.
 6. Validation과 Product Verify가 어떤 실제 input closure·runtime에서 무엇을 확인했는가.
-7. Project-local Maintain hook이 installed, activation_pending, activated, excluded 중 어디에 있고 default-unbound, session별 explicit activation, trust와 runtime receipt가 무엇으로 확인됐는가.
+7. Record-work의 설치·원문 접근·담당자 재사용·직접 반영, 기존 자동 경로 전환과 미반영 책임은 어디까지 확인됐는가.
 8. 무엇이 외부 환경과 사람 acceptance로 남아 있는가.

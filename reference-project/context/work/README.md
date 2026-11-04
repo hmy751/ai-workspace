@@ -1,31 +1,28 @@
 # Work context
 
-이 디렉터리는 Project 안에서 여러 작업을 지속 가능한 Workspace로 운영하는 상위 경계다.
+Work는 작업별 Workspace의 목표·현재 상태·입력·선택한 산출물·과정 기록과 이를 읽고 관리하는 관계를 소유한다. Project 공통 의미와 제품 코드는 이 층에 복제하지 않는다.
 
-이 영역을 수정하는 AI 작업 지침과 Maintain agent routing은 [`AGENTS.md`](AGENTS.md)에서 찾는다.
+| 구성 | 책임과 진입 |
+| --- | --- |
+| [Workspace collection](workspaces/README.md) | 작업별 current·source·output·records와 기계 계약의 의미·보존 경계 |
+| [Spec·Ticket](workspaces/spec-and-tickets/README.md) | 작업 정의·개별 실행·전체 상황과 작성·갱신 기준 |
+| [record-work](../../.agents/skills/record-work/SKILL.md) | 필요할 때 같은 기록 담당자를 호출해 원문 판단·직접 갱신을 수행 |
+| [Harness](harness/README.md) | Recover의 읽기 전용 복구와 Verify의 기계 증거 기록 |
+| [생성·전환](workspaces/CREATE-AND-TRANSITION.md) | 독립 목표의 초기 구성·재진입 확인·작업 대상 전환 |
 
-- [`workspaces/`](workspaces/): 각 작업의 identity, 선택 계약, 현재 context, 원자료와 provenance, goal 산출물 지도, 누적 records
-- [`harness/`](harness/): 선택한 Workspace를 Recover·Maintain·Verify하고 관리 장치 자체를 별도로 검증하는 교체 가능한 실행 경계
-
-Harness는 개별 Workspace에 속한 내용이 아니다. 여러 Workspace가 공유하는 교체 가능한 장치이며, Workspace의 목표·사람의 판단·`current/source/output/records` 의미를 독점하지 않는다. Harness를 제거해도 각 Workspace는 해당 README에서 독립적으로 읽을 수 있어야 한다.
-
-Workspace Context의 의미와 관리 기준은 [`workspaces/`](workspaces/)가 계속 소유한다. Harness의 [`Maintain`](harness/maintain/)은 사용자가 현재 Main session에 명시적으로 연결한 Workspace를 bounded grounding한 뒤 그 binding generation의 사용자 대상 response-end에서 기준을 적용하는 관리 책임이다. 새 session은 기본 unbound다. 같은 책임 디렉터리의 [Reference 전용 semantic agent](harness/maintain/workspace-context-maintainer.toml)가 의미를 판단하고 guarded apply가 부작용 경계를 집행하며, adapter를 제거하거나 교체해도 Workspace의 의미와 관리 기준은 남는다.
-
-Harness 계약·구현 변경은 실제 active Workspace에 durable receipt를 남기는 방식으로 자기 검증하지 않는다. [`harness/validation/`](harness/validation/)의 임시 Project/Workspace fixture 검사가 Harness 회귀를 소유한다.
+Main은 작업을 조율하고 기록 담당자는 지정 Work의 문서를 갱신한다. 기록 내용은 [문서 작성 기준](workspaces/DOCUMENT-WRITING.md)을 따른다. 기록 스킬을 교체해도 Workspace의 의미·원자료·기록은 남는다. 자동 response-end Maintain·session binding과 별도 agent role은 제거했으며 기존 runtime을 임시 연결하지 않는다.
 
 ## Root 관계
 
-- Project root: [`../..`](../..) — Project context, 제품 코드·테스트, verify 실행과 evidence 경로의 기준
-- Work root: 이 디렉터리 — Workspace index·계약·current·source·output·records와 `records/receipts/` 경로의 기준
-- Harness root: [`harness/`](harness/) — 실행 코드의 위치일 뿐 Project 또는 Workspace 의미의 기준이 아님
+- Project root: `../..` — 제품·Project 맥락·검증 실행의 기준.
+- Work root: 이 디렉터리 — Workspace index·current·source·output·records의 기준.
+- Harness root: `harness/` — Recover·Verify 실행 코드의 위치.
 
-기본 명령은 Project root에서 실행한다.
+상위 관계는 [context](../README.md), AI 작업 지침은 [AGENTS](AGENTS.md)에서 시작한다. 명령은 Project root에서 실행한다.
 
 ```bash
 python3 -m context.work.harness recover
 python3 -m context.work.harness verify
 ```
 
-Project context와 Work context의 상위 관계는 [`../README.md`](../README.md), 개별 Workspace collection의 계약은 [`workspaces/README.md`](workspaces/README.md), 새 Workspace 생성·전환은 [`workspaces/CREATE-AND-TRANSITION.md`](workspaces/CREATE-AND-TRANSITION.md), Harness 내부 책임은 [`harness/README.md`](harness/README.md)에서 시작한다.
-
-Workspace의 Work당 Spec 하나, 실행할 Ticket과 Main·Maintain의 유지 관계는 [Spec·Ticket 계약](workspaces/spec-and-tickets/README.md)을 따른다.
+Harness 자체 확인은 [임시 fixture 검증](harness/validation/README.md)을 사용하며 실제 active Workspace의 증거를 변경하지 않는다.

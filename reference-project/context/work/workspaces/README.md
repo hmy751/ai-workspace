@@ -34,7 +34,7 @@ Workspace 문서의 내용·구성·작성·갱신 기준은 [문서 작성과 �
 
 ## Project context 변경과 live consumer
 
-Project 문서의 path·책임·authority를 크게 바꾸면 그 문서를 만드는 쪽만 검사하지 않고 영향을 받는 live consumer를 확인한다. 여기에는 id 없는 Recover가 선택하는 active/default Workspace와 Maintain current generation에 explicit session-bound된 Workspace가 포함된다. 현재 변경에서 명시적으로 다루는 Workspace도 같은 범위로 본다. Session binding을 확인할 때에는 current generation과 Workspace id 같은 운영 metadata만 사용하고 `turns/`·`events/`의 사용자·Main 원문을 열거나 복제하지 않는다. 과거 generation, unbound session과 이미 소비 경로에서 내려온 역사 Workspace는 자동 갱신하지 않는다.
+Project 문서의 path·책임·authority를 크게 바꾸면 영향을 받는 live consumer를 확인한다. 여기에는 id 없는 Recover가 선택하는 active/default Workspace, 현재 Main·기록 담당자에게 명시적으로 배정되어 실제 작업 중인 Workspace와 현재 변경에서 다루는 Workspace가 포함된다. 현재 배정·입력의 대상과 필요한 문서 선택을 확인하며 무관한 대화 로그를 수집하지 않는다. 과거 배정과 이미 소비 경로에서 내려온 역사 Workspace는 자동 갱신하지 않는다.
 
 영향받는 live consumer는 `recover.json`의 실제 문서 선택, 사람용 current의 경로·machine Owner 설명, `output/index.md`의 target을 현재 canonical에 맞게 reconcile하거나 successor로 전환한다. 각 id로 explicit Recover를 실행하고 active/default 경로는 id 없는 Recover도 실행한다. 경로가 존재한다는 사실과 label·주변 설명이 의도한 실제 Owner를 가리킨다는 의미 판정을 분리한다. 이 reconciliation을 끝낸 뒤에만 역사 Workspace 비동기화 원칙을 적용한다.
 
@@ -42,6 +42,6 @@ Source 항목에는 가능한 범위에서 원래 위치나 URL, 확보 시각�
 
 `output/`은 `records/`에서 일부 파일을 자동 승격하거나 복제하는 archive가 아니다. 사람이 goal의 현재 결과로 선택한 산출물과 canonical 위치를 보여 주며, 선택 이유와 이전 후보는 `records/`에 남긴다. `output/`에 있다는 사실만으로 검증 통과, 사람의 수락, Workspace 완료가 되지 않는다. `recover`는 `output/index.md`만 기본 packet에 싣고 연결된 산출물 본문은 필요할 때 선택해서 읽게 한다.
 
-작업 중 반복 확인은 가능한 한 직접 test 명령으로 수행한다. Durable `verify` receipt는 Workspace 상태를 바꾸거나 다음 사람·세션에 검증 근거를 인계할 때 만든다. 작업 중 생긴 목표·판단·다음 행동의 의미 변화는 기존처럼 Maintain이 대화와 결과를 이해해 Spec·Ticket·state와 필요한 records에 반영한다. Main은 작업을 조율하고 필요한 결과를 다음 판단에 연결한다. 실행된 verify는 성공·실패 모두 사건이므로 자동 삭제하거나 같은 hash라는 이유로 합치지 않는다. 이 구분은 사람용 탐색과 불필요한 누적을 줄이는 운용 기준이며, retention 자동화는 아직 제공하지 않는다.
+작업 중 반복 확인은 가능한 한 직접 test 명령으로 수행한다. Durable `verify` receipt는 Workspace 상태를 바꾸거나 다음 사람·세션에 검증 근거를 인계할 때 만든다. 작업 중 생긴 목표·판단·다음 행동의 의미 변화는 record-work의 기록 담당자가 대화와 결과를 이해해 Spec·Ticket·state와 필요한 records에 반영한다. Main은 작업을 조율하고 필요한 결과를 다음 판단에 연결한다. 실행된 verify는 성공·실패 모두 사건이므로 자동 삭제하거나 같은 hash라는 이유로 합치지 않는다. 이 구분은 사람용 탐색과 불필요한 누적을 줄이는 운용 기준이며, retention 자동화는 아직 제공하지 않는다.
 
-관리 장치의 책임별 목적·입력·출력은 [`Recover`](../harness/recover/), [`Maintain`](../harness/maintain/), [`Verify`](../harness/verify/)가 각각 정의한다. Harness 자체 회귀 검증은 [`Harness validation`](../harness/validation/)이 소유한다.
+관리 장치의 책임별 목적·입력·출력은 [`Recover`](../harness/recover/), [`record-work`](../../../.agents/skills/record-work/SKILL.md), [`Verify`](../harness/verify/)가 각각 정의한다. Harness 자체 회귀 검증은 [`Harness validation`](../harness/validation/)이 소유한다.

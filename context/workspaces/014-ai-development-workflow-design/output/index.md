@@ -1,5 +1,9 @@
 # 현재 선택한 설계 자료와 산출물
 
+**02 재개 안내 prototype:** [Work 공통 지침](../records/prototypes/development-workflow/noline-demo/context/work/AGENTS.md)과 [로그인 Work recover.md](../records/prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/recover.md). [적용·읽기 확인·한계](../records/2026-11-04-ticket02-recovery-guide-prototype.md)를 따른다. Reference 실행기 아카이빙은 아직 수행하지 않았다.
+
+**02 기록 수행 적용:** [prototype record-work](../records/prototypes/development-workflow/skills/record-work/SKILL.md)와 [Reference 설치판](../../../../reference-project/.agents/skills/record-work/SKILL.md). [적용·검사·한계](../records/2026-10-30-ticket02-record-work-prototype-and-reference.md)를 따른다. 전체02 완료나 Noline 적용은 아니다.
+
 **07 Noline 실행을 위한 계획 — 2026-10-30:** [07의 대상 선택·확인 항목·결과 연결](../current/tickets/07-integrated-rehearsal.md)이 현재 계획이다. [선택 이유와 한계](../records/2026-10-30-ticket07-noline-observation-plan.md)를 함께 남겼다. 구체 대상과 실제 실행 결과는 아직 없으며, 이후 Noline에서 기존 작업·기록과 현행 설치본을 사용해 진행한다.
 
 **06 적용 단계 마무리 · 후속 확인 대기 — 2026-10-30:** [Reference·Noline 실행 묶음과 옛 경로 전환](../records/2026-10-30-ticket06-execution-skills-and-retirement.md). Reference `c96c6c1b`, Noline `41170efd`에 설치·적응·제거 결과를 보존했다. 실제 적용 결과의 정본은 각 대상에 있으며 기존 Work 계약을 유지한다. [남은 책임과 후속 방향](../records/2026-10-30-ticket06-remaining-work-and-noline-followup.md)은 완료된 설치와 미확인인 실제 수행·원문 접근,02 의존 전환을 구별한다. 아래 context 부분 반영은 이전 묶음의 근거다.

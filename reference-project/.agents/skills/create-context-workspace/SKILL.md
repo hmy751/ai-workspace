@@ -11,7 +11,7 @@ description: 이미 Context Harness가 설치된 Project 안에서 새 독립 Wo
 
 최초 Context Harness 이식과 첫 Workspace 생성은 `apply-context-harness`의 책임이다. 이 skill은 설치 뒤 두 번째 Workspace부터 사용하며, 기존 Workspace의 단순 재진입·current 갱신이나 Project context 반영만을 위해 발동하지 않는다.
 
-목적·prototype과 설치 대상의 차이·의미 계승을 재검토할 때 [형성 자료](_background/README.md)를 읽는다. 아래 기계 계약과 activation은 기존 대상 계약을 유지한다.
+목적·prototype과 설치 대상의 차이·의미 계승을 재검토할 때 [형성 자료](_background/README.md)를 읽는다. 아래 기계 계약은 유지하고 전환은 현재 Work 계약을 따른다.
 
 ## 시작
 
@@ -36,7 +36,7 @@ description: 이미 Context Harness가 설치된 Project 안에서 새 독립 Wo
 
 ## 활성화와 보고
 
-생성만 요청받았으면 `workspaces/index.json`과 현재 Main session의 explicit binding을 변경하지 않는다. 활성화도 요청받았으면 생성·전환 canonical에 따라 현재 binding과 Maintain의 처리 중·pending·failed 상태가 successor 판단에 미치는 영향만 확인하고 필요한 의미를 보완한 뒤, [`Maintain session binding·lifecycle canonical`](../../../context/work/harness/maintain/SESSION-BINDING-AND-LIFECYCLE.md)을 읽고 실행한다. 같은 Main session을 이어 가는 경우 현재 turn 안에서 현재 `CODEX_SESSION_ID`를 대상으로 `python3 .codex/hooks/maintain.py activate <successor_workspace_id>`를 실행한다. 성공하면 현재 turn은 predecessor로 마감하고 다음 prompt부터 successor를 사용한다. Grounding이 실패하면 기존 binding이 유지됐는지 확인하고 새 Main session을 fallback으로 보고한다. `.codex/maintain.json`, active index나 Project 기본값 변경으로 activation 완료를 가장하지 않는다.
+생성만 요청받았으면 `workspaces/index.json`과 현재 대화의 작업 대상을 바꾸지 않는다. 전환도 요청됐으면 생성·전환 canonical에 따라 원래 Work 기록의 진행·미반영 사항, 새 Work의 현재 의미와 실제 배정을 확인한다. 지속 전환의 기본 index와 이번 대화의 대상은 구별한다. [record-work](../record-work/SKILL.md)의 담당자에게 대상·입력 구간을 새로 배정하며 옛 activation이나 session binding 명령을 실행하지 않는다.
 
 마지막에는 다음을 짧게 보고한다.
 
@@ -44,7 +44,7 @@ description: 이미 Context Harness가 설치된 Project 안에서 새 독립 Wo
 - current에 직접 남긴 핵심 의미와 필수 source 접근점
 - 단방향 참조와 의도적 비상속 범위
 - bounded Recover와 독립 재진입 검토 결과
-- active index·session binding 변경 여부, activation 결과와 실제로 증명하지 않은 host 범위
+- 기본 index·이번 대화의 대상·기록 배정 변경 여부와 실제로 확인하지 않은 host 범위
 - commit 여부와 보호한 기존 변경
 
 사용자가 명시하지 않으면 stage·commit하지 않는다.

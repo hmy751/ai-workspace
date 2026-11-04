@@ -6,6 +6,8 @@
 
 ## 설치된 역할과 진입점
 
+- [record-work](record-work/SKILL.md): 기록 요청·작업 정리 시 같은 담당자를 재사용해 원문 판단과 Work 직접 갱신을 수행한다.
+
 - [development](development/SKILL.md): 개발 요청의 요구·맥락·구현·개선 검토·검증·결과를 연결한다. 모든 요청에 고정 인원·단계를 요구하지 않는다.
 - [improvement-loop](improvement-loop/SKILL.md): 사용자가 대화를 돌아보고 개선을 찾자고 요청했을 때 선택한 개선·한정 시도와 경험을 잇는다. 자동 마무리 루프가 아니다.
 
@@ -22,13 +24,13 @@
 
 ## Context와 문서 갱신
 
-작업을 다루는 스킬은 root [AGENTS.md](../../AGENTS.md)에서 관련 context를 찾고, [Spec·Ticket 계약](../../context/work/workspaces/spec-and-tickets/README.md)의 내용·읽기·Main·Maintain 관계를 적용한다. 새 Workspace 초기 구성과 준비된 Workspace의 문서 유지를 구별한다. 자동 연결이 없을 때의 허용된 문서 반영은 같은 계약이 연결하는 Maintain 수동 fallback을 따른다. 스킬 설치·호출은 session activation이나 실제 문서 반영을 뜻하지 않는다.
+작업을 다루는 스킬은 root [AGENTS.md](../../AGENTS.md)와 [Work 갱신 계약](../../context/work/workspaces/spec-and-tickets/MAINTENANCE.md)을 따른다. 새 Workspace 초기 구성과 준비된 Workspace의 기록을 구별한다. [record-work](record-work/SKILL.md)는 필요할 때 같은 담당자를 호출해 원문 판단·직접 반영을 수행하며 문서 기준은 Work가 소유한다.
 
 `work-discussion`과 `explain`은 각 호출 조건에서 [설명과 근거 기준](shared/explanation-and-evidence-criteria.md)을 읽는다. 기준의 범위·수명·제거 조건은 그 본문이 소유한다. `reconsider-work`나 모든 Recover에 새 필수 입력으로 추가하지 않는다.
 
 ## 도구 연결과 이식
 
-`development`, `improvement-loop`, `work-discussion`, `reconsider-work`, `explain`, `context-update`는 `.claude/skills/`와 `.codex/skills/`에서 이 `.agents/skills/`의 같은 원본으로 상대 연결한다. `create-context-workspace`는 기존 root 라우팅으로 찾는다. 연결·호출 설정의 존재는 실제 host의 발견·호출·본문 적용·Maintain 동작을 증명하지 않는다. Maintain 지원 범위와 실제 host 검증 상한은 [구현 안내](../../context/work/harness/maintain/STRUCTURE.md)가 설명한다. Hook이 실제 연결되지 않은 host의 문서 유지는 기존 Maintain 수동 fallback을 사용한다.
+`record-work`, `development`, `improvement-loop`, `work-discussion`, `reconsider-work`, `explain`, `context-update`는 `.claude/skills/`와 `.codex/skills/`에서 같은 `.agents/skills/` 원본으로 연결한다. `create-context-workspace`는 root 라우팅으로 찾는다. 연결·설정의 존재만으로 실제 host 발견·호출·원문 접근·재사용·기록 효과를 입증하지 않는다. [공통 원문 접근](shared/conversation-source.md)은 improvement-loop와 record-work가 공유하되 각 스킬의 읽을 범위는 유지한다.
 
 다른 Project에 이식할 때는 이 목록과 실제 디렉터리·호출 설정·연결·공통 기준을 함께 확인한다. 기존 동명 또는 같은 책임의 스킬과 비교해 설치·적응·제외를 정하고, 기존 guidance 색인을 병합한다. 이 색인과 스킬 본문이 다른 Project의 현재 제품 맥락을 소유하지 않는다.
 

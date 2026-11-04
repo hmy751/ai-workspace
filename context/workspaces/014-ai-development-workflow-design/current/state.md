@@ -1,10 +1,16 @@
 # 현재 상태
 
-## 현재 — 02 기록 운영 검토 시작
+## 현재 — 02 재개 안내 prototype 적용
 
-2026-10-30 사용자 요청으로 이 세션에서02를 검토한다. [기존 입력과 첫 비교](../records/2026-10-30-ticket02-reentry-and-first-discussion.md)에 Main 기록 책임·현재/이력 구별·생성/전환에서 이미 갖춘 부분과 전체 운영안의 공백을 정리했다. 현재 파일·커밋에서는 별도02 운영안 진행 근거를 찾지 못했으며 다른 세션의 실행 상태를 확인한 것은 아니다.
+[recover.md와 공통 지침](../records/2026-11-04-ticket02-recovery-guide-prototype.md)을 prototype에 적용했다. 기본·조건부 읽기와 이유·범위, 생성 담당과 record-work의 안내 갱신을 연결했고 선택적 Verify 권고를 직접 검사·기존 근거 보존으로 맞췄다. 새 독자 두 명의 일반 재개·한정 설명에서 현재 선택·이유·미확인을 복원했으며 읽기량 감소나 장기 효과는 미확인이다.
 
-첫 논의는 이번01-02의 다음 행동 정정에서 state·Ticket·진입 안내와 이유 기록의 역할·중복을 대조하는 것이다. Work 전체 구조·background·자동 Maintain 방식은 아직 선택하지 않았다. Reference의 현행 Work·Maintain은 유지하며 계약 연결 뒤 통합 테스트를02에서 수행하는 후속을 이어받는다. 아래06 진행 기록은 병행 작업의 상태다.
+Verify 아카이빙과 재개 안내 전환 방향은 채택됐다. 후속은 Reference의 실제 CLI·생성/이식·기계 상태 소비와 과거 증거 보존을 맞추는 일이다. 이번에는 prototype만 바꿨고 Reference/Noline runtime 아카이빙은 하지 않았다.02의 문서 구성·보존·중복과 실제 사용 비교는 계속 남아 있다.
+
+## 앞선 적용 — 02 Record Work
+
+[record-work prototype·Reference 반영](../records/2026-10-30-ticket02-record-work-prototype-and-reference.md)을 마쳤다. 필요 시 같은 서브가 원문 판단·Work 직접 기록을 수행하며 관련 컨텍스트 반영은 기존 workflow에 남긴다. Reference의 옛 자동 Maintain 연결·전용 코드를 제거했고 남은 제품/Harness95개와 기본·명시 Recover가 통과했다. 실제 Noline에는 미적용이다.
+
+격리 Workspace에서 같은 기록 담당자2회 호출·직접 수정·과거 기록 보존을 확인했다. 다음은 남은02 구성·운영 비교와 실제 사용의 기록 품질·통합 확인을 이어가는 것이다. 아래06의 Maintain 보존은 이번 적용 전 경과이며 최신 Reference 상태는02 적용 기록을 따른다.
 
 ## 현재 — 06 적용 단계 마무리 · 후속 확인 대기
 

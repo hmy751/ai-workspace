@@ -1,6 +1,6 @@
 # Work의 Spec·Ticket·state
 
-작업 정의·개별 실행·전체 상황을 구별해 다음 행동에 필요한 내용을 찾는다. 각 Workspace의 `current/memory/spec/` 다섯 파일이 하나의 Spec이다. 파일 수가 다섯이라는 이유로 작업을 다섯 Ticket으로 나누지는 않는다.
+작업 정의·개별 실행·전체 상황을 구별해 다음 행동에 필요한 내용을 찾는다. 상세 내용은 [Spec 작성](SPEC.md)·[Ticket 작성](TICKET.md), 실행·완료는 [실행 기준](EXECUTION-CRITERIA.md), 실제 반영은 [갱신 기준](MAINTENANCE.md), 글의 충분성은 [문서 작성](../DOCUMENT-WRITING.md)을 따른다. 각 Workspace의 `current/memory/spec/` 다섯 파일이 하나의 Spec이다. 파일 수가 다섯이라는 이유로 작업을 다섯 Ticket으로 나누지는 않는다.
 
 - `01-problem-goal-scope.md`: 해결할 문제, 얻을 결과, 포함·제외 범위
 - `02-behavior-and-cases.md`: 요구 동작과 결과가 달라지는 대표 사례

@@ -5,5 +5,6 @@
 - [형성 맥락](context.md): 기존 생성 책임을 유지한 이유, 내용 계약과 수행 수단의 분리, 잠정 이름과 운영 전환의 경계.
 - [근거](evidence.md): 사용자 요청과 기존 원형·외부 고정판에서 실제로 이어받은 관계와 한계.
 - [적용 기록](records/2026-10-26-prototype-integration.md): 수동 demo에 옮긴 범위와 실제 생성·전환 시험의 구별.
+- [재개 안내의 공통 선택 근거](../../record-work/_background/records/2026-11-04-recovery-guide.md): 별도 `recover.md`와 공통 Work 기준을 두고 생성·기록 담당이 이어 관리하는 이유.
 
 이 스킬의 의미·구성을 바꿀 때는 [스킬 본문 관리 원칙](../../SKILLS-CONTENT-POLICY.md)을 함께 읽는다. Work 내용 구조에 새 형성 자료 층을 추가하는 계약은 아니다.

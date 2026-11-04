@@ -19,3 +19,5 @@
 - [맥락 사용·반영·완료와 연속성 통합](records/2026-10-26-context-integration.md): 담당자의 제안과 Main의 검토·반영, Project 내용 선별, 공통 읽기와 한정 수행의 배치, 후속 루프·생성·전환과의 경계 및 직접 발화.
 
 - [실행 상세의 계층 확장](records/2026-10-26-detail-expansion.md): 초기 유보 뒤 성숙한 구현 수행과 여러 담당자가 사용하는 검사 근거를 나눈 이유, 사용자 의도와 유지한 책임.
+
+2026-10-30 Work 기록 연결 변경은 [record-work 도입](records/2026-10-30-record-work-connection.md)에서 확인한다. 이전 자동 Maintain 보존·Main 직접 기록 안내는 당시 판본의 근거다.

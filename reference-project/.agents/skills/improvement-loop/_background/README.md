@@ -19,3 +19,5 @@
 선택한 한정 시도를 기존 작업에서 실행하고 끝내는 이유와 적용 경계는 [한정 시도 연결 기록](records/2026-10-29-limited-trial.md)을 읽는다.
 
 같은 목적에서 현행·설명·수행 수단을 비교하는 사례를 보완한 이유는 [비교 사례 선택 기록](records/2026-10-29-means-comparison.md)을 읽는다.
+
+2026-10-30 Work 기록 연결 변경은 [record-work 도입](records/2026-10-30-record-work-connection.md)에서 확인한다. 이전 자동 Maintain 보존·Main 직접 기록 안내는 당시 판본의 근거다.

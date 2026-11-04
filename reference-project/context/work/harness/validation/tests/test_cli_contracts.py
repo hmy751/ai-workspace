@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import io
-from pathlib import Path
-import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -23,28 +21,6 @@ class HarnessCliContractTests(unittest.TestCase):
             recover_compat.render_recovery_packet, recover.render_recovery_packet
         )
         self.assertIs(verify_compat.verify_workspace, verify.verify_workspace)
-
-    def test_maintain_stdin_reads_json_without_changing_the_decision(self) -> None:
-        with patch.object(cli.sys, "stdin", io.StringIO('{"summary": "현재 상태"}')):
-            self.assertEqual(cli._read_maintain_decision("-"), {"summary": "현재 상태"})
-
-    def test_maintain_stdin_rejects_malformed_json(self) -> None:
-        with patch.object(cli.sys, "stdin", io.StringIO("{broken")):
-            with self.assertRaisesRegex(
-                HarnessError, "stdin Maintain decision.*valid JSON"
-            ):
-                cli._read_maintain_decision("-")
-
-    def test_missing_or_non_utf8_decision_is_reported_as_a_cli_contract_error(
-        self,
-    ) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "decision.json"
-            with self.assertRaisesRegex(HarnessError, "readable UTF-8 JSON"):
-                cli._read_maintain_decision(str(path))
-            path.write_bytes(b"\xff")
-            with self.assertRaisesRegex(HarnessError, "readable UTF-8 JSON"):
-                cli._read_maintain_decision(str(path))
 
     def test_harness_contract_error_returns_two_on_stderr_without_success_output(
         self,

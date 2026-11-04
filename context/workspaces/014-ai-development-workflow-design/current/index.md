@@ -1,6 +1,6 @@
 # 현재 논의의 진입점
 
-**02 재개 — 2026-10-30:** 사용자가02를 이 세션에서 보도록 요청했다. [현재 입력·첫 논의](../records/2026-10-30-ticket02-reentry-and-first-discussion.md)와 [02 Ticket](tickets/02-work-records.md)을 읽는다. 첫 쟁점은 현재 행동과 중요한 판단 이력의 역할·중복이며, 이후 작업 규모별 구성과 실제 기록/재개 운영을 비교한다. 기존06 병행 변경은 유지한다.
+**현재02:** [기록 운영 Ticket](tickets/02-work-records.md)에서 record-work와 재개 안내의 prototype 적용, 남은 구성·운영 범위를 찾는다. Reference 전환과 실제 현재 상태는 [state](state.md)를 따른다.
 
 **07 계획 정리 · Noline 실행 대기:** [07](tickets/07-integrated-rehearsal.md)에서 Noline의 기존 작업·기록으로 대상과 질문을 정할 방법, 확인 항목, 결과 연결을 찾는다. 실제 자료 선택·개선 루프·검사·관찰은 Noline에서 진행한다. 여기서는 계획만 정리했으며 구체 대상·시점·실행 결과는 아직 없다. [사용자 선택](../records/2026-10-30-ticket07-noline-observation-plan.md).
 

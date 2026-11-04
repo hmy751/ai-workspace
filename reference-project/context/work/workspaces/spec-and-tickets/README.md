@@ -1,6 +1,6 @@
 # Workspace의 Spec과 Ticket
 
-이 디렉터리는 Workspace의 작업 정의, 실행 단위, 전체 상태를 연결하는 운영 기준을 소유한다. Spec·Ticket의 내용과 읽는 범위, 작업을 나누고 완료하는 판단, Main·Maintain의 갱신 책임을 여기서 찾는다.
+이 디렉터리는 Workspace의 작업 정의, 실행 단위, 전체 상태를 연결하는 운영 기준을 소유한다. Spec·Ticket의 내용과 읽는 범위, 작업을 나누고 완료하는 판단, Main·기록 담당자의 갱신 책임을 여기서 찾는다.
 
 Workspace 전체의 범위와 source·output·records 관계는 [Workspace collection](../README.md)이 소유한다. 실제 작업 내용은 각 Workspace의 `current/`에 두며, 이 운영 기준을 작업별 Spec에 복제하지 않는다.
 
@@ -42,7 +42,7 @@ Main과 실행자는 Ticket을 나누거나 실행·완료 판단을 할 때 [�
 - [Ticket 작성](TICKET.md): 실행할 결과와 맥락·접근·완료 근거·실제 결과를 남길 때. Ticket 분해와 완료 판단에는 위 실행 기준도 적용한다.
 - [갱신과 작업의 연속성](MAINTENANCE.md): 누가 무엇을 갱신하는지, 새 근거가 기존 판단에 미치는 영향과 다른 실행자의 결과를 어떻게 이어받는지 정할 때.
 
-Maintain은 위 다섯 운영 문서를 함께 적용한다. 자동 입력 경로는 [Maintain](../../harness/maintain/README.md)이 연결하며, 수동 경로에서는 제공되지 않은 본문을 직접 읽는다. 기록 책임을 맡는다는 이유로 Main의 작업 판단이나 실행자 선택까지 대신하지 않는다. 선택 배경을 보존하는 `HISTORY.md`는 아래 기준 변경 시점에 읽는다.
+기록 담당자는 위 운영 문서 중 이번 갱신에 필요한 기준을 직접 읽고 적용한다. [record-work](../../../../.agents/skills/record-work/SKILL.md)는 원문 접근·호출·재사용·직접 반영을 연결하며 이미 유효하게 읽은 내용은 재사용한다. 기록 책임으로 Main의 작업 판단·실행자 선택까지 대신하지 않는다. `HISTORY.md`는 기준 변경의 이유를 다시 볼 때 읽는다.
 
 ## Workspace 안의 실제 구성
 
@@ -85,7 +85,7 @@ current/
 
 ## 이 기준의 유지
 
-공통 운영 기준의 유효성은 하네스 변경을 맡은 Main이 관리한다. Workspace별 Spec·Ticket·state의 유지 책임은 [갱신 기준](MAINTENANCE.md)을 따른다. Recover·Maintain 같은 관리 장치가 이 문서들의 의미를 별도로 정의하지 않는다.
+공통 운영 기준의 유효성은 하네스 변경을 맡은 Main이 관리한다. Workspace별 Spec·Ticket·state의 유지 책임은 [갱신 기준](MAINTENANCE.md)을 따른다. Recover·record-work 같은 관리 장치가 이 문서들의 의미를 별도로 정의하지 않는다.
 
 판단에 영향을 주는 문구·구성·읽기 경로를 변경할 때는 [선택 배경과 변경 이력](HISTORY.md)을 먼저 읽는다. 변경할 부분을 왜 두었는지, 어떤 실패를 막으려 했는지 확인하고 새 안에서도 그 판단이 유지되는지 대조한다. 표현을 줄이거나 일반화했다는 사실만으로 같은 의미가 보존됐다고 판단하지 않는다.
 

@@ -4,7 +4,7 @@
 
 - [Personal](personal/README.md): 여러 작업에 가져갈 개인 판단의 이유·조건과 협업 경험·해석·열린 후보. 기준 채택은 사용자가, 허용된 편집은 Main 또는 지정 담당자가 맡는다.
 - [Project](project/README.md): 여러 작업에 지속되는 제품 의미·현재 현실·작업 계약을 `common/current/guidance`와 Owner 관계로 유지한다. `decisions`는 선택 이유를, `REFERENCE`는 구성·읽기 기준을 맡는다.
-- [Work](work/README.md): Workspace의 현재 상태·원자료·goal 산출물 지도·기록과 이를 복구·유지·검증하는 공용 Harness의 운영 경계. 기존 Main·Maintain 관계와 생성·전환 계약을 유지한다.
+- [Work](work/README.md): Workspace의 현재 상태·원자료·goal 산출물 지도·기록과 이를 복구·유지·검증하는 공용 Harness의 운영 경계. Main·기록 담당자의 갱신 관계와 생성·전환 계약을 따른다.
 
 Project 본문은 제품 문서의 복사본이나 링크 목록이 아니다. [Project README](project/README.md)는 실제 본문과 Owner를 찾는 안정된 진입점이며 Workspace는 필요한 본문과 선택 이유를 계약에 남긴다. Harness는 관리 장치로서 개인 기준·제품 의미·작업 목표를 소유하지 않는다. 제품 구현과 테스트는 [src](../src/)와 [tests](../tests/)가 소유한다.
 

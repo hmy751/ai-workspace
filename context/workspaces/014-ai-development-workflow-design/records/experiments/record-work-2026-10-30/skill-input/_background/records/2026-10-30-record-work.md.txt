@@ -1,0 +1,7 @@
+# Record Work 도입
+
+2026-10-30. 사용자 선택으로 prototype에 record-work를 구성했다. 기존 Work 작성·갱신 기준을 연결하고 Main 호출·서브 기록 수행·원문 접근을 나눴다. development·improvement-loop의 Work 기록 호출과 context-update의 별도 책임을 연결했다.
+
+기존 Reference의 DOCUMENT-WRITING과 Spec/Ticket 상세를 prototype에서도 읽을 수 있게 구성했다. 자동 Maintain의 response-end·binding·read-only decision·guarded apply 조건은 새 스킬의 실행 계약으로 가져오지 않았다. 기존 문서 기준의 의미와 과거 기록 보존은 유지한다.
+
+공통 원문 접근을 skills/shared/conversation-source.md로 옮겼으며 improvement-loop의 전체 대화 검토는 유지했다. 현재 로컬 세션의 식별자·원문 파일 metadata 일치는 확인했지만 담당 재사용·기록 품질·다음 세션 재개의 실제 효과는 별도 확인 대상이다. 이 기록은 도입의 설계·본문 반영 근거이며 runtime 성공 증거가 아니다.

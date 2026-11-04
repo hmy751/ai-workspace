@@ -8,6 +8,8 @@
 
 | 보고 싶은 것 | 시작점 | 여기서 이해할 차이 |
 | --- | --- | --- |
+| 다른 세션에서 필요한 맥락과 조건을 이어받는 방법 | [재개 기준](noline-demo/context/work/AGENTS.md) · [로그인 Work의 recover.md](noline-demo/context/work/workspaces/001-login-completion-names/recover.md) | 기본·조건부 읽기와 현재 본문·과거 근거의 구별, 생성·기록 시 안내 갱신 |
+| 작업 원문을 읽고 현재 의미·과정을 기록하는 방법 | [record-work](skills/record-work/SKILL.md) · [Work 작성 기준](noline-demo/context/work/workspaces/DOCUMENT-WRITING.md) | 필요 시 호출·같은 서브 재사용·직접 Work 갱신과 기존 workflow의 책임 구별 |
 | 대화 경험과 현재 체계에서 개선을 찾아 선택·반영하는 방법 | [적용 사례](skills/improvement-loop/references/application.md) · [루프 실행 본문](skills/improvement-loop/SKILL.md) · [Personal 경험 길잡이](noline-demo/context/personal/experience/README.md) | 실제 수행과 적용 사례, 경험 보존의 역할 및 후보·채택의 차이 |
 | 개발 작업의 맥락·역할·판단을 연결하는 방법 | [development 스킬](skills/development/SKILL.md) · [개선 검토](skills/development/references/review.md) · [검증 상세](skills/development/references/verification/INDEX.md) | Main의 전체 조율과 구현 단계 검토자의 독립 판단, 수정 뒤 검증의 책임 |
 | 구현과 수정의 실제 수행 | [구현 상세](skills/development/references/implementation.md) | 설계·사용 경로 완성·자기 확인·관찰 준비와 인계 |
