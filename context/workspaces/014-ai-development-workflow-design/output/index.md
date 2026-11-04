@@ -1,6 +1,6 @@
 # 현재 선택한 설계 자료와 산출물
 
-**02 재개 안내 prototype:** [Work 공통 지침](../records/prototypes/development-workflow/noline-demo/context/work/AGENTS.md)과 [로그인 Work recover.md](../records/prototypes/development-workflow/noline-demo/context/work/workspaces/001-login-completion-names/recover.md). [적용·읽기 확인·한계](../records/2026-11-04-ticket02-recovery-guide-prototype.md)를 따른다. Reference 실행기 아카이빙은 아직 수행하지 않았다.
+**02 재개 안내·Reference 전환:** [Reference Work 기준](../../../../reference-project/context/work/AGENTS.md) · [실제 Workspace recover.md](../../../../reference-project/context/work/workspaces/001-default-timeout/recover.md) · [이전 실행기 보존본](../records/archives/2026-11-04-recover-verify/README.md). [적용·확인·한계](../records/2026-11-04-ticket02-reference-recovery-and-archive.md)를 따른다. 선행 [prototype](../records/2026-11-04-ticket02-recovery-guide-prototype.md)과 실제 대상 적용을 구별하며 Noline 후속 반영은 별도다.
 
 **02 기록 수행 적용:** [prototype record-work](../records/prototypes/development-workflow/skills/record-work/SKILL.md)와 [Reference 설치판](../../../../reference-project/.agents/skills/record-work/SKILL.md). [적용·검사·한계](../records/2026-10-30-ticket02-record-work-prototype-and-reference.md)를 따른다. 전체02 완료나 Noline 적용은 아니다.
 

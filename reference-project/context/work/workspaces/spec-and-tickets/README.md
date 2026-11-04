@@ -63,29 +63,22 @@ current/
 │   │   └── <ticket>.md
 │   └── project-context.md
 └── state/
-    ├── index.md
-    └── status.json
+    └── index.md
 ```
 
 `memory/index.md`는 Spec 다섯 파일, Ticket 색인, Project context 선택과 필요한 추가 memory를 연결한다. Spec이 기존 `01-goal.md`와 작업별 `02-constraints.md`를 대체하므로 같은 작업 정의를 따로 유지하지 않는다. `project-context.md`는 이번 작업에 선택한 Project 맥락과 그 이유를 맡는다.
 
-`tickets/index.md`는 각 Ticket의 제목·하는 일·본문 경로를 안내한다. 개별 진행 상태의 두 번째 정본으로 만들지 않으며, Ticket이 없으면 없다고 적는다. `status.json`은 제품 Verify의 기계 결과만 맡고 Ticket 상태를 저장하지 않는다.
+`tickets/index.md`는 각 Ticket의 제목·하는 일·본문 경로를 안내한다. 개별 진행 상태의 두 번째 정본으로 만들지 않으며, Ticket이 없으면 없다고 적는다.
 
 ## 일반 재진입과 개별 실행의 입력
 
-일반 Workspace 재진입에서는 다음 자료를 읽는다.
-
-1. memory 색인과 Spec 전체, Project context 선택과 추가 memory
-2. Ticket 색인과 전체 state, output 색인
-3. 선택한 Project 본문과 지금 판단에 필요한 Ticket 본문
-
-[Recover](../../harness/recover/README.md)는 이 기본 packet을 만들며, Ticket 본문의 추가 선택은 작업 주체가 한다. 실행할 Ticket을 정하거나 그 결과를 판단할 때는 본문을 직접 확인한다.
+일반 재개와 한정 과업은 [Work 지침](../../AGENTS.md)과 각 Workspace의 `recover.md`에 따라 필요한 기본·조건부 자료를 읽는다. 이 색인이 Spec 전체를 매번 읽는 별도 순서를 만들지 않는다. 실행할 Ticket을 정하거나 결과를 판단할 때는 해당 본문과 적용되는 공통 기준을 직접 확인한다.
 
 개별 Ticket 실행자에게 읽힐 Spec 범위·자료와 직접 갱신할 문서는 실제 위임에 맞게 정한다. 모든 Ticket의 위임이나 새 세션 실행을 강제하지 않는다. 실행자는 위의 공통 실행 기준과 자신에게 맡겨진 결과를 함께 읽어 판단한다.
 
 ## 이 기준의 유지
 
-공통 운영 기준의 유효성은 하네스 변경을 맡은 Main이 관리한다. Workspace별 Spec·Ticket·state의 유지 책임은 [갱신 기준](MAINTENANCE.md)을 따른다. Recover·record-work 같은 관리 장치가 이 문서들의 의미를 별도로 정의하지 않는다.
+공통 운영 기준의 유효성은 하네스 변경을 맡은 Main이 관리한다. Workspace별 Spec·Ticket·state의 유지 책임은 [갱신 기준](MAINTENANCE.md)을 따른다. record-work 같은 수행 수단가 이 문서들의 의미를 별도로 정의하지 않는다.
 
 판단에 영향을 주는 문구·구성·읽기 경로를 변경할 때는 [선택 배경과 변경 이력](HISTORY.md)을 먼저 읽는다. 변경할 부분을 왜 두었는지, 어떤 실패를 막으려 했는지 확인하고 새 안에서도 그 판단이 유지되는지 대조한다. 표현을 줄이거나 일반화했다는 사실만으로 같은 의미가 보존됐다고 판단하지 않는다.
 

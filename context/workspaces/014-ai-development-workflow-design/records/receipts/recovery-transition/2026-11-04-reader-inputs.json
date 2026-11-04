@@ -1,0 +1,42 @@
+[
+  {
+    "path": "reference-project/AGENTS.md",
+    "sha256": "d443fee4c3f60b5aa4642bddc80933ad5e866d0e5470630c268595007d94ddbd",
+    "snapshot": "../../experiments/reference-recovery-2026-11-04/inputs/01-AGENTS.md.txt"
+  },
+  {
+    "path": "reference-project/README.md",
+    "sha256": "79867a0414336dc716a493cbddd4b26f017de7c56bf1917947efe8a8e973fed4",
+    "snapshot": "../../experiments/reference-recovery-2026-11-04/inputs/02-README.md.txt"
+  },
+  {
+    "path": "reference-project/context/work/AGENTS.md",
+    "sha256": "45d1e8be4a0e00a544bb3e8fb0c0082ff1da4d2ad815413f8339185418ef00ef",
+    "snapshot": "../../experiments/reference-recovery-2026-11-04/inputs/03-context--work--AGENTS.md.txt"
+  },
+  {
+    "path": "reference-project/context/work/workspaces/README.md",
+    "sha256": "2a79ebfa51f47486bf72901af7f845500911d6a4df5ef6e8d218167752617049",
+    "snapshot": "../../experiments/reference-recovery-2026-11-04/inputs/04-context--work--workspaces--README.md.txt"
+  },
+  {
+    "path": "reference-project/context/work/workspaces/CREATE-AND-TRANSITION.md",
+    "sha256": "fc8bcabe40ec9e567583ff4eb26963a60d26838fbb9304f7f15ffb913784ea68",
+    "snapshot": "../../experiments/reference-recovery-2026-11-04/inputs/05-context--work--workspaces--CREATE-AND-TRANSITION.md.txt"
+  },
+  {
+    "path": "reference-project/context/work/workspaces/001-default-timeout/README.md",
+    "sha256": "726d55b66937a9ac56f28b14e5bcd05e4e2054a224539e7e33f9f969eed05de7",
+    "snapshot": "../../experiments/reference-recovery-2026-11-04/inputs/06-context--work--workspaces--001-default-timeout--README.md.txt"
+  },
+  {
+    "path": "reference-project/context/work/workspaces/001-default-timeout/recover.md",
+    "sha256": "6f7807122a7593ba7909662f7ef35a09f54f70a4387ffe1e38ad0db67d37ffd5",
+    "snapshot": "../../experiments/reference-recovery-2026-11-04/inputs/07-context--work--workspaces--001-default-timeout--recover.md.txt"
+  },
+  {
+    "path": "reference-project/context/work/workspaces/001-default-timeout/current/state/index.md",
+    "sha256": "58dd3b40b6027e0c77537b7c2d39dc825912477ed38597f2a0fe89ee5665797f",
+    "snapshot": "../../experiments/reference-recovery-2026-11-04/inputs/08-context--work--workspaces--001-default-timeout--current--state--index.md.txt"
+  }
+]

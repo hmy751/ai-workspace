@@ -12,4 +12,4 @@
 - [`project-context.md`](project-context.md): 이번 작업에 필요한 상위 Project 맥락과 선택 경계
 - [Tickets](tickets/index.md): 실행할 일의 목록과 본문 접근점
 
-일반 재진입에서는 Spec 전체와 Project 맥락 선택·Ticket 색인을 읽고 필요한 Ticket 본문을 선택한다. 새 memory 주제는 기본 재진입에 필요한 의미가 있을 때 추가한다. 상세 과거 기록이나 모든 Ticket 본문을 매번 자동으로 읽지는 않는다.
+재개 순서와 요청별 읽기는 [recover.md](../../recover.md)가 안내한다. 이 색인은 내용별 탐색 지도이며 전체 Spec·Ticket·과거 기록의 매번 재독을 요구하지 않는다. 필요한 현재 의미가 생기면 해당 본문에 통합한다.

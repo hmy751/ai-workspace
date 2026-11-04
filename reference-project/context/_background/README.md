@@ -4,6 +4,8 @@ Reference의 현재 배치와 프로토타입 당시 기록의 차이는 [2026-1
 
 Personal의 코드 표현·진단과 이름·계약 보완은 [2026-10-30 후속 반영](records/2026-10-30-personal-quality-update.md)에서 적용 판본과 경계를 확인한다.
 
+재개 안내와 기존 Harness 제거의 현재 연결은 [2026-11-04 전환 기록](records/2026-11-04-reentry-guidance-application.md)에서 확인한다.
+
 이 층은 [context 진입 본문](../README.md)의 책임 구분, [본문 관리 원칙](../CONTENT-POLICY.md), [체계 지침의 역할과 구성](../SYSTEM-GUIDANCE.md), [본문을 쓰는 형식](../WRITING-FORMAT.md)을 형성한 의도·배경·중요한 선택·근거를 보존한다. 현재 방향을 이해하고 경계나 관리 방식을 수정할 때 이유를 복원하기 위한 자료이며, 평소 각 본문을 적용하는 데 먼저 읽을 묶음은 아니다. 책임·위치의 맥락은 이 폴더에서, 본문·형성 자료의 관리 방식은 `content-policy/`, 체계 지침의 구별과 진입 책임은 `system-guidance/`, 문장·구성 형식은 `writing-format/`에서 찾는다.
 
 | 알고 싶은 것 | 읽을 범위 |

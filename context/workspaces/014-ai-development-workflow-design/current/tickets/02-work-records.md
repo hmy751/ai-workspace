@@ -1,6 +1,6 @@
 # 02 — 기록 운영과 Workspace 구성을 구체화한다
 
-**2026-11-04 재개·검증 적용:** [재개 안내 prototype 반영](../../records/2026-11-04-ticket02-recovery-guide-prototype.md). 별도 recover.md·공통 Work 지침·생성/기록 갱신을 연결했고 일반/한정 읽기를 새 독자 둘로 확인했다. Verify 아카이빙 방향에 따라 prototype의 선택적 실행 권고를 정리했다. Reference 실제 전환·장기 재개 효과와 전체02 구성/운영 비교는 남아 있다.
+**2026-11-04 Reference 전환:** [재개 안내·생성/이식 연결·아카이빙](../../records/2026-11-04-ticket02-reference-recovery-and-archive.md)을 적용했다. `recover.md`·공통 지침·기록 갱신과 직접 검사 흐름을 연결하고 이전 실행기·기계 계약을 복원 가능하게 보존했다. [prototype 적용](../../records/2026-11-04-ticket02-recovery-guide-prototype.md)은 선행 근거다. 장기 재개 효과·전체 host 통합과02의 구성·문서 중복 논의는 남아 있다.
 
 **2026-10-30 현재 적용:** [record-work의 prototype·Reference 반영](../../records/2026-10-30-ticket02-record-work-prototype-and-reference.md). 원문 판단·직접 수정하는 서브를 필요 시 호출하고 같은 대화에서 재사용한다. Work 기록 기준은 기존 지침을 적용하고 Personal·Project 반영은 기존 workflow가 맡는다. Reference 자동 Maintain은 제거했다. 전체02 구성·운영 비교와 실제 사용 효과는 남아 있다. 아래 시작·비교 기록의 미채택 표기는 당시 상태다.
 

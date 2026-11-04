@@ -21,6 +21,6 @@
 
 ## 범위 밖
 
-파일 형식 파싱, 환경 변수 병합, 네트워크 요청 실행은 이 Project의 범위가 아니다. Workspace 복구와 검증 기록 보존은 Project 코드가 아니라 별도 harness가 맡는다.
+파일 형식 파싱, 환경 변수 병합, 네트워크 요청 실행은 이 Project의 범위가 아니다. Workspace 재개 안내와 검증 기록 보존은 [Work](../../work/README.md)의 지침·문서와 기록 담당자가 맡는다.
 
 현재 구현 구조와 검증 명령은 [architecture](../current/architecture.md), 기본값의 결정 근거는 [default timeout 결정](../decisions/0001-default-timeout.md)에 둔다.

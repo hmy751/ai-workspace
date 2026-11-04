@@ -35,7 +35,9 @@ Main은 기존 담당자 식별자, 대상 Work, 원문 접근점, 마지막 반
 
 담당자에게 이 본문과 [기록 수행](references/maintainer.md), 대상 Work의 진입·작성·갱신 기준을 연결한다. 이 Reference에서는 [Work 지침](../../../context/work/AGENTS.md)이 입구다. 실제 대상에서는 스킬 위치가 아니라 지정된 Project의 Work 입구를 사용한다.
 
-기본 수정 범위는 지정 Workspace의 사람용 README·current·source/output 색인·새 records와 records 색인이다. 해당 대상의 보존 계약을 따르며 raw source·과거 기록·제품 코드·검사·기계 status/receipt·다른 Work·active 선택은 기록 과업으로 바꾸지 않는다. 새 Workspace 생성, stage·commit·push는 이 스킬의 수행에 포함하지 않는다. 이 경계는 지침과 host 권한으로 지키며 기존 guarded apply와 같은 기계적 거부 보장을 주장하지 않는다.
+기본 수정 범위는 지정 Workspace의 사람용 README·`recover.md`·current·source/output 색인·새 records와 records 색인이다. 해당 대상의 보존 계약을 따르며 raw source·과거 기록·제품 코드·검사·기계 status/receipt·다른 Work·active 선택은 기록 과업으로 바꾸지 않는다. 새 Workspace 생성, stage·commit·push는 이 스킬의 수행에 포함하지 않는다. 이 경계는 지침과 host 권한으로 지키며 기존 guarded apply와 같은 기계적 거부 보장을 주장하지 않는다.
+
+방향·단계·중심 과제나 자료 위치가 달라져 재개 안내가 현재 판단을 잘못 이끌면 `recover.md`도 갱신한다. 읽을 대상·이유·조건의 구성과 current·과거 근거의 관계는 [Work의 재개 기준](../../../context/work/AGENTS.md)을 적용한다. 같은 안내가 유효하면 호출마다 다시 쓰지 않는다.
 
 Main과 다른 담당자는 배정된 같은 문서를 중복 수정하지 않는다. 수정 대상의 현재판을 확인하고, 병행 변경이나 결정 충돌은 해당 부분을 연결해 해결한다. 작업 중 새 제품 약속·개인 기준을 선택하거나 완료 기준을 낮추는 판단은 Main과 해당 결정권자에게 돌려준다. 기록 담당자의 자율성은 기록할 의미의 선별·구성·직접 반영에 있다.
 

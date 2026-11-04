@@ -1,0 +1,29 @@
+{
+  "paths": 2146,
+  "anchors": 299,
+  "historicalMissing": [],
+  "known_before_change": [
+    {
+      "file": "context/workspaces/014-ai-development-workflow-design/current/memory.md",
+      "href": "../source/discussion/design-conversation.md#L2269",
+      "reason": "missing line"
+    },
+    {
+      "file": "context/workspaces/014-ai-development-workflow-design/current/memory.md",
+      "href": "../source/discussion/design-conversation.md#L2320",
+      "reason": "missing line"
+    },
+    {
+      "file": "context/workspaces/014-ai-development-workflow-design/current/memory.md",
+      "href": "../source/discussion/design-conversation.md#L2659",
+      "reason": "missing line"
+    },
+    {
+      "file": "context/workspaces/014-ai-development-workflow-design/current/tickets/02-work-records.md",
+      "href": "../../source/discussion/design-conversation.md#L2659",
+      "reason": "missing line"
+    }
+  ],
+  "new_missing": [],
+  "scope": "Reference plus changed current/root documents and new proof Markdown; existing source line anchors not resolved"
+}

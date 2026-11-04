@@ -1,10 +1,16 @@
 # 현재 상태
 
-## 현재 — 02 재개 안내 prototype 적용
+## 현재 — 02 Reference 재개 안내·아카이빙 적용
 
-[recover.md와 공통 지침](../records/2026-11-04-ticket02-recovery-guide-prototype.md)을 prototype에 적용했다. 기본·조건부 읽기와 이유·범위, 생성 담당과 record-work의 안내 갱신을 연결했고 선택적 Verify 권고를 직접 검사·기존 근거 보존으로 맞췄다. 새 독자 두 명의 일반 재개·한정 설명에서 현재 선택·이유·미확인을 복원했으며 읽기량 감소나 장기 효과는 미확인이다.
+[Reference 전환](../records/2026-11-04-ticket02-reference-recovery-and-archive.md)에서 prototype의 재개 기준·recover.md·생성/기록/직접 검증을 Reference와 root 이식 흐름에 연결했다. 기본 선택은 collection README, 작업 정체성은 Workspace README가 맡으며 옛 실행기·기계 계약은 복원 가능한 archive로 내렸다. 기존 제품·원자료·과거 기록·receipt는 보존했다.
 
-Verify 아카이빙과 재개 안내 전환 방향은 채택됐다. 후속은 Reference의 실제 CLI·생성/이식·기계 상태 소비와 과거 증거 보존을 맞추는 일이다. 이번에는 prototype만 바꿨고 Reference/Noline runtime 아카이빙은 하지 않았다.02의 문서 구성·보존·중복과 실제 사용 비교는 계속 남아 있다.
+변경 전 검사95개, 변경 후 직접 제품 검사7개, 별도 위치에 복원한 이전 Reference 검사95개가 통과했다. 일반/한정 재개 읽기와 새 Work 생성 확인의 범위·결과는 위 적용 기록에서 찾는다. 이번에 Noline이나 root 작업대 자체의 재개 방식을 이식하지 않았다.
+
+다음 논의는02의 문서별 보존·중복과 Workspace 구성, 실제 사용에서의 기록 품질·재개 비용이다. [앞선 비교안](../records/2026-10-30-ticket02-document-duplication-comparison.md)은 여전히 미채택 비교안이다. 전체 host 통합·장기 효과·Noline 후속 반영과02/06 전체 완료는 구별한다.
+
+## 앞선 적용 — 02 재개 안내 prototype
+
+[prototype 적용](../records/2026-11-04-ticket02-recovery-guide-prototype.md)과 record-work 전환은 `f3d13f23`에 보존했다. prototype의 두 새 독자 읽기는 현재 선택·이유·미확인을 복원했으나 읽기량 감소·장기 효과의 증명은 아니다. 당시 Reference 미적용 상태는 위 후속 전환으로 바뀌었다.
 
 ## 앞선 적용 — 02 Record Work
 

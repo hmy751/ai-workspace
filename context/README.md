@@ -20,7 +20,7 @@
 
 지금까지의 source 정리와 실행 가능한 reference 구현은 [`001-reference-implementation`](./workspaces/001-reference-implementation/)에 보존한다. 새 적용 작업은 [`workspaces/`](./workspaces/)에서 서로 독립된 Workspace로 시작한다.
 
-이 작업대에는 `reference-project/context/work`의 Harness, JSON 계약, machine status를 그대로 복제하지 않는다. 여러 작업의 현재 상태와 기록이 섞이지 않게 하는 Workspace 경계만 먼저 적용한다.
+이 작업대는 여러 작업의 현재 상태와 기록을 분리하는 Workspace 경계를 사용한다. Reference의 현재 재개·기록 계약은 [`reference-project/context/work`](../reference-project/context/work/README.md)가 소유하며, 그 계약을 root 작업대에 자동 복제하지 않는다. 이전 Harness·JSON·machine status는 Reference에서 아카이빙했다.
 
 ## 재진입
 

@@ -1,6 +1,8 @@
 # 논의와 보존 기록
 
-- [재개 안내와 직접 검증 흐름의 prototype 적용](2026-11-04-ticket02-recovery-guide-prototype.md): recover.md·공통 재개 지침·생성/기록 연결, Verify 선택 권고 정리와 두 새 독자의 읽기 확인. Reference 아카이빙은 후속.
+- [2026-11-04 Reference 재개 안내·아카이빙](2026-11-04-ticket02-reference-recovery-and-archive.md): 생성/이식·기본 선택·기록/검증 연결, 이전 구현 복원과 제품·증거 보존, 재개 확인·남은 범위.
+
+- [재개 안내와 직접 검증 흐름의 prototype 적용](2026-11-04-ticket02-recovery-guide-prototype.md): recover.md·공통 재개 지침·생성/기록 연결, Verify 선택 권고 정리와 두 새 독자의 읽기 확인. 당시 Reference 미적용이었으며 후속은 위 전환 기록으로 이어졌다.
 
 - [Verify 제거 시 기존 도구와의 기능 비교](2026-11-04-verify-removal-tool-comparison.md): 동일 제품 검사·임시 실행 대조, 자동 증거 보존과 자식 프로세스 종료의 차이, 실제 소비자와 미결정 전환 범위.
 

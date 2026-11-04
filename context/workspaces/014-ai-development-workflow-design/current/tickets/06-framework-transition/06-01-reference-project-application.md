@@ -1,5 +1,7 @@
 # 06-01 — Reference에 프로토타입을 적용한다
 
+**02 재개·검증 후속 — 2026-11-04:** [Reference 재개 안내·아카이빙](../../../records/2026-11-04-ticket02-reference-recovery-and-archive.md)까지 반영했다. 생성/이식·기본 선택·직접 검증·기록 연결을 맞추고 기존 증거를 보존했다. 이전 runtime과 machine 계약을 유지한다는 아래 날짜별 경과는 당시 상태다. 전체 host 통합과 장기 사용 효과는 남는다.
+
 **02 채택 결과 연결 — 2026-10-30:** [record-work의 Reference 적용](../../../records/2026-10-30-ticket02-record-work-prototype-and-reference.md)으로 새 Work 기록 수행·생성/전환 연결과 자동 Maintain 제거를 반영했다. 제품/Harness95개·Recover·정적 연결은 확인했으며 전체 host 통합·사용 효과와06 완료는 별도다. 아래 Maintain 보존·02 대기는 이 변경 전 적용 경과다.
 
 **현재 — 2026-10-30 실행 묶음 반영·직접 확인:** [이번 결과](../../../records/2026-10-30-ticket06-execution-skills-and-retirement.md). development·improvement-loop 설치와 work-discussion·create의 비충돌 보완을 Reference에서 확인한 뒤 Noline에 적응했다. Noline 옛4개 실행 스킬·bridge는 소비 경로·근거 보존을 처리한 뒤 제거했다. 기존 Work 기록·생성/전환·Maintain 계약을 유지했다. 현재 상태는 **적용 단계 마무리 · 후속 확인 대기**다. 전체 전환·실제 host 확인의 최종 완료와 구별한다.02는 기록 운영·Maintain 관련 선택과 통합 테스트의 진행 위치이며, 채택 계약의 실제 반영·대상별 수정·완료 판단은06에 남는다. 아래 날짜별 첫 부분 반영은 이전 경과이고, 전환표의 ‘착수 시’는 이번 적용 전 상태다.
@@ -22,7 +24,7 @@
 
 | 구분 | 06-01에 남은 결과 | 진행 조건 |
 | --- | --- | --- |
-| 02 채택 결과 반영 | record-work·작성 기준·워크플로·생성/전환을 연결하고 자동 Maintain 전용 코드·설정을 제거했다. Recover·Verify와 기존 증거는 유지했다. | 제품/Harness95개·기본/명시 Recover·정적 연결 확인. 격리2회 기록 시험은 전체 host 통합·장기 효과와 구별한다. |
+| 02 채택 결과 반영 | record-work와 재개 안내·생성/전환·직접 검증을 연결했다. 자동 Maintain은 제거했고 Recover·Verify와 기계 계약은 아카이빙했다. 기존 기록·증거는 보존했다. | 현재 적용·검사는 상단 전환 기록을 따른다. 격리 기록 시험·재개 읽기 확인은 전체 host 통합·장기 효과와 구별한다. |
 | Maintain과 별개의 실행 확인 | 설치된 스킬의 실제 발견·호출·기준 읽기·수행 연결, improvement-loop의 host별 같은 세션 원문 접근과 압축·재개·누락 처리를 확인한다. | 정적 검사로 대체하지 않는다. 실제 host 통합 확인은 기존 합의대로02에서 진행하고 결과를 이 Ticket에 연결한다. |
 | 최종 판본과 반환 | 확인에서 드러난 공통 결함을 필요한 범위에서 보완하고, 반영 판본·제약·복구 범위를06-02에 전달해 완료를 판단한다. | Noline에서 나온 차이는 공통 문제인지 먼저 판단한다. 대상 고유 변경을 자동 역반영하지 않는다. |
 
@@ -56,7 +58,7 @@ Maintain 유보는 모든 실행 본문의 준비·설치·옛 스킬 정리를 
 | Personal·Project·Work 진입 | 로컬 Personal과 Project 본문·형성 자료·관리 지침, Work의 기존 구조 및02 후속 합의, root부터 실제 본문까지 읽는 경로를 연결한다. Noline demo의 제품 사실·작업 이력을 Reference 제품의 사실로 복사하지 않는다. |
 | 개발·설명·경험 개선 | development의 본체·구현/검토/검증/실행 상세, explain, improvement-loop와 Personal 경험 모음의 필요한 자료를 배치한다. 원문 접근의 host별 가능 범위도 확인한다. |
 | 기존 스킬·공통 자료 | work-discussion·reconsider-work의 유지/보완, 기존 두 설명 스킬의 explain 전환, read/update/create와 USAGE/context-update/생성 계약의 대응을 판단한다. shared 기준·호출 설정·Claude/Codex 연결과 옛 참조를 함께 처리한다. |
-| 기존 실행 장치 | 02의 record-work 채택에 따라 자동 Maintain과 해당 CLI·hook·role을 제거했다. Recover·Verify와 Workspace machine 계약은 유지하며 현재 설치·확인은 상단 적용 기록을 따른다. |
+| 기존 실행 장치 | 02의 record-work 채택에 따라 자동 Maintain과 해당 CLI·hook·role을 제거했다. Recover·Verify와 Workspace machine 계약도 아카이빙했으며 현재 설치·확인은 상단 적용 기록을 따른다. |
 | 적용·복구·전달 | 반영 전 판본과 기존 작업을 보존하고 변경 단위를 정한다. Reference의 직접 확인과 되돌릴 범위를 남기며 Noline에 넘길 공통 변경·조건·확인 경로를 정리한다. 이식 절차의 보완이 필요하면 이번 변경과 실제로 연결되는 범위에서 포함한다. |
 
 02는 기록·Work 구성의 설계를 소유한다. 현행을 읽고 유지할 기능·의존을 조사하는 일은 먼저 할 수 있지만,02에서 바뀌는 문서 구조와 갱신 계약을 여기서 별도로 확정하지 않는다. 적용안에는 현재 사용할 판본과02의 결과가 바꿀 수 있는 부분을 드러낸다.01-02의 미채택 품질 제안도 현재 기준으로 자동 승격하지 않는다.

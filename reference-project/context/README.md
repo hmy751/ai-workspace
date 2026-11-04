@@ -4,9 +4,9 @@
 
 - [Personal](personal/README.md): 여러 작업에 가져갈 개인 판단의 이유·조건과 협업 경험·해석·열린 후보. 기준 채택은 사용자가, 허용된 편집은 Main 또는 지정 담당자가 맡는다.
 - [Project](project/README.md): 여러 작업에 지속되는 제품 의미·현재 현실·작업 계약을 `common/current/guidance`와 Owner 관계로 유지한다. `decisions`는 선택 이유를, `REFERENCE`는 구성·읽기 기준을 맡는다.
-- [Work](work/README.md): Workspace의 현재 상태·원자료·goal 산출물 지도·기록과 이를 복구·유지·검증하는 공용 Harness의 운영 경계. Main·기록 담당자의 갱신 관계와 생성·전환 계약을 따른다.
+- [Work](work/README.md): Workspace의 현재 상태·원자료·goal 산출물 지도·기록과 재개 안내의 경계. Main·기록 담당자의 갱신 관계와 생성·전환 계약을 따른다.
 
-Project 본문은 제품 문서의 복사본이나 링크 목록이 아니다. [Project README](project/README.md)는 실제 본문과 Owner를 찾는 안정된 진입점이며 Workspace는 필요한 본문과 선택 이유를 계약에 남긴다. Harness는 관리 장치로서 개인 기준·제품 의미·작업 목표를 소유하지 않는다. 제품 구현과 테스트는 [src](../src/)와 [tests](../tests/)가 소유한다.
+Project 본문은 제품 문서의 복사본이나 링크 목록이 아니다. [Project README](project/README.md)는 실제 본문과 Owner를 찾는 안정된 진입점이며 Workspace는 필요한 본문과 선택 이유를 계약에 남긴다. 재개 안내와 기록 스킬은 개인 기준·제품 의미·작업 목표의 정본을 연결해 사용한다. 제품 구현과 테스트는 [src](../src/)와 [tests](../tests/)가 소유한다.
 
 ## 읽고 적용할 때
 
@@ -16,4 +16,4 @@ Project 본문은 제품 문서의 복사본이나 링크 목록이 아니다. [
 
 Personal·Project와 이 공통 context 본문은 [CONTENT-POLICY](CONTENT-POLICY.md)의 본문·형성 자료 구별을 따른다. 본문을 새로 쓰거나 고칠 때는 [WRITING-FORMAT](WRITING-FORMAT.md)에서 적용 범위와 문장·구성 기준을 확인한다. 체계 지침의 역할·진입·분할을 바꿀 때는 [SYSTEM-GUIDANCE](SYSTEM-GUIDANCE.md)를 적용한다. Work에는 새 정책의 구성을 적용하지 않고 기존 관리 계약을 따른다.
 
-허용된 한정 반영은 [context-update](../.agents/skills/context-update/SKILL.md), 실제 권한과 내용 판단은 [Personal 관리](personal/README.md#기준을-고치는-경우)와 [Project 관리](project/MAINTENANCE.md)가 맡는다. 책임과 위치의 선택 이유는 [형성 자료](_background/README.md)에서 찾는다. Harness나 스킬을 교체해도 각 내용 Owner와 Work의 README·current·source·output·records 의미는 남는다.
+허용된 한정 반영은 [context-update](../.agents/skills/context-update/SKILL.md), 실제 권한과 내용 판단은 [Personal 관리](personal/README.md#기준을-고치는-경우)와 [Project 관리](project/MAINTENANCE.md)가 맡는다. 책임과 위치의 선택 이유는 [형성 자료](_background/README.md)에서 찾는다. 실행 도구나 스킬을 교체해도 각 내용 Owner와 Work의 README·current·source·output·records 의미는 남는다.

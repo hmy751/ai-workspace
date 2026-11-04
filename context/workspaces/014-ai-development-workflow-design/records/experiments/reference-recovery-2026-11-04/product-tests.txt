@@ -1,0 +1,12 @@
+test_explicit_timeout_is_preserved (tests.test_config_loader.LoadRequestPolicyTests.test_explicit_timeout_is_preserved) ... ok
+test_missing_timeout_uses_5000_ms (tests.test_config_loader.LoadRequestPolicyTests.test_missing_timeout_uses_5000_ms) ... ok
+test_rejects_boolean_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_boolean_timeout) ... ok
+test_rejects_non_integer_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_non_integer_timeout) ... ok
+test_rejects_non_positive_timeout (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_non_positive_timeout) ... ok
+test_rejects_unknown_keys (tests.test_config_loader.LoadRequestPolicyTests.test_rejects_unknown_keys) ... ok
+test_returns_immutable_policy (tests.test_config_loader.LoadRequestPolicyTests.test_returns_immutable_policy) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.000s
+
+OK

@@ -1,6 +1,6 @@
 # 설계 논의의 배경과 평가
 
-**2026-11-04 재개·검증 방향:** 다른 세션에서도 흐름·이유·조건을 유지하되 Workspace 전체를 기본 입력으로 읽히지 않는다. Workspace별 Markdown `recover.md`와 Work 진입 지침의 공통 기준을 선택했다. 현재 의미는 기존 current, 읽을 대상·이유·조건은 재개 안내가 맡고 생성 담당과 record-work가 관리한다. Verify는 아카이빙 방향을 채택했으며 검증 판단은 development, 필요한 기록은 기존 Work 흐름에 유지한다. 기존 도구와 기계 보장의 차이를 인정한다. [선택·적용·한계](../records/2026-11-04-ticket02-recovery-guide-prototype.md)를 따르며 실제 Reference 전환은 state에서 구별한다.
+**2026-11-04 재개·검증 방향:** 다른 세션에서도 흐름·이유·조건을 유지하되 Workspace 전체를 기본 입력으로 읽히지 않는다. Workspace별 Markdown `recover.md`와 Work 진입 지침의 공통 기준을 선택했다. 현재 의미는 기존 current, 읽을 대상·이유·조건은 재개 안내가 맡고 생성 담당과 record-work가 관리한다. Verify는 아카이빙을 채택해 Reference에 반영했으며 검증 판단은 development, 필요한 기록은 기존 Work 흐름에 유지한다. 기존 도구와 기계 보장의 차이를 인정한다. [선택·적용·한계](../records/2026-11-04-ticket02-recovery-guide-prototype.md)를 따르며 실제 Reference 전환·확인·남은 범위는 [state](state.md)에서 구별한다. 기본 선택은 collection README, 정체성은 Workspace README로 이어가고 기존 기계 계약은 현재 생성의 필수 조건으로 남기지 않는다.
 
 **2026-10-30 기록 방식 선택:** 원문 판단·직접 수정하는 `record-work` 서브를 필요 시 호출하고 같은 대화에서 재사용한다. 직전 반영 이후가 기본 입력이며 필요한 이전 대화도 읽는다. 기본 쓰기는 Work, development·improvement-loop·context-update의 관련 영역 책임은 유지한다. 기존 기록 지침을 사용하며 세부 적용·한계는 [반영 기록](../records/2026-10-30-ticket02-record-work-prototype-and-reference.md)에서 확인한다.
 

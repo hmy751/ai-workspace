@@ -1,6 +1,6 @@
 # Development의 형성 자료
 
-이 자료는 prototype의 형성 맥락·당시 선택을 보존한다. 설치 대상의 현재 Work 갱신·생성·전환은 기존 계약을 유지하도록 적응했다. [이번 적응과 남은 연결](records/2026-10-30-existing-work-contract-adaptation.md)을 먼저 구별하며, 아래 당시 Main 직접 기록·수동 demo 설명으로 현재 운영 계약을 바꾸지 않는다.
+이 자료는 prototype의 형성 맥락과 Reference에 적용하며 바뀐 선택을 보존한다. [2026-10-30의 기존 계약 적응](records/2026-10-30-existing-work-contract-adaptation.md)은 당시 기록이며, 현재의 재개 안내·직접 검사 연결은 [2026-11-04 Reference 전환](../../record-work/_background/records/2026-11-04-reference-recovery-adoption.md)을 따른다. 실행 지시는 본체와 대상 Work 계약이 소유한다.
 
 개발 실행을 하나의 스킬로 구성한 목적, 관련 기준을 공유하면서 독립적으로 검토하게 된 이유, 현재 실행 본문과 적용 한계를 설명한다. 스킬을 적용할 때는 [SKILL.md](../SKILL.md)와 필요한 [구현 상세](../references/implementation.md)·[검토 상세](../references/review.md)·[검증 상세](../references/verification/INDEX.md)·[실행 배치](../references/execution.md)를 사용한다. 이 자료는 의미·구성·과거 선택을 재검토할 때 읽는다.
 
@@ -21,3 +21,5 @@
 - [실행 상세의 계층 확장](records/2026-10-26-detail-expansion.md): 초기 유보 뒤 성숙한 구현 수행과 여러 담당자가 사용하는 검사 근거를 나눈 이유, 사용자 의도와 유지한 책임.
 
 2026-10-30 Work 기록 연결 변경은 [record-work 도입](records/2026-10-30-record-work-connection.md)에서 확인한다. 이전 자동 Maintain 보존·Main 직접 기록 안내는 당시 판본의 근거다.
+
+재개·검증 연결의 prototype 선택 근거는 [재개 안내와 직접 검증](records/2026-11-04-recovery-and-direct-verification.md)에 있다. 당시 prototype 확인과 후속 Reference 적용을 구별한다.

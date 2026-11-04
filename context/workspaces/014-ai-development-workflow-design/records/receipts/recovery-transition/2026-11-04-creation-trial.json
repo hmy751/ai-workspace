@@ -1,0 +1,27 @@
+{
+  "comparison": "Main compared trial against unchanged Reference used to initialize it",
+  "existing_entries": 273,
+  "changed": [
+    "context/work/workspaces/README.md"
+  ],
+  "added": [
+    "context/work/workspaces/002-env-input-discussion/README.md",
+    "context/work/workspaces/002-env-input-discussion/current/memory/index.md",
+    "context/work/workspaces/002-env-input-discussion/current/memory/project-context.md",
+    "context/work/workspaces/002-env-input-discussion/current/memory/spec/01-problem-goal-scope.md",
+    "context/work/workspaces/002-env-input-discussion/current/memory/spec/02-behavior-and-cases.md",
+    "context/work/workspaces/002-env-input-discussion/current/memory/spec/03-concepts-and-contracts.md",
+    "context/work/workspaces/002-env-input-discussion/current/memory/spec/04-quality-and-completion.md",
+    "context/work/workspaces/002-env-input-discussion/current/memory/spec/05-constraints-design-assumptions.md",
+    "context/work/workspaces/002-env-input-discussion/current/memory/tickets/index.md",
+    "context/work/workspaces/002-env-input-discussion/current/state/index.md",
+    "context/work/workspaces/002-env-input-discussion/output/index.md",
+    "context/work/workspaces/002-env-input-discussion/records/2026-11-04-workspace-creation.md",
+    "context/work/workspaces/002-env-input-discussion/records/README.md",
+    "context/work/workspaces/002-env-input-discussion/recover.md",
+    "context/work/workspaces/002-env-input-discussion/source/index.md"
+  ],
+  "deleted": [],
+  "output": "../../experiments/reference-recovery-2026-11-04/creation-output.tar.gz",
+  "output_sha256": "dc822e83ed96a08a7d7d610fccd01e34a0b9efc93ae11ed27c864ae3660625c9"
+}

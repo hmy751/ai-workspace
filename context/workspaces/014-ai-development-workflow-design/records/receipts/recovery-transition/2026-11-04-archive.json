@@ -1,0 +1,279 @@
+{
+  "base_commit": "f3d13f23ee838069d496fb7117175bc78e4a06d0",
+  "archive": "../../archives/2026-11-04-recover-verify/before-retirement.tar.gz",
+  "archive_sha256": "d6153f0cf7218b73ee34bfb218b217ebf3d2c3585707fd033f934215d00839b0",
+  "retired_files": [
+    {
+      "path": "reference-project/context/work/harness/README.md",
+      "sha256": "3496b7416117b55b04803ca9e0150f8a7be2b8df0e813a752db20b586b80a12e"
+    },
+    {
+      "path": "reference-project/context/work/harness/__init__.py",
+      "sha256": "29d765a6a3038b839477a88e4e1dc7f87cd739ed10a4f50177252e12d61e9987"
+    },
+    {
+      "path": "reference-project/context/work/harness/__main__.py",
+      "sha256": "2e0d03eadf48b89e1c5158cdd9db5d86d1967fe797c316c8574693353fbd6f33"
+    },
+    {
+      "path": "reference-project/context/work/harness/cli.py",
+      "sha256": "d98d7472b6c8a73230e052a84d61781d732818ca51cefb84d9373cdff3e25acf"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/README.md",
+      "sha256": "77b63cb4748b183ceeb3185aeb51274a0777bf010eced581672fe8b50f507934"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/__init__.py",
+      "sha256": "40c3e9549e3dc903873fc5d7cedc6785542b73ad573bfceab8874e245375e20b"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/context.py",
+      "sha256": "49ad0e8829c04c3cdb2512d663d23b66a5f8ea71b7ec2aa372d87fafa3e885bd"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/contract.py",
+      "sha256": "9c62b41cdebd8463d29e91dfc6d914fa895a9a17467f63044c1375588ad860e3"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/operation.py",
+      "sha256": "5649181e400045fe20576a6744170b72f0b18f95ccfdaa07024b9c4c3addb7ca"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/packet.py",
+      "sha256": "14872272dee43afab676b66d3acbeb6aa995bd052fc5c32c43385718a98cd78a"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/receipts.py",
+      "sha256": "21fb6d41e851ae8278fb16c6b90b23eca77c9a0f3723338dd699b3e31fb289dd"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/render.py",
+      "sha256": "6a76982719a998cf3ae4fb8ac99afcf526a817d7f3a3d77612e293c13c08092d"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/__init__.py",
+      "sha256": "0b4c28328b4422d0186ef992d5c4f9ad90301c2d518f640150bdbf0cb1315277"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/support.py",
+      "sha256": "c37291ec871066f62736be62b408fd8b7d5ed2d3b92a92d30492ec21930b5f60"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_context.py",
+      "sha256": "baabea76e5d07035e4d46918c5e06e34eaabe80b1f8b4dae10503731b7c8cb19"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_contract.py",
+      "sha256": "76f5dd0d87ab41c8aff1b76df25b867bf95465fa6c27d568a754dd7fa3f9d254"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_packet.py",
+      "sha256": "2219e334abfa54e2cd893ecb32b73cf9c782248a4d7d42f97cc4a410c17d4310"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_receipts.py",
+      "sha256": "caafc1ffb1ee700ce22547952752b98657d95864110126442eddf1be88a5890c"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_render.py",
+      "sha256": "03e9f46ecb2bbedb5aeba4e5e01c02556ba1c9665df5ab5f005338fec3dd4949"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_selection.py",
+      "sha256": "308d526608c9d7274407cc63b5f02eba55f97d595fe77dab2b215707a4c06ac6"
+    },
+    {
+      "path": "reference-project/context/work/harness/recover/tests/test_status.py",
+      "sha256": "8ed6e6a22dc42ce318a412519bf6a5edfd3f45a19fe01ec3b95258f23127396b"
+    },
+    {
+      "path": "reference-project/context/work/harness/testing.py",
+      "sha256": "9e8b7d53ace25c3465ba2aa953651bdc04531725511e1dc1d9378a97bfd25d4a"
+    },
+    {
+      "path": "reference-project/context/work/harness/validation/README.md",
+      "sha256": "4da7c6a81ba246fbfdf4920dfdaae7ae71119edbb57f3e8cf3e9a8498e8eaa71"
+    },
+    {
+      "path": "reference-project/context/work/harness/validation/__init__.py",
+      "sha256": "1bf5cbde5e3209181448bc77f025b7ba29bd2fead551a641227e959f172be863"
+    },
+    {
+      "path": "reference-project/context/work/harness/validation/tests/__init__.py",
+      "sha256": "1d72a144e796a9e4bc23a10039997e960ffb0f159d627910447658cc59f9354c"
+    },
+    {
+      "path": "reference-project/context/work/harness/validation/tests/test_cli.py",
+      "sha256": "a5b78113a6163e0f0b5dc4e728d69517108705187fdedaf836046156e0c812e7"
+    },
+    {
+      "path": "reference-project/context/work/harness/validation/tests/test_cli_contracts.py",
+      "sha256": "b58053d43d876527c4009fe032a40caa6c7730a896d455d119fae58941ed022f"
+    },
+    {
+      "path": "reference-project/context/work/harness/validation/tests/test_ephemeral_workspace_state_preservation.py",
+      "sha256": "abf8338bc8a0f29f29b7cc61e6054f333f30041a098d6f99631add4c899f3ed7"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/README.md",
+      "sha256": "4b92e1198379c0aeaf65997c2a98a6f8028cde74a19a438f316556fa837a55fb"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/__init__.py",
+      "sha256": "48839d6d4fa70cbc26ee2ad5ad94731854f8e75eb6854d56a9a61a71770796a2"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/contract.py",
+      "sha256": "e552558bb8eb8541e1391fd730b883003b91ef7823583ce398043752d371123d"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/evidence.py",
+      "sha256": "e5718d3406d20107dd26c7556f0f6144cfb9031564ebfb7114b418321a2da294"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/execution.py",
+      "sha256": "d00e728dc40faf5350156d2c0adb3cd8b2e501503f125f7b64767d21e0dd4aff"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/operation.py",
+      "sha256": "412627c6b018b2dc5a36db5932791bc5b1972dc950abafa401ccb7f8837b71fb"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/output.py",
+      "sha256": "5adef56072bac731cbaf682b07fd61c1d449e5fad9e8eecbc22b7a6162c5d1ac"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/process_scope.py",
+      "sha256": "826ce8606c80de49e9a3f06e58ed24a15d0efe30de79fc5286e6d947ee0732f6"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/service.py",
+      "sha256": "3762f10cff7f3515fb1bf203d9ca4b1937533acb67d739b6a628085f1418867a"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/storage.py",
+      "sha256": "b0a5c23545f9175d4eabb9ca20a736e2e1b85e10ebda0f4486cbcbed3ae99ad5"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/__init__.py",
+      "sha256": "216c3169bd721618b21fd607a581328e3d67850ca56a6c5ab3fbd66921bce509"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/support.py",
+      "sha256": "f42ff46ae8a441f69f47cc17f06bec4e724cafe7017e41cbe0e041da7c26b1b5"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_contract.py",
+      "sha256": "609a879088351f1fc8a04d7eb2f2417b38b6e3b78c050f13f31905979e4bc94b"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_evidence.py",
+      "sha256": "03366d631569a6684e9f42e1f497a3d6edafe19008f3a3ac11040d767c767fc0"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_execution.py",
+      "sha256": "c107c0be7a166aa7136adb74996f06ff1b4805ba98fe09628a976ef195b09cc0"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_failure_ordering.py",
+      "sha256": "dea65535b7170defe30359a075ba58bcc19ff02660474b1cf08ad698db4ecc46"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_output.py",
+      "sha256": "a5c516caaedf95148c4e0058d55ee324308e54fbd0e34c24a34f6c98da1d2fff"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_preflight.py",
+      "sha256": "4ee365b36c6d197f0980312f819ed95f55f0b70d04e91f9c35eedc03d789476d"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_process.py",
+      "sha256": "9c0ec79d35bf386a6521efd1fd424a0799a01dc82c73ab274513f7f6eee467c6"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_process_scope.py",
+      "sha256": "934b2178e2cd3b02effc9ee21c1785521dc810efaf5a93cd18be8d6272e19b2b"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_receipts.py",
+      "sha256": "fa7695b535ba492458a750b1d0a07708a24716f1b69f0b1814b14b07d740572d"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_storage.py",
+      "sha256": "30962ab2b600f147483da0f40e23942cda92ac9cc49d70b519bf7baa7fb03d13"
+    },
+    {
+      "path": "reference-project/context/work/harness/verify/tests/test_stream_capture.py",
+      "sha256": "90883359ffb1fd70013a6b8ffc74d1cc3b9d8e4550c243f3743393189bf5696c"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/README.md",
+      "sha256": "46f570e34fbb344b556fcb73048398cbb892aa71db8dafa433906476bf37857e"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/__init__.py",
+      "sha256": "b002074047822f0441b9493f145aa6f240a38af3e2b963a1e85bc4b9c82f6317"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/identity.py",
+      "sha256": "b50140f50fcef6acc5c2f7b2b405ea0efc872700070b5c712c9e8f86d8f7221f"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/paths.py",
+      "sha256": "0e8ce7ab2c83d5e4c055f46d82811996407c1105f716c8e332f845515958ecf7"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/status.py",
+      "sha256": "6428947672db85a0fc589bd38d2a46f669e8414ced427f7a3c8ebcc07c84f552"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/tests/__init__.py",
+      "sha256": "4ae3d2927f686c74ff21d7be3145beda44561496731507adf64b2b6ccd5f22eb"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/tests/test_contracts.py",
+      "sha256": "e43c9f13e11975cfaf3ff4e0725ba4a899ffd5053ef9fca1df84797637a48543"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/tests/test_paths.py",
+      "sha256": "f9c3869c2f098eedaed0ed6670ea337eac80f45631074f15885877148d168e73"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace/validation.py",
+      "sha256": "414a3f8f045103c2b63732d248a24b95b10afbd616a7e24431515516bb1b3c56"
+    },
+    {
+      "path": "reference-project/context/work/harness/workspace_contract.py",
+      "sha256": "c3d44df5e7de76cb122978ca3a940251953dbbc3ab7cd764164b5e619d3bdfe5"
+    },
+    {
+      "path": "reference-project/context/__init__.py",
+      "sha256": "c8cb99f385157cb1c7e2ddf32364988341490a4bfbbcf5b75dde84afca47eba4"
+    },
+    {
+      "path": "reference-project/context/work/__init__.py",
+      "sha256": "944df23a817e1dfa2136353da31e09f57c4c43f0b4833fc28cc66b95de1f2de6"
+    },
+    {
+      "path": "reference-project/context/work/workspaces/index.json",
+      "sha256": "4e4bfd172a1e81c9bbfd4cd4d4ef9d04e82bffa26a3613b554886fb76efcd0c1"
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/workspace.json",
+      "sha256": "b11bf5da266fb08837c51ecfb9e9dab3d31ed828155a0f96a46f1d2e991e1488"
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/recover.json",
+      "sha256": "274613ecf7fba7e2e739404e9c26d6e5a337601d8c9ead19e47ce9e4474074cc"
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/verify.json",
+      "sha256": "5b0cf09873914cf2e12f3116e4fdff0163588f979e6cbb991489304fdc0ca641"
+    },
+    {
+      "path": "reference-project/context/work/workspaces/001-default-timeout/current/state/status.json",
+      "sha256": "bac5a68e08fcce53c3bf84afaa8c19ca97d94e4055b8389d118cae8061a85f52"
+    }
+  ]
+}

@@ -107,3 +107,9 @@ Noline의 `pnpm harness:check`는 실행 환경의 의존성 설치 확인에서
 - `2026-09-12-04-generalized-ticket-contract-candidate.md`와 `2026-09-12-05-generalized-candidate-fresh-main-review.md`: 리팩토링 외 적용과 현재 후보 자체의 확인
 
 중간 기록의 ‘검토안·미채택·미반영’은 각 기록 당시의 상태다. 최종 공통안은 위 검토 후 2026-09-12에 채택·반영했다. 기록에 있는 과거 상태를 현재 운영 기준의 적용 상태로 해석하지 않는다.
+
+## 2026-11-04 — 재개 선택을 별도 안내로 전환
+
+이전 기본 packet이 Spec 전체·기계 상태를 항상 읽게 하던 연결을 Work AGENTS와 Workspace `recover.md`로 바꿨다. 사용자는 세션이 달라도 선택의 이유·조건·뉘앙스가 이어지면서 전체 읽기 비용을 피하기를 원했다. Spec의 다섯 관점과 Ticket·state 내용 책임은 유지하고, 요청별 읽을 대상·이유·조건은 안내가 맡는다. 생성·기록 담당자가 필요할 때 안내를 관리한다.
+
+Verify 실행·machine status는 아카이빙하고 직접 제품 검사·현재 기록으로 확인을 잇는다. 테스트 통과와 사람 수락·Work 완료의 구별은 유지한다. 현재 관계는 [Work 지침](../../AGENTS.md), 실제 sample 적용·보존과 확인 범위는 [전환 기록](../001-default-timeout/records/2026-11-04-recovery-guide-transition.md)에서 찾는다. 이전 항목의 자동 Maintain·Recover·Verify 연결은 당시 구현 이력이다.

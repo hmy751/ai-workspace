@@ -1,9 +1,7 @@
-# Machine receipts
+# 보존된 기계 증거
 
-이 폴더는 Default timeout Workspace를 대상으로 기계가 생성한 append-only 증거를 종류별로 보존한다. 생성 코드는 Harness에 있지만 receipt의 의미와 수명주기는 이 Workspace가 소유한다.
+이 폴더는 Default timeout Workspace에서 기계가 생성한 과거 증거를 보존한다. 실행기가 아카이빙되어도 당시 증거의 의미와 수명은 이 Work에 남는다.
 
-- [`verify/`](verify/): 제품 고정 검증의 claim, 실행 전 canonical basis·evidence snapshot, argv, bounded runtime, exit, 제한된 stdout·stderr
-- `harness-tests/`: 이식 과정에서 별도의 durable Harness 검증 증거가 필요할 때 사용. Reference 자체 회귀는 임시 fixture test가 맡으므로 active 제품 Workspace에 만들지 않는다.
-- `preflight/`: 이식 직전 target 상태를 캡처한 원본 receipt를 보존할 때 사용
+- [verify](verify/): 이전 고정 검증의 claim·선언한 입력 hash·argv·결과·출력·실행 제한. 서로 다른 당시 schema를 그대로 보존한다.
 
-빈 종류 폴더는 미리 만들지 않아도 된다. Product `verify`를 실행하려면 `verify/`가 symlink가 아닌 실제 디렉터리로 존재해야 한다. `current/state/status.json`은 최신 제품 verify receipt를 Work-root 상대 경로로 가리키며 사람의 다음 행동은 소유하지 않는다. 과거 schema v1 receipt는 그대로 보존하고, 새 schema v2 receipt부터 claim과 declared snapshot freshness를 다시 확인할 수 있다.
+과거 receipt는 현재 성공·freshness·수락을 자동 증명하지 않는다. 재사용하려면 실제 현재 입력·기준·실행 조건과 대조한다. 현재 확인과 다음 판단은 [state](../../current/state/index.md), 변경 이유와 옛 status의 복원 위치는 [전환 기록](../2026-11-04-recovery-guide-transition.md)에서 찾는다. 새 Work에 Verify 폴더·receipt·status를 미리 만들도록 요구하지 않는다.

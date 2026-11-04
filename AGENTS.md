@@ -21,9 +21,9 @@ context 층의 canonical 역할은 `context/README.md`가 소유한다.
 
 ## Repo-local skill routing
 
-사용자가 대상 Project 경로와 함께 `reference-project/`의 context+harness 이식·적용, 실제 Project common context, Workspace current/source/output/records와 recover·verify 설치를 요청하면 [`.agents/skills/apply-context-harness/SKILL.md`](.agents/skills/apply-context-harness/SKILL.md)를 사용한다.
+사용자가 대상 Project 경로와 함께 `reference-project/`의 context+harness 이식·적용, 실제 Project common context, Workspace 재개 안내·기록 스킬 설치를 요청하면 [`.agents/skills/apply-context-harness/SKILL.md`](.agents/skills/apply-context-harness/SKILL.md)를 사용한다. 이름은 유지하지만 설치할 책임은 현재 Reference에서 읽는다.
 
-이 skill은 `reference-project/`를 범용 템플릿처럼 복사하지 않는다. 대상의 기존 canonical과 사용자 변경을 먼저 고정하고, `context/project/`에는 target 원자료가 지지하는 실제 Project common context를 구성한다. 이식 뒤에는 `recover → 실제 Owner의 direct test·eval·수동 확인 → 필요할 때만 Verify evidence 기록 → 다음 recover`를 구분해 검증한다. 기존 문서를 복제하거나 링크만 모은 Project context는 완료로 보지 않는다. 브라우저·외부 시스템·사람 acceptance, target commit은 별도 승인 없이 완료 처리하지 않는다.
+이 skill은 `reference-project/`를 범용 템플릿처럼 복사하지 않는다. 대상의 기존 canonical과 사용자 변경을 먼저 고정하고, `context/project/`에는 target 원자료가 지지하는 실제 Project common context를 구성한다. 이식 뒤에는 Work 지침·Workspace `recover.md`를 통한 재개, 실제 Owner의 direct test·eval·수동 확인, 필요한 근거의 Work 기록과 다음 재개를 확인한다. 아카이브한 Recover·Verify runtime이나 machine 계약을 새 설치의 요구사항으로 복원하지 않는다. 기존 대상의 실행 장치 전환은 실제 소비자·증거·사용자 변경을 확인해 승인 범위에서 수행한다. 기존 문서를 복제하거나 링크만 모은 Project context는 완료로 보지 않는다. 브라우저·외부 시스템·사람 acceptance, target commit은 별도 승인 없이 완료 처리하지 않는다.
 
 ## Re-entry
 

@@ -1,17 +1,17 @@
 # Workspace current state
 
-## 현재 문제
+## 현재 문제와 판단
 
-config loader가 Project의 default-timeout 결정과 일치하는지 고정 검증으로 확인하고, 통과 결과를 사람이 수락할지 결정한다.
+Config loader의 기본 timeout·입력 검증·불변 반환 계약은 구현돼 있다. 실제 제품 기준과 코드·검사를 대조하고 사람이 결과를 수락할지 판단하는 Work다. 자동 검사 통과만으로 Workspace 완료나 실제 네트워크 효과를 선언하지 않는다.
 
-## 상태를 읽는 법
+## 확인 근거와 한계
 
-- 최근 검증 결과, receipt, 완료 시각의 기계 정본은 [`status.json`](status.json)이다.
-- 검증의 claim, stdout·stderr, canonical basis·evidence hash는 status가 가리키는 `records/receipts/verify/` receipt에서 확인한다. Recover는 현재 schema receipt의 선언된 snapshot이 지금도 같은지 `fresh` 또는 `stale`로 요약하고, 과거 schema receipt는 `unknown_legacy`로 표시한다.
-- 전체 상황·판단·다음 행동은 이 문서가 소유한다. record-work의 기록 담당자는 대화와 결과를 이해해 이를 갱신하고, 제품 Verify는 machine status와 receipt만 갱신한다. Ticket별 정의·진행은 해당 Ticket 본문에서 확인한다.
+기존 Verify의 마지막 성공은 2026-08-14 실행이며 [당시 receipt](../../records/receipts/verify/verify-20260814T103703075846Z-a1cde45907164974a19c22564a956127.json)에 claim·출력·선언된 입력 hash가 남아 있다. 이후 Project 경로가 바뀌었으므로 당시 snapshot을 현재 판본과 같다고 볼 수 없다. 옛 status의 `verification_passed`는 당시 실행 결과였으며 현재 상태의 판정으로 이어받지 않는다.
 
-## 해석 경계
+2026-11-04 재개 방식 전환에서 제품 코드는 유지하고 직접 제품 검사 7개를 실행해 통과했다. 실행 조건과 범위는 [전환 기록](../../records/2026-11-04-recovery-guide-transition.md)에 있다. 이 확인은 현재 제품 테스트 범위의 근거이며 사람 수락·운영 실행·전체 Work 완료는 미확인이다.
 
-검증 통과는 receipt에 snapshot된 canonical basis·evidence 조건에서 고정 argv가 exit `0`을 반환했다는 기계 사실이다. Claim의 의미적 충분성, 사람의 수락, Workspace 완료, 운영 서비스 효과를 뜻하지 않는다.
+## 다음 행동
 
-Project context가 `common/current/guidance` 물리 layer로 이동해 기존 receipt가 snapshot한 평면 Project 경로는 현재 존재하지 않는다. 따라서 Recover가 계산하는 현재 freshness는 `stale`이고, `status.json`의 `verification_passed`는 당시 마지막 실행 결과로 그대로 보존한다. 새 경로 기준의 durable 제품 Verify는 사람의 상태 전환·인계에 필요할 때 별도 실행한다.
+제품 결과의 수락을 요청받으면 [품질·완료 기준](../memory/spec/04-quality-and-completion.md)과 현재 구현·검증 범위를 대조한다. 입력 또는 반환 계약을 바꾸려는 요청이면 관련 Spec·Project 결정과 테스트를 함께 검토한다. 새 기능이나 외부 실행을 현재 작업의 완료 범위로 임의로 추가하지 않는다.
+
+전체 상황·다음 판단은 이 문서가, 실행 단위의 정의·진행은 해당 Ticket이 소유한다. 기록 담당자는 실제 대화와 결과로 갱신하며, 재개에서는 [안내](../../recover.md)의 요청별 자료를 선택한다. 별도 machine status나 freshness 계산을 요구하지 않는다.

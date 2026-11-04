@@ -6,12 +6,12 @@
 
 ## 설치된 역할과 진입점
 
-- [record-work](record-work/SKILL.md): 기록 요청·작업 정리 시 같은 담당자를 재사용해 원문 판단과 Work 직접 갱신을 수행한다.
+- [record-work](record-work/SKILL.md): 기록 요청·작업 정리 시 같은 담당자를 재사용해 원문 판단과 Work 직접 갱신을 수행한다. 읽을 대상·이유·조건이 달라졌다면 `recover.md`도 Work 기준에 맞춘다.
 
 - [development](development/SKILL.md): 개발 요청의 요구·맥락·구현·개선 검토·검증·결과를 연결한다. 모든 요청에 고정 인원·단계를 요구하지 않는다.
 - [improvement-loop](improvement-loop/SKILL.md): 사용자가 대화를 돌아보고 개선을 찾자고 요청했을 때 선택한 개선·한정 시도와 경험을 잇는다. 자동 마무리 루프가 아니다.
 
-- [create-context-workspace](create-context-workspace/SKILL.md): 새 독립 Workspace의 초기 구성과 재진입 검토. [생성·전환 계약](../../context/work/workspaces/CREATE-AND-TRANSITION.md)을 적용한다.
+- [create-context-workspace](create-context-workspace/SKILL.md): 새 독립 Workspace의 초기 구성과 README·`recover.md`를 통한 재진입 검토. [생성·전환 계약](../../context/work/workspaces/CREATE-AND-TRANSITION.md)을 적용한다.
 - [work-discussion](work-discussion/SKILL.md): 사용자가 직접 호출했을 때 Work의 결과·선택을 구체화하고 Spec에 연결한다. 일반 작업 대화에서 자동으로 인터뷰를 시작하지 않는다.
 - [reconsider-work](reconsider-work/SKILL.md): 실제 결과·새 조건·변경 부담·막힘에 따라 현재 판단과 후속 행동을 다시 본다.
 
@@ -26,7 +26,7 @@
 
 작업을 다루는 스킬은 root [AGENTS.md](../../AGENTS.md)와 [Work 갱신 계약](../../context/work/workspaces/spec-and-tickets/MAINTENANCE.md)을 따른다. 새 Workspace 초기 구성과 준비된 Workspace의 기록을 구별한다. [record-work](record-work/SKILL.md)는 필요할 때 같은 담당자를 호출해 원문 판단·직접 반영을 수행하며 문서 기준은 Work가 소유한다.
 
-`work-discussion`과 `explain`은 각 호출 조건에서 [설명과 근거 기준](shared/explanation-and-evidence-criteria.md)을 읽는다. 기준의 범위·수명·제거 조건은 그 본문이 소유한다. `reconsider-work`나 모든 Recover에 새 필수 입력으로 추가하지 않는다.
+`work-discussion`과 `explain`은 각 호출 조건에서 [설명과 근거 기준](shared/explanation-and-evidence-criteria.md)을 읽는다. 기준의 범위·수명·제거 조건은 그 본문이 소유한다. `reconsider-work`나 모든 재개에 새 필수 입력으로 추가하지 않는다.
 
 ## 도구 연결과 이식
 

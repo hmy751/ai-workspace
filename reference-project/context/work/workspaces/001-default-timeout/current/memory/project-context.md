@@ -7,4 +7,4 @@
 - [`../../../../../project/current/architecture.md`](../../../../../project/current/architecture.md): 현재 config loader의 지원 범위, 상세 코드·테스트 Owner와 검증의 증명 상한
 - [`../../../../../project/decisions/0001-default-timeout.md`](../../../../../project/decisions/0001-default-timeout.md): 누락된 timeout의 canonical 기본값이 `5000`밀리초라는 결정
 
-[`../../../../../project/guidance/README.md`](../../../../../project/guidance/README.md)는 설명 skill의 공통 기준을 안내하지만 이번 default-timeout 제품 goal에는 적용되지 않아 recovery context에 선택하지 않는다. Project의 [`MAINTENANCE.md`](../../../../../project/MAINTENANCE.md)와 [`REFERENCE/`](../../../../../project/REFERENCE/README.md)도 본문 갱신·구성·읽기 작업에서 직접 쓰는 관리 기준이므로 기본 packet에 넣지 않는다. Root README는 내용 선택을 대신하지 않으며, 실행 시 사용하는 정확한 선택 목록과 이유의 canonical 계약은 [`../../recover.json`](../../recover.json)의 `project_context`가 소유한다.
+[Project guidance](../../../../../project/guidance/README.md)의 설명 기준은 이 제품 goal의 기본 입력이 아니다. Project 관리·REFERENCE는 그 본문을 갱신하거나 읽기 기준을 재검토할 때 사용한다. 이 문서가 Project 선택과 이유를 소유하고, [재개 안내](../../recover.md)는 언제 이 선택을 읽을지 연결한다. Root README만으로 실제 내용 선택·이해를 대신하지 않는다.
