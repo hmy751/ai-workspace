@@ -2,7 +2,7 @@
 
 프론트엔드에서 토큰·레이아웃·컴포넌트·화면을 층으로 쌓는 사용자의 판단을 `design-system` Personal로 정리하기 위한 작업이다. 먼저 사용자의 과거 코드와 문서에서 근거를 모으고, 그 결과에서 Personal 후보를 고른다.
 
-현재는 **자료 수집 완료 / 추가 조사 대기 / Personal 본문 미작성** 단계다. 저장소가 공개이므로 수집 기록은 Git에서 제외된 `records/collection/`에 둔다.
+현재는 **자료 수집과 기준선 측정 완료 / Personal 초안 작성 전** 단계다. 저장소가 공개이므로 수집 기록은 Git에서 제외된 `records/collection/`에 둔다.
 
 ## 재진입
 
@@ -22,6 +22,6 @@
 ## 책임 경계
 
 - **이 Workspace:** 수집 근거, 대조 분석, 후보 선택 과정을 소유한다.
-- **Personal:** 완성된 개인 판단 기준을 소유한다. 현재 같은 구조가 [`reference-project/context/personal/development/`](../../../reference-project/context/personal/development/INDEX.md)와 Noline 저장소에 있으며, 어디에 먼저 반영할지는 아직 정하지 않았다.
+- **Personal:** 완성된 개인 판단 기준을 소유한다. 채택한 본문은 [`reference-project/context/personal/development/`](../../../reference-project/context/personal/development/INDEX.md)에 먼저 적용한다. 다른 Project 반영은 별도로 판단한다.
 - **각 Project:** 실제 토큰·컴포넌트와 제품별 규약을 소유한다. Noline의 디자인 시스템은 Personal로 옮기지 않는다.
 - **[Workspace 014](../014-ai-development-workflow-design/):** Personal·Project·Work 구조의 설계를 소유한다. 이 Workspace는 그 구조를 쓸 뿐 다시 설계하거나 014의 상태를 이어 쓰지 않는다.
