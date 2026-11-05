@@ -3,3 +3,6 @@
 .venv/
 __pycache__/
 *.py[cod]
+
+# 회사 코드 관찰과 이력서·인터뷰 내용이 담기는 로컬 전용 수집 기록
+context/workspaces/015-design-system-personal/records/collection/

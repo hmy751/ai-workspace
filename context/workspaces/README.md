@@ -5,6 +5,7 @@
 ## Active Workspace
 
 - active: [`014-ai-development-workflow-design`](./014-ai-development-workflow-design/) — Noline 평가·인터뷰와 강연을 바탕으로 한 전체 작업 방식의 설계 논의 및 근거 보존
+- prepared, collection not started: [`015-design-system-personal`](./015-design-system-personal/) — 과거 코드와 문서의 근거에서 프론트 디자인 시스템 판단을 찾아 Personal로 정리
 - prior publication work: [`012-ai-workspace-publication`](./012-ai-workspace-publication/)
 - prepared, inactive Maintain context-efficiency work: [`013-maintain-context-efficiency`](./013-maintain-context-efficiency/)
 - prior Noline integration and reference feedback: [`011-noline-harness-upgrade`](./011-noline-harness-upgrade/)
