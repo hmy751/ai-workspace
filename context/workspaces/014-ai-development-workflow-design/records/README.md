@@ -1,5 +1,7 @@
 # 논의와 보존 기록
 
+- [Codex 실제 세션에서 기록·정정·재개](2026-11-06-ticket02-codex-live-record-and-resume.md) — 같은 담당자의 원문 접근과 후속 반영, 앞 대화를 받지 않은 독자의 첫 판단과 읽기 범위.
+
 - [Workspace 구조·중복 기준과 02 운영안 마감](2026-11-06-ticket02-workspace-records-design-closeout.md) — 도시 검색과 Ticket 06 마감 판본, 문서별 판단·중복 경계, 다섯 조건의 근거와 남은 통합 확인.
 
 - [기록에서 읽히는 첫 행동과 사용자 우선순위](2026-11-06-ticket02-record-work-next-action-check.md) — 10월 1일 기록 요청과 10월 2일 정정 후 입력을 나눠 비교한 결과, 담당자 확인 문장만 채택한 이유와 적용 범위.

@@ -1,5 +1,7 @@
 # 06-01 — Reference에 프로토타입을 적용한다
 
+**2026-11-06 Codex 한정 통합 확인.** [02 실제 세션 결과](../../../records/2026-11-06-ticket02-codex-live-record-and-resume.md)에서 자연어 기록 요청, 같은 담당자 재사용과 원문 대조, 정정 반영 뒤 새 독자의 첫 행동을 확인했다. 도구별 전체 통합 판단은 남는다.
+
 **02 재개·검증 후속 — 2026-11-04:** [Reference 재개 안내·아카이빙](../../../records/2026-11-04-ticket02-reference-recovery-and-archive.md)까지 반영했다. 생성/이식·기본 선택·직접 검증·기록 연결을 맞추고 기존 증거를 보존했다. 이전 runtime과 machine 계약을 유지한다는 아래 날짜별 경과는 당시 상태다. 전체 host 통합과 장기 사용 효과는 남는다.
 
 **02 채택 결과 연결 — 2026-10-30:** [record-work의 Reference 적용](../../../records/2026-10-30-ticket02-record-work-prototype-and-reference.md)으로 새 Work 기록 수행·생성/전환 연결과 자동 Maintain 제거를 반영했다. 제품/Harness95개·Recover·정적 연결은 확인했으며 전체 host 통합·사용 효과와06 완료는 별도다. 아래 Maintain 보존·02 대기는 이 변경 전 적용 경과다.

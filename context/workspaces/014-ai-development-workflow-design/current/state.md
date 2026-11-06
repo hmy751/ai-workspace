@@ -1,8 +1,8 @@
 # 현재 상태
 
-## 현재 — 02 운영안 설계 마감 · 통합 확인 대기
+## 현재 — 02 운영안 설계 마감 · Codex 기록과 재개 확인
 
-기존 Workspace 구조를 유지하고 state·Ticket·records의 중복 범위를 결정했다. [두 마감 사례와 완료 조건 대조](../records/2026-11-06-ticket02-workspace-records-design-closeout.md)에서 운영안을, [기록 담당자 비교](../records/2026-11-06-ticket02-record-work-next-action-check.md)에서 첫 행동 확인을 추가한 근거를 찾는다. 다음은 [02](tickets/02-work-records.md)에서 실제 Reference 환경의 스킬 호출부터 기록·재개까지 연결을 확인하고 결과를 06-01로 잇는 일이다.
+기존 Workspace 구조를 유지하고 state·Ticket·records의 중복 범위를 결정했다. [두 마감 사례와 완료 조건 대조](../records/2026-11-06-ticket02-workspace-records-design-closeout.md)에서 운영안을, [기록 담당자 비교](../records/2026-11-06-ticket02-record-work-next-action-check.md)에서 첫 행동 확인을 추가한 근거를 찾는다. [Codex 실제 세션](../records/2026-11-06-ticket02-codex-live-record-and-resume.md)에서 기록·정정·재개까지 확인해 06-01에 연결했다. 다른 통합 항목은 [02](tickets/02-work-records.md)에서 구별한다.
 
 ## 앞선 적용 — 02 Reference 재개 안내·아카이빙
 

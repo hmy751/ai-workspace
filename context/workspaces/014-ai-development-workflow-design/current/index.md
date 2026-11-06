@@ -1,6 +1,6 @@
 # 현재 논의의 진입점
 
-**현재 02는 운영안 설계 마감, 통합 확인 대기다.** [기록 운영 Ticket](tickets/02-work-records.md)에서 채택한 구조와 완료 범위를, [state](state.md)에서 다음 확인을 찾는다.
+**현재 02는 운영안 설계 마감, Codex 기록·재개 확인까지 진행했다.** [기록 운영 Ticket](tickets/02-work-records.md)에서 채택한 구조와 완료 범위를, [state](state.md)에서 다음 확인을 찾는다.
 
 **07 계획 정리 · Noline 실행 대기:** [07](tickets/07-integrated-rehearsal.md)에서 Noline의 기존 작업·기록으로 대상과 질문을 정할 방법, 확인 항목, 결과 연결을 찾는다. 실제 자료 선택·개선 루프·검사·관찰은 Noline에서 진행한다. 여기서는 계획만 정리했으며 구체 대상·시점·실행 결과는 아직 없다. [사용자 선택](../records/2026-10-30-ticket07-noline-observation-plan.md).
 

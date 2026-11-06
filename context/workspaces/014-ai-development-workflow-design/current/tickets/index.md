@@ -11,7 +11,7 @@
 | 상위 Ticket | 하위 Ticket |
 | --- | --- |
 | [01 개발 작업 방식](01-development-workflow/README.md) | [01-01 진행·사람 판단](01-development-workflow/01-01-development-flow.md), [01-02 품질·검토·수정](01-development-workflow/01-02-code-design-quality.md), [01-03 동작 검증·도구](01-development-workflow/01-03-behavior-verification.md) |
-| [02 기록·Workspace 구성·Maintain](02-work-records.md) | 운영안 설계 마감 · 실제 환경 통합 확인 대기 |
+| [02 기록·Workspace 구성·Maintain](02-work-records.md) | 운영안 설계 마감 · Codex 기록·재개 확인 |
 | [03 Project context](03-project-context.md) | — |
 | [04 기존 스킬 보완](04-skill-improvements/README.md) | [04-01 작업 정의·재판단](04-skill-improvements/04-01-work-decision-skills.md), [04-02 설명 구성·적용](04-skill-improvements/04-02-artifact-explanation.md), [04-03 맥락 관리](04-skill-improvements/04-03-context-skills.md) |
 | [05 작업 체계 개선 루프](05-improvement-loop.md) | 설계 완료 · 실제 배치/관찰은06·07 |
