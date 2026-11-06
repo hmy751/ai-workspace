@@ -7,4 +7,4 @@
 - [`design-system` Personal 본문](../../../../reference-project/context/personal/development/design-system/INDEX.md): 시작 본문과 영역별 본문, 사례, [형성 자료](../../../../reference-project/context/personal/development/design-system/_background/README.md)
 - [개선 검토의 공통 변경 호출](../../../../reference-project/.agents/skills/development/references/review.md#main은-검토-시점과-입력을-정한다): `development` 스킬의 한 문장. UI 읽을 곳은 스킬에 두지 않고 Personal 선택 표가 맡는다. [선택 이유](../../../../reference-project/.agents/skills/development/_background/records/2026-11-06-design-system-entry.md)
 
-문구의 효과는 시험하지 않았다. 다른 Project로의 이식은 이 산출물에 포함하지 않는다.
+문구의 효과는 시험하지 않았다. Noline 원본에 옮긴 판본은 그 저장소의 `context/personal/development/design-system/`에 있고(`4bc8d4cd`), lint 경고는 `apps/client/.eslintrc.js`에 있다(`13d573c7`). 둘 다 push하지 않았다. 그 밖의 Project로의 이식은 이 산출물에 포함하지 않는다.
