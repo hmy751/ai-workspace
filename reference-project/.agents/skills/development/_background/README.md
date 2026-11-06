@@ -22,4 +22,6 @@
 
 2026-10-30 Work 기록 연결 변경은 [record-work 도입](records/2026-10-30-record-work-connection.md)에서 확인한다. 이전 자동 Maintain 보존·Main 직접 기록 안내는 당시 판본의 근거다.
 
+공통 변경을 개선 검토 호출 판단에 넣고 UI 읽을 곳을 스킬에 두지 않은 이유는 [디자인 시스템 판단 연결](records/2026-11-06-design-system-entry.md)에 있다.
+
 재개·검증 연결의 prototype 선택 근거는 [재개 안내와 직접 검증](records/2026-11-04-recovery-and-direct-verification.md)에 있다. 당시 prototype 확인과 후속 Reference 적용을 구별한다.
