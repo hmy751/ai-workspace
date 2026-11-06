@@ -1,12 +1,16 @@
 # 현재 상태
 
-## 현재 — 02 Reference 재개 안내·아카이빙 적용
+## 현재 — 02 운영안 설계 마감 · 통합 확인 대기
+
+기존 Workspace 구조를 유지하고 state·Ticket·records의 중복 범위를 결정했다. [두 마감 사례와 완료 조건 대조](../records/2026-11-06-ticket02-workspace-records-design-closeout.md)에서 운영안을, [기록 담당자 비교](../records/2026-11-06-ticket02-record-work-next-action-check.md)에서 첫 행동 확인을 추가한 근거를 찾는다. 다음은 [02](tickets/02-work-records.md)에서 실제 Reference 환경의 스킬 호출부터 기록·재개까지 연결을 확인하고 결과를 06-01로 잇는 일이다.
+
+## 앞선 적용 — 02 Reference 재개 안내·아카이빙
 
 [Reference 전환](../records/2026-11-04-ticket02-reference-recovery-and-archive.md)에서 prototype의 재개 기준·recover.md·생성/기록/직접 검증을 Reference와 root 이식 흐름에 연결했다. 기본 선택은 collection README, 작업 정체성은 Workspace README가 맡으며 옛 실행기·기계 계약은 복원 가능한 archive로 내렸다. 기존 제품·원자료·과거 기록·receipt는 보존했다.
 
 변경 전 검사95개, 변경 후 직접 제품 검사7개, 별도 위치에 복원한 이전 Reference 검사95개가 통과했다. 일반/한정 재개 읽기와 새 Work 생성 확인의 범위·결과는 위 적용 기록에서 찾는다. 이번에 Noline이나 root 작업대 자체의 재개 방식을 이식하지 않았다.
 
-다음 논의는02의 문서별 보존·중복과 Workspace 구성, 실제 사용에서의 기록 품질·재개 비용이다. [앞선 비교안](../records/2026-10-30-ticket02-document-duplication-comparison.md)은 여전히 미채택 비교안이다. 전체 host 통합·장기 효과·Noline 후속 반영과02/06 전체 완료는 구별한다.
+[앞선 문서별 중복 비교안](../records/2026-10-30-ticket02-document-duplication-comparison.md)은 미채택 상태다. 전체 host 통합·장기 효과·Noline 후속 반영은 별도 확인 범위다.
 
 ## 앞선 적용 — 02 재개 안내 prototype
 

@@ -1,5 +1,9 @@
 # 02 — 기록 운영과 Workspace 구성을 구체화한다
 
+**2026-11-06 운영안 설계 마감 · 실제 환경 통합 확인 대기.** 기존 구조를 유지하고 각 문서를 단독으로 읽어 판단에 필요한 뜻까지 중복하기로 했다. [도시 검색·06 마감 비교와 다섯 완료 조건 대조](../../records/2026-11-06-ticket02-workspace-records-design-closeout.md)를 따른다. 아래 날짜별 적용과 논의는 당시 경과다.
+
+**2026-11-06 기록 품질 보완.** 방향이 바뀐 뒤 작성한 문안에서 다음 독자가 무엇부터 보게 될지 사용자 우선순위와 대조하는 기준을 record-work의 prototype과 Reference에 적용했다. [비교 결과와 적용 범위](../../records/2026-11-06-ticket02-record-work-next-action-check.md)에 선행 제안과 사용자 선택을 구별한 효과, 추가 열람 비용과 확인 한계를 남겼다.
+
 **2026-11-04 Reference 전환:** [재개 안내·생성/이식 연결·아카이빙](../../records/2026-11-04-ticket02-reference-recovery-and-archive.md)을 적용했다. `recover.md`·공통 지침·기록 갱신과 직접 검사 흐름을 연결하고 이전 실행기·기계 계약을 복원 가능하게 보존했다. [prototype 적용](../../records/2026-11-04-ticket02-recovery-guide-prototype.md)은 선행 근거다. 장기 재개 효과·전체 host 통합과02의 구성·문서 중복 논의는 남아 있다.
 
 **2026-10-30 현재 적용:** [record-work의 prototype·Reference 반영](../../records/2026-10-30-ticket02-record-work-prototype-and-reference.md). 원문 판단·직접 수정하는 서브를 필요 시 호출하고 같은 대화에서 재사용한다. Work 기록 기준은 기존 지침을 적용하고 Personal·Project 반영은 기존 workflow가 맡는다. Reference 자동 Maintain은 제거했다. 전체02 구성·운영 비교와 실제 사용 효과는 남아 있다. 아래 시작·비교 기록의 미채택 표기는 당시 상태다.
@@ -10,7 +14,7 @@
 
 2026-10-26 [04-03 프로토타입 적용](../../records/2026-10-26-context-prototype-adoption.md)에서 기존 Work 지침의 현재 의미·중요한 제안·처리 근거·중단 뒤 남은 행동을 실행 연결로 보완했다. 생성 계약도 기존 Spec·Ticket 구조를 사용한다. 이 결과를 입력으로 받되02의 전체 구성·분량·보존·재개 운영과 Work의 새 background 적용 여부를 완료한 것으로 보지 않는다.
 
-상태: **record-work의 역할·호출·직접 반영을 채택해 prototype·Reference 적용 · Work 전체 구성과 운영 비교는 진행 중**.15번의 Main 직접 기록은 이번 선택으로 기록 서브 수행·Main 조율/반영 확인에 맞췄으며 의미별 Owner는 유지한다. [전체 관계 정리](../../records/2026-10-24-workflow-framework-and-checkpoint.md)를 따른다.1~15번의 실행 기록 계약과 이 Ticket이 맡는 전체 기록·구성 비교를 구별한다.
+2026-10-30에는 record-work의 역할·호출·직접 반영을 prototype과 Reference에 적용했다. [전체 관계 정리](../../records/2026-10-24-workflow-framework-and-checkpoint.md)의 Main 조율과 기록 담당자 반영 책임을 따른다.
 
 2026-10-20 후속 입력: [03 마감119](../../records/2026-10-20-119-ticket03-closeout.md)에서 본문과 형성 자료의 관리 결과를 이어받되, **Work는 기존 형태와 제약을 유지한다.** 새 background·Spec/Ticket 본문 재배치는 [116](../../records/2026-10-20-116-defer-work-content-policy.md)에서 복구했다. 이 Ticket에서 기존 current·source·output·records와 형성 맥락의 관계를 논의할 때 복구 이유를 먼저 읽으며,03의 정책을 자동 적용하지 않는다. 이 입력을 남긴 것이02의 기록 운영안 완료나 착수는 아니다.
 
@@ -59,4 +63,4 @@ Work에서 생기는 목표·선택·분석·중간 결과·검증·시행착오
 
 ## 현재 상태와 실제 결과
 
-평가·인터뷰·성공/실패 비교가 보존돼 있고,15번의 Main 갱신·지침 이해·Owner 연결을 현재 입력으로 받았다. 기록 예시·분량·보존 범위·구성 대안·재사용의 전체 운영 비교는 남아 있다. 담당은 이번 사용자 선택의 record-work로 구체화했으며 실제 장면의 기록 품질·전체 구성·재개 운영을 이어 확인한다.
+운영안의 다섯 조건을 대조해 설계를 마감했다. 다음은 실제 Reference 환경의 스킬 발견·호출·중복 표시와 설명·맥락 갱신·기록·재개 연결을 확인하는 일이다. 02에서 진행해 06-01의 적용 판단에 결과를 연결한다.

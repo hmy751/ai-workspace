@@ -11,7 +11,7 @@
 | 상위 Ticket | 하위 Ticket |
 | --- | --- |
 | [01 개발 작업 방식](01-development-workflow/README.md) | [01-01 진행·사람 판단](01-development-workflow/01-01-development-flow.md), [01-02 품질·검토·수정](01-development-workflow/01-02-code-design-quality.md), [01-03 동작 검증·도구](01-development-workflow/01-03-behavior-verification.md) |
-| [02 기록·Workspace 구성·Maintain](02-work-records.md) | — |
+| [02 기록·Workspace 구성·Maintain](02-work-records.md) | 운영안 설계 마감 · 실제 환경 통합 확인 대기 |
 | [03 Project context](03-project-context.md) | — |
 | [04 기존 스킬 보완](04-skill-improvements/README.md) | [04-01 작업 정의·재판단](04-skill-improvements/04-01-work-decision-skills.md), [04-02 설명 구성·적용](04-skill-improvements/04-02-artifact-explanation.md), [04-03 맥락 관리](04-skill-improvements/04-03-context-skills.md) |
 | [05 작업 체계 개선 루프](05-improvement-loop.md) | 설계 완료 · 실제 배치/관찰은06·07 |
@@ -34,7 +34,7 @@
 
 **2026-10-20:03의 구성안·대표 본문 구체화를 완료했다.** [완료 조건 대조119](../../records/2026-10-20-119-ticket03-closeout.md)와 [03 결과](03-project-context.md)를 후속 입력으로 사용한다.01-02·04-03 등 다른 Ticket의 완료로 확대하지 않으며 이번 마무리에서 새 작업을 시작하지 않았다.
 
-04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다.05도 [설계 마감](../../records/2026-10-29-ticket05-closeout.md)을 완료했다. 현재 주요 작업은02 기록·Work 구성과07 전체 연결·적용 관찰 계획이다.06-01·06-02는 적용 단계 마무리 · 후속 확인 대기로 두고 채택 계약과 실제 사용 근거에 따라 이어간다. 번호순 완결을 강제하지 않는다. Reference 첫 부분 설치·직접 확인은 위06-01에 기록했고 일반 효과·전체 운영 연결은 미확인이다.
+04-03은 [prototype 적용과 완료 조건](../../records/2026-10-26-context-prototype-adoption.md)으로 설계·실행 연결을 마감했다. 05의 [설계 마감](../../records/2026-10-29-ticket05-closeout.md)과 02의 운영안 설계 마감까지 진행했다. 다음 확인은 02의 실제 환경 통합과 06의 대상별 적용 판단이며, 07의 Noline 사용 관찰은 별도로 이어간다.
 
 | 후속 결과 |03에서 이어받을 것과 경계 |
 | --- | --- |

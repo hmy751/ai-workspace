@@ -1,5 +1,9 @@
 # 논의와 보존 기록
 
+- [Workspace 구조·중복 기준과 02 운영안 마감](2026-11-06-ticket02-workspace-records-design-closeout.md) — 도시 검색과 Ticket 06 마감 판본, 문서별 판단·중복 경계, 다섯 조건의 근거와 남은 통합 확인.
+
+- [기록에서 읽히는 첫 행동과 사용자 우선순위](2026-11-06-ticket02-record-work-next-action-check.md) — 10월 1일 기록 요청과 10월 2일 정정 후 입력을 나눠 비교한 결과, 담당자 확인 문장만 채택한 이유와 적용 범위.
+
 - [2026-11-04 Reference 재개 안내·아카이빙](2026-11-04-ticket02-reference-recovery-and-archive.md): 생성/이식·기본 선택·기록/검증 연결, 이전 구현 복원과 제품·증거 보존, 재개 확인·남은 범위.
 
 - [재개 안내와 직접 검증 흐름의 prototype 적용](2026-11-04-ticket02-recovery-guide-prototype.md): recover.md·공통 재개 지침·생성/기록 연결, Verify 선택 권고 정리와 두 새 독자의 읽기 확인. 당시 Reference 미적용이었으며 후속은 위 전환 기록으로 이어졌다.
