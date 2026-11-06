@@ -4,7 +4,7 @@
 
 ## 현재 단계
 
-자료 수집, 독립 개선 검토, 프로젝트 간 계승과 책임 조사, Personal 없는 기준선 측정을 마쳤다. 독자, template 활용, 경험이 적은 주제의 표시, 반영 위치(`reference-project` 우선)를 사용자가 정했다. 사용자가 1차 초안의 범위가 좁다고 보아 [`초안 범위 재검토`](../records/collection/14-draft-coverage-review.md)의 구성안을 택했다. 이에 따라 한 주제 안에서 영역별 본문으로 나눈 2차 초안과 형성 자료(`_background`)를 Git 밖에 썼다. 근거 표의 전수 검토 전에 [재측정부터 하기로](../records/2026-11-06-01-draft-structure-and-remeasure.md) 했고 세 작업을 수행했다. 기준선 세션과 세션 로그까지 대조한 결과 효과는 작업마다 달랐다. 목록은 초안을 읽지 않아 초안의 효과가 아니고, 폼은 초안의 단서가 있으며, 메뉴는 문서 차이를 따르지만 사례가 답을 담아 일반화할 수 없다. 모두 작업당 한 번이다([재측정 관찰](../records/collection/16-remeasure-observations.md)). 이후 측정으로 알 수 없는 판단을 사용자와 정해 본문에 반영했다([대조와 사용자 판단](../records/2026-11-06-02-remeasure-and-user-judgments.md)). 고친 초안은 측정하지 않았다. 채택하지 않았으므로 `reference-project`에는 반영하지 않았다.
+자료 수집, 독립 개선 검토, 프로젝트 간 계승과 책임 조사, Personal 없는 기준선 측정을 마쳤다. 독자, template 활용, 경험이 적은 주제의 표시, 반영 위치(`reference-project` 우선)를 사용자가 정했다. 사용자가 1차 초안의 범위가 좁다고 보아 [`초안 범위 재검토`](../records/collection/14-draft-coverage-review.md)의 구성안을 택했다. 이에 따라 한 주제 안에서 영역별 본문으로 나눈 2차 초안과 형성 자료(`_background`)를 Git 밖에 썼다. 근거 표의 전수 검토 전에 [재측정부터 하기로](../records/2026-11-06-01-draft-structure-and-remeasure.md) 했고 세 작업을 수행했다. 기준선 세션과 세션 로그까지 대조한 결과 효과는 작업마다 달랐다. 목록은 초안을 읽지 않아 초안의 효과가 아니고, 폼은 초안의 단서가 있으며, 메뉴는 문서 차이를 따르지만 사례가 답을 담아 일반화할 수 없다. 모두 작업당 한 번이다([재측정 관찰](../records/collection/16-remeasure-observations.md)). 이후 측정으로 알 수 없는 판단을 사용자와 정해 본문에 반영했다([대조와 사용자 판단](../records/2026-11-06-02-remeasure-and-user-judgments.md)). 2차 측정 뒤 스킬 문구를 고쳤고, 사용자가 다시 측정하지 않고 채택하기로 했다([2차 측정과 채택](../records/2026-11-06-03-v2-measure-and-adoption.md)).
 
 초안은 [`Personal 초안`](../records/collection/personal-draft/design-system/INDEX.md), 현재 판단은 [`현재 판단`](../records/collection/08-review-adoption.md), 측정 결과는 [`기준선 관찰`](../records/collection/13-baseline-observations.md)에 있다. 모두 Git에서 제외되어 있다.
 
@@ -25,7 +25,6 @@
 
 ## 다음 행동
 
-1. 사용자와 함께 보지 않은 본문(값과 토큰, 떠 있는 표면, 상태, 검증, 플랫폼, 사례)을 확인한다. 질문과 답은 Git 제외 `records/collection/17-user-judgments.md`에 이어 적는다.
-2. UI 작업이 본문까지 닿는 입구를 정하고 스킬의 작성 전 확인과 완료 보고 항목을 정한다. 기계 검사는 Project별로 따로 다룬다.
-3. 맥락 없는 세션으로 다시 측정한다. 세션 차이가 크므로 같은 조건을 반복한다.
-4. 채택한 본문과 형성 자료를 `reference-project`의 Personal에 먼저 적용하고 개발 판단 안내에 입구를 더한다.
+1. 채택한 본문과 형성 자료를 `reference-project`의 Personal에 적용하고 개발 판단 안내에 입구를 더한다. 공개 범위를 다시 점검한다.
+2. `development` 스킬의 맥락 절에 고친 문단을 더하고 스킬의 형성 자료를 맞춘다.
+3. 기계 검사와 Noline의 안내 수정은 별도로 다룬다. 고친 문단의 효과는 시험하지 않았으므로 실제 사용에서 확인한다.
