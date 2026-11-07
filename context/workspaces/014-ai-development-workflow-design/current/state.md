@@ -1,8 +1,8 @@
 # 현재 상태
 
-## 현재 — 02 운영안 설계 마감 · Codex 기록과 재개 확인
+## 현재 — 02 마감 · Noline 반영과 실제 재개 관찰
 
-기존 Workspace 구조를 유지하고 state·Ticket·records의 중복 범위를 결정했다. [두 마감 사례와 완료 조건 대조](../records/2026-11-06-ticket02-workspace-records-design-closeout.md)에서 운영안을, [기록 담당자 비교](../records/2026-11-06-ticket02-record-work-next-action-check.md)에서 첫 행동 확인을 추가한 근거를 찾는다. [Codex 실제 세션](../records/2026-11-06-ticket02-codex-live-record-and-resume.md)에서 기록·정정·재개까지 확인해 06-01에 연결했다. [후속 Codex 확인](../records/2026-11-06-ticket02-codex-reference-integration.md)에서 스킬 표시와 Project 정정, 압축 후 같은 대화의 재열람을 확인했다. 원문이 없는 인계에서는 지정한 대화 밖의 기록까지 열어 중단했다. 다음 논의는 원문을 찾을 범위와 멈출 기준이다.
+기존 Workspace 구조를 유지하고 state·Ticket·records의 중복 범위를 결정했다. [두 마감 사례와 완료 조건 대조](../records/2026-11-06-ticket02-workspace-records-design-closeout.md)에서 운영안을, [기록 담당자 비교](../records/2026-11-06-ticket02-record-work-next-action-check.md)에서 첫 행동 확인을 추가한 근거를 찾는다. [Codex 실제 세션](../records/2026-11-06-ticket02-codex-live-record-and-resume.md)에서 기록·정정·재개까지 확인해 06-01에 연결했다. [후속 Codex 확인](../records/2026-11-06-ticket02-codex-reference-integration.md)에서 스킬 표시와 Project 정정, 압축 후 같은 대화의 재열람을 확인했다. 원문이 없는 인계에서는 지정한 대화 밖의 기록까지 열어 중단했다. 사용자 결정으로 원문 탐색 검토를 여기서 끝내고 기존 지침을 유지한다. [06-02](tickets/06-framework-transition/06-02-noline-reapplication.md)에서 Noline 기록 스킬과 8개 재개 안내를 반영했다. 007의 기존 자동 기록 연결을 해제하고 이전 실행기와 hook 설정을 보존했다. [07](tickets/07-integrated-rehearsal.md)에서 실제 재개 시 첫 행동·이유와 읽은 범위를 본다.
 
 ## 앞선 적용 — 02 Reference 재개 안내·아카이빙
 

@@ -1,6 +1,6 @@
 # 02 — 기록 운영과 Workspace 구성을 구체화한다
 
-**2026-11-06 운영안 설계 마감 · Codex 기록·재개 확인.** 기존 구조를 유지하고 각 문서를 단독으로 읽어 판단에 필요한 뜻까지 중복하기로 했다. [도시 검색·06 마감 비교와 다섯 완료 조건 대조](../../records/2026-11-06-ticket02-workspace-records-design-closeout.md)를 따른다. 아래 날짜별 적용과 논의는 당시 경과다.
+**2026-11-06 Ticket 마감.** 원문 공백 사례와 한계를 보존하고 사용자 결정으로 추가 탐색·지침 수정 없이 마감했다. Noline 반영은 [06-02](06-framework-transition/06-02-noline-reapplication.md), 실제 재개 관찰은 [07](07-integrated-rehearsal.md)에서 이어간다. 기존 구조를 유지하고 각 문서를 단독으로 읽어 판단에 필요한 뜻까지 중복하기로 했다. [도시 검색·06 마감 비교와 다섯 완료 조건 대조](../../records/2026-11-06-ticket02-workspace-records-design-closeout.md)를 따른다. 아래 날짜별 적용과 논의는 당시 경과다.
 
 **2026-11-06 기록 품질 보완.** 방향이 바뀐 뒤 작성한 문안에서 다음 독자가 무엇부터 보게 될지 사용자 우선순위와 대조하는 기준을 record-work의 prototype과 Reference에 적용했다. [비교 결과와 적용 범위](../../records/2026-11-06-ticket02-record-work-next-action-check.md)에 선행 제안과 사용자 선택을 구별한 효과, 추가 열람 비용과 확인 한계를 남겼다.
 

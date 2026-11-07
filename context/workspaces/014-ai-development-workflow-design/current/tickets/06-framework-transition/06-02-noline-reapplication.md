@@ -1,5 +1,11 @@
 # 06-02 — Noline의 기존 설치에 다시 적용한다
 
+**2026-11-07 Noline 기록·재개 전환.** 깨끗한 Reference `ae9e9504`에서 Noline의 기존 스킬 진입으로 record-work를 연결하고 8개 Workspace에 Markdown 재개 안내를 추가했다. 명시 선택과 기본 001을 유지한다. Noline `2efd94a7` 작업 트리에서 안내 링크와 구조 검사 전후를 대조했다. 기존 오류 64건은 동일했다. 격리 사본의 Codex 기록 시험에서 001 원문과 현재 파일을 대조해 state·기록·재개 안내를 수정했다. 실제 제품 작업의 재개 품질은 07에서 본다.
+
+사용자 승인 뒤 Noline `3e45ea85` 작업 트리에서 007 연결을 공식 해제하고 Claude·Codex의 옛 hook·역할을 해제했다. 일괄 철거는 자동 승인 검토에서 차단되어 전환 전 48개 파일을 검증한 보존본에 담고 일반 실행 진입을 닫았다. 007 연결 상태 파일의 이전 세대는 보존됐고 나머지 비교 대상 132개 파일은 같은 바이트였다. 별도 수집기는 이 세션에서 닫힌 턴 34개를 남겼다. 이식 전후 구조 검사의 기존 64개 오류도 일치했다. Noline 전환은 로컬 커밋 `7db012da`에 보존했다. [Noline 적용 기록](/Users/hammyeong-yeon/Desktop/10_work/noline/context/work/workspaces/001-noline-context-harness-application/records/2026-11-07-work-record-and-resume.md)에서 실제 결과를 찾는다.
+
+**02 마감 후 반영할 범위 — 2026-11-06.** Noline에는 기존 개발·개선 스킬이 있고 기록 전담 스킬은 없다. 기록 호출·재사용과 Work 갱신을 연결하고, 기본 Workspace 선택과 각 Workspace의 재개 안내를 실제 상태에 맞춘다. 자동 Maintain과 Recover·Verify를 전환하기 전에 기존 호출·검사·증거의 소비처를 확인한다. 실제 재개에서 우선순위·이유를 이어가는지와 읽기 부담은 07에서 관찰한다. 아래 10월 기록은 당시 적용 범위다.
+
 **현재 — 2026-10-30 실행 묶음 반영·직접 확인:** [이번 결과](../../../records/2026-10-30-ticket06-execution-skills-and-retirement.md). development·improvement-loop 설치와 work-discussion·create의 비충돌 보완을 Reference에서 확인한 뒤 Noline에 적응했다. Noline 옛4개 실행 스킬·bridge는 소비 경로·근거 보존을 처리한 뒤 제거했다. 기존 Work 기록·생성/전환·Maintain 계약을 유지했다. 현재 상태는 **적용 단계 마무리 · 후속 확인 대기**다. 전체 전환·실제 host 확인의 최종 완료와 구별한다.02는 기록 운영·Maintain 관련 선택과 통합 테스트의 진행 위치이며, 채택 계약의 실제 반영·대상별 수정·완료 판단은06에 남는다. 아래 날짜별 첫 부분 반영은 이전 경과이고, 전환표의 ‘착수 시’는 이번 적용 전 상태다.
 
 **부분 반영·직접 확인 — 2026-10-30:** [적용·보존·검증 연결](../../../records/2026-10-30-ticket06-02-noline-partial-application.md)을 마쳤다. Source `f5082bc3`의153개 경로를 Noline `main @ 4fb309d2`에 반영했다. Noline 고유 기준과 제품·artifacts·Maintain·기존 병렬 변경을 보존했고, 정적 링크·bridge·호출 설정과 기본001·명시001·002 Recover를 확인했다. 자체 검사의 실패는 기존 과거 링크8건 그대로다. Maintain·Work 계약·host 통합 확인은 계속02에 둔다.
