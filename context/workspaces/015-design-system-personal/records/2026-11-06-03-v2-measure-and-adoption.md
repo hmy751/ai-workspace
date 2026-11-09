@@ -69,5 +69,6 @@ Noline 코드에 남은 raw `TextInput`과 직접 쓴 색은 고치지 않았다
 - **잡는 것:** 코드에 직접 쓴 hex·`rgb`·`hsl` 색, 테마를 거치지 않은 Tailwind 색, `react-native`의 `TextInput` 가져오기.
 - **먼저 고친 것:** `pnpm client lint`는 이전부터 Prettier 플러그인에서 멈춰 규칙이 돌지 않았다. 선언된 5.x 대신 다른 패키지가 끌고 온 4.2.5가 불렸다. 의존성을 바꾸지 않고 client lint 명령에 플러그인 위치만 지정했다. 그 결과 플러그인 버전이 달라져 `no-explicit-any`가 경고에서 오류가 되는 등 기존 규칙의 결과도 달라졌다.
 - **결과:** 경고 219건이 새로 나온다(색 215건, `TextInput` 4개 파일). 기존 오류 14건은 그대로이며 이번에 고치지 않았다.
-- **남은 것:** 루트 `pnpm lint`는 여전히 멈춘다. CI와 커밋 훅을 찾지 못했으므로 누군가 명령을 돌려야 경고가 보인다. AI 세션이 경고를 보고 행동이 달라지는지는 시험하지 않았다.
+- **루트 명령:** 사용자 요청으로 루트 `pnpm lint`도 고쳤다. 플러그인 문제 뒤에 `apps/server`와 `packages/schema`가 `@repo/eslint-config`를 선언하지 않은 문제가 더 있어, 저장소 전체에 ESLint 하나를 돌리지 않고 lint 명령이 있는 client와 ui를 차례로 부르게 바꿨다. ui 명령도 같은 플러그인 수정을 넣고 `.tsx`까지 보게 했다(Noline `92b46def`). 끝까지 돌지만 기존 오류(client 14건, ui 25건)로 실패로 끝난다. server와 schema는 lint되지 않는다.
+- **남은 것:** CI와 커밋 훅을 찾지 못했으므로 누군가 명령을 돌려야 경고가 보인다. AI 세션이 경고를 보고 행동이 달라지는지는 시험하지 않았다.
 - **본문 정정:** `INDEX.tokens.md`의 lint 미정 문장이 Noline 도입 뒤 사실과 달라져 Reference와 Noline 양쪽을 고쳤고, 형성 기록에 결정을 더했다. 다른 Project의 도입 여부는 정하지 않았다.

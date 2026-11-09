@@ -28,5 +28,5 @@
 1. `reference-project`의 Personal과 `development` 스킬의 개선 검토 문장에 반영하고 커밋했다. 링크와 공개 범위 검사만 했고 push하지 않았다.
 2. UI 입구는 스타일에 맞지 않아 스킬에서 뺐고, 사용자가 Personal 안내의 진입점으로 충분하다고 판단했다. 측정에서 이것만으로 닿지 않은 세션이 있었으므로 실제 사용에서 어긋나면 다시 본다.
 3. Noline 원본에 본문, 입구, 개선 검토 문장, 앱 가이드 행, 폼 예시 수정을 반영해 `4bc8d4cd`로 커밋했다([기록](../records/2026-11-06-03-v2-measure-and-adoption.md#noline에-옮김)). push하지 않았다. 그 저장소에는 다른 작업의 미커밋 변경이 있으므로 이후 커밋도 경로를 지정한다.
-4. Noline `apps/client`에 lint 경고를 더하고 멈춰 있던 client lint 명령을 고쳐 `13d573c7`로 커밋했다([기록](../records/2026-11-06-03-v2-measure-and-adoption.md#noline에-lint-경고를-더함)). 기존 오류 14건과 루트 `pnpm lint`의 멈춤은 남아 있다.
+4. Noline `apps/client`에 lint 경고를 더하고 멈춰 있던 client lint 명령을 고쳐 `13d573c7`로 커밋했다([기록](../records/2026-11-06-03-v2-measure-and-adoption.md#noline에-lint-경고를-더함)). 이후 루트 `pnpm lint`와 ui lint 명령도 고쳐 `92b46def`로 커밋했다. 기존 오류(client 14건, ui 25건)가 남아 lint는 실패로 끝나고, server와 schema는 lint 설정이 없어 돌지 않는다.
 5. Noline 외 Project로의 이식은 사용자 판단을 기다린다. 공통 변경 호출 문장의 효과는 시험하지 않았으므로 실제 사용에서 확인한다.
