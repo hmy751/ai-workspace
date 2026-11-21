@@ -6,6 +6,10 @@ This is a personal repository where I keep the documents and skills I use to bui
 
 Most of what’s here is Markdown and skill definitions. The only runnable code is a small sample product that shows the approach in practice. I use this with Claude Code and Codex. There’s no library or CLI to install.
 
+![Agents draw on Personal, Project, and Work context to implement a change. An improvement reviewer compares alternatives, an independent verifier checks the requirements, and the developer decides whether to accept the change.](./docs/diagrams/system-map.en.svg)
+
+[Editable Excalidraw source](./docs/diagrams/system-map.en.excalidraw)
+
 - [`reference-project/`](./reference-project/) is a working example of the approach applied to a sample product. Start here to see how it works.
 - [`.agents/skills/apply-context-harness/`](./.agents/skills/apply-context-harness/) contains the skill for bringing the reference project's setup into another project.
 - [`context/`](./context/) holds the work records from designing and revising this approach. They account for most of the files in the repository. You can skip them if you just want to understand the approach.

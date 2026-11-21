@@ -6,6 +6,10 @@ AI 에이전트와 실제 소프트웨어를 개발하면서 쓰는 작업 방�
 
 라이브러리나 CLI가 아니다. 내용의 대부분은 Markdown 문서와 스킬 정의이고, 실행되는 코드는 방식을 보여 주기 위한 작은 샘플 제품 하나다. Claude Code와 Codex에서 쓴다.
 
+![Personal·Project·Work에서 필요한 맥락을 골라 코드를 구현하고, 대안 검토와 독립 검증을 거쳐 개발자가 채택 여부를 판단하는 흐름](./docs/diagrams/system-map.ko.svg)
+
+[편집용 Excalidraw 원본](./docs/diagrams/system-map.ko.excalidraw)
+
 - [`reference-project/`](./reference-project/): 이 방식을 샘플 제품에 그대로 적용해 둔 기준 프로젝트. 방식을 보려면 여기서 시작한다.
 - [`.agents/skills/apply-context-harness/`](./.agents/skills/apply-context-harness/): 기준 프로젝트의 구성을 다른 프로젝트로 옮기는 스킬.
 - [`context/`](./context/): 이 방식을 설계하고 고쳐 온 작업 기록. 저장소 파일의 대부분을 차지하지만 방식을 이해하려고 읽을 필요는 없다.
